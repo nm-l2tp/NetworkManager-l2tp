@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<node name="/">
+  <interface name="org.freedesktop.NetworkManager.l2tp.ppp">
+    <method name="NeedSecrets">
+      <annotation name="org.freedesktop.DBus.GLib.CSymbol" value="impl_l2tp_service_need_secrets"/>
+      <arg name="username" type="s" direction="out"/>
+      <arg name="password" type="s" direction="out"/>
+    </method>
+
+    <method name="SetIp4Config">
+      <annotation name="org.freedesktop.DBus.GLib.CSymbol" value="impl_l2tp_service_set_ip4_config"/>
+      <arg name="config" type="a{sv}" direction="in"/>
+    </method>
+
+    <method name="SetState">
+      <annotation name="org.freedesktop.DBus.GLib.CSymbol" value="impl_l2tp_service_set_state"/>
+      <arg name="state" type="u" direction="in"/>
+    </method>
+  </interface>
+</node>

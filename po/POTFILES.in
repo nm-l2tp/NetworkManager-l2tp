@@ -1,0 +1,10 @@
+# List of source files containing translatable strings.
+# Please keep this file sorted alphabetically.
+auth-dialog/gnome-two-password-dialog.c
+auth-dialog/main.c
+nm-l2tp.desktop.in
+properties/nm-l2tp.c
+properties/nm-l2tp-dialog.glade
+src/nm-l2tp-service.c
+
+

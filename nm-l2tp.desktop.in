@@ -1,0 +1,11 @@
+[Desktop Entry]
+_Name=L2TP VPN Connection Manager
+_GenericName=L2TP VPN Connection Manager
+_Comment=Add, Remove, and Edit L2TP VPN Connections
+Exec=nm-vpn-properties --import-service org.freedesktop.NetworkManager.l2tp --import-file %f
+Icon=gnome-mime-application-x-l2tp-settings
+Terminal=false
+Type=Application
+Categories=GNOME;Network;
+MimeType=application/x-ppp-settings;
+NoDisplay=true
