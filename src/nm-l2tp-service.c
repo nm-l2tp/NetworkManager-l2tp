@@ -937,7 +937,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	write_config_option (conf_fd, "[global]\n");
 	write_config_option (conf_fd, "access control = yes\n");
 
-	write_config_option (conf_fd, "[lac default]\n");
+	write_config_option (conf_fd, "[lac l2tp]\n");
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_GATEWAY);
 	write_config_option (conf_fd, "lns = %s\n", value);
