@@ -1115,7 +1115,7 @@ real_connect (NMVPNPlugin   *plugin,
 	if (!nm_l2tp_ppp_service_cache_credentials (priv->service, connection, error))
 		return FALSE;
 
-	if (!nm_l2tp_config_write (plugin, s_vpn, error))
+	if (!nm_l2tp_config_write (NM_L2TP_PLUGIN (plugin), s_vpn, error))
 		return FALSE;
 
 	if (!nm_l2tp_start_l2tpd_binary (NM_L2TP_PLUGIN (plugin), s_vpn, error))
