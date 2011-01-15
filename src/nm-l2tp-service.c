@@ -958,6 +958,9 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	write_config_option (conf_fd, "autodial = yes\n");
 
 	/* PPP options */
+	//if (getenv ("NM_PPP_DEBUG"))
+		write_config_option (pppopt_fd, "debug\n");
+
 	write_config_option (pppopt_fd, "ipparam nm-l2tp-service-%d\n", pid);
 
 	write_config_option (pppopt_fd, "nodetach\n");
