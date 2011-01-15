@@ -63,6 +63,8 @@
 #define NM_L2TP_KEY_NOBSDCOMP         "nobsdcomp"
 #define NM_L2TP_KEY_NODEFLATE         "nodeflate"
 #define NM_L2TP_KEY_NO_VJ_COMP        "no-vj-comp"
+#define NM_L2TP_KEY_NO_PCOMP          "nopcomp"
+#define NM_L2TP_KEY_USE_ACCOMP        "accomp"
 #define NM_L2TP_KEY_LCP_ECHO_FAILURE  "lcp-echo-failure"
 #define NM_L2TP_KEY_LCP_ECHO_INTERVAL "lcp-echo-interval"
 

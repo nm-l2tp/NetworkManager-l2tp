@@ -386,6 +386,8 @@ static ValidProperty valid_properties[] = {
 	{ NM_L2TP_KEY_NOBSDCOMP,         G_TYPE_BOOLEAN, FALSE },
 	{ NM_L2TP_KEY_NODEFLATE,         G_TYPE_BOOLEAN, FALSE },
 	{ NM_L2TP_KEY_NO_VJ_COMP,        G_TYPE_BOOLEAN, FALSE },
+	{ NM_L2TP_KEY_NO_PCOMP,          G_TYPE_BOOLEAN, FALSE },
+	{ NM_L2TP_KEY_USE_ACCOMP,        G_TYPE_BOOLEAN, FALSE },
 	{ NM_L2TP_KEY_LCP_ECHO_FAILURE,  G_TYPE_UINT, FALSE },
 	{ NM_L2TP_KEY_LCP_ECHO_INTERVAL, G_TYPE_UINT, FALSE },
 	{ NULL,                          G_TYPE_NONE,   FALSE }
@@ -1025,6 +1027,14 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_NO_VJ_COMP);
 	if (value && !strcmp (value, "yes"))
 		write_config_option (pppopt_fd, "novj\n");
+
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_NO_PCOMP);
+	if (value && !strcmp (value, "yes"))
+		write_config_option (pppopt_fd, "nopcomp\n");
+
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USE_ACCOMP);
+	if (!(value && !strcmp (value, "yes")))
+		write_config_option (pppopt_fd, "noaccomp\n");
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_LCP_ECHO_FAILURE);
 	if (value && strlen (value)) {
