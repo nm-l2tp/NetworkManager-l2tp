@@ -557,7 +557,7 @@ nm_l2tp_secrets_validate (NMSettingVPN *s_vpn, GError **error)
 }
 
 static void
-pppd_watch_cb (GPid pid, gint status, gpointer user_data)
+l2tpd_watch_cb (GPid pid, gint status, gpointer user_data)
 {
 	NML2tpPlugin *plugin = NM_L2TP_PLUGIN (user_data);
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
@@ -566,14 +566,14 @@ pppd_watch_cb (GPid pid, gint status, gpointer user_data)
 	if (WIFEXITED (status)) {
 		error = WEXITSTATUS (status);
 		if (error != 0)
-			nm_warning ("pppd exited with error code %d", error);
+			nm_warning ("xl2tpd exited with error code %d", error);
 	}
 	else if (WIFSTOPPED (status))
-		nm_warning ("pppd stopped unexpectedly with signal %d", WSTOPSIG (status));
+		nm_warning ("xl2tpd stopped unexpectedly with signal %d", WSTOPSIG (status));
 	else if (WIFSIGNALED (status))
-		nm_warning ("pppd died with signal %d", WTERMSIG (status));
+		nm_warning ("xl2tpd died with signal %d", WTERMSIG (status));
 	else
-		nm_warning ("pppd died from an unknown cause");
+		nm_warning ("xl2tpd died from an unknown cause");
 
 	/* Reap child if needed. */
 	waitpid (priv->pid, NULL, WNOHANG);
@@ -853,7 +853,7 @@ nm_l2tp_start_l2tpd_binary (NML2tpPlugin *plugin,
 	nm_info ("xl2tpd started with pid %d", pid);
 
 	NM_L2TP_PLUGIN_GET_PRIVATE (plugin)->pid = pid;
-	g_child_watch_add (pid, pppd_watch_cb, plugin);
+	g_child_watch_add (pid, l2tpd_watch_cb, plugin);
 
 	priv->ppp_timeout_handler = g_timeout_add (NM_L2TP_WAIT_PPPD, pppd_timed_out, plugin);
 
