@@ -841,8 +841,6 @@ nm_l2tp_start_l2tpd_binary (NML2tpPlugin *plugin,
 	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup ("-D"));
 	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup ("-c"));
 	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup_printf ("/var/run/nm-xl2tpd.conf.%d", my_pid));
-	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup ("-s"));
-	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup_printf ("/var/run/nm-l2tp-secrets.%d", my_pid));
 	g_ptr_array_add (l2tpd_argv, NULL);
 
 	if (!g_spawn_async (NULL, (char **) l2tpd_argv->pdata, NULL,
@@ -891,7 +889,6 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	gint fdtmp1 = -1;
 	gint conf_fd = -1;
 	gint pppopt_fd = -1;
-	gint secret_fd = -1;
 
 	filename = g_strdup_printf ("/var/run/nm-xl2tpd.conf.%d", pid);
 	conf_fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR);
@@ -917,21 +914,6 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 						NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
 						"%s",
 						"Could not write ppp options.");
-		return FALSE;
-	}
-
-	filename = g_strdup_printf ("/var/run/nm-l2tp-secrets.%d", pid);
-	secret_fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR);
-	g_free (filename);
-
-	if (secret_fd == -1) {
-		close(conf_fd);
-		close(pppopt_fd);
-		g_set_error (error,
-						NM_VPN_PLUGIN_ERROR,
-						NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
-						"%s",
-						"Could not write secrets.");
 		return FALSE;
 	}
 
@@ -1076,7 +1058,6 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 
 	close(conf_fd);
 	close(pppopt_fd);
-	close(secret_fd);
 
 	return TRUE;
 }
