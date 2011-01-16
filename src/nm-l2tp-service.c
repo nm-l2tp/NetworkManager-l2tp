@@ -564,6 +564,8 @@ l2tpd_watch_cb (GPid pid, gint status, gpointer user_data)
 	NML2tpPlugin *plugin = NM_L2TP_PLUGIN (user_data);
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
 	guint error = 0;
+	pid_t my_pid = getpid ();
+	char *filename;
 
 	if (WIFEXITED (status)) {
 		error = WEXITSTATUS (status);
@@ -580,6 +582,15 @@ l2tpd_watch_cb (GPid pid, gint status, gpointer user_data)
 	/* Reap child if needed. */
 	waitpid (priv->pid, NULL, WNOHANG);
 	priv->pid = 0;
+
+	/* Cleaning up config files */
+	filename = g_strdup_printf ("/var/run/nm-xl2tpd.conf.%d", my_pid);
+	unlink(filename);
+	g_free(filename);
+
+	filename = g_strdup_printf ("/var/run/nm-ppp-options.xl2tpd.%d", my_pid);
+	unlink(filename);
+	g_free(filename);
 
 	/* Must be after data->state is set since signals use data->state */
 	switch (error) {
