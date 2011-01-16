@@ -1,0 +1,205 @@
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug."
+"cgi?product=NetworkManager&component=VPN: pptp\n"
+"POT-Creation-Date: 2010-03-20 18:35+0000\n"
+"PO-Revision-Date: 2010-03-26 11:17+0200\n"
+"Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
+"Language-Team: Latviešu <kde-i18n-doc@kde.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"2);\n"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:129
+msgid "_Secondary Password:"
+msgstr "_Sekundārā parole:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:243
+msgid "_Username:"
+msgstr "_Lietotājvārds:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:245
+msgid "_Domain:"
+msgstr "_Domēns:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:247
+msgid "_Password:"
+msgstr "_Parole:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:336
+msgid "Connect _anonymously"
+msgstr "Savienoties _anonīmi"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:341
+msgid "Connect as _user:"
+msgstr "Savienoties kā _lietotājam:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:450
+msgid "_Remember passwords for this session"
+msgstr "Atce_rēties paroli šai sesijai"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:452
+msgid "_Save passwords in keyring"
+msgstr "_Saglabāt paroli atslēgu saišķī"
+
+#: ../auth-dialog/main.c:62
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network '%s'."
+msgstr ""
+"Jums vajag autentificēties, lai piekļūtu virtuālajam privātajam tīklam '%s'."
+
+#: ../auth-dialog/main.c:63
+msgid "Authenticate VPN"
+msgstr "Autentificēt VPN"
+
+#: ../nm-pptp.desktop.in.h:1
+msgid "Add, Remove, and Edit PPTP VPN Connections"
+msgstr "Pievienot, noņemt, rediģēt PPTP VPN savienojumus"
+
+#: ../nm-pptp.desktop.in.h:2
+msgid "PPTP VPN Connection Manager"
+msgstr "PPTP VPN savienojumu pārvaldnieks"
+
+#: ../properties/advanced-dialog.c:173
+msgid "All Available (Default)"
+msgstr "Visi pieejamie (noklusētais)"
+
+#: ../properties/advanced-dialog.c:177
+msgid "128-bit (most secure)"
+msgstr "128-bitu (visdrošākais)"
+
+#: ../properties/advanced-dialog.c:186
+msgid "40-bit (less secure)"
+msgstr "40-bitu (mazāk drošs)"
+
+#: ../properties/advanced-dialog.c:292
+msgid "PAP"
+msgstr "PAP"
+
+#: ../properties/advanced-dialog.c:305
+msgid "CHAP"
+msgstr "CHAP"
+
+#: ../properties/advanced-dialog.c:317
+msgid "MSCHAP"
+msgstr "MSCHAP"
+
+#: ../properties/advanced-dialog.c:329
+msgid "MSCHAPv2"
+msgstr "MSCHAPv2"
+
+#: ../properties/advanced-dialog.c:342
+msgid "EAP"
+msgstr "EAP"
+
+#: ../properties/nm-pptp-dialog.glade.h:1
+msgid "<b>Authentication</b>"
+msgstr "<b>Autentifikācija</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:2
+msgid "<b>Echo</b>"
+msgstr "<b>Atbalss</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:3
+msgid "<b>General</b>"
+msgstr "<b>Vispārējs</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:4
+msgid "<b>Optional</b>"
+msgstr "<b>Neobligāts</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:5
+msgid "<b>Security and Compression</b>"
+msgstr "<b>Drošība un kompresija</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:6
+msgid "Ad_vanced..."
+msgstr "_Paplašināti..."
+
+#: ../properties/nm-pptp-dialog.glade.h:7
+msgid "Allow _BSD data compression"
+msgstr "Atļaut _BSD datu kompresiju"
+
+#: ../properties/nm-pptp-dialog.glade.h:8
+msgid "Allow _Deflate data compression"
+msgstr "Atļaut _Deflate datu kompresiju"
+
+#: ../properties/nm-pptp-dialog.glade.h:9
+msgid "Allow st_ateful encryption"
+msgstr "Atļaut st_ateful kompresiju"
+
+#: ../properties/nm-pptp-dialog.glade.h:10
+msgid "Allow the following authentication methods:"
+msgstr "Atļaut sekojošās autentifikācijas metodes:"
+
+#: ../properties/nm-pptp-dialog.glade.h:11
+msgid "Default"
+msgstr "Noklusēts"
+
+#: ../properties/nm-pptp-dialog.glade.h:12
+msgid "NT Domain:"
+msgstr "NT domēns:"
+
+#: ../properties/nm-pptp-dialog.glade.h:13
+msgid ""
+"Note: MPPE encryption is only available with MSCHAP authentication methods. "
+"To enable this checkbox, select one or more of the MSCHAP authentication "
+"methods: MSCHAP or MSCHAPv2."
+msgstr ""
+"Piezīme: MPPE šifrēšana ir pieejama tikai ar MSCHAP autentifikācijas "
+"metodēm. Lai ieslēgtu šo rūtiņu, izvēlieties vienu vai vairākas MSCHAP "
+"autentifikācijas metodes: MSCHAP vai MSCHAPv2."
+
+#: ../properties/nm-pptp-dialog.glade.h:14
+msgid "PPTP Advanced Options"
+msgstr "PPTP paplašinātas opcijas"
+
+#: ../properties/nm-pptp-dialog.glade.h:15
+msgid "Password:"
+msgstr "Parole:"
+
+#: ../properties/nm-pptp-dialog.glade.h:16
+msgid "Send PPP _echo packets"
+msgstr "Sūtīt PPP _atbalss paketi"
+
+#: ../properties/nm-pptp-dialog.glade.h:17
+msgid "Show password"
+msgstr "Rādīt paroli"
+
+#: ../properties/nm-pptp-dialog.glade.h:18
+msgid "Use TCP _header compression"
+msgstr "Izmantot TCP _galvenes kompresiju"
+
+#: ../properties/nm-pptp-dialog.glade.h:19
+msgid "Use _Point-to-Point encryption (MPPE)"
+msgstr "Izmantot divp_unktu šifrēšanu (MPPE)"
+
+#: ../properties/nm-pptp-dialog.glade.h:20
+msgid "User name:"
+msgstr "Lietotāja vārds:"
+
+#: ../properties/nm-pptp-dialog.glade.h:21
+msgid "_Gateway:"
+msgstr "_Vārteja:"
+
+#: ../properties/nm-pptp-dialog.glade.h:22
+msgid "_Security:"
+msgstr "_Drošība:"
+
+#: ../properties/nm-pptp.c:50
+msgid "Point-to-Point Tunneling Protocol (PPTP)"
+msgstr "Divp_unktu tunelēšanas protokols (PPTP)"
+
+#: ../properties/nm-pptp.c:51
+msgid "Compatible with Microsoft and other PPTP VPN servers."
+msgstr "Savietojams ar Microsoft un citiem PPTP VPN serveriem."
+
+

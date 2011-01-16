@@ -1,0 +1,180 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: NetworkManager-pptp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-19 01:38+0300\n"
+"PO-Revision-Date: 2007-04-15 22:03+0300\n"
+"Last-Translator: Ihar Hrachyshka <ihar.hrachyshka@gmail.com>\n"
+"Language-Team: Belarusian Latin <i18n@mova.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-Language: Belarusian\n"
+"X-Poedit-Country: BELARUS\n"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:144
+msgid "_Secondary Password:"
+msgstr "_Druhi parol:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:258
+msgid "_Username:"
+msgstr "_Nazva karystalnika:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:260
+msgid "_Domain:"
+msgstr "_Domen:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:262
+msgid "_Password:"
+msgstr "_Parol:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:351
+msgid "Connect _anonymously"
+msgstr "Spałučysia _ananimna"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:356
+msgid "Connect as _user:"
+msgstr "Spałučysia jak _karystalnik:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:465
+msgid "_Remember passwords for this session"
+msgstr "_Zapaminaj paroli dla hetaj sesii"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:467
+msgid "_Save passwords in keyring"
+msgstr "_Zachavaj paroli ŭ klučnika"
+
+#: ../auth-dialog/main.c:62
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network '%s'."
+msgstr "Treba spraŭdzić asobu, kab atrymać dostup da VPN „%s”."
+
+#: ../auth-dialog/main.c:63
+msgid "Authenticate VPN"
+msgstr "Spraŭdź VPN"
+
+#: ../nm-pptp.desktop.in.h:1
+msgid "Add, Remove, and Edit PPTP VPN Connections"
+msgstr "Dadavaj, vydalaj i redahuj spałučeńni PPTP VPN"
+
+#: ../nm-pptp.desktop.in.h:2
+msgid "PPTP VPN Connection Manager"
+msgstr "Kiraŭnik spałučeńniaŭ PPTP VPN"
+
+#: ../properties/advanced-dialog.c:147
+msgid "All Available (Default)"
+msgstr "Usio mahčymaje (zmoŭčana)"
+
+#: ../properties/advanced-dialog.c:151
+msgid "128-bit (most secure)"
+msgstr "128 bitaŭ (biaśpiečniejšaje)"
+
+#: ../properties/advanced-dialog.c:160
+msgid "40-bit (less secure)"
+msgstr "40 bitaŭ (mienš biaśpiečnaje)"
+
+#: ../properties/advanced-dialog.c:231
+msgid "PAP"
+msgstr "PAP"
+
+#: ../properties/advanced-dialog.c:237
+msgid "CHAP"
+msgstr "CHAP"
+
+#: ../properties/advanced-dialog.c:243
+msgid "MSCHAP"
+msgstr "MSCHAP"
+
+#: ../properties/advanced-dialog.c:249
+msgid "MSCHAPv2"
+msgstr "MSCHAPv2"
+
+#: ../properties/nm-pptp-dialog.glade.h:1
+msgid "<b>Authentication</b>"
+msgstr "<b>Spraŭdžvańnie</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:2
+msgid "<b>Echo</b>"
+msgstr "<b>Recha</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:3
+msgid "<b>General</b>"
+msgstr "<b>Hałoŭnaje</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:4
+msgid "<b>Optional</b>"
+msgstr "<b>Dadatkovaje</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:5
+msgid "<b>Security and Compression</b>"
+msgstr "<b>Biaśpieka j kampresija</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:6
+msgid "Ad_vanced..."
+msgstr "_Asablivaje..."
+
+#: ../properties/nm-pptp-dialog.glade.h:7
+msgid "Allow _BSD data compression"
+msgstr "Dazvol kampresiju _BSD"
+
+#: ../properties/nm-pptp-dialog.glade.h:8
+msgid "Allow _Deflate data compression"
+msgstr "Dazvol kampresiju _Deflate"
+
+#: ../properties/nm-pptp-dialog.glade.h:9
+msgid "Allow st_ateful encryption"
+msgstr "Dazvol _poŭnastanavaje šyfravańnie"
+
+#: ../properties/nm-pptp-dialog.glade.h:10
+msgid "Allow the following authentication methods:"
+msgstr "Dazvol nastupnyja metady spraŭdžvańnia:"
+
+#: ../properties/nm-pptp-dialog.glade.h:11
+msgid "Default"
+msgstr "Zmoŭčana"
+
+#: ../properties/nm-pptp-dialog.glade.h:12
+msgid "NT Domain:"
+msgstr "Damen NT:"
+
+#: ../properties/nm-pptp-dialog.glade.h:13
+msgid "Password:"
+msgstr "Parol:"
+
+#: ../properties/nm-pptp-dialog.glade.h:14
+msgid "Send PPP _echo packets"
+msgstr "Vysyłaj _rechavyja pakunki PPP"
+
+#: ../properties/nm-pptp-dialog.glade.h:15
+msgid "Show password"
+msgstr "Pakazvaj parol"
+
+#: ../properties/nm-pptp-dialog.glade.h:16
+msgid "Use TCP _header compression"
+msgstr "Užyj kampresiju _zahałoŭkaŭ TCP"
+
+#: ../properties/nm-pptp-dialog.glade.h:17
+msgid "Use _Point-to-Point encryption (MPPE)"
+msgstr "Užyj šyfravańnie MPPE"
+
+#: ../properties/nm-pptp-dialog.glade.h:18
+msgid "User name:"
+msgstr "Karystalnik:"
+
+#: ../properties/nm-pptp-dialog.glade.h:19
+msgid "_Gateway:"
+msgstr "_Brama:"
+
+#: ../properties/nm-pptp-dialog.glade.h:20
+msgid "_Security:"
+msgstr "_Biaśpieka:"
+
+#: ../properties/nm-pptp.c:50
+msgid "Point-to-Point Tunneling Protocol (PPTP)"
+msgstr "Pratakoł tunelnaha PPP (PPTP)"
+
+#: ../properties/nm-pptp.c:51
+msgid "Compatible with Microsoft and other PPTP VPN servers."
+msgstr "Absłuhoŭvaje servery PPTP VPN ad Microsoft dy inšych."

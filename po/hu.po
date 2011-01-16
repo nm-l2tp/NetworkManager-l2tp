@@ -1,0 +1,201 @@
+# Hungarian translation of network-manager-pptp
+# Copyright (C) 2006, 2007, 2008, 2010, Free Software Foundation, Inc.
+# This file is distributed under the same license as the network-manager-pptp package.
+#
+# Gabor Kelemen <kelemeng at gnome dot hu>, 2006, 2007, 2008, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: network-manager-pptp master\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-01-22 00:09+0100\n"
+"PO-Revision-Date: 2010-01-22 00:06+0100\n"
+"Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
+"Language-Team: Hungarian <gnome at fsf dot hu>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:129
+msgid "_Secondary Password:"
+msgstr "Jelszó _még egyszer:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:243
+msgid "_Username:"
+msgstr "_Felhasználónév:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:245
+msgid "_Domain:"
+msgstr "_Tartomány:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:247
+msgid "_Password:"
+msgstr "_Jelszó:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:336
+msgid "Connect _anonymously"
+msgstr "Kapcsolódás _névtelenül"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:341
+msgid "Connect as _user:"
+msgstr "Csatlakozás _mint:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:450
+msgid "_Remember passwords for this session"
+msgstr "Jelszó meg_jegyzése erre a munkamenetre"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:452
+msgid "_Save passwords in keyring"
+msgstr "Jelszavak mentése a k_ulcstartóra"
+
+#: ../auth-dialog/main.c:62
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network '%s'."
+msgstr "Azonosítania kell magát a(z) „%s” virtuális magánhálózat eléréséhez."
+
+#: ../auth-dialog/main.c:63
+msgid "Authenticate VPN"
+msgstr "VPN hitelesítés"
+
+#: ../nm-pptp.desktop.in.h:1
+msgid "Add, Remove, and Edit PPTP VPN Connections"
+msgstr "PPTP VPN kapcsolatok hozzáadása, szerkesztése és eltávolítása"
+
+#: ../nm-pptp.desktop.in.h:2
+msgid "PPTP VPN Connection Manager"
+msgstr "PPTP VPN kapcsolatkezelő"
+
+#: ../properties/advanced-dialog.c:173
+msgid "All Available (Default)"
+msgstr "Mind elérhető (alapértelmezett)"
+
+#: ../properties/advanced-dialog.c:177
+msgid "128-bit (most secure)"
+msgstr "128 bites (legbiztonságosabb)"
+
+#: ../properties/advanced-dialog.c:186
+msgid "40-bit (less secure)"
+msgstr "40 bites (kevésbé biztonságos)"
+
+#: ../properties/advanced-dialog.c:292
+msgid "PAP"
+msgstr "PAP"
+
+#: ../properties/advanced-dialog.c:305
+msgid "CHAP"
+msgstr "CHAP"
+
+#: ../properties/advanced-dialog.c:317
+msgid "MSCHAP"
+msgstr "MSCHAP"
+
+#: ../properties/advanced-dialog.c:329
+msgid "MSCHAPv2"
+msgstr "MSCHAPv2"
+
+#: ../properties/advanced-dialog.c:342
+msgid "EAP"
+msgstr "EAP"
+
+#: ../properties/nm-pptp-dialog.glade.h:1
+msgid "<b>Authentication</b>"
+msgstr "<b>Hitelesítés</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:2
+msgid "<b>Echo</b>"
+msgstr "<b>Visszhang</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:3
+msgid "<b>General</b>"
+msgstr "<b>Általános</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:4
+msgid "<b>Optional</b>"
+msgstr "<b>Opcionális</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:5
+msgid "<b>Security and Compression</b>"
+msgstr "<b>Biztonság és tömörítés</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:6
+msgid "Ad_vanced..."
+msgstr "S_peciális…"
+
+#: ../properties/nm-pptp-dialog.glade.h:7
+msgid "Allow _BSD data compression"
+msgstr "B_SD tömörítés engedélyezése"
+
+#: ../properties/nm-pptp-dialog.glade.h:8
+msgid "Allow _Deflate data compression"
+msgstr "_Deflate tömörítés engedélyezése"
+
+#: ../properties/nm-pptp-dialog.glade.h:9
+msgid "Allow st_ateful encryption"
+msgstr "Állap_ottartó tömörítés engedélyezése"
+
+#: ../properties/nm-pptp-dialog.glade.h:10
+msgid "Allow the following authentication methods:"
+msgstr "A következő hitelesítési módszerek engedélyezése:"
+
+#: ../properties/nm-pptp-dialog.glade.h:11
+msgid "Default"
+msgstr "Alapértelmezett"
+
+#: ../properties/nm-pptp-dialog.glade.h:12
+msgid "NT Domain:"
+msgstr "NT tartomány:"
+
+#: ../properties/nm-pptp-dialog.glade.h:13
+msgid ""
+"Note: MPPE encryption is only available with MSCHAP authentication methods. "
+"To enable this checkbox, select one or more of the MSCHAP authentication "
+"methods: MSCHAP or MSCHAPv2."
+msgstr ""
+"Megjegyzés: az MPPE titkosítás csak az MSCHAP hitelesítési módokkal érhető "
+"el. Ezen négyzet engedélyezéséhez válassza ki legalább az egyik MSCHAP "
+"hitelesítési módot: MSCHAP vagy MSCHAPv2."
+
+#: ../properties/nm-pptp-dialog.glade.h:14
+msgid "PPTP Advanced Options"
+msgstr "PPTP speciális beállításai"
+
+#: ../properties/nm-pptp-dialog.glade.h:15
+msgid "Password:"
+msgstr "Jelszó:"
+
+#: ../properties/nm-pptp-dialog.glade.h:16
+msgid "Send PPP _echo packets"
+msgstr "PPP _visszhangcsomagok küldése"
+
+#: ../properties/nm-pptp-dialog.glade.h:17
+msgid "Show password"
+msgstr "Jelszó megjelenítése"
+
+#: ../properties/nm-pptp-dialog.glade.h:18
+msgid "Use TCP _header compression"
+msgstr "TPC _fejléctömörítés használata"
+
+#: ../properties/nm-pptp-dialog.glade.h:19
+msgid "Use _Point-to-Point encryption (MPPE)"
+msgstr "_Ponttól pontig (MPPE) titkosítás használata"
+
+#: ../properties/nm-pptp-dialog.glade.h:20
+msgid "User name:"
+msgstr "Felhasználónév:"
+
+#: ../properties/nm-pptp-dialog.glade.h:21
+msgid "_Gateway:"
+msgstr "Á_tjáró:"
+
+#: ../properties/nm-pptp-dialog.glade.h:22
+msgid "_Security:"
+msgstr "Bi_ztonság:"
+
+#: ../properties/nm-pptp.c:50
+msgid "Point-to-Point Tunneling Protocol (PPTP)"
+msgstr "Ponttól pontig alagutazási protokoll (PPTP)"
+
+#: ../properties/nm-pptp.c:51
+msgid "Compatible with Microsoft and other PPTP VPN servers."
+msgstr "Kompatibilis a Microsoft és más PPTP VPN kiszolgálókkal."

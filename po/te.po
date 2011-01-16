@@ -1,0 +1,194 @@
+# translation of network-manager-pptp.master.te.po to Telugu
+# Telugu translation of network-manager-pptp.
+# Copyright (C) 2009 network-manager-pptp's COPYRIGHT HOLDER
+# This file is distributed under the same license as the network-manager-pptp package.
+#
+# Krishna Babu K <kkrothap@redhat.com>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: network-manager-pptp.master.te\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=NetworkManager&component=VPN: pptp\n"
+"POT-Creation-Date: 2009-09-13 16:12+0000\n"
+"PO-Revision-Date: 2009-10-27 19:25+0530\n"
+"Last-Translator: Krishna Babu K <kkrothap@redhat.com>\n"
+"Language-Team: Telugu <en@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n\n"
+"\n"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:129
+msgid "_Secondary Password:"
+msgstr "రెండవ సంకేతపదము (_S):"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:243
+msgid "_Username:"
+msgstr "వినియోగదారినామము (_U):"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:245
+msgid "_Domain:"
+msgstr "డొమైన్ (_D):"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:247
+msgid "_Password:"
+msgstr "సంకేతపదము (_P):"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:336
+msgid "Connect _anonymously"
+msgstr "నామములేకుండా అనుసంధానము అవ్వుము (_a)"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:341
+msgid "Connect as _user:"
+msgstr "వినియోగదారివలె అనుసంధానము అవ్వుము (_u):"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:450
+msgid "_Remember passwords for this session"
+msgstr "సంకేతపదములను ఈ సెషన్‌కు గుర్తుంచుకొనుము (_R)"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:452
+msgid "_Save passwords in keyring"
+msgstr "సంకేతపదములను కీరింగునందు దాయుము (_S)"
+
+#: ../auth-dialog/main.c:62
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network '%s'."
+msgstr "వర్చ్యువల్ వ్యక్తిగత నెట్వర్కు '%s'ను యాక్సిస్ చేయుటకు మీరు దృవీకరింపబడవలసి వుంది."
+
+#: ../auth-dialog/main.c:63
+msgid "Authenticate VPN"
+msgstr "VPN దృవీకరించుము"
+
+#: ../nm-pptp.desktop.in.h:1
+msgid "Add, Remove, and Edit PPTP VPN Connections"
+msgstr "PPTP VPN అనుసంధానములను జతచేయుము, తీసివేయుము, మరియు సరికూర్చుము"
+
+#: ../nm-pptp.desktop.in.h:2
+msgid "PPTP VPN Connection Manager"
+msgstr "PPTP VPN అనుసంధానపు నిర్వాహిక"
+
+#: ../properties/advanced-dialog.c:145
+msgid "All Available (Default)"
+msgstr "అన్ని అందుబాటులోనివి (అప్రమేయం)"
+
+#: ../properties/advanced-dialog.c:149
+msgid "128-bit (most secure)"
+msgstr "128-bit (అత్యంత సురక్షితమైన)"
+
+#: ../properties/advanced-dialog.c:158
+msgid "40-bit (less secure)"
+msgstr "40-bit (అత్యల్ప సురక్షితమైన)"
+
+#: ../properties/advanced-dialog.c:229
+msgid "PAP"
+msgstr "PAP"
+
+#: ../properties/advanced-dialog.c:235
+msgid "CHAP"
+msgstr "CHAP"
+
+#: ../properties/advanced-dialog.c:241
+msgid "MSCHAP"
+msgstr "MSCHAP"
+
+#: ../properties/advanced-dialog.c:247
+msgid "MSCHAPv2"
+msgstr "MSCHAPv2"
+
+#: ../properties/advanced-dialog.c:253
+msgid "EAP"
+msgstr "EAP"
+
+#: ../properties/nm-pptp-dialog.glade.h:1
+msgid "<b>Authentication</b>"
+msgstr "<b>ప్రామాణీకరణ</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:2
+msgid "<b>Echo</b>"
+msgstr "<b>ఎకో</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:3
+msgid "<b>General</b>"
+msgstr "<b>సాదారణ</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:4
+msgid "<b>Optional</b>"
+msgstr "<b>ఐచ్చిక</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:5
+msgid "<b>Security and Compression</b>"
+msgstr "<b>రక్షణ మరియు కుదింపు</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:6
+msgid "Ad_vanced..."
+msgstr "అధునాతన... (_v)"
+
+#: ../properties/nm-pptp-dialog.glade.h:7
+msgid "Allow _BSD data compression"
+msgstr "_BSD డాటా కుదింపును అనుమతించుము"
+
+#: ../properties/nm-pptp-dialog.glade.h:8
+msgid "Allow _Deflate data compression"
+msgstr "_Deflate డాటా కుదింపును అనుమతించుము"
+
+#: ../properties/nm-pptp-dialog.glade.h:9
+msgid "Allow st_ateful encryption"
+msgstr "స్టేట్‌ఫుల్ ఎన్క్రిప్షన్ అనుమతించుము (_a)"
+
+#: ../properties/nm-pptp-dialog.glade.h:10
+msgid "Allow the following authentication methods:"
+msgstr "క్రింది దృవీకరణ పద్దతులను అనుమతించుము:"
+
+#: ../properties/nm-pptp-dialog.glade.h:11
+msgid "Default"
+msgstr "అప్రమేయ"
+
+#: ../properties/nm-pptp-dialog.glade.h:12
+msgid "NT Domain:"
+msgstr "NT డొమైన్:"
+
+#: ../properties/nm-pptp-dialog.glade.h:13
+msgid "PPTP Advanced Options"
+msgstr "PPTP అధునాతన ఐచ్చికాలు"
+
+#: ../properties/nm-pptp-dialog.glade.h:14
+msgid "Password:"
+msgstr "సంకేతపదము:"
+
+#: ../properties/nm-pptp-dialog.glade.h:15
+msgid "Send PPP _echo packets"
+msgstr "PPP _echo ప్యాకెట్లను పంపుము"
+
+#: ../properties/nm-pptp-dialog.glade.h:16
+msgid "Show password"
+msgstr "సంకేతపదమును చూపుము"
+
+#: ../properties/nm-pptp-dialog.glade.h:17
+msgid "Use TCP _header compression"
+msgstr "TCP పీఠిక కుదింపును వుపయోగించుము (_h)"
+
+#: ../properties/nm-pptp-dialog.glade.h:18
+msgid "Use _Point-to-Point encryption (MPPE)"
+msgstr "పాయింట్-నుండి-పాయింట్ ఎన్క్రిప్షన్ వుపయోగించుము (_P) (MPPE)"
+
+#: ../properties/nm-pptp-dialog.glade.h:19
+msgid "User name:"
+msgstr "వినియోగదారి నామము:"
+
+#: ../properties/nm-pptp-dialog.glade.h:20
+msgid "_Gateway:"
+msgstr "గేట్‌వే (_G):"
+
+#: ../properties/nm-pptp-dialog.glade.h:21
+msgid "_Security:"
+msgstr "రక్షణ (_S):"
+
+#: ../properties/nm-pptp.c:50
+msgid "Point-to-Point Tunneling Protocol (PPTP)"
+msgstr "పాయింట్-నుండి-పాయింట్ టన్నెలింగ్ ప్రోటోకాల్ (PPTP)"
+
+#: ../properties/nm-pptp.c:51
+msgid "Compatible with Microsoft and other PPTP VPN servers."
+msgstr "Microsoft మరియు యితర PPTP VPN సేవికలతో సారూప్యమైనది."
+

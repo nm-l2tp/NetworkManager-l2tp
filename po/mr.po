@@ -1,0 +1,188 @@
+# translation of network-manager-pptp.HEAD.po to marathi
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Sandeep Shedmake <sandeep.shedmake@gmail.com>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: network-manager-pptp.HEAD\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=NetworkManager&component=VPN: pptp\n"
+"POT-Creation-Date: 2009-02-24 22:56+0000\n"
+"PO-Revision-Date: 2009-03-04 18:58+0530\n"
+"Last-Translator: Sandeep Shedmake <sandeep.shedmake@gmail.com>\n"
+"Language-Team: marathi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:129
+msgid "_Secondary Password:"
+msgstr "दुय्यम परवलीचा शब्द (_S):"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:243
+msgid "_Username:"
+msgstr "वापरकर्ता नाव (_U):"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:245
+msgid "_Domain:"
+msgstr "क्षेत्र (_D):"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:247
+msgid "_Password:"
+msgstr "परवलीचा शब्द (_P):"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:336
+msgid "Connect _anonymously"
+msgstr "निनावी नुरूप जुळवा (_a)"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:341
+msgid "Connect as _user:"
+msgstr "वापरकर्ता नुरूप जुळवा (_u):"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:450
+msgid "_Remember passwords for this session"
+msgstr "या सत्र करीता परवलीचा शब्द लक्षात ठेवा (_R)"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:452
+msgid "_Save passwords in keyring"
+msgstr "किरींग अंतर्गत परवलीचा शब्द साठवा (_S)"
+
+#: ../auth-dialog/main.c:62
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network '%s'."
+msgstr "Virtual Private Network '%s' करीता प्रवेशसाठी तुम्हाला ओळख पटवावी लागेल."
+
+#: ../auth-dialog/main.c:63
+msgid "Authenticate VPN"
+msgstr "VPN करीता ओळख पटवा"
+
+#: ../nm-pptp.desktop.in.h:1
+msgid "Add, Remove, and Edit PPTP VPN Connections"
+msgstr "PPTP VPN जुळवणी समावेष करा, काढूण टाका, व संपादीत करा"
+
+#: ../nm-pptp.desktop.in.h:2
+msgid "PPTP VPN Connection Manager"
+msgstr "PPTP VPN जुळवणी व्यवस्थापक"
+
+#: ../properties/advanced-dialog.c:145
+msgid "All Available (Default)"
+msgstr "सर्व उपलब्ध (मुलभूत)"
+
+#: ../properties/advanced-dialog.c:149
+msgid "128-bit (most secure)"
+msgstr "128-बीट (सर्वात जास्त सुरक्षित)"
+
+#: ../properties/advanced-dialog.c:158
+msgid "40-bit (less secure)"
+msgstr "40-बीट (सर्वात कमी सुरक्षित)"
+
+#: ../properties/advanced-dialog.c:229
+msgid "PAP"
+msgstr "PAP"
+
+#: ../properties/advanced-dialog.c:235
+msgid "CHAP"
+msgstr "CHAP"
+
+#: ../properties/advanced-dialog.c:241
+msgid "MSCHAP"
+msgstr "MSCHAP"
+
+#: ../properties/advanced-dialog.c:247
+msgid "MSCHAPv2"
+msgstr "MSCHAPv2"
+
+#: ../properties/advanced-dialog.c:253
+msgid "EAP"
+msgstr "EAP"
+
+#: ../properties/nm-pptp-dialog.glade.h:1
+msgid "<b>Authentication</b>"
+msgstr "<b>ओळख पटवा</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:2
+msgid "<b>Echo</b>"
+msgstr "<b>Echo</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:3
+msgid "<b>General</b>"
+msgstr "<b>सर्वसाधारण</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:4
+msgid "<b>Optional</b>"
+msgstr "<b>वैक्लपिक</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:5
+msgid "<b>Security and Compression</b>"
+msgstr "<b>सुरक्षा व संकोचन</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:6
+msgid "Ad_vanced..."
+msgstr "प्रगत (_v)..."
+
+#: ../properties/nm-pptp-dialog.glade.h:7
+msgid "Allow _BSD data compression"
+msgstr "BSD माहिती संकोचन स्वीकारा (_B)"
+
+#: ../properties/nm-pptp-dialog.glade.h:8
+msgid "Allow _Deflate data compression"
+msgstr "Deflate माहिती संकोचन स्वीकारा (_D)"
+
+#: ../properties/nm-pptp-dialog.glade.h:9
+msgid "Allow st_ateful encryption"
+msgstr "स्तरीय एनक्रिपशन स्वीकारा (_a)"
+
+#: ../properties/nm-pptp-dialog.glade.h:10
+msgid "Allow the following authentication methods:"
+msgstr "खालिल ओळख पटवा पद्धती स्वीकारा:"
+
+#: ../properties/nm-pptp-dialog.glade.h:11
+msgid "Default"
+msgstr "मुलभूत"
+
+#: ../properties/nm-pptp-dialog.glade.h:12
+msgid "NT Domain:"
+msgstr "NT क्षेत्र:"
+
+#: ../properties/nm-pptp-dialog.glade.h:13
+msgid "Password:"
+msgstr "परवलीचा शब्द:"
+
+#: ../properties/nm-pptp-dialog.glade.h:14
+msgid "Send PPP _echo packets"
+msgstr "PPP echo पॅकेटस् (_e)"
+
+#: ../properties/nm-pptp-dialog.glade.h:15
+msgid "Show password"
+msgstr "परवलीचा शब्द"
+
+#: ../properties/nm-pptp-dialog.glade.h:16
+msgid "Use TCP _header compression"
+msgstr "TCP शिर्षओळ संकोचन वापरा (_h)"
+
+#: ../properties/nm-pptp-dialog.glade.h:17
+msgid "Use _Point-to-Point encryption (MPPE)"
+msgstr "Point-to-Point encryption (MPPE) वापरा (_P)"
+
+#: ../properties/nm-pptp-dialog.glade.h:18
+msgid "User name:"
+msgstr "वापकर्ता नाव:"
+
+#: ../properties/nm-pptp-dialog.glade.h:19
+msgid "_Gateway:"
+msgstr "गेटवे (_G):"
+
+#: ../properties/nm-pptp-dialog.glade.h:20
+msgid "_Security:"
+msgstr "सुरक्षा (_S):"
+
+#: ../properties/nm-pptp.c:50
+msgid "Point-to-Point Tunneling Protocol (PPTP)"
+msgstr "Point-to-Point Tunneling Protocol (PPTP)"
+
+#: ../properties/nm-pptp.c:51
+msgid "Compatible with Microsoft and other PPTP VPN servers."
+msgstr "Microsoft व इतर PPTP VPN सर्वरशी सहत्व."
+

@@ -1,0 +1,658 @@
+# translation of NetworkManager-pptp.HEAD.po to Georgian
+# Malkhaz Barkalaya მალზახ ბარკალაია <malxaz@gmail.com>, 2007.
+# Vladimer Sichinava ვლადიმერ სიჭინავა <vsichi@gnome.org>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: NetworkManager-pptp.HEAD\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-03-02 03:30+0000\n"
+"PO-Revision-Date: 2007-03-07 01:12+0100\n"
+"Last-Translator: Vladimer Sichinava ვლადიმერ სიჭინავა <vsichi@gnome.org>\n"
+"Language-Team: Georgian <http://mail.gnome.org/mailman/listinfo/gnome-ge-list>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: ../auth-dialog-general/gnome-generic-auth-dialog.c:792
+msgid "Authentication Type:"
+msgstr "აუთენტიფიკაციის ტიპი:"
+
+#: ../auth-dialog-general/gnome-generic-auth-dialog.c:857
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:11
+msgid "_Remember for this session"
+msgstr "ამ სესიისთვის დამახსოვ_რება"
+
+#: ../auth-dialog-general/gnome-generic-auth-dialog.c:859
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:13
+msgid "_Save in keyring"
+msgstr "_შევინახოთ გასაღებების აწმში"
+
+#: ../auth-dialog-general/main.c:48 ../auth-dialog/main.c:140
+#, c-format
+msgid "You need to authenticate to access '%s'."
+msgstr ""
+"'%s' ხელმისაწვდომი გახდება "
+"აუთენტიფიკაციის შემდეგ."
+
+#: ../auth-dialog-general/main.c:51 ../auth-dialog/main.c:141
+msgid "Authenticate Connection"
+msgstr "შეერთების აუთენტიფიკაცია"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:2
+#, no-c-format
+msgid ""
+"<span weight=\"bold\" size=\"larger\">Authentication Information</span>\n"
+"\n"
+"The connection '%s' may need some form of authentication.\n"
+"\n"
+"Please select an appropriate authentication type and provide the necessary "
+"credentials below:\n"
+msgstr ""
+"<span weight=\"bold\" size=\"larger\">აუთენტიფიკაციის ინფორმაცია</span>\n"
+"\n"
+"შეერთება '%s' შეიძლება ითხოვდეს რაიმე ფორმის აუთენტიფიკაციას.\n"
+"\n"
+"მიუთითეთ აუთენტიფიკაციის ტიპი და შეიყვანეთ შესაბამისი მონაცემები:\n"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:8
+msgid "Authentication Required"
+msgstr "საჭიროა აუთენტიფიკაცია"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:9
+msgid "_Authentication Type:"
+msgstr "_აუთენტიფიკაციის ტიპი:"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:10
+#: ../auth-dialog/gnome-two-password-dialog.c:272
+msgid "_Password:"
+msgstr "_პაროლი:"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:12
+msgid "_Remote name:"
+msgstr "_სერვერის სახელი:"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:14
+#: ../auth-dialog/gnome-two-password-dialog.c:268
+msgid "_Username:"
+msgstr "_მომხმარებელი:"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:15
+msgid "auth-chap-window"
+msgstr "auth-chap-window"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:16
+msgid "auth-mschapv2-window"
+msgstr "auth-mschapv2-window"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:17
+msgid "auth-none-window"
+msgstr "auth-none-window"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:147
+msgid "_Secondary Password:"
+msgstr "_მეორადი პაროლი:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:270
+msgid "_Domain:"
+msgstr "_დომენი:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:355
+msgid "Connect _anonymously"
+msgstr "_ანონიმური დაკავშირება"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:360
+msgid "Connect as _user:"
+msgstr ""
+"_სახელი, რომლითაც "
+"ვუკავშირდებით:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:466
+msgid "_Remember password for this session"
+msgstr ""
+"მიმდინარე სესიის პაროლის "
+"დამახსოვრება"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:468
+msgid "_Save password in keyring"
+msgstr "_გასაღების შენახვა აცმაში"
+
+#: ../nm-ppp.desktop.in.h:1
+msgid "Add, Remove, and Edit VPN Connections"
+msgstr ""
+"VPN-შეერთების დამატება, მოხსნა "
+"და რედაქტირება"
+
+#: ../nm-ppp.desktop.in.h:2
+msgid "VPN Connection Manager (PPP generic)"
+msgstr "VPN შეერთებების მენეჯერი (PPP generic)"
+
+#: ../properties/nm-ppp-dialog.glade.h:1
+msgid "00:00:00:00"
+msgstr "00:00:00:00"
+
+#: ../properties/nm-ppp-dialog.glade.h:2
+msgid "<b>Compression</b>"
+msgstr "<b>კუმშვა</b>"
+
+#: ../properties/nm-ppp-dialog.glade.h:3
+msgid "<b>Connection Name</b>"
+msgstr "<b>შეერთების სახელი</b>"
+
+#: ../properties/nm-ppp-dialog.glade.h:4
+msgid "<b>Delays and TImeouts</b>"
+msgstr ""
+"<b>დაყოვნებები და ლოდინის "
+"დრო</b>"
+
+#: ../properties/nm-ppp-dialog.glade.h:5
+msgid "<b>Encryption</b>"
+msgstr "<b>შიფრვა</b>"
+
+#: ../properties/nm-ppp-dialog.glade.h:6
+msgid "<b>IP Options</b>"
+msgstr "<b>IP პარამეტრები</b>"
+
+#: ../properties/nm-ppp-dialog.glade.h:7
+msgid "<b>Packet Parameters</b>"
+msgstr "<b>პაკეტ-პარამეტრები</b>"
+
+#: ../properties/nm-ppp-dialog.glade.h:8
+msgid "<i>example: 172.16.0.0/16 10.11.12.0/24</i>"
+msgstr "<i>მაგალითი: 172.16.0.0/16 10.11.12.0/24</i>"
+
+#: ../properties/nm-ppp-dialog.glade.h:9
+msgid "A list of extra options to pppd as would be typed on the command line"
+msgstr ""
+"pppd-ს დამატებითი პარამეტრები, "
+"რომელიც აიკრიფება კონსოლში"
+
+#: ../properties/nm-ppp-dialog.glade.h:10
+msgid "Allow BSD Compression"
+msgstr "BSD კუმშვის დაშვება"
+
+#: ../properties/nm-ppp-dialog.glade.h:11
+msgid "Allow Deflate compression"
+msgstr "Deflate კუმშვის დაშვება"
+
+#: ../properties/nm-ppp-dialog.glade.h:12
+msgid "Authenticate Peer"
+msgstr "მეკავშირის აუთენტიფიცირება"
+
+#: ../properties/nm-ppp-dialog.glade.h:13
+msgid "Authentication"
+msgstr "აუთენტიფიკაცია"
+
+#: ../properties/nm-ppp-dialog.glade.h:14
+msgid "Compression & Encryption"
+msgstr "კუმშვა და შიფრვა"
+
+#: ../properties/nm-ppp-dialog.glade.h:15
+msgid "Connection"
+msgstr "შეერთება"
+
+#: ../properties/nm-ppp-dialog.glade.h:16
+msgid "Debug Output"
+msgstr "გამართვის გამონატანი"
+
+#: ../properties/nm-ppp-dialog.glade.h:17
+msgid "Disconnect after this many LCP echo requests fail"
+msgstr ""
+"LCP ექო-მოთხოვნების "
+"შეცდომების რაოდენობა, "
+"საკმარისი გათიშვისათვის "
+
+#: ../properties/nm-ppp-dialog.glade.h:18
+#: ../properties/nm-ppp-properties.c:216
+msgid "Enable stateful MPPE"
+msgstr "MPPE-ს გააქტიურება"
+
+#: ../properties/nm-ppp-dialog.glade.h:19
+msgid "Exclusive device access (UUCP-style lock)"
+msgstr ""
+"ექსკლუზიური დაშვება "
+"მოწყობილობასთან (UUCP-სტილის "
+"ბლოკირება)"
+
+#: ../properties/nm-ppp-dialog.glade.h:20
+msgid "Find Device"
+msgstr "მოწყობილობის ძებნა"
+
+#: ../properties/nm-ppp-dialog.glade.h:21
+msgid ""
+"For security reasons, options entered in the box above are checked against a "
+"list of allowed options before a connection is established.  Currently there "
+"are no options on the list."
+msgstr ""
+"უსაფრთხოების მოსაზრებით "
+"კავშირის დამყარებამდე "
+"ხდება თქვენს მიერ შეყვანილი "
+"პარამეტრების შეჯერება "
+"დაშვებული პარამეტრების "
+"სიასთან. ამჟამად სია "
+"ცარიელია."
+
+#: ../properties/nm-ppp-dialog.glade.h:22
+msgid "GPRS Options"
+msgstr "GPRS პარამეტრები"
+
+#: ../properties/nm-ppp-dialog.glade.h:23
+msgid "Hardware RTS/CTS"
+msgstr "აპარატურული RTS/CTS"
+
+#: ../properties/nm-ppp-dialog.glade.h:24
+msgid "Host name or IP address of the PPTP server"
+msgstr ""
+"ჰოსტ-სერვერის სახელი ან PPTP "
+"სერვერის IP-მისამართი"
+
+#: ../properties/nm-ppp-dialog.glade.h:25
+msgid "If BSD compression is not allowed the 'nobsdcomp' option is passed to pppd"
+msgstr ""
+"თუ BSD-კუმშვა დაუშვებელია, "
+"პარამეტრი 'nobsdcomp' გადაეცემა pppd-ს"
+
+#: ../properties/nm-ppp-dialog.glade.h:26
+msgid "If Deflate compression is not allowed the 'nodefate' option is passed to pppd"
+msgstr ""
+"თუ Deflate-კუმშვა დაუშვებელია, "
+"პარამეტრი 'nodefate' გადაეცემა pppd-ს"
+
+#: ../properties/nm-ppp-dialog.glade.h:27
+msgid "Maximum Receive Unit"
+msgstr "მიღების მაქსიმალური ერთეული"
+
+#: ../properties/nm-ppp-dialog.glade.h:28
+msgid "Maximum Transmit Unit"
+msgstr ""
+"გადაცემის მაქსიმალური "
+"ერთეული"
+
+#: ../properties/nm-ppp-dialog.glade.h:29
+msgid "Modem Connection"
+msgstr "მოდემით შეერთება"
+
+#: ../properties/nm-ppp-dialog.glade.h:30
+msgid "PPP Options"
+msgstr "PPP პარამეტრები"
+
+#: ../properties/nm-ppp-dialog.glade.h:31
+msgid "Peer DNS through tunnel"
+msgstr "Peer DNS ტუნელინგის მეშვეობით"
+
+#: ../properties/nm-ppp-dialog.glade.h:32
+#: ../properties/nm-ppp-properties.c:251
+msgid "Refuse CHAP"
+msgstr "CHAP-ის უარყოფა"
+
+#: ../properties/nm-ppp-dialog.glade.h:33
+#: ../properties/nm-ppp-properties.c:246
+msgid "Refuse EAP"
+msgstr "EAP-ის უარყოფა"
+
+#: ../properties/nm-ppp-dialog.glade.h:34
+msgid "Refuse MS CHAP"
+msgstr "MS CHAP-ის უარყოფა"
+
+#: ../properties/nm-ppp-dialog.glade.h:35
+msgid "Require 128 bit MPPE encryption"
+msgstr "საჭიროა 128-ბიტიანი MPPE-შიფრვა"
+
+#: ../properties/nm-ppp-dialog.glade.h:36
+msgid "Require Explicit IP Addr"
+msgstr "საჭიროა ზუსტი IP-მისამართი"
+
+#: ../properties/nm-ppp-dialog.glade.h:37
+msgid "Require MPPC Compression"
+msgstr "საჭიროა MPPC-შიფრვა"
+
+#: ../properties/nm-ppp-dialog.glade.h:38
+msgid "Require MPPE encryption"
+msgstr "საჭიროა MPPE-შიფრვა"
+
+#: ../properties/nm-ppp-dialog.glade.h:39
+msgid "Requires existing network connection"
+msgstr ""
+"საჭიროა დამყარებული "
+"შეერთება"
+
+#: ../properties/nm-ppp-dialog.glade.h:40
+msgid "Routing"
+msgstr "მარშრუტიზაცია"
+
+#: ../properties/nm-ppp-dialog.glade.h:41
+msgid "Serial Options"
+msgstr "სერიული პარამეტრები"
+
+#: ../properties/nm-ppp-dialog.glade.h:42
+msgid "Service providers GPRS access point from device config"
+msgstr ""
+"სერვის-პროვაიდერის GPRS "
+"აქსეს-პოინტი მოწყობილობის "
+"config-იდან"
+
+#: ../properties/nm-ppp-dialog.glade.h:43
+msgid "Service providers IP address"
+msgstr ""
+"სერვის-პროვაიდერის "
+"IP-მისამართი"
+
+#: ../properties/nm-ppp-dialog.glade.h:44
+msgid "Telephone number to dial"
+msgstr "ტელეფონის ნომერი"
+
+#: ../properties/nm-ppp-dialog.glade.h:45
+msgid ""
+"This is the friendly name that will be used to identify this network "
+"connection, \n"
+"e.g. \"Campus VPN\" or \"Corporate Network\""
+msgstr ""
+"სახელი ამ შეერთების "
+"იდენტიფიცირებისათვის, მაგ.: "
+"\"Campus VPN\" ან \"Corporate Network\""
+
+#: ../properties/nm-ppp-dialog.glade.h:47
+msgid "Time in seconds between echo requests"
+msgstr ""
+"ექო-მოთხოვნებს შორის დრო, "
+"წამი"
+
+#: ../properties/nm-ppp-dialog.glade.h:48
+msgid "Type:"
+msgstr "ტიპი:"
+
+#: ../properties/nm-ppp-dialog.glade.h:49
+#: ../properties/nm-ppp-properties.c:201
+msgid "Use Peer DNS"
+msgstr "Peer DNS-ის გამოყენება"
+
+#: ../properties/nm-ppp-dialog.glade.h:50
+msgid "When checked the \"refuse-chap\" option is passed to pppd."
+msgstr ""
+"როცა მონიშნულია \"refuse-chap\", "
+"პარამეტრი გადაეცემა pppd-ს."
+
+#: ../properties/nm-ppp-dialog.glade.h:51
+msgid "When checked the \"refuse-eap\" option is passed to pppd."
+msgstr ""
+"როცა მონიშნულია \"refuse-eap\", "
+"პარამეტრი გადაეცემა pppd-ს."
+
+#: ../properties/nm-ppp-dialog.glade.h:52
+msgid "When checked the \"refuse-mschap\" option is passed to pppd."
+msgstr ""
+"როცა მონიშნულია \"refuse- mschap\", "
+"პარამეტრი გადაეცემა pppd-ს."
+
+#: ../properties/nm-ppp-dialog.glade.h:53
+msgid "When checked the 'lock' option is passed to pppd"
+msgstr "როცა მონიშნულია \"lock\", პარამეტრი გადაეცემა pppd-ს."
+
+#: ../properties/nm-ppp-dialog.glade.h:54
+msgid "When checked the 'require-mppc' option is passed to pppd"
+msgstr ""
+"როცა მონიშნულია \"require-mppc\", "
+"პარამეტრი გადაეცემა pppd-ს."
+
+#: ../properties/nm-ppp-dialog.glade.h:55
+msgid ""
+"When checked this sets the pppd 'debug' option and adds some extra "
+"information from the NetworkManager plugin"
+msgstr ""
+"ამის მონიშვნა რთავს pppd 'debug' "
+"პარამეტრს და გადასცემს "
+"გარკვეულ დამატებით "
+"ინფორმაციას NetworkManager "
+"პლაგინიდან"
+
+#: ../properties/nm-ppp-dialog.glade.h:56
+msgid "When checked this sets the pppd 'noipdefault' option"
+msgstr ""
+"ამის მონიშვნა რთავს pppd 'noipdefault' "
+"პარამეტრს"
+
+#: ../properties/nm-ppp-dialog.glade.h:57
+msgid "When checked this sets the pppd 'usepeerdns' option"
+msgstr ""
+"ამის მონიშვნა რთავს pppd "
+"'usepeerdns'პარამეტრს"
+
+#: ../properties/nm-ppp-dialog.glade.h:58
+msgid "When this check box is cleared the \"noauth\" option is passed to pppd."
+msgstr ""
+"თუ არ არის მონიშნული, \"noauth\" "
+"პარამეტრი გადაეცემა pppd-ს."
+
+#: ../properties/nm-ppp-dialog.glade.h:59
+msgid "_Access Point Name:"
+msgstr "_აქსეს-პოინტის სახელი:"
+
+#: ../properties/nm-ppp-dialog.glade.h:60
+msgid "_Channel:"
+msgstr "_არხი:"
+
+#: ../properties/nm-ppp-dialog.glade.h:61
+msgid "_Context Num"
+msgstr "_კონტექსტ ნომერი"
+
+#: ../properties/nm-ppp-dialog.glade.h:62
+msgid "_Custom PPP options:"
+msgstr "_PPP პარამეტრების დაყენება:"
+
+#: ../properties/nm-ppp-dialog.glade.h:63
+msgid "_Device Address:"
+msgstr "_მოწყობილობის მისამართი:"
+
+#: ../properties/nm-ppp-dialog.glade.h:64
+msgid "_Gateway:"
+msgstr "_კარიბჭე:"
+
+#: ../properties/nm-ppp-dialog.glade.h:65
+msgid "_IP Address:"
+msgstr "_IP მისამართი:"
+
+#: ../properties/nm-ppp-dialog.glade.h:66
+msgid "_Import Saved Configuration..."
+msgstr ""
+"_შენახული კონფიგურაციის "
+"იმპორტი..."
+
+#: ../properties/nm-ppp-dialog.glade.h:67
+msgid "_Only use VPN connection for these addresses"
+msgstr ""
+"_ამ მისამართებისათვის "
+"მხოლოდ VPN-შეერთება"
+
+#: ../properties/nm-ppp-dialog.glade.h:68
+msgid "_Packet Type"
+msgstr "_პაკეტის ტიპი"
+
+#: ../properties/nm-ppp-dialog.glade.h:69
+msgid "_Telephone Number:"
+msgstr "_ტელეფონის ნომერი:"
+
+#: ../properties/nm-ppp-dialog.glade.h:70
+msgid "connect-delay"
+msgstr "დაკავშირების-დაყოვნება"
+
+#: ../properties/nm-ppp-properties.c:45
+msgid "pppd tunnel (PPTP, BTGPRS, Dialup)"
+msgstr "pppd არხი (PPTP, BTGPRS, Dialup)"
+
+#: ../properties/nm-ppp-properties.c:134
+msgid "Name"
+msgstr "სახელი"
+
+#: ../properties/nm-ppp-properties.c:146
+msgid "PPTP Server"
+msgstr "PPTP სერვერი"
+
+#: ../properties/nm-ppp-properties.c:151
+msgid "Telephone Number"
+msgstr "ტელეფონის ნომერი"
+
+#: ../properties/nm-ppp-properties.c:156
+msgid "Bluetooth Address"
+msgstr " ბლუთუსის მისამართი"
+
+#: ../properties/nm-ppp-properties.c:161
+msgid "Bluetooth Channel"
+msgstr " ბლუთუსის არხი"
+
+#: ../properties/nm-ppp-properties.c:166
+msgid "GPRS APN"
+msgstr "GPRS APN"
+
+#: ../properties/nm-ppp-properties.c:171
+msgid "GPRS IP"
+msgstr "GPRS IP"
+
+#: ../properties/nm-ppp-properties.c:176
+msgid "GPRS Context No."
+msgstr "GPRS კონტექსტ-ნომერი"
+
+#: ../properties/nm-ppp-properties.c:181
+msgid "GPRS Packet Type"
+msgstr "GPRS-პაკეტის ტიპი"
+
+#: ../properties/nm-ppp-properties.c:186
+msgid "Use CTS/RTS flow control"
+msgstr "CTS/RTS-ნაკადის კონტროლი"
+
+#: ../properties/nm-ppp-properties.c:191
+msgid "Connect via a modem"
+msgstr "შეერთება მოდემით"
+
+#: ../properties/nm-ppp-properties.c:196
+msgid "Require IP to be provided"
+msgstr "მიუთითეთ IP"
+
+#: ../properties/nm-ppp-properties.c:206
+msgid "Use MPPE encryption"
+msgstr "MPPE-შიფრვა"
+
+#: ../properties/nm-ppp-properties.c:211
+msgid "Use 128 bit MPPE encryption"
+msgstr "128-ბიტიანი MPPE-შიფრვა"
+
+#: ../properties/nm-ppp-properties.c:221
+msgid "Use MPPC compression"
+msgstr "MPPC-კუმშვის გამოყენება"
+
+#: ../properties/nm-ppp-properties.c:226
+msgid "Do not use deflate compression"
+msgstr "deflate-კუმშვის აკრძალვა"
+
+#: ../properties/nm-ppp-properties.c:231
+msgid "Do not use BSD compression"
+msgstr "BSD-კუმშვის აკრძალვა"
+
+#: ../properties/nm-ppp-properties.c:236
+msgid "Exclusive device access by pppd"
+msgstr ""
+"ექსკლუზიური pppd-დაშვება "
+"მოწყობილობასთან"
+
+#: ../properties/nm-ppp-properties.c:241
+msgid "Authenticate remote peer"
+msgstr ""
+"დაშორებული მომხმარებლის "
+"ავთენტიფიკაცია"
+
+#: ../properties/nm-ppp-properties.c:256
+msgid "Refuse MSCHAP"
+msgstr "MSCHAP-ის უარყოფა"
+
+#: ../properties/nm-ppp-properties.c:261
+msgid "Maximum transmit unit (in bytes)"
+msgstr ""
+"გადაცემის მაქსიმალური "
+"ერთეული (ბაიტებში)"
+
+#: ../properties/nm-ppp-properties.c:266
+msgid "Maximum receive unit (in bytes)"
+msgstr ""
+"მიღების მაქსიმალური "
+"ერთეული (ბაიტებში)"
+
+#: ../properties/nm-ppp-properties.c:271
+msgid "Number of failed LCP echos to cause disconnect"
+msgstr ""
+"წარუმატებელი LPC-ექოების "
+"რაოდენობა გათიშვისათვის"
+
+#: ../properties/nm-ppp-properties.c:276
+msgid "Interval (in seconds) at which to issue LCP echos"
+msgstr ""
+"ინტერვალი LPC-ექოებს შორის, "
+"წამი"
+
+#: ../properties/nm-ppp-properties.c:281
+msgid "Interval (in milliseconds) to wait before connecting."
+msgstr ""
+"დაყოვნება (მილიწამი) "
+"შეერთების წინ."
+
+#: ../properties/nm-ppp-properties.c:286
+msgid "Custom PPP options"
+msgstr "PPP პარამეტრების   დაყენება"
+
+#: ../properties/nm-ppp-properties.c:296
+msgid "Use Peer DNS over the Tunnel"
+msgstr ""
+"Peer DNS-ის გამოყენება "
+"ტუნელინგის შემთხვევაში"
+
+#: ../properties/nm-ppp-properties.c:302
+msgid "Specific networks available"
+msgstr ""
+"სპეციფიური ხელმისაწვდომი "
+"ქსელები"
+
+#: ../properties/nm-ppp-properties.c:308
+msgid "Limit to specific networks"
+msgstr ""
+"სპეციფიური ქსელების "
+"შეზღუდვა"
+
+#: ../properties/vpnui_impl.c:229
+#, c-format
+msgid "The following '%s' connection will be created:"
+msgstr "მყარდება შეერთება '%s':"
+
+#: ../properties/vpnui_impl.c:242
+#, c-format
+msgid "\t%s:  %s\n"
+msgstr "\t%s:  %s\n"
+
+#: ../properties/vpnui_impl.c:245
+msgid "The connection details can be changed using the \"Back\" button."
+msgstr ""
+"\"Back\"ღილაკით შეიძლება "
+"შეერთების რეაქტირება"
+
+#: ../properties/vpnui_impl.c:317
+msgid "Select file to import"
+msgstr ""
+"მიუთითეთ ფაილი "
+"იმპორტისათვის"
+
+#. printf ("in impl_export\n");
+#: ../properties/vpnui_impl.c:462
+msgid "Save as..."
+msgstr "შეინახე როგორც..."
+
+#: ../properties/vpnui_impl.c:491
+#, c-format
+msgid "A file named \"%s\" already exists."
+msgstr "ფაილი \"%s\" უკვე არსებობს."
+
+#: ../properties/vpnui_impl.c:494
+msgid "Do you want to replace it with the one you are saving?"
+msgstr "შევცვალოთ თქვენი ფაილით?"
+
+#: ../src/nm-ppp-starter.c:140
+msgid "VPN Connection failed"
+msgstr "VPN-შეერთებას დაენძრა"
+

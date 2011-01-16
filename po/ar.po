@@ -1,0 +1,556 @@
+# translation of NetworkManager-pptp.HEAD.ar.po to Arabic
+# Arabic translations for PACKAGE package.
+# Copyright (C) 2006 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Automatically generated, 2006.
+# Khaled Hosny <khaledhosny@eglug.org>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: Project\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-07-31 10:41+0100\n"
+"PO-Revision-Date: 2007-12-26 09:09+0100\n"
+"Last-Translator: Djihed Afifi <djihed@gmail.com>\n"
+"Language-Team: Arabic <doc@arabeyes.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: Plural-Forms: nplurals=4; plural=n==1 ? 0 : n==2 ? 1 : n>=3 && "
+"n<=10 ? 2 : 3\n"
+"X-Poedit-Language: Arabic\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:144
+msgid "_Secondary Password:"
+msgstr "_كلمة سر ثانوية:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:258
+msgid "_Username:"
+msgstr "ا_سم المستخدم:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:260
+msgid "_Domain:"
+msgstr "ال_نطاق:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:262
+msgid "_Password:"
+msgstr "_كلمة السر:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:351
+msgid "Connect _anonymously"
+msgstr "اتّصل كم_جهول"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:356
+msgid "Connect as _user:"
+msgstr "اتصل _كمستخدم:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:465
+#, fuzzy
+msgid "_Remember passwords for this session"
+msgstr "_تذكّر كلمة السر لهذه الجلسة"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:467
+#, fuzzy
+msgid "_Save passwords in keyring"
+msgstr "ا_حفظ كلمة السر في حلقة المفاتيح"
+
+#: ../auth-dialog/main.c:169
+#, fuzzy, c-format
+msgid "You need to authenticate to access the Virtual Private Network '%s'."
+msgstr "تحتاج للتوثق لتنفُذ إلى '%s'."
+
+#: ../auth-dialog/main.c:170
+#, fuzzy
+msgid "Authenticate VPN"
+msgstr "وثّق ال_ندّ"
+
+#: ../nm-pptp.desktop.in.h:1
+#, fuzzy
+msgid "Add, Remove, and Edit PPTP VPN Connections"
+msgstr "أضِف، احذِف، و حرِّر اتصالات VPN"
+
+#: ../nm-pptp.desktop.in.h:2
+#, fuzzy
+msgid "PPTP VPN Connection Manager"
+msgstr "فشل اتصال VPN"
+
+#: ../properties/advanced-dialog.c:173
+msgid "All Available (Default)"
+msgstr ""
+
+#: ../properties/advanced-dialog.c:177
+msgid "128-bit (most secure)"
+msgstr ""
+
+#: ../properties/advanced-dialog.c:186
+msgid "40-bit (less secure)"
+msgstr ""
+
+#: ../properties/advanced-dialog.c:257
+msgid "PAP"
+msgstr ""
+
+#: ../properties/advanced-dialog.c:263
+msgid "CHAP"
+msgstr ""
+
+#: ../properties/advanced-dialog.c:269
+#, fuzzy
+msgid "MSCHAP"
+msgstr "ارفض MSCHAP"
+
+#: ../properties/advanced-dialog.c:275
+msgid "MSCHAPv2"
+msgstr ""
+
+#: ../properties/nm-pptp-dialog.glade.h:1
+#, fuzzy
+msgid "<b>Authentication</b>"
+msgstr "التوثق"
+
+#: ../properties/nm-pptp-dialog.glade.h:2
+#, fuzzy
+msgid "<b>Echo</b>"
+msgstr "<b>التعمية</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:3
+msgid "<b>General</b>"
+msgstr ""
+
+#: ../properties/nm-pptp-dialog.glade.h:4
+#, fuzzy
+msgid "<b>Optional</b>"
+msgstr "<b>خيارات IP</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:5
+#, fuzzy
+msgid "<b>Security and Compression</b>"
+msgstr "<b>الضغط</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:6
+msgid "Ad_vanced..."
+msgstr ""
+
+#: ../properties/nm-pptp-dialog.glade.h:7
+#, fuzzy
+msgid "Allow BSD data compression"
+msgstr "اسمح ب_ضغط BSD"
+
+#: ../properties/nm-pptp-dialog.glade.h:8
+#, fuzzy
+msgid "Allow Deflate data compression"
+msgstr "ا_سمح بتفريغ الضغط"
+
+#: ../properties/nm-pptp-dialog.glade.h:9
+msgid "Allow Stateful Encryption"
+msgstr ""
+
+#: ../properties/nm-pptp-dialog.glade.h:10
+msgid "Allow the following authentication methods:"
+msgstr ""
+
+#: ../properties/nm-pptp-dialog.glade.h:11
+msgid "Default"
+msgstr ""
+
+#: ../properties/nm-pptp-dialog.glade.h:12
+#, fuzzy
+msgid "Domain:"
+msgstr "ال_نطاق:"
+
+#: ../properties/nm-pptp-dialog.glade.h:13
+msgid "Security:"
+msgstr ""
+
+#: ../properties/nm-pptp-dialog.glade.h:14
+msgid "Send PPP echo packets"
+msgstr ""
+
+#: ../properties/nm-pptp-dialog.glade.h:15
+msgid "Use Point-to-Point Encryption (MPPE)"
+msgstr ""
+
+#: ../properties/nm-pptp-dialog.glade.h:16
+#, fuzzy
+msgid "Use TCP header compression"
+msgstr "استخدم ضغط MPPC"
+
+#: ../properties/nm-pptp-dialog.glade.h:17
+#, fuzzy
+msgid "User name:"
+msgstr "ا_سم المستخدم:"
+
+#: ../properties/nm-pptp-dialog.glade.h:18
+msgid "_Gateway:"
+msgstr "ال_بوّابة:"
+
+#: ../properties/nm-pptp-dialog.glade.h:19
+msgid "gtk-cancel"
+msgstr ""
+
+#: ../properties/nm-pptp-dialog.glade.h:20
+msgid "gtk-ok"
+msgstr ""
+
+#: ../properties/nm-pptp.c:50
+msgid "Point-to-Point Tunneling Protocol (PPTP)"
+msgstr ""
+
+#: ../properties/nm-pptp.c:51
+msgid "Compatible with Microsoft and other PPTP VPN servers."
+msgstr ""
+
+#~ msgid "Authentication Type:"
+#~ msgstr "نوع التوثق:"
+
+#~ msgid "_Remember for this session"
+#~ msgstr "_تذكّر لهذه الجلسة"
+
+#~ msgid "_Save in keyring"
+#~ msgstr "ا_حفظ في حلقة المفاتيح"
+
+#~ msgid "Authenticate Connection"
+#~ msgstr "وثِّق الإتصال"
+
+#~ msgid ""
+#~ "<span weight=\"bold\" size=\"larger\">Authentication Information</span>\n"
+#~ "\n"
+#~ "The connection '%s' may need some form of authentication.\n"
+#~ "\n"
+#~ "Please select an appropriate authentication type and provide the "
+#~ "necessary credentials below:\n"
+#~ msgstr ""
+#~ "<span weight=\"bold\" size=\"larger\">معلومات التوثّق</span>\n"
+#~ "\n"
+#~ "قد يحتاج الإتصال '%s' إلى نوع من التوثّق.\n"
+#~ "\n"
+#~ "من فضلك انتقِ نوع التوثّق المناسب و اعطِ البيانات الضروريّة بأسفل:\n"
+
+#~ msgid "Authentication Required"
+#~ msgstr "التوثق مطلوب"
+
+#~ msgid "_Authentication Type:"
+#~ msgstr "نوع ال_توثق:"
+
+#~ msgid "_Remote name:"
+#~ msgstr "الإسم ال_بعيد:"
+
+#~ msgid "VPN Connection Manager (PPP generic)"
+#~ msgstr "مدير اتصالات VPN (PPP عام)"
+
+#~ msgid "00:00:00:00"
+#~ msgstr "00:00:00:00"
+
+#~ msgid "<b>Delays &amp; Timeouts</b>"
+#~ msgstr "<b>التأخيرات والمهل</b>"
+
+#~ msgid "<b>Packet Parameters</b>"
+#~ msgstr "<b>معاملات الرزم</b>"
+
+#~ msgid "<i>Example: 172.16.0.0/16 10.11.12.0/24</i>"
+#~ msgstr "<i>مثال: 172.16.0.0/16 10.11.12.0/24</i>"
+
+#~ msgid ""
+#~ "A list of extra options to pppd as would be typed on the command line"
+#~ msgstr "قائمة بخيارات pppd في صورتها في سطر الأوامر"
+
+#~ msgid "C_hannel:"
+#~ msgstr "ال_قناة:"
+
+#~ msgid "Co_nnect delay:"
+#~ msgstr "تأ_خير الإتصال:"
+
+#~ msgid "Compression & Encryption"
+#~ msgstr "الضغط والتعمية"
+
+#~ msgid "Connection"
+#~ msgstr "الإتصال"
+
+#~ msgid "Connection na_me:"
+#~ msgstr "إ_سم الإتصال:"
+
+#~ msgid "Context _number:"
+#~ msgstr "رقم السيا_ق:"
+
+#~ msgid "Custom _PPP options:"
+#~ msgstr "خيارات PPP _مخصصة:"
+
+#~ msgid "Debug _output"
+#~ msgstr "خرج النقح:"
+
+#~ msgid "Disconnect after this many LCP echo requests fail"
+#~ msgstr "اقطع الإتصال بعد فشل طلبات صدى LCP الكثيرة هذه"
+
+#~ msgid "E_xclusive device access (UUCP-style lock)"
+#~ msgstr "نفاذ ح_صري للجهاز (قفل بنمط UUCP)"
+
+#~ msgid "Enable stateful _MPPE"
+#~ msgstr "ف_عّل MPPE الحالي"
+
+#~ msgid "Find Device"
+#~ msgstr "اعثر على الجهاز"
+
+#~ msgid ""
+#~ "For security reasons, options entered in the box above are checked "
+#~ "against a list of allowed options before a connection is established.  "
+#~ "Currently there are no options on the list."
+#~ msgstr ""
+#~ "للأسباب الأمنية، تُفحص الخيارات المدخلة في هذا الصندوق مقابل قائمة "
+#~ "بالخيارات المسموح بها قبل بدأ الإتصال. لا توجد خيارات في القائمة حاليا."
+
+#~ msgid "GPRS Options"
+#~ msgstr "خيارات GPRS"
+
+#~ msgid "Host name or IP address of the PPTP server"
+#~ msgstr "اسم أو عنوان IP لخادم PPTP"
+
+#~ msgid "IP a_ddress:"
+#~ msgstr "ع_نوان IP:"
+
+#~ msgid ""
+#~ "If BSD compression is not allowed the 'nobsdcomp' option is passed to pppd"
+#~ msgstr "إذا لم يُسمح بضغط BSD سيمرر الخيار 'nobsdcomp' إلى pppd"
+
+#~ msgid ""
+#~ "If Deflate compression is not allowed the 'nodefate' option is passed to "
+#~ "pppd"
+#~ msgstr "إذا لم يُسمح بالضغط الإفتراضي سيمرر الخيار 'nodefate' إلى pppd"
+
+#~ msgid "Maximum Receive Unit"
+#~ msgstr "أقصى وحدة تلقِّي"
+
+#~ msgid "Maximum Transmit Unit"
+#~ msgstr "أقصى وحدة نقل"
+
+#~ msgid "PPP Options"
+#~ msgstr "خيارات PPP"
+
+#~ msgid "Refuse C_HAP"
+#~ msgstr "ا_رفض CHAP"
+
+#~ msgid "Refuse _EAP"
+#~ msgstr "ار_فض EAP"
+
+#~ msgid "Refuse _MS CHAP"
+#~ msgstr "ارف_ض MS CHAP"
+
+#~ msgid "Require 128 bit M_PPE encryption"
+#~ msgstr "تطلّب ت_عمية 128 bit MPPE"
+
+#~ msgid "Require MPPE _encryption"
+#~ msgstr "تطلّب تعم_ية MPPE"
+
+#~ msgid "Require explicit IP _address"
+#~ msgstr "تطلّب ع_نوان IP صريح"
+
+#~ msgid "Requires existing network connection"
+#~ msgstr "تطلّب اتصال شبكة موجود مسبقا"
+
+#~ msgid "Routing"
+#~ msgstr "التّوجيه"
+
+#~ msgid "Serial Options"
+#~ msgstr "خيارات التسلسل"
+
+#~ msgid "Service providers GPRS access point from device config"
+#~ msgstr "نقطة الوصول إلى موفِّر خدمة GPRS من إعداد الجهاز "
+
+#~ msgid "Service providers IP address"
+#~ msgstr "عنوان IP موفِّر الخدمة"
+
+#~ msgid "Telep_hone number:"
+#~ msgstr "رقم ال_هاتف:"
+
+#~ msgid ""
+#~ "This is the friendly name that will be used to identify this network "
+#~ "connection, \n"
+#~ "e.g. \"Campus VPN\" or \"Corporate Network\""
+#~ msgstr ""
+#~ "هذا اسم لتعريف اتصال الشبكة،\n"
+#~ "مثل \"Campus VPN\" أو \"Corporate Network\""
+
+#~ msgid "Time in seconds between echo requests"
+#~ msgstr "الوقت بالثواني بين طلبات الصدى"
+
+#~ msgid "Typ_e:"
+#~ msgstr "النّ_وع:"
+
+#~ msgid "Use peer _DNS"
+#~ msgstr "است_خدم DNS الندّ"
+
+#~ msgid "When checked the \"refuse-chap\" option is passed to pppd."
+#~ msgstr "عند اختياره، سيمرر خيار \"refuse-chap\" إلى pppd."
+
+#~ msgid "When checked the \"refuse-eap\" option is passed to pppd."
+#~ msgstr "عند اختياره، سيمرر خيار \"refuse-eap\" إلى pppd."
+
+#~ msgid "When checked the \"refuse-mschap\" option is passed to pppd."
+#~ msgstr "عند اختياره، سيمرر خيار \"refuse-mschap\" إلى pppd."
+
+#~ msgid "When checked the 'lock' option is passed to pppd"
+#~ msgstr "عند اختياره، سيمرر خيار 'lock' إلى pppd."
+
+#~ msgid "When checked the 'require-mppc' option is passed to pppd"
+#~ msgstr "عند اختياره، سيمرر خيار 'require-mppc' إلى pppd."
+
+#~ msgid ""
+#~ "When checked this sets the pppd 'debug' option and adds some extra "
+#~ "information from the NetworkManager plugin"
+#~ msgstr ""
+#~ "عند اختياره، سيمرر خيار 'debug' إلى pppd ويضيف معلومات إضافيّة من ملحق "
+#~ "مدير الشبكة"
+
+#~ msgid "When checked this sets the pppd 'noipdefault' option"
+#~ msgstr "عند اختياره، سيمرر خيار'noipdefault'  إلى pppd."
+
+#~ msgid "When checked this sets the pppd 'usepeerdns' option"
+#~ msgstr "عند اختياره، سيمرر خيار 'usepeerdns' إلى pppd."
+
+#~ msgid ""
+#~ "When this check box is cleared the \"noauth\" option is passed to pppd."
+#~ msgstr "عند مسح هذا الصندوق سيمرر الخيار \"noauth\" إلى pppd."
+
+#~ msgid "_Access point name:"
+#~ msgstr "اسم نقطة ال_وصول:"
+
+#~ msgid "_Device address:"
+#~ msgstr "عنوان ال_جهاز:"
+
+#~ msgid "_Hardware RTS/CTS"
+#~ msgstr "RTS/CTS عتادي_"
+
+#~ msgid "_Import Saved Configuration..."
+#~ msgstr "ا_ستورد اعدادات محفوظة..."
+
+#~ msgid "_Modem connection"
+#~ msgstr "اتصال م_ودم"
+
+#~ msgid "_Only use VPN connection for these addresses:"
+#~ msgstr "استخدم _فقط اتصالات VPN لهذه العناوين:"
+
+#~ msgid "_Packet type:"
+#~ msgstr "نوع الر_زمة"
+
+#~ msgid "_Peer DNS through tunnel"
+#~ msgstr "_ند DNS عبر نفق"
+
+#~ msgid "_Require MPPC compression"
+#~ msgstr "ت_طلّب ضغط MPPC"
+
+#~ msgid "pppd tunnel (PPTP, BTGPRS, Dialup)"
+#~ msgstr "نفق pppd (PPTP، BTGPRS، Dialup)"
+
+#~ msgid "Name"
+#~ msgstr "الإسم"
+
+#~ msgid "PPTP Server"
+#~ msgstr "خادم PPTP"
+
+#~ msgid "Telephone Number"
+#~ msgstr "رقم الهاتف"
+
+#~ msgid "Bluetooth Address"
+#~ msgstr "عنوان البلوتوث"
+
+#~ msgid "Bluetooth Channel"
+#~ msgstr "قناة البلوتوث"
+
+#~ msgid "GPRS APN"
+#~ msgstr "GPRS APN"
+
+#~ msgid "GPRS IP"
+#~ msgstr "GPRS IP"
+
+#~ msgid "GPRS Context No."
+#~ msgstr "رقم سياق GPRS."
+
+#~ msgid "GPRS Packet Type"
+#~ msgstr "نوع حزمة GPRS"
+
+#~ msgid "Use CTS/RTS flow control"
+#~ msgstr "استخدم تحكم CTS/RTS في التدفق"
+
+#~ msgid "Connect via a modem"
+#~ msgstr "اتصل عبر مودم"
+
+#~ msgid "Require IP to be provided"
+#~ msgstr "تطلّب إعطاء IP"
+
+#~ msgid "Use Peer DNS"
+#~ msgstr "استخدم DNS الندّ"
+
+#~ msgid "Use MPPE encryption"
+#~ msgstr "استخدم تعمية MPPE"
+
+#~ msgid "Use 128 bit MPPE encryption"
+#~ msgstr "استخدم تعمية 128 bit MPPE"
+
+#~ msgid "Enable stateful MPPE"
+#~ msgstr "فعّل MPPE الحالي"
+
+#~ msgid "Do not use deflate compression"
+#~ msgstr "لا تستخدم ضغط مُفرِّغ"
+
+#~ msgid "Do not use BSD compression"
+#~ msgstr "لا تستخدم ضغط BSD"
+
+#~ msgid "Exclusive device access by pppd"
+#~ msgstr "وصول حصري للجهاز بواسطة pppd"
+
+#~ msgid "Authenticate remote peer"
+#~ msgstr "وثِّق الندّ البعيد"
+
+#~ msgid "Refuse EAP"
+#~ msgstr "ارفض EAP"
+
+#~ msgid "Refuse CHAP"
+#~ msgstr "ارفض CHAP"
+
+#~ msgid "Maximum transmit unit (in bytes)"
+#~ msgstr "اقصى وحدة نقل (بالبايت)"
+
+#~ msgid "Maximum receive unit (in bytes)"
+#~ msgstr "اقصى وحدو استلام (بالبايت)"
+
+#~ msgid "Number of failed LCP echos to cause disconnect"
+#~ msgstr "رقم طلبات صدى LCP الفاشلة المؤدية لقطع الإتصال"
+
+#~ msgid "Interval (in seconds) at which to issue LCP echos"
+#~ msgstr "الفترة (بالثواني) بين طلبات صدى LCP"
+
+#~ msgid "Interval (in milliseconds) to wait before connecting."
+#~ msgstr "الفترة (بالمللي ثانية) قبل الإتصال."
+
+#~ msgid "Custom PPP options"
+#~ msgstr "خيارات PPP مخصصة"
+
+#~ msgid "Use Peer DNS over the Tunnel"
+#~ msgstr "استخدم DNS الندّ عبر نفق"
+
+#~ msgid "Specific networks available"
+#~ msgstr "شبكات معيّنة متوفّرة"
+
+#~ msgid "Limit to specific networks"
+#~ msgstr "حُدّه بشبكات معينة"
+
+#~ msgid "The following '%s' connection will be created:"
+#~ msgstr "سيُنشأ الإتصال '%s' التالي:"
+
+#~ msgid "\t%s:  %s\n"
+#~ msgstr "\t%s:  %s\n"
+
+#~ msgid "The connection details can be changed using the \"Back\" button."
+#~ msgstr "يمكن تغيير تفاصيل الإتصال باستخدام زر \"الخلف\"."
+
+#~ msgid "Select file to import"
+#~ msgstr "انتقِ ملفّ للإستيراد"
+
+#~ msgid "Save as..."
+#~ msgstr "احفظ كـ..."
+
+#~ msgid "A file named \"%s\" already exists."
+#~ msgstr "يوجد ملف بالإسم \"%s\" مسبقاً."
+
+#~ msgid "Do you want to replace it with the one you are saving?"
+#~ msgstr "أتريد استبداله بالملف الذي تقوم بحفظه؟"

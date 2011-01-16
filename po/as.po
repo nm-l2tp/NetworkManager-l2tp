@@ -1,0 +1,190 @@
+# Assamese translation of network-manager-pptp.
+# Copyright (C) 2009 network-manager-pptp's COPYRIGHT HOLDER
+# This file is distributed under the same license as the network-manager-pptp package.
+#
+# Amitakhya Phukan <aphukan@fedoraproject.org>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: network-manager-pptp master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug."
+"cgi?product=NetworkManager&component=VPN: pptp\n"
+"POT-Creation-Date: 2009-07-07 13:19+0000\n"
+"PO-Revision-Date: 2009-08-12 16:20+0530\n"
+"Last-Translator: Amitakhya Phukan <aphukan@fedoraproject.org>\n"
+"Language-Team: Assamese <>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:129
+msgid "_Secondary Password:"
+msgstr "দ্বিতীয় গুপ্তশব্দ (_S):"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:243
+msgid "_Username:"
+msgstr "ব্যৱহাৰকৰ্তাৰ নাম (_U):"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:245
+msgid "_Domain:"
+msgstr "ডোমেইন (_D):"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:247
+msgid "_Password:"
+msgstr "গুপ্তশব্দ (_P):"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:336
+msgid "Connect _anonymously"
+msgstr "বেনামী ভাবে সংযোগ কৰক (_a)"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:341
+msgid "Connect as _user:"
+msgstr "ব্যৱহাৰকৰ্তা হিচাপে ভাবে সংযোগ কৰক (_u):"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:450
+msgid "_Remember passwords for this session"
+msgstr "এই অধিবেশনৰ কাৰণে গুপ্তশব্দ মনত ৰাখিব (_R)"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:452
+msgid "_Save passwords in keyring"
+msgstr "কি-ৰঙত গুপ্তশব্দ ৰাখিব (_S)"
+
+#: ../auth-dialog/main.c:62
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network '%s'."
+msgstr ""
+"ভাৰ্চুৱেল প্ৰাইভেত নে'টৱৰ্ক '%s' অভিগম কৰিবলৈ আপুনি প্ৰমাণিত হ'ব লাগিব ।"
+
+#: ../auth-dialog/main.c:63
+msgid "Authenticate VPN"
+msgstr "VPN প্ৰমাণিত কৰক"
+
+#: ../nm-pptp.desktop.in.h:1
+msgid "Add, Remove, and Edit PPTP VPN Connections"
+msgstr "PPTP VPN সংযোগ যোগ কৰক, আঁতৰাওক, আৰু সম্পাদন কৰক"
+
+#: ../nm-pptp.desktop.in.h:2
+msgid "PPTP VPN Connection Manager"
+msgstr "PPTP VPN সংযোগ পৰিচালক"
+
+#: ../properties/advanced-dialog.c:145
+msgid "All Available (Default)"
+msgstr "উপলব্ধ সকলো (অবিকল্পিত)"
+
+#: ../properties/advanced-dialog.c:149
+msgid "128-bit (most secure)"
+msgstr "128-bit (সৰ্বাধিক সুৰক্ষিত)"
+
+#: ../properties/advanced-dialog.c:158
+msgid "40-bit (less secure)"
+msgstr "40-bit (কম সুৰক্ষিত)"
+
+#: ../properties/advanced-dialog.c:229
+msgid "PAP"
+msgstr "PAP"
+
+#: ../properties/advanced-dialog.c:235
+msgid "CHAP"
+msgstr "CHAP"
+
+#: ../properties/advanced-dialog.c:241
+msgid "MSCHAP"
+msgstr "MSCHAP"
+
+#: ../properties/advanced-dialog.c:247
+msgid "MSCHAPv2"
+msgstr "MSCHAPv2"
+
+#: ../properties/advanced-dialog.c:253
+msgid "EAP"
+msgstr "EAP"
+
+#: ../properties/nm-pptp-dialog.glade.h:1
+msgid "<b>Authentication</b>"
+msgstr "<b>প্ৰমাণীকৰণ</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:2
+msgid "<b>Echo</b>"
+msgstr "<b>প্ৰতিধ্বনি</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:3
+msgid "<b>General</b>"
+msgstr "<b>সাধাৰণ</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:4
+msgid "<b>Optional</b>"
+msgstr "<b>বৈকল্পিক</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:5
+msgid "<b>Security and Compression</b>"
+msgstr "<b>সুৰক্ষা আৰু সংকোচন</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:6
+msgid "Ad_vanced..."
+msgstr "উন্নত (_v)..."
+
+#: ../properties/nm-pptp-dialog.glade.h:7
+msgid "Allow _BSD data compression"
+msgstr "BSD তথ্য সংকোচনৰ অনুমতি দিয়ক (_B)"
+
+#: ../properties/nm-pptp-dialog.glade.h:8
+msgid "Allow _Deflate data compression"
+msgstr "ডিফ্লেট তথ্য সংকোচনৰ অনুমতি দিয়ক (_D)"
+
+#: ../properties/nm-pptp-dialog.glade.h:9
+msgid "Allow st_ateful encryption"
+msgstr "স্টেতফুল এনক্ৰিপছনৰ অনুমতি দিয়ক (_a)"
+
+#: ../properties/nm-pptp-dialog.glade.h:10
+msgid "Allow the following authentication methods:"
+msgstr "এই প্ৰমাণীকৰণৰ ধৰণৰ অনুমতি দিয়ক:"
+
+#: ../properties/nm-pptp-dialog.glade.h:11
+msgid "Default"
+msgstr "অবিকল্পিত"
+
+#: ../properties/nm-pptp-dialog.glade.h:12
+msgid "NT Domain:"
+msgstr "NT ডোমেইন:"
+
+#: ../properties/nm-pptp-dialog.glade.h:13
+msgid "Password:"
+msgstr "গুপ্তশব্দ:"
+
+#: ../properties/nm-pptp-dialog.glade.h:14
+msgid "Send PPP _echo packets"
+msgstr "PPP প্ৰতিধ্বনিৰ গোট পঠিয়াওক (_e)"
+
+#: ../properties/nm-pptp-dialog.glade.h:15
+msgid "Show password"
+msgstr "গুপ্তশব্দ দেখুৱাওক"
+
+#: ../properties/nm-pptp-dialog.glade.h:16
+msgid "Use TCP _header compression"
+msgstr "TCP হেডাৰৰ সংকোচন ব্যৱহাৰ কৰক (_h)"
+
+#: ../properties/nm-pptp-dialog.glade.h:17
+msgid "Use _Point-to-Point encryption (MPPE)"
+msgstr "Point-to-Point এনক্ৰিপ্ছন (MPPE) ব্যৱহাৰ কৰক (_P)"
+
+#: ../properties/nm-pptp-dialog.glade.h:18
+msgid "User name:"
+msgstr "ব্যৱহাৰকৰ্তাৰ নাম:"
+
+#: ../properties/nm-pptp-dialog.glade.h:19
+msgid "_Gateway:"
+msgstr "গেটৱে (_G):"
+
+#: ../properties/nm-pptp-dialog.glade.h:20
+msgid "_Security:"
+msgstr "সুৰক্ষা (_S):"
+
+#: ../properties/nm-pptp.c:50
+msgid "Point-to-Point Tunneling Protocol (PPTP)"
+msgstr "Point-to-Point Tunneling Protocol (PPTP)"
+
+#: ../properties/nm-pptp.c:51
+msgid "Compatible with Microsoft and other PPTP VPN servers."
+msgstr "Microsoft আৰু অন্য PPTP VPN সেৱকৰ সৈতে সুসঙ্গত ।"
+

@@ -1,0 +1,187 @@
+# Romanian translation
+# This file is distributed under the same license as the network-manager-pptp package.
+#
+# Adi Roiban https://launchpad.net/~adiroiban, 2009
+msgid ""
+msgstr ""
+"Project-Id-Version: network-manager\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=NetworkManager&component=VPN: pptp\n"
+"POT-Creation-Date: 2009-02-24 22:56+0000\n"
+"PO-Revision-Date: 2009-03-02 20:27+0200\n"
+"Last-Translator: Adi Roiban <adi@roiban.ro>\n"
+"Language-Team: Gnome Romanian Team <gnomero-list@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3;plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1))\n"
+
+
+#: ../auth-dialog/gnome-two-password-dialog.c:129
+msgid "_Secondary Password:"
+msgstr "Parolă _secundară:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:243
+msgid "_Username:"
+msgstr "_Utilizator:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:245
+msgid "_Domain:"
+msgstr "_Domeniu:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:247
+msgid "_Password:"
+msgstr "_Parolă:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:336
+msgid "Connect _anonymously"
+msgstr "Conectare _anonimă"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:341
+msgid "Connect as _user:"
+msgstr "Conectare ca _utilizator:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:450
+msgid "_Remember passwords for this session"
+msgstr "_Reține parola pentru această sesiune"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:452
+msgid "_Save passwords in keyring"
+msgstr "_Salvează parola în inelul de chei"
+
+#: ../auth-dialog/main.c:62
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network '%s'."
+msgstr "Trebuie să vă autentificați pentru a accesta rețeaua virtuală privată „%s”."
+
+#: ../auth-dialog/main.c:63
+msgid "Authenticate VPN"
+msgstr "Autentifică VPN"
+
+#: ../nm-pptp.desktop.in.h:1
+msgid "Add, Remove, and Edit PPTP VPN Connections"
+msgstr "Adaugă, șterge și modifică conexiuni VPN PPTP"
+
+#: ../nm-pptp.desktop.in.h:2
+msgid "PPTP VPN Connection Manager"
+msgstr "Administrator conexiune VPN PPTP"
+
+#: ../properties/advanced-dialog.c:145
+msgid "All Available (Default)"
+msgstr "Toate disponibile (implicit)"
+
+#: ../properties/advanced-dialog.c:149
+msgid "128-bit (most secure)"
+msgstr "128-bit (mai sigur)"
+
+#: ../properties/advanced-dialog.c:158
+msgid "40-bit (less secure)"
+msgstr "40-bit (mai puțin sigur)"
+
+#: ../properties/advanced-dialog.c:229
+msgid "PAP"
+msgstr "PAP"
+
+#: ../properties/advanced-dialog.c:235
+msgid "CHAP"
+msgstr "CHAP"
+
+#: ../properties/advanced-dialog.c:241
+msgid "MSCHAP"
+msgstr "MSCHAP"
+
+#: ../properties/advanced-dialog.c:247
+msgid "MSCHAPv2"
+msgstr "MSCHAPv2"
+
+#: ../properties/advanced-dialog.c:253
+msgid "EAP"
+msgstr "EAP"
+
+#: ../properties/nm-pptp-dialog.glade.h:1
+msgid "<b>Authentication</b>"
+msgstr "<b>Autentificare</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:2
+msgid "<b>Echo</b>"
+msgstr "<b>Echo</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:3
+msgid "<b>General</b>"
+msgstr "<b>General</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:4
+msgid "<b>Optional</b>"
+msgstr "<b>Opțional</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:5
+msgid "<b>Security and Compression</b>"
+msgstr "<b>Securitate și compresie</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:6
+msgid "Ad_vanced..."
+msgstr "A_vansat..."
+
+#: ../properties/nm-pptp-dialog.glade.h:7
+msgid "Allow _BSD data compression"
+msgstr "Permite compresia _BSD a datelor"
+
+#: ../properties/nm-pptp-dialog.glade.h:8
+msgid "Allow _Deflate data compression"
+msgstr "Permite compresia _Deflate a datelor"
+
+#: ../properties/nm-pptp-dialog.glade.h:9
+msgid "Allow st_ateful encryption"
+msgstr "Permite criptarea cu st_are"
+
+#: ../properties/nm-pptp-dialog.glade.h:10
+msgid "Allow the following authentication methods:"
+msgstr "Permite următoarele metode de autentificare:"
+
+#: ../properties/nm-pptp-dialog.glade.h:11
+msgid "Default"
+msgstr "Implicit"
+
+#: ../properties/nm-pptp-dialog.glade.h:12
+msgid "NT Domain:"
+msgstr "Domeniu NT:"
+
+#: ../properties/nm-pptp-dialog.glade.h:13
+msgid "Password:"
+msgstr "Parolă:"
+
+#: ../properties/nm-pptp-dialog.glade.h:14
+msgid "Send PPP _echo packets"
+msgstr "Trimite pachete _echo PPP"
+
+#: ../properties/nm-pptp-dialog.glade.h:15
+msgid "Show password"
+msgstr "Afișează parola"
+
+#: ../properties/nm-pptp-dialog.glade.h:16
+msgid "Use TCP _header compression"
+msgstr "Folosește compresia _antetelor TCP"
+
+#: ../properties/nm-pptp-dialog.glade.h:17
+msgid "Use _Point-to-Point encryption (MPPE)"
+msgstr "Folosește criptare _punct la punct (MPPE)"
+
+#: ../properties/nm-pptp-dialog.glade.h:18
+msgid "User name:"
+msgstr "Nume utilizator:"
+
+#: ../properties/nm-pptp-dialog.glade.h:19
+msgid "_Gateway:"
+msgstr "_Gateway:"
+
+#: ../properties/nm-pptp-dialog.glade.h:20
+msgid "_Security:"
+msgstr "_Securitate:"
+
+#: ../properties/nm-pptp.c:50
+msgid "Point-to-Point Tunneling Protocol (PPTP)"
+msgstr "Protocol tunelare punct la punct (PPTP)"
+
+#: ../properties/nm-pptp.c:51
+msgid "Compatible with Microsoft and other PPTP VPN servers."
+msgstr "Compatibil cu Microsoft și alte servere VPN PPTP."
+

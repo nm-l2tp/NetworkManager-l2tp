@@ -1,0 +1,603 @@
+# Danish translation of NetworkManager-pptp
+# Copyright (C) 2005-2007
+# This file is distributed under the same license as the NetworkManager-pptp package.
+# David Zeuthen <davidz@redhat.com>, 2005.
+# Lasse Bang Mikkelsen <lbm@fatalerror.dk>, 2006, 07.
+# Mads Bille Lundby <lundbymads@gmail.com>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: NetworkManager-pptp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-02-24 23:56+0100\n"
+"PO-Revision-Date: 2009-02-24 21:28+0100\n"
+"Last-Translator: Mads Lundby <lundbymads@gmail.com>\n"
+"Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:129
+msgid "_Secondary Password:"
+msgstr "_Sekundær adgangskode:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:243
+msgid "_Username:"
+msgstr "_Brugernavn:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:245
+msgid "_Domain:"
+msgstr "_Domæne:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:247
+msgid "_Password:"
+msgstr "_Adgangskode:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:336
+msgid "Connect _anonymously"
+msgstr "Forbind _anonymt"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:341
+msgid "Connect as _user:"
+msgstr "Forbind som _bruger:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:450
+msgid "_Remember passwords for this session"
+msgstr "_Husk adgangskoder for denne session"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:452
+msgid "_Save passwords in keyring"
+msgstr "_Gem adgangskoder i nøglering"
+
+#: ../auth-dialog/main.c:62
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network '%s'."
+msgstr ""
+"Du skal opnå godkendelse for at tilslutte til det virtuelle private netværk "
+"\"%s\"."
+
+#: ../auth-dialog/main.c:63
+msgid "Authenticate VPN"
+msgstr "Godkend VPN"
+
+#: ../nm-pptp.desktop.in.h:1
+msgid "Add, Remove, and Edit PPTP VPN Connections"
+msgstr "Tilføj, fjern og redigér PPTP-VPN-forbindelser"
+
+#
+#: ../nm-pptp.desktop.in.h:2
+msgid "PPTP VPN Connection Manager"
+msgstr "Håndtering af PPTP-VPN-forbindelser"
+
+#: ../properties/advanced-dialog.c:145
+msgid "All Available (Default)"
+msgstr "Alle tilgængelige (standard)"
+
+#: ../properties/advanced-dialog.c:149
+msgid "128-bit (most secure)"
+msgstr "128-bit (mest sikker)"
+
+#: ../properties/advanced-dialog.c:158
+msgid "40-bit (less secure)"
+msgstr "40-bit (mindre sikker)"
+
+#: ../properties/advanced-dialog.c:229
+msgid "PAP"
+msgstr "PAP"
+
+#: ../properties/advanced-dialog.c:235
+msgid "CHAP"
+msgstr "CHAP"
+
+#: ../properties/advanced-dialog.c:241
+msgid "MSCHAP"
+msgstr "MSCHAP"
+
+#: ../properties/advanced-dialog.c:247
+msgid "MSCHAPv2"
+msgstr "MSCHAPv2"
+
+#: ../properties/advanced-dialog.c:253
+msgid "EAP"
+msgstr "EAP"
+
+#: ../properties/nm-pptp-dialog.glade.h:1
+msgid "<b>Authentication</b>"
+msgstr "<b>Godkendelse</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:2
+msgid "<b>Echo</b>"
+msgstr "<b>Ekko</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:3
+msgid "<b>General</b>"
+msgstr "<b>Generelt</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:4
+msgid "<b>Optional</b>"
+msgstr "<b>Valgfri</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:5
+msgid "<b>Security and Compression</b>"
+msgstr "<b>Sikkerhed og komprimering</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:6
+msgid "Ad_vanced..."
+msgstr "A_vanceret..."
+
+#: ../properties/nm-pptp-dialog.glade.h:7
+msgid "Allow _BSD data compression"
+msgstr "Tillad _BSD-datakomprimering"
+
+#: ../properties/nm-pptp-dialog.glade.h:8
+msgid "Allow _Deflate data compression"
+msgstr "Tillad _Deflate-datakomprimering"
+
+#: ../properties/nm-pptp-dialog.glade.h:9
+msgid "Allow st_ateful encryption"
+msgstr "Tillad tilst_andsbaseret kryptering"
+
+#: ../properties/nm-pptp-dialog.glade.h:10
+msgid "Allow the following authentication methods:"
+msgstr "Tillad følgende metoder til godkendelse:"
+
+#: ../properties/nm-pptp-dialog.glade.h:11
+msgid "Default"
+msgstr "Standard"
+
+#: ../properties/nm-pptp-dialog.glade.h:12
+msgid "NT Domain:"
+msgstr "NT-domæne:"
+
+#: ../properties/nm-pptp-dialog.glade.h:13
+msgid "Password:"
+msgstr "Adgangskode:"
+
+#: ../properties/nm-pptp-dialog.glade.h:14
+msgid "Send PPP _echo packets"
+msgstr "Send PPP-_ekko-pakker"
+
+#: ../properties/nm-pptp-dialog.glade.h:15
+msgid "Show password"
+msgstr "Vis adgangskode"
+
+#: ../properties/nm-pptp-dialog.glade.h:16
+msgid "Use TCP _header compression"
+msgstr "Anvend TCP-_hovedkomprimering"
+
+#: ../properties/nm-pptp-dialog.glade.h:17
+msgid "Use _Point-to-Point encryption (MPPE)"
+msgstr "Anvend _Point-to-Point-kryptering (MPPE)"
+
+#: ../properties/nm-pptp-dialog.glade.h:18
+msgid "User name:"
+msgstr "Brugernavn:"
+
+#: ../properties/nm-pptp-dialog.glade.h:19
+msgid "_Gateway:"
+msgstr "Ad_gangspunkt:"
+
+#: ../properties/nm-pptp-dialog.glade.h:20
+msgid "_Security:"
+msgstr "_Sikkerhed:"
+
+#: ../properties/nm-pptp.c:50
+msgid "Point-to-Point Tunneling Protocol (PPTP)"
+msgstr "Point-to-Point Tunneling Protocol (PPTP)"
+
+#: ../properties/nm-pptp.c:51
+msgid "Compatible with Microsoft and other PPTP VPN servers."
+msgstr "Kompatibel med Microsoft og andre PPTP-VPN-servere."
+
+#~ msgid "Authentication Type:"
+#~ msgstr "Godkendelsestype:"
+
+#~ msgid "_Remember for this session"
+#~ msgstr "_Husk for denne session"
+
+#~ msgid "_Save in keyring"
+#~ msgstr "_Gem i nøglering"
+
+#~ msgid "Authenticate Connection"
+#~ msgstr "Godkend forbindelse"
+
+#~ msgid ""
+#~ "<span weight=\"bold\" size=\"larger\">Authentication Information</span>\n"
+#~ "\n"
+#~ "The connection '%s' may need some form of authentication.\n"
+#~ "\n"
+#~ "Please select an appropriate authentication type and provide the "
+#~ "necessary credentials below:\n"
+#~ msgstr ""
+#~ "<span weight=\"bold\" size=\"larger\">Godkendelsesinformation</span>\n"
+#~ "\n"
+#~ "Forbindelsen \"%s\" kræver mulighed en form for godkendelse.\n"
+#~ "\n"
+#~ "Vælg venligst en passende godkendelsestype og angiv de nødvendige "
+#~ "oplysninger nedenfor:\n"
+
+#~ msgid "Authentication Required"
+#~ msgstr "Godkendelse påkrævet"
+
+#~ msgid "_Authentication Type:"
+#~ msgstr "_Godkendelsestype:"
+
+#~ msgid "_Remote name:"
+#~ msgstr "_Fjernnavn:"
+
+#~ msgid "auth-chap-window"
+#~ msgstr "auth-chap-window"
+
+#~ msgid "auth-mschapv2-window"
+#~ msgstr "auth-mschapv2-window"
+
+#~ msgid "auth-none-window"
+#~ msgstr "auth-none-window"
+
+#~ msgid "VPN Connection Manager (PPP generic)"
+#~ msgstr "VPN-forbindelser (generisk PPP)"
+
+#~ msgid "00:00:00:00"
+#~ msgstr "00:00:00:00"
+
+#~ msgid "<b>Connection Name</b>"
+#~ msgstr "<b>Navn på forbindelse</b>"
+
+#~ msgid "<b>Delays and TImeouts</b>"
+#~ msgstr "<b>Forsinkelser og tidsudløb</b>"
+
+#~ msgid "<b>Packet Parameters</b>"
+#~ msgstr "<b>Pakkeparametre</b>"
+
+#~ msgid "<i>example: 172.16.0.0/16 10.11.12.0/24</i>"
+#~ msgstr "<i>eksempel: 172.16.0.0/16 10.11.12.0/24</i>"
+
+#~ msgid ""
+#~ "A list of extra options to pppd as would be typed on the command line"
+#~ msgstr ""
+#~ "En liste af ekstra tilvalg til pppd, som det ville skrives på "
+#~ "kommandolinjen"
+
+#~ msgid "Compression & Encryption"
+#~ msgstr "Komprimering & kryptering"
+
+#~ msgid "Connection"
+#~ msgstr "Forbindelse"
+
+#~ msgid "Debug Output"
+#~ msgstr "Fejlsøgningsuddata"
+
+#~ msgid "Disconnect after this many LCP echo requests fail"
+#~ msgstr "Afbryd efter dette antal LCP ekko-forespørgsler fejler"
+
+#~ msgid "Enable stateful MPPE"
+#~ msgstr "Aktivér tilstandsbevidst MPPE"
+
+#~ msgid "Exclusive device access (UUCP-style lock)"
+#~ msgstr "Eksklusiv enhedsadgang (UUCP-lås)"
+
+#~ msgid "Find Device"
+#~ msgstr "Find enhed"
+
+#~ msgid ""
+#~ "For security reasons, options entered in the box above are checked "
+#~ "against a list of allowed options before a connection is established.  "
+#~ "Currently there are no options on the list."
+#~ msgstr ""
+#~ "Af sikkerhedshensyn vil tilvalg indtastet i dette felt blive tjekket mod "
+#~ "en liste over tilladte tilvalg, inden en forbindelse etableres.  Der er i "
+#~ "øjeblikket ingen tilvalg på listen."
+
+#~ msgid "GPRS Options"
+#~ msgstr "GPRS-indstillinger"
+
+#~ msgid "Hardware RTS/CTS"
+#~ msgstr "Hardware RTS/CTS"
+
+#~ msgid "Host name or IP address of the PPTP server"
+#~ msgstr "Værtsnavn eller IP-adresse på PPTP-serveren"
+
+#~ msgid ""
+#~ "If BSD compression is not allowed the 'nobsdcomp' option is passed to pppd"
+#~ msgstr ""
+#~ "Hvis BSD-komprimering ikke er tilladt, sættes pppd-tilvalget \"nobsdcomp"
+#~ "\"."
+
+#~ msgid ""
+#~ "If Deflate compression is not allowed the 'nodefate' option is passed to "
+#~ "pppd"
+#~ msgstr ""
+#~ "Hvis Deflate-komprimering ikke er tilladt, sættes pppd-tilvalget "
+#~ "\"nodeflate\"."
+
+#~ msgid "Maximum Receive Unit"
+#~ msgstr "Maksimal modtageenhed"
+
+#~ msgid "Maximum Transmit Unit"
+#~ msgstr "Maksimal sendeenhed"
+
+#~ msgid "Modem Connection"
+#~ msgstr "Modem-forbindelse"
+
+#~ msgid "PPP Options"
+#~ msgstr "PPP-indstillinger"
+
+#~ msgid "Peer DNS through tunnel"
+#~ msgstr "Fjernserver DNS igennem tunnel"
+
+#~ msgid "Refuse CHAP"
+#~ msgstr "Afvis CHAP"
+
+#~ msgid "Refuse EAP"
+#~ msgstr "Afvis EAP"
+
+#~ msgid "Refuse MS CHAP"
+#~ msgstr "Afvis MS CHAP"
+
+#~ msgid "Require 128 bit MPPE encryption"
+#~ msgstr "Påkræv 128-bit MPPE-kryptering"
+
+#~ msgid "Require Explicit IP Addr"
+#~ msgstr "Påkræv fast IP-adresse"
+
+#~ msgid "Require MPPC Compression"
+#~ msgstr "Påkræv MPPC-komprimering"
+
+#~ msgid "Require MPPE encryption"
+#~ msgstr "Påkræv MPPE-kryptering"
+
+#~ msgid "Requires existing network connection"
+#~ msgstr "Kræver eksisterende netværksforbindelse"
+
+#~ msgid "Routing"
+#~ msgstr "Routing"
+
+#~ msgid "Serial Options"
+#~ msgstr "Serielle indstillinger"
+
+#~ msgid "Service providers GPRS access point from device config"
+#~ msgstr "Udbyderens GPRS-adgangspunkt fra enhedens konfiguration"
+
+#~ msgid "Service providers IP address"
+#~ msgstr "Udbyderens IP-adresse"
+
+#~ msgid "Telephone number to dial"
+#~ msgstr "Telefonnummer at ringe til"
+
+#~ msgid ""
+#~ "This is the friendly name that will be used to identify this network "
+#~ "connection, \n"
+#~ "e.g. \"Campus VPN\" or \"Corporate Network\""
+#~ msgstr ""
+#~ "Dette er et brugervenligt navn til at identificere denne forbindelse, \n"
+#~ "f.eks. \"Universitets VPN\" eller \"Virksomhedens netværk\""
+
+#~ msgid "Time in seconds between echo requests"
+#~ msgstr "Tid i sekunder mellem ekko-forespørgsler"
+
+#~ msgid "Type:"
+#~ msgstr "Type:"
+
+#~ msgid "Use Peer DNS"
+#~ msgstr "Brug fjernserver DNS"
+
+#~ msgid "When checked the \"refuse-chap\" option is passed to pppd."
+#~ msgstr "Hvis afkrydset, sættes pppd-tilvalget \"refuse-chap\"."
+
+#~ msgid "When checked the \"refuse-eap\" option is passed to pppd."
+#~ msgstr "Hvis afkrydset, sættes pppd-tilvalget \"refuse-eap\"."
+
+#~ msgid "When checked the \"refuse-mschap\" option is passed to pppd."
+#~ msgstr "Hvis afkrydset, sættes pppd-tilvalget \"refuse-mschap\"."
+
+#~ msgid "When checked the 'lock' option is passed to pppd"
+#~ msgstr "Hvis afkrydset, sættes pppd-tilvalget \"lock\"."
+
+#~ msgid "When checked the 'require-mppc' option is passed to pppd"
+#~ msgstr "Hvis afkrydset, sættes pppd-tilvalget \"require-mppc\"."
+
+#~ msgid ""
+#~ "When checked this sets the pppd 'debug' option and adds some extra "
+#~ "information from the NetworkManager plugin"
+#~ msgstr ""
+#~ "Hvis afkrydset, sættes pppd-tilvalget \"debug\" og der tilføjes ekstra "
+#~ "information fra NetworkManager-udvidelsesmodulet"
+
+#~ msgid "When checked this sets the pppd 'noipdefault' option"
+#~ msgstr "Hvis afkrydset, sættes pppd-tilvalget \"noipdefault\"."
+
+#~ msgid "When checked this sets the pppd 'usepeerdns' option"
+#~ msgstr "Hvis afkrydset, sættes pppd-tilvalget \"usepeerdns\"."
+
+#~ msgid ""
+#~ "When this check box is cleared the \"noauth\" option is passed to pppd."
+#~ msgstr "Hvis ikke-afkrydset, sættes pppd-tilvalget \"noauth\"."
+
+#~ msgid "_Access Point Name:"
+#~ msgstr "Navn på _adgangspunkt:"
+
+#~ msgid "_Channel:"
+#~ msgstr "_Kanal:"
+
+#~ msgid "_Context Num"
+#~ msgstr "_Kontekstnummer"
+
+#~ msgid "_Custom PPP options:"
+#~ msgstr "_Brugerdefinerede PPP-indstillinger:"
+
+#~ msgid "_Device Address:"
+#~ msgstr "_Enhedsadresse:"
+
+#~ msgid "_IP Address:"
+#~ msgstr "_IP-adresse:"
+
+#~ msgid "_Import Saved Configuration..."
+#~ msgstr "_Importér gemt konfiguration..."
+
+#~ msgid "_Only use VPN connection for these addresses"
+#~ msgstr "_Brug kun VPN-forbindelse til flg. adresser"
+
+#~ msgid "_Packet Type"
+#~ msgstr "_Pakketype"
+
+#~ msgid "_Telephone Number:"
+#~ msgstr "_Telefonnummer:"
+
+#~ msgid "connect-delay"
+#~ msgstr "connect-delay"
+
+#~ msgid "pppd tunnel (PPTP, BTGPRS, Dialup)"
+#~ msgstr "pppd-tunnel (PPTP, BTGPRS, opkald)"
+
+#~ msgid "Name"
+#~ msgstr "Navn"
+
+#~ msgid "PPTP Server"
+#~ msgstr "PPTP-server"
+
+#~ msgid "Telephone Number"
+#~ msgstr "Telefonnummer"
+
+#~ msgid "Bluetooth Address"
+#~ msgstr "Bluetooth-adresse"
+
+#~ msgid "Bluetooth Channel"
+#~ msgstr "Bluetooth-kanal"
+
+#~ msgid "GPRS APN"
+#~ msgstr "GPRS APN"
+
+#~ msgid "GPRS IP"
+#~ msgstr "GPRS IP"
+
+#~ msgid "GPRS Context No."
+#~ msgstr "GPRS kontekstnr."
+
+#~ msgid "GPRS Packet Type"
+#~ msgstr "GPRS pakketype"
+
+#~ msgid "Use CTS/RTS flow control"
+#~ msgstr "Brug CTS/RTS flowkontrol"
+
+#~ msgid "Connect via a modem"
+#~ msgstr "Tilslut via et modem"
+
+#~ msgid "Require IP to be provided"
+#~ msgstr "Påkræv at IP tilbydes"
+
+#~ msgid "Use 128 bit MPPE encryption"
+#~ msgstr "Brug 128-bit MPPE-kryptering"
+
+#~ msgid "Do not use deflate compression"
+#~ msgstr "Brug ikke deflate-komprimering"
+
+#~ msgid "Do not use BSD compression"
+#~ msgstr "Brug ikke BSD-komprimering"
+
+#~ msgid "Exclusive device access by pppd"
+#~ msgstr "Eksklusiv enhedsadgang af pppd"
+
+#~ msgid "Authenticate remote peer"
+#~ msgstr "Godkend fjernserver"
+
+#~ msgid "Maximum transmit unit (in bytes)"
+#~ msgstr "Maksimal sendeenhed (i bytes)"
+
+#~ msgid "Maximum receive unit (in bytes)"
+#~ msgstr "Maksimal modtageenhed (i bytes)"
+
+#~ msgid "Number of failed LCP echos to cause disconnect"
+#~ msgstr "Antal fejlede LCP ekkoer før der afbrydes"
+
+#~ msgid "Interval (in seconds) at which to issue LCP echos"
+#~ msgstr "Interval (i sekunder) mellem LCP ekkoer"
+
+#~ msgid "Interval (in milliseconds) to wait before connecting."
+#~ msgstr "Interval (i millisekunder) som ventes inden der tilsluttes."
+
+#~ msgid "Custom PPP options"
+#~ msgstr "Brugerdefinerede PPP-indstillinger"
+
+#~ msgid "Use Peer DNS over the Tunnel"
+#~ msgstr "Brug server DNS over tunnellen"
+
+#~ msgid "Specific networks available"
+#~ msgstr "Specifikke netværk tilgængelige"
+
+#~ msgid "Limit to specific networks"
+#~ msgstr "Begræns til specifikke netværk"
+
+#~ msgid "The following '%s' connection will be created:"
+#~ msgstr "Følgende \"%s\"-forbindelse vil blive oprettet:"
+
+#~ msgid "\t%s:  %s\n"
+#~ msgstr "\t%s:  %s\n"
+
+#~ msgid "The connection details can be changed using the \"Back\" button."
+#~ msgstr "Forbindelsens detaljer kan ændres ved at bruge knappen \"Tilbage\"."
+
+#~ msgid "Select file to import"
+#~ msgstr "Vælg fil der skal importeres"
+
+#~ msgid "Save as..."
+#~ msgstr "Gem som..."
+
+#~ msgid "A file named \"%s\" already exists."
+#~ msgstr "En fil med navnet \"%s\" eksisterer allerede."
+
+#~ msgid "Do you want to replace it with the one you are saving?"
+#~ msgstr "Vil du erstatte den med den du gemmer?"
+
+#~ msgid "<b>Required Information</b>"
+#~ msgstr "<b>Påkrævede oplysninger</b>"
+
+#, fuzzy
+#~ msgid "<b>Routing options</b>"
+#~ msgstr "<b>Påkrævede oplysninger</b>"
+
+#
+#, fuzzy
+#~ msgid "Connection Type:"
+#~ msgstr "VPN-forbindelsen fejlede"
+
+#, fuzzy
+#~ msgid "MPPE encryption"
+#~ msgstr "Påkræv MPPE-kryptering"
+
+#~ msgid ""
+#~ "Please enter the information provided by your system administrator below. "
+#~ "Do not enter your password here as you will be prompted when connecting."
+#~ msgstr ""
+#~ "Indtast oplysninger fra din systemadministrator nedenfor. Du skal ikke "
+#~ "indtaste din adgangskode her, da du bliver spurgt om den ved tilslutning."
+
+#~ msgid "PPTP Client"
+#~ msgstr "PPTP-klient"
+
+#~ msgid "Remote:  %s"
+#~ msgstr "Fjern:  %s"
+
+#~ msgid "Username:  %s"
+#~ msgstr "Brugernavn:  %s"
+
+#~ msgid "Use MPPC Compression: %s"
+#~ msgstr "Brug MPPC-komprimering: %s"
+
+#~ msgid "Yes"
+#~ msgstr "Ja"
+
+#~ msgid "No"
+#~ msgstr "Nej"
+
+#~ msgid "Cannot import settings"
+#~ msgstr "Kan ikke importere opsætning"
+
+#~ msgid "The VPN settings file '%s' does not contain valid data."
+#~ msgstr "VPN-opsætningsfilen '%s' indeholder ikke gyldige data."
+
+#~ msgid ""
+#~ "Your password must be defined \n"
+#~ "in /etc/ppp/chap-secrets"
+#~ msgstr ""
+#~ "Din adgangskode skal være defineret \n"
+#~ "i /etc/ppp/chap-secrets"

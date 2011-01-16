@@ -1,0 +1,398 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Wei Mingzhi <whistler@openoffice.org>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: NetworkManager-pptp HEAD\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=NetworkManager&component=VPN: pptp\n"
+"POT-Creation-Date: 2009-02-17 20:22+0000\n"
+"PO-Revision-Date: 2009-02-18 14:59+0800\n"
+"Last-Translator: Wei Mingzhi <whistler@openoffice.org>\n"
+"Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:129
+msgid "_Secondary Password:"
+msgstr "次要密码(_S):"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:243
+msgid "_Username:"
+msgstr "用户名(_U):"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:245
+msgid "_Domain:"
+msgstr "域(_D):"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:247
+msgid "_Password:"
+msgstr "密码(_P):"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:336
+msgid "Connect _anonymously"
+msgstr "匿名连接(_A)"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:341
+msgid "Connect as _user:"
+msgstr "以用户连接(_U):"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:450
+msgid "_Remember passwords for this session"
+msgstr "本次会话记住密码(_R)"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:452
+msgid "_Save passwords in keyring"
+msgstr "在密钥环中保存密码(_S)"
+
+#: ../auth-dialog/main.c:62
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network '%s'."
+msgstr "您需要进行身份验证才能访问虚拟专用网络 '%s'。"
+
+#: ../auth-dialog/main.c:63
+msgid "Authenticate VPN"
+msgstr "认证 VPN"
+
+#: ../nm-pptp.desktop.in.h:1
+msgid "Add, Remove, and Edit PPTP VPN Connections"
+msgstr "添加、删除及编辑 PPTP VPN 连接"
+
+#: ../nm-pptp.desktop.in.h:2
+msgid "PPTP VPN Connection Manager"
+msgstr "PPTP VPN 连接管理器"
+
+#: ../properties/advanced-dialog.c:145
+msgid "All Available (Default)"
+msgstr "全部可用 (默认)"
+
+#: ../properties/advanced-dialog.c:149
+msgid "128-bit (most secure)"
+msgstr "128 位 (最安全的)"
+
+#: ../properties/advanced-dialog.c:158
+msgid "40-bit (less secure)"
+msgstr "40 位 (不甚安全)"
+
+#: ../properties/advanced-dialog.c:229
+msgid "PAP"
+msgstr "PAP"
+
+#: ../properties/advanced-dialog.c:235
+msgid "CHAP"
+msgstr "CHAP"
+
+#: ../properties/advanced-dialog.c:241
+msgid "MSCHAP"
+msgstr "MSCHAP"
+
+#: ../properties/advanced-dialog.c:247
+msgid "MSCHAPv2"
+msgstr "MSCHAPv2"
+
+#: ../properties/advanced-dialog.c:253
+msgid "EAP"
+msgstr "EAP"
+
+#: ../properties/nm-pptp-dialog.glade.h:1
+msgid "<b>Authentication</b>"
+msgstr "<b>身份验证</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:2
+msgid "<b>Echo</b>"
+msgstr "<b>回响</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:3
+msgid "<b>General</b>"
+msgstr "<b>一般</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:4
+msgid "<b>Optional</b>"
+msgstr "<b>可选项</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:5
+msgid "<b>Security and Compression</b>"
+msgstr "<b>安全性及压缩</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:6
+msgid "Ad_vanced..."
+msgstr "高级(_V)..."
+
+#: ../properties/nm-pptp-dialog.glade.h:7
+msgid "Allow _BSD data compression"
+msgstr "允许 _BSD 数据压缩"
+
+#: ../properties/nm-pptp-dialog.glade.h:8
+msgid "Allow _Deflate data compression"
+msgstr "允许 _Deflate 数据压缩"
+
+#: ../properties/nm-pptp-dialog.glade.h:9
+msgid "Allow st_ateful encryption"
+msgstr "允许有状态的加密(_A)"
+
+#: ../properties/nm-pptp-dialog.glade.h:10
+msgid "Allow the following authentication methods:"
+msgstr "允许以下认证方法:"
+
+#: ../properties/nm-pptp-dialog.glade.h:11
+msgid "Default"
+msgstr "默认"
+
+#: ../properties/nm-pptp-dialog.glade.h:12
+msgid "NT Domain:"
+msgstr "NT 域:"
+
+#: ../properties/nm-pptp-dialog.glade.h:13
+msgid "Password:"
+msgstr "密码:"
+
+#: ../properties/nm-pptp-dialog.glade.h:14
+msgid "Send PPP _echo packets"
+msgstr "发送 PPP 回响包(_E)"
+
+#: ../properties/nm-pptp-dialog.glade.h:15
+msgid "Show password"
+msgstr "显示密码"
+
+#: ../properties/nm-pptp-dialog.glade.h:16
+msgid "Use TCP _header compression"
+msgstr "使用 TCP 头压缩(_H)"
+
+#: ../properties/nm-pptp-dialog.glade.h:17
+msgid "Use _Point-to-Point encryption (MPPE)"
+msgstr "使用点到点加密(MPPE)(_P)"
+
+#: ../properties/nm-pptp-dialog.glade.h:18
+msgid "User name:"
+msgstr "用户名(_U):"
+
+#: ../properties/nm-pptp-dialog.glade.h:19
+msgid "_Gateway:"
+msgstr "网关(_G)："
+
+#: ../properties/nm-pptp-dialog.glade.h:20
+msgid "_Security:"
+msgstr "安全性(_S):"
+
+#: ../properties/nm-pptp.c:50
+msgid "Point-to-Point Tunneling Protocol (PPTP)"
+msgstr "点到点隧道协议 (PPTP)"
+
+#: ../properties/nm-pptp.c:51
+msgid "Compatible with Microsoft and other PPTP VPN servers."
+msgstr "与微软及其它的 PPTP VPN 服务器兼容。"
+
+#~ msgid "Authentication Type:"
+#~ msgstr "身份验证类型："
+
+#~ msgid "_Remember for this session"
+#~ msgstr "本次会话记住(_R)"
+
+#~ msgid "_Save in keyring"
+#~ msgstr "在密钥环中保存(_S)"
+
+#~ msgid "Authenticate Connection"
+#~ msgstr "身份验证连接"
+
+#~ msgid ""
+#~ "<span weight=\"bold\" size=\"larger\">Authentication Information</span>\n"
+#~ "\n"
+#~ "The connection '%s' may need some form of authentication.\n"
+#~ "\n"
+#~ "Please select an appropriate authentication type and provide the "
+#~ "necessary credentials below:\n"
+#~ msgstr ""
+#~ "<span weight=\"bold\" size=\"larger\">身份验证信息</span>\n"
+#~ "\n"
+#~ "连接“%s”可能需要某种形式的身份验证。\n"
+#~ "\n"
+#~ "请在下面选择适当的身份验证类型，并提供必要的信息：\n"
+
+#~ msgid "Authentication Required"
+#~ msgstr "需要身份验证"
+
+#~ msgid "_Authentication Type:"
+#~ msgstr "身份验证连接(_A)："
+
+#~ msgid "_Remote name:"
+#~ msgstr "远程名称(_U)："
+
+#~ msgid "VPN Connection Manager (PPP generic)"
+#~ msgstr "VPN 连接管理器(通用 PPP)"
+
+#~ msgid "<b>Delays &amp; Timeouts</b>"
+#~ msgstr "<b>延迟和超时</b>"
+
+#~ msgid "<b>Packet Parameters</b>"
+#~ msgstr "<b>包选项</b>"
+
+#~ msgid "<i>Example: 172.16.0.0/16 10.11.12.0/24</i>"
+#~ msgstr "<i>如：172.16.0.0/16 10.11.12.0/24</i>"
+
+#~ msgid "Allow B_SD Compression"
+#~ msgstr "允许 B_SD 压缩"
+
+#~ msgid "C_hannel:"
+#~ msgstr "频道(_H)："
+
+#~ msgid "Co_nnect delay:"
+#~ msgstr "连接延迟(_N)："
+
+#~ msgid "Compression & Encryption"
+#~ msgstr "压缩和加密"
+
+#~ msgid "Connection"
+#~ msgstr "连接"
+
+#~ msgid "Connection na_me:"
+#~ msgstr "连接名称(_M)："
+
+#~ msgid "Context _number:"
+#~ msgstr "环境号码(_N)："
+
+#~ msgid "Custom _PPP options:"
+#~ msgstr "自定义 PPP 选项(_P)："
+
+#~ msgid "Debug _output"
+#~ msgstr "调试输出(_O)"
+
+#~ msgid "E_xclusive device access (UUCP-style lock)"
+#~ msgstr "独占设备访问(UUCP 风格锁定)(_X)"
+
+#~ msgid "Find Device"
+#~ msgstr "查找设备"
+
+#~ msgid "GPRS Options"
+#~ msgstr "GPRS 选项"
+
+#~ msgid "Host name or IP address of the PPTP server"
+#~ msgstr "此 PPTP 服务器的主机名或 IP 地址"
+
+#~ msgid "IP a_ddress:"
+#~ msgstr "IP 地址(_D)："
+
+#~ msgid "PPP Options"
+#~ msgstr "PPP 选项"
+
+#~ msgid "Refuse _EAP"
+#~ msgstr "拒绝 _EAP"
+
+#~ msgid "Refuse _MS CHAP"
+#~ msgstr "拒绝 _MS CHAP"
+
+#~ msgid "Require 128 bit M_PPE encryption"
+#~ msgstr "需要 128 位 MPPE 加密(_P)"
+
+#~ msgid "Require MPPE _encryption"
+#~ msgstr "使用 MPPE 加密(_E)"
+
+#~ msgid "Require explicit IP _address"
+#~ msgstr "需要显式 IP 地址(_A)"
+
+#~ msgid "Requires existing network connection"
+#~ msgstr "需要已有的网络连接"
+
+#~ msgid "Routing"
+#~ msgstr "路由"
+
+#~ msgid "Serial Options"
+#~ msgstr "串行选项"
+
+#~ msgid "Service providers GPRS access point from device config"
+#~ msgstr "设备配置的服务提供商 GPRS 访问点"
+
+#~ msgid "Service providers IP address"
+#~ msgstr "服务提供商 IP 地址"
+
+#~ msgid "Telep_hone number:"
+#~ msgstr "电话号码(_H)："
+
+#~ msgid "Typ_e:"
+#~ msgstr "类型(_E)："
+
+#~ msgid "Use peer _DNS"
+#~ msgstr "使用对端 _DNS"
+
+#~ msgid "_Access point name:"
+#~ msgstr "接入点名称(_A)："
+
+#~ msgid "_Device address:"
+#~ msgstr "设备地址(_D)："
+
+#~ msgid "_Hardware RTS/CTS"
+#~ msgstr "硬件 RTS/CTS(_H)"
+
+#~ msgid "_Import Saved Configuration..."
+#~ msgstr "导入保存的配置(_I)..."
+
+#~ msgid "_Modem connection"
+#~ msgstr "调制解调器连接(_M)"
+
+#~ msgid "_Only use VPN connection for these addresses:"
+#~ msgstr "只对这些地址使用 VPN 连接(_O)："
+
+#~ msgid "_Packet type:"
+#~ msgstr "包类型(_P)："
+
+#~ msgid "_Require MPPC compression"
+#~ msgstr "需要 MPPC 压缩(_R)"
+
+#~ msgid "Name"
+#~ msgstr "名称"
+
+#~ msgid "PPTP Server"
+#~ msgstr "PPTP 服务器"
+
+#~ msgid "Telephone Number"
+#~ msgstr "电话号码"
+
+#~ msgid "Bluetooth Address"
+#~ msgstr "蓝牙地址"
+
+#~ msgid "Bluetooth Channel"
+#~ msgstr "蓝牙频道"
+
+#~ msgid "GPRS APN"
+#~ msgstr "GPRS APN"
+
+#~ msgid "GPRS IP"
+#~ msgstr "GPRS IP"
+
+#~ msgid "GPRS Context No."
+#~ msgstr "GPRS 环境编号"
+
+#~ msgid "GPRS Packet Type"
+#~ msgstr "GPRS 包类型"
+
+#~ msgid "Use CTS/RTS flow control"
+#~ msgstr "使用 CTS/RTS 流控制"
+
+#~ msgid "Connect via a modem"
+#~ msgstr "通过调制解调器连接"
+
+#~ msgid "Require IP to be provided"
+#~ msgstr "需要提供 IP"
+
+#~ msgid "Use Peer DNS"
+#~ msgstr "使用对端 DNS"
+
+#~ msgid "Use 128 bit MPPE encryption"
+#~ msgstr "使用 128 位 MPPE 加密"
+
+#~ msgid "Do not use BSD compression"
+#~ msgstr "不使用 BSD 压缩"
+
+#~ msgid "Select file to import"
+#~ msgstr "选择要导入的文件"
+
+#~ msgid "Save as..."
+#~ msgstr "另存为..."
+
+#~ msgid "A file named \"%s\" already exists."
+#~ msgstr "名为“%s”的文件已经存在。"
+
+#~ msgid "Do you want to replace it with the one you are saving?"
+#~ msgstr "您是否想要将其替换为您正在保存的文件？"

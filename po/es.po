@@ -1,0 +1,210 @@
+# translation of NetworkManager-pptp.HEAD.po to Español
+# translation of NetworkManager-openvpn.HEAD.po to
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2006.
+# Jorge González <jorgegonz@svn.gnome.org>, 2007, 200, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: NetworkManager-pptp.HEAD\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=NetworkManager&component=VPN: pptp\n"
+"POT-Creation-Date: 2009-10-27 03:34+0000\n"
+"PO-Revision-Date: 2009-10-27 23:56+0100\n"
+"Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
+"Language-Team: Español <gnome-es-list@gnome.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:129
+msgid "_Secondary Password:"
+msgstr "Contraseña _secundaria:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:243
+msgid "_Username:"
+msgstr "_Usuario:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:245
+msgid "_Domain:"
+msgstr "_Dominio:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:247
+msgid "_Password:"
+msgstr "_Contraseña:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:336
+msgid "Connect _anonymously"
+msgstr "Conectar como -anónimo"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:341
+msgid "Connect as _user:"
+msgstr "Conectar como _usuario:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:450
+msgid "_Remember passwords for this session"
+msgstr "_Recordar las contraseñas para esta sesión"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:452
+msgid "_Save passwords in keyring"
+msgstr "_Guardar las contraseña en el depósito de claves"
+
+#: ../auth-dialog/main.c:62
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network '%s'."
+msgstr "Necesita autenticarse para acceder a la red privada virtual «%s»"
+
+#: ../auth-dialog/main.c:63
+msgid "Authenticate VPN"
+msgstr "Autenticar VPN"
+
+#: ../nm-pptp.desktop.in.h:1
+msgid "Add, Remove, and Edit PPTP VPN Connections"
+msgstr "Añadir, eliminar y editar conexiones VPN PPTP"
+
+#: ../nm-pptp.desktop.in.h:2
+msgid "PPTP VPN Connection Manager"
+msgstr "Gestor de conexiones VPN PPTP"
+
+#: ../properties/advanced-dialog.c:173
+msgid "All Available (Default)"
+msgstr "Todas las disponibles (predeterminado)"
+
+#: ../properties/advanced-dialog.c:177
+msgid "128-bit (most secure)"
+msgstr "128-bit (más seguro)"
+
+#: ../properties/advanced-dialog.c:186
+msgid "40-bit (less secure)"
+msgstr "40-bit (menos seguro)"
+
+#: ../properties/advanced-dialog.c:292
+msgid "PAP"
+msgstr "PAP"
+
+#: ../properties/advanced-dialog.c:305
+msgid "CHAP"
+msgstr "CHAP"
+
+#: ../properties/advanced-dialog.c:317
+msgid "MSCHAP"
+msgstr "MSCHAP"
+
+#: ../properties/advanced-dialog.c:329
+msgid "MSCHAPv2"
+msgstr "MSCHAPv2"
+
+#: ../properties/advanced-dialog.c:342
+msgid "EAP"
+msgstr "EAP"
+
+#: ../properties/nm-pptp-dialog.glade.h:1
+msgid "<b>Authentication</b>"
+msgstr "<b>Autenticación</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:2
+msgid "<b>Echo</b>"
+msgstr "<b>Eco</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:3
+msgid "<b>General</b>"
+msgstr "<b>General</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:4
+msgid "<b>Optional</b>"
+msgstr "<b>Opcional</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:5
+msgid "<b>Security and Compression</b>"
+msgstr "<b>Seguridad y compresión</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:6
+msgid "Ad_vanced..."
+msgstr "A_vanzado..."
+
+#: ../properties/nm-pptp-dialog.glade.h:7
+msgid "Allow _BSD data compression"
+msgstr "Permitir compresión de datos _BSD"
+
+#: ../properties/nm-pptp-dialog.glade.h:8
+msgid "Allow _Deflate data compression"
+msgstr "Permitir compresión de datos _Deflate"
+
+#: ../properties/nm-pptp-dialog.glade.h:9
+msgid "Allow st_ateful encryption"
+msgstr "Permitir cifrado de est_ado completo"
+
+#: ../properties/nm-pptp-dialog.glade.h:10
+msgid "Allow the following authentication methods:"
+msgstr "Permitir los siguientes métodos de autenticación:"
+
+#: ../properties/nm-pptp-dialog.glade.h:11
+msgid "Default"
+msgstr "Predeterminado"
+
+#: ../properties/nm-pptp-dialog.glade.h:12
+msgid "NT Domain:"
+msgstr "Dominio de red:"
+
+#: ../properties/nm-pptp-dialog.glade.h:13
+msgid ""
+"Note: MPPE encryption is only available with MSCHAP authentication methods. "
+"To enable this checkbox, select one or more of the MSCHAP authentication "
+"methods: MSCHAP or MSCHAPv2."
+msgstr ""
+"Nota: el cifrado MPPE sólo está disponible con los métodos de autenticación "
+"MSCHAP. Para activar esta casilla de selección seleccione uno o más métodos "
+"de autenticación MSCHAP: MSCHAP o MSCHAPv2."
+
+#: ../properties/nm-pptp-dialog.glade.h:14
+msgid "PPTP Advanced Options"
+msgstr "Opciones avanzadas de PPTP"
+
+#: ../properties/nm-pptp-dialog.glade.h:15
+msgid "Password:"
+msgstr "Contraseña:"
+
+#: ../properties/nm-pptp-dialog.glade.h:16
+msgid "Send PPP _echo packets"
+msgstr "Mandar paquetes _eco PPP"
+
+#: ../properties/nm-pptp-dialog.glade.h:17
+msgid "Show password"
+msgstr "Mostrar contraseña"
+
+#: ../properties/nm-pptp-dialog.glade.h:18
+msgid "Use TCP _header compression"
+msgstr "Usar compresión de _cabeceras TCP"
+
+#: ../properties/nm-pptp-dialog.glade.h:19
+msgid "Use _Point-to-Point encryption (MPPE)"
+msgstr "Usar cifrado pun_to a punto (MPPE)"
+
+#: ../properties/nm-pptp-dialog.glade.h:20
+msgid "User name:"
+msgstr "Usuario:"
+
+#: ../properties/nm-pptp-dialog.glade.h:21
+msgid "_Gateway:"
+msgstr "_Pasarela:"
+
+#: ../properties/nm-pptp-dialog.glade.h:22
+msgid "_Security:"
+msgstr "_Seguridad:"
+
+#: ../properties/nm-pptp.c:50
+msgid "Point-to-Point Tunneling Protocol (PPTP)"
+msgstr "Protocolo de túnel punto a punto (PPTP)"
+
+#: ../properties/nm-pptp.c:51
+msgid "Compatible with Microsoft and other PPTP VPN servers."
+msgstr "Compatible con servidores PPTP VPN de Microsoft y otros."
+
+#~ msgid "gtk-cancel"
+#~ msgstr "gtk-cancel"
+
+#~ msgid "gtk-ok"
+#~ msgstr "gtk-ok"

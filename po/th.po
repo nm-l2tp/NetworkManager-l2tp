@@ -1,0 +1,573 @@
+# Thai translation of NetworkManager-ppp_vpn.
+# Copyright (C) 2007 Free Software Foundation, Inc.
+# This file is distributed under the same license as the NetworkManager-ppp_vpn package.
+# Theppitak Karoonboonyanan <thep@linux.thai.net>, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: NetworkManager-ppp_vpn\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-01-30 10:19+0700\n"
+"PO-Revision-Date: 2007-01-30 12:01+0700\n"
+"Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
+"Language-Team: Thai <l10n@opentle.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../auth-dialog-general/gnome-generic-auth-dialog.c:792
+msgid "Authentication Type:"
+msgstr "รูปแบบการยืนยันตัวบุคคล:"
+
+#: ../auth-dialog-general/gnome-generic-auth-dialog.c:857
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:11
+msgid "_Remember for this session"
+msgstr "_จำไว้สำหรับใช้ในวาระนี้"
+
+#: ../auth-dialog-general/gnome-generic-auth-dialog.c:859
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:13
+msgid "_Save in keyring"
+msgstr "_บันทึกลงในพวงกุญแจ"
+
+#: ../auth-dialog-general/main.c:48 ../auth-dialog/main.c:140
+#, c-format
+msgid "You need to authenticate to access '%s'."
+msgstr "คุณจะต้องยืนยันตัวบุคคลเพื่อเข้าใช้ '%s'"
+
+#: ../auth-dialog-general/main.c:51 ../auth-dialog/main.c:141
+msgid "Authenticate Connection"
+msgstr "ยืนยันตัวบุคคลสำหรับการเชื่อมต่อ"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:2
+#, no-c-format
+msgid ""
+"<span weight=\"bold\" size=\"larger\">Authentication Information</span>\n"
+"\n"
+"The connection '%s' may need some form of authentication.\n"
+"\n"
+"Please select an appropriate authentication type and provide the necessary "
+"credentials below:\n"
+msgstr ""
+"<span weight=\"bold\" size=\"larger\">ข้อมูลการยืนยันตัวบุคคล</span>\n"
+"\n"
+"การเชื่อมต่อ '%s' อาจต้องการการยืนยันตัวบุคคลรูปแบบใดรูปแบบหนึ่ง\n"
+"\n"
+"กรุณาเลือกรูปแบบการยืนยันตัวบุคคลที่เหมาะสม และป้อนข้อมูลรหัสลับที่จำเป็นด้านล่างนี้:\n"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:8
+msgid "Authentication Required"
+msgstr "จำเป็นต้องยืนยันตัวบุคคล"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:9
+msgid "_Authentication Type:"
+msgstr "รูปแ_บบการยืนยันตัวบุคคล:"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:10
+#: ../auth-dialog/gnome-two-password-dialog.c:272
+msgid "_Password:"
+msgstr "_รหัสผ่าน:"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:12
+msgid "_Remote name:"
+msgstr "ชื่อที่ฝั่งโ_น้น:"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:14
+#: ../auth-dialog/gnome-two-password-dialog.c:268
+msgid "_Username:"
+msgstr "_ชื่อผู้ใช้:"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:15
+msgid "auth-chap-window"
+msgstr "auth-chap-window"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:16
+msgid "auth-mschapv2-window"
+msgstr "auth-mschapv2-window"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:17
+msgid "auth-none-window"
+msgstr "auth-none-window"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:147
+msgid "_Secondary Password:"
+msgstr "รหัสผ่านที่_สอง:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:270
+msgid "_Domain:"
+msgstr "โ_ดเมน:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:355
+msgid "Connect _anonymously"
+msgstr "เชื่อมต่อแบบ_นิรนาม"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:360
+msgid "Connect as _user:"
+msgstr "เชื่อมต่อในนาม_ผู้ใช้:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:466
+msgid "_Remember password for this session"
+msgstr "_จำรหัสผ่านสำหรับใช้ในวาระนี้"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:468
+msgid "_Save password in keyring"
+msgstr "_บันทึกรหัสผ่านลงในพวงกุญแจ"
+
+#: ../nm-ppp.desktop.in.h:1
+msgid "Add, Remove, and Edit VPN Connections"
+msgstr "เพิ่ม, ลบ และแก้ไข การเชื่อมต่อ VPN"
+
+#: ../nm-ppp.desktop.in.h:2
+msgid "VPN Connection Manager (PPP generic)"
+msgstr "เครื่องมือจัดการการเชื่อมต่อ VPN (ทั่วไป)"
+
+#: ../properties/nm-ppp-dialog.glade.h:1
+msgid "00:00:00:00"
+msgstr "00:00:00:00"
+
+#: ../properties/nm-ppp-dialog.glade.h:2
+msgid "<b>Compression</b>"
+msgstr "<b>การบีบอัด</b>"
+
+#: ../properties/nm-ppp-dialog.glade.h:3
+msgid "<b>Connection Name</b>"
+msgstr "<b>ชื่อการเชื่อมต่อ</b>"
+
+#: ../properties/nm-ppp-dialog.glade.h:4
+msgid "<b>Delays and TImeouts</b>"
+msgstr "<b>การหน่วงเวลาและกำหนดเวลาคอย</b>"
+
+#: ../properties/nm-ppp-dialog.glade.h:5
+msgid "<b>Encryption</b>"
+msgstr "<b>การเข้ารหัสลับ</b>"
+
+#: ../properties/nm-ppp-dialog.glade.h:6
+msgid "<b>IP Options</b>"
+msgstr "<b>ตัวเลือกเกี่ยวกับ IP</b>"
+
+#: ../properties/nm-ppp-dialog.glade.h:7
+msgid "<b>Packet Parameters</b>"
+msgstr "<b>พารามิเตอร์ของแพ็กเก็ต</b>"
+
+#: ../properties/nm-ppp-dialog.glade.h:8
+msgid "<i>example: 172.16.0.0/16 10.11.12.0/24</i>"
+msgstr "<i>ตัวอย่าง: 172.16.0.0/16 10.11.12.0/24</i>"
+
+#: ../properties/nm-ppp-dialog.glade.h:9
+msgid "A list of extra options to pppd as would be typed on the command line"
+msgstr "รายการตัวเลือกเพิ่มเติมสำหรับ pppd ตามที่จะส่งในบรรทัดคำสั่ง"
+
+#: ../properties/nm-ppp-dialog.glade.h:10
+msgid "Allow BSD Compression"
+msgstr "เปิดใช้การบีบอัดแบบ BSD"
+
+#: ../properties/nm-ppp-dialog.glade.h:11
+msgid "Allow Deflate compression"
+msgstr "เปิดใช้การบีบอัดแบบ Deflate"
+
+#: ../properties/nm-ppp-dialog.glade.h:12
+msgid "Authenticate Peer"
+msgstr "ยืนยันเอกลักษณ์ของอีกฝ่าย"
+
+#: ../properties/nm-ppp-dialog.glade.h:13
+msgid "Authentication"
+msgstr "การยืนยันตัวบุคคล"
+
+#: ../properties/nm-ppp-dialog.glade.h:14
+msgid "Compression & Encryption"
+msgstr "การบีบอัด & การเข้ารหัสลับ"
+
+#: ../properties/nm-ppp-dialog.glade.h:15
+msgid "Connection"
+msgstr "การเชื่อมต่อ"
+
+#: ../properties/nm-ppp-dialog.glade.h:16
+msgid "Debug Output"
+msgstr "เขียนข้อมูลดีบั๊ก"
+
+#: ../properties/nm-ppp-dialog.glade.h:17
+msgid "Disconnect after this many LCP echo requests fail"
+msgstr "ตัดการเชื่อมต่อหลังจากที่การร้องขอ LCP echo ล้มเหลวเป็นจำนวนครั้งเท่านี้"
+
+#: ../properties/nm-ppp-dialog.glade.h:18
+#: ../properties/nm-ppp-properties.c:216
+msgid "Enable stateful MPPE"
+msgstr "เปิดใช้ MPPE แบบ stateful"
+
+#: ../properties/nm-ppp-dialog.glade.h:19
+msgid "Exclusive device access (UUCP-style lock)"
+msgstr "เข้าใช้อุปกรณ์แบบเอกสิทธิ์ (ล็อคในแบบ UUCP)"
+
+#: ../properties/nm-ppp-dialog.glade.h:20
+msgid "Find Device"
+msgstr "ตรวจหาอุปกรณ์"
+
+#: ../properties/nm-ppp-dialog.glade.h:21
+msgid ""
+"For security reasons, options entered in the box above are checked against a "
+"list of allowed options before a connection is established.  Currently there "
+"are no options on the list."
+msgstr ""
+"ด้วยเหตุผลด้านความปลอดภัย ตัวเลือกที่ป้อนในกล่องด้านบนนี้ จะถูกตรวจสอบกับรายการตัวเลือกที่อนุญาต "
+"ก่อนจะเริ่มเชื่อมต่อ ขณะนี้ยังไม่มีตัวเลือกในรายการดังกล่าว"
+
+#: ../properties/nm-ppp-dialog.glade.h:22
+msgid "GPRS Options"
+msgstr "ตัวเลือก GPRS"
+
+#: ../properties/nm-ppp-dialog.glade.h:23
+msgid "Hardware RTS/CTS"
+msgstr "RTS/CTS แบบฮาร์ดแวร์"
+
+#: ../properties/nm-ppp-dialog.glade.h:24
+msgid "Host name or IP address of the PPTP server"
+msgstr "ชื่อโฮสต์หรือที่อยู่ IP ของเซิร์ฟเวอร์ PPTP"
+
+#: ../properties/nm-ppp-dialog.glade.h:25
+msgid ""
+"If BSD compression is not allowed the 'nobsdcomp' option is passed to pppd"
+msgstr "ถ้าไม่เลือกเปิดใช้การบีบอัดแบบ BSD จะส่งตัวเลือก 'nobsdcomp' ให้กับ pppd"
+
+#: ../properties/nm-ppp-dialog.glade.h:26
+msgid ""
+"If Deflate compression is not allowed the 'nodefate' option is passed to pppd"
+msgstr "ถ้าไม่เลือกเปิดใช้การบีบอัดแบบ Deflate จะส่งตัวเลือก 'nodeflate' ให้กับ pppd"
+
+#: ../properties/nm-ppp-dialog.glade.h:27
+msgid "Maximum Receive Unit"
+msgstr "หน่วยของการรับข้อมูลสูงสุด (Maximum Receive Unit)"
+
+#: ../properties/nm-ppp-dialog.glade.h:28
+msgid "Maximum Transmit Unit"
+msgstr "หน่วยของการส่งข้อมูลสูงสุด (Maximum Transmit Unit)"
+
+#: ../properties/nm-ppp-dialog.glade.h:29
+msgid "Modem Connection"
+msgstr "เชื่อมต่อด้วยโมเด็ม"
+
+#: ../properties/nm-ppp-dialog.glade.h:30
+msgid "PPP Options"
+msgstr "ตัวเลือก PPP"
+
+#: ../properties/nm-ppp-dialog.glade.h:31
+msgid "Peer DNS through tunnel"
+msgstr "ใช้ DNS จากอีกฝั่งผ่าน tunnel"
+
+#: ../properties/nm-ppp-dialog.glade.h:32
+#: ../properties/nm-ppp-properties.c:251
+msgid "Refuse CHAP"
+msgstr "ปฏิเสธ CHAP"
+
+#: ../properties/nm-ppp-dialog.glade.h:33
+#: ../properties/nm-ppp-properties.c:246
+msgid "Refuse EAP"
+msgstr "ปฏิเสธ EAP"
+
+#: ../properties/nm-ppp-dialog.glade.h:34
+msgid "Refuse MS CHAP"
+msgstr "ปฏิเสธ MS CHAP"
+
+#: ../properties/nm-ppp-dialog.glade.h:35
+msgid "Require 128 bit MPPE encryption"
+msgstr "ต้องใช้การเข้ารหัสลับ MPPE 128 บิต"
+
+#: ../properties/nm-ppp-dialog.glade.h:36
+msgid "Require Explicit IP Addr"
+msgstr "ต้องการที่อยู่ IP แบบชัดแจ้ง"
+
+#: ../properties/nm-ppp-dialog.glade.h:37
+msgid "Require MPPC Compression"
+msgstr "ต้องใช้การบีบอัด MPPC"
+
+#: ../properties/nm-ppp-dialog.glade.h:38
+msgid "Require MPPE encryption"
+msgstr "ต้องใช้การเข้ารหัสลับ MPPE"
+
+#: ../properties/nm-ppp-dialog.glade.h:39
+msgid "Requires existing network connection"
+msgstr "ต้องมีการเชื่อมต่อเครือข่ายอยู่ก่อนแล้ว"
+
+#: ../properties/nm-ppp-dialog.glade.h:40
+msgid "Routing"
+msgstr "การกำหนดเส้นทาง"
+
+#: ../properties/nm-ppp-dialog.glade.h:41
+msgid "Serial Options"
+msgstr "ตัวเลือกพอร์ตอนุกรม"
+
+#: ../properties/nm-ppp-dialog.glade.h:42
+msgid "Service providers GPRS access point from device config"
+msgstr "access point สำหรับ GPRS ของผู้ให้บริการ ตามค่าตั้งของอุปกรณ์"
+
+#: ../properties/nm-ppp-dialog.glade.h:43
+msgid "Service providers IP address"
+msgstr "ที่อยู่ IP ของผู้ให้บริการ"
+
+#: ../properties/nm-ppp-dialog.glade.h:44
+msgid "Telephone number to dial"
+msgstr "หมายเลขโทรศัพท์ที่จะหมุน"
+
+#: ../properties/nm-ppp-dialog.glade.h:45
+msgid ""
+"This is the friendly name that will be used to identify this network "
+"connection, \n"
+"e.g. \"Campus VPN\" or \"Corporate Network\""
+msgstr ""
+"นี่คือชื่อที่จำง่ายซึ่งจะใช้เรียกการเชื่อมต่อไปยังเครือข่ายนี้\n"
+"เช่น \"VPN มหาวิทยาลัย\" หรือ \"เครือข่ายบริษัท\""
+
+#: ../properties/nm-ppp-dialog.glade.h:47
+msgid "Time in seconds between echo requests"
+msgstr "ช่วงเวลาเป็นวินาทีระหว่างการร้องขอ echo แต่ละครั้ง"
+
+#: ../properties/nm-ppp-dialog.glade.h:48
+msgid "Type:"
+msgstr "ชนิด:"
+
+#: ../properties/nm-ppp-dialog.glade.h:49
+#: ../properties/nm-ppp-properties.c:201
+msgid "Use Peer DNS"
+msgstr "ใช้ข้อมูล DNS จากอีกฝั่ง"
+
+#: ../properties/nm-ppp-dialog.glade.h:50
+msgid "When checked the \"refuse-chap\" option is passed to pppd."
+msgstr "เมื่อกาเลือก จะส่งตัวเลือก \"refuse-chap\" ให้กับ pppd"
+
+#: ../properties/nm-ppp-dialog.glade.h:51
+msgid "When checked the \"refuse-eap\" option is passed to pppd."
+msgstr "เมื่อกาเลือก จะส่งตัวเลือก \"refuse-eap\" ให้กับ pppd"
+
+#: ../properties/nm-ppp-dialog.glade.h:52
+msgid "When checked the \"refuse-mschap\" option is passed to pppd."
+msgstr "เมื่อกาเลือก จะส่งตัวเลือก \"refuse-mschap\" ให้กับ pppd"
+
+#: ../properties/nm-ppp-dialog.glade.h:53
+msgid "When checked the 'lock' option is passed to pppd"
+msgstr "เมื่อกาเลือก จะส่งตัวเลือก 'lock' ให้กับ pppd"
+
+#: ../properties/nm-ppp-dialog.glade.h:54
+msgid "When checked the 'require-mppc' option is passed to pppd"
+msgstr "เมื่อกาเลือก จะส่งตัวเลือก 'require-mppc' ให้กับ pppd"
+
+#: ../properties/nm-ppp-dialog.glade.h:55
+msgid ""
+"When checked this sets the pppd 'debug' option and adds some extra "
+"information from the NetworkManager plugin"
+msgstr ""
+"เมื่อกาเลือก จะกำหนดตัวเลือก 'debug' ให้กับ pppd และเพิ่มเติมข้อมูลจากปลั๊กอินของ "
+"NetworkManager"
+
+#: ../properties/nm-ppp-dialog.glade.h:56
+msgid "When checked this sets the pppd 'noipdefault' option"
+msgstr "เมื่อกาเลือก จะกำหนดตัวเลือก 'noipdefault' ให้กับ pppd"
+
+#: ../properties/nm-ppp-dialog.glade.h:57
+msgid "When checked this sets the pppd 'usepeerdns' option"
+msgstr "เมื่อกาเลือก จะกำหนดตัวเลือก 'usepeerdns' ให้กับ pppd"
+
+#: ../properties/nm-ppp-dialog.glade.h:58
+msgid "When this check box is cleared the \"noauth\" option is passed to pppd."
+msgstr "เมื่อไม่กาเลือก จะส่งตัวเลือก \"noauth\" ให้กับ pppd"
+
+#: ../properties/nm-ppp-dialog.glade.h:59
+msgid "_Access Point Name:"
+msgstr "ชื่อ _Access Point:"
+
+#: ../properties/nm-ppp-dialog.glade.h:60
+msgid "_Channel:"
+msgstr "_ช่องสัญญาณ:"
+
+#: ../properties/nm-ppp-dialog.glade.h:61
+msgid "_Context Num"
+msgstr "หมายเลข _Context"
+
+#: ../properties/nm-ppp-dialog.glade.h:62
+msgid "_Custom PPP options:"
+msgstr "ตัวเลือก PPP _กำหนดเอง:"
+
+#: ../properties/nm-ppp-dialog.glade.h:63
+msgid "_Device Address:"
+msgstr "ที่อยู่_อุปกรณ์:"
+
+#: ../properties/nm-ppp-dialog.glade.h:64
+msgid "_Gateway:"
+msgstr "เ_กตเวย์:"
+
+#: ../properties/nm-ppp-dialog.glade.h:65
+msgid "_IP Address:"
+msgstr "ที่อยู่ _IP:"
+
+#: ../properties/nm-ppp-dialog.glade.h:66
+msgid "_Import Saved Configuration..."
+msgstr "_นำเข้าค่าตั้งที่บันทึกไว้..."
+
+#: ../properties/nm-ppp-dialog.glade.h:67
+msgid "_Only use VPN connection for these addresses"
+msgstr "ใ_ช้การเชื่อมต่อ VPN กับที่อยู่เหล่านี้เท่านั้น"
+
+#: ../properties/nm-ppp-dialog.glade.h:68
+msgid "_Packet Type"
+msgstr "ชนิดแ_พ็กเก็ต"
+
+#: ../properties/nm-ppp-dialog.glade.h:69
+msgid "_Telephone Number:"
+msgstr "หมายเลขโ_ทรศัพท์:"
+
+#: ../properties/nm-ppp-dialog.glade.h:70
+msgid "connect-delay"
+msgstr "connect-delay"
+
+#: ../properties/nm-ppp-properties.c:45
+msgid "pppd tunnel (PPTP, BTGPRS, Dialup)"
+msgstr "pppd tunnel (PPTP, BTGPRS, Dialup)"
+
+#: ../properties/nm-ppp-properties.c:134
+msgid "Name"
+msgstr "ชื่อ"
+
+#: ../properties/nm-ppp-properties.c:146
+msgid "PPTP Server"
+msgstr "เซิร์ฟเวอร์ PPTP"
+
+#: ../properties/nm-ppp-properties.c:151
+msgid "Telephone Number"
+msgstr "หมายเลขโทรศัพท์"
+
+#: ../properties/nm-ppp-properties.c:156
+msgid "Bluetooth Address"
+msgstr "ที่อยู่บลูทูธ"
+
+#: ../properties/nm-ppp-properties.c:161
+msgid "Bluetooth Channel"
+msgstr "ช่องสัญญาณบลูทูธ"
+
+#: ../properties/nm-ppp-properties.c:166
+msgid "GPRS APN"
+msgstr "APN ของ GPRS"
+
+#: ../properties/nm-ppp-properties.c:171
+msgid "GPRS IP"
+msgstr "IP ของ GPRS"
+
+#: ../properties/nm-ppp-properties.c:176
+msgid "GPRS Context No."
+msgstr "หมายเลข Context ของ GPRS"
+
+#: ../properties/nm-ppp-properties.c:181
+msgid "GPRS Packet Type"
+msgstr "ชนิดแพ็กเก็ต GPRS"
+
+#: ../properties/nm-ppp-properties.c:186
+msgid "Use CTS/RTS flow control"
+msgstr "ใช้การควบคุมกระแสด้วย CTS/RTS"
+
+#: ../properties/nm-ppp-properties.c:191
+msgid "Connect via a modem"
+msgstr "เชื่อมต่อผ่านโมเด็ม"
+
+#: ../properties/nm-ppp-properties.c:196
+msgid "Require IP to be provided"
+msgstr "ต้องมีการกำหนด IP มาให้"
+
+#: ../properties/nm-ppp-properties.c:206
+msgid "Use MPPE encryption"
+msgstr "ใช้การเข้ารหัสลับ MPPE"
+
+#: ../properties/nm-ppp-properties.c:211
+msgid "Use 128 bit MPPE encryption"
+msgstr "ใช้การเข้ารหัสลับ MPPE 128 บิต"
+
+#: ../properties/nm-ppp-properties.c:221
+msgid "Use MPPC compression"
+msgstr "ใช้การบีบอัด MPPC"
+
+#: ../properties/nm-ppp-properties.c:226
+msgid "Do not use deflate compression"
+msgstr "ไม่ใช้การบีบอัดแบบ deflate"
+
+#: ../properties/nm-ppp-properties.c:231
+msgid "Do not use BSD compression"
+msgstr "ไม่ใช้การบีบอัดแบบ BSD"
+
+#: ../properties/nm-ppp-properties.c:236
+msgid "Exclusive device access by pppd"
+msgstr "ให้ pppd เข้าใช้อุปกรณ์แบบเอกสิทธิ์"
+
+#: ../properties/nm-ppp-properties.c:241
+msgid "Authenticate remote peer"
+msgstr "ยืนยันเอกลักษณ์ของเครื่องอีกฝั่ง"
+
+#: ../properties/nm-ppp-properties.c:256
+msgid "Refuse MSCHAP"
+msgstr "ปฏิเสธ MSCHAP"
+
+#: ../properties/nm-ppp-properties.c:261
+msgid "Maximum transmit unit (in bytes)"
+msgstr "หน่วยของการส่งข้อมูลสูงสุด (เป็นไบต์)"
+
+#: ../properties/nm-ppp-properties.c:266
+msgid "Maximum receive unit (in bytes)"
+msgstr "หน่วยของการรับข้อมูลสูงสุด (เป็นไบต์)"
+
+#: ../properties/nm-ppp-properties.c:271
+msgid "Number of failed LCP echos to cause disconnect"
+msgstr "จำนวนครั้งของ LCP echo ที่ล้มเหลว ก่อนจะตัดการเชื่อมต่อ"
+
+#: ../properties/nm-ppp-properties.c:276
+msgid "Interval (in seconds) at which to issue LCP echos"
+msgstr "ช่วงเวลา (เป็นวินาที) ระหว่างการส่ง LCP echo แต่ละครั้ง"
+
+#: ../properties/nm-ppp-properties.c:281
+msgid "Interval (in milliseconds) to wait before connecting."
+msgstr "ช่วงเวลา (เป็นมิลลิวินาที) ที่จะคอยก่อนเชื่อมต่อ"
+
+#: ../properties/nm-ppp-properties.c:286
+msgid "Custom PPP options"
+msgstr "ตัวเลือก PPP กำหนดเอง"
+
+#: ../properties/nm-ppp-properties.c:296
+msgid "Use Peer DNS over the Tunnel"
+msgstr "ใช้ DNS จากอีกฝั่งผ่าน tunnel"
+
+#: ../properties/nm-ppp-properties.c:302
+msgid "Specific networks available"
+msgstr "เครือข่ายจำเพาะที่มี"
+
+#: ../properties/nm-ppp-properties.c:308
+msgid "Limit to specific networks"
+msgstr "จำกัดการใช้งานที่เครือข่ายจำเพาะเท่านั้น"
+
+#: ../properties/vpnui_impl.c:229
+#, c-format
+msgid "The following '%s' connection will be created:"
+msgstr "จะสร้างการเชื่อมต่อ '%s' ต่อไปนี้:"
+
+#: ../properties/vpnui_impl.c:242
+#, c-format
+msgid "\t%s:  %s\n"
+msgstr "\t%s:  %s\n"
+
+#: ../properties/vpnui_impl.c:245
+msgid "The connection details can be changed using the \"Back\" button."
+msgstr "สามารถเปลี่ยนแปลงรายละเอียดการเชื่อมต่อได้ โด้ใช้ปุ่ม \"ย้อนกลับ\""
+
+#: ../properties/vpnui_impl.c:317
+msgid "Select file to import"
+msgstr "เลือกแฟ้มที่จะนำเข้า"
+
+#. printf ("in impl_export\n");
+#: ../properties/vpnui_impl.c:462
+msgid "Save as..."
+msgstr "บันทึกเป็น..."
+
+#: ../properties/vpnui_impl.c:491
+#, c-format
+msgid "A file named \"%s\" already exists."
+msgstr "มีแฟ้มชื่อ \"%s\" อยู่ก่อนแล้ว"
+
+#: ../properties/vpnui_impl.c:494
+msgid "Do you want to replace it with the one you are saving?"
+msgstr "คุณต้องการเขียนทับแฟ้มนี้ด้วยข้อมูลที่กำลังจะบันทึกหรือไม่?"
+
+#: ../src/nm-ppp-starter.c:140
+msgid "VPN Connection failed"
+msgstr "การเชื่อมต่อ VPN ล้มเหลว"

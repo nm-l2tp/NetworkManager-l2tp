@@ -1,0 +1,616 @@
+# Japanese message catalog for NetworkManager-pptp
+# Copyright (C) 2006 THE NetworkManager-pptp's COPYRIGHT HOLDER
+# This file is distributed under the same license as the NetworkManager-openvpn package.
+# Satoru SATOH <ss@gnome.gr.jp>, 2006, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: NetworkManager-pptp trunk\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-07-23 00:35+0900\n"
+"PO-Revision-Date: 2007-07-23 01:39+0900\n"
+"Last-Translator: Satoru SATOH <ss@gnome.gr.jp>\n"
+"Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../auth-dialog-general/gnome-generic-auth-dialog.c:792
+msgid "Authentication Type:"
+msgstr "認証タイプ:"
+
+#: ../auth-dialog-general/gnome-generic-auth-dialog.c:857
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:11
+msgid "_Remember for this session"
+msgstr "このセッションを記憶する(_R)"
+
+#: ../auth-dialog-general/gnome-generic-auth-dialog.c:859
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:13
+msgid "_Save in keyring"
+msgstr "キーリングに保存する(_S)"
+
+#: ../auth-dialog-general/main.c:48 ../auth-dialog/main.c:140
+#, c-format
+msgid "You need to authenticate to access '%s'."
+msgstr "'%s' にアクセスするには認証が必要です。"
+
+#: ../auth-dialog-general/main.c:51 ../auth-dialog/main.c:141
+msgid "Authenticate Connection"
+msgstr "接続認証"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:2
+#, no-c-format
+msgid ""
+"<span weight=\"bold\" size=\"larger\">Authentication Information</span>\n"
+"\n"
+"The connection '%s' may need some form of authentication.\n"
+"\n"
+"Please select an appropriate authentication type and provide the necessary "
+"credentials below:\n"
+msgstr "<span weight=\"bold\" size=\"larger\">認証情報</span>\n\n"
+"接続 '%s' には何らかの形の認証が必要な場合があります。\n\n"
+"適切な認証タイプを選択し、下の必要な信用証明をご入力下さい:\n"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:8
+msgid "Authentication Required"
+msgstr "認証が必要です"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:9
+msgid "_Authentication Type:"
+msgstr "認証タイプ(_A):"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:10
+#: ../auth-dialog/gnome-two-password-dialog.c:263
+msgid "_Password:"
+msgstr "パスワード(_P):"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:12
+msgid "_Remote name:"
+msgstr "リモート名(_R):"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:14
+#: ../auth-dialog/gnome-two-password-dialog.c:259
+msgid "_Username:"
+msgstr "ユーザ名(_U):"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:15
+msgid "auth-chap-window"
+msgstr "CHAP 認証"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:16
+msgid "auth-mschapv2-window"
+msgstr "MS CHAP v2 認証"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:17
+msgid "auth-none-window"
+msgstr "認証 (なし)"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:144
+msgid "_Secondary Password:"
+msgstr "第二パスワード(_S):"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:261
+msgid "_Domain:"
+msgstr "ドメイン(_D):"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:352
+msgid "Connect _anonymously"
+msgstr "匿名で接続(_A)"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:357
+msgid "Connect as _user:"
+msgstr "ユーザで接続(_U):"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:466
+msgid "_Remember password for this session"
+msgstr "このセッションのパスワードを記憶する(_R)"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:468
+msgid "_Save password in keyring"
+msgstr "パスワードをキーリングに保存する(_S)"
+
+#: ../nm-ppp.desktop.in.h:1
+msgid "Add, Remove, and Edit VPN Connections"
+msgstr "VPN 接続を追加、削除または編集"
+
+#: ../nm-ppp.desktop.in.h:2
+msgid "VPN Connection Manager (PPP generic)"
+msgstr "VPN 接続マネージャ (PPP 一般)"
+
+#: ../properties/nm-ppp-dialog.glade.h:1
+msgid "00:00:00:00"
+msgstr "00:00:00:00"
+
+#: ../properties/nm-ppp-dialog.glade.h:2
+msgid "<b>Compression</b>"
+msgstr "<b>圧縮</b>"
+
+#: ../properties/nm-ppp-dialog.glade.h:3
+msgid "<b>Delays &amp; Timeouts</b>"
+msgstr "<b>遅延とタイムアウト</b>"
+
+#: ../properties/nm-ppp-dialog.glade.h:4
+msgid "<b>Encryption</b>"
+msgstr "<b>暗号化</b>"
+
+#: ../properties/nm-ppp-dialog.glade.h:5
+msgid "<b>IP Options</b>"
+msgstr "<b>IP オプション</b>"
+
+#: ../properties/nm-ppp-dialog.glade.h:6
+msgid "<b>Packet Parameters</b>"
+msgstr "<b>パケットパラメータ</b>"
+
+#: ../properties/nm-ppp-dialog.glade.h:7
+msgid "<i>Example: 172.16.0.0/16 10.11.12.0/24</i>"
+msgstr "<i>例: 172.16.0.0/16 10.11.12.0/24</i>"
+
+#: ../properties/nm-ppp-dialog.glade.h:8
+msgid "A list of extra options to pppd as would be typed on the command line"
+msgstr "コマンド行で入力する ppd へのその他のオプションのリスト"
+
+#: ../properties/nm-ppp-dialog.glade.h:9
+msgid "Allow B_SD Compression"
+msgstr "BSD 圧縮を有効にする (_S)"
+
+#: ../properties/nm-ppp-dialog.glade.h:10
+msgid "Allow _Deflate compression"
+msgstr "デフレート圧縮を有効にする (_D)"
+
+#: ../properties/nm-ppp-dialog.glade.h:11
+msgid "Authentication"
+msgstr "認証"
+
+#: ../properties/nm-ppp-dialog.glade.h:12
+msgid "C_hannel:"
+msgstr "チャンネル(_H):"
+
+#: ../properties/nm-ppp-dialog.glade.h:13
+msgid "Co_nnect delay:"
+msgstr "接続遅延(_N):"
+
+#: ../properties/nm-ppp-dialog.glade.h:14
+msgid "Compression & Encryption"
+msgstr "圧縮と暗号"
+
+#: ../properties/nm-ppp-dialog.glade.h:15
+msgid "Connection"
+msgstr "接続"
+
+#: ../properties/nm-ppp-dialog.glade.h:16
+msgid "Connection na_me:"
+msgstr "接続名(_M):"
+
+#: ../properties/nm-ppp-dialog.glade.h:17
+msgid "Context _number:"
+msgstr "コンテキスト番号(_N):"
+
+#: ../properties/nm-ppp-dialog.glade.h:18
+msgid "Custom _PPP options:"
+msgstr "カスタム PPP オプション(_P):"
+
+#: ../properties/nm-ppp-dialog.glade.h:19
+msgid "Debug _output"
+msgstr "デバッグ出力(_O)"
+
+#: ../properties/nm-ppp-dialog.glade.h:20
+msgid "Disconnect after this many LCP echo requests fail"
+msgstr "LCP echo 要求がこの回数だけ失敗すると切断する"
+
+#: ../properties/nm-ppp-dialog.glade.h:21
+msgid "E_xclusive device access (UUCP-style lock)"
+msgstr "排他的なデバイスアクセス (UUCP スタイルのロック)(_X)"
+
+#: ../properties/nm-ppp-dialog.glade.h:22
+msgid "Enable stateful _MPPE"
+msgstr "ステートフル MPPE を有効にする (_M)"
+
+#: ../properties/nm-ppp-dialog.glade.h:23
+msgid "Find Device"
+msgstr "デバイス検索"
+
+#: ../properties/nm-ppp-dialog.glade.h:24
+msgid ""
+"For security reasons, options entered in the box above are checked against a "
+"list of allowed options before a connection is established.  Currently there "
+"are no options on the list."
+msgstr "セキュリティ上の理由から、上のボックスに入力したオプションは、"
+"接続を確立する前に可能なオプションのリストについてチェックされます。"
+
+#: ../properties/nm-ppp-dialog.glade.h:25
+msgid "GPRS Options"
+msgstr "GPRS オプション"
+
+#: ../properties/nm-ppp-dialog.glade.h:26
+msgid "Host name or IP address of the PPTP server"
+msgstr "PPTP サーバのホスト名か IP アドレス"
+
+#: ../properties/nm-ppp-dialog.glade.h:27
+msgid "IP a_ddress:"
+msgstr "IP アドレス(_D):"
+
+#: ../properties/nm-ppp-dialog.glade.h:28
+msgid ""
+"If BSD compression is not allowed the 'nobsdcomp' option is passed to pppd"
+msgstr "BSD 圧縮が利用できない場合は 'nobsdcomp' オプションが pppd に渡されます。"
+
+#: ../properties/nm-ppp-dialog.glade.h:29
+msgid ""
+"If Deflate compression is not allowed the 'nodefate' option is passed to pppd"
+msgstr "デフレート圧縮が利用できない場合は 'nobsdcomp' オプションが pppd に渡されます。"
+
+#: ../properties/nm-ppp-dialog.glade.h:30
+msgid "Maximum Receive Unit"
+msgstr "最大受信単位"
+
+#: ../properties/nm-ppp-dialog.glade.h:31
+msgid "Maximum Transmit Unit"
+msgstr "最大伝送単位"
+
+#: ../properties/nm-ppp-dialog.glade.h:32
+msgid "PPP Options"
+msgstr "PPP オプション"
+
+#: ../properties/nm-ppp-dialog.glade.h:33
+msgid "Refuse C_HAP"
+msgstr "CHAP を拒否(_H)"
+
+#: ../properties/nm-ppp-dialog.glade.h:34
+msgid "Refuse _EAP"
+msgstr "EAP を拒否(_E)"
+
+#: ../properties/nm-ppp-dialog.glade.h:35
+msgid "Refuse _MS CHAP"
+msgstr "MS CHAP を拒否(_M)"
+
+#: ../properties/nm-ppp-dialog.glade.h:36
+msgid "Require 128 bit M_PPE encryption"
+msgstr "128 bit MPPE 暗号が必要 (_P)"
+
+#: ../properties/nm-ppp-dialog.glade.h:37
+msgid "Require MPPE _encryption"
+msgstr "MPPE 暗号が必要 (_E)"
+
+#: ../properties/nm-ppp-dialog.glade.h:38
+msgid "Require explicit IP _address"
+msgstr "明示的な IP アドレスが必要(_A)"
+
+#: ../properties/nm-ppp-dialog.glade.h:39
+msgid "Requires existing network connection"
+msgstr "既存のネットワーク接続が必要"
+
+#: ../properties/nm-ppp-dialog.glade.h:40
+msgid "Routing"
+msgstr "ルーティング"
+
+#: ../properties/nm-ppp-dialog.glade.h:41
+msgid "Serial Options"
+msgstr "シリアルオプション"
+
+#: ../properties/nm-ppp-dialog.glade.h:42
+msgid "Service providers GPRS access point from device config"
+msgstr "デバイス設定からのサービスプロバイダ GPRS アクセスポイント"
+
+#: ../properties/nm-ppp-dialog.glade.h:43
+msgid "Service providers IP address"
+msgstr "サービスプロバイダ IP アドレス"
+
+#: ../properties/nm-ppp-dialog.glade.h:44
+msgid "Telep_hone number:"
+msgstr "電話番号(_H):"
+
+#: ../properties/nm-ppp-dialog.glade.h:45
+msgid ""
+"This is the friendly name that will be used to identify this network "
+"connection, \n"
+"e.g. \"Campus VPN\" or \"Corporate Network\""
+msgstr ""
+"例えば \"キャンパス VPN\" や \"社内ネットワーク\" といった、この"
+"ネットワーク接続を識別するためのわかりやすい名前です。"
+
+#: ../properties/nm-ppp-dialog.glade.h:47
+msgid "Time in seconds between echo requests"
+msgstr "echo 要求の時間間隔 (秒)"
+
+#: ../properties/nm-ppp-dialog.glade.h:48
+msgid "Typ_e:"
+msgstr "タイプ(_E):"
+
+#: ../properties/nm-ppp-dialog.glade.h:49
+msgid "Use peer _DNS"
+msgstr "ピーア DNS を使用 (_D)"
+
+#: ../properties/nm-ppp-dialog.glade.h:50
+msgid "When checked the \"refuse-chap\" option is passed to pppd."
+msgstr "チェックすると \"refuse-chap\" オプションが pppd に渡されます"
+
+#: ../properties/nm-ppp-dialog.glade.h:51
+msgid "When checked the \"refuse-eap\" option is passed to pppd."
+msgstr "チェックすると \"refuse-eap\" オプションが pppd に渡されます"
+
+#: ../properties/nm-ppp-dialog.glade.h:52
+msgid "When checked the \"refuse-mschap\" option is passed to pppd."
+msgstr "チェックすると \"refuse-mschap\" オプションが pppd に渡されます"
+
+#: ../properties/nm-ppp-dialog.glade.h:53
+msgid "When checked the 'lock' option is passed to pppd"
+msgstr "チェックすると \"lock\" オプションが pppd に渡されます"
+
+#: ../properties/nm-ppp-dialog.glade.h:54
+msgid "When checked the 'require-mppc' option is passed to pppd"
+msgstr "チェックすると \"require-mppc\" オプションが pppd に渡されます"
+
+#: ../properties/nm-ppp-dialog.glade.h:55
+msgid ""
+"When checked this sets the pppd 'debug' option and adds some extra "
+"information from the NetworkManager plugin"
+msgstr "チェックすると pppd の 'debug' オプションが有効となり、NetworkManager "
+"プラグインからの詳細な情報が得られます。"
+
+#: ../properties/nm-ppp-dialog.glade.h:56
+msgid "When checked this sets the pppd 'noipdefault' option"
+msgstr "チェックすると pppd の 'noipdefault' オプションが有効となります"
+
+#: ../properties/nm-ppp-dialog.glade.h:57
+msgid "When checked this sets the pppd 'usepeerdns' option"
+msgstr "チェックすると pppd の 'usepeerdns' オプションが有効となります"
+
+#: ../properties/nm-ppp-dialog.glade.h:58
+msgid "When this check box is cleared the \"noauth\" option is passed to pppd."
+msgstr "チェックすると \"noauth\" オプションが pppd に渡されます"
+
+#: ../properties/nm-ppp-dialog.glade.h:59
+msgid "_Access point name:"
+msgstr "アクセスポイント名(_A):"
+
+#: ../properties/nm-ppp-dialog.glade.h:60
+msgid "_Authenticate peer"
+msgstr "ピーア認証(_A)"
+
+#: ../properties/nm-ppp-dialog.glade.h:61
+msgid "_Device address:"
+msgstr "デバイスアドレス(_D):"
+
+#: ../properties/nm-ppp-dialog.glade.h:62
+msgid "_Gateway:"
+msgstr "ゲートウェイ(_G):"
+
+#: ../properties/nm-ppp-dialog.glade.h:63
+msgid "_Hardware RTS/CTS"
+msgstr "ハードウェア RTS/CTS (_H)"
+
+#: ../properties/nm-ppp-dialog.glade.h:64
+msgid "_Import Saved Configuration..."
+msgstr "保存されている設定をインポート(_I)..."
+
+#: ../properties/nm-ppp-dialog.glade.h:65
+msgid "_Modem connection"
+msgstr "モデム接続(_M)"
+
+#: ../properties/nm-ppp-dialog.glade.h:66
+msgid "_Only use VPN connection for these addresses:"
+msgstr "これらのアドレスについてのみ VPN 接続を使用(_O):"
+
+#: ../properties/nm-ppp-dialog.glade.h:67
+msgid "_Packet type:"
+msgstr "パケットタイプ(_P):"
+
+#: ../properties/nm-ppp-dialog.glade.h:68
+msgid "_Peer DNS through tunnel"
+msgstr "トンネルを介したピーア DNS (_P)"
+
+#: ../properties/nm-ppp-dialog.glade.h:69
+msgid "_Require MPPC compression"
+msgstr "MPPC 圧縮が必要(_R)"
+
+#: ../properties/nm-ppp-properties.c:45
+msgid "pppd tunnel (PPTP, BTGPRS, Dialup)"
+msgstr "pppd トンネル (PPTP, BTGPRS, ダイアルアップ)"
+
+#: ../properties/nm-ppp-properties.c:134
+msgid "Name"
+msgstr "名前"
+
+#: ../properties/nm-ppp-properties.c:146
+msgid "PPTP Server"
+msgstr "PPTP サーバ"
+
+#: ../properties/nm-ppp-properties.c:151
+msgid "Telephone Number"
+msgstr "電話番号"
+
+#: ../properties/nm-ppp-properties.c:156
+msgid "Bluetooth Address"
+msgstr "Bluetooth アドレス"
+
+#: ../properties/nm-ppp-properties.c:161
+msgid "Bluetooth Channel"
+msgstr "Bluetooth チャンネル"
+
+#: ../properties/nm-ppp-properties.c:166
+msgid "GPRS APN"
+msgstr "GPRS APN"
+
+#: ../properties/nm-ppp-properties.c:171
+msgid "GPRS IP"
+msgstr "GPRS IP"
+
+#: ../properties/nm-ppp-properties.c:176
+msgid "GPRS Context No."
+msgstr "GPRS コンテキスト番号"
+
+#: ../properties/nm-ppp-properties.c:181
+msgid "GPRS Packet Type"
+msgstr "GPRS パケットタイプ"
+
+#: ../properties/nm-ppp-properties.c:186
+msgid "Use CTS/RTS flow control"
+msgstr "CTS/RTS フロー制御を使用"
+
+#: ../properties/nm-ppp-properties.c:191
+msgid "Connect via a modem"
+msgstr "モデム経由で接続"
+
+#: ../properties/nm-ppp-properties.c:196
+msgid "Require IP to be provided"
+msgstr "提供される IP が必要"
+
+#: ../properties/nm-ppp-properties.c:201
+msgid "Use Peer DNS"
+msgstr "ピーア DNS を使用"
+
+#: ../properties/nm-ppp-properties.c:206
+msgid "Use MPPE encryption"
+msgstr "MPPE 暗号を使用"
+
+#: ../properties/nm-ppp-properties.c:211
+msgid "Use 128 bit MPPE encryption"
+msgstr "128 bit MPPE 暗号を使用"
+
+#: ../properties/nm-ppp-properties.c:216
+msgid "Enable stateful MPPE"
+msgstr "ステートフル MPPE を有効にする"
+
+#: ../properties/nm-ppp-properties.c:221
+msgid "Use MPPC compression"
+msgstr "MPPC 圧縮を使用"
+
+#: ../properties/nm-ppp-properties.c:226
+msgid "Do not use deflate compression"
+msgstr "デフレート圧縮を使用しない"
+
+#: ../properties/nm-ppp-properties.c:231
+msgid "Do not use BSD compression"
+msgstr "BSD 圧縮を使用しない"
+
+#: ../properties/nm-ppp-properties.c:236
+msgid "Exclusive device access by pppd"
+msgstr "pppd による排他的なデバイスアクセス"
+
+#: ../properties/nm-ppp-properties.c:241
+msgid "Authenticate remote peer"
+msgstr "リモートピーアを認証"
+
+#: ../properties/nm-ppp-properties.c:246
+msgid "Refuse EAP"
+msgstr "EAP を拒否"
+
+#: ../properties/nm-ppp-properties.c:251
+msgid "Refuse CHAP"
+msgstr "CHAP を拒否"
+
+#: ../properties/nm-ppp-properties.c:256
+msgid "Refuse MSCHAP"
+msgstr "MS CHAP を拒否"
+
+#: ../properties/nm-ppp-properties.c:261
+msgid "Maximum transmit unit (in bytes)"
+msgstr "最大伝送単位 (Byte)"
+
+#: ../properties/nm-ppp-properties.c:266
+msgid "Maximum receive unit (in bytes)"
+msgstr "最大受信単位 (Byte)"
+
+#: ../properties/nm-ppp-properties.c:271
+msgid "Number of failed LCP echos to cause disconnect"
+msgstr "切断する、失敗した LCP echo の回数"
+
+#: ../properties/nm-ppp-properties.c:276
+msgid "Interval (in seconds) at which to issue LCP echos"
+msgstr "LCP echo を発行する時間間隔 (秒)"
+
+#: ../properties/nm-ppp-properties.c:281
+msgid "Interval (in milliseconds) to wait before connecting."
+msgstr "接続までの待ち時間 (ミリ秒)"
+
+#: ../properties/nm-ppp-properties.c:286
+msgid "Custom PPP options"
+msgstr "カスタム PPP オプション"
+
+#: ../properties/nm-ppp-properties.c:296
+msgid "Use Peer DNS over the Tunnel"
+msgstr "トンネル上でピーア DNS を使用"
+
+#: ../properties/nm-ppp-properties.c:302
+msgid "Specific networks available"
+msgstr "利用可能な特定のネットワーク"
+
+#: ../properties/nm-ppp-properties.c:308
+msgid "Limit to specific networks"
+msgstr "特定のネットワークに限定"
+
+#: ../properties/vpnui_impl.c:229
+#, c-format
+msgid "The following '%s' connection will be created:"
+msgstr "次の '%s' 接続を作成します:"
+
+#: ../properties/vpnui_impl.c:242
+#, c-format
+msgid "\t%s:  %s\n"
+msgstr "\t%s:  %s\n"
+
+#: ../properties/vpnui_impl.c:245
+msgid "The connection details can be changed using the \"Back\" button."
+msgstr "接続の詳細は\"戻る\"ボタンで戻って変更できます。"
+
+#: ../properties/vpnui_impl.c:317
+msgid "Select file to import"
+msgstr "インポートするファイルを選択"
+
+#. printf ("in impl_export\n");
+#: ../properties/vpnui_impl.c:462
+msgid "Save as..."
+msgstr "別名で保存..."
+
+#: ../properties/vpnui_impl.c:491
+#, c-format
+msgid "A file named \"%s\" already exists."
+msgstr "ファイル \"%s\" は既にあります。"
+
+#: ../properties/vpnui_impl.c:494
+msgid "Do you want to replace it with the one you are saving?"
+msgstr "保存しようとしているファイルで上書きしますか?"
+
+#: ../src/nm-ppp-starter.c:140
+msgid "VPN Connection failed"
+msgstr "VPN 接続に失敗"
+
+#~ msgid "Tunnel via pppd"
+#~ msgstr "pppd 経由でトンネル"
+
+#~ msgid "<b>Bluetooth options</b>"
+#~ msgstr "<b>Bluetooth オプション</b>"
+
+#~ msgid "<b>Connection Name</b>"
+#~ msgstr "<b>接続名</b>"
+
+#~ msgid "<b>Dial-up options</b>"
+#~ msgstr "<b>ダイアルアップオプション</b>"
+
+#~ msgid "<b>PPTP options</b>"
+#~ msgstr "<b>PPTP オプション</b>"
+
+#~ msgid "<b>Required Information</b>"
+#~ msgstr "<b>必須情報</b>"
+
+#~ msgid "<b>Routing options</b>"
+#~ msgstr "<b>ルーティングオプション</b>"
+
+#~ msgid "MPPC Compression"
+#~ msgstr "MPPC 圧縮"
+
+#~ msgid "MPPE encryption"
+#~ msgstr "MPPE 暗号"
+
+#~ msgid "Numeric Tweaks"
+#~ msgstr "数値微調整"
+
+#~ msgid ""
+#~ "Please enter the information provided by your system administrator below. "
+#~ "Do not enter your password here as you will be prompted when connecting."
+#~ msgstr ""
+#~ "システム管理者が提供した情報を下に入力してください。接続時にきかれるまでは"
+#~ "パスワードは入力しないでください。"
+
+#~ msgid "Show on connection on menu"
+#~ msgstr "メニューの接続に表示"

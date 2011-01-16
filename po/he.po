@@ -1,0 +1,558 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Yair Hershkovitz, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-02-17 11:40+0000\n"
+"PO-Revision-Date: 2008-02-17 03:56+0000\n"
+"Last-Translator: Yair Hershkovitz <yairhr@gmail.com>\n"
+"Language-Team: he\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../auth-dialog-general/gnome-generic-auth-dialog.c:792
+msgid "Authentication Type:"
+msgstr "סוג אימות:"
+
+#: ../auth-dialog-general/gnome-generic-auth-dialog.c:857
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:11
+msgid "_Remember for this session"
+msgstr "_זכור עבור הפעלה זו"
+
+#: ../auth-dialog-general/gnome-generic-auth-dialog.c:859
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:13
+msgid "_Save in keyring"
+msgstr "_שמור בקבוצת המפתחות"
+
+#: ../auth-dialog-general/main.c:48 ../auth-dialog/main.c:140
+#, c-format
+msgid "You need to authenticate to access '%s'."
+msgstr ""
+
+#: ../auth-dialog-general/main.c:51 ../auth-dialog/main.c:141
+msgid "Authenticate Connection"
+msgstr "אמת חיבור"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:2
+#, no-c-format
+msgid ""
+"<span weight=\"bold\" size=\"larger\">Authentication Information</span>\n"
+"\n"
+"The connection '%s' may need some form of authentication.\n"
+"\n"
+"Please select an appropriate authentication type and provide the necessary "
+"credentials below:\n"
+msgstr ""
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:8
+msgid "Authentication Required"
+msgstr "נדרש אימות"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:9
+msgid "_Authentication Type:"
+msgstr "_סוג אימות:"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:10
+#: ../auth-dialog/gnome-two-password-dialog.c:263
+msgid "_Password:"
+msgstr "_סיסמה:"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:12
+msgid "_Remote name:"
+msgstr "שם _מרוחק:"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:14
+#: ../auth-dialog/gnome-two-password-dialog.c:259
+msgid "_Username:"
+msgstr "שם _משתמש:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:144
+msgid "_Secondary Password:"
+msgstr "סיסמה _משנית:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:261
+msgid "_Domain:"
+msgstr "_מתחם:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:352
+msgid "Connect _anonymously"
+msgstr "התחבר כ_אנונימי"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:357
+msgid "Connect as _user:"
+msgstr "התחבר כ_משתמש:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:466
+msgid "_Remember password for this session"
+msgstr "_זכור את הסיסמה עבור הפעלה זו"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:468
+msgid "_Save password in keyring"
+msgstr "_שמור את הסיסמה בקבוצת המפתחות"
+
+#: ../nm-ppp.desktop.in.h:1
+msgid "Add, Remove, and Edit VPN Connections"
+msgstr "הוסף, הסר וערוך חיבורי VPN"
+
+#: ../nm-ppp.desktop.in.h:2
+msgid "VPN Connection Manager (PPP generic)"
+msgstr "מנהל חיבורי VPN ‏(PPP כללי)"
+
+#: ../properties/nm-ppp-dialog.glade.h:1
+msgid "00:00:00:00"
+msgstr "00:00:00:00"
+
+#: ../properties/nm-ppp-dialog.glade.h:2
+msgid "<b>Compression</b>"
+msgstr "<b>כיווץ</b>"
+
+#: ../properties/nm-ppp-dialog.glade.h:3
+msgid "<b>Delays &amp; Timeouts</b>"
+msgstr ""
+
+#: ../properties/nm-ppp-dialog.glade.h:4
+msgid "<b>Encryption</b>"
+msgstr "<b>הצפנה</b>"
+
+#: ../properties/nm-ppp-dialog.glade.h:5
+msgid "<b>IP Options</b>"
+msgstr "<b>אפשרויות IP</b>"
+
+#: ../properties/nm-ppp-dialog.glade.h:6
+msgid "<b>Packet Parameters</b>"
+msgstr "<b>אפשרויות חבילה</b>"
+
+#: ../properties/nm-ppp-dialog.glade.h:7
+msgid "<i>Example: 172.16.0.0/16 10.11.12.0/24</i>"
+msgstr "<i>דוגמה: 172.16.0.0/16 10.11.12.0/24</i>"
+
+#: ../properties/nm-ppp-dialog.glade.h:8
+msgid "A list of extra options to pppd as would be typed on the command line"
+msgstr "רשימה של אפשרויות נוספות עבור pppd כפי שהן נרשמות בשורת הפקודה"
+
+#: ../properties/nm-ppp-dialog.glade.h:9
+msgid "Allow B_SD Compression"
+msgstr "אפשר כיווץ _BSD"
+
+#: ../properties/nm-ppp-dialog.glade.h:10
+msgid "Allow _Deflate compression"
+msgstr ""
+
+#: ../properties/nm-ppp-dialog.glade.h:11
+msgid "Authentication"
+msgstr "אימות"
+
+#: ../properties/nm-ppp-dialog.glade.h:12
+msgid "C_hannel:"
+msgstr "_ערוץ:"
+
+#: ../properties/nm-ppp-dialog.glade.h:13
+msgid "Co_nnect delay:"
+msgstr ""
+
+#: ../properties/nm-ppp-dialog.glade.h:14
+msgid "Compression & Encryption"
+msgstr "כיווץ והצפנה"
+
+#: ../properties/nm-ppp-dialog.glade.h:15
+msgid "Connection"
+msgstr "חיבור"
+
+#: ../properties/nm-ppp-dialog.glade.h:16
+msgid "Connection na_me:"
+msgstr "_שם חיבור:"
+
+#: ../properties/nm-ppp-dialog.glade.h:17
+msgid "Context _number:"
+msgstr ""
+
+#: ../properties/nm-ppp-dialog.glade.h:18
+msgid "Custom _PPP options:"
+msgstr "אפשרויות _PPP מותאמות:"
+
+#: ../properties/nm-ppp-dialog.glade.h:19
+msgid "Debug _output"
+msgstr "_פלט ניפוי"
+
+#: ../properties/nm-ppp-dialog.glade.h:20
+msgid "Disconnect after this many LCP echo requests fail"
+msgstr ""
+
+#: ../properties/nm-ppp-dialog.glade.h:21
+msgid "E_xclusive device access (UUCP-style lock)"
+msgstr ""
+
+#: ../properties/nm-ppp-dialog.glade.h:22
+msgid "Enable stateful _MPPE"
+msgstr ""
+
+#: ../properties/nm-ppp-dialog.glade.h:23
+msgid "Find Device"
+msgstr "חפש התקן"
+
+#: ../properties/nm-ppp-dialog.glade.h:24
+msgid ""
+"For security reasons, options entered in the box above are checked against a "
+"list of allowed options before a connection is established.  Currently there "
+"are no options on the list."
+msgstr ""
+
+#: ../properties/nm-ppp-dialog.glade.h:25
+msgid "GPRS Options"
+msgstr "אפשרויות GPRS"
+
+#: ../properties/nm-ppp-dialog.glade.h:26
+msgid "Host name or IP address of the PPTP server"
+msgstr "שם מארח או כתובת IP של שרת ה-PPTP"
+
+#: ../properties/nm-ppp-dialog.glade.h:27
+msgid "IP a_ddress:"
+msgstr "כתובת _IP:"
+
+#: ../properties/nm-ppp-dialog.glade.h:28
+msgid ""
+"If BSD compression is not allowed the 'nobsdcomp' option is passed to pppd"
+msgstr "אם כיווץ BSD אינו מורשה האפשרות 'nobsdcomp' מועברת ל-pppd"
+
+#: ../properties/nm-ppp-dialog.glade.h:29
+msgid ""
+"If Deflate compression is not allowed the 'nodefate' option is passed to pppd"
+msgstr ""
+
+#: ../properties/nm-ppp-dialog.glade.h:30
+msgid "Maximum Receive Unit"
+msgstr "גודל יחידת קבלה מקסימאלי"
+
+#: ../properties/nm-ppp-dialog.glade.h:31
+msgid "Maximum Transmit Unit"
+msgstr "גודל יחידת שליחה מקסימאלי"
+
+#: ../properties/nm-ppp-dialog.glade.h:32
+msgid "PPP Options"
+msgstr "אפשרויות PPP"
+
+#: ../properties/nm-ppp-dialog.glade.h:33
+msgid "Refuse C_HAP"
+msgstr "דחה C_HAP"
+
+#: ../properties/nm-ppp-dialog.glade.h:34
+msgid "Refuse _EAP"
+msgstr "דחה _EAP"
+
+#: ../properties/nm-ppp-dialog.glade.h:35
+msgid "Refuse _MS CHAP"
+msgstr "דחה _MS CHAP"
+
+#: ../properties/nm-ppp-dialog.glade.h:36
+msgid "Require 128 bit M_PPE encryption"
+msgstr "דרוש הצפנת M_PPE ‏128 סיבית"
+
+#: ../properties/nm-ppp-dialog.glade.h:37
+msgid "Require MPPE _encryption"
+msgstr "דרוש הצפנת _MPPE"
+
+#: ../properties/nm-ppp-dialog.glade.h:38
+msgid "Require explicit IP _address"
+msgstr ""
+
+#: ../properties/nm-ppp-dialog.glade.h:39
+msgid "Requires existing network connection"
+msgstr ""
+
+#: ../properties/nm-ppp-dialog.glade.h:40
+msgid "Routing"
+msgstr "ניתוב"
+
+#: ../properties/nm-ppp-dialog.glade.h:41
+msgid "Serial Options"
+msgstr "אפשרויות חיבור טורי"
+
+#: ../properties/nm-ppp-dialog.glade.h:42
+msgid "Service providers GPRS access point from device config"
+msgstr ""
+
+#: ../properties/nm-ppp-dialog.glade.h:43
+msgid "Service providers IP address"
+msgstr "כתובת IP של ספק השירות"
+
+#: ../properties/nm-ppp-dialog.glade.h:44
+msgid "Telep_hone number:"
+msgstr "מספר ט_לפון:"
+
+#: ../properties/nm-ppp-dialog.glade.h:45
+msgid ""
+"This is the friendly name that will be used to identify this network "
+"connection, \n"
+"e.g. \"Campus VPN\" or \"Corporate Network\""
+msgstr ""
+
+#: ../properties/nm-ppp-dialog.glade.h:47
+msgid "Time in seconds between echo requests"
+msgstr "הזמן בשניות בין בקשות הד"
+
+#: ../properties/nm-ppp-dialog.glade.h:48
+msgid "Typ_e:"
+msgstr "_סוג:"
+
+#: ../properties/nm-ppp-dialog.glade.h:49
+msgid "Use peer _DNS"
+msgstr ""
+
+#: ../properties/nm-ppp-dialog.glade.h:50
+msgid "When checked the \"refuse-chap\" option is passed to pppd."
+msgstr "כאשר מסומן האפשרות \"refuse-chap\" מועברת ל-pppd."
+
+#: ../properties/nm-ppp-dialog.glade.h:51
+msgid "When checked the \"refuse-eap\" option is passed to pppd."
+msgstr "כאשר מסומן האפשרות \"refuse-eap\" מועברת ל-pppd."
+
+#: ../properties/nm-ppp-dialog.glade.h:52
+msgid "When checked the \"refuse-mschap\" option is passed to pppd."
+msgstr "כאשר מסומן האפשרות \"refuse-mschap\" מועברת ל-pppd."
+
+#: ../properties/nm-ppp-dialog.glade.h:53
+msgid "When checked the 'lock' option is passed to pppd"
+msgstr "כאשר מסומן האפשרות \"lock\" מועברת ל-pppd."
+
+#: ../properties/nm-ppp-dialog.glade.h:54
+msgid "When checked the 'require-mppc' option is passed to pppd"
+msgstr "כאשר מסומן האפשרות \"require-mppc\" מועברת ל-pppd."
+
+#: ../properties/nm-ppp-dialog.glade.h:55
+msgid ""
+"When checked this sets the pppd 'debug' option and adds some extra "
+"information from the NetworkManager plugin"
+msgstr ""
+
+#: ../properties/nm-ppp-dialog.glade.h:56
+msgid "When checked this sets the pppd 'noipdefault' option"
+msgstr "כאשר מסומן האפשרות \"noipdefault\" מועברת ל-pppd."
+
+#: ../properties/nm-ppp-dialog.glade.h:57
+msgid "When checked this sets the pppd 'usepeerdns' option"
+msgstr "כאשר מסומן האפשרות \"usepeerdns\" מועברת ל-pppd."
+
+#: ../properties/nm-ppp-dialog.glade.h:58
+msgid "When this check box is cleared the \"noauth\" option is passed to pppd."
+msgstr "כאשר מסומן האפשרות \"noauth\" מועברת ל-pppd."
+
+#: ../properties/nm-ppp-dialog.glade.h:59
+msgid "_Access point name:"
+msgstr "שם _נקודת גישה:"
+
+#: ../properties/nm-ppp-dialog.glade.h:60
+msgid "_Authenticate peer"
+msgstr ""
+
+#: ../properties/nm-ppp-dialog.glade.h:61
+msgid "_Device address:"
+msgstr "_כתובת התקן:"
+
+#: ../properties/nm-ppp-dialog.glade.h:62
+msgid "_Gateway:"
+msgstr ""
+
+#: ../properties/nm-ppp-dialog.glade.h:63
+msgid "_Hardware RTS/CTS"
+msgstr ""
+
+#: ../properties/nm-ppp-dialog.glade.h:64
+msgid "_Import Saved Configuration..."
+msgstr "_יבא הגדרות שמורות..."
+
+#: ../properties/nm-ppp-dialog.glade.h:65
+msgid "_Modem connection"
+msgstr "חיבור _מודם"
+
+#: ../properties/nm-ppp-dialog.glade.h:66
+msgid "_Only use VPN connection for these addresses:"
+msgstr ""
+
+#: ../properties/nm-ppp-dialog.glade.h:67
+msgid "_Packet type:"
+msgstr "_סוג חבילה:"
+
+#: ../properties/nm-ppp-dialog.glade.h:68
+msgid "_Peer DNS through tunnel"
+msgstr ""
+
+#: ../properties/nm-ppp-dialog.glade.h:69
+msgid "_Require MPPC compression"
+msgstr "דרוש כיווץ _MPPC"
+
+#: ../properties/nm-ppp-properties.c:45
+msgid "pppd tunnel (PPTP, BTGPRS, Dialup)"
+msgstr ""
+
+#: ../properties/nm-ppp-properties.c:134
+msgid "Name"
+msgstr "שם"
+
+#: ../properties/nm-ppp-properties.c:146
+msgid "PPTP Server"
+msgstr "שרת PPTP"
+
+#: ../properties/nm-ppp-properties.c:151
+msgid "Telephone Number"
+msgstr "מספר טלפון"
+
+#: ../properties/nm-ppp-properties.c:156
+msgid "Bluetooth Address"
+msgstr "כתובת Bluetooth"
+
+#: ../properties/nm-ppp-properties.c:161
+msgid "Bluetooth Channel"
+msgstr "ערוץ Bluetooth"
+
+#: ../properties/nm-ppp-properties.c:166
+msgid "GPRS APN"
+msgstr "GPRS APN"
+
+#: ../properties/nm-ppp-properties.c:171
+msgid "GPRS IP"
+msgstr "GPRS IP"
+
+#: ../properties/nm-ppp-properties.c:176
+msgid "GPRS Context No."
+msgstr ""
+
+#: ../properties/nm-ppp-properties.c:181
+msgid "GPRS Packet Type"
+msgstr ""
+
+#: ../properties/nm-ppp-properties.c:186
+msgid "Use CTS/RTS flow control"
+msgstr ""
+
+#: ../properties/nm-ppp-properties.c:191
+msgid "Connect via a modem"
+msgstr "התחבר בעזרת מודם"
+
+#: ../properties/nm-ppp-properties.c:196
+msgid "Require IP to be provided"
+msgstr ""
+
+#: ../properties/nm-ppp-properties.c:201
+msgid "Use Peer DNS"
+msgstr ""
+
+#: ../properties/nm-ppp-properties.c:206
+msgid "Use MPPE encryption"
+msgstr "השתמש בהצפנת MPPE"
+
+#: ../properties/nm-ppp-properties.c:211
+msgid "Use 128 bit MPPE encryption"
+msgstr "השתמש בהצפנת MPPE 128bit"
+
+#: ../properties/nm-ppp-properties.c:216
+msgid "Enable stateful MPPE"
+msgstr ""
+
+#: ../properties/nm-ppp-properties.c:221
+msgid "Use MPPC compression"
+msgstr "השתמש בהצפנת MPPC"
+
+#: ../properties/nm-ppp-properties.c:226
+msgid "Do not use deflate compression"
+msgstr ""
+
+#: ../properties/nm-ppp-properties.c:231
+msgid "Do not use BSD compression"
+msgstr "אל תשתמש בכיווץ BSD"
+
+#: ../properties/nm-ppp-properties.c:236
+msgid "Exclusive device access by pppd"
+msgstr ""
+
+#: ../properties/nm-ppp-properties.c:241
+msgid "Authenticate remote peer"
+msgstr ""
+
+#: ../properties/nm-ppp-properties.c:246
+msgid "Refuse EAP"
+msgstr "דחה EAP"
+
+#: ../properties/nm-ppp-properties.c:251
+msgid "Refuse CHAP"
+msgstr "דחה CHAP"
+
+#: ../properties/nm-ppp-properties.c:256
+msgid "Refuse MSCHAP"
+msgstr "דחה NSCHAP"
+
+#: ../properties/nm-ppp-properties.c:261
+msgid "Maximum transmit unit (in bytes)"
+msgstr "גודל יחידת שליחה מקסימאלי (בבתים)"
+
+#: ../properties/nm-ppp-properties.c:266
+msgid "Maximum receive unit (in bytes)"
+msgstr "גודל יחידת קבלה מקסימאלי (בבתים)"
+
+#: ../properties/nm-ppp-properties.c:271
+msgid "Number of failed LCP echos to cause disconnect"
+msgstr ""
+
+#: ../properties/nm-ppp-properties.c:276
+msgid "Interval (in seconds) at which to issue LCP echos"
+msgstr ""
+
+#: ../properties/nm-ppp-properties.c:281
+msgid "Interval (in milliseconds) to wait before connecting."
+msgstr ""
+
+#: ../properties/nm-ppp-properties.c:286
+msgid "Custom PPP options"
+msgstr "אפשרויות PPP מותאמות"
+
+#: ../properties/nm-ppp-properties.c:296
+msgid "Use Peer DNS over the Tunnel"
+msgstr ""
+
+#: ../properties/nm-ppp-properties.c:302
+msgid "Specific networks available"
+msgstr ""
+
+#: ../properties/nm-ppp-properties.c:308
+msgid "Limit to specific networks"
+msgstr ""
+
+#: ../properties/vpnui_impl.c:229
+#, c-format
+msgid "The following '%s' connection will be created:"
+msgstr "חיבור ה-'%s' הבא יווצר:"
+
+#: ../properties/vpnui_impl.c:242
+#, c-format
+msgid "\t%s:  %s\n"
+msgstr "\t%s:  %s\n"
+
+#: ../properties/vpnui_impl.c:245
+msgid "The connection details can be changed using the \"Back\" button."
+msgstr ""
+
+#: ../properties/vpnui_impl.c:317
+msgid "Select file to import"
+msgstr "בחר קובץ ליבוא"
+
+#. printf ("in impl_export\n");
+#: ../properties/vpnui_impl.c:462
+msgid "Save as..."
+msgstr "שמור בשם..."
+
+#: ../properties/vpnui_impl.c:491
+#, c-format
+msgid "A file named \"%s\" already exists."
+msgstr "קובץ בשם \"%s\" כבר קיים"
+
+#: ../properties/vpnui_impl.c:494
+msgid "Do you want to replace it with the one you are saving?"
+msgstr "האם להחליפו בקובץ שאתה מנסה לשמור?"
+
+#: ../src/nm-ppp-starter.c:141
+msgid "VPN Connection failed"
+msgstr "חיבור VPN נכשל"

@@ -1,0 +1,587 @@
+# GNOME Korea translation of nm-pptp.
+# Copyright (C) 2007 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Young-Ho Cha <ganadist@gmail.com>, 2007.
+# Namhyung Kim <namhyung@gmail.com>, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: nm-pptp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-12-03 05:08+0000\n"
+"PO-Revision-Date: 2007-12-24 18:16+0900\n"
+"Last-Translator: Namhyung Kim <namhyung@gmail.com>\n"
+"Language-Team: GNOME Korea <gnome-kr-hackers@lists.kldp.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../auth-dialog-general/gnome-generic-auth-dialog.c:792
+msgid "Authentication Type:"
+msgstr "인증 형식:"
+
+#: ../auth-dialog-general/gnome-generic-auth-dialog.c:857
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:11
+msgid "_Remember for this session"
+msgstr "이 세션에서 기억(_R)"
+
+#: ../auth-dialog-general/gnome-generic-auth-dialog.c:859
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:13
+msgid "_Save in keyring"
+msgstr "키링에 저장(_S)"
+
+#: ../auth-dialog-general/main.c:48 ../auth-dialog/main.c:140
+#, c-format
+msgid "You need to authenticate to access '%s'."
+msgstr "'%s'에 접근할 때 인증이 필요합니다."
+
+#: ../auth-dialog-general/main.c:51 ../auth-dialog/main.c:141
+msgid "Authenticate Connection"
+msgstr "연결 인증"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:2
+#, no-c-format
+msgid ""
+"<span weight=\"bold\" size=\"larger\">Authentication Information</span>\n"
+"\n"
+"The connection '%s' may need some form of authentication.\n"
+"\n"
+"Please select an appropriate authentication type and provide the necessary "
+"credentials below:\n"
+msgstr ""
+"<span weight=\"bold\" size=\"larger\">인증 정보</span>\n"
+"\n"
+"연결 '%s'에 몇몇 인증 형식이 필요합니다.\n"
+"\n"
+"아래에서 적당한 인증 방법을 선택하고, 필요한 인증서를 준비하십시오:\n"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:8
+msgid "Authentication Required"
+msgstr "인증 필요"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:9
+msgid "_Authentication Type:"
+msgstr "인증 형식(_A):"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:10
+#: ../auth-dialog/gnome-two-password-dialog.c:263
+msgid "_Password:"
+msgstr "암호(_P):"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:12
+msgid "_Remote name:"
+msgstr "원격 이름(_R):"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:14
+#: ../auth-dialog/gnome-two-password-dialog.c:259
+msgid "_Username:"
+msgstr "사용자 이름(_U):"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:144
+msgid "_Secondary Password:"
+msgstr "보조 암호(_S):"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:261
+msgid "_Domain:"
+msgstr "도메인(_D):"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:352
+msgid "Connect _anonymously"
+msgstr "익명으로 연결(_A)"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:357
+msgid "Connect as _user:"
+msgstr "사용자로 연결(_U):"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:466
+msgid "_Remember password for this session"
+msgstr "이 세션에서 암호 기억(_R)"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:468
+msgid "_Save password in keyring"
+msgstr "키링에 암호 저장(_S)"
+
+#: ../nm-ppp.desktop.in.h:1
+msgid "Add, Remove, and Edit VPN Connections"
+msgstr "VPN 연결 더하기, 지우기, 편집"
+
+#: ../nm-ppp.desktop.in.h:2
+msgid "VPN Connection Manager (PPP generic)"
+msgstr "VPN 연결 관리자 (일반 PPP)"
+
+#: ../properties/nm-ppp-dialog.glade.h:1
+msgid "00:00:00:00"
+msgstr "00:00:00:00"
+
+#: ../properties/nm-ppp-dialog.glade.h:2
+msgid "<b>Compression</b>"
+msgstr "<b>압축</b>"
+
+#: ../properties/nm-ppp-dialog.glade.h:3
+msgid "<b>Delays &amp; Timeouts</b>"
+msgstr "<b>지연과 시간제한</b>"
+
+#: ../properties/nm-ppp-dialog.glade.h:4
+msgid "<b>Encryption</b>"
+msgstr "<b>암호화</b>"
+
+#: ../properties/nm-ppp-dialog.glade.h:5
+msgid "<b>IP Options</b>"
+msgstr "<b>IP 옵션</b>"
+
+#: ../properties/nm-ppp-dialog.glade.h:6
+msgid "<b>Packet Parameters</b>"
+msgstr "<b>패킷 매개 변수</b>"
+
+#: ../properties/nm-ppp-dialog.glade.h:7
+msgid "<i>Example: 172.16.0.0/16 10.11.12.0/24</i>"
+msgstr "<i>예: 172.16.0.0/16 10.11.12.0/24</i>"
+
+#: ../properties/nm-ppp-dialog.glade.h:8
+msgid "A list of extra options to pppd as would be typed on the command line"
+msgstr "명령행에서 입력할 수 있는 pppd의 기타 옵션 목록"
+
+#: ../properties/nm-ppp-dialog.glade.h:9
+msgid "Allow B_SD Compression"
+msgstr "BSD 압축 허용(_S)"
+
+#: ../properties/nm-ppp-dialog.glade.h:10
+msgid "Allow _Deflate compression"
+msgstr "Deflate 압축 허용(_D)"
+
+#: ../properties/nm-ppp-dialog.glade.h:11
+msgid "Authentication"
+msgstr "인증"
+
+#: ../properties/nm-ppp-dialog.glade.h:12
+msgid "C_hannel:"
+msgstr "채널(_C):"
+
+#: ../properties/nm-ppp-dialog.glade.h:13
+msgid "Co_nnect delay:"
+msgstr "연결 지연(_N):"
+
+#: ../properties/nm-ppp-dialog.glade.h:14
+msgid "Compression & Encryption"
+msgstr "압축 및 암호화"
+
+#: ../properties/nm-ppp-dialog.glade.h:15
+msgid "Connection"
+msgstr "연결"
+
+#: ../properties/nm-ppp-dialog.glade.h:16
+msgid "Connection na_me:"
+msgstr "연결 이름(_M):"
+
+# FIXME
+#: ../properties/nm-ppp-dialog.glade.h:17
+msgid "Context _number:"
+msgstr "컨텍스트 번호(_N):"
+
+#: ../properties/nm-ppp-dialog.glade.h:18
+msgid "Custom _PPP options:"
+msgstr "사용자 지정 PPP 옵션(_P):"
+
+#: ../properties/nm-ppp-dialog.glade.h:19
+msgid "Debug _output"
+msgstr "디버그 출력(_O)"
+
+#: ../properties/nm-ppp-dialog.glade.h:20
+msgid "Disconnect after this many LCP echo requests fail"
+msgstr "LCP echo 요청 실패후 연결 끊기"
+
+#: ../properties/nm-ppp-dialog.glade.h:21
+msgid "E_xclusive device access (UUCP-style lock)"
+msgstr "배타적 장치 접근 (UUCP 형식 잠금)"
+
+#: ../properties/nm-ppp-dialog.glade.h:22
+msgid "Enable stateful _MPPE"
+msgstr "상태 기반(stateful) MPPE 사용(_M)"
+
+#: ../properties/nm-ppp-dialog.glade.h:23
+msgid "Find Device"
+msgstr "장치 찾기"
+
+#: ../properties/nm-ppp-dialog.glade.h:24
+msgid ""
+"For security reasons, options entered in the box above are checked against a "
+"list of allowed options before a connection is established.  Currently there "
+"are no options on the list."
+msgstr ""
+"보안적인 이유로, 입력된 옵션은 연결되기 전에 허용된 옵션목록에 대해 검사하게 "
+"됩니다. 현재 목록에 그런 옵션이 없습니다."
+
+#: ../properties/nm-ppp-dialog.glade.h:25
+msgid "GPRS Options"
+msgstr "GPRS 옵션"
+
+#: ../properties/nm-ppp-dialog.glade.h:26
+msgid "Host name or IP address of the PPTP server"
+msgstr "PPTP 서버의 호스트 이름 또는 IP 주소"
+
+#: ../properties/nm-ppp-dialog.glade.h:27
+msgid "IP a_ddress:"
+msgstr "IP 주소(_D):"
+
+#: ../properties/nm-ppp-dialog.glade.h:28
+msgid ""
+"If BSD compression is not allowed the 'nobsdcomp' option is passed to pppd"
+msgstr "BSD 압축이 허용되어 있지 않으면, 'nobsdcomp'옵션이 pppd에 설정됩니다"
+
+#: ../properties/nm-ppp-dialog.glade.h:29
+msgid ""
+"If Deflate compression is not allowed the 'nodefate' option is passed to pppd"
+msgstr ""
+"Deflate 압축이 허용되어 있지 않으면, 'nodefate'옵션이 pppd에 설정됩니다"
+
+#: ../properties/nm-ppp-dialog.glade.h:30
+msgid "Maximum Receive Unit"
+msgstr "최대 수신 단위"
+
+#: ../properties/nm-ppp-dialog.glade.h:31
+msgid "Maximum Transmit Unit"
+msgstr "최대 전송 단위"
+
+#: ../properties/nm-ppp-dialog.glade.h:32
+msgid "PPP Options"
+msgstr "PPP 옵션"
+
+#: ../properties/nm-ppp-dialog.glade.h:33
+msgid "Refuse C_HAP"
+msgstr "CHAP 거부(_H)"
+
+#: ../properties/nm-ppp-dialog.glade.h:34
+msgid "Refuse _EAP"
+msgstr "EAP 거부(_E)"
+
+#: ../properties/nm-ppp-dialog.glade.h:35
+msgid "Refuse _MS CHAP"
+msgstr "MS CHAP 거부(_M)"
+
+#: ../properties/nm-ppp-dialog.glade.h:36
+msgid "Require 128 bit M_PPE encryption"
+msgstr "128비트 MPPE 암호화 필요(_P)"
+
+#: ../properties/nm-ppp-dialog.glade.h:37
+msgid "Require MPPE _encryption"
+msgstr "MPPE 암호화 필요(_E)"
+
+#: ../properties/nm-ppp-dialog.glade.h:38
+msgid "Require explicit IP _address"
+msgstr "수동 IP주소 입력 필요(_A)"
+
+#: ../properties/nm-ppp-dialog.glade.h:39
+msgid "Requires existing network connection"
+msgstr "기존의 네트워크 연결 필요"
+
+#: ../properties/nm-ppp-dialog.glade.h:40
+msgid "Routing"
+msgstr "라우팅"
+
+#: ../properties/nm-ppp-dialog.glade.h:41
+msgid "Serial Options"
+msgstr "시리얼 옵션"
+
+#: ../properties/nm-ppp-dialog.glade.h:42
+msgid "Service providers GPRS access point from device config"
+msgstr "장치 설정의 서비스 제공업자 GPRS 접근 지점"
+
+#: ../properties/nm-ppp-dialog.glade.h:43
+msgid "Service providers IP address"
+msgstr "서비스 제공업자 IP 주소"
+
+#: ../properties/nm-ppp-dialog.glade.h:44
+msgid "Telep_hone number:"
+msgstr "전화 번호(_H):"
+
+#: ../properties/nm-ppp-dialog.glade.h:45
+msgid ""
+"This is the friendly name that will be used to identify this network "
+"connection, \n"
+"e.g. \"Campus VPN\" or \"Corporate Network\""
+msgstr ""
+"이러한 이름들은 네트워크 연결을 구분할 이름입니다.\n"
+"예, \"학교 VPN\", \"회사 네트워크\""
+
+#: ../properties/nm-ppp-dialog.glade.h:47
+msgid "Time in seconds between echo requests"
+msgstr "echo 요청 사이의 시간 (초단위)"
+
+#: ../properties/nm-ppp-dialog.glade.h:48
+msgid "Typ_e:"
+msgstr "형식(_E):"
+
+#: ../properties/nm-ppp-dialog.glade.h:49
+msgid "Use peer _DNS"
+msgstr "Peer DNS 사용(_D)"
+
+#: ../properties/nm-ppp-dialog.glade.h:50
+msgid "When checked the \"refuse-chap\" option is passed to pppd."
+msgstr "pppd에 \"refuse-chap\" 옵션을 설정합니다."
+
+#: ../properties/nm-ppp-dialog.glade.h:51
+msgid "When checked the \"refuse-eap\" option is passed to pppd."
+msgstr "pppd에 \"refuse-eap\" 옵션을 설정합니다."
+
+#: ../properties/nm-ppp-dialog.glade.h:52
+msgid "When checked the \"refuse-mschap\" option is passed to pppd."
+msgstr "pppd에 \"refuse-mschap\" 옵션을 설정합니다."
+
+#: ../properties/nm-ppp-dialog.glade.h:53
+msgid "When checked the 'lock' option is passed to pppd"
+msgstr "pppd에 'lock' 옵션을 설정합니다."
+
+#: ../properties/nm-ppp-dialog.glade.h:54
+msgid "When checked the 'require-mppc' option is passed to pppd"
+msgstr "pppd에 'require-mppc' 옵션을 설정합니다."
+
+#: ../properties/nm-ppp-dialog.glade.h:55
+msgid ""
+"When checked this sets the pppd 'debug' option and adds some extra "
+"information from the NetworkManager plugin"
+msgstr ""
+"pppd에 'debug'옵션을 설정해서, NetworkManager 플러그인에 더 많은 정보를 볼 "
+"수 있게 합니다."
+
+#: ../properties/nm-ppp-dialog.glade.h:56
+msgid "When checked this sets the pppd 'noipdefault' option"
+msgstr "pppd에 'noipdefault'옵션을 설정합니다"
+
+#: ../properties/nm-ppp-dialog.glade.h:57
+msgid "When checked this sets the pppd 'usepeerdns' option"
+msgstr "pppd에 'usepeerdns'옵션을 설정합니다"
+
+#: ../properties/nm-ppp-dialog.glade.h:58
+msgid "When this check box is cleared the \"noauth\" option is passed to pppd."
+msgstr "이 체크박스를 설정하지 않으면, pppd에 \"noauth\"옵션이 설정됩니다."
+
+#: ../properties/nm-ppp-dialog.glade.h:59
+msgid "_Access point name:"
+msgstr "접속 지점 이름(_A):"
+
+#: ../properties/nm-ppp-dialog.glade.h:60
+msgid "_Authenticate peer"
+msgstr "peer 인증(_A)"
+
+#: ../properties/nm-ppp-dialog.glade.h:61
+msgid "_Device address:"
+msgstr "장치 주소(_D):"
+
+#: ../properties/nm-ppp-dialog.glade.h:62
+msgid "_Gateway:"
+msgstr "게이트웨이(_G):"
+
+#: ../properties/nm-ppp-dialog.glade.h:63
+msgid "_Hardware RTS/CTS"
+msgstr "하드웨어 RTS/CTS(_H)"
+
+#: ../properties/nm-ppp-dialog.glade.h:64
+msgid "_Import Saved Configuration..."
+msgstr "저장된 설정 가져오기(_I)..."
+
+#: ../properties/nm-ppp-dialog.glade.h:65
+msgid "_Modem connection"
+msgstr "모뎀 연결(_M)"
+
+#: ../properties/nm-ppp-dialog.glade.h:66
+msgid "_Only use VPN connection for these addresses:"
+msgstr "이 주소에는 VPN 연결 만 사용(_O):"
+
+#: ../properties/nm-ppp-dialog.glade.h:67
+msgid "_Packet type:"
+msgstr "패킷 형식(_P):"
+
+#: ../properties/nm-ppp-dialog.glade.h:68
+msgid "_Peer DNS through tunnel"
+msgstr "터널을 통한 Peer DNS(_P)"
+
+#: ../properties/nm-ppp-dialog.glade.h:69
+msgid "_Require MPPC compression"
+msgstr "MPPC 압축 필요(_R)"
+
+#: ../properties/nm-ppp-properties.c:45
+msgid "pppd tunnel (PPTP, BTGPRS, Dialup)"
+msgstr "pppd 터널 (PPTD, BTGPRS, 전화걸기)"
+
+#: ../properties/nm-ppp-properties.c:134
+msgid "Name"
+msgstr "이름"
+
+#: ../properties/nm-ppp-properties.c:146
+msgid "PPTP Server"
+msgstr "PPTP 서버"
+
+#: ../properties/nm-ppp-properties.c:151
+msgid "Telephone Number"
+msgstr "전화번호"
+
+#: ../properties/nm-ppp-properties.c:156
+msgid "Bluetooth Address"
+msgstr "블루투스 주소"
+
+#: ../properties/nm-ppp-properties.c:161
+msgid "Bluetooth Channel"
+msgstr "블루투스 채널"
+
+#: ../properties/nm-ppp-properties.c:166
+msgid "GPRS APN"
+msgstr "GPRS APN"
+
+#: ../properties/nm-ppp-properties.c:171
+msgid "GPRS IP"
+msgstr "GPRS IP"
+
+#: ../properties/nm-ppp-properties.c:176
+msgid "GPRS Context No."
+msgstr "GPRS 컨텍스트 번호"
+
+#: ../properties/nm-ppp-properties.c:181
+msgid "GPRS Packet Type"
+msgstr "GPRS 패킷 형식"
+
+#: ../properties/nm-ppp-properties.c:186
+msgid "Use CTS/RTS flow control"
+msgstr "CTS/RTS 흐름제어 사용"
+
+#: ../properties/nm-ppp-properties.c:191
+msgid "Connect via a modem"
+msgstr "모뎀으로 연결"
+
+#: ../properties/nm-ppp-properties.c:196
+msgid "Require IP to be provided"
+msgstr "IP 필요"
+
+#: ../properties/nm-ppp-properties.c:201
+msgid "Use Peer DNS"
+msgstr "Peer DNS 사용"
+
+#: ../properties/nm-ppp-properties.c:206
+msgid "Use MPPE encryption"
+msgstr "MPPE 암호화 사용"
+
+#: ../properties/nm-ppp-properties.c:211
+msgid "Use 128 bit MPPE encryption"
+msgstr "128비트 MPPE 암호화 사용"
+
+#: ../properties/nm-ppp-properties.c:216
+msgid "Enable stateful MPPE"
+msgstr "상태기반 MPPE 사용"
+
+#: ../properties/nm-ppp-properties.c:221
+msgid "Use MPPC compression"
+msgstr "MPPC 압축 사용"
+
+#: ../properties/nm-ppp-properties.c:226
+msgid "Do not use deflate compression"
+msgstr "Deflate 압축 사용 안함"
+
+#: ../properties/nm-ppp-properties.c:231
+msgid "Do not use BSD compression"
+msgstr "BSD 압축 사용 안함"
+
+#: ../properties/nm-ppp-properties.c:236
+msgid "Exclusive device access by pppd"
+msgstr "pppd에서만 장치 사용"
+
+#: ../properties/nm-ppp-properties.c:241
+msgid "Authenticate remote peer"
+msgstr "원격 peer 인증"
+
+#: ../properties/nm-ppp-properties.c:246
+msgid "Refuse EAP"
+msgstr "EAP 거부"
+
+#: ../properties/nm-ppp-properties.c:251
+msgid "Refuse CHAP"
+msgstr "CHAP 거부"
+
+#: ../properties/nm-ppp-properties.c:256
+msgid "Refuse MSCHAP"
+msgstr "MSCHAP 거부"
+
+#: ../properties/nm-ppp-properties.c:261
+msgid "Maximum transmit unit (in bytes)"
+msgstr "최대 전송 단위 (바이트)"
+
+#: ../properties/nm-ppp-properties.c:266
+msgid "Maximum receive unit (in bytes)"
+msgstr "최대 수신 단위 (바이트)"
+
+#: ../properties/nm-ppp-properties.c:271
+msgid "Number of failed LCP echos to cause disconnect"
+msgstr "연결을 종료시킬 LCP 반향 실패 횟수"
+
+#: ../properties/nm-ppp-properties.c:276
+msgid "Interval (in seconds) at which to issue LCP echos"
+msgstr "LCP 반향 발생 간격(초단위)"
+
+#: ../properties/nm-ppp-properties.c:281
+msgid "Interval (in milliseconds) to wait before connecting."
+msgstr "연결 전 대기 간격 (밀리초)."
+
+#: ../properties/nm-ppp-properties.c:286
+msgid "Custom PPP options"
+msgstr "PPP 추가 옵션"
+
+#: ../properties/nm-ppp-properties.c:296
+msgid "Use Peer DNS over the Tunnel"
+msgstr "터널상에서 Peer DNS 사용"
+
+#: ../properties/nm-ppp-properties.c:302
+msgid "Specific networks available"
+msgstr "지정한 네트워크 사용 가능"
+
+#: ../properties/nm-ppp-properties.c:308
+msgid "Limit to specific networks"
+msgstr "지정된 네트워크에 제한"
+
+#: ../properties/vpnui_impl.c:229
+#, c-format
+msgid "The following '%s' connection will be created:"
+msgstr "다음 '%s' 연결이 만들어집니다:"
+
+#: ../properties/vpnui_impl.c:242
+#, c-format
+msgid "\t%s:  %s\n"
+msgstr "\t%s:  %s\n"
+
+#: ../properties/vpnui_impl.c:245
+msgid "The connection details can be changed using the \"Back\" button."
+msgstr "\"뒤로\" 단추를 눌러서 연결 설정을 바꿀 수 있습니다."
+
+#: ../properties/vpnui_impl.c:317
+msgid "Select file to import"
+msgstr "가져올 파일 선택"
+
+#. printf ("in impl_export\n");
+#: ../properties/vpnui_impl.c:462
+msgid "Save as..."
+msgstr "다른 이름으로 저장..."
+
+#: ../properties/vpnui_impl.c:491
+#, c-format
+msgid "A file named \"%s\" already exists."
+msgstr "\"%s\" 파일이 이미 있습니다."
+
+#: ../properties/vpnui_impl.c:494
+msgid "Do you want to replace it with the one you are saving?"
+msgstr "이를 저장할 파일로 바꾸겠습니까?"
+
+#: ../src/nm-ppp-starter.c:140
+msgid "VPN Connection failed"
+msgstr "VPN 연결 실패"
+
+msgid "auth-chap-window"
+msgstr "auth-chap-window"
+
+msgid "auth-mschapv2-window"
+msgstr "auth-mschapv2-window"
+
+msgid "auth-none-window"
+msgstr "auth-none-window"
+
+msgid "<b>Connection Name</b>"
+msgstr "<b>연결 이름</b>"
+
+msgid "Telephone number to dial"
+msgstr "전화걸 번호"

@@ -1,0 +1,202 @@
+# translation of eu.po to Basque
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2008, 2009, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: eu\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-03-20 19:39+0100\n"
+"PO-Revision-Date: 2010-03-20 19:41+0100\n"
+"Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
+"Language-Team: Basque <itzulpena@euskalgnu.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:129
+msgid "_Secondary Password:"
+msgstr "_Bigarren pasahitza:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:243
+msgid "_Username:"
+msgstr "_Erabiltzaile-izena:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:245
+msgid "_Domain:"
+msgstr "_Domeinua:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:247
+msgid "_Password:"
+msgstr "_Pasahitza:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:336
+msgid "Connect _anonymously"
+msgstr "Konektatu _anonimo gisa"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:341
+msgid "Connect as _user:"
+msgstr "Konektatu _erabiltzaile gisa:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:450
+msgid "_Remember passwords for this session"
+msgstr "_Gogoratu pasahitza saio honetan"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:452
+msgid "_Save passwords in keyring"
+msgstr "_Gorde pasahitza gako-sortan"
+
+#: ../auth-dialog/main.c:62
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network '%s'."
+msgstr "Autentifikatu egin behar zara '%s' VPN-ra sarbidetzeko."
+
+#: ../auth-dialog/main.c:63
+msgid "Authenticate VPN"
+msgstr "Autentifikatu VPN"
+
+#: ../nm-pptp.desktop.in.h:1
+msgid "Add, Remove, and Edit PPTP VPN Connections"
+msgstr "Gehitu, kendu eta editatu PPTP VPN konexioak"
+
+#: ../nm-pptp.desktop.in.h:2
+msgid "PPTP VPN Connection Manager"
+msgstr "PPTP VPN konexio-kudeatzailea"
+
+#: ../properties/advanced-dialog.c:173
+msgid "All Available (Default)"
+msgstr "Erabilgarri denak (lehenetsia)"
+
+#: ../properties/advanced-dialog.c:177
+msgid "128-bit (most secure)"
+msgstr "128 bit (seguruena)"
+
+#: ../properties/advanced-dialog.c:186
+msgid "40-bit (less secure)"
+msgstr "40 bit (ez hain  segurua)"
+
+#: ../properties/advanced-dialog.c:292
+msgid "PAP"
+msgstr "PAP"
+
+#: ../properties/advanced-dialog.c:305
+msgid "CHAP"
+msgstr "CHAP"
+
+#: ../properties/advanced-dialog.c:317
+msgid "MSCHAP"
+msgstr "MSCHAP"
+
+#: ../properties/advanced-dialog.c:329
+msgid "MSCHAPv2"
+msgstr "MSCHAPv2"
+
+#: ../properties/advanced-dialog.c:342
+msgid "EAP"
+msgstr "EAP"
+
+#: ../properties/nm-pptp-dialog.glade.h:1
+msgid "<b>Authentication</b>"
+msgstr "<b>Autentifikazioa</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:2
+msgid "<b>Echo</b>"
+msgstr "<b>Ohiartzuna</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:3
+msgid "<b>General</b>"
+msgstr "<b>Orokorra</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:4
+msgid "<b>Optional</b>"
+msgstr "<b>Aukerakoa</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:5
+msgid "<b>Security and Compression</b>"
+msgstr "<b>Segurtasuna eta konpresioa</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:6
+msgid "Ad_vanced..."
+msgstr "_Aurreratua..."
+
+#: ../properties/nm-pptp-dialog.glade.h:7
+msgid "Allow _BSD data compression"
+msgstr "Onartu _BSD datu-konpresioa"
+
+#: ../properties/nm-pptp-dialog.glade.h:8
+msgid "Allow _Deflate data compression"
+msgstr "Onartu _Deflate datu-konpresioa"
+
+#: ../properties/nm-pptp-dialog.glade.h:9
+msgid "Allow st_ateful encryption"
+msgstr "Onartu enkripzioa _egoerarekin"
+
+#: ../properties/nm-pptp-dialog.glade.h:10
+msgid "Allow the following authentication methods:"
+msgstr "Onartu honako autentifikazio metodoak:"
+
+#: ../properties/nm-pptp-dialog.glade.h:11
+msgid "Default"
+msgstr "Lehenetsia"
+
+#: ../properties/nm-pptp-dialog.glade.h:12
+msgid "NT Domain:"
+msgstr "NT domeinua:"
+
+#: ../properties/nm-pptp-dialog.glade.h:13
+msgid ""
+"Note: MPPE encryption is only available with MSCHAP authentication methods. "
+"To enable this checkbox, select one or more of the MSCHAP authentication "
+"methods: MSCHAP or MSCHAPv2."
+msgstr ""
+"Oharra: MPPE enkriptazioa soilik erabilgarri dago MSCHAP autentifikazio metodoekin. "
+"Kontrol-koadro hau aktibatzeko, hautatu MSCHAP autentifikazio metodo bat edo gehiago: "
+"MSCHAP edo MSCHAPv2."
+
+#: ../properties/nm-pptp-dialog.glade.h:14
+msgid "PPTP Advanced Options"
+msgstr "PPTP-ren aukera aurreratuak"
+
+#: ../properties/nm-pptp-dialog.glade.h:15
+msgid "Password:"
+msgstr "Pasahitza:"
+
+#: ../properties/nm-pptp-dialog.glade.h:16
+msgid "Send PPP _echo packets"
+msgstr "Bidali PPP _oihartzun-paketeak"
+
+#: ../properties/nm-pptp-dialog.glade.h:17
+msgid "Show password"
+msgstr "Erakutsi pasahitza"
+
+#: ../properties/nm-pptp-dialog.glade.h:18
+msgid "Use TCP _header compression"
+msgstr "Erabili TCP _goiburu-konpresioa"
+
+#: ../properties/nm-pptp-dialog.glade.h:19
+msgid "Use _Point-to-Point encryption (MPPE)"
+msgstr "Erabili _puntutik punturako enkriptatzea (MPPE)"
+
+#: ../properties/nm-pptp-dialog.glade.h:20
+msgid "User name:"
+msgstr "Erabiltzaile-izena:"
+
+#: ../properties/nm-pptp-dialog.glade.h:21
+msgid "_Gateway:"
+msgstr "_Atebidea:"
+
+#: ../properties/nm-pptp-dialog.glade.h:22
+msgid "_Security:"
+msgstr "_Segurtasuna:"
+
+#: ../properties/nm-pptp.c:50
+msgid "Point-to-Point Tunneling Protocol (PPTP)"
+msgstr "Puntutik punturako tunelaren protokoloa (PPTP)"
+
+#: ../properties/nm-pptp.c:51
+msgid "Compatible with Microsoft and other PPTP VPN servers."
+msgstr "Microsoft eta beste PPTP VPN zerbitzariekin bateragarria."
+

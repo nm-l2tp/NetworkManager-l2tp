@@ -1,0 +1,757 @@
+# Finnish messages for NetworkManager-pptp.
+# Copyright (C) 2006-2008 Ilkka Tuohela
+# Ilkka Tuohela <hile@iki.fi>, 2006-2008.
+#
+# Suomennos: http://gnome.fi/
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: NetworkManager-pptp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-11-29 20:26+0300\n"
+"PO-Revision-Date: 2008-11-29 20:00+0300\n"
+"Last-Translator: Ilkka Tuohela <hile@iki.fi>\n"
+"Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:144
+msgid "_Secondary Password:"
+msgstr "_Toissijainen salasana:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:258
+msgid "_Username:"
+msgstr "_Käyttäjätunnus:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:260
+msgid "_Domain:"
+msgstr "_Toimialue:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:262
+msgid "_Password:"
+msgstr "_Salasana:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:351
+msgid "Connect _anonymously"
+msgstr "Yhdistä _anonyymisti"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:356
+msgid "Connect as _user:"
+msgstr "Yhdistä _käyttäjänä:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:465
+msgid "_Remember passwords for this session"
+msgstr "_Muista salasana istunnon ajan"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:467
+msgid "_Save passwords in keyring"
+msgstr "_Tallenna salasana avainrenkaaseen"
+
+#: ../auth-dialog/main.c:62
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network '%s'."
+msgstr "Yhteydenotto VPN-verkkoon \"%s\" vaatii todentamista."
+
+#: ../auth-dialog/main.c:63
+msgid "Authenticate VPN"
+msgstr "Todenna VPN-yhteys"
+
+#: ../nm-pptp.desktop.in.h:1
+msgid "Add, Remove, and Edit PPTP VPN Connections"
+msgstr "Lisää, poista tai muokkaa PPTP VPN -yhteyksiä"
+
+#: ../nm-pptp.desktop.in.h:2
+msgid "PPTP VPN Connection Manager"
+msgstr "PPTP VPN -yhteyksien hallinta"
+
+#: ../properties/advanced-dialog.c:144
+msgid "All Available (Default)"
+msgstr "Kaikki mahdolliset (oletus)"
+
+#: ../properties/advanced-dialog.c:148
+msgid "128-bit (most secure)"
+msgstr "128-bittinen (turvallisempi)"
+
+#: ../properties/advanced-dialog.c:157
+msgid "40-bit (less secure)"
+msgstr "40-bittinen (vähemmän turvallinen"
+
+#: ../properties/advanced-dialog.c:228
+msgid "PAP"
+msgstr "PAP"
+
+#: ../properties/advanced-dialog.c:234
+msgid "CHAP"
+msgstr "CHAP"
+
+#: ../properties/advanced-dialog.c:240
+msgid "MSCHAP"
+msgstr "MSCHAP"
+
+#: ../properties/advanced-dialog.c:246
+msgid "MSCHAPv2"
+msgstr "MSCHAPv2"
+
+#: ../properties/nm-pptp-dialog.glade.h:1
+msgid "<b>Authentication</b>"
+msgstr "<b>Todentaminen</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:2
+msgid "<b>Echo</b>"
+msgstr "<b>Kaiutus</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:3
+msgid "<b>General</b>"
+msgstr "<b>Yleisasetukset</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:4
+msgid "<b>Optional</b>"
+msgstr "<b>Lisävalinnat</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:5
+msgid "<b>Security and Compression</b>"
+msgstr "<b>Salaus ja pakkaus</b>"
+
+#: ../properties/nm-pptp-dialog.glade.h:6
+msgid "Ad_vanced..."
+msgstr "_Lisäasetukset..."
+
+#: ../properties/nm-pptp-dialog.glade.h:7
+msgid "Allow _BSD data compression"
+msgstr "Salli _BSD-pakkaus"
+
+#: ../properties/nm-pptp-dialog.glade.h:8
+msgid "Allow _Deflate data compression"
+msgstr "Salli _deflate-pakkaus"
+
+#: ../properties/nm-pptp-dialog.glade.h:9
+msgid "Allow st_ateful encryption"
+msgstr "Salli _tilallinen salaus"
+
+#: ../properties/nm-pptp-dialog.glade.h:10
+msgid "Allow the following authentication methods:"
+msgstr "Salli seuraavat tunnistusmenetelmät:"
+
+#: ../properties/nm-pptp-dialog.glade.h:11
+msgid "Default"
+msgstr "Oletus"
+
+#: ../properties/nm-pptp-dialog.glade.h:12
+msgid "NT Domain:"
+msgstr "NT-toimialue:"
+
+#: ../properties/nm-pptp-dialog.glade.h:13
+msgid "Password:"
+msgstr "Salasana:"
+
+#: ../properties/nm-pptp-dialog.glade.h:14
+msgid "Send PPP _echo packets"
+msgstr "Lähetä PPP:n _echo-paketteja"
+
+#: ../properties/nm-pptp-dialog.glade.h:15
+msgid "Show password"
+msgstr "Näytä salasana"
+
+#: ../properties/nm-pptp-dialog.glade.h:16
+msgid "Use TCP _header compression"
+msgstr "Käytä TCP-_otsakkeiden pakkausta"
+
+#: ../properties/nm-pptp-dialog.glade.h:17
+msgid "Use _Point-to-Point encryption (MPPE)"
+msgstr "Käytä _Point-to-Point-salausta (MPPE)"
+
+#: ../properties/nm-pptp-dialog.glade.h:18
+msgid "User name:"
+msgstr "Käyttäjätunnus:"
+
+#: ../properties/nm-pptp-dialog.glade.h:19
+msgid "_Gateway:"
+msgstr "_Yhdyskäytävä:"
+
+#: ../properties/nm-pptp-dialog.glade.h:20
+msgid "_Security:"
+msgstr "_Salaus:"
+
+#: ../properties/nm-pptp.c:50
+msgid "Point-to-Point Tunneling Protocol (PPTP)"
+msgstr "Point-to-Point Tunneling Protocol (PPTP)"
+
+#: ../properties/nm-pptp.c:51
+msgid "Compatible with Microsoft and other PPTP VPN servers."
+msgstr "Yhteensopiva Microsoftin ja muiden PPTP VPN-palvelinten kanssa."
+
+#~ msgid "Authentication Type:"
+#~ msgstr "Todentamistapa:"
+
+#~ msgid "_Remember for this session"
+#~ msgstr "_Muista tämän istunnon ajan"
+
+#~ msgid "_Save in keyring"
+#~ msgstr "_Tallenna avainrenkaaseen"
+
+#~ msgid "Authenticate Connection"
+#~ msgstr "Todenna VPN-yhteys"
+
+#~ msgid ""
+#~ "<span weight=\"bold\" size=\"larger\">Authentication Information</span>\n"
+#~ "\n"
+#~ "The connection '%s' may need some form of authentication.\n"
+#~ "\n"
+#~ "Please select an appropriate authentication type and provide the "
+#~ "necessary credentials below:\n"
+#~ msgstr ""
+#~ "<span weight=\"bold\" size=\"larger\">Tietoja todentamisesta</span>\n"
+#~ "\n"
+#~ "Yhteys \"%s\" saattaa vaatia todentamista.\n"
+#~ "\n"
+#~ "Valitse sopiva todentamistapa ja syötä allaoleviin kenttiin tarvittavat "
+#~ "tiedot:\n"
+
+#~ msgid "Authentication Required"
+#~ msgstr "Todentaminen vaaditaan"
+
+#~ msgid "_Authentication Type:"
+#~ msgstr "_Todentamistapa:"
+
+#~ msgid "_Remote name:"
+#~ msgstr "_Nimi palvelimella:"
+
+#~ msgid "VPN Connection Manager (PPP generic)"
+#~ msgstr "VPN-yhteyksien hallinta (yleinen PPP)"
+
+#~ msgid "00:00:00:00"
+#~ msgstr "00:00:00:00"
+
+#~ msgid "<b>Delays &amp; Timeouts</b>"
+#~ msgstr "<b>Viiveet ja aikakatkaisut</b>"
+
+#~ msgid "<b>Packet Parameters</b>"
+#~ msgstr "<b>Pakettiparameterit</b>"
+
+#~ msgid "<i>Example: 172.16.0.0/16 10.11.12.0/24</i>"
+#~ msgstr "<i>Esimerkki: 172.16.0.0/16 10.11.12.0/24</i>"
+
+#~ msgid ""
+#~ "A list of extra options to pppd as would be typed on the command line"
+#~ msgstr "Lista valitsimista pppd:lle, komentoriviltä annettavassa muodossa"
+
+#~ msgid "Allow B_SD Compression"
+#~ msgstr "Salli B_SD-pakkaus"
+
+#~ msgid "C_hannel:"
+#~ msgstr "_Kanava:"
+
+#~ msgid "Co_nnect delay:"
+#~ msgstr "_Yhteysviive:"
+
+#~ msgid "Compression & Encryption"
+#~ msgstr "Pakkaus ja salaus"
+
+#~ msgid "Connection"
+#~ msgstr "Yhteys"
+
+#~ msgid "Connection na_me:"
+#~ msgstr "Yhteyden ni_mi:"
+
+#~ msgid "Context _number:"
+#~ msgstr "_Kontekstin numero:"
+
+#~ msgid "Custom _PPP options:"
+#~ msgstr "Omat _PPP-valitsimet:"
+
+#~ msgid "Debug _output"
+#~ msgstr "_Vianetsintätuloste"
+
+#~ msgid "Disconnect after this many LCP echo requests fail"
+#~ msgstr "Katkaise yhteys, kun näin monta LCP ECHO-pyyntö epäonnistuu"
+
+#~ msgid "E_xclusive device access (UUCP-style lock)"
+#~ msgstr "Laite varataan käyttöön (UUCP-tyylinen lukko)"
+
+#~ msgid "Enable stateful _MPPE"
+#~ msgstr "Käytä tilallista _MPPE:tä"
+
+#~ msgid "Find Device"
+#~ msgstr "Etsi laite"
+
+#~ msgid ""
+#~ "For security reasons, options entered in the box above are checked "
+#~ "against a list of allowed options before a connection is established.  "
+#~ "Currently there are no options on the list."
+#~ msgstr ""
+#~ "Turvallisuussyistä ylläolevaan laatikkoon syötettyjä valitsimia verrataan "
+#~ "listaan sallituista valitsimista. Tällä hetkellä lista ei sisällä mitään "
+#~ "valitsimia."
+
+#~ msgid "GPRS Options"
+#~ msgstr "GPRS-valitsimet"
+
+#~ msgid "Host name or IP address of the PPTP server"
+#~ msgstr "PPTP-palvelimen konenimi tai IP-osoite"
+
+#~ msgid "IP a_ddress:"
+#~ msgstr "_IP-osoite:"
+
+#~ msgid ""
+#~ "If BSD compression is not allowed the 'nobsdcomp' option is passed to pppd"
+#~ msgstr ""
+#~ "Jos BSD-pakkaus ei ole sallittu, annetaan pppd:lle valitsin 'nobsdcomp'"
+
+#~ msgid ""
+#~ "If Deflate compression is not allowed the 'nodefate' option is passed to "
+#~ "pppd"
+#~ msgstr ""
+#~ "Jos deflate-pakkaus ei ole sallittu, annetaan pppd:lle valitsin "
+#~ "'nodeflate'"
+
+#~ msgid "Maximum Receive Unit"
+#~ msgstr "MRU"
+
+#~ msgid "Maximum Transmit Unit"
+#~ msgstr "MTU"
+
+#~ msgid "PPP Options"
+#~ msgstr "PPP-valinnat"
+
+#~ msgid "Refuse C_HAP"
+#~ msgstr "Kiellä C_HAP"
+
+#~ msgid "Refuse _EAP"
+#~ msgstr "Kiellä _EAP"
+
+#~ msgid "Refuse _MS CHAP"
+#~ msgstr "Kiellä _MS CHAP"
+
+#~ msgid "Require 128 bit M_PPE encryption"
+#~ msgstr "Vaadi 128-bittinen M_PPE-salaus"
+
+#~ msgid "Require MPPE _encryption"
+#~ msgstr "Vaadi MPPE-_salaus"
+
+#~ msgid "Require explicit IP _address"
+#~ msgstr "Vaadi erikseen määritelty IP-_osoite"
+
+#~ msgid "Requires existing network connection"
+#~ msgstr "Vaatii olemassaolevan verkkoyhteyden"
+
+#~ msgid "Routing"
+#~ msgstr "Reititys"
+
+#~ msgid "Serial Options"
+#~ msgstr "Sarjaportin valinnat"
+
+#~ msgid "Service providers GPRS access point from device config"
+#~ msgstr "Palveluntarjoan GPRS APN laitteen asetuksista"
+
+#~ msgid "Service providers IP address"
+#~ msgstr "Palveluntarjoajan IP-osoite"
+
+#~ msgid "Telep_hone number:"
+#~ msgstr "_Puhelinnumero:"
+
+#~ msgid ""
+#~ "This is the friendly name that will be used to identify this network "
+#~ "connection, \n"
+#~ "e.g. \"Campus VPN\" or \"Corporate Network\""
+#~ msgstr ""
+#~ "Nimi, jota käytetään verkkoyhteyden tunnistamiseen, esimerkiksi "
+#~ "\"Kampusverkko\" tai \"Yritysverkko\"."
+
+#~ msgid "Time in seconds between echo requests"
+#~ msgstr "ECHO-pyyntöjen välissä oleva aika sekunteina"
+
+#~ msgid "Typ_e:"
+#~ msgstr "_Tyyppi:"
+
+#~ msgid "Use peer _DNS"
+#~ msgstr "Käytä saatuja _DNS-asetuksia"
+
+#~ msgid "When checked the \"refuse-chap\" option is passed to pppd."
+#~ msgstr "Kun asetettu, annetaan pppd:lle valitsin 'refuse-chap'."
+
+#~ msgid "When checked the \"refuse-eap\" option is passed to pppd."
+#~ msgstr "Kun asetettu, annetaan pppd:lle valitsin 'refuse-eap'."
+
+#~ msgid "When checked the \"refuse-mschap\" option is passed to pppd."
+#~ msgstr "Kun asetettu, annetaan pppd:lle valitsin 'refuse-mschap'"
+
+#~ msgid "When checked the 'lock' option is passed to pppd"
+#~ msgstr "Kun asetettu, annetaan pppd:lle valitsin 'lock'"
+
+#~ msgid "When checked the 'require-mppc' option is passed to pppd"
+#~ msgstr "Kun asetettu, annetaan pppd:lle valitsin 'require-mppc'"
+
+#~ msgid ""
+#~ "When checked this sets the pppd 'debug' option and adds some extra "
+#~ "information from the NetworkManager plugin"
+#~ msgstr ""
+#~ "Kun asetettu, annetaan pppd:lle valtsin 'debug' ja NetworkManagerin "
+#~ "liitännäisestä kerätään joitakin lisätietoja"
+
+#~ msgid "When checked this sets the pppd 'noipdefault' option"
+#~ msgstr "Kun asetettu, tämä asettaa pppd:lle valitsimen 'nopidefault'"
+
+#~ msgid "When checked this sets the pppd 'usepeerdns' option"
+#~ msgstr "Kun asetettu, tämä asettaa pppd:lle valitsimen 'usepeerdns'"
+
+#~ msgid ""
+#~ "When this check box is cleared the \"noauth\" option is passed to pppd."
+#~ msgstr "Kun rastia ei ole, annetaan pppd:lle valitsin 'noauth'."
+
+#~ msgid "_Access point name:"
+#~ msgstr "_APN:"
+
+#~ msgid "_Device address:"
+#~ msgstr "_Laiteosoite:"
+
+#~ msgid "_Hardware RTS/CTS"
+#~ msgstr "_Laitetason RTS/CTS"
+
+#~ msgid "_Import Saved Configuration..."
+#~ msgstr "Tuo tallennettu määrittely..."
+
+#~ msgid "_Modem connection"
+#~ msgstr "_Modeemiyhteys"
+
+#~ msgid "_Only use VPN connection for these addresses:"
+#~ msgstr "_Käytä VPN-yhteyttä seuraaville osoitteille:"
+
+#~ msgid "_Packet type:"
+#~ msgstr "_Pakettityyppi:"
+
+#~ msgid "_Peer DNS through tunnel"
+#~ msgstr "_Yhteyden DNS-asetukset tunnelin kautta"
+
+#~ msgid "_Require MPPC compression"
+#~ msgstr "_Vaadi MPPC-pakkaus"
+
+#~ msgid "pppd tunnel (PPTP, BTGPRS, Dialup)"
+#~ msgstr "pppd-tunneli (PPTP, BTGPRS, Dialup)"
+
+#~ msgid "Name"
+#~ msgstr "Nimi"
+
+#~ msgid "PPTP Server"
+#~ msgstr "PPTP-palvelin"
+
+#~ msgid "Telephone Number"
+#~ msgstr "Puhelinnumero"
+
+#~ msgid "Bluetooth Address"
+#~ msgstr "Bluetooth-osoite"
+
+#~ msgid "Bluetooth Channel"
+#~ msgstr "Bluetooth-kanava"
+
+#~ msgid "GPRS APN"
+#~ msgstr "GPRS APN"
+
+#~ msgid "GPRS IP"
+#~ msgstr "GPRS-IP-osoite"
+
+#~ msgid "GPRS Context No."
+#~ msgstr "GPRS-kontekstin numero"
+
+#~ msgid "GPRS Packet Type"
+#~ msgstr "GPRS pakettityyppi"
+
+#~ msgid "Use CTS/RTS flow control"
+#~ msgstr "Käytä CTS/RTS-vuonohjausta"
+
+#~ msgid "Connect via a modem"
+#~ msgstr "Yhdistä modeemin avulla"
+
+#~ msgid "Require IP to be provided"
+#~ msgstr "Vaadi annettu IP"
+
+#~ msgid "Use Peer DNS"
+#~ msgstr "Käytä saatua DNS-määrittelyä"
+
+#~ msgid "Use 128 bit MPPE encryption"
+#~ msgstr "Käytä 128-bittistä MPPE-salausta"
+
+#~ msgid "Enable stateful MPPE"
+#~ msgstr "Käytä tilallista MPPE:tä"
+
+#~ msgid "Do not use deflate compression"
+#~ msgstr "Älä käytä deflate-pakkausta"
+
+#~ msgid "Do not use BSD compression"
+#~ msgstr "Älä käytä BSD-pakkausta"
+
+#~ msgid "Exclusive device access by pppd"
+#~ msgstr "Varaa laite pppd:n käyttöön"
+
+#~ msgid "Authenticate remote peer"
+#~ msgstr "Todenna VPN-yhteys"
+
+#~ msgid "Refuse EAP"
+#~ msgstr "Kiellä EAP"
+
+#~ msgid "Refuse CHAP"
+#~ msgstr "Kiellä CHAP"
+
+#~ msgid "Maximum transmit unit (in bytes)"
+#~ msgstr "Suurin lähetysyksikkö MTU (tavuina)"
+
+#~ msgid "Maximum receive unit (in bytes)"
+#~ msgstr "Suurin vastaanottoyksikkö MRU (tavuina)"
+
+#~ msgid "Number of failed LCP echos to cause disconnect"
+#~ msgstr "Epäonnistuneiden LCP ECHO-viestien määrä, joka katkaisee yhteyden"
+
+#~ msgid "Interval (in seconds) at which to issue LCP echos"
+#~ msgstr "LCP ECHO-viestien väli sekunteina"
+
+#~ msgid "Interval (in milliseconds) to wait before connecting."
+#~ msgstr "Ennen yhteyden avausta odotettava aika millisekuntena."
+
+#~ msgid "Custom PPP options"
+#~ msgstr "Omat PPP-valitsimet"
+
+#~ msgid "Use Peer DNS over the Tunnel"
+#~ msgstr "Käytä yhteyden DNS-asetuksia tunnelissa"
+
+#~ msgid "Specific networks available"
+#~ msgstr "Halutut verkot ovat saatavilla"
+
+#~ msgid "Limit to specific networks"
+#~ msgstr "Rajaa haluttuihin verkkoihin"
+
+#~ msgid "The following '%s' connection will be created:"
+#~ msgstr "Seuraava \"%s\"-yhteys luodaan:"
+
+#~ msgid "\t%s:  %s\n"
+#~ msgstr "\t%s:  %s\n"
+
+#~ msgid "The connection details can be changed using the \"Back\" button."
+#~ msgstr "Yhteyden yksityiskohtia voi muuttaa valitsemalla \"Takaisin\"."
+
+#~ msgid "Select file to import"
+#~ msgstr "Valitse tuotava tiedosto"
+
+#~ msgid "Save as..."
+#~ msgstr "Tallenna nimellä..."
+
+#~ msgid "A file named \"%s\" already exists."
+#~ msgstr "Tiedosto \"%s\" on jo olemassa."
+
+#~ msgid "Do you want to replace it with the one you are saving?"
+#~ msgstr "Haluatko korvata sen tiedostolla jota olet tallentamassa?"
+
+#~ msgid "auth-chap-window"
+#~ msgstr "auth-chap-ikkuna"
+
+#~ msgid "auth-mschapv2-window"
+#~ msgstr "auth-mschapv2-ikkuna"
+
+#~ msgid "auth-none-window"
+#~ msgstr "auth-none-ikkuna"
+
+#~ msgid "<b>Connection Name</b>"
+#~ msgstr "<b>Yhteyden nimi</b>"
+
+#~ msgid "Telephone number to dial"
+#~ msgstr "Käytettävä puhelinnumero"
+
+#~ msgid "Certificate password:"
+#~ msgstr "Varmennettu salasana:"
+
+#~ msgid "OpenVPN Client"
+#~ msgstr "OpenVPN-asiakas"
+
+#~ msgid "Connection Type: X.509 Certificates"
+#~ msgstr "Yhteyden tyyppi: X.509-varmenteet"
+
+#~ msgid "Cert:  %s"
+#~ msgstr "Varmenne:  %s"
+
+#~ msgid "Key:  %s"
+#~ msgstr "Avain:  %s"
+
+#~ msgid "Connection Type: Shared Key"
+#~ msgstr "Yhteyden tyyppi: jaettu avain"
+
+#~ msgid "Shared Key:  %s"
+#~ msgstr "Jaettu avain:  %s"
+
+#~ msgid "Local IP:  %s"
+#~ msgstr "Oma IP-osoite:  %s"
+
+#~ msgid "Remote IP:  %s"
+#~ msgstr "Palvelimen IP-osoite:  %s"
+
+#~ msgid "Connection Type: Password"
+#~ msgstr "Yhteyden tyyppi: Salasana"
+
+#~ msgid "Username:  %s"
+#~ msgstr "Käyttäjätunnus:  %s"
+
+#~ msgid "Connection Type: X.509 with Password Authentication"
+#~ msgstr "Yhteyden tyyppi: X.509 salasanalla todennuksella"
+
+#~ msgid "Remote:  %s"
+#~ msgstr "Palvelin:  %s"
+
+#~ msgid "TUN"
+#~ msgstr "TUN"
+
+#~ msgid "Protocol: %s"
+#~ msgstr "Protokolla: %s"
+
+#~ msgid "TCP"
+#~ msgstr "TCP"
+
+#~ msgid "UDP"
+#~ msgstr "UDP"
+
+#~ msgid "Routes:  %s"
+#~ msgstr "Reitit:  %s"
+
+#~ msgid "Use LZO Compression: %s"
+#~ msgstr "Käytä LZO-pakkausta: %s"
+
+#~ msgid "Yes"
+#~ msgstr "Kyllä"
+
+#~ msgid "No"
+#~ msgstr "Ei"
+
+#~ msgid "Cipher:  %s"
+#~ msgstr "Salausmenetelmä:  %s"
+
+#~ msgid "TLS auth:  %s %s"
+#~ msgstr "TLS-todentaminen: %s %s"
+
+#~ msgid "Cannot import settings"
+#~ msgstr "Asetuksia ei voi tuoda"
+
+#~ msgid "The VPN settings file '%s' does not contain valid data."
+#~ msgstr "VPN-asetustiedosto \"%s\" ei sisällä kelvollisia tietoja."
+
+#~ msgid "Select CA to use"
+#~ msgstr "Valitse käytettävä CA"
+
+#~ msgid "Select certificate to use"
+#~ msgstr "Valitse käytettävä varmenne"
+
+#~ msgid "Select key to use"
+#~ msgstr "Valitse käytettävä avain"
+
+#~ msgid "Select shared key to use"
+#~ msgstr "Valitse käytettävä jaettu avain"
+
+#~ msgid "Select TA to use"
+#~ msgstr "Valitse käytettävä TA"
+
+#~ msgid "Failed to export configuration"
+#~ msgstr "Asetuksia ei voitu viedä"
+
+#~ msgid "Failed to save file %s"
+#~ msgstr "Tiedostoa \"%s\" ei voitu tallentaa"
+
+#~ msgid "0"
+#~ msgstr "0"
+
+#~ msgid "1"
+#~ msgstr "1"
+
+#~ msgid "<b>Optional Information</b>"
+#~ msgstr "<b>Lisätietoja</b>"
+
+#~ msgid "<b>Required Information</b>"
+#~ msgstr "<b>Vaaditut tiedot</b>"
+
+#~ msgid "CA  file:"
+#~ msgstr "CA-tiedosto:"
+
+#~ msgid "Certificate:"
+#~ msgstr "Varmenne:"
+
+#~ msgid "Direction:"
+#~ msgstr "Suunta:"
+
+#~ msgid "Key:"
+#~ msgstr "Avain:"
+
+#~ msgid "Local IP:"
+#~ msgstr "Paikallinen IP-osoite:"
+
+#~ msgid ""
+#~ "Please enter the information provided by your system administrator below. "
+#~ "Do not enter your password here as you will be prompted when connecting."
+#~ msgstr ""
+#~ "Syötä järjestelmän ylläpitäjältä saamasi tiedot alla oleviin kohtiin. Älä "
+#~ "syötä tähän salasanaasi, sillä se kysytään vasta otettaessa yhteyttä."
+
+#~ msgid ""
+#~ "Please note that the file you import is not an OpenVPN configuration "
+#~ "file. Ask your administrator for the file."
+#~ msgstr ""
+#~ "Huomaa, ettei tuotava tiedosto ole OpenVPN-asetustiedosto. Kysy "
+#~ "ylläpitäjältäsi oikeaa tiedostoa."
+
+#~ msgid "Shared Key:"
+#~ msgstr "Jaettu avain:"
+
+#~ msgid "Shared key"
+#~ msgstr "Jaettu avain"
+
+#~ msgid "Use TAP device"
+#~ msgstr "Käytä TAP-laitetta"
+
+#~ msgid "Use TLS auth:"
+#~ msgstr "Käytä TLS-todentamista:"
+
+#~ msgid "Use cipher:"
+#~ msgstr "Käytä salausmenetelmää:"
+
+#~ msgid "X.509"
+#~ msgstr "X.509"
+
+#~ msgid ""
+#~ "X.509 Certificates\n"
+#~ "Pre-shared key\n"
+#~ "Password Authentication\n"
+#~ "X.509 with Password Authentication"
+#~ msgstr ""
+#~ "X.509-varmenteet\n"
+#~ "Jaettu avain\n"
+#~ "Salasanalla todentaminen\n"
+#~ "X.509 salasanatodennuksella"
+
+#~ msgid "none"
+#~ msgstr "ei mitään"
+
+#~ msgid ""
+#~ "The VPN login failed because the user name and password were not accepted "
+#~ "or the certificate password was wrong."
+#~ msgstr ""
+#~ "VPN-kirjautuminen epäonnistui, koska käyttäjätunnusta ja salasanaa ei "
+#~ "hyväsytty, tai varmenteen salasana oli väärin."
+
+#~ msgid "The VPN login failed because the VPN program could not be started."
+#~ msgstr ""
+#~ "VPN-kirjautuminen epäonnistui, koska VPN-ohjelmaa ei voitu käynnistää."
+
+#~ msgid ""
+#~ "The VPN login failed because the VPN program could not connect to the VPN "
+#~ "server."
+#~ msgstr ""
+#~ "VPN-kirjatuminen epäonnistui, koska VPN-ohjelma ei saanut yhteyttä VPN-"
+#~ "palvelimeen."
+
+#~ msgid ""
+#~ "The VPN login failed because the VPN configuration options were invalid."
+#~ msgstr ""
+#~ "VPN-kirjautuminen epäonnistui, koska VPN-asetuksten valinnat olivat "
+#~ "virheelliset."
+
+#~ msgid ""
+#~ "The VPN login failed because the VPN program received an invalid "
+#~ "configuration from the VPN server."
+#~ msgstr ""
+#~ "VPN-kirjautumien epäonnstui, koska VPN-ohjelma sai epäyhteensopivat "
+#~ "asetukset VPN-palvelimelta."

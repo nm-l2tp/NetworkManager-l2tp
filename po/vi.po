@@ -1,0 +1,575 @@
+# Vietnamese translation for Network Manager PPTP.
+# Copyright © 2008 Free Software Foundation, Inc.
+# Clytie Siddall <clytie@riverland.net.au>, 2006-2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: NetworkManager-pptp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-07-27 03:58+0100\n"
+"PO-Revision-Date: 2008-06-06 14:48+0930\n"
+"Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
+"Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: LocFactoryEditor 1.7b3\n"
+
+#: ../auth-dialog-general/gnome-generic-auth-dialog.c:792
+msgid "Authentication Type:"
+msgstr "Kiểu xác thực:"
+
+#: ../auth-dialog-general/gnome-generic-auth-dialog.c:857
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:11
+msgid "_Remember for this session"
+msgstr "Nhớ cho _buổi hợp này"
+
+#: ../auth-dialog-general/gnome-generic-auth-dialog.c:859
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:13
+msgid "_Save in keyring"
+msgstr "_Lưu vào vòng khoá"
+
+#: ../auth-dialog-general/main.c:48
+#: ../auth-dialog/main.c:140
+#, c-format
+msgid "You need to authenticate to access '%s'."
+msgstr "Bạn cần phải xác thực để truy cập đến « %s »."
+
+#: ../auth-dialog-general/main.c:51
+#: ../auth-dialog/main.c:141
+msgid "Authenticate Connection"
+msgstr "Xác thực kết nối"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:2
+#, no-c-format
+msgid ""
+"<span weight=\"bold\" size=\"larger\">Authentication Information</span>\n"
+"\n"
+"The connection '%s' may need some form of authentication.\n"
+"\n"
+"Please select an appropriate authentication type and provide the necessary "
+"credentials below:\n"
+msgstr ""
+"<span weight=\"bold\" size=\"larger\">Thông tin xác thực</span>\n"
+"\n"
+"Kết nối « %s » có thể yêu cầu xác thực kiểu nào.\n"
+"\n"
+"Hãy chọn một kiểu xác thực thích hợp và cung cấp thông tin đòi hỏi bên dưới:\n"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:8
+msgid "Authentication Required"
+msgstr "Đòi hỏi xác thực"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:9
+msgid "_Authentication Type:"
+msgstr "Kiểu _xác thực:"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:10
+#: ../auth-dialog/gnome-two-password-dialog.c:263
+msgid "_Password:"
+msgstr "_Mật khẩu :"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:12
+msgid "_Remote name:"
+msgstr "Tê_n ở xa:"
+
+#: ../auth-dialog-general/nm-ppp-auth.glade.h:14
+#: ../auth-dialog/gnome-two-password-dialog.c:259
+msgid "_Username:"
+msgstr "_Tên người dùng:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:144
+msgid "_Secondary Password:"
+msgstr "Mật khẩu _phụ :"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:261
+msgid "_Domain:"
+msgstr "_Miền:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:352
+msgid "Connect _anonymously"
+msgstr "Kết nối nặc d_anh"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:357
+msgid "Connect as _user:"
+msgstr "Kết nối _với tư cách người dùng:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:466
+msgid "_Remember password for this session"
+msgstr "Nhớ mật khẩu cho _buổi hợp này"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:468
+msgid "_Save password in keyring"
+msgstr "_Lưu mật khẩu vào vòng khoá"
+
+#: ../nm-ppp.desktop.in.h:1
+msgid "Add, Remove, and Edit VPN Connections"
+msgstr "Thêm, Bỏ và Sửa kết nối VPN"
+
+#: ../nm-ppp.desktop.in.h:2
+msgid "VPN Connection Manager (PPP generic)"
+msgstr "Bộ Quản Lý Kết Nối VPN (PPP giống loài)"
+
+#: ../properties/nm-ppp-dialog.glade.h:1
+msgid "00:00:00:00"
+msgstr "00:00:00:00"
+
+#: ../properties/nm-ppp-dialog.glade.h:2
+msgid "<b>Compression</b>"
+msgstr "<b>Nén</b>"
+
+#: ../properties/nm-ppp-dialog.glade.h:3
+msgid "<b>Delays &amp; Timeouts</b>"
+msgstr "<b>Khoảng đợi và Thời hạn</b>"
+
+#: ../properties/nm-ppp-dialog.glade.h:4
+msgid "<b>Encryption</b>"
+msgstr "<b>Mật mã</b>"
+
+#: ../properties/nm-ppp-dialog.glade.h:5
+msgid "<b>IP Options</b>"
+msgstr "<b>Tùy chọn IP</b>"
+
+#: ../properties/nm-ppp-dialog.glade.h:6
+msgid "<b>Packet Parameters</b>"
+msgstr "<b>Tham số Gói tin</b>"
+
+#: ../properties/nm-ppp-dialog.glade.h:7
+msgid "<i>Example: 172.16.0.0/16 10.11.12.0/24</i>"
+msgstr "<i>v.d.: 172.16.0.0/16 10.11.12.0/24</i>"
+
+#: ../properties/nm-ppp-dialog.glade.h:8
+msgid "A list of extra options to pppd as would be typed on the command line"
+msgstr "Danh sách các tùy chọn bổ sung tới pppd, như được gõ vào dòng lệnh"
+
+#: ../properties/nm-ppp-dialog.glade.h:9
+msgid "Allow B_SD Compression"
+msgstr "Cho phép nén kiểu B_SD"
+
+#: ../properties/nm-ppp-dialog.glade.h:10
+msgid "Allow _Deflate compression"
+msgstr "Cho phép nén kiểu _Deflate"
+
+#: ../properties/nm-ppp-dialog.glade.h:11
+msgid "Authentication"
+msgstr "Xác thực"
+
+#: ../properties/nm-ppp-dialog.glade.h:12
+msgid "C_hannel:"
+msgstr "Kên_h:"
+
+#: ../properties/nm-ppp-dialog.glade.h:13
+msgid "Co_nnect delay:"
+msgstr "Khoả_ng đợi kết nối:"
+
+#: ../properties/nm-ppp-dialog.glade.h:14
+msgid "Compression & Encryption"
+msgstr "Nén và Mật mã"
+
+#: ../properties/nm-ppp-dialog.glade.h:15
+msgid "Connection"
+msgstr "Kết nối"
+
+#: ../properties/nm-ppp-dialog.glade.h:16
+msgid "Connection na_me:"
+msgstr "Tên _kết nối:"
+
+#: ../properties/nm-ppp-dialog.glade.h:17
+msgid "Context _number:"
+msgstr "Số _ngữ cảnh:"
+
+#: ../properties/nm-ppp-dialog.glade.h:18
+msgid "Custom _PPP options:"
+msgstr "Tùy chọn _PPP tự chọn:"
+
+#: ../properties/nm-ppp-dialog.glade.h:19
+msgid "Debug _output"
+msgstr "Kết _xuất gỡ lỗi:"
+
+#: ../properties/nm-ppp-dialog.glade.h:20
+msgid "Disconnect after this many LCP echo requests fail"
+msgstr "Ngắt kết nối sau số này các yêu cầu vọng LCP không thành công"
+
+#: ../properties/nm-ppp-dialog.glade.h:21
+msgid "E_xclusive device access (UUCP-style lock)"
+msgstr "Truy cập đến thiết bị dành riêng (khoá kiểu _UUCP)"
+
+#: ../properties/nm-ppp-dialog.glade.h:22
+msgid "Enable stateful _MPPE"
+msgstr "Bật _MPPE có tình trạng"
+
+#: ../properties/nm-ppp-dialog.glade.h:23
+msgid "Find Device"
+msgstr "Tìm thiết bị"
+
+#: ../properties/nm-ppp-dialog.glade.h:24
+msgid ""
+"For security reasons, options entered in the box above are checked against a "
+"list of allowed options before a connection is established.  Currently there "
+"are no options on the list."
+msgstr ""
+"Vì ly do bảo mật, các tùy chọn được nhập vào hộp bên trên được kiểm tra so với danh sách các tùy chọn được phép, trước khi thiết lập kết nối. Hiện thời không có tùy chọn nằm trong danh sách đó."
+
+#: ../properties/nm-ppp-dialog.glade.h:25
+msgid "GPRS Options"
+msgstr "Tùy chọn GPRS"
+
+#: ../properties/nm-ppp-dialog.glade.h:26
+msgid "Host name or IP address of the PPTP server"
+msgstr "Tên máy hay địa chỉ IP của máy phục vụ PPTP"
+
+#: ../properties/nm-ppp-dialog.glade.h:27
+msgid "IP a_ddress:"
+msgstr "Địa chỉ _IP:"
+
+#: ../properties/nm-ppp-dialog.glade.h:28
+msgid ""
+"If BSD compression is not allowed the 'nobsdcomp' option is passed to pppd"
+msgstr ""
+"Nếu không cho phép nén kiểu BSD, tùy chọn « nobsdcomp » được gửi qua cho pppd"
+
+#: ../properties/nm-ppp-dialog.glade.h:29
+msgid ""
+"If Deflate compression is not allowed the 'nodefate' option is passed to pppd"
+msgstr ""
+"Nếu không cho phép nén kiểu Deflate, tùy chọn « nodefate » được gửi qua cho "
+"pppd"
+
+#: ../properties/nm-ppp-dialog.glade.h:30
+msgid "Maximum Receive Unit"
+msgstr "Đơn vị nhận tối đa"
+
+#: ../properties/nm-ppp-dialog.glade.h:31
+msgid "Maximum Transmit Unit"
+msgstr "Đơn vị truyền tối đa"
+
+#: ../properties/nm-ppp-dialog.glade.h:32
+msgid "PPP Options"
+msgstr "Tùy chọn PPP"
+
+#: ../properties/nm-ppp-dialog.glade.h:33
+msgid "Refuse C_HAP"
+msgstr "Từ chối C_HAP"
+
+#: ../properties/nm-ppp-dialog.glade.h:34
+msgid "Refuse _EAP"
+msgstr "Từ chối _EAP"
+
+#: ../properties/nm-ppp-dialog.glade.h:35
+msgid "Refuse _MS CHAP"
+msgstr "Từ chối _MS CHAP"
+
+#: ../properties/nm-ppp-dialog.glade.h:36
+msgid "Require 128 bit M_PPE encryption"
+msgstr "Đòi hỏi mật mã M_PPE 128 bit"
+
+#: ../properties/nm-ppp-dialog.glade.h:37
+msgid "Require MPPE _encryption"
+msgstr "Đòi hỏi _mật mã MPPE"
+
+#: ../properties/nm-ppp-dialog.glade.h:38
+msgid "Require explicit IP _address"
+msgstr "Đòi hỏi đị_a chỉ IP xác định"
+
+#: ../properties/nm-ppp-dialog.glade.h:39
+msgid "Requires existing network connection"
+msgstr "Đòi hỏi kết nối mạng đang chạy"
+
+#: ../properties/nm-ppp-dialog.glade.h:40
+msgid "Routing"
+msgstr "Định tuyến"
+
+#: ../properties/nm-ppp-dialog.glade.h:41
+msgid "Serial Options"
+msgstr "Tùy chọn Nối tiếp"
+
+#: ../properties/nm-ppp-dialog.glade.h:42
+msgid "Service providers GPRS access point from device config"
+msgstr "Điểm truy cập GPRS của nhà cung cấp dịch vụ, từ cấu hình thiết bị"
+
+#: ../properties/nm-ppp-dialog.glade.h:43
+msgid "Service providers IP address"
+msgstr "Địa chỉ IP của nhà cung cấp dịch vụ"
+
+#: ../properties/nm-ppp-dialog.glade.h:44
+msgid "Telep_hone number:"
+msgstr "Số điện t_hoại:"
+
+#: ../properties/nm-ppp-dialog.glade.h:45
+msgid ""
+"This is the friendly name that will be used to identify this network "
+"connection, \n"
+"e.g. \"Campus VPN\" or \"Corporate Network\""
+msgstr ""
+"Đân là tên dễ nhớ sẽ được dùng để nhận diện kết nối mạng này\n"
+" v.d. « VPN đại học » hay « Mạng công ty »."
+
+#: ../properties/nm-ppp-dialog.glade.h:47
+msgid "Time in seconds between echo requests"
+msgstr "Thời gian theo giây giữa hai yêu cầu vọng"
+
+#: ../properties/nm-ppp-dialog.glade.h:48
+msgid "Typ_e:"
+msgstr "Kiể_u :"
+
+#: ../properties/nm-ppp-dialog.glade.h:49
+msgid "Use peer _DNS"
+msgstr "_Dùng DNS ngang hàng"
+
+#: ../properties/nm-ppp-dialog.glade.h:50
+msgid "When checked the \"refuse-chap\" option is passed to pppd."
+msgstr "Khi bật, tùy chọn « refuse-chap » được gửi qua cho pppd."
+
+#: ../properties/nm-ppp-dialog.glade.h:51
+msgid "When checked the \"refuse-eap\" option is passed to pppd."
+msgstr "Khi bật, tùy chọn « refuse-eap » được gửi qua cho pppd."
+
+#: ../properties/nm-ppp-dialog.glade.h:52
+msgid "When checked the \"refuse-mschap\" option is passed to pppd."
+msgstr "Khi bật, tùy chọn « refuse-mschap » được gửi qua cho pppd."
+
+#: ../properties/nm-ppp-dialog.glade.h:53
+msgid "When checked the 'lock' option is passed to pppd"
+msgstr "Khi bật, tùy chọn « lock » được gửi qua cho pppd."
+
+#: ../properties/nm-ppp-dialog.glade.h:54
+msgid "When checked the 'require-mppc' option is passed to pppd"
+msgstr "Khi bật, tùy chọn « require-mppc » được gửi qua cho pppd."
+
+#: ../properties/nm-ppp-dialog.glade.h:55
+msgid ""
+"When checked this sets the pppd 'debug' option and adds some extra "
+"information from the NetworkManager plugin"
+msgstr ""
+"Khi bật, có đặt tùy chọn « debug » (gỡ lỗi) của pppd, cũng thêm thông tin từ phần bổ sung NetworkManager"
+
+#: ../properties/nm-ppp-dialog.glade.h:56
+msgid "When checked this sets the pppd 'noipdefault' option"
+msgstr ""
+"Khi bật, có đặt tùy chọn « noipdefault » (không có mặc định IP) của pppd"
+
+#: ../properties/nm-ppp-dialog.glade.h:57
+msgid "When checked this sets the pppd 'usepeerdns' option"
+msgstr ""
+"Khi bật, có đặt tùy chọn « usepeerdns » (dùng DNS ngang hàng) của pppd"
+
+#: ../properties/nm-ppp-dialog.glade.h:58
+msgid "When this check box is cleared the \"noauth\" option is passed to pppd."
+msgstr "Khi tắt, tùy chọn « noauth » (không xác thực) được gửi qua cho pppd."
+
+#: ../properties/nm-ppp-dialog.glade.h:59
+msgid "_Access point name:"
+msgstr "Tên điểm t_ruy cập:"
+
+#: ../properties/nm-ppp-dialog.glade.h:60
+msgid "_Authenticate peer"
+msgstr "Xác thực ng_ang hàng"
+
+#: ../properties/nm-ppp-dialog.glade.h:61
+msgid "_Device address:"
+msgstr "Địa chỉ thiết _bị:"
+
+#: ../properties/nm-ppp-dialog.glade.h:62
+msgid "_Gateway:"
+msgstr "Cổn_g ra:"
+
+#: ../properties/nm-ppp-dialog.glade.h:63
+msgid "_Hardware RTS/CTS"
+msgstr "RTS/CTS p_hần cứng"
+
+#: ../properties/nm-ppp-dialog.glade.h:64
+msgid "_Import Saved Configuration..."
+msgstr "_Nhập cấu hình đã lưu..."
+
+#: ../properties/nm-ppp-dialog.glade.h:65
+msgid "_Modem connection"
+msgstr "Kết nối bộ điều giả_i"
+
+#: ../properties/nm-ppp-dialog.glade.h:66
+msgid "_Only use VPN connection for these addresses:"
+msgstr "Chỉ dùng kết nối VPN ch_o những địa chỉ này:"
+
+#: ../properties/nm-ppp-dialog.glade.h:67
+msgid "_Packet type:"
+msgstr "K_iểu gói tin:"
+
+#: ../properties/nm-ppp-dialog.glade.h:68
+msgid "_Peer DNS through tunnel"
+msgstr "DNS ngang hàng _qua đường hầm"
+
+#: ../properties/nm-ppp-dialog.glade.h:69
+msgid "_Require MPPC compression"
+msgstr "Đòi hỏi nén _MPPC"
+
+#: ../properties/nm-ppp-properties.c:45
+msgid "pppd tunnel (PPTP, BTGPRS, Dialup)"
+msgstr "Đường hầm pppd (PPTP, BTGPRS, Quay số)"
+
+#: ../properties/nm-ppp-properties.c:134
+msgid "Name"
+msgstr "Tên"
+
+#: ../properties/nm-ppp-properties.c:146
+msgid "PPTP Server"
+msgstr "Máy phục vụ PPTP"
+
+#: ../properties/nm-ppp-properties.c:151
+msgid "Telephone Number"
+msgstr "Số điện thoại"
+
+#: ../properties/nm-ppp-properties.c:156
+msgid "Bluetooth Address"
+msgstr "Địa chỉ Bluetooth"
+
+#: ../properties/nm-ppp-properties.c:161
+msgid "Bluetooth Channel"
+msgstr "Kênh Bluetooth"
+
+#: ../properties/nm-ppp-properties.c:166
+msgid "GPRS APN"
+msgstr "APN GPRS"
+
+#: ../properties/nm-ppp-properties.c:171
+msgid "GPRS IP"
+msgstr "IP GPRS"
+
+#: ../properties/nm-ppp-properties.c:176
+msgid "GPRS Context No."
+msgstr "Số ngữ cảnh GPRS"
+
+#: ../properties/nm-ppp-properties.c:181
+msgid "GPRS Packet Type"
+msgstr "Kiểu gói tin GPRS"
+
+#: ../properties/nm-ppp-properties.c:186
+msgid "Use CTS/RTS flow control"
+msgstr "Dùng điều khiển luồng CTS/RTS"
+
+#: ../properties/nm-ppp-properties.c:191
+msgid "Connect via a modem"
+msgstr "Kết nối bằng bộ điều giải"
+
+#: ../properties/nm-ppp-properties.c:196
+msgid "Require IP to be provided"
+msgstr "Đòi hỏi cung cấp địa chỉ IP"
+
+#: ../properties/nm-ppp-properties.c:201
+msgid "Use Peer DNS"
+msgstr "Dùng DNS ngang hàng"
+
+#: ../properties/nm-ppp-properties.c:206
+msgid "Use MPPE encryption"
+msgstr "Dùng mật mã MPPE"
+
+#: ../properties/nm-ppp-properties.c:211
+msgid "Use 128 bit MPPE encryption"
+msgstr "Dùng mật mã MPPE 128 bit"
+
+#: ../properties/nm-ppp-properties.c:216
+msgid "Enable stateful MPPE"
+msgstr "Bật MPPE có tình trạng"
+
+#: ../properties/nm-ppp-properties.c:221
+msgid "Use MPPC compression"
+msgstr "Nén bằng MPPC"
+
+#: ../properties/nm-ppp-properties.c:226
+msgid "Do not use deflate compression"
+msgstr "Không nén kiểu Deflate"
+
+#: ../properties/nm-ppp-properties.c:231
+msgid "Do not use BSD compression"
+msgstr "Không nén kiểu BSD"
+
+#: ../properties/nm-ppp-properties.c:236
+msgid "Exclusive device access by pppd"
+msgstr "Chỉ pppd truy cập đến thiết bị"
+
+#: ../properties/nm-ppp-properties.c:241
+msgid "Authenticate remote peer"
+msgstr "Xác thực ngang hàng từ xa"
+
+#: ../properties/nm-ppp-properties.c:246
+msgid "Refuse EAP"
+msgstr "Từ chối EAP"
+
+#: ../properties/nm-ppp-properties.c:251
+msgid "Refuse CHAP"
+msgstr "Từ chối CHAP"
+
+#: ../properties/nm-ppp-properties.c:256
+msgid "Refuse MSCHAP"
+msgstr "Từ chối MSCHAP"
+
+#: ../properties/nm-ppp-properties.c:261
+msgid "Maximum transmit unit (in bytes)"
+msgstr "Đơn vị truyền tối đa (theo byte)"
+
+#: ../properties/nm-ppp-properties.c:266
+msgid "Maximum receive unit (in bytes)"
+msgstr "Đơn vị nhận tối đa (theo byte)"
+
+#: ../properties/nm-ppp-properties.c:271
+msgid "Number of failed LCP echos to cause disconnect"
+msgstr "Số các lần vọng LCP không thành công để gây ra ngắt kết nối"
+
+#: ../properties/nm-ppp-properties.c:276
+msgid "Interval (in seconds) at which to issue LCP echos"
+msgstr "Khoảng thời gian (theo giây) giữa hai lần làm vọng LCP"
+
+#: ../properties/nm-ppp-properties.c:281
+msgid "Interval (in milliseconds) to wait before connecting."
+msgstr "Khoảng thời gian (theo mili-giây) cần đợi trước khi kết nối."
+
+#: ../properties/nm-ppp-properties.c:286
+msgid "Custom PPP options"
+msgstr "Tùy chọn ppp tự chọn"
+
+#: ../properties/nm-ppp-properties.c:296
+msgid "Use Peer DNS over the Tunnel"
+msgstr "Dùng DNS ngang hàng qua Đường hầm"
+
+#: ../properties/nm-ppp-properties.c:302
+msgid "Specific networks available"
+msgstr "Các mạng xác định sẵn sàng"
+
+#: ../properties/nm-ppp-properties.c:308
+msgid "Limit to specific networks"
+msgstr "Hạn chế các mạng xác định"
+
+#: ../properties/vpnui_impl.c:229
+#, c-format
+msgid "The following '%s' connection will be created:"
+msgstr "Kết nối « %s » theo đây sẽ được tạo :"
+
+#: ../properties/vpnui_impl.c:242
+#, c-format
+msgid "\t%s:  %s\n"
+msgstr "\t%s:  %s\n"
+
+#: ../properties/vpnui_impl.c:245
+msgid "The connection details can be changed using the \"Back\" button."
+msgstr "Chi tiết kết nối có thể được sửa đổi bằng nút « Lùi »."
+
+#: ../properties/vpnui_impl.c:317
+msgid "Select file to import"
+msgstr "Chọn tập tin cần nhập vào"
+
+#: ../properties/vpnui_impl.c:462
+#. printf ("in impl_export\n");
+msgid "Save as..."
+msgstr "Lưu dạng..."
+
+#: ../properties/vpnui_impl.c:491
+#, c-format
+msgid "A file named \"%s\" already exists."
+msgstr "Một tập tin tên « %s » đã có."
+
+#: ../properties/vpnui_impl.c:494
+msgid "Do you want to replace it with the one you are saving?"
+msgstr "Bạn có muốn thay thế nó bằng tập tin đang lưu không?"
+
+#: ../src/nm-ppp-starter.c:140
+msgid "VPN Connection failed"
+msgstr "Lỗi kết nối VPN"
