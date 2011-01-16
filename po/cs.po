@@ -1,15 +1,15 @@
-# Czech translation of NetworkManager-pptp.
-# Copyright (C) 2008 the author(s) of NetworkManager-pptp.
-# This file is distributed under the same license as the NetworkManager-pptp package.
+# Czech translation of NetworkManager-l2tp.
+# Copyright (C) 2008 the author(s) of NetworkManager-l2tp.
+# This file is distributed under the same license as the NetworkManager-l2tp package.
 # Jakub Friedl <jfriedl@suse.cz>, 2006.
 # Jiří Eischmann <jiri@eischmann.cz>, 2008.
 # Zdeněk Hataš <zdenek.hatas@gmail.com>, 2009, 2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-pptp\n"
+"Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=NetworkManager&component=VPN: pptp\n"
+"product=NetworkManager&component=VPN: l2tp\n"
 "POT-Creation-Date: 2010-01-27 23:45+0000\n"
 "PO-Revision-Date: 2010-02-03 10:52+0100\n"
 "Last-Translator: Zdeněk Hataš <zdenek.hatas@gmail.com>\n"
@@ -62,13 +62,13 @@ msgstr "Pro přístup k virtuální privátní síti '%s' musíte provést auten
 msgid "Authenticate VPN"
 msgstr "Autentizovat VPN"
 
-#: ../nm-pptp.desktop.in.h:1
-msgid "Add, Remove, and Edit PPTP VPN Connections"
-msgstr "Přidat, odstranit a upravit PPTP VPN připojení"
+#: ../nm-l2tp.desktop.in.h:1
+msgid "Add, Remove, and Edit L2TP VPN Connections"
+msgstr "Přidat, odstranit a upravit L2TP VPN připojení"
 
-#: ../nm-pptp.desktop.in.h:2
-msgid "PPTP VPN Connection Manager"
-msgstr "Správce spojení PPTP VPN"
+#: ../nm-l2tp.desktop.in.h:2
+msgid "L2TP VPN Connection Manager"
+msgstr "Správce spojení L2TP VPN"
 
 #: ../properties/advanced-dialog.c:173
 msgid "All Available (Default)"
@@ -102,55 +102,55 @@ msgstr "MSCHAPv2"
 msgid "EAP"
 msgstr "EAP"
 
-#: ../properties/nm-pptp-dialog.glade.h:1
+#: ../properties/nm-l2tp-dialog.glade.h:1
 msgid "<b>Authentication</b>"
 msgstr "<b>Autentizace</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:2
+#: ../properties/nm-l2tp-dialog.glade.h:2
 msgid "<b>Echo</b>"
 msgstr "<b>Echo</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:3
+#: ../properties/nm-l2tp-dialog.glade.h:3
 msgid "<b>General</b>"
 msgstr "<b>Obecné</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:4
+#: ../properties/nm-l2tp-dialog.glade.h:4
 msgid "<b>Optional</b>"
 msgstr "<b>Volitelné</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:5
+#: ../properties/nm-l2tp-dialog.glade.h:5
 msgid "<b>Security and Compression</b>"
 msgstr "<b>Bezpečnost a komprese</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:6
+#: ../properties/nm-l2tp-dialog.glade.h:6
 msgid "Ad_vanced..."
 msgstr "P_okročilé..."
 
-#: ../properties/nm-pptp-dialog.glade.h:7
+#: ../properties/nm-l2tp-dialog.glade.h:7
 msgid "Allow _BSD data compression"
 msgstr "Povolit kompresi _BSD dat"
 
-#: ../properties/nm-pptp-dialog.glade.h:8
+#: ../properties/nm-l2tp-dialog.glade.h:8
 msgid "Allow _Deflate data compression"
 msgstr "Povolit kompresi dat _Deflate"
 
-#: ../properties/nm-pptp-dialog.glade.h:9
+#: ../properties/nm-l2tp-dialog.glade.h:9
 msgid "Allow st_ateful encryption"
 msgstr "Povolit st_avové šifrování"
 
-#: ../properties/nm-pptp-dialog.glade.h:10
+#: ../properties/nm-l2tp-dialog.glade.h:10
 msgid "Allow the following authentication methods:"
 msgstr "Povolit následující metody autentizace:"
 
-#: ../properties/nm-pptp-dialog.glade.h:11
+#: ../properties/nm-l2tp-dialog.glade.h:11
 msgid "Default"
 msgstr "Výchozí"
 
-#: ../properties/nm-pptp-dialog.glade.h:12
+#: ../properties/nm-l2tp-dialog.glade.h:12
 msgid "NT Domain:"
 msgstr "Doména NT:"
 
-#: ../properties/nm-pptp-dialog.glade.h:13
+#: ../properties/nm-l2tp-dialog.glade.h:13
 msgid ""
 "Note: MPPE encryption is only available with MSCHAP authentication methods. "
 "To enable this checkbox, select one or more of the MSCHAP authentication "
@@ -160,47 +160,47 @@ msgstr ""
 "MSCHAP. Tento přepínač povolíte vybráním jedné nebo více autentizačních "
 "metod (MSCHAP nebo MSCHAPv2)."
 
-#: ../properties/nm-pptp-dialog.glade.h:14
-msgid "PPTP Advanced Options"
-msgstr "Rozšířené volby PPTP"
+#: ../properties/nm-l2tp-dialog.glade.h:14
+msgid "L2TP Advanced Options"
+msgstr "Rozšířené volby L2TP"
 
-#: ../properties/nm-pptp-dialog.glade.h:15
+#: ../properties/nm-l2tp-dialog.glade.h:15
 msgid "Password:"
 msgstr "Heslo:"
 
-#: ../properties/nm-pptp-dialog.glade.h:16
+#: ../properties/nm-l2tp-dialog.glade.h:16
 msgid "Send PPP _echo packets"
 msgstr "Poslat PPP _echo pakety"
 
-#: ../properties/nm-pptp-dialog.glade.h:17
+#: ../properties/nm-l2tp-dialog.glade.h:17
 msgid "Show password"
 msgstr "Zobrazit heslo"
 
-#: ../properties/nm-pptp-dialog.glade.h:18
+#: ../properties/nm-l2tp-dialog.glade.h:18
 msgid "Use TCP _header compression"
 msgstr "Použít kompresi TCP _záhlaví"
 
-#: ../properties/nm-pptp-dialog.glade.h:19
+#: ../properties/nm-l2tp-dialog.glade.h:19
 msgid "Use _Point-to-Point encryption (MPPE)"
 msgstr "Použít _Point-to-Point šifrování (MPPE)"
 
-#: ../properties/nm-pptp-dialog.glade.h:20
+#: ../properties/nm-l2tp-dialog.glade.h:20
 msgid "User name:"
 msgstr "Uživ. jméno:"
 
-#: ../properties/nm-pptp-dialog.glade.h:21
+#: ../properties/nm-l2tp-dialog.glade.h:21
 msgid "_Gateway:"
 msgstr "_Brána:"
 
-#: ../properties/nm-pptp-dialog.glade.h:22
+#: ../properties/nm-l2tp-dialog.glade.h:22
 msgid "_Security:"
 msgstr "_Bezpečnost:"
 
-#: ../properties/nm-pptp.c:50
-msgid "Point-to-Point Tunneling Protocol (PPTP)"
-msgstr "Point-to-Point Tunneling Protocol (PPTP)"
+#: ../properties/nm-l2tp.c:50
+msgid "Point-to-Point Tunneling Protocol (L2TP)"
+msgstr "Point-to-Point Tunneling Protocol (L2TP)"
 
-#: ../properties/nm-pptp.c:51
-msgid "Compatible with Microsoft and other PPTP VPN servers."
-msgstr "Kompatibilní s PPTP VPN servery od Microsoftu a ostatních."
+#: ../properties/nm-l2tp.c:51
+msgid "Compatible with Microsoft and other L2TP VPN servers."
+msgstr "Kompatibilní s L2TP VPN servery od Microsoftu a ostatních."
 

@@ -1,11 +1,11 @@
-# translation of NetworkManager-pptp.HEAD.po to Macedonian
+# translation of NetworkManager-l2tp.HEAD.po to Macedonian
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Jovan Naumovski <jovan@lugola.net>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-pptp.HEAD\n"
+"Project-Id-Version: NetworkManager-l2tp.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-01-12 03:25+0000\n"
 "PO-Revision-Date: 2007-01-12 20:55+0100\n"
@@ -222,8 +222,8 @@ msgid "Hardware RTS/CTS"
 msgstr "Хардверски RTS/CTS"
 
 #: ../properties/nm-ppp-dialog.glade.h:24
-msgid "Host name or IP address of the PPTP server"
-msgstr "Име на хост или IP адреса на PPTP серверот"
+msgid "Host name or IP address of the L2TP server"
+msgstr "Име на хост или IP адреса на L2TP серверот"
 
 #: ../properties/nm-ppp-dialog.glade.h:25
 msgid "If BSD compression is not allowed the 'nobsdcomp' option is passed to pppd"
@@ -417,16 +417,16 @@ msgid "connect-delay"
 msgstr "задоцнување-на-врска"
 
 #: ../properties/nm-ppp-properties.c:45
-msgid "pppd tunnel (PPTP, BTGPRS, Dialup)"
-msgstr "pppd тунел (PPTP, BTGPRS, Dialup)"
+msgid "pppd tunnel (L2TP, BTGPRS, Dialup)"
+msgstr "pppd тунел (L2TP, BTGPRS, Dialup)"
 
 #: ../properties/nm-ppp-properties.c:134
 msgid "Name"
 msgstr "Име"
 
 #: ../properties/nm-ppp-properties.c:146
-msgid "PPTP Server"
-msgstr "PPTP сервер"
+msgid "L2TP Server"
+msgstr "L2TP сервер"
 
 #: ../properties/nm-ppp-properties.c:151
 msgid "Telephone Number"

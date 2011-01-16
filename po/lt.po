@@ -1,4 +1,4 @@
-# Lithuanian translation of NetworkManager-pptp.
+# Lithuanian translation of NetworkManager-l2tp.
 # Copyright (C) 2008 Free Software Foundation, Inc.
 # This file is distributed under the same license as the NetworkManager package.
 # Žygimantas Beručka <zygis@gnome.org>, 2008.
@@ -6,7 +6,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-pptp HEAD\n"
+"Project-Id-Version: NetworkManager-l2tp HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-03-27 12:39+0200\n"
 "PO-Revision-Date: 2010-03-27 12:39+0200\n"
@@ -61,13 +61,13 @@ msgstr ""
 msgid "Authenticate VPN"
 msgstr "Nustatyti tapatybę VPN"
 
-#: ../nm-pptp.desktop.in.h:1
-msgid "Add, Remove, and Edit PPTP VPN Connections"
-msgstr "Pridėti, šalinti ir taisyti PPTP VPN ryšius"
+#: ../nm-l2tp.desktop.in.h:1
+msgid "Add, Remove, and Edit L2TP VPN Connections"
+msgstr "Pridėti, šalinti ir taisyti L2TP VPN ryšius"
 
-#: ../nm-pptp.desktop.in.h:2
-msgid "PPTP VPN Connection Manager"
-msgstr "PPTP VPN ryšių valdyklė"
+#: ../nm-l2tp.desktop.in.h:2
+msgid "L2TP VPN Connection Manager"
+msgstr "L2TP VPN ryšių valdyklė"
 
 #: ../properties/advanced-dialog.c:173
 msgid "All Available (Default)"
@@ -101,55 +101,55 @@ msgstr "MSCHAPv2"
 msgid "EAP"
 msgstr "EAP"
 
-#: ../properties/nm-pptp-dialog.glade.h:1
+#: ../properties/nm-l2tp-dialog.glade.h:1
 msgid "<b>Authentication</b>"
 msgstr "<b>Tapatybės nustatymas</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:2
+#: ../properties/nm-l2tp-dialog.glade.h:2
 msgid "<b>Echo</b>"
 msgstr "<b>Aidas</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:3
+#: ../properties/nm-l2tp-dialog.glade.h:3
 msgid "<b>General</b>"
 msgstr "<b>Bendra</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:4
+#: ../properties/nm-l2tp-dialog.glade.h:4
 msgid "<b>Optional</b>"
 msgstr "<b>Neprivaloma</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:5
+#: ../properties/nm-l2tp-dialog.glade.h:5
 msgid "<b>Security and Compression</b>"
 msgstr "<b>Saugumas ir glaudinimas</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:6
+#: ../properties/nm-l2tp-dialog.glade.h:6
 msgid "Ad_vanced..."
 msgstr "Išsa_miau..."
 
-#: ../properties/nm-pptp-dialog.glade.h:7
+#: ../properties/nm-l2tp-dialog.glade.h:7
 msgid "Allow _BSD data compression"
 msgstr "Leisti _BSD duomenų glaudinimą"
 
-#: ../properties/nm-pptp-dialog.glade.h:8
+#: ../properties/nm-l2tp-dialog.glade.h:8
 msgid "Allow _Deflate data compression"
 msgstr "Leisti _Deflate duomenų glaudinimą"
 
-#: ../properties/nm-pptp-dialog.glade.h:9
+#: ../properties/nm-l2tp-dialog.glade.h:9
 msgid "Allow st_ateful encryption"
 msgstr "Leisti _atmenųjį šifravimą"
 
-#: ../properties/nm-pptp-dialog.glade.h:10
+#: ../properties/nm-l2tp-dialog.glade.h:10
 msgid "Allow the following authentication methods:"
 msgstr "Leisti šiuos tapatybės nustatymo metodus:"
 
-#: ../properties/nm-pptp-dialog.glade.h:11
+#: ../properties/nm-l2tp-dialog.glade.h:11
 msgid "Default"
 msgstr "Numatytasis"
 
-#: ../properties/nm-pptp-dialog.glade.h:12
+#: ../properties/nm-l2tp-dialog.glade.h:12
 msgid "NT Domain:"
 msgstr "NT sritis:"
 
-#: ../properties/nm-pptp-dialog.glade.h:13
+#: ../properties/nm-l2tp-dialog.glade.h:13
 msgid ""
 "Note: MPPE encryption is only available with MSCHAP authentication methods. "
 "To enable this checkbox, select one or more of the MSCHAP authentication "
@@ -159,46 +159,46 @@ msgstr ""
 "Norėdami jį pasirinkti, pasirinkite vieną ar kelis MSCHAP autentikacijos "
 "metodus: MSCHAP arba MSCHAPv2."
 
-#: ../properties/nm-pptp-dialog.glade.h:14
-msgid "PPTP Advanced Options"
-msgstr "PPTP sudėtingesni nustatymai"
+#: ../properties/nm-l2tp-dialog.glade.h:14
+msgid "L2TP Advanced Options"
+msgstr "L2TP sudėtingesni nustatymai"
 
-#: ../properties/nm-pptp-dialog.glade.h:15
+#: ../properties/nm-l2tp-dialog.glade.h:15
 msgid "Password:"
 msgstr "Slaptažodis:"
 
-#: ../properties/nm-pptp-dialog.glade.h:16
+#: ../properties/nm-l2tp-dialog.glade.h:16
 msgid "Send PPP _echo packets"
 msgstr "Siųsti PPP _aido paketus"
 
-#: ../properties/nm-pptp-dialog.glade.h:17
+#: ../properties/nm-l2tp-dialog.glade.h:17
 msgid "Show password"
 msgstr "Rodyti slaptažodį"
 
-#: ../properties/nm-pptp-dialog.glade.h:18
+#: ../properties/nm-l2tp-dialog.glade.h:18
 msgid "Use TCP _header compression"
 msgstr "Naudoti TCP _antraštės glaudinimą"
 
-#: ../properties/nm-pptp-dialog.glade.h:19
+#: ../properties/nm-l2tp-dialog.glade.h:19
 msgid "Use _Point-to-Point encryption (MPPE)"
 msgstr "Naudoti _PPP šifravimą (MPPE)"
 
-#: ../properties/nm-pptp-dialog.glade.h:20
+#: ../properties/nm-l2tp-dialog.glade.h:20
 msgid "User name:"
 msgstr "Naudotojo vardas:"
 
-#: ../properties/nm-pptp-dialog.glade.h:21
+#: ../properties/nm-l2tp-dialog.glade.h:21
 msgid "_Gateway:"
 msgstr "Š_liuzas:"
 
-#: ../properties/nm-pptp-dialog.glade.h:22
+#: ../properties/nm-l2tp-dialog.glade.h:22
 msgid "_Security:"
 msgstr "_Saugumas:"
 
-#: ../properties/nm-pptp.c:50
-msgid "Point-to-Point Tunneling Protocol (PPTP)"
-msgstr "PPP tuneliavimo protokolas (PPTP)"
+#: ../properties/nm-l2tp.c:50
+msgid "Point-to-Point Tunneling Protocol (L2TP)"
+msgstr "PPP tuneliavimo protokolas (L2TP)"
 
-#: ../properties/nm-pptp.c:51
-msgid "Compatible with Microsoft and other PPTP VPN servers."
-msgstr "Suderinama su Microsoft ir kitais PPTP VPN serveriais."
+#: ../properties/nm-l2tp.c:51
+msgid "Compatible with Microsoft and other L2TP VPN servers."
+msgstr "Suderinama su Microsoft ir kitais L2TP VPN serveriais."

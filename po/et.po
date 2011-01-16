@@ -1,7 +1,7 @@
-# GNOME NetworkManager - PPTP klient
+# GNOME NetworkManager - L2TP klient
 #
 # Copyright (C) 2007 The GNOME Project.
-# This file is distributed under the same license as the NetworkManager-pptp package.
+# This file is distributed under the same license as the NetworkManager-l2tp package.
 #
 # Priit Laes <amd store20 com>, 2007.
 # Ivar Smolin <okul linux ee>, 2007.
@@ -9,9 +9,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-pptp\n"
+"Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=NetworkManager&component=VPN: pptp\n"
+"product=NetworkManager&component=VPN: l2tp\n"
 "POT-Creation-Date: 2010-03-08 10:41+0000\n"
 "PO-Revision-Date: 2010-03-10 06:41+0300\n"
 "Last-Translator: Mattias Põldaru <mahfiaz gmail com>\n"
@@ -51,11 +51,11 @@ msgstr "Ligipääsuks '%s' VPN-võrku pead autentima."
 msgid "Authenticate VPN"
 msgstr "VPN-i autentimine"
 
-msgid "Add, Remove, and Edit PPTP VPN Connections"
-msgstr "PPTP VPN-ühenduste lisamine, muutmine ja eemaldamine"
+msgid "Add, Remove, and Edit L2TP VPN Connections"
+msgstr "L2TP VPN-ühenduste lisamine, muutmine ja eemaldamine"
 
-msgid "PPTP VPN Connection Manager"
-msgstr "PPTP VPN-ühenduste haldur"
+msgid "L2TP VPN Connection Manager"
+msgstr "L2TP VPN-ühenduste haldur"
 
 msgid "All Available (Default)"
 msgstr "Kõik saadaval (vaikimisi)"
@@ -126,8 +126,8 @@ msgstr ""
 "Selle kasti märkimiseks pead valima kummagi MSCHAP autentimismeetodi: MSCHAP "
 "või MSCHAPv2."
 
-msgid "PPTP Advanced Options"
-msgstr "PPTP täpsemad valikud"
+msgid "L2TP Advanced Options"
+msgstr "L2TP täpsemad valikud"
 
 msgid "Password:"
 msgstr "Parool:"
@@ -153,8 +153,8 @@ msgstr "_Lüüs (gateway):"
 msgid "_Security:"
 msgstr "_Turvalisus:"
 
-msgid "Point-to-Point Tunneling Protocol (PPTP)"
-msgstr "Point-to-Point tunneli protokoll (PPTP)"
+msgid "Point-to-Point Tunneling Protocol (L2TP)"
+msgstr "Point-to-Point tunneli protokoll (L2TP)"
 
-msgid "Compatible with Microsoft and other PPTP VPN servers."
-msgstr "Ühildub Microsofti ja teiste PPTP VPN serveritega."
+msgid "Compatible with Microsoft and other L2TP VPN servers."
+msgstr "Ühildub Microsofti ja teiste L2TP VPN serveritega."

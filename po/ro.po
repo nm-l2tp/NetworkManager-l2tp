@@ -1,11 +1,11 @@
 # Romanian translation
-# This file is distributed under the same license as the network-manager-pptp package.
+# This file is distributed under the same license as the network-manager-l2tp package.
 #
 # Adi Roiban https://launchpad.net/~adiroiban, 2009
 msgid ""
 msgstr ""
 "Project-Id-Version: network-manager\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=NetworkManager&component=VPN: pptp\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=NetworkManager&component=VPN: l2tp\n"
 "POT-Creation-Date: 2009-02-24 22:56+0000\n"
 "PO-Revision-Date: 2009-03-02 20:27+0200\n"
 "Last-Translator: Adi Roiban <adi@roiban.ro>\n"
@@ -57,13 +57,13 @@ msgstr "Trebuie să vă autentificați pentru a accesta rețeaua virtuală priva
 msgid "Authenticate VPN"
 msgstr "Autentifică VPN"
 
-#: ../nm-pptp.desktop.in.h:1
-msgid "Add, Remove, and Edit PPTP VPN Connections"
-msgstr "Adaugă, șterge și modifică conexiuni VPN PPTP"
+#: ../nm-l2tp.desktop.in.h:1
+msgid "Add, Remove, and Edit L2TP VPN Connections"
+msgstr "Adaugă, șterge și modifică conexiuni VPN L2TP"
 
-#: ../nm-pptp.desktop.in.h:2
-msgid "PPTP VPN Connection Manager"
-msgstr "Administrator conexiune VPN PPTP"
+#: ../nm-l2tp.desktop.in.h:2
+msgid "L2TP VPN Connection Manager"
+msgstr "Administrator conexiune VPN L2TP"
 
 #: ../properties/advanced-dialog.c:145
 msgid "All Available (Default)"
@@ -97,91 +97,91 @@ msgstr "MSCHAPv2"
 msgid "EAP"
 msgstr "EAP"
 
-#: ../properties/nm-pptp-dialog.glade.h:1
+#: ../properties/nm-l2tp-dialog.glade.h:1
 msgid "<b>Authentication</b>"
 msgstr "<b>Autentificare</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:2
+#: ../properties/nm-l2tp-dialog.glade.h:2
 msgid "<b>Echo</b>"
 msgstr "<b>Echo</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:3
+#: ../properties/nm-l2tp-dialog.glade.h:3
 msgid "<b>General</b>"
 msgstr "<b>General</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:4
+#: ../properties/nm-l2tp-dialog.glade.h:4
 msgid "<b>Optional</b>"
 msgstr "<b>Opțional</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:5
+#: ../properties/nm-l2tp-dialog.glade.h:5
 msgid "<b>Security and Compression</b>"
 msgstr "<b>Securitate și compresie</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:6
+#: ../properties/nm-l2tp-dialog.glade.h:6
 msgid "Ad_vanced..."
 msgstr "A_vansat..."
 
-#: ../properties/nm-pptp-dialog.glade.h:7
+#: ../properties/nm-l2tp-dialog.glade.h:7
 msgid "Allow _BSD data compression"
 msgstr "Permite compresia _BSD a datelor"
 
-#: ../properties/nm-pptp-dialog.glade.h:8
+#: ../properties/nm-l2tp-dialog.glade.h:8
 msgid "Allow _Deflate data compression"
 msgstr "Permite compresia _Deflate a datelor"
 
-#: ../properties/nm-pptp-dialog.glade.h:9
+#: ../properties/nm-l2tp-dialog.glade.h:9
 msgid "Allow st_ateful encryption"
 msgstr "Permite criptarea cu st_are"
 
-#: ../properties/nm-pptp-dialog.glade.h:10
+#: ../properties/nm-l2tp-dialog.glade.h:10
 msgid "Allow the following authentication methods:"
 msgstr "Permite următoarele metode de autentificare:"
 
-#: ../properties/nm-pptp-dialog.glade.h:11
+#: ../properties/nm-l2tp-dialog.glade.h:11
 msgid "Default"
 msgstr "Implicit"
 
-#: ../properties/nm-pptp-dialog.glade.h:12
+#: ../properties/nm-l2tp-dialog.glade.h:12
 msgid "NT Domain:"
 msgstr "Domeniu NT:"
 
-#: ../properties/nm-pptp-dialog.glade.h:13
+#: ../properties/nm-l2tp-dialog.glade.h:13
 msgid "Password:"
 msgstr "Parolă:"
 
-#: ../properties/nm-pptp-dialog.glade.h:14
+#: ../properties/nm-l2tp-dialog.glade.h:14
 msgid "Send PPP _echo packets"
 msgstr "Trimite pachete _echo PPP"
 
-#: ../properties/nm-pptp-dialog.glade.h:15
+#: ../properties/nm-l2tp-dialog.glade.h:15
 msgid "Show password"
 msgstr "Afișează parola"
 
-#: ../properties/nm-pptp-dialog.glade.h:16
+#: ../properties/nm-l2tp-dialog.glade.h:16
 msgid "Use TCP _header compression"
 msgstr "Folosește compresia _antetelor TCP"
 
-#: ../properties/nm-pptp-dialog.glade.h:17
+#: ../properties/nm-l2tp-dialog.glade.h:17
 msgid "Use _Point-to-Point encryption (MPPE)"
 msgstr "Folosește criptare _punct la punct (MPPE)"
 
-#: ../properties/nm-pptp-dialog.glade.h:18
+#: ../properties/nm-l2tp-dialog.glade.h:18
 msgid "User name:"
 msgstr "Nume utilizator:"
 
-#: ../properties/nm-pptp-dialog.glade.h:19
+#: ../properties/nm-l2tp-dialog.glade.h:19
 msgid "_Gateway:"
 msgstr "_Gateway:"
 
-#: ../properties/nm-pptp-dialog.glade.h:20
+#: ../properties/nm-l2tp-dialog.glade.h:20
 msgid "_Security:"
 msgstr "_Securitate:"
 
-#: ../properties/nm-pptp.c:50
-msgid "Point-to-Point Tunneling Protocol (PPTP)"
-msgstr "Protocol tunelare punct la punct (PPTP)"
+#: ../properties/nm-l2tp.c:50
+msgid "Point-to-Point Tunneling Protocol (L2TP)"
+msgstr "Protocol tunelare punct la punct (L2TP)"
 
-#: ../properties/nm-pptp.c:51
-msgid "Compatible with Microsoft and other PPTP VPN servers."
-msgstr "Compatibil cu Microsoft și alte servere VPN PPTP."
+#: ../properties/nm-l2tp.c:51
+msgid "Compatible with Microsoft and other L2TP VPN servers."
+msgstr "Compatibil cu Microsoft și alte servere VPN L2TP."
 

@@ -1,4 +1,4 @@
-# translation of NetworkManager-pptp.HEAD.po to
+# translation of NetworkManager-l2tp.HEAD.po to
 # Copyright (C) 2007 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
@@ -6,7 +6,7 @@
 # Jennie Petoumenou <epetoumenou@gmail.com>, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-pptp.HEAD\n"
+"Project-Id-Version: NetworkManager-l2tp.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-03-14 12:44+0200\n"
 "PO-Revision-Date: 2010-03-14 12:47+0200\n"
@@ -59,13 +59,13 @@ msgstr "Χρειάζεστε πιστοποίηση για να αποκτήσε
 msgid "Authenticate VPN"
 msgstr "Πιστοποίηση VPN"
 
-#: ../nm-pptp.desktop.in.h:1
-msgid "Add, Remove, and Edit PPTP VPN Connections"
-msgstr "Προσθήκη, απομάκρυνση και επεξεργασία συνδέσεων PPTP VPN"
+#: ../nm-l2tp.desktop.in.h:1
+msgid "Add, Remove, and Edit L2TP VPN Connections"
+msgstr "Προσθήκη, απομάκρυνση και επεξεργασία συνδέσεων L2TP VPN"
 
-#: ../nm-pptp.desktop.in.h:2
-msgid "PPTP VPN Connection Manager"
-msgstr "Διαχείριση συνδέσεων PPTP VPN"
+#: ../nm-l2tp.desktop.in.h:2
+msgid "L2TP VPN Connection Manager"
+msgstr "Διαχείριση συνδέσεων L2TP VPN"
 
 #: ../properties/advanced-dialog.c:173
 msgid "All Available (Default)"
@@ -99,99 +99,99 @@ msgstr "MSCHAPv2"
 msgid "EAP"
 msgstr "EAP"
 
-#: ../properties/nm-pptp-dialog.glade.h:1
+#: ../properties/nm-l2tp-dialog.glade.h:1
 msgid "<b>Authentication</b>"
 msgstr "<b>Πιστοποίηση</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:2
+#: ../properties/nm-l2tp-dialog.glade.h:2
 msgid "<b>Echo</b>"
 msgstr "<b>Echo</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:3
+#: ../properties/nm-l2tp-dialog.glade.h:3
 msgid "<b>General</b>"
 msgstr "<b>Γενικά</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:4
+#: ../properties/nm-l2tp-dialog.glade.h:4
 msgid "<b>Optional</b>"
 msgstr "<b>Προαιρετικά</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:5
+#: ../properties/nm-l2tp-dialog.glade.h:5
 msgid "<b>Security and Compression</b>"
 msgstr "<b>Ασφάλεια και Συμπίεση</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:6
+#: ../properties/nm-l2tp-dialog.glade.h:6
 msgid "Ad_vanced..."
 msgstr "Για π_ροχωρημένους..."
 
-#: ../properties/nm-pptp-dialog.glade.h:7
+#: ../properties/nm-l2tp-dialog.glade.h:7
 msgid "Allow _BSD data compression"
 msgstr "Να επιτρέπεται η συμπίεση _BSD"
 
-#: ../properties/nm-pptp-dialog.glade.h:8
+#: ../properties/nm-l2tp-dialog.glade.h:8
 msgid "Allow _Deflate data compression"
 msgstr "Να επιτρέπεται η συμπίεση _Deflate"
 
-#: ../properties/nm-pptp-dialog.glade.h:9
+#: ../properties/nm-l2tp-dialog.glade.h:9
 msgid "Allow st_ateful encryption"
 msgstr "Να επιτρέπεται η _stateful κρυπτογράφηση"
 
-#: ../properties/nm-pptp-dialog.glade.h:10
+#: ../properties/nm-l2tp-dialog.glade.h:10
 msgid "Allow the following authentication methods:"
 msgstr "Να επιτρέπονται οι ακόλουθες μέθοδοι πιστοποίησης:"
 
-#: ../properties/nm-pptp-dialog.glade.h:11
+#: ../properties/nm-l2tp-dialog.glade.h:11
 msgid "Default"
 msgstr "Προεπιλεγμένη"
 
-#: ../properties/nm-pptp-dialog.glade.h:12
+#: ../properties/nm-l2tp-dialog.glade.h:12
 msgid "NT Domain:"
 msgstr "Τομέας ΝΤ:"
 
-#: ../properties/nm-pptp-dialog.glade.h:13
+#: ../properties/nm-l2tp-dialog.glade.h:13
 msgid "Note: MPPE encryption is only available with MSCHAP authentication methods. To enable this checkbox, select one or more of the MSCHAP authentication methods: MSCHAP or MSCHAPv2."
 msgstr "Σημείωση: Η κρυπτογράφηση MPPE είναι διαθέσιμη μόνο με μεθόδους πιστοποίησης MSCHAP. Για να ενεργοποιήσετε αυτό το πεδίο, επιλέξτε μια ή περισσότερους μεθόδους πιστοποίησης MSCHAP: MSCHAP ή MSCHAPv2."
 
-#: ../properties/nm-pptp-dialog.glade.h:14
-msgid "PPTP Advanced Options"
-msgstr "Προχωρημένες επιλογές PPTP "
+#: ../properties/nm-l2tp-dialog.glade.h:14
+msgid "L2TP Advanced Options"
+msgstr "Προχωρημένες επιλογές L2TP "
 
-#: ../properties/nm-pptp-dialog.glade.h:15
+#: ../properties/nm-l2tp-dialog.glade.h:15
 msgid "Password:"
 msgstr "Συνθηματικό:"
 
-#: ../properties/nm-pptp-dialog.glade.h:16
+#: ../properties/nm-l2tp-dialog.glade.h:16
 msgid "Send PPP _echo packets"
 msgstr "Αποστολή πακέτων _echo PPP"
 
-#: ../properties/nm-pptp-dialog.glade.h:17
+#: ../properties/nm-l2tp-dialog.glade.h:17
 msgid "Show password"
 msgstr "Εμφάνιση συνθηματικού"
 
-#: ../properties/nm-pptp-dialog.glade.h:18
+#: ../properties/nm-l2tp-dialog.glade.h:18
 msgid "Use TCP _header compression"
 msgstr "Χρήση συμπίεσης _κεφαλίδων TCP"
 
-#: ../properties/nm-pptp-dialog.glade.h:19
+#: ../properties/nm-l2tp-dialog.glade.h:19
 msgid "Use _Point-to-Point encryption (MPPE)"
 msgstr "Χρήση κρυπτογράφησης _Point-to-Point (MPPE)"
 
-#: ../properties/nm-pptp-dialog.glade.h:20
+#: ../properties/nm-l2tp-dialog.glade.h:20
 msgid "User name:"
 msgstr "Όνομα χρήστη:"
 
-#: ../properties/nm-pptp-dialog.glade.h:21
+#: ../properties/nm-l2tp-dialog.glade.h:21
 msgid "_Gateway:"
 msgstr "Πύ_λη:"
 
-#: ../properties/nm-pptp-dialog.glade.h:22
+#: ../properties/nm-l2tp-dialog.glade.h:22
 msgid "_Security:"
 msgstr "_Ασφάλεια:"
 
-#: ../properties/nm-pptp.c:50
-msgid "Point-to-Point Tunneling Protocol (PPTP)"
-msgstr "Πρωτόκολλο Point-to-Point Tunneling (PPTP)"
+#: ../properties/nm-l2tp.c:50
+msgid "Point-to-Point Tunneling Protocol (L2TP)"
+msgstr "Πρωτόκολλο Point-to-Point Tunneling (L2TP)"
 
-#: ../properties/nm-pptp.c:51
-msgid "Compatible with Microsoft and other PPTP VPN servers."
-msgstr "Συμβατό με τους εξυπηρετητές PPTP VPN της Microsoft και άλλων εταιρειών."
+#: ../properties/nm-l2tp.c:51
+msgid "Compatible with Microsoft and other L2TP VPN servers."
+msgstr "Συμβατό με τους εξυπηρετητές L2TP VPN της Microsoft και άλλων εταιρειών."
 

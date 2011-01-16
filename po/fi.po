@@ -1,4 +1,4 @@
-# Finnish messages for NetworkManager-pptp.
+# Finnish messages for NetworkManager-l2tp.
 # Copyright (C) 2006-2008 Ilkka Tuohela
 # Ilkka Tuohela <hile@iki.fi>, 2006-2008.
 #
@@ -6,7 +6,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-pptp\n"
+"Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-11-29 20:26+0300\n"
 "PO-Revision-Date: 2008-11-29 20:00+0300\n"
@@ -58,13 +58,13 @@ msgstr "Yhteydenotto VPN-verkkoon \"%s\" vaatii todentamista."
 msgid "Authenticate VPN"
 msgstr "Todenna VPN-yhteys"
 
-#: ../nm-pptp.desktop.in.h:1
-msgid "Add, Remove, and Edit PPTP VPN Connections"
-msgstr "Lisää, poista tai muokkaa PPTP VPN -yhteyksiä"
+#: ../nm-l2tp.desktop.in.h:1
+msgid "Add, Remove, and Edit L2TP VPN Connections"
+msgstr "Lisää, poista tai muokkaa L2TP VPN -yhteyksiä"
 
-#: ../nm-pptp.desktop.in.h:2
-msgid "PPTP VPN Connection Manager"
-msgstr "PPTP VPN -yhteyksien hallinta"
+#: ../nm-l2tp.desktop.in.h:2
+msgid "L2TP VPN Connection Manager"
+msgstr "L2TP VPN -yhteyksien hallinta"
 
 #: ../properties/advanced-dialog.c:144
 msgid "All Available (Default)"
@@ -94,93 +94,93 @@ msgstr "MSCHAP"
 msgid "MSCHAPv2"
 msgstr "MSCHAPv2"
 
-#: ../properties/nm-pptp-dialog.glade.h:1
+#: ../properties/nm-l2tp-dialog.glade.h:1
 msgid "<b>Authentication</b>"
 msgstr "<b>Todentaminen</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:2
+#: ../properties/nm-l2tp-dialog.glade.h:2
 msgid "<b>Echo</b>"
 msgstr "<b>Kaiutus</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:3
+#: ../properties/nm-l2tp-dialog.glade.h:3
 msgid "<b>General</b>"
 msgstr "<b>Yleisasetukset</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:4
+#: ../properties/nm-l2tp-dialog.glade.h:4
 msgid "<b>Optional</b>"
 msgstr "<b>Lisävalinnat</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:5
+#: ../properties/nm-l2tp-dialog.glade.h:5
 msgid "<b>Security and Compression</b>"
 msgstr "<b>Salaus ja pakkaus</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:6
+#: ../properties/nm-l2tp-dialog.glade.h:6
 msgid "Ad_vanced..."
 msgstr "_Lisäasetukset..."
 
-#: ../properties/nm-pptp-dialog.glade.h:7
+#: ../properties/nm-l2tp-dialog.glade.h:7
 msgid "Allow _BSD data compression"
 msgstr "Salli _BSD-pakkaus"
 
-#: ../properties/nm-pptp-dialog.glade.h:8
+#: ../properties/nm-l2tp-dialog.glade.h:8
 msgid "Allow _Deflate data compression"
 msgstr "Salli _deflate-pakkaus"
 
-#: ../properties/nm-pptp-dialog.glade.h:9
+#: ../properties/nm-l2tp-dialog.glade.h:9
 msgid "Allow st_ateful encryption"
 msgstr "Salli _tilallinen salaus"
 
-#: ../properties/nm-pptp-dialog.glade.h:10
+#: ../properties/nm-l2tp-dialog.glade.h:10
 msgid "Allow the following authentication methods:"
 msgstr "Salli seuraavat tunnistusmenetelmät:"
 
-#: ../properties/nm-pptp-dialog.glade.h:11
+#: ../properties/nm-l2tp-dialog.glade.h:11
 msgid "Default"
 msgstr "Oletus"
 
-#: ../properties/nm-pptp-dialog.glade.h:12
+#: ../properties/nm-l2tp-dialog.glade.h:12
 msgid "NT Domain:"
 msgstr "NT-toimialue:"
 
-#: ../properties/nm-pptp-dialog.glade.h:13
+#: ../properties/nm-l2tp-dialog.glade.h:13
 msgid "Password:"
 msgstr "Salasana:"
 
-#: ../properties/nm-pptp-dialog.glade.h:14
+#: ../properties/nm-l2tp-dialog.glade.h:14
 msgid "Send PPP _echo packets"
 msgstr "Lähetä PPP:n _echo-paketteja"
 
-#: ../properties/nm-pptp-dialog.glade.h:15
+#: ../properties/nm-l2tp-dialog.glade.h:15
 msgid "Show password"
 msgstr "Näytä salasana"
 
-#: ../properties/nm-pptp-dialog.glade.h:16
+#: ../properties/nm-l2tp-dialog.glade.h:16
 msgid "Use TCP _header compression"
 msgstr "Käytä TCP-_otsakkeiden pakkausta"
 
-#: ../properties/nm-pptp-dialog.glade.h:17
+#: ../properties/nm-l2tp-dialog.glade.h:17
 msgid "Use _Point-to-Point encryption (MPPE)"
 msgstr "Käytä _Point-to-Point-salausta (MPPE)"
 
-#: ../properties/nm-pptp-dialog.glade.h:18
+#: ../properties/nm-l2tp-dialog.glade.h:18
 msgid "User name:"
 msgstr "Käyttäjätunnus:"
 
-#: ../properties/nm-pptp-dialog.glade.h:19
+#: ../properties/nm-l2tp-dialog.glade.h:19
 msgid "_Gateway:"
 msgstr "_Yhdyskäytävä:"
 
-#: ../properties/nm-pptp-dialog.glade.h:20
+#: ../properties/nm-l2tp-dialog.glade.h:20
 msgid "_Security:"
 msgstr "_Salaus:"
 
-#: ../properties/nm-pptp.c:50
-msgid "Point-to-Point Tunneling Protocol (PPTP)"
-msgstr "Point-to-Point Tunneling Protocol (PPTP)"
+#: ../properties/nm-l2tp.c:50
+msgid "Point-to-Point Tunneling Protocol (L2TP)"
+msgstr "Point-to-Point Tunneling Protocol (L2TP)"
 
-#: ../properties/nm-pptp.c:51
-msgid "Compatible with Microsoft and other PPTP VPN servers."
-msgstr "Yhteensopiva Microsoftin ja muiden PPTP VPN-palvelinten kanssa."
+#: ../properties/nm-l2tp.c:51
+msgid "Compatible with Microsoft and other L2TP VPN servers."
+msgstr "Yhteensopiva Microsoftin ja muiden L2TP VPN-palvelinten kanssa."
 
 #~ msgid "Authentication Type:"
 #~ msgstr "Todentamistapa:"
@@ -288,8 +288,8 @@ msgstr "Yhteensopiva Microsoftin ja muiden PPTP VPN-palvelinten kanssa."
 #~ msgid "GPRS Options"
 #~ msgstr "GPRS-valitsimet"
 
-#~ msgid "Host name or IP address of the PPTP server"
-#~ msgstr "PPTP-palvelimen konenimi tai IP-osoite"
+#~ msgid "Host name or IP address of the L2TP server"
+#~ msgstr "L2TP-palvelimen konenimi tai IP-osoite"
 
 #~ msgid "IP a_ddress:"
 #~ msgstr "_IP-osoite:"
@@ -427,14 +427,14 @@ msgstr "Yhteensopiva Microsoftin ja muiden PPTP VPN-palvelinten kanssa."
 #~ msgid "_Require MPPC compression"
 #~ msgstr "_Vaadi MPPC-pakkaus"
 
-#~ msgid "pppd tunnel (PPTP, BTGPRS, Dialup)"
-#~ msgstr "pppd-tunneli (PPTP, BTGPRS, Dialup)"
+#~ msgid "pppd tunnel (L2TP, BTGPRS, Dialup)"
+#~ msgstr "pppd-tunneli (L2TP, BTGPRS, Dialup)"
 
 #~ msgid "Name"
 #~ msgstr "Nimi"
 
-#~ msgid "PPTP Server"
-#~ msgstr "PPTP-palvelin"
+#~ msgid "L2TP Server"
+#~ msgstr "L2TP-palvelin"
 
 #~ msgid "Telephone Number"
 #~ msgstr "Puhelinnumero"

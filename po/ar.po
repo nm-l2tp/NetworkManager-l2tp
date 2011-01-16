@@ -1,4 +1,4 @@
-# translation of NetworkManager-pptp.HEAD.ar.po to Arabic
+# translation of NetworkManager-l2tp.HEAD.ar.po to Arabic
 # Arabic translations for PACKAGE package.
 # Copyright (C) 2006 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
@@ -65,14 +65,14 @@ msgstr "تحتاج للتوثق لتنفُذ إلى '%s'."
 msgid "Authenticate VPN"
 msgstr "وثّق ال_ندّ"
 
-#: ../nm-pptp.desktop.in.h:1
+#: ../nm-l2tp.desktop.in.h:1
 #, fuzzy
-msgid "Add, Remove, and Edit PPTP VPN Connections"
+msgid "Add, Remove, and Edit L2TP VPN Connections"
 msgstr "أضِف، احذِف، و حرِّر اتصالات VPN"
 
-#: ../nm-pptp.desktop.in.h:2
+#: ../nm-l2tp.desktop.in.h:2
 #, fuzzy
-msgid "PPTP VPN Connection Manager"
+msgid "L2TP VPN Connection Manager"
 msgstr "فشل اتصال VPN"
 
 #: ../properties/advanced-dialog.c:173
@@ -104,101 +104,101 @@ msgstr "ارفض MSCHAP"
 msgid "MSCHAPv2"
 msgstr ""
 
-#: ../properties/nm-pptp-dialog.glade.h:1
+#: ../properties/nm-l2tp-dialog.glade.h:1
 #, fuzzy
 msgid "<b>Authentication</b>"
 msgstr "التوثق"
 
-#: ../properties/nm-pptp-dialog.glade.h:2
+#: ../properties/nm-l2tp-dialog.glade.h:2
 #, fuzzy
 msgid "<b>Echo</b>"
 msgstr "<b>التعمية</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:3
+#: ../properties/nm-l2tp-dialog.glade.h:3
 msgid "<b>General</b>"
 msgstr ""
 
-#: ../properties/nm-pptp-dialog.glade.h:4
+#: ../properties/nm-l2tp-dialog.glade.h:4
 #, fuzzy
 msgid "<b>Optional</b>"
 msgstr "<b>خيارات IP</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:5
+#: ../properties/nm-l2tp-dialog.glade.h:5
 #, fuzzy
 msgid "<b>Security and Compression</b>"
 msgstr "<b>الضغط</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:6
+#: ../properties/nm-l2tp-dialog.glade.h:6
 msgid "Ad_vanced..."
 msgstr ""
 
-#: ../properties/nm-pptp-dialog.glade.h:7
+#: ../properties/nm-l2tp-dialog.glade.h:7
 #, fuzzy
 msgid "Allow BSD data compression"
 msgstr "اسمح ب_ضغط BSD"
 
-#: ../properties/nm-pptp-dialog.glade.h:8
+#: ../properties/nm-l2tp-dialog.glade.h:8
 #, fuzzy
 msgid "Allow Deflate data compression"
 msgstr "ا_سمح بتفريغ الضغط"
 
-#: ../properties/nm-pptp-dialog.glade.h:9
+#: ../properties/nm-l2tp-dialog.glade.h:9
 msgid "Allow Stateful Encryption"
 msgstr ""
 
-#: ../properties/nm-pptp-dialog.glade.h:10
+#: ../properties/nm-l2tp-dialog.glade.h:10
 msgid "Allow the following authentication methods:"
 msgstr ""
 
-#: ../properties/nm-pptp-dialog.glade.h:11
+#: ../properties/nm-l2tp-dialog.glade.h:11
 msgid "Default"
 msgstr ""
 
-#: ../properties/nm-pptp-dialog.glade.h:12
+#: ../properties/nm-l2tp-dialog.glade.h:12
 #, fuzzy
 msgid "Domain:"
 msgstr "ال_نطاق:"
 
-#: ../properties/nm-pptp-dialog.glade.h:13
+#: ../properties/nm-l2tp-dialog.glade.h:13
 msgid "Security:"
 msgstr ""
 
-#: ../properties/nm-pptp-dialog.glade.h:14
+#: ../properties/nm-l2tp-dialog.glade.h:14
 msgid "Send PPP echo packets"
 msgstr ""
 
-#: ../properties/nm-pptp-dialog.glade.h:15
+#: ../properties/nm-l2tp-dialog.glade.h:15
 msgid "Use Point-to-Point Encryption (MPPE)"
 msgstr ""
 
-#: ../properties/nm-pptp-dialog.glade.h:16
+#: ../properties/nm-l2tp-dialog.glade.h:16
 #, fuzzy
 msgid "Use TCP header compression"
 msgstr "استخدم ضغط MPPC"
 
-#: ../properties/nm-pptp-dialog.glade.h:17
+#: ../properties/nm-l2tp-dialog.glade.h:17
 #, fuzzy
 msgid "User name:"
 msgstr "ا_سم المستخدم:"
 
-#: ../properties/nm-pptp-dialog.glade.h:18
+#: ../properties/nm-l2tp-dialog.glade.h:18
 msgid "_Gateway:"
 msgstr "ال_بوّابة:"
 
-#: ../properties/nm-pptp-dialog.glade.h:19
+#: ../properties/nm-l2tp-dialog.glade.h:19
 msgid "gtk-cancel"
 msgstr ""
 
-#: ../properties/nm-pptp-dialog.glade.h:20
+#: ../properties/nm-l2tp-dialog.glade.h:20
 msgid "gtk-ok"
 msgstr ""
 
-#: ../properties/nm-pptp.c:50
-msgid "Point-to-Point Tunneling Protocol (PPTP)"
+#: ../properties/nm-l2tp.c:50
+msgid "Point-to-Point Tunneling Protocol (L2TP)"
 msgstr ""
 
-#: ../properties/nm-pptp.c:51
-msgid "Compatible with Microsoft and other PPTP VPN servers."
+#: ../properties/nm-l2tp.c:51
+msgid "Compatible with Microsoft and other L2TP VPN servers."
 msgstr ""
 
 #~ msgid "Authentication Type:"
@@ -302,8 +302,8 @@ msgstr ""
 #~ msgid "GPRS Options"
 #~ msgstr "خيارات GPRS"
 
-#~ msgid "Host name or IP address of the PPTP server"
-#~ msgstr "اسم أو عنوان IP لخادم PPTP"
+#~ msgid "Host name or IP address of the L2TP server"
+#~ msgstr "اسم أو عنوان IP لخادم L2TP"
 
 #~ msgid "IP a_ddress:"
 #~ msgstr "ع_نوان IP:"
@@ -438,14 +438,14 @@ msgstr ""
 #~ msgid "_Require MPPC compression"
 #~ msgstr "ت_طلّب ضغط MPPC"
 
-#~ msgid "pppd tunnel (PPTP, BTGPRS, Dialup)"
-#~ msgstr "نفق pppd (PPTP، BTGPRS، Dialup)"
+#~ msgid "pppd tunnel (L2TP, BTGPRS, Dialup)"
+#~ msgstr "نفق pppd (L2TP، BTGPRS، Dialup)"
 
 #~ msgid "Name"
 #~ msgstr "الإسم"
 
-#~ msgid "PPTP Server"
-#~ msgstr "خادم PPTP"
+#~ msgid "L2TP Server"
+#~ msgstr "خادم L2TP"
 
 #~ msgid "Telephone Number"
 #~ msgstr "رقم الهاتف"

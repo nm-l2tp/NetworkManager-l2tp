@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-pptp\n"
+"Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-10-19 01:38+0300\n"
 "PO-Revision-Date: 2007-04-15 22:03+0300\n"
@@ -55,13 +55,13 @@ msgstr "Treba spraŭdzić asobu, kab atrymać dostup da VPN „%s”."
 msgid "Authenticate VPN"
 msgstr "Spraŭdź VPN"
 
-#: ../nm-pptp.desktop.in.h:1
-msgid "Add, Remove, and Edit PPTP VPN Connections"
-msgstr "Dadavaj, vydalaj i redahuj spałučeńni PPTP VPN"
+#: ../nm-l2tp.desktop.in.h:1
+msgid "Add, Remove, and Edit L2TP VPN Connections"
+msgstr "Dadavaj, vydalaj i redahuj spałučeńni L2TP VPN"
 
-#: ../nm-pptp.desktop.in.h:2
-msgid "PPTP VPN Connection Manager"
-msgstr "Kiraŭnik spałučeńniaŭ PPTP VPN"
+#: ../nm-l2tp.desktop.in.h:2
+msgid "L2TP VPN Connection Manager"
+msgstr "Kiraŭnik spałučeńniaŭ L2TP VPN"
 
 #: ../properties/advanced-dialog.c:147
 msgid "All Available (Default)"
@@ -91,90 +91,90 @@ msgstr "MSCHAP"
 msgid "MSCHAPv2"
 msgstr "MSCHAPv2"
 
-#: ../properties/nm-pptp-dialog.glade.h:1
+#: ../properties/nm-l2tp-dialog.glade.h:1
 msgid "<b>Authentication</b>"
 msgstr "<b>Spraŭdžvańnie</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:2
+#: ../properties/nm-l2tp-dialog.glade.h:2
 msgid "<b>Echo</b>"
 msgstr "<b>Recha</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:3
+#: ../properties/nm-l2tp-dialog.glade.h:3
 msgid "<b>General</b>"
 msgstr "<b>Hałoŭnaje</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:4
+#: ../properties/nm-l2tp-dialog.glade.h:4
 msgid "<b>Optional</b>"
 msgstr "<b>Dadatkovaje</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:5
+#: ../properties/nm-l2tp-dialog.glade.h:5
 msgid "<b>Security and Compression</b>"
 msgstr "<b>Biaśpieka j kampresija</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:6
+#: ../properties/nm-l2tp-dialog.glade.h:6
 msgid "Ad_vanced..."
 msgstr "_Asablivaje..."
 
-#: ../properties/nm-pptp-dialog.glade.h:7
+#: ../properties/nm-l2tp-dialog.glade.h:7
 msgid "Allow _BSD data compression"
 msgstr "Dazvol kampresiju _BSD"
 
-#: ../properties/nm-pptp-dialog.glade.h:8
+#: ../properties/nm-l2tp-dialog.glade.h:8
 msgid "Allow _Deflate data compression"
 msgstr "Dazvol kampresiju _Deflate"
 
-#: ../properties/nm-pptp-dialog.glade.h:9
+#: ../properties/nm-l2tp-dialog.glade.h:9
 msgid "Allow st_ateful encryption"
 msgstr "Dazvol _poŭnastanavaje šyfravańnie"
 
-#: ../properties/nm-pptp-dialog.glade.h:10
+#: ../properties/nm-l2tp-dialog.glade.h:10
 msgid "Allow the following authentication methods:"
 msgstr "Dazvol nastupnyja metady spraŭdžvańnia:"
 
-#: ../properties/nm-pptp-dialog.glade.h:11
+#: ../properties/nm-l2tp-dialog.glade.h:11
 msgid "Default"
 msgstr "Zmoŭčana"
 
-#: ../properties/nm-pptp-dialog.glade.h:12
+#: ../properties/nm-l2tp-dialog.glade.h:12
 msgid "NT Domain:"
 msgstr "Damen NT:"
 
-#: ../properties/nm-pptp-dialog.glade.h:13
+#: ../properties/nm-l2tp-dialog.glade.h:13
 msgid "Password:"
 msgstr "Parol:"
 
-#: ../properties/nm-pptp-dialog.glade.h:14
+#: ../properties/nm-l2tp-dialog.glade.h:14
 msgid "Send PPP _echo packets"
 msgstr "Vysyłaj _rechavyja pakunki PPP"
 
-#: ../properties/nm-pptp-dialog.glade.h:15
+#: ../properties/nm-l2tp-dialog.glade.h:15
 msgid "Show password"
 msgstr "Pakazvaj parol"
 
-#: ../properties/nm-pptp-dialog.glade.h:16
+#: ../properties/nm-l2tp-dialog.glade.h:16
 msgid "Use TCP _header compression"
 msgstr "Užyj kampresiju _zahałoŭkaŭ TCP"
 
-#: ../properties/nm-pptp-dialog.glade.h:17
+#: ../properties/nm-l2tp-dialog.glade.h:17
 msgid "Use _Point-to-Point encryption (MPPE)"
 msgstr "Užyj šyfravańnie MPPE"
 
-#: ../properties/nm-pptp-dialog.glade.h:18
+#: ../properties/nm-l2tp-dialog.glade.h:18
 msgid "User name:"
 msgstr "Karystalnik:"
 
-#: ../properties/nm-pptp-dialog.glade.h:19
+#: ../properties/nm-l2tp-dialog.glade.h:19
 msgid "_Gateway:"
 msgstr "_Brama:"
 
-#: ../properties/nm-pptp-dialog.glade.h:20
+#: ../properties/nm-l2tp-dialog.glade.h:20
 msgid "_Security:"
 msgstr "_Biaśpieka:"
 
-#: ../properties/nm-pptp.c:50
-msgid "Point-to-Point Tunneling Protocol (PPTP)"
-msgstr "Pratakoł tunelnaha PPP (PPTP)"
+#: ../properties/nm-l2tp.c:50
+msgid "Point-to-Point Tunneling Protocol (L2TP)"
+msgstr "Pratakoł tunelnaha PPP (L2TP)"
 
-#: ../properties/nm-pptp.c:51
-msgid "Compatible with Microsoft and other PPTP VPN servers."
-msgstr "Absłuhoŭvaje servery PPTP VPN ad Microsoft dy inšych."
+#: ../properties/nm-l2tp.c:51
+msgid "Compatible with Microsoft and other L2TP VPN servers."
+msgstr "Absłuhoŭvaje servery L2TP VPN ad Microsoft dy inšych."

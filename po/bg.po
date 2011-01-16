@@ -1,13 +1,13 @@
-# Bulgarian translation of network-manager-pptp po-file
+# Bulgarian translation of network-manager-l2tp po-file
 # Copyright (C) 2007, 2008 Free Software Foundation, Inc.
 # Copyright (C) 2009 Krasimir Chonov <mk2616@abv.bg>.
-# This file is distributed under the same license as the network-manager-pptp package.
+# This file is distributed under the same license as the network-manager-l2tp package.
 # Alexander Shopov <ash@contact.bg>, 2007, 2008.
 # Krasimir Chonov <mk2616@abv.bg>, 2009.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-pptp master\n"
+"Project-Id-Version: network-manager-l2tp master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-03-11 22:04+0200\n"
 "PO-Revision-Date: 2010-03-11 09:10+0200\n"
@@ -59,13 +59,13 @@ msgstr "Трябва да се идентифицирате, за да дост�
 msgid "Authenticate VPN"
 msgstr "Идентификация за ВЧМ"
 
-#: ../nm-pptp.desktop.in.h:1
-msgid "Add, Remove, and Edit PPTP VPN Connections"
-msgstr "Добавяне, изтриване и редактиране на връзки към ВЧМ по PPTP"
+#: ../nm-l2tp.desktop.in.h:1
+msgid "Add, Remove, and Edit L2TP VPN Connections"
+msgstr "Добавяне, изтриване и редактиране на връзки към ВЧМ по L2TP"
 
-#: ../nm-pptp.desktop.in.h:2
-msgid "PPTP VPN Connection Manager"
-msgstr "Управление на връзки за ВЧМ по PPTP"
+#: ../nm-l2tp.desktop.in.h:2
+msgid "L2TP VPN Connection Manager"
+msgstr "Управление на връзки за ВЧМ по L2TP"
 
 #: ../properties/advanced-dialog.c:173
 msgid "All Available (Default)"
@@ -99,55 +99,55 @@ msgstr "MSCHAPv2"
 msgid "EAP"
 msgstr "EAP"
 
-#: ../properties/nm-pptp-dialog.glade.h:1
+#: ../properties/nm-l2tp-dialog.glade.h:1
 msgid "<b>Authentication</b>"
 msgstr "<b>Идентификация</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:2
+#: ../properties/nm-l2tp-dialog.glade.h:2
 msgid "<b>Echo</b>"
 msgstr "<b>Ехо</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:3
+#: ../properties/nm-l2tp-dialog.glade.h:3
 msgid "<b>General</b>"
 msgstr "<b>Общи</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:4
+#: ../properties/nm-l2tp-dialog.glade.h:4
 msgid "<b>Optional</b>"
 msgstr "<b>Допълнителни</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:5
+#: ../properties/nm-l2tp-dialog.glade.h:5
 msgid "<b>Security and Compression</b>"
 msgstr "<b>Сигурност и компресия</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:6
+#: ../properties/nm-l2tp-dialog.glade.h:6
 msgid "Ad_vanced..."
 msgstr "_Допълнителни…"
 
-#: ../properties/nm-pptp-dialog.glade.h:7
+#: ../properties/nm-l2tp-dialog.glade.h:7
 msgid "Allow _BSD data compression"
 msgstr "_Разрешаване на компресия BSD"
 
-#: ../properties/nm-pptp-dialog.glade.h:8
+#: ../properties/nm-l2tp-dialog.glade.h:8
 msgid "Allow _Deflate data compression"
 msgstr "Разрешаване на _компресия Deflate"
 
-#: ../properties/nm-pptp-dialog.glade.h:9
+#: ../properties/nm-l2tp-dialog.glade.h:9
 msgid "Allow st_ateful encryption"
 msgstr "Разрешаване на компресия със _запомняне на състояние"
 
-#: ../properties/nm-pptp-dialog.glade.h:10
+#: ../properties/nm-l2tp-dialog.glade.h:10
 msgid "Allow the following authentication methods:"
 msgstr "Разрешаване на следните методи за идентификация:"
 
-#: ../properties/nm-pptp-dialog.glade.h:11
+#: ../properties/nm-l2tp-dialog.glade.h:11
 msgid "Default"
 msgstr "Стандартно"
 
-#: ../properties/nm-pptp-dialog.glade.h:12
+#: ../properties/nm-l2tp-dialog.glade.h:12
 msgid "NT Domain:"
 msgstr "Домейн:"
 
-#: ../properties/nm-pptp-dialog.glade.h:13
+#: ../properties/nm-l2tp-dialog.glade.h:13
 msgid ""
 "Note: MPPE encryption is only available with MSCHAP authentication methods. "
 "To enable this checkbox, select one or more of the MSCHAP authentication "
@@ -157,46 +157,46 @@ msgstr ""
 "MSCHAP. За да се активира тази отметка, изберете един или повече от следните "
 "методи: MSCHAP или MSCHAPv2."
 
-#: ../properties/nm-pptp-dialog.glade.h:14
-msgid "PPTP Advanced Options"
+#: ../properties/nm-l2tp-dialog.glade.h:14
+msgid "L2TP Advanced Options"
 msgstr "Допълнителни настройки на PPP"
 
-#: ../properties/nm-pptp-dialog.glade.h:15
+#: ../properties/nm-l2tp-dialog.glade.h:15
 msgid "Password:"
 msgstr "Парола:"
 
-#: ../properties/nm-pptp-dialog.glade.h:16
+#: ../properties/nm-l2tp-dialog.glade.h:16
 msgid "Send PPP _echo packets"
 msgstr "_Пращане на пакети „echo“ по PPP"
 
-#: ../properties/nm-pptp-dialog.glade.h:17
+#: ../properties/nm-l2tp-dialog.glade.h:17
 msgid "Show password"
 msgstr "Показване на паролата"
 
-#: ../properties/nm-pptp-dialog.glade.h:18
+#: ../properties/nm-l2tp-dialog.glade.h:18
 msgid "Use TCP _header compression"
 msgstr "Използване на компресия на заглавните _части на TCP"
 
-#: ../properties/nm-pptp-dialog.glade.h:19
+#: ../properties/nm-l2tp-dialog.glade.h:19
 msgid "Use _Point-to-Point encryption (MPPE)"
 msgstr "Използване на _шифриране точка до точка (MPPE)"
 
-#: ../properties/nm-pptp-dialog.glade.h:20
+#: ../properties/nm-l2tp-dialog.glade.h:20
 msgid "User name:"
 msgstr "Потребителско име:"
 
-#: ../properties/nm-pptp-dialog.glade.h:21
+#: ../properties/nm-l2tp-dialog.glade.h:21
 msgid "_Gateway:"
 msgstr "_Шлюз:"
 
-#: ../properties/nm-pptp-dialog.glade.h:22
+#: ../properties/nm-l2tp-dialog.glade.h:22
 msgid "_Security:"
 msgstr "_Сигурност:"
 
-#: ../properties/nm-pptp.c:50
-msgid "Point-to-Point Tunneling Protocol (PPTP)"
-msgstr "Тунелиращ протокол — точка до точка (PPTP)"
+#: ../properties/nm-l2tp.c:50
+msgid "Point-to-Point Tunneling Protocol (L2TP)"
+msgstr "Тунелиращ протокол — точка до точка (L2TP)"
 
-#: ../properties/nm-pptp.c:51
-msgid "Compatible with Microsoft and other PPTP VPN servers."
-msgstr "Съвместим със сървърите на Microsoft и други за ВЧМ по PPTP."
+#: ../properties/nm-l2tp.c:51
+msgid "Compatible with Microsoft and other L2TP VPN servers."
+msgstr "Съвместим със сървърите на Microsoft и други за ВЧМ по L2TP."

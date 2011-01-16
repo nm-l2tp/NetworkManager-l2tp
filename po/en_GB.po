@@ -217,8 +217,8 @@ msgid "GPRS Options"
 msgstr "GPRS Options"
 
 #: ../properties/nm-ppp-dialog.glade.h:26
-msgid "Host name or IP address of the PPTP server"
-msgstr "Host name or IP address of the PPTP server"
+msgid "Host name or IP address of the L2TP server"
+msgstr "Host name or IP address of the L2TP server"
 
 #: ../properties/nm-ppp-dialog.glade.h:27
 msgid "IP a_ddress:"
@@ -404,16 +404,16 @@ msgid "_Require MPPC compression"
 msgstr "_Require MPPC compression"
 
 #: ../properties/nm-ppp-properties.c:45
-msgid "pppd tunnel (PPTP, BTGPRS, Dialup)"
-msgstr "pppd tunnel (PPTP, BTGPRS, Dial-up)"
+msgid "pppd tunnel (L2TP, BTGPRS, Dialup)"
+msgstr "pppd tunnel (L2TP, BTGPRS, Dial-up)"
 
 #: ../properties/nm-ppp-properties.c:134
 msgid "Name"
 msgstr "Name"
 
 #: ../properties/nm-ppp-properties.c:146
-msgid "PPTP Server"
-msgstr "PPTP Server"
+msgid "L2TP Server"
+msgstr "L2TP Server"
 
 #: ../properties/nm-ppp-properties.c:151
 msgid "Telephone Number"

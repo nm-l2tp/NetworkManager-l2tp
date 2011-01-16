@@ -1,13 +1,13 @@
-# Slovenian translation for network-manager-pptp.
-# Copyright (C) 2009 network-manager-pptp's COPYRIGHT HOLDER
-# This file is distributed under the same license as the network-manager-pptp package.
+# Slovenian translation for network-manager-l2tp.
+# Copyright (C) 2009 network-manager-l2tp's COPYRIGHT HOLDER
+# This file is distributed under the same license as the network-manager-l2tp package.
 #
 # Matej Urbančič <mateju@svn.gnome.org>, 2009 - 2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-pptp master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=NetworkManager&component=VPN: pptp\n"
+"Project-Id-Version: network-manager-l2tp master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=NetworkManager&component=VPN: l2tp\n"
 "POT-Creation-Date: 2010-04-02 11:55+0000\n"
 "PO-Revision-Date: 2010-04-03 08:56+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
@@ -61,13 +61,13 @@ msgstr "Dostop do navideznega zasebnega omrežja '%s' zahteva overitev."
 msgid "Authenticate VPN"
 msgstr "Overi VPN"
 
-#: ../nm-pptp.desktop.in.h:1
-msgid "Add, Remove, and Edit PPTP VPN Connections"
-msgstr "Dodajanje, odstranjevanje in urejanje PPTP VPN povezav"
+#: ../nm-l2tp.desktop.in.h:1
+msgid "Add, Remove, and Edit L2TP VPN Connections"
+msgstr "Dodajanje, odstranjevanje in urejanje L2TP VPN povezav"
 
-#: ../nm-pptp.desktop.in.h:2
-msgid "PPTP VPN Connection Manager"
-msgstr "Upravljalnik PPTP VPN povezav"
+#: ../nm-l2tp.desktop.in.h:2
+msgid "L2TP VPN Connection Manager"
+msgstr "Upravljalnik L2TP VPN povezav"
 
 #: ../properties/advanced-dialog.c:173
 msgid "All Available (Default)"
@@ -101,99 +101,99 @@ msgstr "MSCHAPv2"
 msgid "EAP"
 msgstr "EAP"
 
-#: ../properties/nm-pptp-dialog.glade.h:1
+#: ../properties/nm-l2tp-dialog.glade.h:1
 msgid "<b>Authentication</b>"
 msgstr "<b>Overitev</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:2
+#: ../properties/nm-l2tp-dialog.glade.h:2
 msgid "<b>Echo</b>"
 msgstr "<b>Odmev</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:3
+#: ../properties/nm-l2tp-dialog.glade.h:3
 msgid "<b>General</b>"
 msgstr "<b>Splošno</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:4
+#: ../properties/nm-l2tp-dialog.glade.h:4
 msgid "<b>Optional</b>"
 msgstr "<b>Izbirno</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:5
+#: ../properties/nm-l2tp-dialog.glade.h:5
 msgid "<b>Security and Compression</b>"
 msgstr "<b>Varnost in stiskanje</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:6
+#: ../properties/nm-l2tp-dialog.glade.h:6
 msgid "Ad_vanced..."
 msgstr "_Napredno ..."
 
-#: ../properties/nm-pptp-dialog.glade.h:7
+#: ../properties/nm-l2tp-dialog.glade.h:7
 msgid "Allow _BSD data compression"
 msgstr "Dovoli _BSD stiskanje podatkov"
 
-#: ../properties/nm-pptp-dialog.glade.h:8
+#: ../properties/nm-l2tp-dialog.glade.h:8
 msgid "Allow _Deflate data compression"
 msgstr "Dovoli _Deflate stiskanje podatkov"
 
-#: ../properties/nm-pptp-dialog.glade.h:9
+#: ../properties/nm-l2tp-dialog.glade.h:9
 msgid "Allow st_ateful encryption"
 msgstr "Dovoli _namensko šifriranje"
 
-#: ../properties/nm-pptp-dialog.glade.h:10
+#: ../properties/nm-l2tp-dialog.glade.h:10
 msgid "Allow the following authentication methods:"
 msgstr "Dovoli načine overitve:"
 
-#: ../properties/nm-pptp-dialog.glade.h:11
+#: ../properties/nm-l2tp-dialog.glade.h:11
 msgid "Default"
 msgstr "Privzeto"
 
-#: ../properties/nm-pptp-dialog.glade.h:12
+#: ../properties/nm-l2tp-dialog.glade.h:12
 msgid "NT Domain:"
 msgstr "Domena NT:"
 
-#: ../properties/nm-pptp-dialog.glade.h:13
+#: ../properties/nm-l2tp-dialog.glade.h:13
 msgid "Note: MPPE encryption is only available with MSCHAP authentication methods. To enable this checkbox, select one or more of the MSCHAP authentication methods: MSCHAP or MSCHAPv2."
 msgstr "Opomba: Šifriranje MPPE je na voljo le z MSCHAP načinom overitve. Za izbiro te možnosti, je treba najprej izbrati enega ali več načinov overitve MSCHAP: MSCHAP ali MSCHAPv2."
 
-#: ../properties/nm-pptp-dialog.glade.h:14
-msgid "PPTP Advanced Options"
-msgstr "Napredne možnosti PPTP"
+#: ../properties/nm-l2tp-dialog.glade.h:14
+msgid "L2TP Advanced Options"
+msgstr "Napredne možnosti L2TP"
 
-#: ../properties/nm-pptp-dialog.glade.h:15
+#: ../properties/nm-l2tp-dialog.glade.h:15
 msgid "Password:"
 msgstr "Geslo:"
 
-#: ../properties/nm-pptp-dialog.glade.h:16
+#: ../properties/nm-l2tp-dialog.glade.h:16
 msgid "Send PPP _echo packets"
 msgstr "Pošlji PPP _echo pakete"
 
-#: ../properties/nm-pptp-dialog.glade.h:17
+#: ../properties/nm-l2tp-dialog.glade.h:17
 msgid "Show password"
 msgstr "Pokaži geslo"
 
-#: ../properties/nm-pptp-dialog.glade.h:18
+#: ../properties/nm-l2tp-dialog.glade.h:18
 msgid "Use TCP _header compression"
 msgstr "Uporabi stiskanje _glave TCP"
 
-#: ../properties/nm-pptp-dialog.glade.h:19
+#: ../properties/nm-l2tp-dialog.glade.h:19
 msgid "Use _Point-to-Point encryption (MPPE)"
 msgstr "Uporabi šifriranje _točke-do-točke (MPPE)"
 
-#: ../properties/nm-pptp-dialog.glade.h:20
+#: ../properties/nm-l2tp-dialog.glade.h:20
 msgid "User name:"
 msgstr "Uporabniško ime:"
 
-#: ../properties/nm-pptp-dialog.glade.h:21
+#: ../properties/nm-l2tp-dialog.glade.h:21
 msgid "_Gateway:"
 msgstr "_Prehod:"
 
-#: ../properties/nm-pptp-dialog.glade.h:22
+#: ../properties/nm-l2tp-dialog.glade.h:22
 msgid "_Security:"
 msgstr "_Varnost:"
 
-#: ../properties/nm-pptp.c:50
-msgid "Point-to-Point Tunneling Protocol (PPTP)"
-msgstr "Point-to-Point protokol tuneliranja (PPTP)"
+#: ../properties/nm-l2tp.c:50
+msgid "Point-to-Point Tunneling Protocol (L2TP)"
+msgstr "Point-to-Point protokol tuneliranja (L2TP)"
 
-#: ../properties/nm-pptp.c:51
-msgid "Compatible with Microsoft and other PPTP VPN servers."
-msgstr "Združljivo z Microsoftovim in drugimi PPTP VPN strežniki."
+#: ../properties/nm-l2tp.c:51
+msgid "Compatible with Microsoft and other L2TP VPN servers."
+msgstr "Združljivo z Microsoftovim in drugimi L2TP VPN strežniki."
 

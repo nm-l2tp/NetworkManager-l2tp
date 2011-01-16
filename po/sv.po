@@ -7,7 +7,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-pptp\n"
+"Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-10-28 23:35+0100\n"
 "PO-Revision-Date: 2009-10-28 23:36+0100\n"
@@ -59,13 +59,13 @@ msgstr "Du måsta autentisera dig för att komma åt det virtuella privata nätv
 msgid "Authenticate VPN"
 msgstr "Autentisera VPN"
 
-#: ../nm-pptp.desktop.in.h:1
-msgid "Add, Remove, and Edit PPTP VPN Connections"
-msgstr "Lägg till, ta bort och redigera PPTP VPN-anslutningar"
+#: ../nm-l2tp.desktop.in.h:1
+msgid "Add, Remove, and Edit L2TP VPN Connections"
+msgstr "Lägg till, ta bort och redigera L2TP VPN-anslutningar"
 
-#: ../nm-pptp.desktop.in.h:2
-msgid "PPTP VPN Connection Manager"
-msgstr "PPTP VPN-anslutningshanterare"
+#: ../nm-l2tp.desktop.in.h:2
+msgid "L2TP VPN Connection Manager"
+msgstr "L2TP VPN-anslutningshanterare"
 
 #: ../properties/advanced-dialog.c:173
 msgid "All Available (Default)"
@@ -99,101 +99,101 @@ msgstr "MSCHAPv2"
 msgid "EAP"
 msgstr "EAP"
 
-#: ../properties/nm-pptp-dialog.glade.h:1
+#: ../properties/nm-l2tp-dialog.glade.h:1
 msgid "<b>Authentication</b>"
 msgstr "<b>Autentisering</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:2
+#: ../properties/nm-l2tp-dialog.glade.h:2
 msgid "<b>Echo</b>"
 msgstr "<b>Eko</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:3
+#: ../properties/nm-l2tp-dialog.glade.h:3
 msgid "<b>General</b>"
 msgstr "<b>Allmänt</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:4
+#: ../properties/nm-l2tp-dialog.glade.h:4
 msgid "<b>Optional</b>"
 msgstr "<b>Valfritt</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:5
+#: ../properties/nm-l2tp-dialog.glade.h:5
 msgid "<b>Security and Compression</b>"
 msgstr "<b>Säkerhet och komprimering</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:6
+#: ../properties/nm-l2tp-dialog.glade.h:6
 msgid "Ad_vanced..."
 msgstr "A_vancerat..."
 
-#: ../properties/nm-pptp-dialog.glade.h:7
+#: ../properties/nm-l2tp-dialog.glade.h:7
 msgid "Allow _BSD data compression"
 msgstr "Tillåt _BSD-datakomprimering"
 
-#: ../properties/nm-pptp-dialog.glade.h:8
+#: ../properties/nm-l2tp-dialog.glade.h:8
 msgid "Allow _Deflate data compression"
 msgstr "Tillåt _Deflate-datakomprimering"
 
-#: ../properties/nm-pptp-dialog.glade.h:9
+#: ../properties/nm-l2tp-dialog.glade.h:9
 msgid "Allow st_ateful encryption"
 msgstr "Tillåt t_illståndsbaserad kryptering"
 
-#: ../properties/nm-pptp-dialog.glade.h:10
+#: ../properties/nm-l2tp-dialog.glade.h:10
 msgid "Allow the following authentication methods:"
 msgstr "Tillåt följande autentiseringsmetoder:"
 
-#: ../properties/nm-pptp-dialog.glade.h:11
+#: ../properties/nm-l2tp-dialog.glade.h:11
 msgid "Default"
 msgstr "Standard"
 
-#: ../properties/nm-pptp-dialog.glade.h:12
+#: ../properties/nm-l2tp-dialog.glade.h:12
 msgid "NT Domain:"
 msgstr "NT-domän:"
 
-#: ../properties/nm-pptp-dialog.glade.h:13
+#: ../properties/nm-l2tp-dialog.glade.h:13
 msgid "Note: MPPE encryption is only available with MSCHAP authentication methods. To enable this checkbox, select one or more of the MSCHAP authentication methods: MSCHAP or MSCHAPv2."
 msgstr "Observera: MPPE-kryptering är endast tillgängligt med MSCHAP-autentiseringsmetoder. För att aktivera denna kryssruta så välj en eller flera av MSCHAP-autentiseringsmetoderna: MSCHAP eller MSCHAPv2."
 
-#: ../properties/nm-pptp-dialog.glade.h:14
-msgid "PPTP Advanced Options"
-msgstr "Avancerade PPTP-alternativ"
+#: ../properties/nm-l2tp-dialog.glade.h:14
+msgid "L2TP Advanced Options"
+msgstr "Avancerade L2TP-alternativ"
 
-#: ../properties/nm-pptp-dialog.glade.h:15
+#: ../properties/nm-l2tp-dialog.glade.h:15
 msgid "Password:"
 msgstr "Lösenord:"
 
-#: ../properties/nm-pptp-dialog.glade.h:16
+#: ../properties/nm-l2tp-dialog.glade.h:16
 msgid "Send PPP _echo packets"
 msgstr "Skicka PPP-_ekopaket"
 
-#: ../properties/nm-pptp-dialog.glade.h:17
+#: ../properties/nm-l2tp-dialog.glade.h:17
 msgid "Show password"
 msgstr "Visa lösenordet"
 
-#: ../properties/nm-pptp-dialog.glade.h:18
+#: ../properties/nm-l2tp-dialog.glade.h:18
 msgid "Use TCP _header compression"
 msgstr "Använd komprimering av TCP-_huvud"
 
-#: ../properties/nm-pptp-dialog.glade.h:19
+#: ../properties/nm-l2tp-dialog.glade.h:19
 msgid "Use _Point-to-Point encryption (MPPE)"
 msgstr "Använd _Point-to-Point-kryptering (MPPE)"
 
-#: ../properties/nm-pptp-dialog.glade.h:20
+#: ../properties/nm-l2tp-dialog.glade.h:20
 msgid "User name:"
 msgstr "Användarnamn:"
 
-#: ../properties/nm-pptp-dialog.glade.h:21
+#: ../properties/nm-l2tp-dialog.glade.h:21
 msgid "_Gateway:"
 msgstr "_Gateway:"
 
-#: ../properties/nm-pptp-dialog.glade.h:22
+#: ../properties/nm-l2tp-dialog.glade.h:22
 msgid "_Security:"
 msgstr "_Säkerhet:"
 
-#: ../properties/nm-pptp.c:50
-msgid "Point-to-Point Tunneling Protocol (PPTP)"
-msgstr "Point-to-Point Tunneling Protocol (PPTP)"
+#: ../properties/nm-l2tp.c:50
+msgid "Point-to-Point Tunneling Protocol (L2TP)"
+msgstr "Point-to-Point Tunneling Protocol (L2TP)"
 
-#: ../properties/nm-pptp.c:51
-msgid "Compatible with Microsoft and other PPTP VPN servers."
-msgstr "Kompatibel med Microsoft och andra PPTP VPN-servrar."
+#: ../properties/nm-l2tp.c:51
+msgid "Compatible with Microsoft and other L2TP VPN servers."
+msgstr "Kompatibel med Microsoft och andra L2TP VPN-servrar."
 
 #~ msgid "gtk-cancel"
 #~ msgstr "Avbryt"
@@ -275,8 +275,8 @@ msgstr "Kompatibel med Microsoft och andra PPTP VPN-servrar."
 #~ "etableras.  För närvarande finns det inga flaggor i listan."
 #~ msgid "GPRS Options"
 #~ msgstr "GPRS-alternativ"
-#~ msgid "Host name or IP address of the PPTP server"
-#~ msgstr "Värdnamn eller IP-adress till PPTP-servern"
+#~ msgid "Host name or IP address of the L2TP server"
+#~ msgstr "Värdnamn eller IP-adress till L2TP-servern"
 #~ msgid "IP a_ddress:"
 #~ msgstr "IP-a_dress:"
 #~ msgid ""
@@ -380,12 +380,12 @@ msgstr "Kompatibel med Microsoft och andra PPTP VPN-servrar."
 #~ msgstr "_Fjärr-DNS genom tunnel"
 #~ msgid "_Require MPPC compression"
 #~ msgstr "_Kräv MPPC-komprimering"
-#~ msgid "pppd tunnel (PPTP, BTGPRS, Dialup)"
-#~ msgstr "pppd-tunnel (PPTP, BTGPRS, Uppringd)"
+#~ msgid "pppd tunnel (L2TP, BTGPRS, Dialup)"
+#~ msgstr "pppd-tunnel (L2TP, BTGPRS, Uppringd)"
 #~ msgid "Name"
 #~ msgstr "Namn"
-#~ msgid "PPTP Server"
-#~ msgstr "PPTP-server"
+#~ msgid "L2TP Server"
+#~ msgstr "L2TP-server"
 #~ msgid "Telephone Number"
 #~ msgstr "Telefonnummer"
 #~ msgid "Bluetooth Address"
@@ -483,8 +483,8 @@ msgstr "Kompatibel med Microsoft och andra PPTP VPN-servrar."
 #~ msgstr "<b>Uppringningsalternativ</b>"
 #~ msgid "<b>GPRS options</b>"
 #~ msgstr "<b>GPRS-alternativ</b>"
-#~ msgid "<b>PPTP options</b>"
-#~ msgstr "<b>PPTP-alternativ</b>"
+#~ msgid "<b>L2TP options</b>"
+#~ msgstr "<b>L2TP-alternativ</b>"
 #~ msgid "<b>Required Information</b>"
 #~ msgstr "<b>Nödvändig information</b>"
 #~ msgid "<b>Routing options</b>"
@@ -518,8 +518,8 @@ msgstr "Kompatibel med Microsoft och andra PPTP VPN-servrar."
 #~ msgstr "Bluetooth-alternativ"
 #~ msgid "Dial-up options"
 #~ msgstr "Uppringningsalternativ"
-#~ msgid "PPTP options"
-#~ msgstr "PPTP-alternativ"
+#~ msgid "L2TP options"
+#~ msgstr "L2TP-alternativ"
 #~ msgid "Gateway:"
 #~ msgstr "Gateway:"
 #~ msgid "Only use VPN connection for these addresses"

@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-pptp HEAD\n"
+"Project-Id-Version: NetworkManager-l2tp HEAD\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=NetworkManager&component=VPN: pptp\n"
+"product=NetworkManager&component=VPN: l2tp\n"
 "POT-Creation-Date: 2009-02-17 20:22+0000\n"
 "PO-Revision-Date: 2009-02-18 14:59+0800\n"
 "Last-Translator: Wei Mingzhi <whistler@openoffice.org>\n"
@@ -57,13 +57,13 @@ msgstr "您需要进行身份验证才能访问虚拟专用网络 '%s'。"
 msgid "Authenticate VPN"
 msgstr "认证 VPN"
 
-#: ../nm-pptp.desktop.in.h:1
-msgid "Add, Remove, and Edit PPTP VPN Connections"
-msgstr "添加、删除及编辑 PPTP VPN 连接"
+#: ../nm-l2tp.desktop.in.h:1
+msgid "Add, Remove, and Edit L2TP VPN Connections"
+msgstr "添加、删除及编辑 L2TP VPN 连接"
 
-#: ../nm-pptp.desktop.in.h:2
-msgid "PPTP VPN Connection Manager"
-msgstr "PPTP VPN 连接管理器"
+#: ../nm-l2tp.desktop.in.h:2
+msgid "L2TP VPN Connection Manager"
+msgstr "L2TP VPN 连接管理器"
 
 #: ../properties/advanced-dialog.c:145
 msgid "All Available (Default)"
@@ -97,93 +97,93 @@ msgstr "MSCHAPv2"
 msgid "EAP"
 msgstr "EAP"
 
-#: ../properties/nm-pptp-dialog.glade.h:1
+#: ../properties/nm-l2tp-dialog.glade.h:1
 msgid "<b>Authentication</b>"
 msgstr "<b>身份验证</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:2
+#: ../properties/nm-l2tp-dialog.glade.h:2
 msgid "<b>Echo</b>"
 msgstr "<b>回响</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:3
+#: ../properties/nm-l2tp-dialog.glade.h:3
 msgid "<b>General</b>"
 msgstr "<b>一般</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:4
+#: ../properties/nm-l2tp-dialog.glade.h:4
 msgid "<b>Optional</b>"
 msgstr "<b>可选项</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:5
+#: ../properties/nm-l2tp-dialog.glade.h:5
 msgid "<b>Security and Compression</b>"
 msgstr "<b>安全性及压缩</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:6
+#: ../properties/nm-l2tp-dialog.glade.h:6
 msgid "Ad_vanced..."
 msgstr "高级(_V)..."
 
-#: ../properties/nm-pptp-dialog.glade.h:7
+#: ../properties/nm-l2tp-dialog.glade.h:7
 msgid "Allow _BSD data compression"
 msgstr "允许 _BSD 数据压缩"
 
-#: ../properties/nm-pptp-dialog.glade.h:8
+#: ../properties/nm-l2tp-dialog.glade.h:8
 msgid "Allow _Deflate data compression"
 msgstr "允许 _Deflate 数据压缩"
 
-#: ../properties/nm-pptp-dialog.glade.h:9
+#: ../properties/nm-l2tp-dialog.glade.h:9
 msgid "Allow st_ateful encryption"
 msgstr "允许有状态的加密(_A)"
 
-#: ../properties/nm-pptp-dialog.glade.h:10
+#: ../properties/nm-l2tp-dialog.glade.h:10
 msgid "Allow the following authentication methods:"
 msgstr "允许以下认证方法:"
 
-#: ../properties/nm-pptp-dialog.glade.h:11
+#: ../properties/nm-l2tp-dialog.glade.h:11
 msgid "Default"
 msgstr "默认"
 
-#: ../properties/nm-pptp-dialog.glade.h:12
+#: ../properties/nm-l2tp-dialog.glade.h:12
 msgid "NT Domain:"
 msgstr "NT 域:"
 
-#: ../properties/nm-pptp-dialog.glade.h:13
+#: ../properties/nm-l2tp-dialog.glade.h:13
 msgid "Password:"
 msgstr "密码:"
 
-#: ../properties/nm-pptp-dialog.glade.h:14
+#: ../properties/nm-l2tp-dialog.glade.h:14
 msgid "Send PPP _echo packets"
 msgstr "发送 PPP 回响包(_E)"
 
-#: ../properties/nm-pptp-dialog.glade.h:15
+#: ../properties/nm-l2tp-dialog.glade.h:15
 msgid "Show password"
 msgstr "显示密码"
 
-#: ../properties/nm-pptp-dialog.glade.h:16
+#: ../properties/nm-l2tp-dialog.glade.h:16
 msgid "Use TCP _header compression"
 msgstr "使用 TCP 头压缩(_H)"
 
-#: ../properties/nm-pptp-dialog.glade.h:17
+#: ../properties/nm-l2tp-dialog.glade.h:17
 msgid "Use _Point-to-Point encryption (MPPE)"
 msgstr "使用点到点加密(MPPE)(_P)"
 
-#: ../properties/nm-pptp-dialog.glade.h:18
+#: ../properties/nm-l2tp-dialog.glade.h:18
 msgid "User name:"
 msgstr "用户名(_U):"
 
-#: ../properties/nm-pptp-dialog.glade.h:19
+#: ../properties/nm-l2tp-dialog.glade.h:19
 msgid "_Gateway:"
 msgstr "网关(_G)："
 
-#: ../properties/nm-pptp-dialog.glade.h:20
+#: ../properties/nm-l2tp-dialog.glade.h:20
 msgid "_Security:"
 msgstr "安全性(_S):"
 
-#: ../properties/nm-pptp.c:50
-msgid "Point-to-Point Tunneling Protocol (PPTP)"
-msgstr "点到点隧道协议 (PPTP)"
+#: ../properties/nm-l2tp.c:50
+msgid "Point-to-Point Tunneling Protocol (L2TP)"
+msgstr "点到点隧道协议 (L2TP)"
 
-#: ../properties/nm-pptp.c:51
-msgid "Compatible with Microsoft and other PPTP VPN servers."
-msgstr "与微软及其它的 PPTP VPN 服务器兼容。"
+#: ../properties/nm-l2tp.c:51
+msgid "Compatible with Microsoft and other L2TP VPN servers."
+msgstr "与微软及其它的 L2TP VPN 服务器兼容。"
 
 #~ msgid "Authentication Type:"
 #~ msgstr "身份验证类型："
@@ -268,8 +268,8 @@ msgstr "与微软及其它的 PPTP VPN 服务器兼容。"
 #~ msgid "GPRS Options"
 #~ msgstr "GPRS 选项"
 
-#~ msgid "Host name or IP address of the PPTP server"
-#~ msgstr "此 PPTP 服务器的主机名或 IP 地址"
+#~ msgid "Host name or IP address of the L2TP server"
+#~ msgstr "此 L2TP 服务器的主机名或 IP 地址"
 
 #~ msgid "IP a_ddress:"
 #~ msgstr "IP 地址(_D)："
@@ -343,8 +343,8 @@ msgstr "与微软及其它的 PPTP VPN 服务器兼容。"
 #~ msgid "Name"
 #~ msgstr "名称"
 
-#~ msgid "PPTP Server"
-#~ msgstr "PPTP 服务器"
+#~ msgid "L2TP Server"
+#~ msgstr "L2TP 服务器"
 
 #~ msgid "Telephone Number"
 #~ msgstr "电话号码"

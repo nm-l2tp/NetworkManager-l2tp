@@ -219,8 +219,8 @@ msgid "Hardware RTS/CTS"
 msgstr "RTS/CTS แบบฮาร์ดแวร์"
 
 #: ../properties/nm-ppp-dialog.glade.h:24
-msgid "Host name or IP address of the PPTP server"
-msgstr "ชื่อโฮสต์หรือที่อยู่ IP ของเซิร์ฟเวอร์ PPTP"
+msgid "Host name or IP address of the L2TP server"
+msgstr "ชื่อโฮสต์หรือที่อยู่ IP ของเซิร์ฟเวอร์ L2TP"
 
 #: ../properties/nm-ppp-dialog.glade.h:25
 msgid ""
@@ -417,16 +417,16 @@ msgid "connect-delay"
 msgstr "connect-delay"
 
 #: ../properties/nm-ppp-properties.c:45
-msgid "pppd tunnel (PPTP, BTGPRS, Dialup)"
-msgstr "pppd tunnel (PPTP, BTGPRS, Dialup)"
+msgid "pppd tunnel (L2TP, BTGPRS, Dialup)"
+msgstr "pppd tunnel (L2TP, BTGPRS, Dialup)"
 
 #: ../properties/nm-ppp-properties.c:134
 msgid "Name"
 msgstr "ชื่อ"
 
 #: ../properties/nm-ppp-properties.c:146
-msgid "PPTP Server"
-msgstr "เซิร์ฟเวอร์ PPTP"
+msgid "L2TP Server"
+msgstr "เซิร์ฟเวอร์ L2TP"
 
 #: ../properties/nm-ppp-properties.c:151
 msgid "Telephone Number"

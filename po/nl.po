@@ -1,4 +1,4 @@
-# Dutch translation of NetworkManager-pptp
+# Dutch translation of NetworkManager-l2tp
 #
 # This file is distributed under the same license as the NetworkManager
 # package.
@@ -7,7 +7,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager PPTP\n"
+"Project-Id-Version: NetworkManager L2TP\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-09-15 10:17+0200\n"
 "PO-Revision-Date: 2008-09-14 18:07+0200\n"
@@ -60,13 +60,13 @@ msgstr ""
 msgid "Authenticate VPN"
 msgstr "VPN aanmeldingscontrole"
 
-#: ../nm-pptp.desktop.in.h:1
-msgid "Add, Remove, and Edit PPTP VPN Connections"
-msgstr "PPTP VPN-verbindingen toevoegen, verwijderen en bewerken"
+#: ../nm-l2tp.desktop.in.h:1
+msgid "Add, Remove, and Edit L2TP VPN Connections"
+msgstr "L2TP VPN-verbindingen toevoegen, verwijderen en bewerken"
 
-#: ../nm-pptp.desktop.in.h:2
-msgid "PPTP VPN Connection Manager"
-msgstr "PPTP VPN-verbindingsmanager"
+#: ../nm-l2tp.desktop.in.h:2
+msgid "L2TP VPN Connection Manager"
+msgstr "L2TP VPN-verbindingsmanager"
 
 #: ../properties/advanced-dialog.c:147
 msgid "All Available (Default)"
@@ -96,83 +96,83 @@ msgstr "MSCHAP"
 msgid "MSCHAPv2"
 msgstr "MSCHAPv2"
 
-#: ../properties/nm-pptp-dialog.glade.h:1
+#: ../properties/nm-l2tp-dialog.glade.h:1
 msgid "<b>Authentication</b>"
 msgstr "<b>Aanmeldingscontrole</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:2
+#: ../properties/nm-l2tp-dialog.glade.h:2
 msgid "<b>Echo</b>"
 msgstr "<b>Echo</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:3
+#: ../properties/nm-l2tp-dialog.glade.h:3
 msgid "<b>General</b>"
 msgstr "<b>Algemeen</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:4
+#: ../properties/nm-l2tp-dialog.glade.h:4
 msgid "<b>Optional</b>"
 msgstr "<b>Facultatief</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:5
+#: ../properties/nm-l2tp-dialog.glade.h:5
 msgid "<b>Security and Compression</b>"
 msgstr "<b>Beveiliging en compressie</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:6
+#: ../properties/nm-l2tp-dialog.glade.h:6
 msgid "Ad_vanced..."
 msgstr "_Geavanceerd…"
 
-#: ../properties/nm-pptp-dialog.glade.h:7
+#: ../properties/nm-l2tp-dialog.glade.h:7
 msgid "Allow _BSD data compression"
 msgstr "_BSD-datacompressie toestaan"
 
-#: ../properties/nm-pptp-dialog.glade.h:8
+#: ../properties/nm-l2tp-dialog.glade.h:8
 msgid "Allow _Deflate data compression"
 msgstr "_Deflate-datacompressie toestaan"
 
-#: ../properties/nm-pptp-dialog.glade.h:9
+#: ../properties/nm-l2tp-dialog.glade.h:9
 msgid "Allow st_ateful encryption"
 msgstr "_Stateful encryption toestaan"
 
-#: ../properties/nm-pptp-dialog.glade.h:10
+#: ../properties/nm-l2tp-dialog.glade.h:10
 msgid "Allow the following authentication methods:"
 msgstr "De volgende aanmeldingscontrolemethodes toestaan:"
 
-#: ../properties/nm-pptp-dialog.glade.h:11
+#: ../properties/nm-l2tp-dialog.glade.h:11
 msgid "Default"
 msgstr "Standaard"
 
-#: ../properties/nm-pptp-dialog.glade.h:12
+#: ../properties/nm-l2tp-dialog.glade.h:12
 msgid "Domain:"
 msgstr "Domein:"
 
-#: ../properties/nm-pptp-dialog.glade.h:13
+#: ../properties/nm-l2tp-dialog.glade.h:13
 msgid "Send PPP _echo packets"
 msgstr "PPP _Echo-pakketten versturen"
 
 # toepassen/gebruiken
-#: ../properties/nm-pptp-dialog.glade.h:14
+#: ../properties/nm-l2tp-dialog.glade.h:14
 msgid "Use TCP _header compression"
 msgstr "TCP-_headercompressie toepassen"
 
-#: ../properties/nm-pptp-dialog.glade.h:15
+#: ../properties/nm-l2tp-dialog.glade.h:15
 msgid "Use _Point-to-Point encryption (MPPE)"
 msgstr "_Point-to-Point versleuteling (MPPE) toepassen"
 
-#: ../properties/nm-pptp-dialog.glade.h:16
+#: ../properties/nm-l2tp-dialog.glade.h:16
 msgid "User name:"
 msgstr "Gebruikersnaam:"
 
-#: ../properties/nm-pptp-dialog.glade.h:17
+#: ../properties/nm-l2tp-dialog.glade.h:17
 msgid "_Gateway:"
 msgstr "_Gateway:"
 
-#: ../properties/nm-pptp-dialog.glade.h:18
+#: ../properties/nm-l2tp-dialog.glade.h:18
 msgid "_Security:"
 msgstr "_Beveiliging:"
 
-#: ../properties/nm-pptp.c:49
-msgid "Point-to-Point Tunneling Protocol (PPTP)"
-msgstr "Point-to-Point Tunneling Protocol (PPTP)"
+#: ../properties/nm-l2tp.c:49
+msgid "Point-to-Point Tunneling Protocol (L2TP)"
+msgstr "Point-to-Point Tunneling Protocol (L2TP)"
 
-#: ../properties/nm-pptp.c:50
-msgid "Compatible with Microsoft and other PPTP VPN servers."
-msgstr "Compatible met Microsoft en andere PPTP VPN-servers."
+#: ../properties/nm-l2tp.c:50
+msgid "Compatible with Microsoft and other L2TP VPN servers."
+msgstr "Compatible met Microsoft en andere L2TP VPN-servers."

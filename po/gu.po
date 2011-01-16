@@ -1,13 +1,13 @@
-# translation of network-manager-pptp.master.gu.po to Gujarati
-# Gujarati translation of network-manager-pptp.
-# Copyright (C) 2009 network-manager-pptp's COPYRIGHT HOLDER
-# This file is distributed under the same license as the network-manager-pptp package.
+# translation of network-manager-l2tp.master.gu.po to Gujarati
+# Gujarati translation of network-manager-l2tp.
+# Copyright (C) 2009 network-manager-l2tp's COPYRIGHT HOLDER
+# This file is distributed under the same license as the network-manager-l2tp package.
 #
 # Sweta Kothari <swkothar@redhat.com>, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-pptp.master.gu\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=NetworkManager&component=VPN: pptp\n"
+"Project-Id-Version: network-manager-l2tp.master.gu\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=NetworkManager&component=VPN: l2tp\n"
 "POT-Creation-Date: 2009-10-27 03:34+0000\n"
 "PO-Revision-Date: 2009-10-28 15:19+0530\n"
 "Last-Translator: Sweta Kothari <swkothar@redhat.com>\n"
@@ -59,13 +59,13 @@ msgstr "વર્ચ્યુઅલ ખાનગી નેટવર્ક '%s' �
 msgid "Authenticate VPN"
 msgstr "સત્તાધિકરણ VPN"
 
-#: ../nm-pptp.desktop.in.h:1
-msgid "Add, Remove, and Edit PPTP VPN Connections"
-msgstr "PPTP VPN જોડાણોને ઉમેરો, દૂર કરો, અને ફેરફાર કરો"
+#: ../nm-l2tp.desktop.in.h:1
+msgid "Add, Remove, and Edit L2TP VPN Connections"
+msgstr "L2TP VPN જોડાણોને ઉમેરો, દૂર કરો, અને ફેરફાર કરો"
 
-#: ../nm-pptp.desktop.in.h:2
-msgid "PPTP VPN Connection Manager"
-msgstr "PPTP VPN જોડાણ વ્યવસ્થાપક"
+#: ../nm-l2tp.desktop.in.h:2
+msgid "L2TP VPN Connection Manager"
+msgstr "L2TP VPN જોડાણ વ્યવસ્થાપક"
 
 #: ../properties/advanced-dialog.c:173
 msgid "All Available (Default)"
@@ -99,55 +99,55 @@ msgstr "MSCHAPv2"
 msgid "EAP"
 msgstr "EAP"
 
-#: ../properties/nm-pptp-dialog.glade.h:1
+#: ../properties/nm-l2tp-dialog.glade.h:1
 msgid "<b>Authentication</b>"
 msgstr "<b>સત્તાધિકરણ</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:2
+#: ../properties/nm-l2tp-dialog.glade.h:2
 msgid "<b>Echo</b>"
 msgstr "<b>પડઘો</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:3
+#: ../properties/nm-l2tp-dialog.glade.h:3
 msgid "<b>General</b>"
 msgstr "<b>સામાન્ય</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:4
+#: ../properties/nm-l2tp-dialog.glade.h:4
 msgid "<b>Optional</b>"
 msgstr "<b>વૈકલ્પિક</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:5
+#: ../properties/nm-l2tp-dialog.glade.h:5
 msgid "<b>Security and Compression</b>"
 msgstr "<b>સુરક્ષા અને દબાણ</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:6
+#: ../properties/nm-l2tp-dialog.glade.h:6
 msgid "Ad_vanced..."
 msgstr "ઉન્નત (_v)..."
 
-#: ../properties/nm-pptp-dialog.glade.h:7
+#: ../properties/nm-l2tp-dialog.glade.h:7
 msgid "Allow _BSD data compression"
 msgstr "BSD માહિતી દબાણની પરવાનગી આપો (_B)"
 
-#: ../properties/nm-pptp-dialog.glade.h:8
+#: ../properties/nm-l2tp-dialog.glade.h:8
 msgid "Allow _Deflate data compression"
 msgstr "ડિફ્લેટ માહિતી દબાણને પરવાનગી આપો (_D)"
 
-#: ../properties/nm-pptp-dialog.glade.h:9
+#: ../properties/nm-l2tp-dialog.glade.h:9
 msgid "Allow st_ateful encryption"
 msgstr "પરિસ્થિતિજનક એનક્રિપ્શનને પરવાનગી આપો (_a)"
 
-#: ../properties/nm-pptp-dialog.glade.h:10
+#: ../properties/nm-l2tp-dialog.glade.h:10
 msgid "Allow the following authentication methods:"
 msgstr "નીચેની સત્તાધિકરણ પદ્દતિઓની પરવાનગી આપો:"
 
-#: ../properties/nm-pptp-dialog.glade.h:11
+#: ../properties/nm-l2tp-dialog.glade.h:11
 msgid "Default"
 msgstr "મૂળભૂત"
 
-#: ../properties/nm-pptp-dialog.glade.h:12
+#: ../properties/nm-l2tp-dialog.glade.h:12
 msgid "NT Domain:"
 msgstr "NT ડોમેઇન:"
 
-#: ../properties/nm-pptp-dialog.glade.h:13
+#: ../properties/nm-l2tp-dialog.glade.h:13
 msgid ""
 "Note: MPPE encryption is only available with MSCHAP authentication methods. "
 "To enable this checkbox, select one or more of the MSCHAP authentication "
@@ -157,47 +157,47 @@ msgstr ""
 "આ ચેકબોક્સને સક્રિય કરવા માટે, MSCHAP સત્તાધિકરણ પદ્દતિઓની એક અથવા વધારેને પસંદ કરો: "
 "MSCHAP અથવા MSCHAPv2."
 
-#: ../properties/nm-pptp-dialog.glade.h:14
-msgid "PPTP Advanced Options"
-msgstr "PPTP ઉન્નત વિકલ્પો"
+#: ../properties/nm-l2tp-dialog.glade.h:14
+msgid "L2TP Advanced Options"
+msgstr "L2TP ઉન્નત વિકલ્પો"
 
-#: ../properties/nm-pptp-dialog.glade.h:15
+#: ../properties/nm-l2tp-dialog.glade.h:15
 msgid "Password:"
 msgstr "પાસવર્ડ:"
 
-#: ../properties/nm-pptp-dialog.glade.h:16
+#: ../properties/nm-l2tp-dialog.glade.h:16
 msgid "Send PPP _echo packets"
 msgstr "PPP પડઘા પેકેટોને મોકલો (_e)"
 
-#: ../properties/nm-pptp-dialog.glade.h:17
+#: ../properties/nm-l2tp-dialog.glade.h:17
 msgid "Show password"
 msgstr "પાસવર્ડને બતાવો"
 
-#: ../properties/nm-pptp-dialog.glade.h:18
+#: ../properties/nm-l2tp-dialog.glade.h:18
 msgid "Use TCP _header compression"
 msgstr "TCP હેડર દબાણને વાપરો (_h)"
 
-#: ../properties/nm-pptp-dialog.glade.h:19
+#: ../properties/nm-l2tp-dialog.glade.h:19
 msgid "Use _Point-to-Point encryption (MPPE)"
 msgstr "Point-to-Point encryption (MPPE) ને વાપરો (_P)"
 
-#: ../properties/nm-pptp-dialog.glade.h:20
+#: ../properties/nm-l2tp-dialog.glade.h:20
 msgid "User name:"
 msgstr "વપરાશકર્તા નામ:"
 
-#: ../properties/nm-pptp-dialog.glade.h:21
+#: ../properties/nm-l2tp-dialog.glade.h:21
 msgid "_Gateway:"
 msgstr "ગેટવે (_G):"
 
-#: ../properties/nm-pptp-dialog.glade.h:22
+#: ../properties/nm-l2tp-dialog.glade.h:22
 msgid "_Security:"
 msgstr "સુરક્ષા (_S):"
 
-#: ../properties/nm-pptp.c:50
-msgid "Point-to-Point Tunneling Protocol (PPTP)"
-msgstr "Point-to-Point Tunneling Protocol (PPTP)"
+#: ../properties/nm-l2tp.c:50
+msgid "Point-to-Point Tunneling Protocol (L2TP)"
+msgstr "Point-to-Point Tunneling Protocol (L2TP)"
 
-#: ../properties/nm-pptp.c:51
-msgid "Compatible with Microsoft and other PPTP VPN servers."
-msgstr "Microsoft અને બીજા PPTP VPN સર્વરો સાથે સુસંગત છે."
+#: ../properties/nm-l2tp.c:51
+msgid "Compatible with Microsoft and other L2TP VPN servers."
+msgstr "Microsoft અને બીજા L2TP VPN સર્વરો સાથે સુસંગત છે."
 

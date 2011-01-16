@@ -1,11 +1,11 @@
-# Norwegian bokmål translation of NetworkManager's pptp support.
+# Norwegian bokmål translation of NetworkManager's l2tp support.
 # Copyright (C) 2006-2007 Kjartan Maraas
 # This file is distributed under the same license as the NetworkManager package.
 # Kjartan Maraas <kmaraas@gnome.org>, 2006-2007.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: pptp xx\n"
+"Project-Id-Version: l2tp xx\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-11-02 14:46+0100\n"
 "PO-Revision-Date: 2007-11-02 14:48+0100\n"
@@ -207,7 +207,7 @@ msgid "GPRS Options"
 msgstr "GPRS-alternativer"
 
 #: ../properties/nm-ppp-dialog.glade.h:26
-msgid "Host name or IP address of the PPTP server"
+msgid "Host name or IP address of the L2TP server"
 msgstr ""
 
 #: ../properties/nm-ppp-dialog.glade.h:27
@@ -386,16 +386,16 @@ msgid "_Require MPPC compression"
 msgstr "K_rev MPPC-komprimering"
 
 #: ../properties/nm-ppp-properties.c:45
-msgid "pppd tunnel (PPTP, BTGPRS, Dialup)"
-msgstr "pppd-tunnel (PPTP, BTGPRS, oppringt)"
+msgid "pppd tunnel (L2TP, BTGPRS, Dialup)"
+msgstr "pppd-tunnel (L2TP, BTGPRS, oppringt)"
 
 #: ../properties/nm-ppp-properties.c:134
 msgid "Name"
 msgstr "Navn"
 
 #: ../properties/nm-ppp-properties.c:146
-msgid "PPTP Server"
-msgstr "PPTP-tjener"
+msgid "L2TP Server"
+msgstr "L2TP-tjener"
 
 #: ../properties/nm-ppp-properties.c:151
 msgid "Telephone Number"

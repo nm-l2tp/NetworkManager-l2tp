@@ -1,13 +1,13 @@
-# Assamese translation of network-manager-pptp.
-# Copyright (C) 2009 network-manager-pptp's COPYRIGHT HOLDER
-# This file is distributed under the same license as the network-manager-pptp package.
+# Assamese translation of network-manager-l2tp.
+# Copyright (C) 2009 network-manager-l2tp's COPYRIGHT HOLDER
+# This file is distributed under the same license as the network-manager-l2tp package.
 #
 # Amitakhya Phukan <aphukan@fedoraproject.org>, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-pptp master\n"
+"Project-Id-Version: network-manager-l2tp master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug."
-"cgi?product=NetworkManager&component=VPN: pptp\n"
+"cgi?product=NetworkManager&component=VPN: l2tp\n"
 "POT-Creation-Date: 2009-07-07 13:19+0000\n"
 "PO-Revision-Date: 2009-08-12 16:20+0530\n"
 "Last-Translator: Amitakhya Phukan <aphukan@fedoraproject.org>\n"
@@ -60,13 +60,13 @@ msgstr ""
 msgid "Authenticate VPN"
 msgstr "VPN প্ৰমাণিত কৰক"
 
-#: ../nm-pptp.desktop.in.h:1
-msgid "Add, Remove, and Edit PPTP VPN Connections"
-msgstr "PPTP VPN সংযোগ যোগ কৰক, আঁতৰাওক, আৰু সম্পাদন কৰক"
+#: ../nm-l2tp.desktop.in.h:1
+msgid "Add, Remove, and Edit L2TP VPN Connections"
+msgstr "L2TP VPN সংযোগ যোগ কৰক, আঁতৰাওক, আৰু সম্পাদন কৰক"
 
-#: ../nm-pptp.desktop.in.h:2
-msgid "PPTP VPN Connection Manager"
-msgstr "PPTP VPN সংযোগ পৰিচালক"
+#: ../nm-l2tp.desktop.in.h:2
+msgid "L2TP VPN Connection Manager"
+msgstr "L2TP VPN সংযোগ পৰিচালক"
 
 #: ../properties/advanced-dialog.c:145
 msgid "All Available (Default)"
@@ -100,91 +100,91 @@ msgstr "MSCHAPv2"
 msgid "EAP"
 msgstr "EAP"
 
-#: ../properties/nm-pptp-dialog.glade.h:1
+#: ../properties/nm-l2tp-dialog.glade.h:1
 msgid "<b>Authentication</b>"
 msgstr "<b>প্ৰমাণীকৰণ</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:2
+#: ../properties/nm-l2tp-dialog.glade.h:2
 msgid "<b>Echo</b>"
 msgstr "<b>প্ৰতিধ্বনি</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:3
+#: ../properties/nm-l2tp-dialog.glade.h:3
 msgid "<b>General</b>"
 msgstr "<b>সাধাৰণ</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:4
+#: ../properties/nm-l2tp-dialog.glade.h:4
 msgid "<b>Optional</b>"
 msgstr "<b>বৈকল্পিক</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:5
+#: ../properties/nm-l2tp-dialog.glade.h:5
 msgid "<b>Security and Compression</b>"
 msgstr "<b>সুৰক্ষা আৰু সংকোচন</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:6
+#: ../properties/nm-l2tp-dialog.glade.h:6
 msgid "Ad_vanced..."
 msgstr "উন্নত (_v)..."
 
-#: ../properties/nm-pptp-dialog.glade.h:7
+#: ../properties/nm-l2tp-dialog.glade.h:7
 msgid "Allow _BSD data compression"
 msgstr "BSD তথ্য সংকোচনৰ অনুমতি দিয়ক (_B)"
 
-#: ../properties/nm-pptp-dialog.glade.h:8
+#: ../properties/nm-l2tp-dialog.glade.h:8
 msgid "Allow _Deflate data compression"
 msgstr "ডিফ্লেট তথ্য সংকোচনৰ অনুমতি দিয়ক (_D)"
 
-#: ../properties/nm-pptp-dialog.glade.h:9
+#: ../properties/nm-l2tp-dialog.glade.h:9
 msgid "Allow st_ateful encryption"
 msgstr "স্টেতফুল এনক্ৰিপছনৰ অনুমতি দিয়ক (_a)"
 
-#: ../properties/nm-pptp-dialog.glade.h:10
+#: ../properties/nm-l2tp-dialog.glade.h:10
 msgid "Allow the following authentication methods:"
 msgstr "এই প্ৰমাণীকৰণৰ ধৰণৰ অনুমতি দিয়ক:"
 
-#: ../properties/nm-pptp-dialog.glade.h:11
+#: ../properties/nm-l2tp-dialog.glade.h:11
 msgid "Default"
 msgstr "অবিকল্পিত"
 
-#: ../properties/nm-pptp-dialog.glade.h:12
+#: ../properties/nm-l2tp-dialog.glade.h:12
 msgid "NT Domain:"
 msgstr "NT ডোমেইন:"
 
-#: ../properties/nm-pptp-dialog.glade.h:13
+#: ../properties/nm-l2tp-dialog.glade.h:13
 msgid "Password:"
 msgstr "গুপ্তশব্দ:"
 
-#: ../properties/nm-pptp-dialog.glade.h:14
+#: ../properties/nm-l2tp-dialog.glade.h:14
 msgid "Send PPP _echo packets"
 msgstr "PPP প্ৰতিধ্বনিৰ গোট পঠিয়াওক (_e)"
 
-#: ../properties/nm-pptp-dialog.glade.h:15
+#: ../properties/nm-l2tp-dialog.glade.h:15
 msgid "Show password"
 msgstr "গুপ্তশব্দ দেখুৱাওক"
 
-#: ../properties/nm-pptp-dialog.glade.h:16
+#: ../properties/nm-l2tp-dialog.glade.h:16
 msgid "Use TCP _header compression"
 msgstr "TCP হেডাৰৰ সংকোচন ব্যৱহাৰ কৰক (_h)"
 
-#: ../properties/nm-pptp-dialog.glade.h:17
+#: ../properties/nm-l2tp-dialog.glade.h:17
 msgid "Use _Point-to-Point encryption (MPPE)"
 msgstr "Point-to-Point এনক্ৰিপ্ছন (MPPE) ব্যৱহাৰ কৰক (_P)"
 
-#: ../properties/nm-pptp-dialog.glade.h:18
+#: ../properties/nm-l2tp-dialog.glade.h:18
 msgid "User name:"
 msgstr "ব্যৱহাৰকৰ্তাৰ নাম:"
 
-#: ../properties/nm-pptp-dialog.glade.h:19
+#: ../properties/nm-l2tp-dialog.glade.h:19
 msgid "_Gateway:"
 msgstr "গেটৱে (_G):"
 
-#: ../properties/nm-pptp-dialog.glade.h:20
+#: ../properties/nm-l2tp-dialog.glade.h:20
 msgid "_Security:"
 msgstr "সুৰক্ষা (_S):"
 
-#: ../properties/nm-pptp.c:50
-msgid "Point-to-Point Tunneling Protocol (PPTP)"
-msgstr "Point-to-Point Tunneling Protocol (PPTP)"
+#: ../properties/nm-l2tp.c:50
+msgid "Point-to-Point Tunneling Protocol (L2TP)"
+msgstr "Point-to-Point Tunneling Protocol (L2TP)"
 
-#: ../properties/nm-pptp.c:51
-msgid "Compatible with Microsoft and other PPTP VPN servers."
-msgstr "Microsoft আৰু অন্য PPTP VPN সেৱকৰ সৈতে সুসঙ্গত ।"
+#: ../properties/nm-l2tp.c:51
+msgid "Compatible with Microsoft and other L2TP VPN servers."
+msgstr "Microsoft আৰু অন্য L2TP VPN সেৱকৰ সৈতে সুসঙ্গত ।"
 

@@ -1,9 +1,9 @@
-# translation of NetworkManager-pptp.HEAD.po to Georgian
+# translation of NetworkManager-l2tp.HEAD.po to Georgian
 # Malkhaz Barkalaya მალზახ ბარკალაია <malxaz@gmail.com>, 2007.
 # Vladimer Sichinava ვლადიმერ სიჭინავა <vsichi@gnome.org>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-pptp.HEAD\n"
+"Project-Id-Version: NetworkManager-l2tp.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-03-02 03:30+0000\n"
 "PO-Revision-Date: 2007-03-07 01:12+0100\n"
@@ -242,9 +242,9 @@ msgid "Hardware RTS/CTS"
 msgstr "აპარატურული RTS/CTS"
 
 #: ../properties/nm-ppp-dialog.glade.h:24
-msgid "Host name or IP address of the PPTP server"
+msgid "Host name or IP address of the L2TP server"
 msgstr ""
-"ჰოსტ-სერვერის სახელი ან PPTP "
+"ჰოსტ-სერვერის სახელი ან L2TP "
 "სერვერის IP-მისამართი"
 
 #: ../properties/nm-ppp-dialog.glade.h:25
@@ -477,16 +477,16 @@ msgid "connect-delay"
 msgstr "დაკავშირების-დაყოვნება"
 
 #: ../properties/nm-ppp-properties.c:45
-msgid "pppd tunnel (PPTP, BTGPRS, Dialup)"
-msgstr "pppd არხი (PPTP, BTGPRS, Dialup)"
+msgid "pppd tunnel (L2TP, BTGPRS, Dialup)"
+msgstr "pppd არხი (L2TP, BTGPRS, Dialup)"
 
 #: ../properties/nm-ppp-properties.c:134
 msgid "Name"
 msgstr "სახელი"
 
 #: ../properties/nm-ppp-properties.c:146
-msgid "PPTP Server"
-msgstr "PPTP სერვერი"
+msgid "L2TP Server"
+msgstr "L2TP სერვერი"
 
 #: ../properties/nm-ppp-properties.c:151
 msgid "Telephone Number"

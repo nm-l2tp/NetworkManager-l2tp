@@ -1,13 +1,13 @@
-# Catalan translation of NetworkManager-pptp
+# Catalan translation of NetworkManager-l2tp
 # Copyright © 2005 The Free Software Foundation, Inc.
 # This file is distributed under the same license as the
-#   NetworkManager-pptp package.
+#   NetworkManager-l2tp package.
 # Gil Forcada <gilforcada@guifi.net>, 2006, 2007.
 # David Planella <david.planella@gmail.com>, 2009.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-pptp\n"
+"Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-01-26 20:54+0100\n"
 "PO-Revision-Date: 2009-01-14 22:33+0100\n"
@@ -59,13 +59,13 @@ msgstr ""
 msgid "Authenticate VPN"
 msgstr "Autentica la VPN"
 
-#: ../nm-pptp.desktop.in.h:1
-msgid "Add, Remove, and Edit PPTP VPN Connections"
-msgstr "Afegiu, suprimiu i editeu connexions VPN PPTP"
+#: ../nm-l2tp.desktop.in.h:1
+msgid "Add, Remove, and Edit L2TP VPN Connections"
+msgstr "Afegiu, suprimiu i editeu connexions VPN L2TP"
 
-#: ../nm-pptp.desktop.in.h:2
-msgid "PPTP VPN Connection Manager"
-msgstr "Gestor de connexions VPN PPTP"
+#: ../nm-l2tp.desktop.in.h:2
+msgid "L2TP VPN Connection Manager"
+msgstr "Gestor de connexions VPN L2TP"
 
 #: ../properties/advanced-dialog.c:145
 msgid "All Available (Default)"
@@ -99,93 +99,93 @@ msgstr "MSCHAP v2"
 msgid "EAP"
 msgstr "EAP"
 
-#: ../properties/nm-pptp-dialog.glade.h:1
+#: ../properties/nm-l2tp-dialog.glade.h:1
 msgid "<b>Authentication</b>"
 msgstr "<b>Autenticació</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:2
+#: ../properties/nm-l2tp-dialog.glade.h:2
 msgid "<b>Echo</b>"
 msgstr "<b>Eco</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:3
+#: ../properties/nm-l2tp-dialog.glade.h:3
 msgid "<b>General</b>"
 msgstr "<b>General</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:4
+#: ../properties/nm-l2tp-dialog.glade.h:4
 msgid "<b>Optional</b>"
 msgstr "<b>Opcional</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:5
+#: ../properties/nm-l2tp-dialog.glade.h:5
 msgid "<b>Security and Compression</b>"
 msgstr "<b>Seguretat i compressió</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:6
+#: ../properties/nm-l2tp-dialog.glade.h:6
 msgid "Ad_vanced..."
 msgstr "A_vançat..."
 
-#: ../properties/nm-pptp-dialog.glade.h:7
+#: ../properties/nm-l2tp-dialog.glade.h:7
 msgid "Allow _BSD data compression"
 msgstr "Permet la compressió de dades _BSD"
 
-#: ../properties/nm-pptp-dialog.glade.h:8
+#: ../properties/nm-l2tp-dialog.glade.h:8
 msgid "Allow _Deflate data compression"
 msgstr "Permet la compressió de dades _deflate"
 
-#: ../properties/nm-pptp-dialog.glade.h:9
+#: ../properties/nm-l2tp-dialog.glade.h:9
 msgid "Allow st_ateful encryption"
 msgstr "Permet el xifratge d'_estats"
 
-#: ../properties/nm-pptp-dialog.glade.h:10
+#: ../properties/nm-l2tp-dialog.glade.h:10
 msgid "Allow the following authentication methods:"
 msgstr "Permet els mètodes d'autenticació següents:"
 
-#: ../properties/nm-pptp-dialog.glade.h:11
+#: ../properties/nm-l2tp-dialog.glade.h:11
 msgid "Default"
 msgstr "Predeterminat"
 
-#: ../properties/nm-pptp-dialog.glade.h:12
+#: ../properties/nm-l2tp-dialog.glade.h:12
 msgid "NT Domain:"
 msgstr "Domini NT:"
 
-#: ../properties/nm-pptp-dialog.glade.h:13
+#: ../properties/nm-l2tp-dialog.glade.h:13
 msgid "Password:"
 msgstr "Contrasenya:"
 
-#: ../properties/nm-pptp-dialog.glade.h:14
+#: ../properties/nm-l2tp-dialog.glade.h:14
 msgid "Send PPP _echo packets"
 msgstr "Envia paquets d'_eco PPP"
 
-#: ../properties/nm-pptp-dialog.glade.h:15
+#: ../properties/nm-l2tp-dialog.glade.h:15
 msgid "Show password"
 msgstr "Mostra la contrasenya"
 
-#: ../properties/nm-pptp-dialog.glade.h:16
+#: ../properties/nm-l2tp-dialog.glade.h:16
 msgid "Use TCP _header compression"
 msgstr "Utilitza compressió de les capçaleres _TCP"
 
-#: ../properties/nm-pptp-dialog.glade.h:17
+#: ../properties/nm-l2tp-dialog.glade.h:17
 msgid "Use _Point-to-Point encryption (MPPE)"
 msgstr "Utilitza el xifratge _punt a punt (MPPE)"
 
-#: ../properties/nm-pptp-dialog.glade.h:18
+#: ../properties/nm-l2tp-dialog.glade.h:18
 msgid "User name:"
 msgstr "Nom d'usuari:"
 
-#: ../properties/nm-pptp-dialog.glade.h:19
+#: ../properties/nm-l2tp-dialog.glade.h:19
 msgid "_Gateway:"
 msgstr "_Pasarel·la:"
 
-#: ../properties/nm-pptp-dialog.glade.h:20
+#: ../properties/nm-l2tp-dialog.glade.h:20
 msgid "_Security:"
 msgstr "_Seguretat"
 
-#: ../properties/nm-pptp.c:50
-msgid "Point-to-Point Tunneling Protocol (PPTP)"
-msgstr "Protocol de túnel punt a punt (PPTP)"
+#: ../properties/nm-l2tp.c:50
+msgid "Point-to-Point Tunneling Protocol (L2TP)"
+msgstr "Protocol de túnel punt a punt (L2TP)"
 
-#: ../properties/nm-pptp.c:51
-msgid "Compatible with Microsoft and other PPTP VPN servers."
-msgstr "Compatible amb els servidors PPTP VPN de Microsoft i d'altres."
+#: ../properties/nm-l2tp.c:51
+msgid "Compatible with Microsoft and other L2TP VPN servers."
+msgstr "Compatible amb els servidors L2TP VPN de Microsoft i d'altres."
 
 #~ msgid "Authentication Type:"
 #~ msgstr "Tipus d'autenticació:"
@@ -297,8 +297,8 @@ msgstr "Compatible amb els servidors PPTP VPN de Microsoft i d'altres."
 #~ msgid "GPRS Options"
 #~ msgstr "Opcions GPRS"
 
-#~ msgid "Host name or IP address of the PPTP server"
-#~ msgstr "Nom de la màquina o adreça IP del servidor PPTP"
+#~ msgid "Host name or IP address of the L2TP server"
+#~ msgstr "Nom de la màquina o adreça IP del servidor L2TP"
 
 #~ msgid "IP a_ddress:"
 #~ msgstr "A_dreça IP:"
@@ -444,14 +444,14 @@ msgstr "Compatible amb els servidors PPTP VPN de Microsoft i d'altres."
 #~ msgid "_Require MPPC compression"
 #~ msgstr "_Requereix la compressió MPPC"
 
-#~ msgid "pppd tunnel (PPTP, BTGPRS, Dialup)"
-#~ msgstr "túnel pppd (PPTP, BGTPRS, Dialup)"
+#~ msgid "pppd tunnel (L2TP, BTGPRS, Dialup)"
+#~ msgstr "túnel pppd (L2TP, BGTPRS, Dialup)"
 
 #~ msgid "Name"
 #~ msgstr "Nom"
 
-#~ msgid "PPTP Server"
-#~ msgstr "Servidor PPTP"
+#~ msgid "L2TP Server"
+#~ msgstr "Servidor L2TP"
 
 #~ msgid "Telephone Number"
 #~ msgstr "Número de telèfon"
@@ -561,8 +561,8 @@ msgstr "Compatible amb els servidors PPTP VPN de Microsoft i d'altres."
 #~ msgid "Do you want to replace it with the one you are saving?"
 #~ msgstr "Voleu reemplaçar-lo amb el que voleu desar?"
 
-#~ msgid "PPTP Client"
-#~ msgstr "Client PPTP"
+#~ msgid "L2TP Client"
+#~ msgstr "Client L2TP"
 
 #~ msgid "Remote:  %s"
 #~ msgstr "Remot: %s"

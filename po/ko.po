@@ -1,4 +1,4 @@
-# GNOME Korea translation of nm-pptp.
+# GNOME Korea translation of nm-l2tp.
 # Copyright (C) 2007 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Young-Ho Cha <ganadist@gmail.com>, 2007.
@@ -6,7 +6,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: nm-pptp\n"
+"Project-Id-Version: nm-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-12-03 05:08+0000\n"
 "PO-Revision-Date: 2007-12-24 18:16+0900\n"
@@ -216,8 +216,8 @@ msgid "GPRS Options"
 msgstr "GPRS 옵션"
 
 #: ../properties/nm-ppp-dialog.glade.h:26
-msgid "Host name or IP address of the PPTP server"
-msgstr "PPTP 서버의 호스트 이름 또는 IP 주소"
+msgid "Host name or IP address of the L2TP server"
+msgstr "L2TP 서버의 호스트 이름 또는 IP 주소"
 
 #: ../properties/nm-ppp-dialog.glade.h:27
 msgid "IP a_ddress:"
@@ -400,7 +400,7 @@ msgid "_Require MPPC compression"
 msgstr "MPPC 압축 필요(_R)"
 
 #: ../properties/nm-ppp-properties.c:45
-msgid "pppd tunnel (PPTP, BTGPRS, Dialup)"
+msgid "pppd tunnel (L2TP, BTGPRS, Dialup)"
 msgstr "pppd 터널 (PPTD, BTGPRS, 전화걸기)"
 
 #: ../properties/nm-ppp-properties.c:134
@@ -408,8 +408,8 @@ msgid "Name"
 msgstr "이름"
 
 #: ../properties/nm-ppp-properties.c:146
-msgid "PPTP Server"
-msgstr "PPTP 서버"
+msgid "L2TP Server"
+msgstr "L2TP 서버"
 
 #: ../properties/nm-ppp-properties.c:151
 msgid "Telephone Number"

@@ -1,6 +1,6 @@
-# Brazilian Portuguese translation of NetworkManager-pptp.
+# Brazilian Portuguese translation of NetworkManager-l2tp.
 # Copyright (C) 2007-2008 Free Software Foundation, Inc.
-# This file is distributed under the same license as the NetworkManager-pptp package.
+# This file is distributed under the same license as the NetworkManager-l2tp package.
 # Raphael Higino <In Memoriam>, 2007.
 # Luiz Armesto <luiz.armesto@gmail.com>, 2007.
 # Fabrício Godoy <skarllot@gmail.com>, 2008.
@@ -10,7 +10,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-pptp\n"
+"Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-09-19 08:58-0400\n"
 "PO-Revision-Date: 2009-09-19 08:59-0500\n"
@@ -63,13 +63,13 @@ msgstr ""
 msgid "Authenticate VPN"
 msgstr "Autenticar VPN"
 
-#: ../nm-pptp.desktop.in.h:1
-msgid "Add, Remove, and Edit PPTP VPN Connections"
-msgstr "Adicione, remova e edite conexões PPTP VPN"
+#: ../nm-l2tp.desktop.in.h:1
+msgid "Add, Remove, and Edit L2TP VPN Connections"
+msgstr "Adicione, remova e edite conexões L2TP VPN"
 
-#: ../nm-pptp.desktop.in.h:2
-msgid "PPTP VPN Connection Manager"
-msgstr "Gerenciador de Conexões PPTP VPN"
+#: ../nm-l2tp.desktop.in.h:2
+msgid "L2TP VPN Connection Manager"
+msgstr "Gerenciador de Conexões L2TP VPN"
 
 #: ../properties/advanced-dialog.c:145
 msgid "All Available (Default)"
@@ -103,94 +103,94 @@ msgstr "MSCHAP v.2"
 msgid "EAP"
 msgstr "EAP"
 
-#: ../properties/nm-pptp-dialog.glade.h:1
+#: ../properties/nm-l2tp-dialog.glade.h:1
 msgid "<b>Authentication</b>"
 msgstr "<b>Autenticação</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:2
+#: ../properties/nm-l2tp-dialog.glade.h:2
 msgid "<b>Echo</b>"
 msgstr "<b>Eco</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:3
+#: ../properties/nm-l2tp-dialog.glade.h:3
 msgid "<b>General</b>"
 msgstr "<b>Geral</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:4
+#: ../properties/nm-l2tp-dialog.glade.h:4
 msgid "<b>Optional</b>"
 msgstr "<b>Opcional</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:5
+#: ../properties/nm-l2tp-dialog.glade.h:5
 msgid "<b>Security and Compression</b>"
 msgstr "<b>Segurança e compressão</b>"
 
-#: ../properties/nm-pptp-dialog.glade.h:6
+#: ../properties/nm-l2tp-dialog.glade.h:6
 msgid "Ad_vanced..."
 msgstr "A_vançado..."
 
-#: ../properties/nm-pptp-dialog.glade.h:7
+#: ../properties/nm-l2tp-dialog.glade.h:7
 msgid "Allow _BSD data compression"
 msgstr "Permitir compressão de dados _BSD"
 
-#: ../properties/nm-pptp-dialog.glade.h:8
+#: ../properties/nm-l2tp-dialog.glade.h:8
 msgid "Allow _Deflate data compression"
 msgstr "Permitir compressão de dados _Deflate"
 
-#: ../properties/nm-pptp-dialog.glade.h:9
+#: ../properties/nm-l2tp-dialog.glade.h:9
 msgid "Allow st_ateful encryption"
 msgstr "Permitir criptogr_afia com monitoração de estado"
 
-#: ../properties/nm-pptp-dialog.glade.h:10
+#: ../properties/nm-l2tp-dialog.glade.h:10
 msgid "Allow the following authentication methods:"
 msgstr "Permitir os seguintes métodos de autenticação:"
 
-#: ../properties/nm-pptp-dialog.glade.h:11
+#: ../properties/nm-l2tp-dialog.glade.h:11
 msgid "Default"
 msgstr "Padrão"
 
-#: ../properties/nm-pptp-dialog.glade.h:12
+#: ../properties/nm-l2tp-dialog.glade.h:12
 msgid "NT Domain:"
 msgstr "Domínio NT:"
 
-#: ../properties/nm-pptp-dialog.glade.h:13
-msgid "PPTP Advanced Options"
-msgstr "Opções PPTP avançadas"
+#: ../properties/nm-l2tp-dialog.glade.h:13
+msgid "L2TP Advanced Options"
+msgstr "Opções L2TP avançadas"
 
-#: ../properties/nm-pptp-dialog.glade.h:14
+#: ../properties/nm-l2tp-dialog.glade.h:14
 msgid "Password:"
 msgstr "Senha:"
 
-#: ../properties/nm-pptp-dialog.glade.h:15
+#: ../properties/nm-l2tp-dialog.glade.h:15
 msgid "Send PPP _echo packets"
 msgstr "Enviar pacotes PPP de _eco"
 
-#: ../properties/nm-pptp-dialog.glade.h:16
+#: ../properties/nm-l2tp-dialog.glade.h:16
 msgid "Show password"
 msgstr "Mostrar senha"
 
-#: ../properties/nm-pptp-dialog.glade.h:17
+#: ../properties/nm-l2tp-dialog.glade.h:17
 msgid "Use TCP _header compression"
 msgstr "Usar compressão de cabeçal_ho TCP"
 
-#: ../properties/nm-pptp-dialog.glade.h:18
+#: ../properties/nm-l2tp-dialog.glade.h:18
 msgid "Use _Point-to-Point encryption (MPPE)"
 msgstr "Usar criptografia _ponto a ponto (MPPE)"
 
-#: ../properties/nm-pptp-dialog.glade.h:19
+#: ../properties/nm-l2tp-dialog.glade.h:19
 msgid "User name:"
 msgstr "Nome de usuário:"
 
-#: ../properties/nm-pptp-dialog.glade.h:20
+#: ../properties/nm-l2tp-dialog.glade.h:20
 msgid "_Gateway:"
 msgstr "_Gateway:"
 
-#: ../properties/nm-pptp-dialog.glade.h:21
+#: ../properties/nm-l2tp-dialog.glade.h:21
 msgid "_Security:"
 msgstr "_Segurança:"
 
-#: ../properties/nm-pptp.c:50
-msgid "Point-to-Point Tunneling Protocol (PPTP)"
-msgstr "Protocolo de Encapsulamento Ponto a Ponto (PPTP)"
+#: ../properties/nm-l2tp.c:50
+msgid "Point-to-Point Tunneling Protocol (L2TP)"
+msgstr "Protocolo de Encapsulamento Ponto a Ponto (L2TP)"
 
-#: ../properties/nm-pptp.c:51
-msgid "Compatible with Microsoft and other PPTP VPN servers."
-msgstr "Compatível com servidores Microsoft e outros PPTP VPN."
+#: ../properties/nm-l2tp.c:51
+msgid "Compatible with Microsoft and other L2TP VPN servers."
+msgstr "Compatível com servidores Microsoft e outros L2TP VPN."

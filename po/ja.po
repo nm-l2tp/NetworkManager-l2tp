@@ -1,11 +1,11 @@
-# Japanese message catalog for NetworkManager-pptp
-# Copyright (C) 2006 THE NetworkManager-pptp's COPYRIGHT HOLDER
+# Japanese message catalog for NetworkManager-l2tp
+# Copyright (C) 2006 THE NetworkManager-l2tp's COPYRIGHT HOLDER
 # This file is distributed under the same license as the NetworkManager-openvpn package.
 # Satoru SATOH <ss@gnome.gr.jp>, 2006, 2007.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-pptp trunk\n"
+"Project-Id-Version: NetworkManager-l2tp trunk\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-07-23 00:35+0900\n"
 "PO-Revision-Date: 2007-07-23 01:39+0900\n"
@@ -222,8 +222,8 @@ msgid "GPRS Options"
 msgstr "GPRS オプション"
 
 #: ../properties/nm-ppp-dialog.glade.h:26
-msgid "Host name or IP address of the PPTP server"
-msgstr "PPTP サーバのホスト名か IP アドレス"
+msgid "Host name or IP address of the L2TP server"
+msgstr "L2TP サーバのホスト名か IP アドレス"
 
 #: ../properties/nm-ppp-dialog.glade.h:27
 msgid "IP a_ddress:"
@@ -404,16 +404,16 @@ msgid "_Require MPPC compression"
 msgstr "MPPC 圧縮が必要(_R)"
 
 #: ../properties/nm-ppp-properties.c:45
-msgid "pppd tunnel (PPTP, BTGPRS, Dialup)"
-msgstr "pppd トンネル (PPTP, BTGPRS, ダイアルアップ)"
+msgid "pppd tunnel (L2TP, BTGPRS, Dialup)"
+msgstr "pppd トンネル (L2TP, BTGPRS, ダイアルアップ)"
 
 #: ../properties/nm-ppp-properties.c:134
 msgid "Name"
 msgstr "名前"
 
 #: ../properties/nm-ppp-properties.c:146
-msgid "PPTP Server"
-msgstr "PPTP サーバ"
+msgid "L2TP Server"
+msgstr "L2TP サーバ"
 
 #: ../properties/nm-ppp-properties.c:151
 msgid "Telephone Number"
@@ -587,8 +587,8 @@ msgstr "VPN 接続に失敗"
 #~ msgid "<b>Dial-up options</b>"
 #~ msgstr "<b>ダイアルアップオプション</b>"
 
-#~ msgid "<b>PPTP options</b>"
-#~ msgstr "<b>PPTP オプション</b>"
+#~ msgid "<b>L2TP options</b>"
+#~ msgstr "<b>L2TP オプション</b>"
 
 #~ msgid "<b>Required Information</b>"
 #~ msgstr "<b>必須情報</b>"
