@@ -38,6 +38,7 @@ m4/
 Makefile
 Makefile.in
 missing
+po/*.pot
 po/Makefile.in.in
 po/POTFILES
 po/stamp-it
