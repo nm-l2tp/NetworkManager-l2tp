@@ -79,7 +79,7 @@ typedef struct {
 
 GType nm_l2tp_ppp_service_get_type (void);
 
-G_DEFINE_TYPE (NML2tpPppService, nm_l2tp_ppp_service, G_TYPE_OBJECT)
+G_DEFINE_TYPE (NML2tpPppService, nm_l2tp_ppp_service, G_TYPE_OBJECT);
 
 static gboolean impl_l2tp_service_need_secrets (NML2tpPppService *self,
                                                 char **out_username,
@@ -130,7 +130,7 @@ nm_l2tp_ppp_service_new (void)
 
 	connection = dbus_g_bus_get (DBUS_BUS_SYSTEM, &error);
 	if (!connection) {
-		nm_warning ("Could not get the system bus.  Make sure "
+		g_warning ("Could not get the system bus.  Make sure "
 		            "the message bus daemon is running!  Message: %s",
 		            error->message);
 		g_error_free (error);
@@ -152,7 +152,7 @@ nm_l2tp_ppp_service_new (void)
 		dbus_g_connection_register_g_object (connection, NM_DBUS_PATH_L2TP_PPP, object);
 		success = TRUE;
 	} else {
-		nm_warning ("Could not register D-Bus service name.  Message: %s", error->message);
+		g_warning ("Could not register D-Bus service name.  Message: %s", error->message);
 		g_error_free (error);
 		g_object_unref (object);
 		object = NULL;
@@ -335,7 +335,7 @@ impl_l2tp_service_set_ip4_config (NML2tpPppService *self,
                                   GHashTable *config_hash,
                                   GError **err)
 {
-	nm_info ("L2TP service (IP Config Get) reply received.");
+	g_message( ("L2TP service (IP Config Get) reply received."));
 	g_signal_emit (G_OBJECT (self), signals[PLUGIN_ALIVE], 0);
 
 	/* Just forward the pppd plugin config up to our superclass; no need to modify it */
@@ -349,7 +349,7 @@ impl_l2tp_service_set_ip4_config (NML2tpPppService *self,
 /* The VPN plugin service                               */
 /********************************************************/
 
-G_DEFINE_TYPE (NML2tpPlugin, nm_l2tp_plugin, NM_TYPE_VPN_PLUGIN)
+G_DEFINE_TYPE (NML2tpPlugin, nm_l2tp_plugin, NM_TYPE_VPN_PLUGIN);
 
 typedef struct {
 	GPid pid;
@@ -570,14 +570,14 @@ l2tpd_watch_cb (GPid pid, gint status, gpointer user_data)
 	if (WIFEXITED (status)) {
 		error = WEXITSTATUS (status);
 		if (error != 0)
-			nm_warning ("xl2tpd exited with error code %d", error);
+			g_warning ("xl2tpd exited with error code %d", error);
 	}
 	else if (WIFSTOPPED (status))
-		nm_warning ("xl2tpd stopped unexpectedly with signal %d", WSTOPSIG (status));
+		g_warning ("xl2tpd stopped unexpectedly with signal %d", WSTOPSIG (status));
 	else if (WIFSIGNALED (status))
-		nm_warning ("xl2tpd died with signal %d", WTERMSIG (status));
+		g_warning ("xl2tpd died with signal %d", WTERMSIG (status));
 	else
-		nm_warning ("xl2tpd died from an unknown cause");
+		g_warning ("xl2tpd died from an unknown cause");
 
 	/* Reap child if needed. */
 	waitpid (priv->pid, NULL, WNOHANG);
@@ -641,7 +641,7 @@ pppd_timed_out (gpointer user_data)
 {
 	NML2tpPlugin *plugin = NM_L2TP_PLUGIN (user_data);
 
-	nm_warning ("Looks like pppd didn't initialize our dbus module");
+	g_warning ("Looks like pppd didn't initialize our dbus module");
 	nm_vpn_plugin_failure (NM_VPN_PLUGIN (plugin), NM_VPN_CONNECTION_STATE_REASON_SERVICE_START_TIMEOUT);
 
 	return FALSE;
@@ -721,13 +721,13 @@ get_l2tp_gw_address_as_gvalue (NMConnection *connection)
 
 	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
 	if (!s_vpn) {
-		nm_warning ("couldn't get VPN setting");
+		g_warning ("couldn't get VPN setting");
 		return NULL;
 	}
 
 	p = tmp = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_GATEWAY);
 	if (!tmp || !strlen (tmp)) {
-		nm_warning ("couldn't get L2TP VPN gateway IP address");
+		g_warning ("couldn't get L2TP VPN gateway IP address");
 		return NULL;
 	}
 
@@ -751,7 +751,7 @@ get_l2tp_gw_address_as_gvalue (NMConnection *connection)
 		hints.ai_flags = AI_ADDRCONFIG;
 		err = getaddrinfo (tmp, NULL, &hints, &result);
 		if (err != 0) {
-			nm_warning ("couldn't look up L2TP VPN gateway IP address '%s' (%d)", tmp, err);
+			g_warning ("couldn't look up L2TP VPN gateway IP address '%s' (%d)", tmp, err);
 			return NULL;
 		}
 
@@ -773,7 +773,7 @@ get_l2tp_gw_address_as_gvalue (NMConnection *connection)
 	} else {
 		errno = 0;
 		if (inet_pton (AF_INET, tmp, &addr) <= 0) {
-			nm_warning ("couldn't convert L2TP VPN gateway IP address '%s' (%d)", tmp, errno);
+			g_warning ("couldn't convert L2TP VPN gateway IP address '%s' (%d)", tmp, errno);
 			return NULL;
 		}
 	}
@@ -783,7 +783,7 @@ get_l2tp_gw_address_as_gvalue (NMConnection *connection)
 		g_value_init (value, G_TYPE_UINT);
 		g_value_set_uint (value, (guint32) addr.s_addr);
 	} else
-		nm_warning ("couldn't determine L2TP VPN gateway IP address from '%s'", tmp);
+		g_warning ("couldn't determine L2TP VPN gateway IP address from '%s'", tmp);
 
 	return value;
 }
@@ -861,7 +861,7 @@ nm_l2tp_start_l2tpd_binary (NML2tpPlugin *plugin,
 	}
 	free_l2tpd_args (l2tpd_argv);
 
-	nm_info ("xl2tpd started with pid %d", pid);
+	g_message("xl2tpd started with pid %d",pid);
 
 	NM_L2TP_PLUGIN_GET_PRIVATE (plugin)->pid = pid;
 	g_child_watch_add (pid, l2tpd_watch_cb, plugin);
@@ -1041,7 +1041,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		if (errno == 0) {
 			write_config_option (pppopt_fd, "lcp-echo-failure %ld\n", tmp_int);
 		} else {
-			nm_warning ("failed to convert lcp-echo-failure value '%s'", value);
+			g_warning ("failed to convert lcp-echo-failure value '%s'", value);
 		}
 	} else {
 		write_config_option (pppopt_fd, "lcp-echo-failure 0\n");
@@ -1059,7 +1059,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		if (errno == 0) {
 			write_config_option (pppopt_fd, "lcp-echo-interval %ld\n", tmp_int);
 		} else {
-			nm_warning ("failed to convert lcp-echo-interval value '%s'", value);
+			g_warning ("failed to convert lcp-echo-interval value '%s'", value);
 		}
 	} else {
 		write_config_option (pppopt_fd, "lcp-echo-interval 0\n");
@@ -1173,7 +1173,7 @@ real_disconnect (NMVPNPlugin   *plugin,
 		else
 			kill (priv->pid, SIGKILL);
 
-		nm_info ("Terminated ppp daemon with PID %d.", priv->pid);
+		g_message("Terminated ppp daemon with PID %d.", priv->pid);
 		priv->pid = 0;
 	}
 

@@ -231,6 +231,9 @@ fill_password (GladeXML *xml,
 {
 	GtkWidget *widget = NULL;
 	gchar *password = NULL;
+	NMSettingVPN *s_vpn;
+	gboolean unused;
+
 
 	widget = glade_xml_get_widget (xml, widget_name);
 	g_assert (widget);
@@ -238,27 +241,18 @@ fill_password (GladeXML *xml,
 	if (!connection)
 		return widget;
 
-	password = NULL;
+	/* Try the connection first */
+	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
+	if (s_vpn) {
+		const gchar *tmp = NULL;
 
-	if (nm_connection_get_scope (connection) == NM_CONNECTION_SCOPE_SYSTEM) {
-		NMSettingVPN *s_vpn;
+		tmp = nm_setting_vpn_get_secret (s_vpn, password_type);
+		if (tmp)
+			password = gnome_keyring_memory_strdup (tmp);
+	}
 
-		s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
-		if (s_vpn) {
-			const gchar *tmp = NULL;
-
-			tmp = nm_setting_vpn_get_secret (s_vpn, password_type);
-			if (tmp)
-				password = gnome_keyring_memory_strdup (tmp);
-		}
-	} else {
-		NMSettingConnection *s_con = NULL;
-		gboolean unused;
-		const char *uuid;
-
-		s_con = NM_SETTING_CONNECTION (nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION));
-		uuid = nm_setting_connection_get_uuid (s_con);
-		password = keyring_helpers_lookup_secret (uuid,
+	if (!password) {
+		password = keyring_helpers_lookup_secret (nm_connection_get_uuid (connection),
 		                                          password_type,
 		                                          &unused);
 	}
