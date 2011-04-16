@@ -43,3 +43,12 @@ po/Makefile.in.in
 po/POTFILES
 po/stamp-it
 stamp-h1
+
+#cdt files
+.autotools
+.cproject
+.project
+
+# gmo 
+*.gmo
+
