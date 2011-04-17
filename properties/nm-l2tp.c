@@ -32,7 +32,6 @@
 #include <glib/gi18n-lib.h>
 #include <string.h>
 #include <gtk/gtk.h>
-#include <glade/glade.h>
 
 #define NM_VPN_API_SUBJECT_TO_CHANGE
 
@@ -73,7 +72,7 @@ G_DEFINE_TYPE_EXTENDED (L2tpPluginUiWidget, l2tp_plugin_ui_widget, G_TYPE_OBJECT
 #define L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), L2TP_TYPE_PLUGIN_UI_WIDGET, L2tpPluginUiWidgetPrivate))
 
 typedef struct {
-	GladeXML *xml;
+	GtkBuilder *builder;
 	GtkWidget *widget;
 	GtkSizeGroup *group;
 	GtkWindowGroup *window_group;
@@ -129,7 +128,7 @@ check_validity (L2tpPluginUiWidget *self, GError **error)
 	GtkWidget *widget;
 	const char *str;
 
-	widget = glade_xml_get_widget (priv->xml, "gateway_entry");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "gateway_entry"));
 	str = gtk_entry_get_text (GTK_ENTRY (widget));
 	if (!str || !strlen (str)) {
 		g_set_error (error,
@@ -218,13 +217,13 @@ show_toggled_cb (GtkCheckButton *button, L2tpPluginUiWidget *self)
 
 	visible = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button));
 
-	widget = glade_xml_get_widget (priv->xml, "user_password_entry");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "user_password_entry"));
 	g_assert (widget);
 	gtk_entry_set_visibility (GTK_ENTRY (widget), visible);
 }
 
 static GtkWidget *
-fill_password (GladeXML *xml,
+fill_password (GtkBuilder *builder,
                const char *widget_name,
                NMConnection *connection,
                const char *password_type)
@@ -235,7 +234,7 @@ fill_password (GladeXML *xml,
 	gboolean unused;
 
 
-	widget = glade_xml_get_widget (xml, widget_name);
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, widget_name));
 	g_assert (widget);
 
 	if (!connection)
@@ -266,7 +265,7 @@ fill_password (GladeXML *xml,
 }
 
 static void
-fill_vpn_passwords (GladeXML *xml,
+fill_vpn_passwords (GtkBuilder *builder,
                     GtkSizeGroup *group,
                     NMConnection *connection,
                     ChangedCallback changed_cb,
@@ -274,12 +273,12 @@ fill_vpn_passwords (GladeXML *xml,
 {
 	GtkWidget *w = NULL;
 
-	w = fill_password (xml, "user_password_entry", connection, NM_L2TP_KEY_PASSWORD);
+	w = fill_password (builder, "user_password_entry", connection, NM_L2TP_KEY_PASSWORD);
 	if (w) {
 		gtk_size_group_add_widget (group, w);
 		g_signal_connect (w, "changed", G_CALLBACK (changed_cb), user_data);
 	} else {
-		g_error ("No user_password_entry in glade file!");
+		g_error ("No userbuilder in GtkBuilder file!");
 	}
 }
 
@@ -295,7 +294,7 @@ init_plugin_ui (L2tpPluginUiWidget *self, NMConnection *connection, GError **err
 
 	priv->group = gtk_size_group_new (GTK_SIZE_GROUP_HORIZONTAL);
 
-	widget = glade_xml_get_widget (priv->xml, "gateway_entry");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "gateway_entry"));
 	if (!widget)
 		return FALSE;
 	gtk_size_group_add_widget (priv->group, widget);
@@ -306,7 +305,7 @@ init_plugin_ui (L2tpPluginUiWidget *self, NMConnection *connection, GError **err
 	}
 	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
 
-	widget = glade_xml_get_widget (priv->xml, "user_entry");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "user_entry"));
 	if (!widget)
 		return FALSE;
 	gtk_size_group_add_widget (priv->group, widget);
@@ -317,7 +316,7 @@ init_plugin_ui (L2tpPluginUiWidget *self, NMConnection *connection, GError **err
 	}
 	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
 
-	widget = glade_xml_get_widget (priv->xml, "domain_entry");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "domain_entry"));
 	if (!widget)
 		return FALSE;
 	gtk_size_group_add_widget (priv->group, widget);
@@ -328,16 +327,16 @@ init_plugin_ui (L2tpPluginUiWidget *self, NMConnection *connection, GError **err
 	}
 	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
 
-	widget = glade_xml_get_widget (priv->xml, "advanced_button");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "advanced_button"));
 	g_signal_connect (G_OBJECT (widget), "clicked", G_CALLBACK (advanced_button_clicked_cb), self);
 
-	widget = glade_xml_get_widget (priv->xml, "show_passwords_checkbutton");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder,  "show_passwords_checkbutton"));
 	g_return_val_if_fail (widget != NULL, FALSE);
 	g_signal_connect (G_OBJECT (widget), "toggled",
 	                  (GCallback) show_toggled_cb,
 	                  self);
 
-	fill_vpn_passwords (priv->xml, priv->group, connection, stuff_changed_cb, self);
+	fill_vpn_passwords (priv->builder, priv->group, connection, stuff_changed_cb, self);
 
 	return TRUE;
 }
@@ -378,19 +377,19 @@ update_connection (NMVpnPluginUiWidgetInterface *iface,
 	g_object_set (s_vpn, NM_SETTING_VPN_SERVICE_TYPE, NM_DBUS_SERVICE_L2TP, NULL);
 
 	/* Gateway */
-	widget = glade_xml_get_widget (priv->xml, "gateway_entry");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "gateway_entry"));
 	str = gtk_entry_get_text (GTK_ENTRY (widget));
 	if (str && strlen (str))
 		nm_setting_vpn_add_data_item (s_vpn, NM_L2TP_KEY_GATEWAY, str);
 
 	/* Username */
-	widget = glade_xml_get_widget (priv->xml, "user_entry");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder,  "user_entry"));
 	str = gtk_entry_get_text (GTK_ENTRY (widget));
 	if (str && strlen (str))
 		nm_setting_vpn_add_data_item (s_vpn, NM_L2TP_KEY_USER, str);
 
 	/* Domain */
-	widget = glade_xml_get_widget (priv->xml, "domain_entry");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "domain_entry"));
 	str = gtk_entry_get_text (GTK_ENTRY (widget));
 	if (str && strlen (str))
 		nm_setting_vpn_add_data_item (s_vpn, NM_L2TP_KEY_DOMAIN, str);
@@ -428,7 +427,7 @@ save_secrets (NMVpnPluginUiWidgetInterface *iface,
 	id = nm_setting_connection_get_id (s_con);
 	uuid = nm_setting_connection_get_uuid (s_con);
 
-    widget = glade_xml_get_widget (priv->xml, "user_password_entry");
+    widget = GTK_WIDGET (gtk_builder_get_object (priv->builder,  "user_password_entry"));
     g_assert (widget);
     str = gtk_entry_get_text (GTK_ENTRY (widget));
     if (str && strlen (str)) {
@@ -446,7 +445,7 @@ nm_vpn_plugin_ui_widget_interface_new (NMConnection *connection, GError **error)
 {
 	NMVpnPluginUiWidgetInterface *object;
 	L2tpPluginUiWidgetPrivate *priv;
-	char *glade_file;
+	char *ui_file;;
 
 	if (error)
 		g_return_val_if_fail (*error == NULL, NULL);
@@ -459,18 +458,26 @@ nm_vpn_plugin_ui_widget_interface_new (NMConnection *connection, GError **error)
 
 	priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE (object);
 
-	glade_file = g_strdup_printf ("%s/%s", GLADEDIR, "nm-l2tp-dialog.glade");
-	priv->xml = glade_xml_new (glade_file, "l2tp-vbox", GETTEXT_PACKAGE);
-	if (priv->xml == NULL) {
-		g_set_error (error, L2TP_PLUGIN_UI_ERROR, 0,
-		             "could not load required resources at %s", glade_file);
-		g_free (glade_file);
-		g_object_unref (object);
+	ui_file = g_strdup_printf ("%s/%s", UIDIR, "nm-l2tp-dialog.ui");
+	priv->builder = gtk_builder_new ();
+
+	if (!gtk_builder_add_from_file(priv->builder, ui_file, error)) {
+		g_warning ("Couldn't load builder file: %s",
+				error && *error ? (*error)->message : "(unknown)");
+		g_clear_error(error);
+		g_set_error(error, L2TP_PLUGIN_UI_ERROR, 0,
+				"could not load required resources at %s", ui_file);
+		g_free(ui_file);
+
+		g_object_unref(object);
 		return NULL;
 	}
-	g_free (glade_file);
+	g_free(ui_file);
 
-	priv->widget = glade_xml_get_widget (priv->xml, "l2tp-vbox");
+	gtk_builder_set_translation_domain (priv->builder, GETTEXT_PACKAGE);
+
+
+	priv->widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "l2tp-vbox"));
 	if (!priv->widget) {
 		g_set_error (error, L2TP_PLUGIN_UI_ERROR, 0, "could not load UI widget");
 		g_object_unref (object);
@@ -509,8 +516,8 @@ dispose (GObject *object)
 	if (priv->widget)
 		g_object_unref (priv->widget);
 
-	if (priv->xml)
-		g_object_unref (priv->xml);
+	if (priv->builder)
+		g_object_unref(priv->builder);
 
 	if (priv->advanced)
 		g_hash_table_destroy (priv->advanced);

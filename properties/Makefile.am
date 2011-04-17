@@ -9,18 +9,17 @@ libnm_l2tp_properties_la_SOURCES = \
 	import-export.c \
 	import-export.h
 
-gladedir = $(datadir)/gnome-vpn-properties/l2tp
-glade_DATA = nm-l2tp-dialog.glade
+uidir = $(datadir)/gnome-vpn-properties/l2tp
+ui_DATA = nm-l2tp-dialog.ui
 
 libnm_l2tp_properties_la_CFLAGS =                    \
-        $(GLADE_CFLAGS)                                 \
         $(GTK_CFLAGS)                                   \
         $(GCONF_CFLAGS)                                 \
         $(LIBGNOMEUI_CFLAGS)                            \
         $(GNOMEKEYRING_CFLAGS)                          \
         $(NM_UTILS_CFLAGS)                              \
         -DICONDIR=\""$(datadir)/pixmaps"\"              \
-        -DGLADEDIR=\""$(gladedir)"\"                    \
+        -DUIDIR=\""$(uidir)"\" 								\
         -DG_DISABLE_DEPRECATED                          \
         -DGDK_DISABLE_DEPRECATED                        \
         -DGNOME_DISABLE_DEPRECATED                      \
@@ -28,7 +27,6 @@ libnm_l2tp_properties_la_CFLAGS =                    \
         -DVERSION=\"$(VERSION)\"
 
 libnm_l2tp_properties_la_LIBADD =    \
-        $(GLADE_LIBS)                   \
         $(GTK_LIBS)                     \
         $(GCONF_LIBS)                   \
         $(LIBGNOMEUI_LIBS)              \
@@ -38,7 +36,7 @@ libnm_l2tp_properties_la_LIBADD =    \
 libnm_l2tp_properties_la_LDFLAGS =   \
         -avoid-version
 
-CLEANFILES = *.bak *.gladep *~
+CLEANFILES = *.bak *~
 
 EXTRA_DIST =                            \
-        $(glade_DATA)
+        $(ui_DATA)
