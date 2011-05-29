@@ -1,1 +1,3 @@
 L2TP support for NetworkManager
+
+This version has IPSEC support and can connect to a Sonicwall
