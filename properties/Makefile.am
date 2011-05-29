@@ -4,6 +4,8 @@ plugin_LTLIBRARIES = libnm-l2tp-properties.la
 libnm_l2tp_properties_la_SOURCES = \
 	nm-l2tp.c \
 	nm-l2tp.h \
+	ipsec-dialog.c \
+	ipsec-dialog.h \
 	advanced-dialog.c \
 	advanced-dialog.h \
 	import-export.c \

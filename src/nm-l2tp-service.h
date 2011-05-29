@@ -68,6 +68,11 @@
 #define NM_L2TP_KEY_LCP_ECHO_FAILURE  "lcp-echo-failure"
 #define NM_L2TP_KEY_LCP_ECHO_INTERVAL "lcp-echo-interval"
 
+#define NM_L2TP_KEY_IPSEC_ENABLE      "ipsec-enabled"
+#define NM_L2TP_KEY_IPSEC_GATEWAY_ID  "ipsec-gateway-id"
+#define NM_L2TP_KEY_IPSEC_GROUP_NAME  "ipsec-group-name"
+#define NM_L2TP_KEY_IPSEC_PSK         "ipsec-psk"
+
 
 typedef struct {
 	NMVPNPlugin parent;

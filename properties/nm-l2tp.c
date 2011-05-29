@@ -45,6 +45,7 @@
 #include "nm-l2tp.h"
 #include "import-export.h"
 #include "advanced-dialog.h"
+#include "ipsec-dialog.h"
 
 #define L2TP_PLUGIN_NAME    _("Layer 2 Tunneling Protocol (L2TP)")
 #define L2TP_PLUGIN_DESC    _("Compatible with L2TP VPN servers.")
@@ -78,6 +79,7 @@ typedef struct {
 	GtkWindowGroup *window_group;
 	gboolean window_added;
 	GHashTable *advanced;
+	GHashTable *ipsec;
 } L2tpPluginUiWidgetPrivate;
 
 
@@ -156,6 +158,14 @@ advanced_dialog_close_cb (GtkWidget *dialog, gpointer user_data)
 }
 
 static void
+ipsec_dialog_close_cb (GtkWidget *dialog, gpointer user_data)
+{
+	gtk_widget_hide (dialog);
+	/* gtk_widget_destroy() will remove the window from the window group */
+	gtk_widget_destroy (dialog);
+}
+
+static void
 advanced_dialog_response_cb (GtkWidget *dialog, gint response, gpointer user_data)
 {
 	L2tpPluginUiWidget *self = L2TP_PLUGIN_UI_WIDGET (user_data);
@@ -175,6 +185,30 @@ advanced_dialog_response_cb (GtkWidget *dialog, gint response, gpointer user_dat
 		g_error_free (error);
 	}
 	advanced_dialog_close_cb (dialog, self);
+
+	stuff_changed_cb (NULL, self);
+}
+
+static void
+ipsec_dialog_response_cb (GtkWidget *dialog, gint response, gpointer user_data)
+{
+	L2tpPluginUiWidget *self = L2TP_PLUGIN_UI_WIDGET (user_data);
+	L2tpPluginUiWidgetPrivate *priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
+	GError *error = NULL;
+
+	if (response != GTK_RESPONSE_OK) {
+		ipsec_dialog_close_cb (dialog, self);
+		return;
+	}
+
+	if (priv->ipsec)
+		g_hash_table_destroy (priv->ipsec);
+	priv->ipsec = ipsec_dialog_new_hash_from_dialog (dialog, &error);
+	if (!priv->ipsec) {
+		g_message ("%s: error reading ipsec settings: %s", __func__, error->message);
+		g_error_free (error);
+	}
+	ipsec_dialog_close_cb (dialog, self);
 
 	stuff_changed_cb (NULL, self);
 }
@@ -207,6 +241,36 @@ advanced_button_clicked_cb (GtkWidget *button, gpointer user_data)
 
 	gtk_widget_show_all (dialog);
 }
+
+static void
+ipsec_button_clicked_cb (GtkWidget *button, gpointer user_data)
+{
+	L2tpPluginUiWidget *self = L2TP_PLUGIN_UI_WIDGET (user_data);
+	L2tpPluginUiWidgetPrivate *priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
+	GtkWidget *dialog, *toplevel;
+
+	toplevel = gtk_widget_get_toplevel (priv->widget);
+	g_return_if_fail (GTK_WIDGET_TOPLEVEL (toplevel));
+
+	dialog = ipsec_dialog_new (priv->ipsec);
+	if (!dialog) {
+		g_warning ("%s: failed to create the IPSEC dialog!", __func__);
+		return;
+	}
+
+	gtk_window_group_add_window (priv->window_group, GTK_WINDOW (dialog));
+	if (!priv->window_added) {
+		gtk_window_group_add_window (priv->window_group, GTK_WINDOW (toplevel));
+		priv->window_added = TRUE;
+	}
+
+	gtk_window_set_transient_for (GTK_WINDOW (dialog), GTK_WINDOW (toplevel));
+	g_signal_connect (G_OBJECT (dialog), "response", G_CALLBACK (ipsec_dialog_response_cb), self);
+	g_signal_connect (G_OBJECT (dialog), "close", G_CALLBACK (ipsec_dialog_close_cb), self);
+
+	gtk_widget_show_all (dialog);
+}
+
 
 static void
 show_toggled_cb (GtkCheckButton *button, L2tpPluginUiWidget *self)
@@ -330,6 +394,9 @@ init_plugin_ui (L2tpPluginUiWidget *self, NMConnection *connection, GError **err
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "advanced_button"));
 	g_signal_connect (G_OBJECT (widget), "clicked", G_CALLBACK (advanced_button_clicked_cb), self);
 
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "ipsec_button"));
+	g_signal_connect (G_OBJECT (widget), "clicked", G_CALLBACK (ipsec_button_clicked_cb), self);
+
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder,  "show_passwords_checkbutton"));
 	g_return_val_if_fail (widget != NULL, FALSE);
 	g_signal_connect (G_OBJECT (widget), "toggled",
@@ -351,7 +418,7 @@ get_widget (NMVpnPluginUiWidgetInterface *iface)
 }
 
 static void
-hash_copy_advanced (gpointer key, gpointer data, gpointer user_data)
+hash_copy_pair (gpointer key, gpointer data, gpointer user_data)
 {
 	NMSettingVPN *s_vpn = NM_SETTING_VPN (user_data);
 
@@ -395,7 +462,9 @@ update_connection (NMVpnPluginUiWidgetInterface *iface,
 		nm_setting_vpn_add_data_item (s_vpn, NM_L2TP_KEY_DOMAIN, str);
 
 	if (priv->advanced)
-		g_hash_table_foreach (priv->advanced, hash_copy_advanced, s_vpn);
+		g_hash_table_foreach (priv->advanced, hash_copy_pair, s_vpn);
+	if (priv->ipsec)
+		g_hash_table_foreach (priv->ipsec, hash_copy_pair, s_vpn);
 
 	nm_connection_add_setting (connection, NM_SETTING (s_vpn));
 	valid = TRUE;
@@ -497,6 +566,11 @@ nm_vpn_plugin_ui_widget_interface_new (NMConnection *connection, GError **error)
 		g_object_unref (object);
 		return NULL;
 	}
+	priv->ipsec = ipsec_dialog_new_hash_from_connection (connection, error);
+	if (!priv->ipsec) {
+		g_object_unref (object);
+		return NULL;
+	}
 
 	return object;
 }
@@ -521,6 +595,9 @@ dispose (GObject *object)
 
 	if (priv->advanced)
 		g_hash_table_destroy (priv->advanced);
+
+	if (priv->ipsec)
+		g_hash_table_destroy (priv->ipsec);
 
 	G_OBJECT_CLASS (l2tp_plugin_ui_widget_parent_class)->dispose (object);
 }
