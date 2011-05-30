@@ -961,7 +961,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	const char *ipsec_binary;
 	const char *value;
 	char tmp_secrets[128];
-	char cmd1[4096],cmd2[4096];
+	char cmd1[4096],cmd11[4096],cmd2[4096];
 	char session_name[128];
 	FILE *fp;
 
@@ -975,14 +975,25 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	}
 	sprintf(session_name, "nm-ipsec-l2tpd-%d", getpid());
 
+	(void)system(". /var/run/pluto/ipsec.info;"
+	"PATH=/usr/local/sbin:/usr/sbin:/sbin; export PATH;"
+	"[ \"x$defaultrouteaddr\" = \"x\" ] && ipsec setup restart");
+
+	(void)system("PATH=/usr/local/sbin:/usr/sbin:/sbin ipsec "
+			" --listen");
 	sprintf(cmd1,". /var/run/pluto/ipsec.info;"
 	"PATH=/usr/local/sbin:/usr/sbin:/sbin ipsec addconn "
-		" --defaultroute $defaultrouteaddr"
-		" --defaultroutenexthop $defaultroutenexthop"
+		" ${defaultrouteaddr:+--defaultroute} $defaultrouteaddr"
+		" ${defaultroutenexthop:+--defaultroutenexthop} $defaultroutenexthop"
 		" --config /var/run/nm-ipsec-l2tp.%d/ipsec.conf --verbose"
-		" %s >/tmp/x.txt 2>&1", getpid(),session_name);
-	sprintf(cmd2,"PATH=/usr/local/sbin:/usr/sbin:/sbin ipsec whack"
-		" --initiate --name %s >/tmp/y.txt 2>&1",session_name);
+		" %s", getpid(),session_name);
+
+	sprintf(cmd11, "PATH=/usr/local/sbin:/usr/sbin:/sbin ipsec auto "
+		" --config /var/run/nm-ipsec-l2tp.%d/ipsec.conf --verbose"
+		" --add %s", getpid(),session_name);
+	sprintf(cmd2,"PATH=/usr/local/sbin:/usr/sbin:/sbin ipsec auto "
+		" --config /var/run/nm-ipsec-l2tp.%d/ipsec.conf --verbose"
+		" --up %s",getpid(),session_name);
 
 	/* the way this works is sadly very messy
 	   we replace the user's /etc/ipsec.secrets file
@@ -1021,11 +1032,9 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	fclose(fp);
 
 	(void)system("PATH=\"/sbin:/usr/sbin:/usr/local/sbin:$PATH\" ipsec secrets");
+	(void)system(cmd11);
 	(void)system(cmd1);
-	if(system(cmd2)) {
-		(void)rename(tmp_secrets, "/etc/ipsec.secrets");
-		return FALSE;
-	}
+	(void)system(cmd2);
 
 	(void)rename(tmp_secrets, "/etc/ipsec.secrets");
 	(void)system("PATH=\"/sbin:/usr/sbin:/usr/local/sbin:$PATH\" ipsec secrets");
@@ -1133,7 +1142,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 "\n");
 	write_config_option (ipsec_fd, "conn nm-ipsec-l2tpd-%d\n", pid);
 	write_config_option (ipsec_fd,
-"  auto=start\n"
+"  auto=add\n"
 "  type=transport\n"
 "  auth=esp\n"
 "  pfs=no\n"
