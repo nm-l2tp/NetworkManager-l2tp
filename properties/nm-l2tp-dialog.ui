@@ -726,15 +726,15 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="n_rows">4</property>
-                <property name="n_columns">2</property>
+                <property name="n_columns">3</property>
                 <property name="column_spacing">12</property>
                 <property name="row_spacing">6</property>
                 <child>
                   <object class="GtkEntry" id="domain_entry">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="primary_icon_activatable">False</property>
-                    <property name="secondary_icon_activatable">False</property>
+                    <property name="invisible_char">•</property>
+                    <property name="invisible_char_set">True</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -765,6 +765,7 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
                     <property name="use_action_appearance">False</property>
+                    <property name="xalign">0</property>
                     <property name="draw_indicator">True</property>
                   </object>
                   <packing>
@@ -776,12 +777,31 @@
                   </packing>
                 </child>
                 <child>
+                  <object class="GtkComboBox" id="user_pass_type_combo">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="model">model2</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="renderer2"/>
+                      <attributes>
+                        <attribute name="text">0</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="right_attach">3</property>
+                    <property name="top_attach">1</property>
+                    <property name="bottom_attach">2</property>
+                  </packing>
+                </child>
+                <child>
                   <object class="GtkEntry" id="user_password_entry">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="visibility">False</property>
-                    <property name="primary_icon_activatable">False</property>
-                    <property name="secondary_icon_activatable">False</property>
+                    <property name="invisible_char">•</property>
+                    <property name="invisible_char_set">True</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -809,8 +829,8 @@
                   <object class="GtkEntry" id="user_entry">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="primary_icon_activatable">False</property>
-                    <property name="secondary_icon_activatable">False</property>
+                    <property name="invisible_char">•</property>
+                    <property name="invisible_char_set">True</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -829,6 +849,15 @@
                     <property name="x_options">GTK_SHRINK | GTK_FILL</property>
                     <property name="y_options"></property>
                   </packing>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
                 </child>
                 <child>
                   <placeholder/>
