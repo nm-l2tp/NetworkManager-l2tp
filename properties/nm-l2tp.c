@@ -184,7 +184,7 @@ advanced_dialog_response_cb (GtkWidget *dialog, gint response, gpointer user_dat
 		g_hash_table_destroy (priv->advanced);
 	priv->advanced = advanced_dialog_new_hash_from_dialog (dialog, &error);
 	if (!priv->advanced) {
-		g_message ("%s: error reading advanced settings: %s", __func__, error->message);
+		g_message (_("%s: error reading advanced settings: %s"), __func__, error->message);
 		g_error_free (error);
 	}
 	advanced_dialog_close_cb (dialog, self);
@@ -208,7 +208,7 @@ ipsec_dialog_response_cb (GtkWidget *dialog, gint response, gpointer user_data)
 		g_hash_table_destroy (priv->ipsec);
 	priv->ipsec = ipsec_dialog_new_hash_from_dialog (dialog, &error);
 	if (!priv->ipsec) {
-		g_message ("%s: error reading ipsec settings: %s", __func__, error->message);
+		g_message (_("%s: error reading ipsec settings: %s"), __func__, error->message);
 		g_error_free (error);
 	}
 	ipsec_dialog_close_cb (dialog, self);
@@ -229,7 +229,7 @@ advanced_button_clicked_cb (GtkWidget *button, gpointer user_data)
 
 	dialog = advanced_dialog_new (priv->advanced);
 	if (!dialog) {
-		g_warning ("%s: failed to create the Advanced dialog!", __func__);
+		g_warning (_("%s: failed to create the Advanced dialog!"), __func__);
 		return;
 	}
 
@@ -259,7 +259,7 @@ ipsec_button_clicked_cb (GtkWidget *button, gpointer user_data)
 
 	dialog = ipsec_dialog_new (priv->ipsec);
 	if (!dialog) {
-		g_warning ("%s: failed to create the IPSEC dialog!", __func__);
+		g_warning (_("%s: failed to create the IPSEC dialog!"), __func__);
 		return;
 	}
 
@@ -611,7 +611,7 @@ nm_vpn_plugin_ui_widget_interface_new (NMConnection *connection, GError **error)
 
 	object = NM_VPN_PLUGIN_UI_WIDGET_INTERFACE (g_object_new (L2TP_TYPE_PLUGIN_UI_WIDGET, NULL));
 	if (!object) {
-		g_set_error (error, L2TP_PLUGIN_UI_ERROR, 0, "could not create l2tp object");
+		g_set_error (error, L2TP_PLUGIN_UI_ERROR, 0, _("could not create l2tp object"));
 		return NULL;
 	}
 
@@ -623,11 +623,12 @@ nm_vpn_plugin_ui_widget_interface_new (NMConnection *connection, GError **error)
 	gtk_builder_set_translation_domain (priv->builder, GETTEXT_PACKAGE);
 
 	if (!gtk_builder_add_from_file(priv->builder, ui_file, error)) {
-		g_warning ("Couldn't load builder file: %s",
+		g_warning (_("Couldn't load builder file: %s"),
 				error && *error ? (*error)->message : "(unknown)");
 		g_clear_error(error);
 		g_set_error(error, L2TP_PLUGIN_UI_ERROR, 0,
-				"could not load required resources at %s", ui_file);
+					_("could not load required resources at %s"),
+					ui_file);
 		g_free(ui_file);
 		g_object_unref(object);
 		return NULL;
@@ -636,7 +637,7 @@ nm_vpn_plugin_ui_widget_interface_new (NMConnection *connection, GError **error)
 
 	priv->widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "l2tp-vbox"));
 	if (!priv->widget) {
-		g_set_error (error, L2TP_PLUGIN_UI_ERROR, 0, "could not load UI widget");
+		g_set_error (error, L2TP_PLUGIN_UI_ERROR, 0, _("could not load UI widget"));
 		g_object_unref (object);
 		return NULL;
 	}
@@ -731,7 +732,7 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 		g_set_error (error,
 		             L2TP_PLUGIN_UI_ERROR,
 		             L2TP_PLUGIN_UI_ERROR_FILE_NOT_L2TP,
-		             "unknown L2TP file extension");
+		             _("unknown L2TP file extension"));
 		goto out;
 	}
 
@@ -739,7 +740,7 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 		g_set_error (error,
 		             L2TP_PLUGIN_UI_ERROR,
 		             L2TP_PLUGIN_UI_ERROR_FILE_NOT_L2TP,
-		             "unknown L2TP file extension");
+		             _("unknown L2TP file extension"));
 		goto out;
 	}
 
@@ -751,7 +752,7 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 		g_set_error (error,
 		             L2TP_PLUGIN_UI_ERROR,
 		             L2TP_PLUGIN_UI_ERROR_FILE_NOT_READABLE,
-		             "not a valid L2TP configuration file");
+		             _("not a valid L2TP configuration file"));
 		goto out;
 	}
 

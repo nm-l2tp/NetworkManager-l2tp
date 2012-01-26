@@ -42,6 +42,7 @@
 #include <arpa/inet.h>
 #include <netdb.h>
 
+#include <glib/gi18n.h>
 #include <dbus/dbus.h>
 #include <dbus/dbus-glib.h>
 
@@ -144,8 +145,8 @@ nm_l2tp_ppp_service_new (void)
 
 	connection = dbus_g_bus_get (DBUS_BUS_SYSTEM, &error);
 	if (!connection) {
-		g_warning ("Could not get the system bus.  Make sure "
-		            "the message bus daemon is running!  Message: %s",
+		g_warning (_("Could not get the system bus.  Make sure "
+					 "the message bus daemon is running!  Message: %s"),
 		            error->message);
 		g_error_free (error);
 		g_object_unref (object);
@@ -166,7 +167,7 @@ nm_l2tp_ppp_service_new (void)
 		dbus_g_connection_register_g_object (connection, NM_DBUS_PATH_L2TP_PPP, object);
 		success = TRUE;
 	} else {
-		g_warning ("Could not register D-Bus service name.  Message: %s", error->message);
+		g_warning (_("Could not register D-Bus service name.  Message: %s"), error->message);
 		g_error_free (error);
 		g_object_unref (object);
 		object = NULL;
@@ -256,7 +257,7 @@ nm_l2tp_ppp_service_cache_credentials (NML2tpPppService *self,
 		             NM_VPN_PLUGIN_ERROR,
 		             NM_VPN_PLUGIN_ERROR_CONNECTION_INVALID,
 		             "%s",
-		             "Could not find secrets (connection invalid, no vpn setting).");
+		             _("Could not find secrets (connection invalid, no vpn setting)."));
 		return FALSE;
 	}
 
@@ -269,7 +270,7 @@ nm_l2tp_ppp_service_cache_credentials (NML2tpPppService *self,
 			             NM_VPN_PLUGIN_ERROR,
 			             NM_VPN_PLUGIN_ERROR_CONNECTION_INVALID,
 			             "%s",
-			             "Invalid VPN username.");
+			             _("Invalid VPN username."));
 			return FALSE;
 		}
 	} else {
@@ -279,7 +280,7 @@ nm_l2tp_ppp_service_cache_credentials (NML2tpPppService *self,
 			             NM_VPN_PLUGIN_ERROR,
 			             NM_VPN_PLUGIN_ERROR_CONNECTION_INVALID,
 			             "%s",
-			             "Missing VPN username.");
+			             _("Missing VPN username."));
 			return FALSE;
 		}
 	}
@@ -290,7 +291,7 @@ nm_l2tp_ppp_service_cache_credentials (NML2tpPppService *self,
 		             NM_VPN_PLUGIN_ERROR,
 		             NM_VPN_PLUGIN_ERROR_CONNECTION_INVALID,
 		             "%s",
-		             "Missing or invalid VPN password.");
+		             _("Missing or invalid VPN password."));
 		return FALSE;
 	}
 
@@ -318,7 +319,7 @@ impl_l2tp_service_need_secrets (NML2tpPppService *self,
 		             NM_VPN_PLUGIN_ERROR,
 		             NM_VPN_PLUGIN_ERROR_CONNECTION_INVALID,
 		             "%s",
-		             "No cached credentials.");
+		             _("No cached credentials."));
 		goto error;
 	}
 
@@ -349,7 +350,7 @@ impl_l2tp_service_set_ip4_config (NML2tpPppService *self,
                                   GHashTable *config_hash,
                                   GError **err)
 {
-	g_message( ("L2TP service (IP Config Get) reply received."));
+	g_message (_("L2TP service (IP Config Get) reply received."));
 	g_signal_emit (G_OBJECT (self), signals[PLUGIN_ALIVE], 0);
 
 	/* Just forward the pppd plugin config up to our superclass; no need to modify it */
@@ -492,7 +493,7 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 				g_set_error (info->error,
 				             NM_VPN_PLUGIN_ERROR,
 				             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
-				             "invalid gateway '%s'",
+				             _("invalid gateway '%s'"),
 				             key);
 				return;
 			}
@@ -501,7 +502,7 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 				g_set_error (info->error,
 				             NM_VPN_PLUGIN_ERROR,
 				             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
-				             "invalid ipsec-group-name '%s'",
+				             _("invalid ipsec-group-name '%s'"),
 				             key);
 				return;
 			}
@@ -510,7 +511,7 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 				g_set_error (info->error,
 				             NM_VPN_PLUGIN_ERROR,
 				             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
-				             "invalid ipsec-gateway-id '%s'",
+				             _("invalid ipsec-gateway-id '%s'"),
 				             key);
 				return;
 			}
@@ -523,7 +524,7 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 			g_set_error (info->error,
 			             NM_VPN_PLUGIN_ERROR,
 			             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
-			             "invalid integer property '%s'",
+			             _("invalid integer property '%s'"),
 			             key);
 			break;
 		case G_TYPE_BOOLEAN:
@@ -533,14 +534,14 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 			g_set_error (info->error,
 			             NM_VPN_PLUGIN_ERROR,
 			             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
-			             "invalid boolean property '%s' (not yes or no)",
+			             _("invalid boolean property '%s' (not yes or no)"),
 			             key);
 			break;
 		default:
 			g_set_error (info->error,
 			             NM_VPN_PLUGIN_ERROR,
 			             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
-			             "unhandled property '%s' type %s",
+			             _("unhandled property '%s' type %s"),
 			             key, g_type_name (prop.type));
 			break;
 		}
@@ -551,7 +552,7 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 		g_set_error (info->error,
 		             NM_VPN_PLUGIN_ERROR,
 		             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
-		             "property '%s' invalid or not supportedx",
+		             _("property '%s' invalid or not supportedx"),
 		             key);
 	}
 }
@@ -569,7 +570,7 @@ nm_l2tp_properties_validate (NMSettingVPN *s_vpn,
 		             NM_VPN_PLUGIN_ERROR,
 		             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
 		             "%s",
-		             "No VPN configuration options.");
+		             _("No VPN configuration options."));
 		return FALSE;
 	}
 
@@ -589,7 +590,7 @@ nm_l2tp_properties_validate (NMSettingVPN *s_vpn,
 			g_set_error (error,
 			             NM_VPN_PLUGIN_ERROR,
 			             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
-			             "Missing required option '%s'.",
+			             _("Missing required option '%s'."),
 			             prop.name);
 			return FALSE;
 		}
@@ -609,7 +610,7 @@ nm_l2tp_secrets_validate (NMSettingVPN *s_vpn, GError **error)
 		             NM_VPN_PLUGIN_ERROR,
 		             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
 		             "%s",
-		             "No VPN secrets!");
+		             _("No VPN secrets!"));
 		return FALSE;
 	}
 
@@ -631,14 +632,14 @@ l2tpd_watch_cb (GPid pid, gint status, gpointer user_data)
 	if (WIFEXITED (status)) {
 		error = WEXITSTATUS (status);
 		if (error != 0)
-			g_warning ("xl2tpd exited with error code %d", error);
+			g_warning (_("xl2tpd exited with error code %d"), error);
 	}
 	else if (WIFSTOPPED (status))
-		g_warning ("xl2tpd stopped unexpectedly with signal %d", WSTOPSIG (status));
+		g_warning (_("xl2tpd stopped unexpectedly with signal %d"), WSTOPSIG (status));
 	else if (WIFSIGNALED (status))
-		g_warning ("xl2tpd died with signal %d", WTERMSIG (status));
+		g_warning (_("xl2tpd died with signal %d"), WTERMSIG (status));
 	else
-		g_warning ("xl2tpd died from an unknown cause");
+		g_warning (_("xl2tpd died from an unknown cause"));
 
 	/* Reap child if needed. */
 	waitpid (priv->pid_l2tpd, NULL, WNOHANG);
@@ -740,7 +741,7 @@ pppd_timed_out (gpointer user_data)
 {
 	NML2tpPlugin *plugin = NM_L2TP_PLUGIN (user_data);
 
-	g_warning ("Looks like pppd didn't initialize our dbus module");
+	g_warning (_("Looks like pppd didn't initialize our dbus module"));
 	nm_vpn_plugin_failure (NM_VPN_PLUGIN (plugin), NM_VPN_CONNECTION_STATE_REASON_SERVICE_START_TIMEOUT);
 
 	return FALSE;
@@ -820,13 +821,13 @@ get_l2tp_gw_address_as_gvalue (NMConnection *connection)
 
 	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
 	if (!s_vpn) {
-		g_warning ("couldn't get VPN setting");
+		g_warning (_("couldn't get VPN setting"));
 		return NULL;
 	}
 
 	p = tmp = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_GATEWAY);
 	if (!tmp || !strlen (tmp)) {
-		g_warning ("couldn't get L2TP VPN gateway IP address");
+		g_warning (_("couldn't get L2TP VPN gateway IP address"));
 		return NULL;
 	}
 
@@ -850,7 +851,7 @@ get_l2tp_gw_address_as_gvalue (NMConnection *connection)
 		hints.ai_flags = AI_ADDRCONFIG;
 		err = getaddrinfo (tmp, NULL, &hints, &result);
 		if (err != 0) {
-			g_warning ("couldn't look up L2TP VPN gateway IP address '%s' (%d)", tmp, err);
+			g_warning (_("couldn't look up L2TP VPN gateway IP address '%s' (%d)"), tmp, err);
 			return NULL;
 		}
 
@@ -872,7 +873,7 @@ get_l2tp_gw_address_as_gvalue (NMConnection *connection)
 	} else {
 		errno = 0;
 		if (inet_pton (AF_INET, tmp, &addr) <= 0) {
-			g_warning ("couldn't convert L2TP VPN gateway IP address '%s' (%d)", tmp, errno);
+			g_warning (_("couldn't convert L2TP VPN gateway IP address '%s' (%d)"), tmp, errno);
 			return NULL;
 		}
 	}
@@ -882,7 +883,7 @@ get_l2tp_gw_address_as_gvalue (NMConnection *connection)
 		g_value_init (value, G_TYPE_UINT);
 		g_value_set_uint (value, (guint32) addr.s_addr);
 	} else
-		g_warning ("couldn't determine L2TP VPN gateway IP address from '%s'", tmp);
+		g_warning (_("couldn't determine L2TP VPN gateway IP address from '%s'"), tmp);
 
 	return value;
 }
@@ -971,7 +972,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 		             NM_VPN_PLUGIN_ERROR,
 		             NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
 		             "%s",
-		             "Could not find the ipsec binary.");
+		             _("Could not find the ipsec binary."));
 		return FALSE;
 	}
 	sprintf(session_name, "nm-ipsec-l2tpd-%d", getpid());
@@ -1008,7 +1009,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 		             NM_VPN_PLUGIN_ERROR,
 		             NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
 		             "%s",
-		             "Cannot save /etc/ipsec.secrets");
+		             _("Cannot save /etc/ipsec.secrets"));
 		return FALSE;
 	}
 
@@ -1018,7 +1019,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 		             NM_VPN_PLUGIN_ERROR,
 		             NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
 		             "%s",
-		             "Cannot open /etc/ipsec.secrets for writing");
+		             _("Cannot open /etc/ipsec.secrets for writing"));
 		return FALSE;
 	}
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GROUP_NAME);
@@ -1040,7 +1041,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	(void)rename(tmp_secrets, "/etc/ipsec.secrets");
 	(void)system("PATH=\"/sbin:/usr/sbin:/usr/local/sbin:$PATH\" ipsec secrets");
 
-	g_message("ipsec ready for action");
+	g_message(_("ipsec ready for action"));
 	return TRUE;
 }
 
@@ -1061,7 +1062,7 @@ nm_l2tp_start_l2tpd_binary (NML2tpPlugin *plugin,
 		             NM_VPN_PLUGIN_ERROR,
 		             NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
 		             "%s",
-		             "Could not find the xl2tpd binary.");
+		             _("Could not find the xl2tpd binary."));
 		return FALSE;
 	}
 
@@ -1079,7 +1080,7 @@ nm_l2tp_start_l2tpd_binary (NML2tpPlugin *plugin,
 	}
 	free_args (l2tpd_argv);
 
-	g_message("xl2tpd started with pid %d",pid);
+	g_message(_("xl2tpd started with pid %d"), pid);
 
 	NM_L2TP_PLUGIN_GET_PRIVATE (plugin)->pid_l2tpd = pid;
 	g_child_watch_add (pid, l2tpd_watch_cb, plugin);
@@ -1128,10 +1129,10 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	g_free (filename);
 	if (ipsec_fd == -1) {
 		g_set_error (error,
-						NM_VPN_PLUGIN_ERROR,
-						NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
-						"%s",
-						"Could not write ipsec config.");
+					 NM_VPN_PLUGIN_ERROR,
+					 NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
+					 "%s",
+					 _("Could not write ipsec config."));
 		return FALSE;
 	}
 	write_config_option (ipsec_fd, "version 2.0\n"
@@ -1172,10 +1173,10 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	if (conf_fd == -1) {
 		close(ipsec_fd);
 		g_set_error (error,
-						NM_VPN_PLUGIN_ERROR,
-						NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
-						"%s",
-						"Could not write xl2tpd config.");
+					 NM_VPN_PLUGIN_ERROR,
+					 NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
+					 "%s",
+					 _("Could not write xl2tpd config."));
 		return FALSE;
 	}
 
@@ -1187,10 +1188,10 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		close(ipsec_fd);
 		close(conf_fd);
 		g_set_error (error,
-						NM_VPN_PLUGIN_ERROR,
-						NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
-						"%s",
-						"Could not write ppp options.");
+					 NM_VPN_PLUGIN_ERROR,
+					 NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
+					 "%s",
+					 _("Could not write ppp options."));
 		return FALSE;
 	}
 
@@ -1307,7 +1308,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		if (errno == 0) {
 			write_config_option (pppopt_fd, "lcp-echo-failure %ld\n", tmp_int);
 		} else {
-			g_warning ("failed to convert lcp-echo-failure value '%s'", value);
+			g_warning (_("failed to convert lcp-echo-failure value '%s'"), value);
 		}
 	} else {
 		write_config_option (pppopt_fd, "lcp-echo-failure 0\n");
@@ -1325,7 +1326,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		if (errno == 0) {
 			write_config_option (pppopt_fd, "lcp-echo-interval %ld\n", tmp_int);
 		} else {
-			g_warning ("failed to convert lcp-echo-interval value '%s'", value);
+			g_warning (_("failed to convert lcp-echo-interval value '%s'"), value);
 		}
 	} else {
 		write_config_option (pppopt_fd, "lcp-echo-interval 0\n");
@@ -1372,7 +1373,7 @@ real_connect (NMVPNPlugin   *plugin,
 		             NM_VPN_PLUGIN_ERROR,
 		             NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
 		             "%s",
-		             "Could not start pppd plugin helper service.");
+		             _("Could not start pppd plugin helper service."));
 		return FALSE;
 	}
 
@@ -1392,9 +1393,9 @@ real_connect (NMVPNPlugin   *plugin,
 		return FALSE;
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_ENABLE);
-	g_message("ipsec enable flag: %s",value?value:"(null)");
+	g_message(_("ipsec enable flag: %s"), value?value:"(null)");
 	if(value && !strcmp(value,"yes")) {
-		g_message("starting ipsec");
+		g_message(_("starting ipsec"));
 		if (!nm_l2tp_start_ipsec(NM_L2TP_PLUGIN (plugin), s_vpn, error))
 			return FALSE;
 	}
@@ -1438,7 +1439,7 @@ real_disconnect (NMVPNPlugin   *plugin,
 		else
 			kill (priv->pid_l2tpd, SIGKILL);
 
-		g_message("Terminated ppp daemon with PID %d.", priv->pid_l2tpd);
+		g_message(_("Terminated ppp daemon with PID %d."), priv->pid_l2tpd);
 		priv->pid_l2tpd = 0;
 	}
 
