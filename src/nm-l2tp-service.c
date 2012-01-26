@@ -22,7 +22,12 @@
  * (C) Copyright 2008 - 2009 Red Hat, Inc.
  * (C) Copyright 2011 Alexey Torkhov <atorkhov@gmail.com>
  * (C) Copyright 2011 Geo Carncross <geocar@gmail.com>
+ * (C) Copyright 2012 Sergey Prokhorov <me@seriyps.ru>
  */
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 
 #include <stdio.h>
 #include <string.h>
@@ -51,6 +56,12 @@
 
 #include "nm-l2tp-service.h"
 #include "nm-ppp-status.h"
+
+#if !defined(DIST_VERSION)
+# define DIST_VERSION VERSION
+#endif
+
+static gboolean debug = FALSE;
 
 /********************************************************/
 /* ppp plugin <-> l2tp-service object                   */
@@ -949,11 +960,12 @@ nm_l2tp_stop_ipsec(void)
 			    NULL,NULL,
 			    NULL, NULL)) {
 		free_args (whack_argv);
-		return FALSE;
+		return;
 	}
 
 	g_message("ipsec shut down");
 }
+
 static gboolean
 nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
                             NMSettingVPN *s_vpn,
@@ -1213,14 +1225,14 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	if (service_priv && strlen (service_priv->username)) {
 		write_config_option (conf_fd, "name = %s\n", service_priv->username);
 	}
-
-	write_config_option (conf_fd, "ppp debug = yes\n");
+	if (debug)
+		write_config_option (conf_fd, "ppp debug = yes\n");
 	write_config_option (conf_fd, "pppoptfile = /var/run/nm-ppp-options.xl2tpd.%d\n", pid);
 	write_config_option (conf_fd, "require pap = no\n");
 	write_config_option (conf_fd, "autodial = yes\n");
 
 	/* PPP options */
-	//if (getenv ("NM_PPP_DEBUG"))
+	if (debug)
 		write_config_option (pppopt_fd, "debug\n");
 
 	write_config_option (pppopt_fd, "ipparam nm-l2tp-service-%d\n", pid);
@@ -1382,6 +1394,9 @@ real_connect (NMVPNPlugin   *plugin,
 	g_signal_connect (G_OBJECT (priv->service), "plugin-alive", G_CALLBACK (service_plugin_alive_cb), plugin);
 	g_signal_connect (G_OBJECT (priv->service), "ppp-state", G_CALLBACK (service_ppp_state_cb), plugin);
 	g_signal_connect (G_OBJECT (priv->service), "ip4-config", G_CALLBACK (service_ip4_config_cb), plugin);
+
+	if (getenv ("NM_PPP_DUMP_CONNECTION") || debug)
+		nm_connection_dump (connection);
 
 	/* Cache the username and password so we can relay the secrets to the pppd
 	 * plugin when it asks for them.
@@ -1548,9 +1563,35 @@ main (int argc, char *argv[])
 {
 	NML2tpPlugin *plugin;
 	GMainLoop *main_loop;
-	char *filename;
+	gboolean persist = FALSE;
+	GOptionContext *opt_ctx = NULL;
+
+	GOptionEntry options[] = {
+		{ "persist", 0, 0, G_OPTION_ARG_NONE, &persist, N_("Don't quit when VPN connection terminates"), NULL },
+		{ "debug", 0, 0, G_OPTION_ARG_NONE, &debug, N_("Enable verbose debug logging (may expose passwords)"), NULL },
+		{NULL}
+	};
 
 	g_type_init ();
+
+	/* Parse options */
+	opt_ctx = g_option_context_new ("");
+	g_option_context_set_translation_domain (opt_ctx, "UTF-8");
+	g_option_context_set_ignore_unknown_options (opt_ctx, FALSE);
+	g_option_context_set_help_enabled (opt_ctx, TRUE);
+	g_option_context_add_main_entries (opt_ctx, options, NULL);
+
+	g_option_context_set_summary (opt_ctx,
+	    _("nm-pptp-service provides L2TP VPN capability with optional IPSec support to NetworkManager."));
+
+	g_option_context_parse (opt_ctx, &argc, &argv, NULL);
+	g_option_context_free (opt_ctx);
+
+	if (getenv ("NM_PPP_DEBUG"))
+		debug = TRUE;
+
+	if (debug)
+		g_message ("nm-pptp-service (version " DIST_VERSION ") starting...");
 
 	plugin = nm_l2tp_plugin_new ();
 	if (!plugin)
@@ -1558,9 +1599,8 @@ main (int argc, char *argv[])
 
 	main_loop = g_main_loop_new (NULL, FALSE);
 
-	g_signal_connect (plugin, "quit",
-				   G_CALLBACK (quit_mainloop),
-				   main_loop);
+	if (!persist)
+		g_signal_connect (plugin, "quit", G_CALLBACK (quit_mainloop), main_loop);
 
 	g_main_loop_run (main_loop);
 
