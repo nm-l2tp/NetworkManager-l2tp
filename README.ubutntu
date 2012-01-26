@@ -4,7 +4,7 @@ so you have to give ./configure every path manually.
 
   ./configure \
 	--prefix=/usr --localstatedir=/etc --sysconfdir=/etc \
-	--sharedstatedir=/var/lib --libexecdir=/usr/lib \
+	--sharedstatedir=/var/lib --libexecdir=/usr/lib/NetworkManager/ \
 	--infodir=/usr/share/info --mandir=/usr/share/man \
 	--with-pppd-plugin-dir=/usr/lib/pppd/2.4.5/
 
