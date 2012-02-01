@@ -30,7 +30,7 @@ AC_ARG_WITH([pppd-plugin-dir], AS_HELP_STRING([--with-pppd-plugin-dir=DIR], [pat
 if test -n "$with_pppd_plugin_dir" ; then
 	PPPD_PLUGIN_DIR="$with_pppd_plugin_dir"
 else
-	PPPD_PLUGIN_DIR="${libdir}/pppd/2.4.4"
+	PPPD_PLUGIN_DIR="${libdir}/pppd/2.4.5"
 fi
 AC_SUBST(PPPD_PLUGIN_DIR)
 
@@ -63,16 +63,43 @@ AM_GLIB_GNU_GETTEXT
 
 PKG_CHECK_MODULES(GTHREAD, gthread-2.0)
 PKG_CHECK_MODULES(DBUS, dbus-glib-1 >= 0.74)
-PKG_CHECK_MODULES(NM_UTILS, NetworkManager >= 0.8.1 libnm-util libnm-glib libnm-glib-vpn)
+PKG_CHECK_MODULES(NM_UTILS,
+                  NetworkManager >= 0.8.1
+				  libnm-util
+				  libnm-glib
+				  libnm-glib-vpn)
 
 if test x"$with_gnome" != xno; then
-	PKG_CHECK_MODULES(GTK, gtk+-2.0 >= 2.6)
+	AC_ARG_WITH([gtkver], AS_HELP_STRING([--with-gtkver], [The major version of GTK+ to build with]),
+	            with_gtkver="$withval",with_gtkver=0)
 
-	PKG_CHECK_MODULES(GDK_PIXBUF, gdk-pixbuf-2.0)
-
-	PKG_CHECK_MODULES(GCONF, gconf-2.0)
+	gtk2_req=2.20
+	gtk3_req=2.91.4
+	case "${with_gtkver}" in
+	       0) PKG_CHECK_MODULES(GTK, gtk+-3.0 > $gtk3_req, ,
+	                            [PKG_CHECK_MODULES(GTK, gtk+-2.0 > $gtk2_req)])
+		  ;;
+	       2) PKG_CHECK_MODULES(GTK, gtk+-2.0 >= $gtk2_req)
+	          ;;
+	       3) PKG_CHECK_MODULES(GTK, gtk+-3.0 >= $gtk3_req)
+	          ;;
+	       *) AC_MSG_ERROR(unknown GTK+ version $with_gtkver!)
+	          ;;
+	esac
+	AC_SUBST(GTK_CFLAGS)
+	AC_SUBST(GTK_LIBS)
 
 	PKG_CHECK_MODULES(GNOMEKEYRING, gnome-keyring-1)
+	AC_SUBST(GNOMEKEYRING_CFLAGS)
+	AC_SUBST(GNOMEKEYRING_LIBS)
+fi
+
+dnl
+dnl Distribution version string
+dnl
+AC_ARG_WITH(dist-version, AS_HELP_STRING([--with-dist-version=<dist-version>], [Define the custom version (like distribution package name and revision)]), ac_distver=$withval, ac_distver="")
+if ! test x"$ac_distver" = x""; then
+  AC_DEFINE_UNQUOTED(DIST_VERSION, "$ac_distver", [Define the distribution version string])
 fi
 
 AC_CONFIG_FILES([
