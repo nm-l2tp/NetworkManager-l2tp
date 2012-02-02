@@ -2,6 +2,7 @@
 /***************************************************************************
  *
  * Copyright (C) 2008 Dan Williams, <dcbw@redhat.com>
+ * Copyright (C) 2008 - 2011 Red Hat, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -110,6 +111,20 @@ handle_mppe_changed (GtkWidget *check, gboolean is_init, GtkBuilder *builder)
 
 	use_mppe = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (check));
 
+	/* (De)-sensitize MPPE related stuff */
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ppp_mppe_security_label"));
+	gtk_widget_set_sensitive (widget, use_mppe);
+
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ppp_mppe_security_combo"));
+	if (!use_mppe)
+		gtk_combo_box_set_active (GTK_COMBO_BOX (widget), 0); /* default */
+	gtk_widget_set_sensitive (widget, use_mppe);
+
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ppp_allow_stateful_mppe"));
+	if (!use_mppe)
+		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), FALSE);
+	gtk_widget_set_sensitive (widget, use_mppe);
+
 	/* At dialog-setup time, don't touch the auth methods if MPPE is disabled
 	 * since that could overwrite the user's previously chosen auth methods.
 	 * But ensure that at init time if MPPE is on that incompatible auth methods
@@ -141,19 +156,6 @@ handle_mppe_changed (GtkWidget *check, gboolean is_init, GtkBuilder *builder)
 
 		valid = gtk_tree_model_iter_next (model, &iter);
 	}
-
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ppp_mppe_security_label"));
-	gtk_widget_set_sensitive (widget, use_mppe);
-
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ppp_mppe_security_combo"));
-	if (!use_mppe)
-		gtk_combo_box_set_active (GTK_COMBO_BOX (widget), 0); /* default */
-	gtk_widget_set_sensitive (widget, use_mppe);
-
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ppp_allow_stateful_mppe"));
-	if (!use_mppe)
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), FALSE);
-	gtk_widget_set_sensitive (widget, use_mppe);
 }
 
 static void
@@ -255,10 +257,13 @@ check_toggled_cb (GtkCellRendererToggle *cell, gchar *path_str, gpointer user_da
 
 		valid = gtk_tree_model_iter_next (model, &iter);
 	}
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ppp_use_mppe"));\
+	/* Make sure MPPE is non-sensitive if MSCHAP and MSCHAPv2 are disabled */
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ppp_use_mppe"));
 	if (!mschap_state && !mschap2_state) {
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), FALSE);
 		gtk_widget_set_sensitive (widget, FALSE);
+		/* Make sure also MPPE security combo and stateful checkbox are non-sensitive */
+		mppe_toggled_cb (widget, builder);
 	} else
 		gtk_widget_set_sensitive (widget, TRUE);
 }
@@ -411,15 +416,14 @@ advanced_dialog_new (GHashTable *hash)
 	ui_file = g_strdup_printf ("%s/%s", UIDIR, "nm-l2tp-dialog.ui");
 	builder = gtk_builder_new ();
 
-	if (!gtk_builder_add_from_file(builder, ui_file, &error)) {
-		g_warning("Couldn't load builder file: %s", error ? error->message
-				: "(unknown)");
-		g_clear_error(&error);
-		g_object_unref(G_OBJECT(builder));
+	gtk_builder_set_translation_domain (builder, GETTEXT_PACKAGE);
+	if (!gtk_builder_add_from_file (builder, ui_file, &error)) {
+		g_warning ("Couldn't load builder file: %s",
+				   error ? error->message : "(unknown)");
+		g_clear_error (&error);
+		g_object_unref (G_OBJECT (builder));
 		goto out;
 	}
-	gtk_builder_set_translation_domain(builder, GETTEXT_PACKAGE);
-
 
 	dialog = GTK_WIDGET (gtk_builder_get_object (builder, "l2tp-advanced-dialog"));
 	if (!dialog) {
@@ -429,7 +433,7 @@ advanced_dialog_new (GHashTable *hash)
 	gtk_window_set_modal (GTK_WINDOW (dialog), TRUE);
 
 	g_object_set_data_full (G_OBJECT (dialog), "gtkbuilder-xml",
-			builder, (GDestroyNotify) g_object_unref);
+	                        builder, (GDestroyNotify) g_object_unref);
 
 	setup_security_combo (builder, hash);
 
@@ -521,7 +525,6 @@ advanced_dialog_new_hash_from_dialog (GtkWidget *dialog, GError **error)
 
 	builder = g_object_get_data (G_OBJECT (dialog), "gtkbuilder-xml");
 	g_return_val_if_fail (builder != NULL, NULL);
-
 
 	hash = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, g_free);
 
