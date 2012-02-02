@@ -62,12 +62,20 @@ IT_PROG_INTLTOOL([0.35])
 AM_GLIB_GNU_GETTEXT
 
 PKG_CHECK_MODULES(GTHREAD, gthread-2.0)
+AC_SUBST(GTHREAD_CFLAGS)
+AC_SUBST(GTHREAD_LIBS)
+
 PKG_CHECK_MODULES(DBUS, dbus-glib-1 >= 0.74)
-PKG_CHECK_MODULES(NM_UTILS,
+AC_SUBST(DBUS_GLIB_CFLAGS)
+AC_SUBST(DBUS_GLIB_LIBS)
+
+PKG_CHECK_MODULES(NM,
                   NetworkManager >= 0.8.1
 				  libnm-util
 				  libnm-glib
 				  libnm-glib-vpn)
+AC_SUBST(NM_CFLAGS)
+AC_SUBST(NM_LIBS)
 
 if test x"$with_gnome" != xno; then
 	AC_ARG_WITH([gtkver], AS_HELP_STRING([--with-gtkver], [The major version of GTK+ to build with]),
@@ -105,7 +113,6 @@ fi
 AC_CONFIG_FILES([
 Makefile
 src/Makefile
-common-gnome/Makefile
 auth-dialog/Makefile
 properties/Makefile
 po/Makefile.in

@@ -19,7 +19,7 @@ libnm_l2tp_properties_la_CFLAGS =                    \
         $(GCONF_CFLAGS)                                 \
         $(LIBGNOMEUI_CFLAGS)                            \
         $(GNOMEKEYRING_CFLAGS)                          \
-        $(NM_UTILS_CFLAGS)                              \
+        $(NM_CFLAGS)                              \
         -DICONDIR=\""$(datadir)/pixmaps"\"              \
         -DUIDIR=\""$(uidir)"\" 								\
         -DG_DISABLE_DEPRECATED                          \
@@ -32,8 +32,7 @@ libnm_l2tp_properties_la_LIBADD =    \
         $(GTK_LIBS)                     \
         $(GCONF_LIBS)                   \
         $(LIBGNOMEUI_LIBS)              \
-        $(top_builddir)/common-gnome/libnm-l2tp-common-gnome.la	\
-        $(NM_UTILS_LIBS)
+        $(NM_LIBS)
 
 libnm_l2tp_properties_la_LDFLAGS =   \
         -avoid-version
