@@ -41,6 +41,7 @@
 #include <nm-setting-ip4-config.h>
 
 #include "src/nm-l2tp-service.h"
+#include "common-gnome/keyring-helpers.h"
 #include "nm-l2tp.h"
 #include "import-export.h"
 #include "advanced-dialog.h"
@@ -82,7 +83,6 @@ typedef struct {
 	gboolean window_added;
 	GHashTable *advanced;
 	GHashTable *ipsec;
-	gboolean new_connection;
 } L2tpPluginUiWidgetPrivate;
 
 
@@ -280,17 +280,12 @@ static void
 setup_password_widget (L2tpPluginUiWidget *self,
                        const char *entry_name,
                        NMSettingVPN *s_vpn,
-                       const char *secret_name,
-                       gboolean new_connection)
+                       const char *secret_name)
 {
 	L2tpPluginUiWidgetPrivate *priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
 	NMSettingSecretFlags secret_flags = NM_SETTING_SECRET_FLAG_NONE;
 	GtkWidget *widget;
 	const char *value;
-
-	/* Default to agent-owned for new connections */
-	if (new_connection)
-		secret_flags = NM_SETTING_SECRET_FLAG_AGENT_OWNED;
 
 	widget = (GtkWidget *) gtk_builder_get_object (priv->builder, entry_name);
 	g_assert (widget);
@@ -299,7 +294,6 @@ setup_password_widget (L2tpPluginUiWidget *self,
 	if (s_vpn) {
 		value = nm_setting_vpn_get_secret (s_vpn, secret_name);
 		gtk_entry_set_text (GTK_ENTRY (widget), value ? value : "");
-		nm_setting_get_secret_flags (NM_SETTING (s_vpn), secret_name, &secret_flags, NULL);
 	}
 	secret_flags &= ~(NM_SETTING_SECRET_FLAG_NOT_SAVED | NM_SETTING_SECRET_FLAG_NOT_REQUIRED);
 	g_object_set_data (G_OBJECT (widget), "flags", GUINT_TO_POINTER (secret_flags));
@@ -374,8 +368,6 @@ init_one_pw_combo (L2tpPluginUiWidget *self,
 		default_idx = 0;
 
 	store = gtk_list_store_new (1, G_TYPE_STRING);
-	if (s_vpn)
-		nm_setting_get_secret_flags (NM_SETTING (s_vpn), secret_key, &pw_flags, NULL);
 
 	gtk_list_store_append (store, &iter);
 	gtk_list_store_set (store, &iter, 0, _("Saved"), -1);
@@ -468,8 +460,7 @@ init_plugin_ui (L2tpPluginUiWidget *self, NMConnection *connection, GError **err
 	setup_password_widget (self,
 	                       "user_password_entry",
 	                       s_vpn,
-	                       NM_L2TP_KEY_PASSWORD,
-	                       priv->new_connection);
+	                       NM_L2TP_KEY_PASSWORD);
 
 	init_one_pw_combo (self,
 	                   s_vpn,
@@ -529,9 +520,6 @@ save_password_and_flags (NMSettingVPN *s_vpn,
 		flags |= NM_SETTING_SECRET_FLAG_NOT_SAVED;
 		break;
 	}
-
-	/* Set new secret flags */
-	nm_setting_set_secret_flags (NM_SETTING (s_vpn), secret_key, flags, NULL);
 }
 
 static gboolean
@@ -564,13 +552,6 @@ update_connection (NMVpnPluginUiWidgetInterface *iface,
 	if (str && strlen (str))
 		nm_setting_vpn_add_data_item (s_vpn, NM_L2TP_KEY_USER, str);
 
-	/* User password and flags */
-	save_password_and_flags (s_vpn,
-	                         priv->builder,
-	                         "user_password_entry",
-	                         "user_pass_type_combo",
-	                         NM_L2TP_KEY_PASSWORD);
-
 	/* Domain */
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "domain_entry"));
 	str = gtk_entry_get_text (GTK_ENTRY (widget));
@@ -587,14 +568,41 @@ update_connection (NMVpnPluginUiWidgetInterface *iface,
 
 	return valid;
 }
-
-static void
-is_new_func (const char *key, const char *value, gpointer user_data)
+static gboolean
+save_secrets (NMVpnPluginUiWidgetInterface *iface,
+              NMConnection *connection,
+              GError **error)
 {
-	gboolean *is_new = user_data;
+	L2tpPluginUiWidget *self = L2TP_PLUGIN_UI_WIDGET (iface);
+	L2tpPluginUiWidgetPrivate *priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
+	GnomeKeyringResult ret;
+	NMSettingConnection *s_con;
+	GtkWidget *widget;
+	const char *str, *uuid, *id;
 
-	/* If there are any VPN data items the connection isn't new */
-	*is_new = FALSE;
+	s_con = (NMSettingConnection *) nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION);
+	if (!s_con) {
+		g_set_error (error,
+		             L2TP_PLUGIN_UI_ERROR,
+		             L2TP_PLUGIN_UI_ERROR_INVALID_CONNECTION,
+		             "missing 'connection' setting");
+		return FALSE;
+	}
+
+	id = nm_setting_connection_get_id (s_con);
+	uuid = nm_setting_connection_get_uuid (s_con);
+
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "user_password_entry"));
+	g_assert (widget);
+    str = gtk_entry_get_text (GTK_ENTRY (widget));
+    if (str && strlen (str)) {
+        ret = keyring_helpers_save_secret (uuid, id, NULL, NM_L2TP_KEY_PASSWORD, str);
+        if (ret != GNOME_KEYRING_RESULT_OK)
+            g_warning ("%s: failed to save user password to keyring.", __func__);
+    } else
+        keyring_helpers_delete_secret (uuid, NM_L2TP_KEY_PASSWORD);
+
+	return TRUE;
 }
 
 static NMVpnPluginUiWidgetInterface *
@@ -644,11 +652,6 @@ nm_vpn_plugin_ui_widget_interface_new (NMConnection *connection, GError **error)
 	g_object_ref_sink (priv->widget);
 
 	priv->window_group = gtk_window_group_new ();
-
-	s_vpn = nm_connection_get_setting_vpn (connection);
-	if (s_vpn)
-		nm_setting_vpn_foreach_data_item (s_vpn, is_new_func, &new);
-	priv->new_connection = new;
 
 	if (!init_plugin_ui (L2TP_PLUGIN_UI_WIDGET (object), connection, error)) {
 		g_object_unref (object);
@@ -717,6 +720,7 @@ l2tp_plugin_ui_widget_interface_init (NMVpnPluginUiWidgetInterface *iface_class)
 	/* interface implementation */
 	iface_class->get_widget = get_widget;
 	iface_class->update_connection = update_connection;
+	iface_class->save_secrets = save_secrets;
 }
 
 static NMConnection *
@@ -854,8 +858,8 @@ l2tp_plugin_ui_interface_init (NMVpnPluginUiInterface *iface_class)
 	/* interface implementation */
 	iface_class->ui_factory = ui_factory;
 	iface_class->get_capabilities = get_capabilities;
-	iface_class->import_from_file = import;
-	iface_class->export_to_file = export;
+	iface_class->import = import;
+	iface_class->export = export;
 	iface_class->get_suggested_name = get_suggested_name;
 }
 

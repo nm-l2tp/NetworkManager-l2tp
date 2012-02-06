@@ -35,6 +35,18 @@ typedef enum
 	L2TP_PLUGIN_UI_ERROR_FILE_NOT_L2TP
 } L2tpPluginUiError;
 
+/* BACKPORT FROM NM 0.9 */
+typedef enum {
+	NM_SETTING_SECRET_FLAG_NONE         = 0x00000000,
+	NM_SETTING_SECRET_FLAG_AGENT_OWNED  = 0x00000001,
+	NM_SETTING_SECRET_FLAG_NOT_SAVED    = 0x00000002,
+	NM_SETTING_SECRET_FLAG_NOT_REQUIRED = 0x00000004
+
+	/* NOTE: if adding flags, update nm-setting-private.h as well */
+} NMSettingSecretFlags;
+
+/* END BACKPORT */
+
 #define L2TP_TYPE_PLUGIN_UI_ERROR (l2tp_plugin_ui_error_get_type ()) 
 GType l2tp_plugin_ui_error_get_type (void);
 

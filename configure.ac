@@ -70,7 +70,7 @@ AC_SUBST(DBUS_GLIB_CFLAGS)
 AC_SUBST(DBUS_GLIB_LIBS)
 
 PKG_CHECK_MODULES(NM,
-                  NetworkManager >= 0.8.1
+                  NetworkManager >= 0.8
 				  libnm-util
 				  libnm-glib
 				  libnm-glib-vpn)
@@ -116,5 +116,6 @@ src/Makefile
 auth-dialog/Makefile
 properties/Makefile
 po/Makefile.in
+common-gnome/Makefile
 ])
 AC_OUTPUT
