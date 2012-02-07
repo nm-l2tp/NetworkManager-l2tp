@@ -114,9 +114,9 @@ static gboolean impl_l2tp_service_set_ip4_config (NML2tpPppService *self,
 #define NM_L2TP_PPP_SERVICE_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), NM_TYPE_L2TP_PPP_SERVICE, NML2tpPppServicePrivate))
 
 typedef struct {
-	char *username;
-	char *domain;
-	char *password;
+	char username[100];
+	char domain[100];
+	char password[100];
 } NML2tpPppServicePrivate;
 
 enum {
@@ -752,7 +752,7 @@ pppd_timed_out (gpointer user_data)
 {
 	NML2tpPlugin *plugin = NM_L2TP_PLUGIN (user_data);
 
-	g_warning (_("Looks like pppd didn't initialize our dbus module"));
+	g_warning (_("pppd timeout. Looks like pppd didn't initialize our dbus module"));
 	nm_vpn_plugin_failure (NM_VPN_PLUGIN (plugin), NM_VPN_CONNECTION_STATE_REASON_SERVICE_START_TIMEOUT);
 
 	return FALSE;
@@ -1582,7 +1582,7 @@ main (int argc, char *argv[])
 	g_option_context_add_main_entries (opt_ctx, options, NULL);
 
 	g_option_context_set_summary (opt_ctx,
-	    _("nm-pptp-service provides L2TP VPN capability with optional IPSec support to NetworkManager."));
+	    _("nm-l2tp-service provides L2TP VPN capability with optional IPSec support to NetworkManager."));
 
 	g_option_context_parse (opt_ctx, &argc, &argv, NULL);
 	g_option_context_free (opt_ctx);
@@ -1591,7 +1591,7 @@ main (int argc, char *argv[])
 		debug = TRUE;
 
 	if (debug)
-		g_message ("nm-pptp-service (version " DIST_VERSION ") starting...");
+		g_message ("nm-l2tp-service (version " DIST_VERSION ") starting...");
 
 	plugin = nm_l2tp_plugin_new ();
 	if (!plugin)

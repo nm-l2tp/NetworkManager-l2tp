@@ -32,7 +32,7 @@ libnm_l2tp_properties_la_LIBADD =    \
         $(GTK_LIBS)                     \
         $(GCONF_LIBS)                   \
         $(LIBGNOMEUI_LIBS)              \
-        $(top_builddir)/common-gnome/libnm-pptp-common-gnome.la	\
+        $(top_builddir)/common-gnome/libnm-l2tp-common-gnome.la	\
         $(NM_LIBS)
 
 libnm_l2tp_properties_la_LDFLAGS =   \
