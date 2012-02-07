@@ -199,9 +199,12 @@ finalize (GObject *object)
 	NML2tpPppServicePrivate *priv = NM_L2TP_PPP_SERVICE_GET_PRIVATE (object);
 
 	/* Get rid of the cached username and password */
-	memset (priv->username, 0, sizeof (priv->username));
-	memset (priv->domain, 0, sizeof (priv->domain));
-	memset (priv->password, 0, sizeof (priv->password));
+	g_free (priv->username);
+	if (priv->password) {
+		memset (priv->password, 0, strlen (priv->password));
+		g_free (priv->password);
+	}
+	g_free (priv->domain);
 }
 
 static void
@@ -258,10 +261,6 @@ nm_l2tp_ppp_service_cache_credentials (NML2tpPppService *self,
 	g_return_val_if_fail (self != NULL, FALSE);
 	g_return_val_if_fail (connection != NULL, FALSE);
 
-	memset (priv->username, 0, sizeof (priv->username));
-	memset (priv->domain, 0, sizeof (priv->domain));
-	memset (priv->password, 0, sizeof (priv->password));
-
 	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
 	if (!s_vpn) {
 		g_set_error (error,
@@ -308,10 +307,10 @@ nm_l2tp_ppp_service_cache_credentials (NML2tpPppService *self,
 
 	domain = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_DOMAIN);
 	if (domain && strlen (domain))
-		memcpy (priv->domain, domain, strlen (domain));
+		priv->domain = g_strdup(domain);
 
-	memcpy (priv->username, username, strlen (username));
-	memcpy (priv->password, password, strlen (password));
+	priv->username = g_strdup(username);
+	priv->password = g_strdup(password);
 	return TRUE;
 }
 
@@ -335,7 +334,7 @@ impl_l2tp_service_need_secrets (NML2tpPppService *self,
 	}
 
 	/* Success */
-	if (strlen (priv->domain))
+	if (priv->domain && strlen (priv->domain))
 		*out_username = g_strdup_printf ("%s\\%s", priv->domain, priv->username);
 	else
 		*out_username = g_strdup (priv->username);
