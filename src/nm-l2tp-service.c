@@ -1116,6 +1116,30 @@ write_config_option (int fd, const char *format, ...)
 	va_end (args);
 }
 
+typedef struct {
+	const char *name;
+	GType type;
+	const char *write_to_config;
+} PPPOpt;
+
+static PPPOpt ppp_options[] = {
+	{NM_L2TP_KEY_REFUSE_EAP, G_TYPE_BOOLEAN, "refuse-eap\n"},
+	{NM_L2TP_KEY_REFUSE_PAP, G_TYPE_BOOLEAN, "refuse-pap\n"},
+	{NM_L2TP_KEY_REFUSE_CHAP, G_TYPE_BOOLEAN, "refuse-chap\n"},
+	{NM_L2TP_KEY_REFUSE_MSCHAP, G_TYPE_BOOLEAN, "refuse-mschap\n"},
+	{NM_L2TP_KEY_REFUSE_MSCHAPV2, G_TYPE_BOOLEAN, "refuse-mschap-v2\n"},
+	{NM_L2TP_KEY_REQUIRE_MPPE, G_TYPE_BOOLEAN, "require-mppe\n"},
+	{NM_L2TP_KEY_REQUIRE_MPPE_40, G_TYPE_BOOLEAN, "require-mppe-40\n"},
+	{NM_L2TP_KEY_REQUIRE_MPPE_128, G_TYPE_BOOLEAN, "require-mppe-128\n"},
+	{NM_L2TP_KEY_MPPE_STATEFUL, G_TYPE_BOOLEAN, "mppe-stateful\n"},
+	{NM_L2TP_KEY_NOBSDCOMP, G_TYPE_BOOLEAN, "nobsdcomp\n"},
+	{NM_L2TP_KEY_NODEFLATE, G_TYPE_BOOLEAN, "nodeflate\n"},
+	{NM_L2TP_KEY_NO_VJ_COMP, G_TYPE_BOOLEAN, "novj\n"},
+	{NM_L2TP_KEY_NO_PCOMP, G_TYPE_BOOLEAN, "nopcomp\n"},
+	/* negate {NM_L2TP_KEY_USE_ACCOMP, G_TYPE_BOOLEAN, "noaccomp\n"}, */
+	{NULL, G_TYPE_NONE, NULL}
+};
+
 static gboolean
 nm_l2tp_config_write (NML2tpPlugin *plugin,
 					  NMSettingVPN *s_vpn,
@@ -1130,6 +1154,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	gint conf_fd = -1;
 	gint ipsec_fd = -1;
 	gint pppopt_fd = -1;
+	int i;
 
 	filename = g_strdup_printf ("/var/run/nm-ipsec-l2tp.%d", pid);
 	mkdir(filename,0700);
@@ -1245,63 +1270,15 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	/* Don't need to auth the L2TP server */
 	write_config_option (pppopt_fd, "noauth\n");
 
-	if (priv->service)
-		service_priv = NM_L2TP_PPP_SERVICE_GET_PRIVATE (priv->service);
 	if (service_priv && strlen (service_priv->username)) {
 		write_config_option (pppopt_fd, "name %s\n", service_priv->username);
 	}
 
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_REFUSE_EAP);
-	if (value && !strcmp (value, "yes"))
-		write_config_option (pppopt_fd, "refuse-eap\n");
-
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_REFUSE_PAP);
-	if (value && !strcmp (value, "yes"))
-		write_config_option (pppopt_fd, "refuse-pap\n");
-
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_REFUSE_CHAP);
-	if (value && !strcmp (value, "yes"))
-		write_config_option (pppopt_fd, "refuse-chap\n");
-
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_REFUSE_MSCHAP);
-	if (value && !strcmp (value, "yes"))
-		write_config_option (pppopt_fd, "refuse-mschap\n");
-
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_REFUSE_MSCHAPV2);
-	if (value && !strcmp (value, "yes"))
-		write_config_option (pppopt_fd, "refuse-mschap-v2\n");
-
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_REQUIRE_MPPE);
-	if (value && !strcmp (value, "yes"))
-		write_config_option (pppopt_fd, "require-mppe\n");
-
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_REQUIRE_MPPE_40);
-	if (value && !strcmp (value, "yes"))
-		write_config_option (pppopt_fd, "require-mppe-40\n");
-
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_REQUIRE_MPPE_128);
-	if (value && !strcmp (value, "yes"))
-		write_config_option (pppopt_fd, "require-mppe-128\n");
-
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_MPPE_STATEFUL);
-	if (value && !strcmp (value, "yes"))
-		write_config_option (pppopt_fd, "mppe-stateful\n");
-
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_NOBSDCOMP);
-	if (value && !strcmp (value, "yes"))
-		write_config_option (pppopt_fd, "nobsdcomp\n");
-
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_NODEFLATE);
-	if (value && !strcmp (value, "yes"))
-		write_config_option (pppopt_fd, "nodeflate\n");
-
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_NO_VJ_COMP);
-	if (value && !strcmp (value, "yes"))
-		write_config_option (pppopt_fd, "novj\n");
-
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_NO_PCOMP);
-	if (value && !strcmp (value, "yes"))
-		write_config_option (pppopt_fd, "nopcomp\n");
+	for(i=0; ppp_options[i].name; i++){
+		value = nm_setting_vpn_get_data_item (s_vpn, ppp_options[i].name);
+		if (value && !strcmp (value, "yes"))
+			write_config_option (pppopt_fd, ppp_options[i].write_to_config);
+	}
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USE_ACCOMP);
 	if (!(value && !strcmp (value, "yes")))
