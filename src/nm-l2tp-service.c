@@ -486,6 +486,8 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 	if (!strcmp (key, NM_SETTING_NAME))
 		return;
 
+	/* Search property named 'key' in 'valid_properties'/'valid_secrets' array
+	   XXX: use hash? */
 	for (i = 0; info->table[i].name; i++) {
 		ValidProperty prop = info->table[i];
 		long int tmp;
@@ -537,6 +539,7 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 			             _("invalid integer property '%s'"),
 			             key);
 			break;
+
 		case G_TYPE_BOOLEAN:
 			if (!strcmp (value, "yes") || !strcmp (value, "no"))
 				return; /* valid */
@@ -1338,6 +1341,9 @@ real_connect (NMVPNPlugin   *plugin,
 	NMSettingVPN *s_vpn;
 	const char *value;
 
+	if (getenv ("NM_PPP_DUMP_CONNECTION") || debug)
+		nm_connection_dump (connection);
+
 	s_vpn = NM_SETTING_VPN (nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN));
 	g_assert (s_vpn);
 
@@ -1370,9 +1376,6 @@ real_connect (NMVPNPlugin   *plugin,
 	g_signal_connect (G_OBJECT (priv->service), "plugin-alive", G_CALLBACK (service_plugin_alive_cb), plugin);
 	g_signal_connect (G_OBJECT (priv->service), "ppp-state", G_CALLBACK (service_ppp_state_cb), plugin);
 	g_signal_connect (G_OBJECT (priv->service), "ip4-config", G_CALLBACK (service_ip4_config_cb), plugin);
-
-	if (getenv ("NM_PPP_DUMP_CONNECTION") || debug)
-		nm_connection_dump (connection);
 
 	/* Cache the username and password so we can relay the secrets to the pppd
 	 * plugin when it asks for them.
@@ -1558,7 +1561,7 @@ main (int argc, char *argv[])
 	g_option_context_add_main_entries (opt_ctx, options, NULL);
 
 	g_option_context_set_summary (opt_ctx,
-	    _("nm-pptp-service provides L2TP VPN capability with optional IPSec support to NetworkManager."));
+	    _("nm-l2tp-service provides L2TP VPN capability with optional IPSec support to NetworkManager."));
 
 	g_option_context_parse (opt_ctx, &argc, &argv, NULL);
 	g_option_context_free (opt_ctx);
@@ -1567,7 +1570,7 @@ main (int argc, char *argv[])
 		debug = TRUE;
 
 	if (debug)
-		g_message ("nm-pptp-service (version " DIST_VERSION ") starting...");
+		g_message ("nm-l2tp-service (version " DIST_VERSION ") starting...");
 
 	plugin = nm_l2tp_plugin_new ();
 	if (!plugin)
