@@ -1,5 +1,6 @@
 # List of source files containing translatable strings.
 # Please keep this file sorted alphabetically.
+auth-dialog/gnome-two-password-dialog.c
 auth-dialog/main.c
 auth-dialog/vpn-password-dialog.c
 nm-l2tp.desktop.in
