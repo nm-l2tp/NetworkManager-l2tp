@@ -199,9 +199,12 @@ finalize (GObject *object)
 	NML2tpPppServicePrivate *priv = NM_L2TP_PPP_SERVICE_GET_PRIVATE (object);
 
 	/* Get rid of the cached username and password */
-	memset (priv->username, 0, sizeof (priv->username));
-	memset (priv->domain, 0, sizeof (priv->domain));
-	memset (priv->password, 0, sizeof (priv->password));
+	g_free (priv->username);
+	if (priv->password) {
+		memset (priv->password, 0, strlen (priv->password));
+		g_free (priv->password);
+	}
+	g_free (priv->domain);
 }
 
 static void
@@ -258,10 +261,6 @@ nm_l2tp_ppp_service_cache_credentials (NML2tpPppService *self,
 	g_return_val_if_fail (self != NULL, FALSE);
 	g_return_val_if_fail (connection != NULL, FALSE);
 
-	memset (priv->username, 0, sizeof (priv->username));
-	memset (priv->domain, 0, sizeof (priv->domain));
-	memset (priv->password, 0, sizeof (priv->password));
-
 	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
 	if (!s_vpn) {
 		g_set_error (error,
@@ -308,10 +307,10 @@ nm_l2tp_ppp_service_cache_credentials (NML2tpPppService *self,
 
 	domain = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_DOMAIN);
 	if (domain && strlen (domain))
-		memcpy (priv->domain, domain, strlen (domain));
+		priv->domain = g_strdup(domain);
 
-	memcpy (priv->username, username, strlen (username));
-	memcpy (priv->password, password, strlen (password));
+	priv->username = g_strdup(username);
+	priv->password = g_strdup(password);
 	return TRUE;
 }
 
@@ -335,7 +334,7 @@ impl_l2tp_service_need_secrets (NML2tpPppService *self,
 	}
 
 	/* Success */
-	if (strlen (priv->domain))
+	if (priv->domain && strlen (priv->domain))
 		*out_username = g_strdup_printf ("%s\\%s", priv->domain, priv->username);
 	else
 		*out_username = g_strdup (priv->username);
@@ -487,6 +486,8 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 	if (!strcmp (key, NM_SETTING_NAME))
 		return;
 
+	/* Search property named 'key' in 'valid_properties'/'valid_secrets' array
+	   XXX: use hash? */
 	for (i = 0; info->table[i].name; i++) {
 		ValidProperty prop = info->table[i];
 		long int tmp;
@@ -538,6 +539,7 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 			             _("invalid integer property '%s'"),
 			             key);
 			break;
+
 		case G_TYPE_BOOLEAN:
 			if (!strcmp (value, "yes") || !strcmp (value, "no"))
 				return; /* valid */
@@ -1117,6 +1119,30 @@ write_config_option (int fd, const char *format, ...)
 	va_end (args);
 }
 
+typedef struct {
+	const char *name;
+	GType type;
+	const char *write_to_config;
+} PPPOpt;
+
+static PPPOpt ppp_options[] = {
+	{NM_L2TP_KEY_REFUSE_EAP, G_TYPE_BOOLEAN, "refuse-eap\n"},
+	{NM_L2TP_KEY_REFUSE_PAP, G_TYPE_BOOLEAN, "refuse-pap\n"},
+	{NM_L2TP_KEY_REFUSE_CHAP, G_TYPE_BOOLEAN, "refuse-chap\n"},
+	{NM_L2TP_KEY_REFUSE_MSCHAP, G_TYPE_BOOLEAN, "refuse-mschap\n"},
+	{NM_L2TP_KEY_REFUSE_MSCHAPV2, G_TYPE_BOOLEAN, "refuse-mschap-v2\n"},
+	{NM_L2TP_KEY_REQUIRE_MPPE, G_TYPE_BOOLEAN, "require-mppe\n"},
+	{NM_L2TP_KEY_REQUIRE_MPPE_40, G_TYPE_BOOLEAN, "require-mppe-40\n"},
+	{NM_L2TP_KEY_REQUIRE_MPPE_128, G_TYPE_BOOLEAN, "require-mppe-128\n"},
+	{NM_L2TP_KEY_MPPE_STATEFUL, G_TYPE_BOOLEAN, "mppe-stateful\n"},
+	{NM_L2TP_KEY_NOBSDCOMP, G_TYPE_BOOLEAN, "nobsdcomp\n"},
+	{NM_L2TP_KEY_NODEFLATE, G_TYPE_BOOLEAN, "nodeflate\n"},
+	{NM_L2TP_KEY_NO_VJ_COMP, G_TYPE_BOOLEAN, "novj\n"},
+	{NM_L2TP_KEY_NO_PCOMP, G_TYPE_BOOLEAN, "nopcomp\n"},
+	/* negate {NM_L2TP_KEY_USE_ACCOMP, G_TYPE_BOOLEAN, "noaccomp\n"}, */
+	{NULL, G_TYPE_NONE, NULL}
+};
+
 static gboolean
 nm_l2tp_config_write (NML2tpPlugin *plugin,
 					  NMSettingVPN *s_vpn,
@@ -1131,6 +1157,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	gint conf_fd = -1;
 	gint ipsec_fd = -1;
 	gint pppopt_fd = -1;
+	int i;
 
 	filename = g_strdup_printf ("/var/run/nm-ipsec-l2tp.%d", pid);
 	mkdir(filename,0700);
@@ -1246,63 +1273,15 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	/* Don't need to auth the L2TP server */
 	write_config_option (pppopt_fd, "noauth\n");
 
-	if (priv->service)
-		service_priv = NM_L2TP_PPP_SERVICE_GET_PRIVATE (priv->service);
 	if (service_priv && strlen (service_priv->username)) {
 		write_config_option (pppopt_fd, "name %s\n", service_priv->username);
 	}
 
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_REFUSE_EAP);
-	if (value && !strcmp (value, "yes"))
-		write_config_option (pppopt_fd, "refuse-eap\n");
-
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_REFUSE_PAP);
-	if (value && !strcmp (value, "yes"))
-		write_config_option (pppopt_fd, "refuse-pap\n");
-
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_REFUSE_CHAP);
-	if (value && !strcmp (value, "yes"))
-		write_config_option (pppopt_fd, "refuse-chap\n");
-
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_REFUSE_MSCHAP);
-	if (value && !strcmp (value, "yes"))
-		write_config_option (pppopt_fd, "refuse-mschap\n");
-
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_REFUSE_MSCHAPV2);
-	if (value && !strcmp (value, "yes"))
-		write_config_option (pppopt_fd, "refuse-mschap-v2\n");
-
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_REQUIRE_MPPE);
-	if (value && !strcmp (value, "yes"))
-		write_config_option (pppopt_fd, "require-mppe\n");
-
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_REQUIRE_MPPE_40);
-	if (value && !strcmp (value, "yes"))
-		write_config_option (pppopt_fd, "require-mppe-40\n");
-
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_REQUIRE_MPPE_128);
-	if (value && !strcmp (value, "yes"))
-		write_config_option (pppopt_fd, "require-mppe-128\n");
-
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_MPPE_STATEFUL);
-	if (value && !strcmp (value, "yes"))
-		write_config_option (pppopt_fd, "mppe-stateful\n");
-
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_NOBSDCOMP);
-	if (value && !strcmp (value, "yes"))
-		write_config_option (pppopt_fd, "nobsdcomp\n");
-
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_NODEFLATE);
-	if (value && !strcmp (value, "yes"))
-		write_config_option (pppopt_fd, "nodeflate\n");
-
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_NO_VJ_COMP);
-	if (value && !strcmp (value, "yes"))
-		write_config_option (pppopt_fd, "novj\n");
-
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_NO_PCOMP);
-	if (value && !strcmp (value, "yes"))
-		write_config_option (pppopt_fd, "nopcomp\n");
+	for(i=0; ppp_options[i].name; i++){
+		value = nm_setting_vpn_get_data_item (s_vpn, ppp_options[i].name);
+		if (value && !strcmp (value, "yes"))
+			write_config_option (pppopt_fd, ppp_options[i].write_to_config);
+	}
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USE_ACCOMP);
 	if (!(value && !strcmp (value, "yes")))
@@ -1362,6 +1341,9 @@ real_connect (NMVPNPlugin   *plugin,
 	NMSettingVPN *s_vpn;
 	const char *value;
 
+	if (getenv ("NM_PPP_DUMP_CONNECTION") || debug)
+		nm_connection_dump (connection);
+
 	s_vpn = NM_SETTING_VPN (nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN));
 	g_assert (s_vpn);
 
@@ -1394,9 +1376,6 @@ real_connect (NMVPNPlugin   *plugin,
 	g_signal_connect (G_OBJECT (priv->service), "plugin-alive", G_CALLBACK (service_plugin_alive_cb), plugin);
 	g_signal_connect (G_OBJECT (priv->service), "ppp-state", G_CALLBACK (service_ppp_state_cb), plugin);
 	g_signal_connect (G_OBJECT (priv->service), "ip4-config", G_CALLBACK (service_ip4_config_cb), plugin);
-
-	if (getenv ("NM_PPP_DUMP_CONNECTION") || debug)
-		nm_connection_dump (connection);
 
 	/* Cache the username and password so we can relay the secrets to the pppd
 	 * plugin when it asks for them.
