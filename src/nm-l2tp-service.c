@@ -114,9 +114,9 @@ static gboolean impl_l2tp_service_set_ip4_config (NML2tpPppService *self,
 #define NM_L2TP_PPP_SERVICE_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), NM_TYPE_L2TP_PPP_SERVICE, NML2tpPppServicePrivate))
 
 typedef struct {
-	char username[100];
-	char domain[100];
-	char password[100];
+	char *username;
+	char *domain;
+	char *password;
 } NML2tpPppServicePrivate;
 
 enum {
