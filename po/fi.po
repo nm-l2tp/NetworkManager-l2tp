@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 02:16+0400\n"
+"POT-Creation-Date: 2012-02-16 03:21+0400\n"
 "PO-Revision-Date: 2008-11-29 20:00+0300\n"
 "Last-Translator: Ilkka Tuohela <hile@iki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
@@ -155,6 +155,135 @@ msgstr ""
 #, c-format
 msgid "not a valid L2TP configuration file"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:1
+msgid "<b>Authentication</b>"
+msgstr "<b>Todentaminen</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:2
+msgid "<b>Echo</b>"
+msgstr "<b>Kaiutus</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:3
+msgid "<b>General</b>"
+msgstr "<b>Yleisasetukset</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:4
+msgid "<b>Optional</b>"
+msgstr "<b>Lisävalinnat</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:5
+msgid "<b>Security and Compression</b>"
+msgstr "<b>Salaus ja pakkaus</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:6
+msgid "Allow _BSD data compression"
+msgstr "Salli _BSD-pakkaus"
+
+#: ../properties/nm-l2tp-dialog.ui.h:7
+msgid "Allow _Deflate data compression"
+msgstr "Salli _deflate-pakkaus"
+
+#: ../properties/nm-l2tp-dialog.ui.h:8
+msgid "Allow st_ateful encryption"
+msgstr "Salli _tilallinen salaus"
+
+#: ../properties/nm-l2tp-dialog.ui.h:9
+msgid "Allow the following authentication methods:"
+msgstr "Salli seuraavat tunnistusmenetelmät:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:10
+msgid "Default"
+msgstr "Oletus"
+
+#: ../properties/nm-l2tp-dialog.ui.h:11
+#, fuzzy
+msgid "Gateway ID:"
+msgstr "_Yhdyskäytävä:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:12
+msgid "Group Name:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:13
+#, fuzzy
+msgid "L2TP IPSEC Options"
+msgstr "PPP-valinnat"
+
+#: ../properties/nm-l2tp-dialog.ui.h:14
+#, fuzzy
+msgid "L2TP PPP Options"
+msgstr "PPP-valinnat"
+
+#: ../properties/nm-l2tp-dialog.ui.h:15
+msgid "NT Domain:"
+msgstr "NT-toimialue:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:16
+msgid ""
+"Note: MPPE encryption is only available with MSCHAP authentication methods. "
+"To enable this checkbox, select one or more of the MSCHAP authentication "
+"methods: MSCHAP or MSCHAPv2."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:17
+msgid "PPP Se_ttings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:18
+msgid "Password:"
+msgstr "Salasana:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:19
+#, fuzzy
+msgid "Pre-shared key:"
+msgstr "Jaettu avain"
+
+#: ../properties/nm-l2tp-dialog.ui.h:20
+msgid "Send PPP _echo packets"
+msgstr "Lähetä PPP:n _echo-paketteja"
+
+#: ../properties/nm-l2tp-dialog.ui.h:21
+#, fuzzy
+msgid "Show password"
+msgstr "Näytä salasana"
+
+#: ../properties/nm-l2tp-dialog.ui.h:22
+msgid "Use TCP _header compression"
+msgstr "Käytä TCP-_otsakkeiden pakkausta"
+
+#: ../properties/nm-l2tp-dialog.ui.h:23
+#, fuzzy
+msgid "Use _Address/Control compression"
+msgstr "Käytä TCP-_otsakkeiden pakkausta"
+
+#: ../properties/nm-l2tp-dialog.ui.h:24
+msgid "Use _Point-to-Point encryption (MPPE)"
+msgstr "Käytä _Point-to-Point-salausta (MPPE)"
+
+#: ../properties/nm-l2tp-dialog.ui.h:25
+msgid "Use protocol _field compression negotiation"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:26
+msgid "User name:"
+msgstr "Käyttäjätunnus:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:27
+msgid "_Enable IPsec tunnel to L2TP host"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:28
+msgid "_Gateway:"
+msgstr "_Yhdyskäytävä:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:29
+msgid "_IPsec Settings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:30
+msgid "_Security:"
+msgstr "_Salaus:"
 
 #: ../src/nm-l2tp-service.c:159
 #, c-format
@@ -383,62 +512,8 @@ msgstr ""
 #~ msgid "_Save passwords in keyring"
 #~ msgstr "_Tallenna salasana avainrenkaaseen"
 
-#~ msgid "<b>Authentication</b>"
-#~ msgstr "<b>Todentaminen</b>"
-
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>Kaiutus</b>"
-
-#~ msgid "<b>General</b>"
-#~ msgstr "<b>Yleisasetukset</b>"
-
-#~ msgid "<b>Optional</b>"
-#~ msgstr "<b>Lisävalinnat</b>"
-
-#~ msgid "<b>Security and Compression</b>"
-#~ msgstr "<b>Salaus ja pakkaus</b>"
-
 #~ msgid "Ad_vanced..."
 #~ msgstr "_Lisäasetukset..."
-
-#~ msgid "Allow _BSD data compression"
-#~ msgstr "Salli _BSD-pakkaus"
-
-#~ msgid "Allow _Deflate data compression"
-#~ msgstr "Salli _deflate-pakkaus"
-
-#~ msgid "Allow st_ateful encryption"
-#~ msgstr "Salli _tilallinen salaus"
-
-#~ msgid "Allow the following authentication methods:"
-#~ msgstr "Salli seuraavat tunnistusmenetelmät:"
-
-#~ msgid "Default"
-#~ msgstr "Oletus"
-
-#~ msgid "NT Domain:"
-#~ msgstr "NT-toimialue:"
-
-#~ msgid "Password:"
-#~ msgstr "Salasana:"
-
-#~ msgid "Send PPP _echo packets"
-#~ msgstr "Lähetä PPP:n _echo-paketteja"
-
-#~ msgid "Use TCP _header compression"
-#~ msgstr "Käytä TCP-_otsakkeiden pakkausta"
-
-#~ msgid "Use _Point-to-Point encryption (MPPE)"
-#~ msgstr "Käytä _Point-to-Point-salausta (MPPE)"
-
-#~ msgid "User name:"
-#~ msgstr "Käyttäjätunnus:"
-
-#~ msgid "_Gateway:"
-#~ msgstr "_Yhdyskäytävä:"
-
-#~ msgid "_Security:"
-#~ msgstr "_Salaus:"
 
 #~ msgid "Authentication Type:"
 #~ msgstr "Todentamistapa:"
@@ -569,9 +644,6 @@ msgstr ""
 
 #~ msgid "Maximum Transmit Unit"
 #~ msgstr "MTU"
-
-#~ msgid "PPP Options"
-#~ msgstr "PPP-valinnat"
 
 #~ msgid "Refuse C_HAP"
 #~ msgstr "Kiellä C_HAP"
@@ -953,9 +1025,6 @@ msgstr ""
 
 #~ msgid "Shared Key:"
 #~ msgstr "Jaettu avain:"
-
-#~ msgid "Shared key"
-#~ msgstr "Jaettu avain"
 
 #~ msgid "Use TAP device"
 #~ msgstr "Käytä TAP-laitetta"

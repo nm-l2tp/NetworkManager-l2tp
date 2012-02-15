@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-l2tp.master.ta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 02:16+0400\n"
+"POT-Creation-Date: 2012-02-16 03:21+0400\n"
 "PO-Revision-Date: 2009-10-29 15:36+0530\n"
 "Last-Translator: I. Felix <ifelix@redhat.com>\n"
 "Language-Team: Tamil <fedora-trans-ta@redhat.com>\n"
@@ -159,6 +159,137 @@ msgstr ""
 #, c-format
 msgid "not a valid L2TP configuration file"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:1
+msgid "<b>Authentication</b>"
+msgstr "<b>உறுதிப்படுத்து</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:2
+msgid "<b>Echo</b>"
+msgstr "<b>எதிரொலி</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:3
+msgid "<b>General</b>"
+msgstr "<b>பொதுவான</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:4
+msgid "<b>Optional</b>"
+msgstr "<b>விருப்பத்திற்குரிய</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:5
+msgid "<b>Security and Compression</b>"
+msgstr "<b>பாதுகாப்பு மற்றும் குறுக்கு</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:6
+msgid "Allow _BSD data compression"
+msgstr "_BSD தரவு குறுக்கை அனுமதிக்கவும் (_B)"
+
+#: ../properties/nm-l2tp-dialog.ui.h:7
+msgid "Allow _Deflate data compression"
+msgstr "டீப்ளைட் தரவு குறுக்கை அனுமதிக்கவும் (_D)"
+
+#: ../properties/nm-l2tp-dialog.ui.h:8
+msgid "Allow st_ateful encryption"
+msgstr "நிலை குறிமறையாக்கத்தை அனுமதிக்கவும் (_a)"
+
+#: ../properties/nm-l2tp-dialog.ui.h:9
+msgid "Allow the following authentication methods:"
+msgstr "பின்வரும் அங்கீகார முறைகளை அனுமதிக்கவும்:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:10
+msgid "Default"
+msgstr "முன்னிருப்பு"
+
+#: ../properties/nm-l2tp-dialog.ui.h:11
+#, fuzzy
+msgid "Gateway ID:"
+msgstr "கேட்வே (_G):"
+
+#: ../properties/nm-l2tp-dialog.ui.h:12
+msgid "Group Name:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:13
+#, fuzzy
+msgid "L2TP IPSEC Options"
+msgstr "L2TP கூடுதல் விருப்பங்கள்"
+
+#: ../properties/nm-l2tp-dialog.ui.h:14
+#, fuzzy
+msgid "L2TP PPP Options"
+msgstr "L2TP கூடுதல் விருப்பங்கள்"
+
+#: ../properties/nm-l2tp-dialog.ui.h:15
+msgid "NT Domain:"
+msgstr "NT செயற்களம்:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:16
+msgid ""
+"Note: MPPE encryption is only available with MSCHAP authentication methods. "
+"To enable this checkbox, select one or more of the MSCHAP authentication "
+"methods: MSCHAP or MSCHAPv2."
+msgstr ""
+"குறிப்பு: MPPE குறிமறையாக்கம் MSCHAP அங்கீகரிக்கப்பட்ட முறைகளில் மட்டுமே இருக்கும். "
+"சரிபார்க்கும் பெட்டியை செயல்படுத்த, ஒன்று அல்லது அதிக MSCHAP அங்கீகரிக்கப்பட்ட  முறைகளைத் "
+"தேர்ந்தெடுக்கலாம்: MSCHAP அல்லது MSCHAPv2."
+
+#: ../properties/nm-l2tp-dialog.ui.h:17
+msgid "PPP Se_ttings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:18
+msgid "Password:"
+msgstr "கடவுச்சொல்:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Pre-shared key:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:20
+msgid "Send PPP _echo packets"
+msgstr "PPP எதிரொலி பாக்கெட்டுகளை அனுப்பு (_e)"
+
+#: ../properties/nm-l2tp-dialog.ui.h:21
+#, fuzzy
+msgid "Show password"
+msgstr "கடவுச்சொல்லைக் காட்டு"
+
+#: ../properties/nm-l2tp-dialog.ui.h:22
+msgid "Use TCP _header compression"
+msgstr "TCP தலைப்பு குறுக்கை பயன்படுத்து (_h)"
+
+#: ../properties/nm-l2tp-dialog.ui.h:23
+#, fuzzy
+msgid "Use _Address/Control compression"
+msgstr "TCP தலைப்பு குறுக்கை பயன்படுத்து (_h)"
+
+#: ../properties/nm-l2tp-dialog.ui.h:24
+msgid "Use _Point-to-Point encryption (MPPE)"
+msgstr "புள்ளியிலிருந்து புள்ளி குறிமறையாக்கத்தை பயன்படுத்து (MPPE) (_P)"
+
+#: ../properties/nm-l2tp-dialog.ui.h:25
+msgid "Use protocol _field compression negotiation"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:26
+msgid "User name:"
+msgstr "பயனர் பெயர்:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:27
+msgid "_Enable IPsec tunnel to L2TP host"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:28
+msgid "_Gateway:"
+msgstr "கேட்வே (_G):"
+
+#: ../properties/nm-l2tp-dialog.ui.h:29
+msgid "_IPsec Settings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:30
+msgid "_Security:"
+msgstr "பாதுகாப்பு (_S):"
 
 #: ../src/nm-l2tp-service.c:159
 #, c-format
@@ -387,71 +518,5 @@ msgstr ""
 #~ msgid "_Save passwords in keyring"
 #~ msgstr "கீரிங்கில் கடவுச்சொற்களை சேமிக்கவும் (_S)"
 
-#~ msgid "<b>Authentication</b>"
-#~ msgstr "<b>உறுதிப்படுத்து</b>"
-
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>எதிரொலி</b>"
-
-#~ msgid "<b>General</b>"
-#~ msgstr "<b>பொதுவான</b>"
-
-#~ msgid "<b>Optional</b>"
-#~ msgstr "<b>விருப்பத்திற்குரிய</b>"
-
-#~ msgid "<b>Security and Compression</b>"
-#~ msgstr "<b>பாதுகாப்பு மற்றும் குறுக்கு</b>"
-
 #~ msgid "Ad_vanced..."
 #~ msgstr "கூடுதல் (_v)..."
-
-#~ msgid "Allow _BSD data compression"
-#~ msgstr "_BSD தரவு குறுக்கை அனுமதிக்கவும் (_B)"
-
-#~ msgid "Allow _Deflate data compression"
-#~ msgstr "டீப்ளைட் தரவு குறுக்கை அனுமதிக்கவும் (_D)"
-
-#~ msgid "Allow st_ateful encryption"
-#~ msgstr "நிலை குறிமறையாக்கத்தை அனுமதிக்கவும் (_a)"
-
-#~ msgid "Allow the following authentication methods:"
-#~ msgstr "பின்வரும் அங்கீகார முறைகளை அனுமதிக்கவும்:"
-
-#~ msgid "Default"
-#~ msgstr "முன்னிருப்பு"
-
-#~ msgid "NT Domain:"
-#~ msgstr "NT செயற்களம்:"
-
-#~ msgid ""
-#~ "Note: MPPE encryption is only available with MSCHAP authentication "
-#~ "methods. To enable this checkbox, select one or more of the MSCHAP "
-#~ "authentication methods: MSCHAP or MSCHAPv2."
-#~ msgstr ""
-#~ "குறிப்பு: MPPE குறிமறையாக்கம் MSCHAP அங்கீகரிக்கப்பட்ட முறைகளில் மட்டுமே இருக்கும். "
-#~ "சரிபார்க்கும் பெட்டியை செயல்படுத்த, ஒன்று அல்லது அதிக MSCHAP அங்கீகரிக்கப்பட்ட  "
-#~ "முறைகளைத் தேர்ந்தெடுக்கலாம்: MSCHAP அல்லது MSCHAPv2."
-
-#~ msgid "L2TP Advanced Options"
-#~ msgstr "L2TP கூடுதல் விருப்பங்கள்"
-
-#~ msgid "Password:"
-#~ msgstr "கடவுச்சொல்:"
-
-#~ msgid "Send PPP _echo packets"
-#~ msgstr "PPP எதிரொலி பாக்கெட்டுகளை அனுப்பு (_e)"
-
-#~ msgid "Use TCP _header compression"
-#~ msgstr "TCP தலைப்பு குறுக்கை பயன்படுத்து (_h)"
-
-#~ msgid "Use _Point-to-Point encryption (MPPE)"
-#~ msgstr "புள்ளியிலிருந்து புள்ளி குறிமறையாக்கத்தை பயன்படுத்து (MPPE) (_P)"
-
-#~ msgid "User name:"
-#~ msgstr "பயனர் பெயர்:"
-
-#~ msgid "_Gateway:"
-#~ msgstr "கேட்வே (_G):"
-
-#~ msgid "_Security:"
-#~ msgstr "பாதுகாப்பு (_S):"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 02:16+0400\n"
+"POT-Creation-Date: 2012-02-16 03:21+0400\n"
 "PO-Revision-Date: 2010-02-03 10:52+0100\n"
 "Last-Translator: Zdeněk Hataš <zdenek.hatas@gmail.com>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
@@ -157,6 +157,137 @@ msgstr ""
 #, c-format
 msgid "not a valid L2TP configuration file"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:1
+msgid "<b>Authentication</b>"
+msgstr "<b>Autentizace</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:2
+msgid "<b>Echo</b>"
+msgstr "<b>Echo</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:3
+msgid "<b>General</b>"
+msgstr "<b>Obecné</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:4
+msgid "<b>Optional</b>"
+msgstr "<b>Volitelné</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:5
+msgid "<b>Security and Compression</b>"
+msgstr "<b>Bezpečnost a komprese</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:6
+msgid "Allow _BSD data compression"
+msgstr "Povolit kompresi _BSD dat"
+
+#: ../properties/nm-l2tp-dialog.ui.h:7
+msgid "Allow _Deflate data compression"
+msgstr "Povolit kompresi dat _Deflate"
+
+#: ../properties/nm-l2tp-dialog.ui.h:8
+msgid "Allow st_ateful encryption"
+msgstr "Povolit st_avové šifrování"
+
+#: ../properties/nm-l2tp-dialog.ui.h:9
+msgid "Allow the following authentication methods:"
+msgstr "Povolit následující metody autentizace:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:10
+msgid "Default"
+msgstr "Výchozí"
+
+#: ../properties/nm-l2tp-dialog.ui.h:11
+#, fuzzy
+msgid "Gateway ID:"
+msgstr "_Brána:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:12
+msgid "Group Name:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:13
+#, fuzzy
+msgid "L2TP IPSEC Options"
+msgstr "Rozšířené volby L2TP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:14
+#, fuzzy
+msgid "L2TP PPP Options"
+msgstr "Rozšířené volby L2TP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:15
+msgid "NT Domain:"
+msgstr "Doména NT:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:16
+msgid ""
+"Note: MPPE encryption is only available with MSCHAP authentication methods. "
+"To enable this checkbox, select one or more of the MSCHAP authentication "
+"methods: MSCHAP or MSCHAPv2."
+msgstr ""
+"Poznámka: Šifrování MPPE  je možné pouze při použití autentizačních metod "
+"MSCHAP. Tento přepínač povolíte vybráním jedné nebo více autentizačních "
+"metod (MSCHAP nebo MSCHAPv2)."
+
+#: ../properties/nm-l2tp-dialog.ui.h:17
+msgid "PPP Se_ttings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:18
+msgid "Password:"
+msgstr "Heslo:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Pre-shared key:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:20
+msgid "Send PPP _echo packets"
+msgstr "Poslat PPP _echo pakety"
+
+#: ../properties/nm-l2tp-dialog.ui.h:21
+#, fuzzy
+msgid "Show password"
+msgstr "Zobrazit heslo"
+
+#: ../properties/nm-l2tp-dialog.ui.h:22
+msgid "Use TCP _header compression"
+msgstr "Použít kompresi TCP _záhlaví"
+
+#: ../properties/nm-l2tp-dialog.ui.h:23
+#, fuzzy
+msgid "Use _Address/Control compression"
+msgstr "Použít kompresi TCP _záhlaví"
+
+#: ../properties/nm-l2tp-dialog.ui.h:24
+msgid "Use _Point-to-Point encryption (MPPE)"
+msgstr "Použít _Point-to-Point šifrování (MPPE)"
+
+#: ../properties/nm-l2tp-dialog.ui.h:25
+msgid "Use protocol _field compression negotiation"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:26
+msgid "User name:"
+msgstr "Uživ. jméno:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:27
+msgid "_Enable IPsec tunnel to L2TP host"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:28
+msgid "_Gateway:"
+msgstr "_Brána:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:29
+msgid "_IPsec Settings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:30
+msgid "_Security:"
+msgstr "_Bezpečnost:"
 
 #: ../src/nm-l2tp-service.c:159
 #, c-format
@@ -385,71 +516,5 @@ msgstr ""
 #~ msgid "_Save passwords in keyring"
 #~ msgstr "_Uložit hesla do svazku klíčů"
 
-#~ msgid "<b>Authentication</b>"
-#~ msgstr "<b>Autentizace</b>"
-
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>Echo</b>"
-
-#~ msgid "<b>General</b>"
-#~ msgstr "<b>Obecné</b>"
-
-#~ msgid "<b>Optional</b>"
-#~ msgstr "<b>Volitelné</b>"
-
-#~ msgid "<b>Security and Compression</b>"
-#~ msgstr "<b>Bezpečnost a komprese</b>"
-
 #~ msgid "Ad_vanced..."
 #~ msgstr "P_okročilé..."
-
-#~ msgid "Allow _BSD data compression"
-#~ msgstr "Povolit kompresi _BSD dat"
-
-#~ msgid "Allow _Deflate data compression"
-#~ msgstr "Povolit kompresi dat _Deflate"
-
-#~ msgid "Allow st_ateful encryption"
-#~ msgstr "Povolit st_avové šifrování"
-
-#~ msgid "Allow the following authentication methods:"
-#~ msgstr "Povolit následující metody autentizace:"
-
-#~ msgid "Default"
-#~ msgstr "Výchozí"
-
-#~ msgid "NT Domain:"
-#~ msgstr "Doména NT:"
-
-#~ msgid ""
-#~ "Note: MPPE encryption is only available with MSCHAP authentication "
-#~ "methods. To enable this checkbox, select one or more of the MSCHAP "
-#~ "authentication methods: MSCHAP or MSCHAPv2."
-#~ msgstr ""
-#~ "Poznámka: Šifrování MPPE  je možné pouze při použití autentizačních metod "
-#~ "MSCHAP. Tento přepínač povolíte vybráním jedné nebo více autentizačních "
-#~ "metod (MSCHAP nebo MSCHAPv2)."
-
-#~ msgid "L2TP Advanced Options"
-#~ msgstr "Rozšířené volby L2TP"
-
-#~ msgid "Password:"
-#~ msgstr "Heslo:"
-
-#~ msgid "Send PPP _echo packets"
-#~ msgstr "Poslat PPP _echo pakety"
-
-#~ msgid "Use TCP _header compression"
-#~ msgstr "Použít kompresi TCP _záhlaví"
-
-#~ msgid "Use _Point-to-Point encryption (MPPE)"
-#~ msgstr "Použít _Point-to-Point šifrování (MPPE)"
-
-#~ msgid "User name:"
-#~ msgstr "Uživ. jméno:"
-
-#~ msgid "_Gateway:"
-#~ msgstr "_Brána:"
-
-#~ msgid "_Security:"
-#~ msgstr "_Bezpečnost:"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: nm-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 02:16+0400\n"
+"POT-Creation-Date: 2012-02-16 03:21+0400\n"
 "PO-Revision-Date: 2007-12-24 18:16+0900\n"
 "Last-Translator: Namhyung Kim <namhyung@gmail.com>\n"
 "Language-Team: GNOME Korea <gnome-kr-hackers@lists.kldp.net>\n"
@@ -154,6 +154,146 @@ msgstr ""
 #: ../properties/nm-l2tp.c:755
 #, c-format
 msgid "not a valid L2TP configuration file"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:1
+#, fuzzy
+msgid "<b>Authentication</b>"
+msgstr "인증"
+
+#: ../properties/nm-l2tp-dialog.ui.h:2
+#, fuzzy
+msgid "<b>Echo</b>"
+msgstr "<b>암호화</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:3
+msgid "<b>General</b>"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:4
+#, fuzzy
+msgid "<b>Optional</b>"
+msgstr "<b>IP 옵션</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:5
+#, fuzzy
+msgid "<b>Security and Compression</b>"
+msgstr "<b>압축</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:6
+#, fuzzy
+msgid "Allow _BSD data compression"
+msgstr "Deflate 압축 허용(_D)"
+
+#: ../properties/nm-l2tp-dialog.ui.h:7
+#, fuzzy
+msgid "Allow _Deflate data compression"
+msgstr "Deflate 압축 허용(_D)"
+
+#: ../properties/nm-l2tp-dialog.ui.h:8
+#, fuzzy
+msgid "Allow st_ateful encryption"
+msgstr "Deflate 압축 허용(_D)"
+
+#: ../properties/nm-l2tp-dialog.ui.h:9
+msgid "Allow the following authentication methods:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:10
+msgid "Default"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:11
+#, fuzzy
+msgid "Gateway ID:"
+msgstr "게이트웨이(_G):"
+
+#: ../properties/nm-l2tp-dialog.ui.h:12
+msgid "Group Name:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:13
+#, fuzzy
+msgid "L2TP IPSEC Options"
+msgstr "PPP 옵션"
+
+#: ../properties/nm-l2tp-dialog.ui.h:14
+#, fuzzy
+msgid "L2TP PPP Options"
+msgstr "PPP 옵션"
+
+#: ../properties/nm-l2tp-dialog.ui.h:15
+#, fuzzy
+msgid "NT Domain:"
+msgstr "도메인(_D):"
+
+#: ../properties/nm-l2tp-dialog.ui.h:16
+msgid ""
+"Note: MPPE encryption is only available with MSCHAP authentication methods. "
+"To enable this checkbox, select one or more of the MSCHAP authentication "
+"methods: MSCHAP or MSCHAPv2."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:17
+msgid "PPP Se_ttings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:18
+#, fuzzy
+msgid "Password:"
+msgstr "암호(_P):"
+
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Pre-shared key:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:20
+msgid "Send PPP _echo packets"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:21
+#, fuzzy
+msgid "Show password"
+msgstr "암호(_P):"
+
+#: ../properties/nm-l2tp-dialog.ui.h:22
+#, fuzzy
+msgid "Use TCP _header compression"
+msgstr "MPPC 압축 사용"
+
+#: ../properties/nm-l2tp-dialog.ui.h:23
+#, fuzzy
+msgid "Use _Address/Control compression"
+msgstr "MPPC 압축 사용"
+
+#: ../properties/nm-l2tp-dialog.ui.h:24
+#, fuzzy
+msgid "Use _Point-to-Point encryption (MPPE)"
+msgstr "MPPE 암호화 사용"
+
+#: ../properties/nm-l2tp-dialog.ui.h:25
+msgid "Use protocol _field compression negotiation"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:26
+#, fuzzy
+msgid "User name:"
+msgstr "사용자 이름(_U):"
+
+#: ../properties/nm-l2tp-dialog.ui.h:27
+msgid "_Enable IPsec tunnel to L2TP host"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:28
+msgid "_Gateway:"
+msgstr "게이트웨이(_G):"
+
+#: ../properties/nm-l2tp-dialog.ui.h:29
+msgid "_IPsec Settings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:30
+msgid "_Security:"
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:159
@@ -400,12 +540,6 @@ msgstr ""
 #~ msgid "_Remote name:"
 #~ msgstr "원격 이름(_R):"
 
-#~ msgid "_Username:"
-#~ msgstr "사용자 이름(_U):"
-
-#~ msgid "_Domain:"
-#~ msgstr "도메인(_D):"
-
 #~ msgid "Connect _anonymously"
 #~ msgstr "익명으로 연결(_A)"
 
@@ -424,17 +558,8 @@ msgstr ""
 #~ msgid "00:00:00:00"
 #~ msgstr "00:00:00:00"
 
-#~ msgid "<b>Compression</b>"
-#~ msgstr "<b>압축</b>"
-
 #~ msgid "<b>Delays &amp; Timeouts</b>"
 #~ msgstr "<b>지연과 시간제한</b>"
-
-#~ msgid "<b>Encryption</b>"
-#~ msgstr "<b>암호화</b>"
-
-#~ msgid "<b>IP Options</b>"
-#~ msgstr "<b>IP 옵션</b>"
 
 #~ msgid "<b>Packet Parameters</b>"
 #~ msgstr "<b>패킷 매개 변수</b>"
@@ -448,12 +573,6 @@ msgstr ""
 
 #~ msgid "Allow B_SD Compression"
 #~ msgstr "BSD 압축 허용(_S)"
-
-#~ msgid "Allow _Deflate compression"
-#~ msgstr "Deflate 압축 허용(_D)"
-
-#~ msgid "Authentication"
-#~ msgstr "인증"
 
 #~ msgid "C_hannel:"
 #~ msgstr "채널(_C):"
@@ -525,9 +644,6 @@ msgstr ""
 
 #~ msgid "Maximum Transmit Unit"
 #~ msgstr "최대 전송 단위"
-
-#~ msgid "PPP Options"
-#~ msgstr "PPP 옵션"
 
 #~ msgid "Refuse C_HAP"
 #~ msgstr "CHAP 거부(_H)"
@@ -620,9 +736,6 @@ msgstr ""
 #~ msgid "_Device address:"
 #~ msgstr "장치 주소(_D):"
 
-#~ msgid "_Gateway:"
-#~ msgstr "게이트웨이(_G):"
-
 #~ msgid "_Hardware RTS/CTS"
 #~ msgstr "하드웨어 RTS/CTS(_H)"
 
@@ -686,17 +799,11 @@ msgstr ""
 #~ msgid "Use Peer DNS"
 #~ msgstr "Peer DNS 사용"
 
-#~ msgid "Use MPPE encryption"
-#~ msgstr "MPPE 암호화 사용"
-
 #~ msgid "Use 128 bit MPPE encryption"
 #~ msgstr "128비트 MPPE 암호화 사용"
 
 #~ msgid "Enable stateful MPPE"
 #~ msgstr "상태기반 MPPE 사용"
-
-#~ msgid "Use MPPC compression"
-#~ msgstr "MPPC 압축 사용"
 
 #~ msgid "Do not use deflate compression"
 #~ msgstr "Deflate 압축 사용 안함"

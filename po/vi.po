@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 02:16+0400\n"
+"POT-Creation-Date: 2012-02-16 03:21+0400\n"
 "PO-Revision-Date: 2008-06-06 14:48+0930\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
@@ -154,6 +154,146 @@ msgstr ""
 #: ../properties/nm-l2tp.c:755
 #, c-format
 msgid "not a valid L2TP configuration file"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:1
+#, fuzzy
+msgid "<b>Authentication</b>"
+msgstr "Xác thực"
+
+#: ../properties/nm-l2tp-dialog.ui.h:2
+#, fuzzy
+msgid "<b>Echo</b>"
+msgstr "<b>Mật mã</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:3
+msgid "<b>General</b>"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:4
+#, fuzzy
+msgid "<b>Optional</b>"
+msgstr "<b>Tùy chọn IP</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:5
+#, fuzzy
+msgid "<b>Security and Compression</b>"
+msgstr "<b>Nén</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:6
+#, fuzzy
+msgid "Allow _BSD data compression"
+msgstr "Cho phép nén kiểu _Deflate"
+
+#: ../properties/nm-l2tp-dialog.ui.h:7
+#, fuzzy
+msgid "Allow _Deflate data compression"
+msgstr "Cho phép nén kiểu _Deflate"
+
+#: ../properties/nm-l2tp-dialog.ui.h:8
+#, fuzzy
+msgid "Allow st_ateful encryption"
+msgstr "Cho phép nén kiểu _Deflate"
+
+#: ../properties/nm-l2tp-dialog.ui.h:9
+msgid "Allow the following authentication methods:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:10
+msgid "Default"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:11
+#, fuzzy
+msgid "Gateway ID:"
+msgstr "Cổn_g ra:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:12
+msgid "Group Name:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:13
+#, fuzzy
+msgid "L2TP IPSEC Options"
+msgstr "Tùy chọn PPP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:14
+#, fuzzy
+msgid "L2TP PPP Options"
+msgstr "Tùy chọn PPP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:15
+#, fuzzy
+msgid "NT Domain:"
+msgstr "_Miền:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:16
+msgid ""
+"Note: MPPE encryption is only available with MSCHAP authentication methods. "
+"To enable this checkbox, select one or more of the MSCHAP authentication "
+"methods: MSCHAP or MSCHAPv2."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:17
+msgid "PPP Se_ttings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:18
+#, fuzzy
+msgid "Password:"
+msgstr "_Mật khẩu :"
+
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Pre-shared key:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:20
+msgid "Send PPP _echo packets"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:21
+#, fuzzy
+msgid "Show password"
+msgstr "_Mật khẩu :"
+
+#: ../properties/nm-l2tp-dialog.ui.h:22
+#, fuzzy
+msgid "Use TCP _header compression"
+msgstr "Nén bằng MPPC"
+
+#: ../properties/nm-l2tp-dialog.ui.h:23
+#, fuzzy
+msgid "Use _Address/Control compression"
+msgstr "Nén bằng MPPC"
+
+#: ../properties/nm-l2tp-dialog.ui.h:24
+#, fuzzy
+msgid "Use _Point-to-Point encryption (MPPE)"
+msgstr "Dùng mật mã MPPE"
+
+#: ../properties/nm-l2tp-dialog.ui.h:25
+msgid "Use protocol _field compression negotiation"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:26
+#, fuzzy
+msgid "User name:"
+msgstr "_Tên người dùng:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:27
+msgid "_Enable IPsec tunnel to L2TP host"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:28
+msgid "_Gateway:"
+msgstr "Cổn_g ra:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:29
+msgid "_IPsec Settings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:30
+msgid "_Security:"
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:159
@@ -401,12 +541,6 @@ msgstr ""
 #~ msgid "_Remote name:"
 #~ msgstr "Tê_n ở xa:"
 
-#~ msgid "_Username:"
-#~ msgstr "_Tên người dùng:"
-
-#~ msgid "_Domain:"
-#~ msgstr "_Miền:"
-
 #~ msgid "Connect _anonymously"
 #~ msgstr "Kết nối nặc d_anh"
 
@@ -425,17 +559,8 @@ msgstr ""
 #~ msgid "00:00:00:00"
 #~ msgstr "00:00:00:00"
 
-#~ msgid "<b>Compression</b>"
-#~ msgstr "<b>Nén</b>"
-
 #~ msgid "<b>Delays &amp; Timeouts</b>"
 #~ msgstr "<b>Khoảng đợi và Thời hạn</b>"
-
-#~ msgid "<b>Encryption</b>"
-#~ msgstr "<b>Mật mã</b>"
-
-#~ msgid "<b>IP Options</b>"
-#~ msgstr "<b>Tùy chọn IP</b>"
 
 #~ msgid "<b>Packet Parameters</b>"
 #~ msgstr "<b>Tham số Gói tin</b>"
@@ -449,12 +574,6 @@ msgstr ""
 
 #~ msgid "Allow B_SD Compression"
 #~ msgstr "Cho phép nén kiểu B_SD"
-
-#~ msgid "Allow _Deflate compression"
-#~ msgstr "Cho phép nén kiểu _Deflate"
-
-#~ msgid "Authentication"
-#~ msgstr "Xác thực"
 
 #~ msgid "C_hannel:"
 #~ msgstr "Kên_h:"
@@ -528,9 +647,6 @@ msgstr ""
 
 #~ msgid "Maximum Transmit Unit"
 #~ msgstr "Đơn vị truyền tối đa"
-
-#~ msgid "PPP Options"
-#~ msgstr "Tùy chọn PPP"
 
 #~ msgid "Refuse C_HAP"
 #~ msgstr "Từ chối C_HAP"
@@ -626,9 +742,6 @@ msgstr ""
 #~ msgid "_Device address:"
 #~ msgstr "Địa chỉ thiết _bị:"
 
-#~ msgid "_Gateway:"
-#~ msgstr "Cổn_g ra:"
-
 #~ msgid "_Hardware RTS/CTS"
 #~ msgstr "RTS/CTS p_hần cứng"
 
@@ -692,17 +805,11 @@ msgstr ""
 #~ msgid "Use Peer DNS"
 #~ msgstr "Dùng DNS ngang hàng"
 
-#~ msgid "Use MPPE encryption"
-#~ msgstr "Dùng mật mã MPPE"
-
 #~ msgid "Use 128 bit MPPE encryption"
 #~ msgstr "Dùng mật mã MPPE 128 bit"
 
 #~ msgid "Enable stateful MPPE"
 #~ msgstr "Bật MPPE có tình trạng"
-
-#~ msgid "Use MPPC compression"
-#~ msgstr "Nén bằng MPPC"
 
 #~ msgid "Do not use deflate compression"
 #~ msgstr "Không nén kiểu Deflate"

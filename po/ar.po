@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Project\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 02:16+0400\n"
+"POT-Creation-Date: 2012-02-16 03:21+0400\n"
 "PO-Revision-Date: 2007-12-26 09:09+0100\n"
 "Last-Translator: Djihed Afifi <djihed@gmail.com>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
@@ -159,6 +159,146 @@ msgstr ""
 #: ../properties/nm-l2tp.c:755
 #, c-format
 msgid "not a valid L2TP configuration file"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:1
+#, fuzzy
+msgid "<b>Authentication</b>"
+msgstr "التوثق"
+
+#: ../properties/nm-l2tp-dialog.ui.h:2
+#, fuzzy
+msgid "<b>Echo</b>"
+msgstr "<b>التعمية</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:3
+#, fuzzy
+msgid "<b>General</b>"
+msgstr "<b>خيارات IP</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:4
+#, fuzzy
+msgid "<b>Optional</b>"
+msgstr "<b>خيارات IP</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:5
+#, fuzzy
+msgid "<b>Security and Compression</b>"
+msgstr "<b>الضغط</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:6
+#, fuzzy
+msgid "Allow _BSD data compression"
+msgstr "اسمح ب_ضغط BSD"
+
+#: ../properties/nm-l2tp-dialog.ui.h:7
+#, fuzzy
+msgid "Allow _Deflate data compression"
+msgstr "ا_سمح بتفريغ الضغط"
+
+#: ../properties/nm-l2tp-dialog.ui.h:8
+msgid "Allow st_ateful encryption"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:9
+msgid "Allow the following authentication methods:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:10
+msgid "Default"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:11
+#, fuzzy
+msgid "Gateway ID:"
+msgstr "ال_بوّابة:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:12
+msgid "Group Name:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:13
+#, fuzzy
+msgid "L2TP IPSEC Options"
+msgstr "خيارات PPP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:14
+#, fuzzy
+msgid "L2TP PPP Options"
+msgstr "خيارات PPP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:15
+#, fuzzy
+msgid "NT Domain:"
+msgstr "ال_نطاق:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:16
+msgid ""
+"Note: MPPE encryption is only available with MSCHAP authentication methods. "
+"To enable this checkbox, select one or more of the MSCHAP authentication "
+"methods: MSCHAP or MSCHAPv2."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:17
+msgid "PPP Se_ttings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:18
+#, fuzzy
+msgid "Password:"
+msgstr "_كلمة السر:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Pre-shared key:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:20
+msgid "Send PPP _echo packets"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:21
+#, fuzzy
+msgid "Show password"
+msgstr "_كلمة السر:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:22
+#, fuzzy
+msgid "Use TCP _header compression"
+msgstr "استخدم ضغط MPPC"
+
+#: ../properties/nm-l2tp-dialog.ui.h:23
+#, fuzzy
+msgid "Use _Address/Control compression"
+msgstr "استخدم ضغط MPPC"
+
+#: ../properties/nm-l2tp-dialog.ui.h:24
+#, fuzzy
+msgid "Use _Point-to-Point encryption (MPPE)"
+msgstr "استخدم تعمية MPPE"
+
+#: ../properties/nm-l2tp-dialog.ui.h:25
+msgid "Use protocol _field compression negotiation"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:26
+#, fuzzy
+msgid "User name:"
+msgstr "ا_سم المستخدم:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:27
+msgid "_Enable IPsec tunnel to L2TP host"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:28
+msgid "_Gateway:"
+msgstr "ال_بوّابة:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:29
+msgid "_IPsec Settings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:30
+msgid "_Security:"
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:159
@@ -390,45 +530,6 @@ msgstr ""
 #~ msgid "_Save passwords in keyring"
 #~ msgstr "ا_حفظ كلمة السر في حلقة المفاتيح"
 
-#, fuzzy
-#~ msgid "<b>Authentication</b>"
-#~ msgstr "التوثق"
-
-#, fuzzy
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>التعمية</b>"
-
-#, fuzzy
-#~ msgid "<b>Optional</b>"
-#~ msgstr "<b>خيارات IP</b>"
-
-#, fuzzy
-#~ msgid "<b>Security and Compression</b>"
-#~ msgstr "<b>الضغط</b>"
-
-#, fuzzy
-#~ msgid "Allow BSD data compression"
-#~ msgstr "اسمح ب_ضغط BSD"
-
-#, fuzzy
-#~ msgid "Allow Deflate data compression"
-#~ msgstr "ا_سمح بتفريغ الضغط"
-
-#, fuzzy
-#~ msgid "Domain:"
-#~ msgstr "ال_نطاق:"
-
-#, fuzzy
-#~ msgid "Use TCP header compression"
-#~ msgstr "استخدم ضغط MPPC"
-
-#, fuzzy
-#~ msgid "User name:"
-#~ msgstr "ا_سم المستخدم:"
-
-#~ msgid "_Gateway:"
-#~ msgstr "ال_بوّابة:"
-
 #~ msgid "Authentication Type:"
 #~ msgstr "نوع التوثق:"
 
@@ -550,9 +651,6 @@ msgstr ""
 
 #~ msgid "Maximum Transmit Unit"
 #~ msgstr "أقصى وحدة نقل"
-
-#~ msgid "PPP Options"
-#~ msgstr "خيارات PPP"
 
 #~ msgid "Refuse C_HAP"
 #~ msgstr "ا_رفض CHAP"
@@ -707,9 +805,6 @@ msgstr ""
 
 #~ msgid "Use Peer DNS"
 #~ msgstr "استخدم DNS الندّ"
-
-#~ msgid "Use MPPE encryption"
-#~ msgstr "استخدم تعمية MPPE"
 
 #~ msgid "Use 128 bit MPPE encryption"
 #~ msgstr "استخدم تعمية 128 bit MPPE"

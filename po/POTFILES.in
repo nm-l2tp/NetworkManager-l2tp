@@ -6,7 +6,7 @@ nm-l2tp.desktop.in
 properties/advanced-dialog.c
 properties/ipsec-dialog.c
 properties/nm-l2tp.c
-properties/nm-l2tp-dialog.ui
+[type: gettext/glade]properties/nm-l2tp-dialog.ui
 src/nm-l2tp-service.c
 
 

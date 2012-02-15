@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 02:16+0400\n"
+"POT-Creation-Date: 2012-02-16 03:21+0400\n"
 "PO-Revision-Date: 2008-02-17 03:56+0000\n"
 "Last-Translator: Yair Hershkovitz <yairhr@gmail.com>\n"
 "Language-Team: he\n"
@@ -153,6 +153,144 @@ msgstr ""
 #: ../properties/nm-l2tp.c:755
 #, c-format
 msgid "not a valid L2TP configuration file"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:1
+#, fuzzy
+msgid "<b>Authentication</b>"
+msgstr "<b>הצפנה</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:2
+#, fuzzy
+msgid "<b>Echo</b>"
+msgstr "<b>הצפנה</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:3
+msgid "<b>General</b>"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:4
+#, fuzzy
+msgid "<b>Optional</b>"
+msgstr "<b>אפשרויות IP</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:5
+#, fuzzy
+msgid "<b>Security and Compression</b>"
+msgstr "<b>כיווץ</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:6
+#, fuzzy
+msgid "Allow _BSD data compression"
+msgstr "אפשר כיווץ _BSD"
+
+#: ../properties/nm-l2tp-dialog.ui.h:7
+#, fuzzy
+msgid "Allow _Deflate data compression"
+msgstr "אפשר כיווץ _BSD"
+
+#: ../properties/nm-l2tp-dialog.ui.h:8
+msgid "Allow st_ateful encryption"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:9
+msgid "Allow the following authentication methods:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:10
+msgid "Default"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:11
+msgid "Gateway ID:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:12
+msgid "Group Name:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:13
+#, fuzzy
+msgid "L2TP IPSEC Options"
+msgstr "אפשרויות PPP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:14
+#, fuzzy
+msgid "L2TP PPP Options"
+msgstr "אפשרויות PPP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:15
+#, fuzzy
+msgid "NT Domain:"
+msgstr "_מתחם:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:16
+msgid ""
+"Note: MPPE encryption is only available with MSCHAP authentication methods. "
+"To enable this checkbox, select one or more of the MSCHAP authentication "
+"methods: MSCHAP or MSCHAPv2."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:17
+msgid "PPP Se_ttings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:18
+#, fuzzy
+msgid "Password:"
+msgstr "_סיסמה:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Pre-shared key:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:20
+msgid "Send PPP _echo packets"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:21
+#, fuzzy
+msgid "Show password"
+msgstr "_סיסמה:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:22
+#, fuzzy
+msgid "Use TCP _header compression"
+msgstr "השתמש בהצפנת MPPC"
+
+#: ../properties/nm-l2tp-dialog.ui.h:23
+#, fuzzy
+msgid "Use _Address/Control compression"
+msgstr "השתמש בהצפנת MPPC"
+
+#: ../properties/nm-l2tp-dialog.ui.h:24
+#, fuzzy
+msgid "Use _Point-to-Point encryption (MPPE)"
+msgstr "השתמש בהצפנת MPPE"
+
+#: ../properties/nm-l2tp-dialog.ui.h:25
+msgid "Use protocol _field compression negotiation"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:26
+#, fuzzy
+msgid "User name:"
+msgstr "שם _משתמש:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:27
+msgid "_Enable IPsec tunnel to L2TP host"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:28
+msgid "_Gateway:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:29
+msgid "_IPsec Settings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:30
+msgid "_Security:"
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:159
@@ -385,12 +523,6 @@ msgstr ""
 #~ msgid "_Remote name:"
 #~ msgstr "שם _מרוחק:"
 
-#~ msgid "_Username:"
-#~ msgstr "שם _משתמש:"
-
-#~ msgid "_Domain:"
-#~ msgstr "_מתחם:"
-
 #~ msgid "Connect _anonymously"
 #~ msgstr "התחבר כ_אנונימי"
 
@@ -409,15 +541,6 @@ msgstr ""
 #~ msgid "00:00:00:00"
 #~ msgstr "00:00:00:00"
 
-#~ msgid "<b>Compression</b>"
-#~ msgstr "<b>כיווץ</b>"
-
-#~ msgid "<b>Encryption</b>"
-#~ msgstr "<b>הצפנה</b>"
-
-#~ msgid "<b>IP Options</b>"
-#~ msgstr "<b>אפשרויות IP</b>"
-
 #~ msgid "<b>Packet Parameters</b>"
 #~ msgstr "<b>אפשרויות חבילה</b>"
 
@@ -427,9 +550,6 @@ msgstr ""
 #~ msgid ""
 #~ "A list of extra options to pppd as would be typed on the command line"
 #~ msgstr "רשימה של אפשרויות נוספות עבור pppd כפי שהן נרשמות בשורת הפקודה"
-
-#~ msgid "Allow B_SD Compression"
-#~ msgstr "אפשר כיווץ _BSD"
 
 #~ msgid "C_hannel:"
 #~ msgstr "_ערוץ:"
@@ -470,9 +590,6 @@ msgstr ""
 
 #~ msgid "Maximum Transmit Unit"
 #~ msgstr "גודל יחידת שליחה מקסימאלי"
-
-#~ msgid "PPP Options"
-#~ msgstr "אפשרויות PPP"
 
 #~ msgid "Refuse C_HAP"
 #~ msgstr "דחה C_HAP"
@@ -574,14 +691,8 @@ msgstr ""
 #~ msgid "Connect via a modem"
 #~ msgstr "התחבר בעזרת מודם"
 
-#~ msgid "Use MPPE encryption"
-#~ msgstr "השתמש בהצפנת MPPE"
-
 #~ msgid "Use 128 bit MPPE encryption"
 #~ msgstr "השתמש בהצפנת MPPE 128bit"
-
-#~ msgid "Use MPPC compression"
-#~ msgstr "השתמש בהצפנת MPPC"
 
 #~ msgid "Do not use BSD compression"
 #~ msgstr "אל תשתמש בכיווץ BSD"

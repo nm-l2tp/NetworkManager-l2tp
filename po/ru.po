@@ -9,16 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 02:16+0400\n"
-"PO-Revision-Date: 2010-03-28 14:39+0400\n"
-"Last-Translator: Yuri Kozlov <yuray@komyakino.ru>\n"
+"POT-Creation-Date: 2012-02-16 03:21+0400\n"
+"PO-Revision-Date: 2012-02-16 03:41+0300\n"
+"Last-Translator: Sergey Prokhorov <me@seriyps.ru>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: KBabel 1.11.4\n"
 
 #. Otherwise, we have no saved password, or the password flags indicated
@@ -97,70 +96,193 @@ msgstr "Совместим серверами L2TP VPN."
 #: ../properties/nm-l2tp.c:187
 #, c-format
 msgid "%s: error reading advanced settings: %s"
-msgstr ""
+msgstr "%s: при чтении дополнительных настроек произошла ошибка: %s"
 
 #: ../properties/nm-l2tp.c:211
 #, c-format
 msgid "%s: error reading ipsec settings: %s"
-msgstr ""
+msgstr "%s: при чтении настроек ipsec произошла ошибка: %s"
 
 #: ../properties/nm-l2tp.c:232
 #, c-format
 msgid "%s: failed to create the Advanced dialog!"
-msgstr ""
+msgstr "%s: не удалось создать диалог Дополнительных настроек!"
 
 #: ../properties/nm-l2tp.c:262
 #, c-format
 msgid "%s: failed to create the IPSEC dialog!"
-msgstr ""
+msgstr "%s: не удалось создать диалог настроек IPSEC!"
 
 #: ../properties/nm-l2tp.c:381
 msgid "Saved"
-msgstr ""
+msgstr "Сохранено"
 
 #: ../properties/nm-l2tp.c:389
 msgid "Always Ask"
-msgstr ""
+msgstr "Всегда спрашивать"
 
 #: ../properties/nm-l2tp.c:394
 msgid "Not Required"
-msgstr ""
+msgstr "Не требуется"
 
 #: ../properties/nm-l2tp.c:614
 #, c-format
 msgid "could not create l2tp object"
-msgstr ""
+msgstr "не могу создать l2tp объект"
 
 #: ../properties/nm-l2tp.c:626
 #, c-format
 msgid "Couldn't load builder file: %s"
-msgstr ""
+msgstr "Не могу загрузить файл GTK-билдера: %s"
 
 #: ../properties/nm-l2tp.c:630
 #, c-format
 msgid "could not load required resources at %s"
-msgstr ""
+msgstr "не могу загрузить требуемые ресурсы из %s"
 
 #: ../properties/nm-l2tp.c:640
 #, c-format
 msgid "could not load UI widget"
-msgstr ""
+msgstr "не могу загрузить виджет"
 
-#: ../properties/nm-l2tp.c:735 ../properties/nm-l2tp.c:743
+#: ../properties/nm-l2tp.c:735
+#: ../properties/nm-l2tp.c:743
 #, c-format
 msgid "unknown L2TP file extension"
-msgstr ""
+msgstr "неизвестное расширение L2TP файла"
 
 #: ../properties/nm-l2tp.c:755
 #, c-format
 msgid "not a valid L2TP configuration file"
+msgstr "неправильный L2TP конфигурационный файл"
+
+#: ../properties/nm-l2tp-dialog.ui.h:1
+msgid "<b>Authentication</b>"
+msgstr "<b>Аутентификация</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:2
+msgid "<b>Echo</b>"
+msgstr "<b>Эхо</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:3
+msgid "<b>General</b>"
+msgstr "<b>Общие</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:4
+msgid "<b>Optional</b>"
+msgstr "<b>Дополнительные</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:5
+msgid "<b>Security and Compression</b>"
+msgstr "<b>Шифрование и сжатие</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:6
+msgid "Allow _BSD data compression"
+msgstr "Включить компрессию _BSD"
+
+#: ../properties/nm-l2tp-dialog.ui.h:7
+msgid "Allow _Deflate data compression"
+msgstr "Включить компрессию _Deflate"
+
+#: ../properties/nm-l2tp-dialog.ui.h:8
+msgid "Allow st_ateful encryption"
+msgstr "Включить _Stateful Encryption"
+
+#: ../properties/nm-l2tp-dialog.ui.h:9
+msgid "Allow the following authentication methods:"
+msgstr "Разрешить следующие методы аутентификации:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:10
+msgid "Default"
+msgstr "По умолчанию"
+
+#: ../properties/nm-l2tp-dialog.ui.h:11
+#, fuzzy
+msgid "Gateway ID:"
+msgstr "_Шлюз:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:12
+msgid "Group Name:"
+msgstr "Название Группы"
+
+#: ../properties/nm-l2tp-dialog.ui.h:13
+#, fuzzy
+msgid "L2TP IPSEC Options"
+msgstr "Дополнительные параметры L2TP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:14
+#, fuzzy
+msgid "L2TP PPP Options"
+msgstr "Дополнительные параметры L2TP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:15
+msgid "NT Domain:"
+msgstr "NT-домен:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:16
+msgid "Note: MPPE encryption is only available with MSCHAP authentication methods. To enable this checkbox, select one or more of the MSCHAP authentication methods: MSCHAP or MSCHAPv2."
+msgstr "Замечание: Шифрование MPPE доступно только с методами аутентификации MSCHAP. Чтобы включить данный пункт, выберите один или более методов аутентификации MSCHAP: MSCHAP или MSCHAPv2."
+
+#: ../properties/nm-l2tp-dialog.ui.h:17
+msgid "PPP Se_ttings..."
+msgstr "Настройки PPP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:18
+msgid "Password:"
+msgstr "Пароль:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Pre-shared key:"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:20
+msgid "Send PPP _echo packets"
+msgstr "Посылать _эхо-пакеты PPP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:21
+msgid "Show password"
+msgstr "Показать пароль"
+
+#: ../properties/nm-l2tp-dialog.ui.h:22
+msgid "Use TCP _header compression"
+msgstr "Использовать сжатие _заголовков TCP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:23
+msgid "Use _Address/Control compression"
+msgstr "Использовать сжатие Address/Control"
+
+#: ../properties/nm-l2tp-dialog.ui.h:24
+msgid "Use _Point-to-Point encryption (MPPE)"
+msgstr "Использовать шифрование _MPPE"
+
+#: ../properties/nm-l2tp-dialog.ui.h:25
+#, fuzzy
+msgid "Use protocol _field compression negotiation"
+msgstr "Использовать protocol _field compression negotiation"
+
+#: ../properties/nm-l2tp-dialog.ui.h:26
+msgid "User name:"
+msgstr "Имя пользователя:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:27
+msgid "_Enable IPsec tunnel to L2TP host"
+msgstr "Включить IPsec туннель к L2TP хосту"
+
+#: ../properties/nm-l2tp-dialog.ui.h:28
+msgid "_Gateway:"
+msgstr "_Шлюз:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:29
+msgid "_IPsec Settings..."
+msgstr "Настройки IPsec"
+
+#: ../properties/nm-l2tp-dialog.ui.h:30
+msgid "_Security:"
+msgstr "_Шифрование:"
 
 #: ../src/nm-l2tp-service.c:159
 #, c-format
-msgid ""
-"Could not get the system bus.  Make sure the message bus daemon is running!  "
-"Message: %s"
+msgid "Could not get the system bus.  Make sure the message bus daemon is running!  Message: %s"
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:181
@@ -360,9 +482,7 @@ msgid "Enable verbose debug logging (may expose passwords)"
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:1566
-msgid ""
-"nm-l2tp-service provides L2TP VPN capability with optional IPSec support to "
-"NetworkManager."
+msgid "nm-l2tp-service provides L2TP VPN capability with optional IPSec support to NetworkManager."
 msgstr ""
 
 #~ msgid "_Username:"
@@ -383,74 +503,5 @@ msgstr ""
 #~ msgid "_Save passwords in keyring"
 #~ msgstr "_Сохранить пароль на брелоке"
 
-#~ msgid "<b>Authentication</b>"
-#~ msgstr "<b>Аутентификация</b>"
-
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>Эхо</b>"
-
-#~ msgid "<b>General</b>"
-#~ msgstr "<b>Общие</b>"
-
-#~ msgid "<b>Optional</b>"
-#~ msgstr "<b>Дополнительные</b>"
-
-#~ msgid "<b>Security and Compression</b>"
-#~ msgstr "<b>Шифрование и сжатие</b>"
-
 #~ msgid "Ad_vanced..."
 #~ msgstr "_Дополнительно..."
-
-#~ msgid "Allow _BSD data compression"
-#~ msgstr "Включить компрессию _BSD"
-
-#~ msgid "Allow _Deflate data compression"
-#~ msgstr "Включить компрессию _Deflate"
-
-#~ msgid "Allow st_ateful encryption"
-#~ msgstr "Включить _Stateful Encryption"
-
-#~ msgid "Allow the following authentication methods:"
-#~ msgstr "Разрешить следующие методы аутентификации:"
-
-#~ msgid "Default"
-#~ msgstr "По умолчанию"
-
-#~ msgid "L2TP Advanced Options"
-#~ msgstr "Дополнительные параметры L2TP"
-
-#~ msgid "NT Domain:"
-#~ msgstr "NT-домен:"
-
-#~ msgid ""
-#~ "Note: MPPE encryption is only available with MSCHAP authentication "
-#~ "methods. To enable this checkbox, select one or more of the MSCHAP "
-#~ "authentication methods: MSCHAP or MSCHAPv2."
-#~ msgstr ""
-#~ "Замечание: Шифрование MPPE доступно только с методами аутентификации "
-#~ "MSCHAP. Чтобы включить данный пункт, выберите один или более методов "
-#~ "аутентификации MSCHAP: MSCHAP или MSCHAPv2."
-
-#~ msgid "Password:"
-#~ msgstr "Пароль:"
-
-#~ msgid "Send PPP _echo packets"
-#~ msgstr "Посылать _эхо-пакеты PPP"
-
-#~ msgid "Use TCP _header compression"
-#~ msgstr "Использовать сжатие _заголовков TCP"
-
-#~ msgid "Use _Address/Control compression"
-#~ msgstr "Использовать сжатие Address/Control"
-
-#~ msgid "Use _Point-to-Point encryption (MPPE)"
-#~ msgstr "Использовать шифрование _MPPE"
-
-#~ msgid "User name:"
-#~ msgstr "Имя пользователя:"
-
-#~ msgid "_Gateway:"
-#~ msgstr "_Шлюз:"
-
-#~ msgid "_Security:"
-#~ msgstr "_Шифрование:"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-ppp_vpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 02:16+0400\n"
+"POT-Creation-Date: 2012-02-16 03:21+0400\n"
 "PO-Revision-Date: 2007-01-30 12:01+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <l10n@opentle.org>\n"
@@ -153,6 +153,145 @@ msgstr ""
 #: ../properties/nm-l2tp.c:755
 #, c-format
 msgid "not a valid L2TP configuration file"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:1
+#, fuzzy
+msgid "<b>Authentication</b>"
+msgstr "การยืนยันตัวบุคคล"
+
+#: ../properties/nm-l2tp-dialog.ui.h:2
+#, fuzzy
+msgid "<b>Echo</b>"
+msgstr "<b>การเข้ารหัสลับ</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:3
+msgid "<b>General</b>"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:4
+#, fuzzy
+msgid "<b>Optional</b>"
+msgstr "<b>ตัวเลือกเกี่ยวกับ IP</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:5
+#, fuzzy
+msgid "<b>Security and Compression</b>"
+msgstr "<b>การบีบอัด</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:6
+#, fuzzy
+msgid "Allow _BSD data compression"
+msgstr "เปิดใช้การบีบอัดแบบ BSD"
+
+#: ../properties/nm-l2tp-dialog.ui.h:7
+#, fuzzy
+msgid "Allow _Deflate data compression"
+msgstr "เปิดใช้การบีบอัดแบบ Deflate"
+
+#: ../properties/nm-l2tp-dialog.ui.h:8
+msgid "Allow st_ateful encryption"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:9
+msgid "Allow the following authentication methods:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:10
+msgid "Default"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:11
+#, fuzzy
+msgid "Gateway ID:"
+msgstr "เ_กตเวย์:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:12
+msgid "Group Name:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:13
+#, fuzzy
+msgid "L2TP IPSEC Options"
+msgstr "ตัวเลือก PPP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:14
+#, fuzzy
+msgid "L2TP PPP Options"
+msgstr "ตัวเลือก PPP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:15
+#, fuzzy
+msgid "NT Domain:"
+msgstr "โ_ดเมน:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:16
+msgid ""
+"Note: MPPE encryption is only available with MSCHAP authentication methods. "
+"To enable this checkbox, select one or more of the MSCHAP authentication "
+"methods: MSCHAP or MSCHAPv2."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:17
+msgid "PPP Se_ttings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:18
+#, fuzzy
+msgid "Password:"
+msgstr "_รหัสผ่าน:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Pre-shared key:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:20
+msgid "Send PPP _echo packets"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:21
+#, fuzzy
+msgid "Show password"
+msgstr "_รหัสผ่าน:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:22
+#, fuzzy
+msgid "Use TCP _header compression"
+msgstr "ใช้การบีบอัด MPPC"
+
+#: ../properties/nm-l2tp-dialog.ui.h:23
+#, fuzzy
+msgid "Use _Address/Control compression"
+msgstr "ใช้การบีบอัด MPPC"
+
+#: ../properties/nm-l2tp-dialog.ui.h:24
+#, fuzzy
+msgid "Use _Point-to-Point encryption (MPPE)"
+msgstr "ใช้การเข้ารหัสลับ MPPE"
+
+#: ../properties/nm-l2tp-dialog.ui.h:25
+msgid "Use protocol _field compression negotiation"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:26
+#, fuzzy
+msgid "User name:"
+msgstr "_ชื่อผู้ใช้:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:27
+msgid "_Enable IPsec tunnel to L2TP host"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:28
+msgid "_Gateway:"
+msgstr "เ_กตเวย์:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:29
+msgid "_IPsec Settings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:30
+msgid "_Security:"
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:159
@@ -399,9 +538,6 @@ msgstr ""
 #~ msgid "_Remote name:"
 #~ msgstr "ชื่อที่ฝั่งโ_น้น:"
 
-#~ msgid "_Username:"
-#~ msgstr "_ชื่อผู้ใช้:"
-
 #~ msgid "auth-chap-window"
 #~ msgstr "auth-chap-window"
 
@@ -410,9 +546,6 @@ msgstr ""
 
 #~ msgid "auth-none-window"
 #~ msgstr "auth-none-window"
-
-#~ msgid "_Domain:"
-#~ msgstr "โ_ดเมน:"
 
 #~ msgid "Connect _anonymously"
 #~ msgstr "เชื่อมต่อแบบ_นิรนาม"
@@ -432,20 +565,11 @@ msgstr ""
 #~ msgid "00:00:00:00"
 #~ msgstr "00:00:00:00"
 
-#~ msgid "<b>Compression</b>"
-#~ msgstr "<b>การบีบอัด</b>"
-
 #~ msgid "<b>Connection Name</b>"
 #~ msgstr "<b>ชื่อการเชื่อมต่อ</b>"
 
 #~ msgid "<b>Delays and TImeouts</b>"
 #~ msgstr "<b>การหน่วงเวลาและกำหนดเวลาคอย</b>"
-
-#~ msgid "<b>Encryption</b>"
-#~ msgstr "<b>การเข้ารหัสลับ</b>"
-
-#~ msgid "<b>IP Options</b>"
-#~ msgstr "<b>ตัวเลือกเกี่ยวกับ IP</b>"
 
 #~ msgid "<b>Packet Parameters</b>"
 #~ msgstr "<b>พารามิเตอร์ของแพ็กเก็ต</b>"
@@ -456,15 +580,6 @@ msgstr ""
 #~ msgid ""
 #~ "A list of extra options to pppd as would be typed on the command line"
 #~ msgstr "รายการตัวเลือกเพิ่มเติมสำหรับ pppd ตามที่จะส่งในบรรทัดคำสั่ง"
-
-#~ msgid "Allow BSD Compression"
-#~ msgstr "เปิดใช้การบีบอัดแบบ BSD"
-
-#~ msgid "Allow Deflate compression"
-#~ msgstr "เปิดใช้การบีบอัดแบบ Deflate"
-
-#~ msgid "Authentication"
-#~ msgstr "การยืนยันตัวบุคคล"
 
 #~ msgid "Compression & Encryption"
 #~ msgstr "การบีบอัด & การเข้ารหัสลับ"
@@ -522,9 +637,6 @@ msgstr ""
 
 #~ msgid "Modem Connection"
 #~ msgstr "เชื่อมต่อด้วยโมเด็ม"
-
-#~ msgid "PPP Options"
-#~ msgstr "ตัวเลือก PPP"
 
 #~ msgid "Peer DNS through tunnel"
 #~ msgstr "ใช้ DNS จากอีกฝั่งผ่าน tunnel"
@@ -632,9 +744,6 @@ msgstr ""
 #~ msgid "_Device Address:"
 #~ msgstr "ที่อยู่_อุปกรณ์:"
 
-#~ msgid "_Gateway:"
-#~ msgstr "เ_กตเวย์:"
-
 #~ msgid "_IP Address:"
 #~ msgstr "ที่อยู่ _IP:"
 
@@ -692,14 +801,8 @@ msgstr ""
 #~ msgid "Require IP to be provided"
 #~ msgstr "ต้องมีการกำหนด IP มาให้"
 
-#~ msgid "Use MPPE encryption"
-#~ msgstr "ใช้การเข้ารหัสลับ MPPE"
-
 #~ msgid "Use 128 bit MPPE encryption"
 #~ msgstr "ใช้การเข้ารหัสลับ MPPE 128 บิต"
-
-#~ msgid "Use MPPC compression"
-#~ msgstr "ใช้การบีบอัด MPPC"
 
 #~ msgid "Do not use deflate compression"
 #~ msgstr "ไม่ใช้การบีบอัดแบบ deflate"

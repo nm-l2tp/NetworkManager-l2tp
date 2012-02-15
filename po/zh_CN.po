@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 02:16+0400\n"
+"POT-Creation-Date: 2012-02-16 03:21+0400\n"
 "PO-Revision-Date: 2009-02-18 14:59+0800\n"
 "Last-Translator: Wei Mingzhi <whistler@openoffice.org>\n"
 "Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
@@ -152,6 +152,134 @@ msgstr ""
 #, c-format
 msgid "not a valid L2TP configuration file"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:1
+msgid "<b>Authentication</b>"
+msgstr "<b>身份验证</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:2
+msgid "<b>Echo</b>"
+msgstr "<b>回响</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:3
+msgid "<b>General</b>"
+msgstr "<b>一般</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:4
+msgid "<b>Optional</b>"
+msgstr "<b>可选项</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:5
+msgid "<b>Security and Compression</b>"
+msgstr "<b>安全性及压缩</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:6
+msgid "Allow _BSD data compression"
+msgstr "允许 _BSD 数据压缩"
+
+#: ../properties/nm-l2tp-dialog.ui.h:7
+msgid "Allow _Deflate data compression"
+msgstr "允许 _Deflate 数据压缩"
+
+#: ../properties/nm-l2tp-dialog.ui.h:8
+msgid "Allow st_ateful encryption"
+msgstr "允许有状态的加密(_A)"
+
+#: ../properties/nm-l2tp-dialog.ui.h:9
+msgid "Allow the following authentication methods:"
+msgstr "允许以下认证方法:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:10
+msgid "Default"
+msgstr "默认"
+
+#: ../properties/nm-l2tp-dialog.ui.h:11
+#, fuzzy
+msgid "Gateway ID:"
+msgstr "网关(_G)："
+
+#: ../properties/nm-l2tp-dialog.ui.h:12
+msgid "Group Name:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:13
+#, fuzzy
+msgid "L2TP IPSEC Options"
+msgstr "PPP 选项"
+
+#: ../properties/nm-l2tp-dialog.ui.h:14
+#, fuzzy
+msgid "L2TP PPP Options"
+msgstr "PPP 选项"
+
+#: ../properties/nm-l2tp-dialog.ui.h:15
+msgid "NT Domain:"
+msgstr "NT 域:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:16
+msgid ""
+"Note: MPPE encryption is only available with MSCHAP authentication methods. "
+"To enable this checkbox, select one or more of the MSCHAP authentication "
+"methods: MSCHAP or MSCHAPv2."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:17
+msgid "PPP Se_ttings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:18
+msgid "Password:"
+msgstr "密码:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Pre-shared key:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:20
+msgid "Send PPP _echo packets"
+msgstr "发送 PPP 回响包(_E)"
+
+#: ../properties/nm-l2tp-dialog.ui.h:21
+#, fuzzy
+msgid "Show password"
+msgstr "显示密码"
+
+#: ../properties/nm-l2tp-dialog.ui.h:22
+msgid "Use TCP _header compression"
+msgstr "使用 TCP 头压缩(_H)"
+
+#: ../properties/nm-l2tp-dialog.ui.h:23
+#, fuzzy
+msgid "Use _Address/Control compression"
+msgstr "使用 TCP 头压缩(_H)"
+
+#: ../properties/nm-l2tp-dialog.ui.h:24
+msgid "Use _Point-to-Point encryption (MPPE)"
+msgstr "使用点到点加密(MPPE)(_P)"
+
+#: ../properties/nm-l2tp-dialog.ui.h:25
+msgid "Use protocol _field compression negotiation"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:26
+msgid "User name:"
+msgstr "用户名(_U):"
+
+#: ../properties/nm-l2tp-dialog.ui.h:27
+msgid "_Enable IPsec tunnel to L2TP host"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:28
+msgid "_Gateway:"
+msgstr "网关(_G)："
+
+#: ../properties/nm-l2tp-dialog.ui.h:29
+msgid "_IPsec Settings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:30
+msgid "_Security:"
+msgstr "安全性(_S):"
 
 #: ../src/nm-l2tp-service.c:159
 #, c-format
@@ -380,62 +508,8 @@ msgstr ""
 #~ msgid "_Save passwords in keyring"
 #~ msgstr "在密钥环中保存密码(_S)"
 
-#~ msgid "<b>Authentication</b>"
-#~ msgstr "<b>身份验证</b>"
-
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>回响</b>"
-
-#~ msgid "<b>General</b>"
-#~ msgstr "<b>一般</b>"
-
-#~ msgid "<b>Optional</b>"
-#~ msgstr "<b>可选项</b>"
-
-#~ msgid "<b>Security and Compression</b>"
-#~ msgstr "<b>安全性及压缩</b>"
-
 #~ msgid "Ad_vanced..."
 #~ msgstr "高级(_V)..."
-
-#~ msgid "Allow _BSD data compression"
-#~ msgstr "允许 _BSD 数据压缩"
-
-#~ msgid "Allow _Deflate data compression"
-#~ msgstr "允许 _Deflate 数据压缩"
-
-#~ msgid "Allow st_ateful encryption"
-#~ msgstr "允许有状态的加密(_A)"
-
-#~ msgid "Allow the following authentication methods:"
-#~ msgstr "允许以下认证方法:"
-
-#~ msgid "Default"
-#~ msgstr "默认"
-
-#~ msgid "NT Domain:"
-#~ msgstr "NT 域:"
-
-#~ msgid "Password:"
-#~ msgstr "密码:"
-
-#~ msgid "Send PPP _echo packets"
-#~ msgstr "发送 PPP 回响包(_E)"
-
-#~ msgid "Use TCP _header compression"
-#~ msgstr "使用 TCP 头压缩(_H)"
-
-#~ msgid "Use _Point-to-Point encryption (MPPE)"
-#~ msgstr "使用点到点加密(MPPE)(_P)"
-
-#~ msgid "User name:"
-#~ msgstr "用户名(_U):"
-
-#~ msgid "_Gateway:"
-#~ msgstr "网关(_G)："
-
-#~ msgid "_Security:"
-#~ msgstr "安全性(_S):"
 
 #~ msgid "Authentication Type:"
 #~ msgstr "身份验证类型："
@@ -525,9 +599,6 @@ msgstr ""
 
 #~ msgid "IP a_ddress:"
 #~ msgstr "IP 地址(_D)："
-
-#~ msgid "PPP Options"
-#~ msgstr "PPP 选项"
 
 #~ msgid "Refuse _EAP"
 #~ msgstr "拒绝 _EAP"

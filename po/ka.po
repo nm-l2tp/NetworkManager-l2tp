@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 02:16+0400\n"
+"POT-Creation-Date: 2012-02-16 03:21+0400\n"
 "PO-Revision-Date: 2007-03-07 01:12+0100\n"
 "Last-Translator: Vladimer Sichinava ვლადიმერ სიჭინავა <vsichi@gnome.org>\n"
 "Language-Team: Georgian <http://mail.gnome.org/mailman/listinfo/gnome-ge-"
@@ -154,6 +154,145 @@ msgstr ""
 #: ../properties/nm-l2tp.c:755
 #, c-format
 msgid "not a valid L2TP configuration file"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:1
+#, fuzzy
+msgid "<b>Authentication</b>"
+msgstr "აუთენტიფიკაცია"
+
+#: ../properties/nm-l2tp-dialog.ui.h:2
+#, fuzzy
+msgid "<b>Echo</b>"
+msgstr "<b>შიფრვა</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:3
+msgid "<b>General</b>"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:4
+#, fuzzy
+msgid "<b>Optional</b>"
+msgstr "<b>IP პარამეტრები</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:5
+#, fuzzy
+msgid "<b>Security and Compression</b>"
+msgstr "<b>კუმშვა</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:6
+#, fuzzy
+msgid "Allow _BSD data compression"
+msgstr "BSD კუმშვის დაშვება"
+
+#: ../properties/nm-l2tp-dialog.ui.h:7
+#, fuzzy
+msgid "Allow _Deflate data compression"
+msgstr "Deflate კუმშვის დაშვება"
+
+#: ../properties/nm-l2tp-dialog.ui.h:8
+msgid "Allow st_ateful encryption"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:9
+msgid "Allow the following authentication methods:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:10
+msgid "Default"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:11
+#, fuzzy
+msgid "Gateway ID:"
+msgstr "_კარიბჭე:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:12
+msgid "Group Name:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:13
+#, fuzzy
+msgid "L2TP IPSEC Options"
+msgstr "PPP პარამეტრები"
+
+#: ../properties/nm-l2tp-dialog.ui.h:14
+#, fuzzy
+msgid "L2TP PPP Options"
+msgstr "PPP პარამეტრები"
+
+#: ../properties/nm-l2tp-dialog.ui.h:15
+#, fuzzy
+msgid "NT Domain:"
+msgstr "_დომენი:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:16
+msgid ""
+"Note: MPPE encryption is only available with MSCHAP authentication methods. "
+"To enable this checkbox, select one or more of the MSCHAP authentication "
+"methods: MSCHAP or MSCHAPv2."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:17
+msgid "PPP Se_ttings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:18
+#, fuzzy
+msgid "Password:"
+msgstr "_პაროლი:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Pre-shared key:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:20
+msgid "Send PPP _echo packets"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:21
+#, fuzzy
+msgid "Show password"
+msgstr "_პაროლი:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:22
+#, fuzzy
+msgid "Use TCP _header compression"
+msgstr "MPPC-კუმშვის გამოყენება"
+
+#: ../properties/nm-l2tp-dialog.ui.h:23
+#, fuzzy
+msgid "Use _Address/Control compression"
+msgstr "MPPC-კუმშვის გამოყენება"
+
+#: ../properties/nm-l2tp-dialog.ui.h:24
+#, fuzzy
+msgid "Use _Point-to-Point encryption (MPPE)"
+msgstr "MPPE-შიფრვა"
+
+#: ../properties/nm-l2tp-dialog.ui.h:25
+msgid "Use protocol _field compression negotiation"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:26
+#, fuzzy
+msgid "User name:"
+msgstr "_მომხმარებელი:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:27
+msgid "_Enable IPsec tunnel to L2TP host"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:28
+msgid "_Gateway:"
+msgstr "_კარიბჭე:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:29
+msgid "_IPsec Settings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:30
+msgid "_Security:"
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:159
@@ -400,9 +539,6 @@ msgstr ""
 #~ msgid "_Remote name:"
 #~ msgstr "_სერვერის სახელი:"
 
-#~ msgid "_Username:"
-#~ msgstr "_მომხმარებელი:"
-
 #~ msgid "auth-chap-window"
 #~ msgstr "auth-chap-window"
 
@@ -411,9 +547,6 @@ msgstr ""
 
 #~ msgid "auth-none-window"
 #~ msgstr "auth-none-window"
-
-#~ msgid "_Domain:"
-#~ msgstr "_დომენი:"
 
 #~ msgid "Connect _anonymously"
 #~ msgstr "_ანონიმური დაკავშირება"
@@ -433,20 +566,11 @@ msgstr ""
 #~ msgid "00:00:00:00"
 #~ msgstr "00:00:00:00"
 
-#~ msgid "<b>Compression</b>"
-#~ msgstr "<b>კუმშვა</b>"
-
 #~ msgid "<b>Connection Name</b>"
 #~ msgstr "<b>შეერთების სახელი</b>"
 
 #~ msgid "<b>Delays and TImeouts</b>"
 #~ msgstr "<b>დაყოვნებები და ლოდინის დრო</b>"
-
-#~ msgid "<b>Encryption</b>"
-#~ msgstr "<b>შიფრვა</b>"
-
-#~ msgid "<b>IP Options</b>"
-#~ msgstr "<b>IP პარამეტრები</b>"
 
 #~ msgid "<b>Packet Parameters</b>"
 #~ msgstr "<b>პაკეტ-პარამეტრები</b>"
@@ -457,15 +581,6 @@ msgstr ""
 #~ msgid ""
 #~ "A list of extra options to pppd as would be typed on the command line"
 #~ msgstr "pppd-ს დამატებითი პარამეტრები, რომელიც აიკრიფება კონსოლში"
-
-#~ msgid "Allow BSD Compression"
-#~ msgstr "BSD კუმშვის დაშვება"
-
-#~ msgid "Allow Deflate compression"
-#~ msgstr "Deflate კუმშვის დაშვება"
-
-#~ msgid "Authentication"
-#~ msgstr "აუთენტიფიკაცია"
 
 #~ msgid "Compression & Encryption"
 #~ msgstr "კუმშვა და შიფრვა"
@@ -524,9 +639,6 @@ msgstr ""
 
 #~ msgid "Modem Connection"
 #~ msgstr "მოდემით შეერთება"
-
-#~ msgid "PPP Options"
-#~ msgstr "PPP პარამეტრები"
 
 #~ msgid "Peer DNS through tunnel"
 #~ msgstr "Peer DNS ტუნელინგის მეშვეობით"
@@ -634,9 +746,6 @@ msgstr ""
 #~ msgid "_Device Address:"
 #~ msgstr "_მოწყობილობის მისამართი:"
 
-#~ msgid "_Gateway:"
-#~ msgstr "_კარიბჭე:"
-
 #~ msgid "_IP Address:"
 #~ msgstr "_IP მისამართი:"
 
@@ -694,14 +803,8 @@ msgstr ""
 #~ msgid "Require IP to be provided"
 #~ msgstr "მიუთითეთ IP"
 
-#~ msgid "Use MPPE encryption"
-#~ msgstr "MPPE-შიფრვა"
-
 #~ msgid "Use 128 bit MPPE encryption"
 #~ msgstr "128-ბიტიანი MPPE-შიფრვა"
-
-#~ msgid "Use MPPC compression"
-#~ msgstr "MPPC-კუმშვის გამოყენება"
 
 #~ msgid "Do not use deflate compression"
 #~ msgstr "deflate-კუმშვის აკრძალვა"

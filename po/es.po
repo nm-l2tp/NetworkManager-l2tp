@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 02:16+0400\n"
+"POT-Creation-Date: 2012-02-16 03:21+0400\n"
 "PO-Revision-Date: 2009-10-27 23:56+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
@@ -156,6 +156,137 @@ msgstr ""
 #, c-format
 msgid "not a valid L2TP configuration file"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:1
+msgid "<b>Authentication</b>"
+msgstr "<b>Autenticación</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:2
+msgid "<b>Echo</b>"
+msgstr "<b>Eco</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:3
+msgid "<b>General</b>"
+msgstr "<b>General</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:4
+msgid "<b>Optional</b>"
+msgstr "<b>Opcional</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:5
+msgid "<b>Security and Compression</b>"
+msgstr "<b>Seguridad y compresión</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:6
+msgid "Allow _BSD data compression"
+msgstr "Permitir compresión de datos _BSD"
+
+#: ../properties/nm-l2tp-dialog.ui.h:7
+msgid "Allow _Deflate data compression"
+msgstr "Permitir compresión de datos _Deflate"
+
+#: ../properties/nm-l2tp-dialog.ui.h:8
+msgid "Allow st_ateful encryption"
+msgstr "Permitir cifrado de est_ado completo"
+
+#: ../properties/nm-l2tp-dialog.ui.h:9
+msgid "Allow the following authentication methods:"
+msgstr "Permitir los siguientes métodos de autenticación:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:10
+msgid "Default"
+msgstr "Predeterminado"
+
+#: ../properties/nm-l2tp-dialog.ui.h:11
+#, fuzzy
+msgid "Gateway ID:"
+msgstr "_Pasarela:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:12
+msgid "Group Name:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:13
+#, fuzzy
+msgid "L2TP IPSEC Options"
+msgstr "Opciones avanzadas de L2TP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:14
+#, fuzzy
+msgid "L2TP PPP Options"
+msgstr "Opciones avanzadas de L2TP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:15
+msgid "NT Domain:"
+msgstr "Dominio de red:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:16
+msgid ""
+"Note: MPPE encryption is only available with MSCHAP authentication methods. "
+"To enable this checkbox, select one or more of the MSCHAP authentication "
+"methods: MSCHAP or MSCHAPv2."
+msgstr ""
+"Nota: el cifrado MPPE sólo está disponible con los métodos de autenticación "
+"MSCHAP. Para activar esta casilla de selección seleccione uno o más métodos "
+"de autenticación MSCHAP: MSCHAP o MSCHAPv2."
+
+#: ../properties/nm-l2tp-dialog.ui.h:17
+msgid "PPP Se_ttings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:18
+msgid "Password:"
+msgstr "Contraseña:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Pre-shared key:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:20
+msgid "Send PPP _echo packets"
+msgstr "Mandar paquetes _eco PPP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:21
+#, fuzzy
+msgid "Show password"
+msgstr "Mostrar contraseña"
+
+#: ../properties/nm-l2tp-dialog.ui.h:22
+msgid "Use TCP _header compression"
+msgstr "Usar compresión de _cabeceras TCP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:23
+#, fuzzy
+msgid "Use _Address/Control compression"
+msgstr "Usar compresión de _cabeceras TCP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:24
+msgid "Use _Point-to-Point encryption (MPPE)"
+msgstr "Usar cifrado pun_to a punto (MPPE)"
+
+#: ../properties/nm-l2tp-dialog.ui.h:25
+msgid "Use protocol _field compression negotiation"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:26
+msgid "User name:"
+msgstr "Usuario:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:27
+msgid "_Enable IPsec tunnel to L2TP host"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:28
+msgid "_Gateway:"
+msgstr "_Pasarela:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:29
+msgid "_IPsec Settings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:30
+msgid "_Security:"
+msgstr "_Seguridad:"
 
 #: ../src/nm-l2tp-service.c:159
 #, c-format
@@ -384,74 +515,8 @@ msgstr ""
 #~ msgid "_Save passwords in keyring"
 #~ msgstr "_Guardar las contraseña en el depósito de claves"
 
-#~ msgid "<b>Authentication</b>"
-#~ msgstr "<b>Autenticación</b>"
-
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>Eco</b>"
-
-#~ msgid "<b>General</b>"
-#~ msgstr "<b>General</b>"
-
-#~ msgid "<b>Optional</b>"
-#~ msgstr "<b>Opcional</b>"
-
-#~ msgid "<b>Security and Compression</b>"
-#~ msgstr "<b>Seguridad y compresión</b>"
-
 #~ msgid "Ad_vanced..."
 #~ msgstr "A_vanzado..."
-
-#~ msgid "Allow _BSD data compression"
-#~ msgstr "Permitir compresión de datos _BSD"
-
-#~ msgid "Allow _Deflate data compression"
-#~ msgstr "Permitir compresión de datos _Deflate"
-
-#~ msgid "Allow st_ateful encryption"
-#~ msgstr "Permitir cifrado de est_ado completo"
-
-#~ msgid "Allow the following authentication methods:"
-#~ msgstr "Permitir los siguientes métodos de autenticación:"
-
-#~ msgid "Default"
-#~ msgstr "Predeterminado"
-
-#~ msgid "NT Domain:"
-#~ msgstr "Dominio de red:"
-
-#~ msgid ""
-#~ "Note: MPPE encryption is only available with MSCHAP authentication "
-#~ "methods. To enable this checkbox, select one or more of the MSCHAP "
-#~ "authentication methods: MSCHAP or MSCHAPv2."
-#~ msgstr ""
-#~ "Nota: el cifrado MPPE sólo está disponible con los métodos de "
-#~ "autenticación MSCHAP. Para activar esta casilla de selección seleccione "
-#~ "uno o más métodos de autenticación MSCHAP: MSCHAP o MSCHAPv2."
-
-#~ msgid "L2TP Advanced Options"
-#~ msgstr "Opciones avanzadas de L2TP"
-
-#~ msgid "Password:"
-#~ msgstr "Contraseña:"
-
-#~ msgid "Send PPP _echo packets"
-#~ msgstr "Mandar paquetes _eco PPP"
-
-#~ msgid "Use TCP _header compression"
-#~ msgstr "Usar compresión de _cabeceras TCP"
-
-#~ msgid "Use _Point-to-Point encryption (MPPE)"
-#~ msgstr "Usar cifrado pun_to a punto (MPPE)"
-
-#~ msgid "User name:"
-#~ msgstr "Usuario:"
-
-#~ msgid "_Gateway:"
-#~ msgstr "_Pasarela:"
-
-#~ msgid "_Security:"
-#~ msgstr "_Seguridad:"
 
 #~ msgid "gtk-cancel"
 #~ msgstr "gtk-cancel"

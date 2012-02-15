@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-torrent\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 02:16+0400\n"
+"POT-Creation-Date: 2012-02-16 03:21+0400\n"
 "PO-Revision-Date: 2006-12-28 18:55-0000\n"
 "Last-Translator: David Lodge <dave@cirt.net>\n"
 "Language-Team: en_GB <en@li.org>\n"
@@ -154,6 +154,146 @@ msgstr ""
 #: ../properties/nm-l2tp.c:755
 #, c-format
 msgid "not a valid L2TP configuration file"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:1
+#, fuzzy
+msgid "<b>Authentication</b>"
+msgstr "Authentication"
+
+#: ../properties/nm-l2tp-dialog.ui.h:2
+#, fuzzy
+msgid "<b>Echo</b>"
+msgstr "<b>Encryption</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:3
+msgid "<b>General</b>"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:4
+#, fuzzy
+msgid "<b>Optional</b>"
+msgstr "<b>IP Options</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:5
+#, fuzzy
+msgid "<b>Security and Compression</b>"
+msgstr "<b>Compression</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:6
+#, fuzzy
+msgid "Allow _BSD data compression"
+msgstr "Allow _Deflate compression"
+
+#: ../properties/nm-l2tp-dialog.ui.h:7
+#, fuzzy
+msgid "Allow _Deflate data compression"
+msgstr "Allow _Deflate compression"
+
+#: ../properties/nm-l2tp-dialog.ui.h:8
+#, fuzzy
+msgid "Allow st_ateful encryption"
+msgstr "Allow _Deflate compression"
+
+#: ../properties/nm-l2tp-dialog.ui.h:9
+msgid "Allow the following authentication methods:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:10
+msgid "Default"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:11
+#, fuzzy
+msgid "Gateway ID:"
+msgstr "_Gateway:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:12
+msgid "Group Name:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:13
+#, fuzzy
+msgid "L2TP IPSEC Options"
+msgstr "PPP Options"
+
+#: ../properties/nm-l2tp-dialog.ui.h:14
+#, fuzzy
+msgid "L2TP PPP Options"
+msgstr "PPP Options"
+
+#: ../properties/nm-l2tp-dialog.ui.h:15
+#, fuzzy
+msgid "NT Domain:"
+msgstr "_Domain:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:16
+msgid ""
+"Note: MPPE encryption is only available with MSCHAP authentication methods. "
+"To enable this checkbox, select one or more of the MSCHAP authentication "
+"methods: MSCHAP or MSCHAPv2."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:17
+msgid "PPP Se_ttings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:18
+#, fuzzy
+msgid "Password:"
+msgstr "_Password:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Pre-shared key:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:20
+msgid "Send PPP _echo packets"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:21
+#, fuzzy
+msgid "Show password"
+msgstr "_Password:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:22
+#, fuzzy
+msgid "Use TCP _header compression"
+msgstr "Use MPPC compression"
+
+#: ../properties/nm-l2tp-dialog.ui.h:23
+#, fuzzy
+msgid "Use _Address/Control compression"
+msgstr "Use MPPC compression"
+
+#: ../properties/nm-l2tp-dialog.ui.h:24
+#, fuzzy
+msgid "Use _Point-to-Point encryption (MPPE)"
+msgstr "Use MPPE encryption"
+
+#: ../properties/nm-l2tp-dialog.ui.h:25
+msgid "Use protocol _field compression negotiation"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:26
+#, fuzzy
+msgid "User name:"
+msgstr "_Username:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:27
+msgid "_Enable IPsec tunnel to L2TP host"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:28
+msgid "_Gateway:"
+msgstr "_Gateway:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:29
+msgid "_IPsec Settings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:30
+msgid "_Security:"
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:159
@@ -401,12 +541,6 @@ msgstr ""
 #~ msgid "_Remote name:"
 #~ msgstr "_Remote name:"
 
-#~ msgid "_Username:"
-#~ msgstr "_Username:"
-
-#~ msgid "_Domain:"
-#~ msgstr "_Domain:"
-
 #~ msgid "Connect _anonymously"
 #~ msgstr "Connect _anonymously"
 
@@ -425,17 +559,8 @@ msgstr ""
 #~ msgid "00:00:00:00"
 #~ msgstr "00:00:00:00"
 
-#~ msgid "<b>Compression</b>"
-#~ msgstr "<b>Compression</b>"
-
 #~ msgid "<b>Delays &amp; Timeouts</b>"
 #~ msgstr "<b>Delays &amp; TImeouts</b>"
-
-#~ msgid "<b>Encryption</b>"
-#~ msgstr "<b>Encryption</b>"
-
-#~ msgid "<b>IP Options</b>"
-#~ msgstr "<b>IP Options</b>"
 
 #~ msgid "<b>Packet Parameters</b>"
 #~ msgstr "<b>Packet Parameters</b>"
@@ -450,12 +575,6 @@ msgstr ""
 
 #~ msgid "Allow B_SD Compression"
 #~ msgstr "Allow B_SD Compression"
-
-#~ msgid "Allow _Deflate compression"
-#~ msgstr "Allow _Deflate compression"
-
-#~ msgid "Authentication"
-#~ msgstr "Authentication"
 
 #~ msgid "C_hannel:"
 #~ msgstr "C_hannel:"
@@ -528,9 +647,6 @@ msgstr ""
 
 #~ msgid "Maximum Transmit Unit"
 #~ msgstr "Maximum Transmit Unit"
-
-#~ msgid "PPP Options"
-#~ msgstr "PPP Options"
 
 #~ msgid "Refuse C_HAP"
 #~ msgstr "Refuse C_HAP"
@@ -625,9 +741,6 @@ msgstr ""
 #~ msgid "_Device address:"
 #~ msgstr "_Device address:"
 
-#~ msgid "_Gateway:"
-#~ msgstr "_Gateway:"
-
 #~ msgid "_Hardware RTS/CTS"
 #~ msgstr "_Hardware RTS/CTS"
 
@@ -691,17 +804,11 @@ msgstr ""
 #~ msgid "Use Peer DNS"
 #~ msgstr "Use Peer DNS"
 
-#~ msgid "Use MPPE encryption"
-#~ msgstr "Use MPPE encryption"
-
 #~ msgid "Use 128 bit MPPE encryption"
 #~ msgstr "Use 128-bit MPPE encryption"
 
 #~ msgid "Enable stateful MPPE"
 #~ msgstr "Enable stateful MPPE"
-
-#~ msgid "Use MPPC compression"
-#~ msgstr "Use MPPC compression"
 
 #~ msgid "Do not use deflate compression"
 #~ msgstr "Do not use deflate compression"

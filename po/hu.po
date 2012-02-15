@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-l2tp master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 02:16+0400\n"
+"POT-Creation-Date: 2012-02-16 03:21+0400\n"
 "PO-Revision-Date: 2010-01-22 00:06+0100\n"
 "Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
 "Language-Team: Hungarian <gnome at fsf dot hu>\n"
@@ -154,6 +154,137 @@ msgstr ""
 #, c-format
 msgid "not a valid L2TP configuration file"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:1
+msgid "<b>Authentication</b>"
+msgstr "<b>Hitelesítés</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:2
+msgid "<b>Echo</b>"
+msgstr "<b>Visszhang</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:3
+msgid "<b>General</b>"
+msgstr "<b>Általános</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:4
+msgid "<b>Optional</b>"
+msgstr "<b>Opcionális</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:5
+msgid "<b>Security and Compression</b>"
+msgstr "<b>Biztonság és tömörítés</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:6
+msgid "Allow _BSD data compression"
+msgstr "B_SD tömörítés engedélyezése"
+
+#: ../properties/nm-l2tp-dialog.ui.h:7
+msgid "Allow _Deflate data compression"
+msgstr "_Deflate tömörítés engedélyezése"
+
+#: ../properties/nm-l2tp-dialog.ui.h:8
+msgid "Allow st_ateful encryption"
+msgstr "Állap_ottartó tömörítés engedélyezése"
+
+#: ../properties/nm-l2tp-dialog.ui.h:9
+msgid "Allow the following authentication methods:"
+msgstr "A következő hitelesítési módszerek engedélyezése:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:10
+msgid "Default"
+msgstr "Alapértelmezett"
+
+#: ../properties/nm-l2tp-dialog.ui.h:11
+#, fuzzy
+msgid "Gateway ID:"
+msgstr "Á_tjáró:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:12
+msgid "Group Name:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:13
+#, fuzzy
+msgid "L2TP IPSEC Options"
+msgstr "L2TP speciális beállításai"
+
+#: ../properties/nm-l2tp-dialog.ui.h:14
+#, fuzzy
+msgid "L2TP PPP Options"
+msgstr "L2TP speciális beállításai"
+
+#: ../properties/nm-l2tp-dialog.ui.h:15
+msgid "NT Domain:"
+msgstr "NT tartomány:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:16
+msgid ""
+"Note: MPPE encryption is only available with MSCHAP authentication methods. "
+"To enable this checkbox, select one or more of the MSCHAP authentication "
+"methods: MSCHAP or MSCHAPv2."
+msgstr ""
+"Megjegyzés: az MPPE titkosítás csak az MSCHAP hitelesítési módokkal érhető "
+"el. Ezen négyzet engedélyezéséhez válassza ki legalább az egyik MSCHAP "
+"hitelesítési módot: MSCHAP vagy MSCHAPv2."
+
+#: ../properties/nm-l2tp-dialog.ui.h:17
+msgid "PPP Se_ttings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:18
+msgid "Password:"
+msgstr "Jelszó:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Pre-shared key:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:20
+msgid "Send PPP _echo packets"
+msgstr "PPP _visszhangcsomagok küldése"
+
+#: ../properties/nm-l2tp-dialog.ui.h:21
+#, fuzzy
+msgid "Show password"
+msgstr "Jelszó megjelenítése"
+
+#: ../properties/nm-l2tp-dialog.ui.h:22
+msgid "Use TCP _header compression"
+msgstr "TPC _fejléctömörítés használata"
+
+#: ../properties/nm-l2tp-dialog.ui.h:23
+#, fuzzy
+msgid "Use _Address/Control compression"
+msgstr "TPC _fejléctömörítés használata"
+
+#: ../properties/nm-l2tp-dialog.ui.h:24
+msgid "Use _Point-to-Point encryption (MPPE)"
+msgstr "_Ponttól pontig (MPPE) titkosítás használata"
+
+#: ../properties/nm-l2tp-dialog.ui.h:25
+msgid "Use protocol _field compression negotiation"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:26
+msgid "User name:"
+msgstr "Felhasználónév:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:27
+msgid "_Enable IPsec tunnel to L2TP host"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:28
+msgid "_Gateway:"
+msgstr "Á_tjáró:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:29
+msgid "_IPsec Settings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:30
+msgid "_Security:"
+msgstr "Bi_ztonság:"
 
 #: ../src/nm-l2tp-service.c:159
 #, c-format
@@ -382,71 +513,5 @@ msgstr ""
 #~ msgid "_Save passwords in keyring"
 #~ msgstr "Jelszavak mentése a k_ulcstartóra"
 
-#~ msgid "<b>Authentication</b>"
-#~ msgstr "<b>Hitelesítés</b>"
-
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>Visszhang</b>"
-
-#~ msgid "<b>General</b>"
-#~ msgstr "<b>Általános</b>"
-
-#~ msgid "<b>Optional</b>"
-#~ msgstr "<b>Opcionális</b>"
-
-#~ msgid "<b>Security and Compression</b>"
-#~ msgstr "<b>Biztonság és tömörítés</b>"
-
 #~ msgid "Ad_vanced..."
 #~ msgstr "S_peciális…"
-
-#~ msgid "Allow _BSD data compression"
-#~ msgstr "B_SD tömörítés engedélyezése"
-
-#~ msgid "Allow _Deflate data compression"
-#~ msgstr "_Deflate tömörítés engedélyezése"
-
-#~ msgid "Allow st_ateful encryption"
-#~ msgstr "Állap_ottartó tömörítés engedélyezése"
-
-#~ msgid "Allow the following authentication methods:"
-#~ msgstr "A következő hitelesítési módszerek engedélyezése:"
-
-#~ msgid "Default"
-#~ msgstr "Alapértelmezett"
-
-#~ msgid "NT Domain:"
-#~ msgstr "NT tartomány:"
-
-#~ msgid ""
-#~ "Note: MPPE encryption is only available with MSCHAP authentication "
-#~ "methods. To enable this checkbox, select one or more of the MSCHAP "
-#~ "authentication methods: MSCHAP or MSCHAPv2."
-#~ msgstr ""
-#~ "Megjegyzés: az MPPE titkosítás csak az MSCHAP hitelesítési módokkal "
-#~ "érhető el. Ezen négyzet engedélyezéséhez válassza ki legalább az egyik "
-#~ "MSCHAP hitelesítési módot: MSCHAP vagy MSCHAPv2."
-
-#~ msgid "L2TP Advanced Options"
-#~ msgstr "L2TP speciális beállításai"
-
-#~ msgid "Password:"
-#~ msgstr "Jelszó:"
-
-#~ msgid "Send PPP _echo packets"
-#~ msgstr "PPP _visszhangcsomagok küldése"
-
-#~ msgid "Use TCP _header compression"
-#~ msgstr "TPC _fejléctömörítés használata"
-
-#~ msgid "Use _Point-to-Point encryption (MPPE)"
-#~ msgstr "_Ponttól pontig (MPPE) titkosítás használata"
-
-#~ msgid "User name:"
-#~ msgstr "Felhasználónév:"
-
-#~ msgid "_Gateway:"
-#~ msgstr "Á_tjáró:"
-
-#~ msgid "_Security:"
-#~ msgstr "Bi_ztonság:"

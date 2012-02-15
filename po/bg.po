@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-l2tp master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 02:16+0400\n"
+"POT-Creation-Date: 2012-02-16 03:21+0400\n"
 "PO-Revision-Date: 2010-03-11 09:10+0200\n"
 "Last-Translator: Krasimir Chonov <mk2616@abv.bg>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
@@ -155,6 +155,137 @@ msgstr ""
 #, c-format
 msgid "not a valid L2TP configuration file"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:1
+msgid "<b>Authentication</b>"
+msgstr "<b>Идентификация</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:2
+msgid "<b>Echo</b>"
+msgstr "<b>Ехо</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:3
+msgid "<b>General</b>"
+msgstr "<b>Общи</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:4
+msgid "<b>Optional</b>"
+msgstr "<b>Допълнителни</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:5
+msgid "<b>Security and Compression</b>"
+msgstr "<b>Сигурност и компресия</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:6
+msgid "Allow _BSD data compression"
+msgstr "_Разрешаване на компресия BSD"
+
+#: ../properties/nm-l2tp-dialog.ui.h:7
+msgid "Allow _Deflate data compression"
+msgstr "Разрешаване на _компресия Deflate"
+
+#: ../properties/nm-l2tp-dialog.ui.h:8
+msgid "Allow st_ateful encryption"
+msgstr "Разрешаване на компресия със _запомняне на състояние"
+
+#: ../properties/nm-l2tp-dialog.ui.h:9
+msgid "Allow the following authentication methods:"
+msgstr "Разрешаване на следните методи за идентификация:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:10
+msgid "Default"
+msgstr "Стандартно"
+
+#: ../properties/nm-l2tp-dialog.ui.h:11
+#, fuzzy
+msgid "Gateway ID:"
+msgstr "_Шлюз:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:12
+msgid "Group Name:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:13
+#, fuzzy
+msgid "L2TP IPSEC Options"
+msgstr "Допълнителни настройки на PPP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:14
+#, fuzzy
+msgid "L2TP PPP Options"
+msgstr "Допълнителни настройки на PPP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:15
+msgid "NT Domain:"
+msgstr "Домейн:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:16
+msgid ""
+"Note: MPPE encryption is only available with MSCHAP authentication methods. "
+"To enable this checkbox, select one or more of the MSCHAP authentication "
+"methods: MSCHAP or MSCHAPv2."
+msgstr ""
+"Забележка: шифрирането MPPE е достъпно само с методи за идентифициране "
+"MSCHAP. За да се активира тази отметка, изберете един или повече от следните "
+"методи: MSCHAP или MSCHAPv2."
+
+#: ../properties/nm-l2tp-dialog.ui.h:17
+msgid "PPP Se_ttings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:18
+msgid "Password:"
+msgstr "Парола:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Pre-shared key:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:20
+msgid "Send PPP _echo packets"
+msgstr "_Пращане на пакети „echo“ по PPP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:21
+#, fuzzy
+msgid "Show password"
+msgstr "Показване на паролата"
+
+#: ../properties/nm-l2tp-dialog.ui.h:22
+msgid "Use TCP _header compression"
+msgstr "Използване на компресия на заглавните _части на TCP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:23
+#, fuzzy
+msgid "Use _Address/Control compression"
+msgstr "Използване на компресия на заглавните _части на TCP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:24
+msgid "Use _Point-to-Point encryption (MPPE)"
+msgstr "Използване на _шифриране точка до точка (MPPE)"
+
+#: ../properties/nm-l2tp-dialog.ui.h:25
+msgid "Use protocol _field compression negotiation"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:26
+msgid "User name:"
+msgstr "Потребителско име:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:27
+msgid "_Enable IPsec tunnel to L2TP host"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:28
+msgid "_Gateway:"
+msgstr "_Шлюз:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:29
+msgid "_IPsec Settings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:30
+msgid "_Security:"
+msgstr "_Сигурност:"
 
 #: ../src/nm-l2tp-service.c:159
 #, c-format
@@ -383,71 +514,5 @@ msgstr ""
 #~ msgid "_Save passwords in keyring"
 #~ msgstr "Запазване на паролата в клю_чодържателя"
 
-#~ msgid "<b>Authentication</b>"
-#~ msgstr "<b>Идентификация</b>"
-
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>Ехо</b>"
-
-#~ msgid "<b>General</b>"
-#~ msgstr "<b>Общи</b>"
-
-#~ msgid "<b>Optional</b>"
-#~ msgstr "<b>Допълнителни</b>"
-
-#~ msgid "<b>Security and Compression</b>"
-#~ msgstr "<b>Сигурност и компресия</b>"
-
 #~ msgid "Ad_vanced..."
 #~ msgstr "_Допълнителни…"
-
-#~ msgid "Allow _BSD data compression"
-#~ msgstr "_Разрешаване на компресия BSD"
-
-#~ msgid "Allow _Deflate data compression"
-#~ msgstr "Разрешаване на _компресия Deflate"
-
-#~ msgid "Allow st_ateful encryption"
-#~ msgstr "Разрешаване на компресия със _запомняне на състояние"
-
-#~ msgid "Allow the following authentication methods:"
-#~ msgstr "Разрешаване на следните методи за идентификация:"
-
-#~ msgid "Default"
-#~ msgstr "Стандартно"
-
-#~ msgid "NT Domain:"
-#~ msgstr "Домейн:"
-
-#~ msgid ""
-#~ "Note: MPPE encryption is only available with MSCHAP authentication "
-#~ "methods. To enable this checkbox, select one or more of the MSCHAP "
-#~ "authentication methods: MSCHAP or MSCHAPv2."
-#~ msgstr ""
-#~ "Забележка: шифрирането MPPE е достъпно само с методи за идентифициране "
-#~ "MSCHAP. За да се активира тази отметка, изберете един или повече от "
-#~ "следните методи: MSCHAP или MSCHAPv2."
-
-#~ msgid "L2TP Advanced Options"
-#~ msgstr "Допълнителни настройки на PPP"
-
-#~ msgid "Password:"
-#~ msgstr "Парола:"
-
-#~ msgid "Send PPP _echo packets"
-#~ msgstr "_Пращане на пакети „echo“ по PPP"
-
-#~ msgid "Use TCP _header compression"
-#~ msgstr "Използване на компресия на заглавните _части на TCP"
-
-#~ msgid "Use _Point-to-Point encryption (MPPE)"
-#~ msgstr "Използване на _шифриране точка до точка (MPPE)"
-
-#~ msgid "User name:"
-#~ msgstr "Потребителско име:"
-
-#~ msgid "_Gateway:"
-#~ msgstr "_Шлюз:"
-
-#~ msgid "_Security:"
-#~ msgstr "_Сигурност:"

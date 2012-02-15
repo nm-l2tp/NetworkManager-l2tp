@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager l2tp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 02:16+0400\n"
+"POT-Creation-Date: 2012-02-16 03:21+0400\n"
 "PO-Revision-Date: 2010-04-02 03:32+0200\n"
 "Last-Translator: Maxim Dziumanenko <dziumanenko@gmail.com>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -155,6 +155,137 @@ msgstr ""
 #, c-format
 msgid "not a valid L2TP configuration file"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:1
+msgid "<b>Authentication</b>"
+msgstr "<b>Автентифікація</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:2
+msgid "<b>Echo</b>"
+msgstr "<b>Луна</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:3
+msgid "<b>General</b>"
+msgstr "<b>Загальне</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:4
+msgid "<b>Optional</b>"
+msgstr "<b>Додатвокі</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:5
+msgid "<b>Security and Compression</b>"
+msgstr "<b>Шифрування та стиснення</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:6
+msgid "Allow _BSD data compression"
+msgstr "Увімкнути стиснення _BSD"
+
+#: ../properties/nm-l2tp-dialog.ui.h:7
+msgid "Allow _Deflate data compression"
+msgstr "Увімкнути стиснення _Deflate"
+
+#: ../properties/nm-l2tp-dialog.ui.h:8
+msgid "Allow st_ateful encryption"
+msgstr "Увімкнути _Stateful Encryption"
+
+#: ../properties/nm-l2tp-dialog.ui.h:9
+msgid "Allow the following authentication methods:"
+msgstr "Дозволити наступні методи автентифікації:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:10
+msgid "Default"
+msgstr "Типово"
+
+#: ../properties/nm-l2tp-dialog.ui.h:11
+#, fuzzy
+msgid "Gateway ID:"
+msgstr "_Шлюз:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:12
+msgid "Group Name:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:13
+#, fuzzy
+msgid "L2TP IPSEC Options"
+msgstr "Додаткові параметри L2TP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:14
+#, fuzzy
+msgid "L2TP PPP Options"
+msgstr "Додаткові параметри L2TP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:15
+msgid "NT Domain:"
+msgstr "NT-домен:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:16
+msgid ""
+"Note: MPPE encryption is only available with MSCHAP authentication methods. "
+"To enable this checkbox, select one or more of the MSCHAP authentication "
+"methods: MSCHAP or MSCHAPv2."
+msgstr ""
+"Примітка: Шифрування MPPE доступно лише з методами аутентифікації MSCHAP. "
+"Щоб увімкнути цей пункт, виберіть один чи кілька методів автентифікації "
+"MSCHAP: MSCHAP чи MSCHAPv2."
+
+#: ../properties/nm-l2tp-dialog.ui.h:17
+msgid "PPP Se_ttings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:18
+msgid "Password:"
+msgstr "Пароль:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Pre-shared key:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:20
+msgid "Send PPP _echo packets"
+msgstr "Надсилати _echo-пакети PPP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:21
+#, fuzzy
+msgid "Show password"
+msgstr "Показати пароль"
+
+#: ../properties/nm-l2tp-dialog.ui.h:22
+msgid "Use TCP _header compression"
+msgstr "Використовувати стиснення _заголовків TCP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:23
+#, fuzzy
+msgid "Use _Address/Control compression"
+msgstr "Використовувати стиснення _заголовків TCP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:24
+msgid "Use _Point-to-Point encryption (MPPE)"
+msgstr "Використовувати шифрування _MPPE"
+
+#: ../properties/nm-l2tp-dialog.ui.h:25
+msgid "Use protocol _field compression negotiation"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:26
+msgid "User name:"
+msgstr "Ім'я користувача:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:27
+msgid "_Enable IPsec tunnel to L2TP host"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:28
+msgid "_Gateway:"
+msgstr "_Шлюз:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:29
+msgid "_IPsec Settings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:30
+msgid "_Security:"
+msgstr "_Шифрування:"
 
 #: ../src/nm-l2tp-service.c:159
 #, c-format
@@ -383,71 +514,5 @@ msgstr ""
 #~ msgid "_Save passwords in keyring"
 #~ msgstr "З_берегти пароль у в'язці паролів"
 
-#~ msgid "<b>Authentication</b>"
-#~ msgstr "<b>Автентифікація</b>"
-
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>Луна</b>"
-
-#~ msgid "<b>General</b>"
-#~ msgstr "<b>Загальне</b>"
-
-#~ msgid "<b>Optional</b>"
-#~ msgstr "<b>Додатвокі</b>"
-
-#~ msgid "<b>Security and Compression</b>"
-#~ msgstr "<b>Шифрування та стиснення</b>"
-
 #~ msgid "Ad_vanced..."
 #~ msgstr "_Додатково..."
-
-#~ msgid "Allow _BSD data compression"
-#~ msgstr "Увімкнути стиснення _BSD"
-
-#~ msgid "Allow _Deflate data compression"
-#~ msgstr "Увімкнути стиснення _Deflate"
-
-#~ msgid "Allow st_ateful encryption"
-#~ msgstr "Увімкнути _Stateful Encryption"
-
-#~ msgid "Allow the following authentication methods:"
-#~ msgstr "Дозволити наступні методи автентифікації:"
-
-#~ msgid "Default"
-#~ msgstr "Типово"
-
-#~ msgid "NT Domain:"
-#~ msgstr "NT-домен:"
-
-#~ msgid ""
-#~ "Note: MPPE encryption is only available with MSCHAP authentication "
-#~ "methods. To enable this checkbox, select one or more of the MSCHAP "
-#~ "authentication methods: MSCHAP or MSCHAPv2."
-#~ msgstr ""
-#~ "Примітка: Шифрування MPPE доступно лише з методами аутентифікації MSCHAP. "
-#~ "Щоб увімкнути цей пункт, виберіть один чи кілька методів автентифікації "
-#~ "MSCHAP: MSCHAP чи MSCHAPv2."
-
-#~ msgid "L2TP Advanced Options"
-#~ msgstr "Додаткові параметри L2TP"
-
-#~ msgid "Password:"
-#~ msgstr "Пароль:"
-
-#~ msgid "Send PPP _echo packets"
-#~ msgstr "Надсилати _echo-пакети PPP"
-
-#~ msgid "Use TCP _header compression"
-#~ msgstr "Використовувати стиснення _заголовків TCP"
-
-#~ msgid "Use _Point-to-Point encryption (MPPE)"
-#~ msgstr "Використовувати шифрування _MPPE"
-
-#~ msgid "User name:"
-#~ msgstr "Ім'я користувача:"
-
-#~ msgid "_Gateway:"
-#~ msgstr "_Шлюз:"
-
-#~ msgid "_Security:"
-#~ msgstr "_Шифрування:"
