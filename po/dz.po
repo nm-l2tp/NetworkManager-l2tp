@@ -8,199 +8,354 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-03-20 03:31+0000\n"
+"POT-Creation-Date: 2012-02-16 02:16+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:147
-msgid "_Secondary Password:"
-msgstr ""
-
-#: ../auth-dialog/gnome-two-password-dialog.c:268
-msgid "_Username:"
-msgstr ""
-
-#: ../auth-dialog/gnome-two-password-dialog.c:270
-msgid "_Domain:"
-msgstr ""
-
-#: ../auth-dialog/gnome-two-password-dialog.c:272
-msgid "_Password:"
-msgstr ""
-
-#: ../auth-dialog/gnome-two-password-dialog.c:355
-msgid "Connect _anonymously"
-msgstr ""
-
-#: ../auth-dialog/gnome-two-password-dialog.c:360
-msgid "Connect as _user:"
-msgstr ""
-
-#: ../auth-dialog/gnome-two-password-dialog.c:466
-msgid "_Remember password for this session"
-msgstr ""
-
-#: ../auth-dialog/gnome-two-password-dialog.c:468
-msgid "_Save password in keyring"
-msgstr ""
-
-#: ../auth-dialog/main.c:161
+#. Otherwise, we have no saved password, or the password flags indicated
+#. * that the password should never be saved.
+#.
+#: ../auth-dialog/main.c:127
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr ""
 
-#: ../auth-dialog/main.c:162
-msgid "Authenticate L2TP VPN"
+#: ../auth-dialog/main.c:128
+msgid "Authenticate VPN"
+msgstr ""
+
+#: ../auth-dialog/vpn-password-dialog.c:95
+msgid "_Password:"
+msgstr ""
+
+#: ../auth-dialog/vpn-password-dialog.c:97
+msgid "_Secondary Password:"
+msgstr ""
+
+#: ../auth-dialog/vpn-password-dialog.c:239
+msgid "Sh_ow passwords"
 msgstr ""
 
 #: ../nm-l2tp.desktop.in.h:1
-msgid "Add, Remove, and Edit VPN Connections"
+msgid "Add, Remove, and Edit L2TP VPN Connections"
 msgstr ""
 
 #: ../nm-l2tp.desktop.in.h:2
-msgid "VPN Connection Manager (L2TP)"
+msgid "L2TP VPN Connection Manager"
 msgstr ""
 
-#: ../properties/nm-l2tp.c:79
-msgid "L2TP Client"
+#: ../properties/advanced-dialog.c:189
+msgid "All Available (Default)"
 msgstr ""
 
-#: ../properties/nm-l2tp.c:387
-msgid "The following L2TP connection will be created:"
+#: ../properties/advanced-dialog.c:193
+msgid "128-bit (most secure)"
+msgstr ""
+
+#: ../properties/advanced-dialog.c:202
+msgid "40-bit (less secure)"
+msgstr ""
+
+#: ../properties/advanced-dialog.c:311
+msgid "PAP"
+msgstr ""
+
+#: ../properties/advanced-dialog.c:324
+msgid "CHAP"
+msgstr ""
+
+#: ../properties/advanced-dialog.c:336
+msgid "MSCHAP"
+msgstr ""
+
+#: ../properties/advanced-dialog.c:348
+msgid "MSCHAPv2"
+msgstr ""
+
+#: ../properties/advanced-dialog.c:361
+msgid "EAP"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:49
+msgid "Layer 2 Tunneling Protocol (L2TP)"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:50
+msgid "Compatible with L2TP VPN servers."
+msgstr ""
+
+#: ../properties/nm-l2tp.c:187
+#, c-format
+msgid "%s: error reading advanced settings: %s"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:211
+#, c-format
+msgid "%s: error reading ipsec settings: %s"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:232
+#, c-format
+msgid "%s: failed to create the Advanced dialog!"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:262
+#, c-format
+msgid "%s: failed to create the IPSEC dialog!"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:381
+msgid "Saved"
 msgstr ""
 
 #: ../properties/nm-l2tp.c:389
+msgid "Always Ask"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:394
+msgid "Not Required"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:614
 #, c-format
-msgid "Name:  %s"
+msgid "could not create l2tp object"
 msgstr ""
 
-#: ../properties/nm-l2tp.c:392
-#, c-format
-msgid "Remote:  %s"
-msgstr ""
-
-#: ../properties/nm-l2tp.c:395
-#, c-format
-msgid "Username:  %s"
-msgstr ""
-
-#: ../properties/nm-l2tp.c:399
-#, c-format
-msgid "Routes:  %s"
-msgstr ""
-
-#: ../properties/nm-l2tp.c:403
-#, c-format
-msgid "Use MPPC Compression: %s"
-msgstr ""
-
-#: ../properties/nm-l2tp.c:403 ../properties/nm-l2tp.c:405
-msgid "Yes"
-msgstr ""
-
-#: ../properties/nm-l2tp.c:403 ../properties/nm-l2tp.c:405
-msgid "No"
-msgstr ""
-
-#: ../properties/nm-l2tp.c:405
-#, c-format
-msgid "Use MPPE Encryption: %s"
-msgstr ""
-
-#: ../properties/nm-l2tp.c:408
-msgid "The connection details can be changed using the \"Edit\" button."
-msgstr ""
-
-#: ../properties/nm-l2tp.c:484
-msgid "Cannot import settings"
-msgstr ""
-
-#: ../properties/nm-l2tp.c:486
-#, c-format
-msgid "The VPN settings file '%s' does not contain valid data."
-msgstr ""
-
-#: ../properties/nm-l2tp.c:504
-msgid "Select file to import"
-msgstr ""
-
-#. printf ("in impl_export\n");
 #: ../properties/nm-l2tp.c:626
-msgid "Save as..."
-msgstr ""
-
-#: ../properties/nm-l2tp.c:656
 #, c-format
-msgid "A file named \"%s\" already exists."
+msgid "Couldn't load builder file: %s"
 msgstr ""
 
-#: ../properties/nm-l2tp.c:659
-msgid "Do you want to replace it with the one you are saving?"
+#: ../properties/nm-l2tp.c:630
+#, c-format
+msgid "could not load required resources at %s"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.glade.h:1
-msgid "<b>Connection Name</b>"
+#: ../properties/nm-l2tp.c:640
+#, c-format
+msgid "could not load UI widget"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.glade.h:2
-msgid "<b>Required Information</b>"
+#: ../properties/nm-l2tp.c:735 ../properties/nm-l2tp.c:743
+#, c-format
+msgid "unknown L2TP file extension"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.glade.h:3
-msgid "<i>example: 172.16.0.0/16 10.11.12.0/24</i>"
+#: ../properties/nm-l2tp.c:755
+#, c-format
+msgid "not a valid L2TP configuration file"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.glade.h:4
-msgid "MS CHAP-v1/v2"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.glade.h:5
+#: ../src/nm-l2tp-service.c:159
+#, c-format
 msgid ""
-"Please enter the information provided by your system administrator below. Do "
-"not enter your password here as you will be prompted when connecting."
+"Could not get the system bus.  Make sure the message bus daemon is running!  "
+"Message: %s"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.glade.h:6
-msgid "Require MPPE encryption"
+#: ../src/nm-l2tp-service.c:181
+#, c-format
+msgid "Could not register D-Bus service name.  Message: %s"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.glade.h:7
-msgid "Use MPPC compression"
+#: ../src/nm-l2tp-service.c:270
+msgid "Could not find secrets (connection invalid, no vpn setting)."
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.glade.h:8
-msgid "Username:"
+#: ../src/nm-l2tp-service.c:283
+msgid "Invalid VPN username."
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.glade.h:9
+#: ../src/nm-l2tp-service.c:293
+msgid "Missing VPN username."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:304
+msgid "Missing or invalid VPN password."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:332
+msgid "No cached credentials."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:363
+msgid "L2TP service (IP Config Get) reply received."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:508
+#, c-format
+msgid "invalid gateway '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:517
+#, c-format
+msgid "invalid ipsec-group-name '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:526
+#, c-format
+msgid "invalid ipsec-gateway-id '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:539
+#, c-format
+msgid "invalid integer property '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:550
+#, c-format
+msgid "invalid boolean property '%s' (not yes or no)"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:557
+#, c-format
+msgid "unhandled property '%s' type %s"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:568
+#, c-format
+msgid "property '%s' invalid or not supportedx"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:586
+msgid "No VPN configuration options."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:606
+#, c-format
+msgid "Missing required option '%s'."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:626
+msgid "No VPN secrets!"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:648
+#, c-format
+msgid "xl2tpd exited with error code %d"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:651
+#, c-format
+msgid "xl2tpd stopped unexpectedly with signal %d"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:653
+#, c-format
+msgid "xl2tpd died with signal %d"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:655
+msgid "xl2tpd died from an unknown cause"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:757
+msgid "Looks like pppd didn't initialize our dbus module"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:837
+msgid "couldn't get VPN setting"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:843
+msgid "couldn't get L2TP VPN gateway IP address"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:867
+#, c-format
+msgid "couldn't look up L2TP VPN gateway IP address '%s' (%d)"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:889
+#, c-format
+msgid "couldn't convert L2TP VPN gateway IP address '%s' (%d)"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:899
+#, c-format
+msgid "couldn't determine L2TP VPN gateway IP address from '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:989
+msgid "Could not find the ipsec binary."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1026
+msgid "Cannot save /etc/ipsec.secrets"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1036
+msgid "Cannot open /etc/ipsec.secrets for writing"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1058
+msgid "ipsec ready for action"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1079
+msgid "Could not find the xl2tpd binary."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1099
+#, c-format
+msgid "xl2tpd started with pid %d"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1176
+msgid "Could not write ipsec config."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1220
+msgid "Could not write xl2tpd config."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1235
+msgid "Could not write ppp options."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1304
+#, c-format
+msgid "failed to convert lcp-echo-failure value '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1322
+#, c-format
+msgid "failed to convert lcp-echo-interval value '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1372
+msgid "Could not start pppd plugin helper service."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1392
+#, c-format
+msgid "ipsec enable flag: %s"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1394
+msgid "starting ipsec"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1438
+#, c-format
+msgid "Terminated ppp daemon with PID %d."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1551
+msgid "Don't quit when VPN connection terminates"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1552
+msgid "Enable verbose debug logging (may expose passwords)"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1566
 msgid ""
-"Your password must be defined \n"
-"in /etc/ppp/chap-secrets"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.glade.h:11
-msgid "_Gateway:"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.glade.h:12
-msgid "_Import Saved Configuration..."
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.glade.h:13
-msgid ""
-"_Name used to identify the connection to the private network, e.g. \"Campus "
-"VPN\" or \"Corporate Network\""
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.glade.h:14
-msgid "_Only use VPN connection for these addresses"
-msgstr ""
-
-#. No sophisticated error message for now
-#: ../src/nm-l2tp-service.c:126
-msgid "VPN Connection failed"
+"nm-l2tp-service provides L2TP VPN capability with optional IPSec support to "
+"NetworkManager."
 msgstr ""

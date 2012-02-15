@@ -7,56 +7,41 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-l2tp master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-22 00:09+0100\n"
+"POT-Creation-Date: 2012-02-16 02:16+0400\n"
 "PO-Revision-Date: 2010-01-22 00:06+0100\n"
 "Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
 "Language-Team: Hungarian <gnome at fsf dot hu>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:129
-msgid "_Secondary Password:"
-msgstr "Jelszó _még egyszer:"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:243
-msgid "_Username:"
-msgstr "_Felhasználónév:"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:245
-msgid "_Domain:"
-msgstr "_Tartomány:"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:247
-msgid "_Password:"
-msgstr "_Jelszó:"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:336
-msgid "Connect _anonymously"
-msgstr "Kapcsolódás _névtelenül"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:341
-msgid "Connect as _user:"
-msgstr "Csatlakozás _mint:"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:450
-msgid "_Remember passwords for this session"
-msgstr "Jelszó meg_jegyzése erre a munkamenetre"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:452
-msgid "_Save passwords in keyring"
-msgstr "Jelszavak mentése a k_ulcstartóra"
-
-#: ../auth-dialog/main.c:62
+#. Otherwise, we have no saved password, or the password flags indicated
+#. * that the password should never be saved.
+#.
+#: ../auth-dialog/main.c:127
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr "Azonosítania kell magát a(z) „%s” virtuális magánhálózat eléréséhez."
 
-#: ../auth-dialog/main.c:63
+#: ../auth-dialog/main.c:128
 msgid "Authenticate VPN"
 msgstr "VPN hitelesítés"
+
+#: ../auth-dialog/vpn-password-dialog.c:95
+msgid "_Password:"
+msgstr "_Jelszó:"
+
+#: ../auth-dialog/vpn-password-dialog.c:97
+msgid "_Secondary Password:"
+msgstr "Jelszó _még egyszer:"
+
+#: ../auth-dialog/vpn-password-dialog.c:239
+#, fuzzy
+msgid "Sh_ow passwords"
+msgstr "Jelszó megjelenítése"
 
 #: ../nm-l2tp.desktop.in.h:1
 msgid "Add, Remove, and Edit L2TP VPN Connections"
@@ -66,136 +51,402 @@ msgstr "L2TP VPN kapcsolatok hozzáadása, szerkesztése és eltávolítása"
 msgid "L2TP VPN Connection Manager"
 msgstr "L2TP VPN kapcsolatkezelő"
 
-#: ../properties/advanced-dialog.c:173
+#: ../properties/advanced-dialog.c:189
 msgid "All Available (Default)"
 msgstr "Mind elérhető (alapértelmezett)"
 
-#: ../properties/advanced-dialog.c:177
+#: ../properties/advanced-dialog.c:193
 msgid "128-bit (most secure)"
 msgstr "128 bites (legbiztonságosabb)"
 
-#: ../properties/advanced-dialog.c:186
+#: ../properties/advanced-dialog.c:202
 msgid "40-bit (less secure)"
 msgstr "40 bites (kevésbé biztonságos)"
 
-#: ../properties/advanced-dialog.c:292
+#: ../properties/advanced-dialog.c:311
 msgid "PAP"
 msgstr "PAP"
 
-#: ../properties/advanced-dialog.c:305
+#: ../properties/advanced-dialog.c:324
 msgid "CHAP"
 msgstr "CHAP"
 
-#: ../properties/advanced-dialog.c:317
+#: ../properties/advanced-dialog.c:336
 msgid "MSCHAP"
 msgstr "MSCHAP"
 
-#: ../properties/advanced-dialog.c:329
+#: ../properties/advanced-dialog.c:348
 msgid "MSCHAPv2"
 msgstr "MSCHAPv2"
 
-#: ../properties/advanced-dialog.c:342
+#: ../properties/advanced-dialog.c:361
 msgid "EAP"
 msgstr "EAP"
 
-#: ../properties/nm-l2tp-dialog.glade.h:1
-msgid "<b>Authentication</b>"
-msgstr "<b>Hitelesítés</b>"
-
-#: ../properties/nm-l2tp-dialog.glade.h:2
-msgid "<b>Echo</b>"
-msgstr "<b>Visszhang</b>"
-
-#: ../properties/nm-l2tp-dialog.glade.h:3
-msgid "<b>General</b>"
-msgstr "<b>Általános</b>"
-
-#: ../properties/nm-l2tp-dialog.glade.h:4
-msgid "<b>Optional</b>"
-msgstr "<b>Opcionális</b>"
-
-#: ../properties/nm-l2tp-dialog.glade.h:5
-msgid "<b>Security and Compression</b>"
-msgstr "<b>Biztonság és tömörítés</b>"
-
-#: ../properties/nm-l2tp-dialog.glade.h:6
-msgid "Ad_vanced..."
-msgstr "S_peciális…"
-
-#: ../properties/nm-l2tp-dialog.glade.h:7
-msgid "Allow _BSD data compression"
-msgstr "B_SD tömörítés engedélyezése"
-
-#: ../properties/nm-l2tp-dialog.glade.h:8
-msgid "Allow _Deflate data compression"
-msgstr "_Deflate tömörítés engedélyezése"
-
-#: ../properties/nm-l2tp-dialog.glade.h:9
-msgid "Allow st_ateful encryption"
-msgstr "Állap_ottartó tömörítés engedélyezése"
-
-#: ../properties/nm-l2tp-dialog.glade.h:10
-msgid "Allow the following authentication methods:"
-msgstr "A következő hitelesítési módszerek engedélyezése:"
-
-#: ../properties/nm-l2tp-dialog.glade.h:11
-msgid "Default"
-msgstr "Alapértelmezett"
-
-#: ../properties/nm-l2tp-dialog.glade.h:12
-msgid "NT Domain:"
-msgstr "NT tartomány:"
-
-#: ../properties/nm-l2tp-dialog.glade.h:13
-msgid ""
-"Note: MPPE encryption is only available with MSCHAP authentication methods. "
-"To enable this checkbox, select one or more of the MSCHAP authentication "
-"methods: MSCHAP or MSCHAPv2."
-msgstr ""
-"Megjegyzés: az MPPE titkosítás csak az MSCHAP hitelesítési módokkal érhető "
-"el. Ezen négyzet engedélyezéséhez válassza ki legalább az egyik MSCHAP "
-"hitelesítési módot: MSCHAP vagy MSCHAPv2."
-
-#: ../properties/nm-l2tp-dialog.glade.h:14
-msgid "L2TP Advanced Options"
-msgstr "L2TP speciális beállításai"
-
-#: ../properties/nm-l2tp-dialog.glade.h:15
-msgid "Password:"
-msgstr "Jelszó:"
-
-#: ../properties/nm-l2tp-dialog.glade.h:16
-msgid "Send PPP _echo packets"
-msgstr "PPP _visszhangcsomagok küldése"
-
-#: ../properties/nm-l2tp-dialog.glade.h:17
-msgid "Show password"
-msgstr "Jelszó megjelenítése"
-
-#: ../properties/nm-l2tp-dialog.glade.h:18
-msgid "Use TCP _header compression"
-msgstr "TPC _fejléctömörítés használata"
-
-#: ../properties/nm-l2tp-dialog.glade.h:19
-msgid "Use _Point-to-Point encryption (MPPE)"
-msgstr "_Ponttól pontig (MPPE) titkosítás használata"
-
-#: ../properties/nm-l2tp-dialog.glade.h:20
-msgid "User name:"
-msgstr "Felhasználónév:"
-
-#: ../properties/nm-l2tp-dialog.glade.h:21
-msgid "_Gateway:"
-msgstr "Á_tjáró:"
-
-#: ../properties/nm-l2tp-dialog.glade.h:22
-msgid "_Security:"
-msgstr "Bi_ztonság:"
-
-#: ../properties/nm-l2tp.c:50
-msgid "Point-to-Point Tunneling Protocol (L2TP)"
+#: ../properties/nm-l2tp.c:49
+#, fuzzy
+msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr "Ponttól pontig alagutazási protokoll (L2TP)"
 
-#: ../properties/nm-l2tp.c:51
-msgid "Compatible with Microsoft and other L2TP VPN servers."
+#: ../properties/nm-l2tp.c:50
+#, fuzzy
+msgid "Compatible with L2TP VPN servers."
 msgstr "Kompatibilis a Microsoft és más L2TP VPN kiszolgálókkal."
+
+#: ../properties/nm-l2tp.c:187
+#, c-format
+msgid "%s: error reading advanced settings: %s"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:211
+#, c-format
+msgid "%s: error reading ipsec settings: %s"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:232
+#, c-format
+msgid "%s: failed to create the Advanced dialog!"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:262
+#, c-format
+msgid "%s: failed to create the IPSEC dialog!"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:381
+msgid "Saved"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:389
+msgid "Always Ask"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:394
+msgid "Not Required"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:614
+#, c-format
+msgid "could not create l2tp object"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:626
+#, c-format
+msgid "Couldn't load builder file: %s"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:630
+#, c-format
+msgid "could not load required resources at %s"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:640
+#, c-format
+msgid "could not load UI widget"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:735 ../properties/nm-l2tp.c:743
+#, c-format
+msgid "unknown L2TP file extension"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:755
+#, c-format
+msgid "not a valid L2TP configuration file"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:159
+#, c-format
+msgid ""
+"Could not get the system bus.  Make sure the message bus daemon is running!  "
+"Message: %s"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:181
+#, c-format
+msgid "Could not register D-Bus service name.  Message: %s"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:270
+msgid "Could not find secrets (connection invalid, no vpn setting)."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:283
+msgid "Invalid VPN username."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:293
+msgid "Missing VPN username."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:304
+msgid "Missing or invalid VPN password."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:332
+msgid "No cached credentials."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:363
+msgid "L2TP service (IP Config Get) reply received."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:508
+#, c-format
+msgid "invalid gateway '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:517
+#, c-format
+msgid "invalid ipsec-group-name '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:526
+#, c-format
+msgid "invalid ipsec-gateway-id '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:539
+#, c-format
+msgid "invalid integer property '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:550
+#, c-format
+msgid "invalid boolean property '%s' (not yes or no)"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:557
+#, c-format
+msgid "unhandled property '%s' type %s"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:568
+#, c-format
+msgid "property '%s' invalid or not supportedx"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:586
+msgid "No VPN configuration options."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:606
+#, c-format
+msgid "Missing required option '%s'."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:626
+msgid "No VPN secrets!"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:648
+#, c-format
+msgid "xl2tpd exited with error code %d"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:651
+#, c-format
+msgid "xl2tpd stopped unexpectedly with signal %d"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:653
+#, c-format
+msgid "xl2tpd died with signal %d"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:655
+msgid "xl2tpd died from an unknown cause"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:757
+msgid "Looks like pppd didn't initialize our dbus module"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:837
+msgid "couldn't get VPN setting"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:843
+msgid "couldn't get L2TP VPN gateway IP address"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:867
+#, c-format
+msgid "couldn't look up L2TP VPN gateway IP address '%s' (%d)"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:889
+#, c-format
+msgid "couldn't convert L2TP VPN gateway IP address '%s' (%d)"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:899
+#, c-format
+msgid "couldn't determine L2TP VPN gateway IP address from '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:989
+msgid "Could not find the ipsec binary."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1026
+msgid "Cannot save /etc/ipsec.secrets"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1036
+msgid "Cannot open /etc/ipsec.secrets for writing"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1058
+msgid "ipsec ready for action"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1079
+msgid "Could not find the xl2tpd binary."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1099
+#, c-format
+msgid "xl2tpd started with pid %d"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1176
+msgid "Could not write ipsec config."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1220
+msgid "Could not write xl2tpd config."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1235
+msgid "Could not write ppp options."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1304
+#, c-format
+msgid "failed to convert lcp-echo-failure value '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1322
+#, c-format
+msgid "failed to convert lcp-echo-interval value '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1372
+msgid "Could not start pppd plugin helper service."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1392
+#, c-format
+msgid "ipsec enable flag: %s"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1394
+msgid "starting ipsec"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1438
+#, c-format
+msgid "Terminated ppp daemon with PID %d."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1551
+msgid "Don't quit when VPN connection terminates"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1552
+msgid "Enable verbose debug logging (may expose passwords)"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1566
+msgid ""
+"nm-l2tp-service provides L2TP VPN capability with optional IPSec support to "
+"NetworkManager."
+msgstr ""
+
+#~ msgid "_Username:"
+#~ msgstr "_Felhasználónév:"
+
+#~ msgid "_Domain:"
+#~ msgstr "_Tartomány:"
+
+#~ msgid "Connect _anonymously"
+#~ msgstr "Kapcsolódás _névtelenül"
+
+#~ msgid "Connect as _user:"
+#~ msgstr "Csatlakozás _mint:"
+
+#~ msgid "_Remember passwords for this session"
+#~ msgstr "Jelszó meg_jegyzése erre a munkamenetre"
+
+#~ msgid "_Save passwords in keyring"
+#~ msgstr "Jelszavak mentése a k_ulcstartóra"
+
+#~ msgid "<b>Authentication</b>"
+#~ msgstr "<b>Hitelesítés</b>"
+
+#~ msgid "<b>Echo</b>"
+#~ msgstr "<b>Visszhang</b>"
+
+#~ msgid "<b>General</b>"
+#~ msgstr "<b>Általános</b>"
+
+#~ msgid "<b>Optional</b>"
+#~ msgstr "<b>Opcionális</b>"
+
+#~ msgid "<b>Security and Compression</b>"
+#~ msgstr "<b>Biztonság és tömörítés</b>"
+
+#~ msgid "Ad_vanced..."
+#~ msgstr "S_peciális…"
+
+#~ msgid "Allow _BSD data compression"
+#~ msgstr "B_SD tömörítés engedélyezése"
+
+#~ msgid "Allow _Deflate data compression"
+#~ msgstr "_Deflate tömörítés engedélyezése"
+
+#~ msgid "Allow st_ateful encryption"
+#~ msgstr "Állap_ottartó tömörítés engedélyezése"
+
+#~ msgid "Allow the following authentication methods:"
+#~ msgstr "A következő hitelesítési módszerek engedélyezése:"
+
+#~ msgid "Default"
+#~ msgstr "Alapértelmezett"
+
+#~ msgid "NT Domain:"
+#~ msgstr "NT tartomány:"
+
+#~ msgid ""
+#~ "Note: MPPE encryption is only available with MSCHAP authentication "
+#~ "methods. To enable this checkbox, select one or more of the MSCHAP "
+#~ "authentication methods: MSCHAP or MSCHAPv2."
+#~ msgstr ""
+#~ "Megjegyzés: az MPPE titkosítás csak az MSCHAP hitelesítési módokkal "
+#~ "érhető el. Ezen négyzet engedélyezéséhez válassza ki legalább az egyik "
+#~ "MSCHAP hitelesítési módot: MSCHAP vagy MSCHAPv2."
+
+#~ msgid "L2TP Advanced Options"
+#~ msgstr "L2TP speciális beállításai"
+
+#~ msgid "Password:"
+#~ msgstr "Jelszó:"
+
+#~ msgid "Send PPP _echo packets"
+#~ msgstr "PPP _visszhangcsomagok küldése"
+
+#~ msgid "Use TCP _header compression"
+#~ msgstr "TPC _fejléctömörítés használata"
+
+#~ msgid "Use _Point-to-Point encryption (MPPE)"
+#~ msgstr "_Ponttól pontig (MPPE) titkosítás használata"
+
+#~ msgid "User name:"
+#~ msgstr "Felhasználónév:"
+
+#~ msgid "_Gateway:"
+#~ msgstr "Á_tjáró:"
+
+#~ msgid "_Security:"
+#~ msgstr "Bi_ztonság:"

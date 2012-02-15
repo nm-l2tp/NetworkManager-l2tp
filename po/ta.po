@@ -8,11 +8,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-l2tp.master.ta\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=NetworkManager&component=VPN: l2tp\n"
-"POT-Creation-Date: 2009-10-27 03:34+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-02-16 02:16+0400\n"
 "PO-Revision-Date: 2009-10-29 15:36+0530\n"
 "Last-Translator: I. Felix <ifelix@redhat.com>\n"
 "Language-Team: Tamil <fedora-trans-ta@redhat.com>\n"
+"Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,46 +23,30 @@ msgstr ""
 "\n"
 "\n"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:129
-msgid "_Secondary Password:"
-msgstr "இரண்டாவது கடவுச்சொல் (_S):"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:243
-msgid "_Username:"
-msgstr "(_U) பயனர் பெயர்:"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:245
-msgid "_Domain:"
-msgstr "செய்களம் (_D):"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:247
-msgid "_Password:"
-msgstr "(_P) கடவுச்சொல்:"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:336
-msgid "Connect _anonymously"
-msgstr "பெயரில்லாமல் இணை (_a)"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:341
-msgid "Connect as _user:"
-msgstr "பயனராக இணைக்கவும் (_u):"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:450
-msgid "_Remember passwords for this session"
-msgstr "இந்த அமர்வுக்கு கடவுச்சொற்களை நினைவு கொள்ளவும் (_R)"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:452
-msgid "_Save passwords in keyring"
-msgstr "கீரிங்கில் கடவுச்சொற்களை சேமிக்கவும் (_S)"
-
-#: ../auth-dialog/main.c:62
+#. Otherwise, we have no saved password, or the password flags indicated
+#. * that the password should never be saved.
+#.
+#: ../auth-dialog/main.c:127
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr "மெய்நிகர் தனிப்பட்ட பிணைய '%s'ஐ அணுக உங்களுக்கு அங்கீகாரம் தேவைப்படுகிறது."
 
-#: ../auth-dialog/main.c:63
+#: ../auth-dialog/main.c:128
 msgid "Authenticate VPN"
 msgstr "அங்கீகரிக்கப்பட்ட VPN"
+
+#: ../auth-dialog/vpn-password-dialog.c:95
+msgid "_Password:"
+msgstr "(_P) கடவுச்சொல்:"
+
+#: ../auth-dialog/vpn-password-dialog.c:97
+msgid "_Secondary Password:"
+msgstr "இரண்டாவது கடவுச்சொல் (_S):"
+
+#: ../auth-dialog/vpn-password-dialog.c:239
+#, fuzzy
+msgid "Sh_ow passwords"
+msgstr "கடவுச்சொல்லைக் காட்டு"
 
 #: ../nm-l2tp.desktop.in.h:1
 msgid "Add, Remove, and Edit L2TP VPN Connections"
@@ -71,137 +56,402 @@ msgstr "சேர், நீக்கு, மற்றும் L2TP VPN இண�
 msgid "L2TP VPN Connection Manager"
 msgstr "L2TP VPN இணைப்பு மேலாளர்"
 
-#: ../properties/advanced-dialog.c:173
+#: ../properties/advanced-dialog.c:189
 msgid "All Available (Default)"
 msgstr "அனைத்தும் கிடைக்கும் (முன்னிருப்பு)"
 
-#: ../properties/advanced-dialog.c:177
+#: ../properties/advanced-dialog.c:193
 msgid "128-bit (most secure)"
 msgstr "128-பைட் (மேலும் பாதுகாகப்பட்ட)"
 
-#: ../properties/advanced-dialog.c:186
+#: ../properties/advanced-dialog.c:202
 msgid "40-bit (less secure)"
 msgstr "40-பைட் (குறைந்த பாதுகாப்பு)"
 
-#: ../properties/advanced-dialog.c:292
+#: ../properties/advanced-dialog.c:311
 msgid "PAP"
 msgstr "PAP"
 
-#: ../properties/advanced-dialog.c:305
+#: ../properties/advanced-dialog.c:324
 msgid "CHAP"
 msgstr "CHAP"
 
-#: ../properties/advanced-dialog.c:317
+#: ../properties/advanced-dialog.c:336
 msgid "MSCHAP"
 msgstr "MSCHAP"
 
-#: ../properties/advanced-dialog.c:329
+#: ../properties/advanced-dialog.c:348
 msgid "MSCHAPv2"
 msgstr "MSCHAPv2"
 
-#: ../properties/advanced-dialog.c:342
+#: ../properties/advanced-dialog.c:361
 msgid "EAP"
 msgstr "EAP"
 
-#: ../properties/nm-l2tp-dialog.glade.h:1
-msgid "<b>Authentication</b>"
-msgstr "<b>உறுதிப்படுத்து</b>"
-
-#: ../properties/nm-l2tp-dialog.glade.h:2
-msgid "<b>Echo</b>"
-msgstr "<b>எதிரொலி</b>"
-
-#: ../properties/nm-l2tp-dialog.glade.h:3
-msgid "<b>General</b>"
-msgstr "<b>பொதுவான</b>"
-
-#: ../properties/nm-l2tp-dialog.glade.h:4
-msgid "<b>Optional</b>"
-msgstr "<b>விருப்பத்திற்குரிய</b>"
-
-#: ../properties/nm-l2tp-dialog.glade.h:5
-msgid "<b>Security and Compression</b>"
-msgstr "<b>பாதுகாப்பு மற்றும் குறுக்கு</b>"
-
-#: ../properties/nm-l2tp-dialog.glade.h:6
-msgid "Ad_vanced..."
-msgstr "கூடுதல் (_v)..."
-
-#: ../properties/nm-l2tp-dialog.glade.h:7
-msgid "Allow _BSD data compression"
-msgstr "_BSD தரவு குறுக்கை அனுமதிக்கவும் (_B)"
-
-#: ../properties/nm-l2tp-dialog.glade.h:8
-msgid "Allow _Deflate data compression"
-msgstr "டீப்ளைட் தரவு குறுக்கை அனுமதிக்கவும் (_D)"
-
-#: ../properties/nm-l2tp-dialog.glade.h:9
-msgid "Allow st_ateful encryption"
-msgstr "நிலை குறிமறையாக்கத்தை அனுமதிக்கவும் (_a)"
-
-#: ../properties/nm-l2tp-dialog.glade.h:10
-msgid "Allow the following authentication methods:"
-msgstr "பின்வரும் அங்கீகார முறைகளை அனுமதிக்கவும்:"
-
-#: ../properties/nm-l2tp-dialog.glade.h:11
-msgid "Default"
-msgstr "முன்னிருப்பு"
-
-#: ../properties/nm-l2tp-dialog.glade.h:12
-msgid "NT Domain:"
-msgstr "NT செயற்களம்:"
-
-#: ../properties/nm-l2tp-dialog.glade.h:13
-msgid ""
-"Note: MPPE encryption is only available with MSCHAP authentication methods. "
-"To enable this checkbox, select one or more of the MSCHAP authentication "
-"methods: MSCHAP or MSCHAPv2."
-msgstr ""
-"குறிப்பு: MPPE குறிமறையாக்கம் MSCHAP அங்கீகரிக்கப்பட்ட முறைகளில் மட்டுமே இருக்கும். "
-"சரிபார்க்கும் பெட்டியை செயல்படுத்த, ஒன்று அல்லது அதிக MSCHAP அங்கீகரிக்கப்பட்ட  "
-"முறைகளைத் தேர்ந்தெடுக்கலாம்: MSCHAP அல்லது MSCHAPv2."
-
-#: ../properties/nm-l2tp-dialog.glade.h:14
-msgid "L2TP Advanced Options"
-msgstr "L2TP கூடுதல் விருப்பங்கள்"
-
-#: ../properties/nm-l2tp-dialog.glade.h:15
-msgid "Password:"
-msgstr "கடவுச்சொல்:"
-
-#: ../properties/nm-l2tp-dialog.glade.h:16
-msgid "Send PPP _echo packets"
-msgstr "PPP எதிரொலி பாக்கெட்டுகளை அனுப்பு (_e)"
-
-#: ../properties/nm-l2tp-dialog.glade.h:17
-msgid "Show password"
-msgstr "கடவுச்சொல்லைக் காட்டு"
-
-#: ../properties/nm-l2tp-dialog.glade.h:18
-msgid "Use TCP _header compression"
-msgstr "TCP தலைப்பு குறுக்கை பயன்படுத்து (_h)"
-
-#: ../properties/nm-l2tp-dialog.glade.h:19
-msgid "Use _Point-to-Point encryption (MPPE)"
-msgstr "புள்ளியிலிருந்து புள்ளி குறிமறையாக்கத்தை பயன்படுத்து (MPPE) (_P)"
-
-#: ../properties/nm-l2tp-dialog.glade.h:20
-msgid "User name:"
-msgstr "பயனர் பெயர்:"
-
-#: ../properties/nm-l2tp-dialog.glade.h:21
-msgid "_Gateway:"
-msgstr "கேட்வே (_G):"
-
-#: ../properties/nm-l2tp-dialog.glade.h:22
-msgid "_Security:"
-msgstr "பாதுகாப்பு (_S):"
-
-#: ../properties/nm-l2tp.c:50
-msgid "Point-to-Point Tunneling Protocol (L2TP)"
+#: ../properties/nm-l2tp.c:49
+#, fuzzy
+msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr "Point-to-Point Tunneling Protocol (L2TP)"
 
-#: ../properties/nm-l2tp.c:51
-msgid "Compatible with Microsoft and other L2TP VPN servers."
+#: ../properties/nm-l2tp.c:50
+#, fuzzy
+msgid "Compatible with L2TP VPN servers."
 msgstr "Microsoft மற்றும் மற்ற L2TP VPN சேவையகங்களுடன் குறுக்கவும்."
 
+#: ../properties/nm-l2tp.c:187
+#, c-format
+msgid "%s: error reading advanced settings: %s"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:211
+#, c-format
+msgid "%s: error reading ipsec settings: %s"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:232
+#, c-format
+msgid "%s: failed to create the Advanced dialog!"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:262
+#, c-format
+msgid "%s: failed to create the IPSEC dialog!"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:381
+msgid "Saved"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:389
+msgid "Always Ask"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:394
+msgid "Not Required"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:614
+#, c-format
+msgid "could not create l2tp object"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:626
+#, c-format
+msgid "Couldn't load builder file: %s"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:630
+#, c-format
+msgid "could not load required resources at %s"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:640
+#, c-format
+msgid "could not load UI widget"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:735 ../properties/nm-l2tp.c:743
+#, c-format
+msgid "unknown L2TP file extension"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:755
+#, c-format
+msgid "not a valid L2TP configuration file"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:159
+#, c-format
+msgid ""
+"Could not get the system bus.  Make sure the message bus daemon is running!  "
+"Message: %s"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:181
+#, c-format
+msgid "Could not register D-Bus service name.  Message: %s"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:270
+msgid "Could not find secrets (connection invalid, no vpn setting)."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:283
+msgid "Invalid VPN username."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:293
+msgid "Missing VPN username."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:304
+msgid "Missing or invalid VPN password."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:332
+msgid "No cached credentials."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:363
+msgid "L2TP service (IP Config Get) reply received."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:508
+#, c-format
+msgid "invalid gateway '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:517
+#, c-format
+msgid "invalid ipsec-group-name '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:526
+#, c-format
+msgid "invalid ipsec-gateway-id '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:539
+#, c-format
+msgid "invalid integer property '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:550
+#, c-format
+msgid "invalid boolean property '%s' (not yes or no)"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:557
+#, c-format
+msgid "unhandled property '%s' type %s"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:568
+#, c-format
+msgid "property '%s' invalid or not supportedx"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:586
+msgid "No VPN configuration options."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:606
+#, c-format
+msgid "Missing required option '%s'."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:626
+msgid "No VPN secrets!"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:648
+#, c-format
+msgid "xl2tpd exited with error code %d"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:651
+#, c-format
+msgid "xl2tpd stopped unexpectedly with signal %d"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:653
+#, c-format
+msgid "xl2tpd died with signal %d"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:655
+msgid "xl2tpd died from an unknown cause"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:757
+msgid "Looks like pppd didn't initialize our dbus module"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:837
+msgid "couldn't get VPN setting"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:843
+msgid "couldn't get L2TP VPN gateway IP address"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:867
+#, c-format
+msgid "couldn't look up L2TP VPN gateway IP address '%s' (%d)"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:889
+#, c-format
+msgid "couldn't convert L2TP VPN gateway IP address '%s' (%d)"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:899
+#, c-format
+msgid "couldn't determine L2TP VPN gateway IP address from '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:989
+msgid "Could not find the ipsec binary."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1026
+msgid "Cannot save /etc/ipsec.secrets"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1036
+msgid "Cannot open /etc/ipsec.secrets for writing"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1058
+msgid "ipsec ready for action"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1079
+msgid "Could not find the xl2tpd binary."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1099
+#, c-format
+msgid "xl2tpd started with pid %d"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1176
+msgid "Could not write ipsec config."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1220
+msgid "Could not write xl2tpd config."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1235
+msgid "Could not write ppp options."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1304
+#, c-format
+msgid "failed to convert lcp-echo-failure value '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1322
+#, c-format
+msgid "failed to convert lcp-echo-interval value '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1372
+msgid "Could not start pppd plugin helper service."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1392
+#, c-format
+msgid "ipsec enable flag: %s"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1394
+msgid "starting ipsec"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1438
+#, c-format
+msgid "Terminated ppp daemon with PID %d."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1551
+msgid "Don't quit when VPN connection terminates"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1552
+msgid "Enable verbose debug logging (may expose passwords)"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1566
+msgid ""
+"nm-l2tp-service provides L2TP VPN capability with optional IPSec support to "
+"NetworkManager."
+msgstr ""
+
+#~ msgid "_Username:"
+#~ msgstr "(_U) பயனர் பெயர்:"
+
+#~ msgid "_Domain:"
+#~ msgstr "செய்களம் (_D):"
+
+#~ msgid "Connect _anonymously"
+#~ msgstr "பெயரில்லாமல் இணை (_a)"
+
+#~ msgid "Connect as _user:"
+#~ msgstr "பயனராக இணைக்கவும் (_u):"
+
+#~ msgid "_Remember passwords for this session"
+#~ msgstr "இந்த அமர்வுக்கு கடவுச்சொற்களை நினைவு கொள்ளவும் (_R)"
+
+#~ msgid "_Save passwords in keyring"
+#~ msgstr "கீரிங்கில் கடவுச்சொற்களை சேமிக்கவும் (_S)"
+
+#~ msgid "<b>Authentication</b>"
+#~ msgstr "<b>உறுதிப்படுத்து</b>"
+
+#~ msgid "<b>Echo</b>"
+#~ msgstr "<b>எதிரொலி</b>"
+
+#~ msgid "<b>General</b>"
+#~ msgstr "<b>பொதுவான</b>"
+
+#~ msgid "<b>Optional</b>"
+#~ msgstr "<b>விருப்பத்திற்குரிய</b>"
+
+#~ msgid "<b>Security and Compression</b>"
+#~ msgstr "<b>பாதுகாப்பு மற்றும் குறுக்கு</b>"
+
+#~ msgid "Ad_vanced..."
+#~ msgstr "கூடுதல் (_v)..."
+
+#~ msgid "Allow _BSD data compression"
+#~ msgstr "_BSD தரவு குறுக்கை அனுமதிக்கவும் (_B)"
+
+#~ msgid "Allow _Deflate data compression"
+#~ msgstr "டீப்ளைட் தரவு குறுக்கை அனுமதிக்கவும் (_D)"
+
+#~ msgid "Allow st_ateful encryption"
+#~ msgstr "நிலை குறிமறையாக்கத்தை அனுமதிக்கவும் (_a)"
+
+#~ msgid "Allow the following authentication methods:"
+#~ msgstr "பின்வரும் அங்கீகார முறைகளை அனுமதிக்கவும்:"
+
+#~ msgid "Default"
+#~ msgstr "முன்னிருப்பு"
+
+#~ msgid "NT Domain:"
+#~ msgstr "NT செயற்களம்:"
+
+#~ msgid ""
+#~ "Note: MPPE encryption is only available with MSCHAP authentication "
+#~ "methods. To enable this checkbox, select one or more of the MSCHAP "
+#~ "authentication methods: MSCHAP or MSCHAPv2."
+#~ msgstr ""
+#~ "குறிப்பு: MPPE குறிமறையாக்கம் MSCHAP அங்கீகரிக்கப்பட்ட முறைகளில் மட்டுமே இருக்கும். "
+#~ "சரிபார்க்கும் பெட்டியை செயல்படுத்த, ஒன்று அல்லது அதிக MSCHAP அங்கீகரிக்கப்பட்ட  "
+#~ "முறைகளைத் தேர்ந்தெடுக்கலாம்: MSCHAP அல்லது MSCHAPv2."
+
+#~ msgid "L2TP Advanced Options"
+#~ msgstr "L2TP கூடுதல் விருப்பங்கள்"
+
+#~ msgid "Password:"
+#~ msgstr "கடவுச்சொல்:"
+
+#~ msgid "Send PPP _echo packets"
+#~ msgstr "PPP எதிரொலி பாக்கெட்டுகளை அனுப்பு (_e)"
+
+#~ msgid "Use TCP _header compression"
+#~ msgstr "TCP தலைப்பு குறுக்கை பயன்படுத்து (_h)"
+
+#~ msgid "Use _Point-to-Point encryption (MPPE)"
+#~ msgstr "புள்ளியிலிருந்து புள்ளி குறிமறையாக்கத்தை பயன்படுத்து (MPPE) (_P)"
+
+#~ msgid "User name:"
+#~ msgstr "பயனர் பெயர்:"
+
+#~ msgid "_Gateway:"
+#~ msgstr "கேட்வே (_G):"
+
+#~ msgid "_Security:"
+#~ msgstr "பாதுகாப்பு (_S):"

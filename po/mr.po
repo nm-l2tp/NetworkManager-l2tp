@@ -6,57 +6,42 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-l2tp.HEAD\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=NetworkManager&component=VPN: l2tp\n"
-"POT-Creation-Date: 2009-02-24 22:56+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-02-16 02:16+0400\n"
 "PO-Revision-Date: 2009-03-04 18:58+0530\n"
 "Last-Translator: Sandeep Shedmake <sandeep.shedmake@gmail.com>\n"
 "Language-Team: marathi\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:129
-msgid "_Secondary Password:"
-msgstr "दुय्यम परवलीचा शब्द (_S):"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:243
-msgid "_Username:"
-msgstr "वापरकर्ता नाव (_U):"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:245
-msgid "_Domain:"
-msgstr "क्षेत्र (_D):"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:247
-msgid "_Password:"
-msgstr "परवलीचा शब्द (_P):"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:336
-msgid "Connect _anonymously"
-msgstr "निनावी नुरूप जुळवा (_a)"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:341
-msgid "Connect as _user:"
-msgstr "वापरकर्ता नुरूप जुळवा (_u):"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:450
-msgid "_Remember passwords for this session"
-msgstr "या सत्र करीता परवलीचा शब्द लक्षात ठेवा (_R)"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:452
-msgid "_Save passwords in keyring"
-msgstr "किरींग अंतर्गत परवलीचा शब्द साठवा (_S)"
-
-#: ../auth-dialog/main.c:62
+#. Otherwise, we have no saved password, or the password flags indicated
+#. * that the password should never be saved.
+#.
+#: ../auth-dialog/main.c:127
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr "Virtual Private Network '%s' करीता प्रवेशसाठी तुम्हाला ओळख पटवावी लागेल."
 
-#: ../auth-dialog/main.c:63
+#: ../auth-dialog/main.c:128
 msgid "Authenticate VPN"
 msgstr "VPN करीता ओळख पटवा"
+
+#: ../auth-dialog/vpn-password-dialog.c:95
+msgid "_Password:"
+msgstr "परवलीचा शब्द (_P):"
+
+#: ../auth-dialog/vpn-password-dialog.c:97
+msgid "_Secondary Password:"
+msgstr "दुय्यम परवलीचा शब्द (_S):"
+
+#: ../auth-dialog/vpn-password-dialog.c:239
+#, fuzzy
+msgid "Sh_ow passwords"
+msgstr "परवलीचा शब्द"
 
 #: ../nm-l2tp.desktop.in.h:1
 msgid "Add, Remove, and Edit L2TP VPN Connections"
@@ -66,123 +51,390 @@ msgstr "L2TP VPN जुळवणी समावेष करा, काढू�
 msgid "L2TP VPN Connection Manager"
 msgstr "L2TP VPN जुळवणी व्यवस्थापक"
 
-#: ../properties/advanced-dialog.c:145
+#: ../properties/advanced-dialog.c:189
 msgid "All Available (Default)"
 msgstr "सर्व उपलब्ध (मुलभूत)"
 
-#: ../properties/advanced-dialog.c:149
+#: ../properties/advanced-dialog.c:193
 msgid "128-bit (most secure)"
 msgstr "128-बीट (सर्वात जास्त सुरक्षित)"
 
-#: ../properties/advanced-dialog.c:158
+#: ../properties/advanced-dialog.c:202
 msgid "40-bit (less secure)"
 msgstr "40-बीट (सर्वात कमी सुरक्षित)"
 
-#: ../properties/advanced-dialog.c:229
+#: ../properties/advanced-dialog.c:311
 msgid "PAP"
 msgstr "PAP"
 
-#: ../properties/advanced-dialog.c:235
+#: ../properties/advanced-dialog.c:324
 msgid "CHAP"
 msgstr "CHAP"
 
-#: ../properties/advanced-dialog.c:241
+#: ../properties/advanced-dialog.c:336
 msgid "MSCHAP"
 msgstr "MSCHAP"
 
-#: ../properties/advanced-dialog.c:247
+#: ../properties/advanced-dialog.c:348
 msgid "MSCHAPv2"
 msgstr "MSCHAPv2"
 
-#: ../properties/advanced-dialog.c:253
+#: ../properties/advanced-dialog.c:361
 msgid "EAP"
 msgstr "EAP"
 
-#: ../properties/nm-l2tp-dialog.glade.h:1
-msgid "<b>Authentication</b>"
-msgstr "<b>ओळख पटवा</b>"
-
-#: ../properties/nm-l2tp-dialog.glade.h:2
-msgid "<b>Echo</b>"
-msgstr "<b>Echo</b>"
-
-#: ../properties/nm-l2tp-dialog.glade.h:3
-msgid "<b>General</b>"
-msgstr "<b>सर्वसाधारण</b>"
-
-#: ../properties/nm-l2tp-dialog.glade.h:4
-msgid "<b>Optional</b>"
-msgstr "<b>वैक्लपिक</b>"
-
-#: ../properties/nm-l2tp-dialog.glade.h:5
-msgid "<b>Security and Compression</b>"
-msgstr "<b>सुरक्षा व संकोचन</b>"
-
-#: ../properties/nm-l2tp-dialog.glade.h:6
-msgid "Ad_vanced..."
-msgstr "प्रगत (_v)..."
-
-#: ../properties/nm-l2tp-dialog.glade.h:7
-msgid "Allow _BSD data compression"
-msgstr "BSD माहिती संकोचन स्वीकारा (_B)"
-
-#: ../properties/nm-l2tp-dialog.glade.h:8
-msgid "Allow _Deflate data compression"
-msgstr "Deflate माहिती संकोचन स्वीकारा (_D)"
-
-#: ../properties/nm-l2tp-dialog.glade.h:9
-msgid "Allow st_ateful encryption"
-msgstr "स्तरीय एनक्रिपशन स्वीकारा (_a)"
-
-#: ../properties/nm-l2tp-dialog.glade.h:10
-msgid "Allow the following authentication methods:"
-msgstr "खालिल ओळख पटवा पद्धती स्वीकारा:"
-
-#: ../properties/nm-l2tp-dialog.glade.h:11
-msgid "Default"
-msgstr "मुलभूत"
-
-#: ../properties/nm-l2tp-dialog.glade.h:12
-msgid "NT Domain:"
-msgstr "NT क्षेत्र:"
-
-#: ../properties/nm-l2tp-dialog.glade.h:13
-msgid "Password:"
-msgstr "परवलीचा शब्द:"
-
-#: ../properties/nm-l2tp-dialog.glade.h:14
-msgid "Send PPP _echo packets"
-msgstr "PPP echo पॅकेटस् (_e)"
-
-#: ../properties/nm-l2tp-dialog.glade.h:15
-msgid "Show password"
-msgstr "परवलीचा शब्द"
-
-#: ../properties/nm-l2tp-dialog.glade.h:16
-msgid "Use TCP _header compression"
-msgstr "TCP शिर्षओळ संकोचन वापरा (_h)"
-
-#: ../properties/nm-l2tp-dialog.glade.h:17
-msgid "Use _Point-to-Point encryption (MPPE)"
-msgstr "Point-to-Point encryption (MPPE) वापरा (_P)"
-
-#: ../properties/nm-l2tp-dialog.glade.h:18
-msgid "User name:"
-msgstr "वापकर्ता नाव:"
-
-#: ../properties/nm-l2tp-dialog.glade.h:19
-msgid "_Gateway:"
-msgstr "गेटवे (_G):"
-
-#: ../properties/nm-l2tp-dialog.glade.h:20
-msgid "_Security:"
-msgstr "सुरक्षा (_S):"
-
-#: ../properties/nm-l2tp.c:50
-msgid "Point-to-Point Tunneling Protocol (L2TP)"
+#: ../properties/nm-l2tp.c:49
+#, fuzzy
+msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr "Point-to-Point Tunneling Protocol (L2TP)"
 
-#: ../properties/nm-l2tp.c:51
-msgid "Compatible with Microsoft and other L2TP VPN servers."
+#: ../properties/nm-l2tp.c:50
+#, fuzzy
+msgid "Compatible with L2TP VPN servers."
 msgstr "Microsoft व इतर L2TP VPN सर्वरशी सहत्व."
 
+#: ../properties/nm-l2tp.c:187
+#, c-format
+msgid "%s: error reading advanced settings: %s"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:211
+#, c-format
+msgid "%s: error reading ipsec settings: %s"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:232
+#, c-format
+msgid "%s: failed to create the Advanced dialog!"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:262
+#, c-format
+msgid "%s: failed to create the IPSEC dialog!"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:381
+msgid "Saved"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:389
+msgid "Always Ask"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:394
+msgid "Not Required"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:614
+#, c-format
+msgid "could not create l2tp object"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:626
+#, c-format
+msgid "Couldn't load builder file: %s"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:630
+#, c-format
+msgid "could not load required resources at %s"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:640
+#, c-format
+msgid "could not load UI widget"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:735 ../properties/nm-l2tp.c:743
+#, c-format
+msgid "unknown L2TP file extension"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:755
+#, c-format
+msgid "not a valid L2TP configuration file"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:159
+#, c-format
+msgid ""
+"Could not get the system bus.  Make sure the message bus daemon is running!  "
+"Message: %s"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:181
+#, c-format
+msgid "Could not register D-Bus service name.  Message: %s"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:270
+msgid "Could not find secrets (connection invalid, no vpn setting)."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:283
+msgid "Invalid VPN username."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:293
+msgid "Missing VPN username."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:304
+msgid "Missing or invalid VPN password."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:332
+msgid "No cached credentials."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:363
+msgid "L2TP service (IP Config Get) reply received."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:508
+#, c-format
+msgid "invalid gateway '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:517
+#, c-format
+msgid "invalid ipsec-group-name '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:526
+#, c-format
+msgid "invalid ipsec-gateway-id '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:539
+#, c-format
+msgid "invalid integer property '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:550
+#, c-format
+msgid "invalid boolean property '%s' (not yes or no)"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:557
+#, c-format
+msgid "unhandled property '%s' type %s"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:568
+#, c-format
+msgid "property '%s' invalid or not supportedx"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:586
+msgid "No VPN configuration options."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:606
+#, c-format
+msgid "Missing required option '%s'."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:626
+msgid "No VPN secrets!"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:648
+#, c-format
+msgid "xl2tpd exited with error code %d"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:651
+#, c-format
+msgid "xl2tpd stopped unexpectedly with signal %d"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:653
+#, c-format
+msgid "xl2tpd died with signal %d"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:655
+msgid "xl2tpd died from an unknown cause"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:757
+msgid "Looks like pppd didn't initialize our dbus module"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:837
+msgid "couldn't get VPN setting"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:843
+msgid "couldn't get L2TP VPN gateway IP address"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:867
+#, c-format
+msgid "couldn't look up L2TP VPN gateway IP address '%s' (%d)"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:889
+#, c-format
+msgid "couldn't convert L2TP VPN gateway IP address '%s' (%d)"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:899
+#, c-format
+msgid "couldn't determine L2TP VPN gateway IP address from '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:989
+msgid "Could not find the ipsec binary."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1026
+msgid "Cannot save /etc/ipsec.secrets"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1036
+msgid "Cannot open /etc/ipsec.secrets for writing"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1058
+msgid "ipsec ready for action"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1079
+msgid "Could not find the xl2tpd binary."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1099
+#, c-format
+msgid "xl2tpd started with pid %d"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1176
+msgid "Could not write ipsec config."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1220
+msgid "Could not write xl2tpd config."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1235
+msgid "Could not write ppp options."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1304
+#, c-format
+msgid "failed to convert lcp-echo-failure value '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1322
+#, c-format
+msgid "failed to convert lcp-echo-interval value '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1372
+msgid "Could not start pppd plugin helper service."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1392
+#, c-format
+msgid "ipsec enable flag: %s"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1394
+msgid "starting ipsec"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1438
+#, c-format
+msgid "Terminated ppp daemon with PID %d."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1551
+msgid "Don't quit when VPN connection terminates"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1552
+msgid "Enable verbose debug logging (may expose passwords)"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1566
+msgid ""
+"nm-l2tp-service provides L2TP VPN capability with optional IPSec support to "
+"NetworkManager."
+msgstr ""
+
+#~ msgid "_Username:"
+#~ msgstr "वापरकर्ता नाव (_U):"
+
+#~ msgid "_Domain:"
+#~ msgstr "क्षेत्र (_D):"
+
+#~ msgid "Connect _anonymously"
+#~ msgstr "निनावी नुरूप जुळवा (_a)"
+
+#~ msgid "Connect as _user:"
+#~ msgstr "वापरकर्ता नुरूप जुळवा (_u):"
+
+#~ msgid "_Remember passwords for this session"
+#~ msgstr "या सत्र करीता परवलीचा शब्द लक्षात ठेवा (_R)"
+
+#~ msgid "_Save passwords in keyring"
+#~ msgstr "किरींग अंतर्गत परवलीचा शब्द साठवा (_S)"
+
+#~ msgid "<b>Authentication</b>"
+#~ msgstr "<b>ओळख पटवा</b>"
+
+#~ msgid "<b>Echo</b>"
+#~ msgstr "<b>Echo</b>"
+
+#~ msgid "<b>General</b>"
+#~ msgstr "<b>सर्वसाधारण</b>"
+
+#~ msgid "<b>Optional</b>"
+#~ msgstr "<b>वैक्लपिक</b>"
+
+#~ msgid "<b>Security and Compression</b>"
+#~ msgstr "<b>सुरक्षा व संकोचन</b>"
+
+#~ msgid "Ad_vanced..."
+#~ msgstr "प्रगत (_v)..."
+
+#~ msgid "Allow _BSD data compression"
+#~ msgstr "BSD माहिती संकोचन स्वीकारा (_B)"
+
+#~ msgid "Allow _Deflate data compression"
+#~ msgstr "Deflate माहिती संकोचन स्वीकारा (_D)"
+
+#~ msgid "Allow st_ateful encryption"
+#~ msgstr "स्तरीय एनक्रिपशन स्वीकारा (_a)"
+
+#~ msgid "Allow the following authentication methods:"
+#~ msgstr "खालिल ओळख पटवा पद्धती स्वीकारा:"
+
+#~ msgid "Default"
+#~ msgstr "मुलभूत"
+
+#~ msgid "NT Domain:"
+#~ msgstr "NT क्षेत्र:"
+
+#~ msgid "Password:"
+#~ msgstr "परवलीचा शब्द:"
+
+#~ msgid "Send PPP _echo packets"
+#~ msgstr "PPP echo पॅकेटस् (_e)"
+
+#~ msgid "Use TCP _header compression"
+#~ msgstr "TCP शिर्षओळ संकोचन वापरा (_h)"
+
+#~ msgid "Use _Point-to-Point encryption (MPPE)"
+#~ msgstr "Point-to-Point encryption (MPPE) वापरा (_P)"
+
+#~ msgid "User name:"
+#~ msgstr "वापकर्ता नाव:"
+
+#~ msgid "_Gateway:"
+#~ msgstr "गेटवे (_G):"
+
+#~ msgid "_Security:"
+#~ msgstr "सुरक्षा (_S):"

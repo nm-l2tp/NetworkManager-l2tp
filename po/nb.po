@@ -7,552 +7,635 @@ msgid ""
 msgstr ""
 "Project-Id-Version: l2tp xx\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-11-02 14:46+0100\n"
+"POT-Creation-Date: 2012-02-16 02:16+0400\n"
 "PO-Revision-Date: 2007-11-02 14:48+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../auth-dialog-general/gnome-generic-auth-dialog.c:792
-msgid "Authentication Type:"
-msgstr "Type autentisering:"
-
-#: ../auth-dialog-general/gnome-generic-auth-dialog.c:857
-#: ../auth-dialog-general/nm-ppp-auth.glade.h:11
-msgid "_Remember for this session"
-msgstr "Husk fo_r denne sesjonen"
-
-#: ../auth-dialog-general/gnome-generic-auth-dialog.c:859
-#: ../auth-dialog-general/nm-ppp-auth.glade.h:13
-msgid "_Save in keyring"
-msgstr "_Lagre på nøkkelring"
-
-#: ../auth-dialog-general/main.c:48 ../auth-dialog/main.c:140
-#, c-format
-msgid "You need to authenticate to access '%s'."
+#. Otherwise, we have no saved password, or the password flags indicated
+#. * that the password should never be saved.
+#.
+#: ../auth-dialog/main.c:127
+#, fuzzy, c-format
+msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr "Du må autentisere deg for å få tilgang til «%s»."
 
-#: ../auth-dialog-general/main.c:51 ../auth-dialog/main.c:141
-msgid "Authenticate Connection"
-msgstr "Autentiser tilkobling"
+#: ../auth-dialog/main.c:128
+#, fuzzy
+msgid "Authenticate VPN"
+msgstr "_Autentiser peer"
 
-#: ../auth-dialog-general/nm-ppp-auth.glade.h:2
-#, no-c-format
-msgid ""
-"<span weight=\"bold\" size=\"larger\">Authentication Information</span>\n"
-"\n"
-"The connection '%s' may need some form of authentication.\n"
-"\n"
-"Please select an appropriate authentication type and provide the necessary "
-"credentials below:\n"
-msgstr ""
-
-#: ../auth-dialog-general/nm-ppp-auth.glade.h:8
-msgid "Authentication Required"
-msgstr "Autentisering kreves"
-
-#: ../auth-dialog-general/nm-ppp-auth.glade.h:9
-msgid "_Authentication Type:"
-msgstr "Type _autentisering:"
-
-#: ../auth-dialog-general/nm-ppp-auth.glade.h:10
-#: ../auth-dialog/gnome-two-password-dialog.c:263
+#: ../auth-dialog/vpn-password-dialog.c:95
 msgid "_Password:"
 msgstr "_Passord:"
 
-#: ../auth-dialog-general/nm-ppp-auth.glade.h:12
-msgid "_Remote name:"
-msgstr "Ekste_rnt navn:"
-
-#: ../auth-dialog-general/nm-ppp-auth.glade.h:14
-#: ../auth-dialog/gnome-two-password-dialog.c:259
-msgid "_Username:"
-msgstr "Br_ukernavn:"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:144
+#: ../auth-dialog/vpn-password-dialog.c:97
 msgid "_Secondary Password:"
 msgstr "_Sekundært passord:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:261
-msgid "_Domain:"
-msgstr "_Domene:"
+#: ../auth-dialog/vpn-password-dialog.c:239
+#, fuzzy
+msgid "Sh_ow passwords"
+msgstr "_Passord:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:352
-msgid "Connect _anonymously"
-msgstr "Koble til _anonymt"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:357
-msgid "Connect as _user:"
-msgstr "Koble til som br_uker:"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:466
-msgid "_Remember password for this session"
-msgstr "_Husk passordet for denne sesjonen"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:468
-msgid "_Save password in keyring"
-msgstr "_Lagre passord i nøkkelring"
-
-#: ../nm-ppp.desktop.in.h:1
-msgid "Add, Remove, and Edit VPN Connections"
+#: ../nm-l2tp.desktop.in.h:1
+#, fuzzy
+msgid "Add, Remove, and Edit L2TP VPN Connections"
 msgstr "Legg til, fjern og regiger VPN-tilkoblinger"
 
-#: ../nm-ppp.desktop.in.h:2
-msgid "VPN Connection Manager (PPP generic)"
-msgstr "Håndtering av VPN-tilkobling (vanlig PPP)"
+#: ../nm-l2tp.desktop.in.h:2
+#, fuzzy
+msgid "L2TP VPN Connection Manager"
+msgstr "VPN-tilkobling feilet"
 
-#: ../properties/nm-ppp-dialog.glade.h:1
-msgid "00:00:00:00"
-msgstr "00:00:00:00"
-
-#: ../properties/nm-ppp-dialog.glade.h:2
-msgid "<b>Compression</b>"
-msgstr "<b>Komprimerin</b>"
-
-#: ../properties/nm-ppp-dialog.glade.h:3
-msgid "<b>Delays &amp; Timeouts</b>"
-msgstr "<b>Pauser og tidsavbrudd</b>"
-
-#: ../properties/nm-ppp-dialog.glade.h:4
-msgid "<b>Encryption</b>"
-msgstr "<b>Kryptering</b>"
-
-#: ../properties/nm-ppp-dialog.glade.h:5
-msgid "<b>IP Options</b>"
-msgstr "<b>IP-alternativer</b>"
-
-#: ../properties/nm-ppp-dialog.glade.h:6
-msgid "<b>Packet Parameters</b>"
-msgstr "<b>Pakkeparametere</b>"
-
-#: ../properties/nm-ppp-dialog.glade.h:7
-msgid "<i>Example: 172.16.0.0/16 10.11.12.0/24</i>"
-msgstr "<i>Eksempel: 172.16.0.0/16 10.11.12.0/24</i>"
-
-#: ../properties/nm-ppp-dialog.glade.h:8
-msgid "A list of extra options to pppd as would be typed on the command line"
+#: ../properties/advanced-dialog.c:189
+msgid "All Available (Default)"
 msgstr ""
 
-#: ../properties/nm-ppp-dialog.glade.h:9
-msgid "Allow B_SD Compression"
-msgstr "Tillat B_SD-komprimering"
-
-#: ../properties/nm-ppp-dialog.glade.h:10
-msgid "Allow _Deflate compression"
-msgstr "Tillat _deflate-komprimering"
-
-#: ../properties/nm-ppp-dialog.glade.h:11
-msgid "Authentication"
-msgstr "Autentisering"
-
-#: ../properties/nm-ppp-dialog.glade.h:12
-msgid "C_hannel:"
-msgstr "_Kanal:"
-
-#: ../properties/nm-ppp-dialog.glade.h:13
-msgid "Co_nnect delay:"
-msgstr "Co_nnect-delay:"
-
-#: ../properties/nm-ppp-dialog.glade.h:14
-msgid "Compression & Encryption"
-msgstr "Komprimering & Kryptering"
-
-#: ../properties/nm-ppp-dialog.glade.h:15
-msgid "Connection"
-msgstr "Tilkobling:"
-
-#: ../properties/nm-ppp-dialog.glade.h:16
-msgid "Connection na_me:"
-msgstr "Tilkoblings_navn:"
-
-#: ../properties/nm-ppp-dialog.glade.h:17
-msgid "Context _number:"
-msgstr "Kontekst_nummer:"
-
-#: ../properties/nm-ppp-dialog.glade.h:18
-msgid "Custom _PPP options:"
-msgstr "Egendefinerte _PPP-flagg:"
-
-#: ../properties/nm-ppp-dialog.glade.h:19
-msgid "Debug _output"
-msgstr "Feilsøkings_utskrift"
-
-#: ../properties/nm-ppp-dialog.glade.h:20
-msgid "Disconnect after this many LCP echo requests fail"
+#: ../properties/advanced-dialog.c:193
+msgid "128-bit (most secure)"
 msgstr ""
 
-#: ../properties/nm-ppp-dialog.glade.h:21
-msgid "E_xclusive device access (UUCP-style lock)"
-msgstr "E_kslusiv aksess til enheten (UUCP-type lås)"
-
-#: ../properties/nm-ppp-dialog.glade.h:22
-msgid "Enable stateful _MPPE"
+#: ../properties/advanced-dialog.c:202
+msgid "40-bit (less secure)"
 msgstr ""
 
-#: ../properties/nm-ppp-dialog.glade.h:23
-msgid "Find Device"
-msgstr "Finn enhet"
-
-#: ../properties/nm-ppp-dialog.glade.h:24
-msgid ""
-"For security reasons, options entered in the box above are checked against a "
-"list of allowed options before a connection is established.  Currently there "
-"are no options on the list."
+#: ../properties/advanced-dialog.c:311
+msgid "PAP"
 msgstr ""
 
-#: ../properties/nm-ppp-dialog.glade.h:25
-msgid "GPRS Options"
-msgstr "GPRS-alternativer"
-
-#: ../properties/nm-ppp-dialog.glade.h:26
-msgid "Host name or IP address of the L2TP server"
+#: ../properties/advanced-dialog.c:324
+msgid "CHAP"
 msgstr ""
 
-#: ../properties/nm-ppp-dialog.glade.h:27
-msgid "IP a_ddress:"
-msgstr "IP-a_dresse:"
-
-#: ../properties/nm-ppp-dialog.glade.h:28
-msgid ""
-"If BSD compression is not allowed the 'nobsdcomp' option is passed to pppd"
-msgstr ""
-
-#: ../properties/nm-ppp-dialog.glade.h:29
-msgid ""
-"If Deflate compression is not allowed the 'nodefate' option is passed to pppd"
-msgstr ""
-
-#: ../properties/nm-ppp-dialog.glade.h:30
-msgid "Maximum Receive Unit"
-msgstr ""
-
-#: ../properties/nm-ppp-dialog.glade.h:31
-msgid "Maximum Transmit Unit"
-msgstr ""
-
-#: ../properties/nm-ppp-dialog.glade.h:32
-msgid "PPP Options"
-msgstr "PPP-alternativer"
-
-#: ../properties/nm-ppp-dialog.glade.h:33
-msgid "Refuse C_HAP"
-msgstr "Nekt C_HAP"
-
-#: ../properties/nm-ppp-dialog.glade.h:34
-msgid "Refuse _EAP"
-msgstr "Nekt _EAP"
-
-#: ../properties/nm-ppp-dialog.glade.h:35
-msgid "Refuse _MS CHAP"
-msgstr "Nekt _MS CHAP"
-
-#: ../properties/nm-ppp-dialog.glade.h:36
-msgid "Require 128 bit M_PPE encryption"
-msgstr "Krev 128-bit M_PPE-kryptering"
-
-#: ../properties/nm-ppp-dialog.glade.h:37
-msgid "Require MPPE _encryption"
-msgstr "Krev MPPE-krypt_ering"
-
-#: ../properties/nm-ppp-dialog.glade.h:38
-msgid "Require explicit IP _address"
-msgstr "Krev eksplisitt IP-_adresse"
-
-#: ../properties/nm-ppp-dialog.glade.h:39
-msgid "Requires existing network connection"
-msgstr "Krever eksisterende nettverkstilkobling"
-
-#: ../properties/nm-ppp-dialog.glade.h:40
-msgid "Routing"
-msgstr "Ruting"
-
-#: ../properties/nm-ppp-dialog.glade.h:41
-msgid "Serial Options"
-msgstr "Alternativer for seriellport"
-
-#: ../properties/nm-ppp-dialog.glade.h:42
-msgid "Service providers GPRS access point from device config"
-msgstr ""
-
-#: ../properties/nm-ppp-dialog.glade.h:43
-msgid "Service providers IP address"
-msgstr "IP-adresse for tjenestetilbyder"
-
-#: ../properties/nm-ppp-dialog.glade.h:44
-msgid "Telep_hone number:"
-msgstr "Tele_fonnummer:"
-
-#: ../properties/nm-ppp-dialog.glade.h:45
-msgid ""
-"This is the friendly name that will be used to identify this network "
-"connection, \n"
-"e.g. \"Campus VPN\" or \"Corporate Network\""
-msgstr ""
-
-#: ../properties/nm-ppp-dialog.glade.h:47
-msgid "Time in seconds between echo requests"
-msgstr "Tid i sekunder mellom ekko-forespørsler"
-
-#: ../properties/nm-ppp-dialog.glade.h:48
-msgid "Typ_e:"
-msgstr "Typ_e:"
-
-#: ../properties/nm-ppp-dialog.glade.h:49
-msgid "Use peer _DNS"
-msgstr "Bruk peer-_DNS"
-
-#: ../properties/nm-ppp-dialog.glade.h:50
-msgid "When checked the \"refuse-chap\" option is passed to pppd."
-msgstr ""
-
-#: ../properties/nm-ppp-dialog.glade.h:51
-msgid "When checked the \"refuse-eap\" option is passed to pppd."
-msgstr ""
-
-#: ../properties/nm-ppp-dialog.glade.h:52
-msgid "When checked the \"refuse-mschap\" option is passed to pppd."
-msgstr ""
-
-#: ../properties/nm-ppp-dialog.glade.h:53
-msgid "When checked the 'lock' option is passed to pppd"
-msgstr ""
-
-#: ../properties/nm-ppp-dialog.glade.h:54
-msgid "When checked the 'require-mppc' option is passed to pppd"
-msgstr ""
-
-#: ../properties/nm-ppp-dialog.glade.h:55
-msgid ""
-"When checked this sets the pppd 'debug' option and adds some extra "
-"information from the NetworkManager plugin"
-msgstr ""
-
-#: ../properties/nm-ppp-dialog.glade.h:56
-msgid "When checked this sets the pppd 'noipdefault' option"
-msgstr ""
-
-#: ../properties/nm-ppp-dialog.glade.h:57
-msgid "When checked this sets the pppd 'usepeerdns' option"
-msgstr ""
-
-#: ../properties/nm-ppp-dialog.glade.h:58
-msgid "When this check box is cleared the \"noauth\" option is passed to pppd."
-msgstr ""
-
-#: ../properties/nm-ppp-dialog.glade.h:59
-msgid "_Access point name:"
-msgstr ""
-
-#: ../properties/nm-ppp-dialog.glade.h:60
-msgid "_Authenticate peer"
-msgstr "_Autentiser peer"
-
-#: ../properties/nm-ppp-dialog.glade.h:61
-msgid "_Device address:"
-msgstr "En_hetsadresse:"
-
-#: ../properties/nm-ppp-dialog.glade.h:62
-msgid "_Gateway:"
-msgstr "_Gateway:"
-
-#: ../properties/nm-ppp-dialog.glade.h:63
-msgid "_Hardware RTS/CTS"
-msgstr "RTS/_CTS i maskinvare"
-
-#: ../properties/nm-ppp-dialog.glade.h:64
-msgid "_Import Saved Configuration..."
-msgstr "_Importer lagret konfigurasjon..."
-
-#: ../properties/nm-ppp-dialog.glade.h:65
-msgid "_Modem connection"
-msgstr "_Modemtilkobling"
-
-#: ../properties/nm-ppp-dialog.glade.h:66
-msgid "_Only use VPN connection for these addresses:"
-msgstr "K_un bruk VPN-tilkoblingen for disse adressene"
-
-#: ../properties/nm-ppp-dialog.glade.h:67
-msgid "_Packet type:"
-msgstr "_Pakketype:"
-
-#: ../properties/nm-ppp-dialog.glade.h:68
-msgid "_Peer DNS through tunnel"
-msgstr ""
-
-#: ../properties/nm-ppp-dialog.glade.h:69
-msgid "_Require MPPC compression"
-msgstr "K_rev MPPC-komprimering"
-
-#: ../properties/nm-ppp-properties.c:45
-msgid "pppd tunnel (L2TP, BTGPRS, Dialup)"
-msgstr "pppd-tunnel (L2TP, BTGPRS, oppringt)"
-
-#: ../properties/nm-ppp-properties.c:134
-msgid "Name"
-msgstr "Navn"
-
-#: ../properties/nm-ppp-properties.c:146
-msgid "L2TP Server"
-msgstr "L2TP-tjener"
-
-#: ../properties/nm-ppp-properties.c:151
-msgid "Telephone Number"
-msgstr "Telefonnummer"
-
-#: ../properties/nm-ppp-properties.c:156
-msgid "Bluetooth Address"
-msgstr "Bluetooth-adresse"
-
-#: ../properties/nm-ppp-properties.c:161
-msgid "Bluetooth Channel"
-msgstr "Bluetooth-kanal"
-
-#: ../properties/nm-ppp-properties.c:166
-msgid "GPRS APN"
-msgstr "GPRS APN"
-
-#: ../properties/nm-ppp-properties.c:171
-msgid "GPRS IP"
-msgstr "GPRS IP"
-
-#: ../properties/nm-ppp-properties.c:176
-msgid "GPRS Context No."
-msgstr "GPRS kontekstnr"
-
-#: ../properties/nm-ppp-properties.c:181
-msgid "GPRS Packet Type"
-msgstr "GPRS pakketype"
-
-#: ../properties/nm-ppp-properties.c:186
-msgid "Use CTS/RTS flow control"
-msgstr "Bruk CTS/RTS-flytkontroll"
-
-#: ../properties/nm-ppp-properties.c:191
-msgid "Connect via a modem"
-msgstr "Koble til via modem"
-
-#: ../properties/nm-ppp-properties.c:196
-msgid "Require IP to be provided"
-msgstr "Krev at IP oppgis"
-
-#: ../properties/nm-ppp-properties.c:201
-msgid "Use Peer DNS"
-msgstr "Bruk peer-DNS"
-
-#: ../properties/nm-ppp-properties.c:206
-msgid "Use MPPE encryption"
-msgstr "Bruk MPPE-kryptering"
-
-#: ../properties/nm-ppp-properties.c:211
-msgid "Use 128 bit MPPE encryption"
-msgstr "Bruk 128-bit MPPE-kryptering"
-
-#: ../properties/nm-ppp-properties.c:216
-msgid "Enable stateful MPPE"
-msgstr ""
-
-#: ../properties/nm-ppp-properties.c:221
-msgid "Use MPPC compression"
-msgstr "Bruk MPPC-komprimering"
-
-#: ../properties/nm-ppp-properties.c:226
-msgid "Do not use deflate compression"
-msgstr "Ikke bruk «deflate»-komprimering"
-
-#: ../properties/nm-ppp-properties.c:231
-msgid "Do not use BSD compression"
-msgstr "Ikke bruk BSD-komprimering"
-
-#: ../properties/nm-ppp-properties.c:236
-msgid "Exclusive device access by pppd"
-msgstr "Ekslusiv aksess til enheten for pppd"
-
-#: ../properties/nm-ppp-properties.c:241
-msgid "Authenticate remote peer"
-msgstr "Autentiser ekstern peer"
-
-#: ../properties/nm-ppp-properties.c:246
-msgid "Refuse EAP"
-msgstr "Ikke tillat EAP"
-
-#: ../properties/nm-ppp-properties.c:251
-msgid "Refuse CHAP"
-msgstr "Ikke tillat CHAP"
-
-#: ../properties/nm-ppp-properties.c:256
-msgid "Refuse MSCHAP"
+#: ../properties/advanced-dialog.c:336
+#, fuzzy
+msgid "MSCHAP"
 msgstr "Ikke tillat MSCHAP"
 
-#: ../properties/nm-ppp-properties.c:261
-msgid "Maximum transmit unit (in bytes)"
-msgstr "Maksimal overføringsenhet (i byte)"
-
-#: ../properties/nm-ppp-properties.c:266
-msgid "Maximum receive unit (in bytes)"
-msgstr "Maksimal enhet for mottak (i byte)"
-
-#: ../properties/nm-ppp-properties.c:271
-msgid "Number of failed LCP echos to cause disconnect"
+#: ../properties/advanced-dialog.c:348
+msgid "MSCHAPv2"
 msgstr ""
 
-#: ../properties/nm-ppp-properties.c:276
-msgid "Interval (in seconds) at which to issue LCP echos"
+#: ../properties/advanced-dialog.c:361
+msgid "EAP"
 msgstr ""
 
-#: ../properties/nm-ppp-properties.c:281
-msgid "Interval (in milliseconds) to wait before connecting."
+#: ../properties/nm-l2tp.c:49
+msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr ""
 
-#: ../properties/nm-ppp-properties.c:286
-msgid "Custom PPP options"
-msgstr "Egendefinerte PPP-flagg"
-
-#: ../properties/nm-ppp-properties.c:296
-msgid "Use Peer DNS over the Tunnel"
+#: ../properties/nm-l2tp.c:50
+msgid "Compatible with L2TP VPN servers."
 msgstr ""
 
-#: ../properties/nm-ppp-properties.c:302
-msgid "Specific networks available"
-msgstr ""
-
-#: ../properties/nm-ppp-properties.c:308
-msgid "Limit to specific networks"
-msgstr ""
-
-#: ../properties/vpnui_impl.c:229
+#: ../properties/nm-l2tp.c:187
 #, c-format
-msgid "The following '%s' connection will be created:"
-msgstr "Følgende «%s»-tilkobling vil bli opprettet:"
+msgid "%s: error reading advanced settings: %s"
+msgstr ""
 
-#: ../properties/vpnui_impl.c:242
+#: ../properties/nm-l2tp.c:211
 #, c-format
-msgid "\t%s:  %s\n"
-msgstr "\t%s:  %s\n"
+msgid "%s: error reading ipsec settings: %s"
+msgstr ""
 
-#: ../properties/vpnui_impl.c:245
-msgid "The connection details can be changed using the \"Back\" button."
-msgstr "Tilkoblingsdetaljene kan endres med «Tilbake»-knappen."
-
-#: ../properties/vpnui_impl.c:317
-msgid "Select file to import"
-msgstr "Velg fil som skal importeres"
-
-#. printf ("in impl_export\n");
-#: ../properties/vpnui_impl.c:462
-msgid "Save as..."
-msgstr "Lagre som..."
-
-#: ../properties/vpnui_impl.c:491
+#: ../properties/nm-l2tp.c:232
 #, c-format
-msgid "A file named \"%s\" already exists."
-msgstr "En fil med navn «%s» eksisterer allerede."
+msgid "%s: failed to create the Advanced dialog!"
+msgstr ""
 
-#: ../properties/vpnui_impl.c:494
-msgid "Do you want to replace it with the one you are saving?"
-msgstr "Vil du erstatte den med filen du lagrer nå?"
+#: ../properties/nm-l2tp.c:262
+#, c-format
+msgid "%s: failed to create the IPSEC dialog!"
+msgstr ""
 
-#: ../src/nm-ppp-starter.c:140
-msgid "VPN Connection failed"
-msgstr "VPN-tilkobling feilet"
+#: ../properties/nm-l2tp.c:381
+msgid "Saved"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:389
+msgid "Always Ask"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:394
+msgid "Not Required"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:614
+#, c-format
+msgid "could not create l2tp object"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:626
+#, c-format
+msgid "Couldn't load builder file: %s"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:630
+#, c-format
+msgid "could not load required resources at %s"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:640
+#, c-format
+msgid "could not load UI widget"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:735 ../properties/nm-l2tp.c:743
+#, c-format
+msgid "unknown L2TP file extension"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:755
+#, c-format
+msgid "not a valid L2TP configuration file"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:159
+#, c-format
+msgid ""
+"Could not get the system bus.  Make sure the message bus daemon is running!  "
+"Message: %s"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:181
+#, c-format
+msgid "Could not register D-Bus service name.  Message: %s"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:270
+msgid "Could not find secrets (connection invalid, no vpn setting)."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:283
+msgid "Invalid VPN username."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:293
+msgid "Missing VPN username."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:304
+msgid "Missing or invalid VPN password."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:332
+msgid "No cached credentials."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:363
+msgid "L2TP service (IP Config Get) reply received."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:508
+#, c-format
+msgid "invalid gateway '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:517
+#, c-format
+msgid "invalid ipsec-group-name '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:526
+#, c-format
+msgid "invalid ipsec-gateway-id '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:539
+#, c-format
+msgid "invalid integer property '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:550
+#, c-format
+msgid "invalid boolean property '%s' (not yes or no)"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:557
+#, c-format
+msgid "unhandled property '%s' type %s"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:568
+#, c-format
+msgid "property '%s' invalid or not supportedx"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:586
+msgid "No VPN configuration options."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:606
+#, c-format
+msgid "Missing required option '%s'."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:626
+msgid "No VPN secrets!"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:648
+#, c-format
+msgid "xl2tpd exited with error code %d"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:651
+#, c-format
+msgid "xl2tpd stopped unexpectedly with signal %d"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:653
+#, c-format
+msgid "xl2tpd died with signal %d"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:655
+msgid "xl2tpd died from an unknown cause"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:757
+msgid "Looks like pppd didn't initialize our dbus module"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:837
+msgid "couldn't get VPN setting"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:843
+msgid "couldn't get L2TP VPN gateway IP address"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:867
+#, c-format
+msgid "couldn't look up L2TP VPN gateway IP address '%s' (%d)"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:889
+#, c-format
+msgid "couldn't convert L2TP VPN gateway IP address '%s' (%d)"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:899
+#, c-format
+msgid "couldn't determine L2TP VPN gateway IP address from '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:989
+msgid "Could not find the ipsec binary."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1026
+msgid "Cannot save /etc/ipsec.secrets"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1036
+msgid "Cannot open /etc/ipsec.secrets for writing"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1058
+msgid "ipsec ready for action"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1079
+msgid "Could not find the xl2tpd binary."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1099
+#, c-format
+msgid "xl2tpd started with pid %d"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1176
+msgid "Could not write ipsec config."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1220
+msgid "Could not write xl2tpd config."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1235
+msgid "Could not write ppp options."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1304
+#, c-format
+msgid "failed to convert lcp-echo-failure value '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1322
+#, c-format
+msgid "failed to convert lcp-echo-interval value '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1372
+msgid "Could not start pppd plugin helper service."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1392
+#, c-format
+msgid "ipsec enable flag: %s"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1394
+msgid "starting ipsec"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1438
+#, c-format
+msgid "Terminated ppp daemon with PID %d."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1551
+msgid "Don't quit when VPN connection terminates"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1552
+msgid "Enable verbose debug logging (may expose passwords)"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1566
+msgid ""
+"nm-l2tp-service provides L2TP VPN capability with optional IPSec support to "
+"NetworkManager."
+msgstr ""
+
+#~ msgid "Authentication Type:"
+#~ msgstr "Type autentisering:"
+
+#~ msgid "_Remember for this session"
+#~ msgstr "Husk fo_r denne sesjonen"
+
+#~ msgid "_Save in keyring"
+#~ msgstr "_Lagre på nøkkelring"
+
+#~ msgid "Authenticate Connection"
+#~ msgstr "Autentiser tilkobling"
+
+#~ msgid "Authentication Required"
+#~ msgstr "Autentisering kreves"
+
+#~ msgid "_Authentication Type:"
+#~ msgstr "Type _autentisering:"
+
+#~ msgid "_Remote name:"
+#~ msgstr "Ekste_rnt navn:"
+
+#~ msgid "_Username:"
+#~ msgstr "Br_ukernavn:"
+
+#~ msgid "_Domain:"
+#~ msgstr "_Domene:"
+
+#~ msgid "Connect _anonymously"
+#~ msgstr "Koble til _anonymt"
+
+#~ msgid "Connect as _user:"
+#~ msgstr "Koble til som br_uker:"
+
+#~ msgid "_Remember password for this session"
+#~ msgstr "_Husk passordet for denne sesjonen"
+
+#~ msgid "_Save password in keyring"
+#~ msgstr "_Lagre passord i nøkkelring"
+
+#~ msgid "VPN Connection Manager (PPP generic)"
+#~ msgstr "Håndtering av VPN-tilkobling (vanlig PPP)"
+
+#~ msgid "00:00:00:00"
+#~ msgstr "00:00:00:00"
+
+#~ msgid "<b>Compression</b>"
+#~ msgstr "<b>Komprimerin</b>"
+
+#~ msgid "<b>Delays &amp; Timeouts</b>"
+#~ msgstr "<b>Pauser og tidsavbrudd</b>"
+
+#~ msgid "<b>Encryption</b>"
+#~ msgstr "<b>Kryptering</b>"
+
+#~ msgid "<b>IP Options</b>"
+#~ msgstr "<b>IP-alternativer</b>"
+
+#~ msgid "<b>Packet Parameters</b>"
+#~ msgstr "<b>Pakkeparametere</b>"
+
+#~ msgid "<i>Example: 172.16.0.0/16 10.11.12.0/24</i>"
+#~ msgstr "<i>Eksempel: 172.16.0.0/16 10.11.12.0/24</i>"
+
+#~ msgid "Allow B_SD Compression"
+#~ msgstr "Tillat B_SD-komprimering"
+
+#~ msgid "Allow _Deflate compression"
+#~ msgstr "Tillat _deflate-komprimering"
+
+#~ msgid "Authentication"
+#~ msgstr "Autentisering"
+
+#~ msgid "C_hannel:"
+#~ msgstr "_Kanal:"
+
+#~ msgid "Co_nnect delay:"
+#~ msgstr "Co_nnect-delay:"
+
+#~ msgid "Compression & Encryption"
+#~ msgstr "Komprimering & Kryptering"
+
+#~ msgid "Connection"
+#~ msgstr "Tilkobling:"
+
+#~ msgid "Connection na_me:"
+#~ msgstr "Tilkoblings_navn:"
+
+#~ msgid "Context _number:"
+#~ msgstr "Kontekst_nummer:"
+
+#~ msgid "Custom _PPP options:"
+#~ msgstr "Egendefinerte _PPP-flagg:"
+
+#~ msgid "Debug _output"
+#~ msgstr "Feilsøkings_utskrift"
+
+#~ msgid "E_xclusive device access (UUCP-style lock)"
+#~ msgstr "E_kslusiv aksess til enheten (UUCP-type lås)"
+
+#~ msgid "Find Device"
+#~ msgstr "Finn enhet"
+
+#~ msgid "GPRS Options"
+#~ msgstr "GPRS-alternativer"
+
+#~ msgid "IP a_ddress:"
+#~ msgstr "IP-a_dresse:"
+
+#~ msgid "PPP Options"
+#~ msgstr "PPP-alternativer"
+
+#~ msgid "Refuse C_HAP"
+#~ msgstr "Nekt C_HAP"
+
+#~ msgid "Refuse _EAP"
+#~ msgstr "Nekt _EAP"
+
+#~ msgid "Refuse _MS CHAP"
+#~ msgstr "Nekt _MS CHAP"
+
+#~ msgid "Require 128 bit M_PPE encryption"
+#~ msgstr "Krev 128-bit M_PPE-kryptering"
+
+#~ msgid "Require MPPE _encryption"
+#~ msgstr "Krev MPPE-krypt_ering"
+
+#~ msgid "Require explicit IP _address"
+#~ msgstr "Krev eksplisitt IP-_adresse"
+
+#~ msgid "Requires existing network connection"
+#~ msgstr "Krever eksisterende nettverkstilkobling"
+
+#~ msgid "Routing"
+#~ msgstr "Ruting"
+
+#~ msgid "Serial Options"
+#~ msgstr "Alternativer for seriellport"
+
+#~ msgid "Service providers IP address"
+#~ msgstr "IP-adresse for tjenestetilbyder"
+
+#~ msgid "Telep_hone number:"
+#~ msgstr "Tele_fonnummer:"
+
+#~ msgid "Time in seconds between echo requests"
+#~ msgstr "Tid i sekunder mellom ekko-forespørsler"
+
+#~ msgid "Typ_e:"
+#~ msgstr "Typ_e:"
+
+#~ msgid "Use peer _DNS"
+#~ msgstr "Bruk peer-_DNS"
+
+#~ msgid "_Device address:"
+#~ msgstr "En_hetsadresse:"
+
+#~ msgid "_Gateway:"
+#~ msgstr "_Gateway:"
+
+#~ msgid "_Hardware RTS/CTS"
+#~ msgstr "RTS/_CTS i maskinvare"
+
+#~ msgid "_Import Saved Configuration..."
+#~ msgstr "_Importer lagret konfigurasjon..."
+
+#~ msgid "_Modem connection"
+#~ msgstr "_Modemtilkobling"
+
+#~ msgid "_Only use VPN connection for these addresses:"
+#~ msgstr "K_un bruk VPN-tilkoblingen for disse adressene"
+
+#~ msgid "_Packet type:"
+#~ msgstr "_Pakketype:"
+
+#~ msgid "_Require MPPC compression"
+#~ msgstr "K_rev MPPC-komprimering"
+
+#~ msgid "pppd tunnel (L2TP, BTGPRS, Dialup)"
+#~ msgstr "pppd-tunnel (L2TP, BTGPRS, oppringt)"
+
+#~ msgid "Name"
+#~ msgstr "Navn"
+
+#~ msgid "L2TP Server"
+#~ msgstr "L2TP-tjener"
+
+#~ msgid "Telephone Number"
+#~ msgstr "Telefonnummer"
+
+#~ msgid "Bluetooth Address"
+#~ msgstr "Bluetooth-adresse"
+
+#~ msgid "Bluetooth Channel"
+#~ msgstr "Bluetooth-kanal"
+
+#~ msgid "GPRS APN"
+#~ msgstr "GPRS APN"
+
+#~ msgid "GPRS IP"
+#~ msgstr "GPRS IP"
+
+#~ msgid "GPRS Context No."
+#~ msgstr "GPRS kontekstnr"
+
+#~ msgid "GPRS Packet Type"
+#~ msgstr "GPRS pakketype"
+
+#~ msgid "Use CTS/RTS flow control"
+#~ msgstr "Bruk CTS/RTS-flytkontroll"
+
+#~ msgid "Connect via a modem"
+#~ msgstr "Koble til via modem"
+
+#~ msgid "Require IP to be provided"
+#~ msgstr "Krev at IP oppgis"
+
+#~ msgid "Use Peer DNS"
+#~ msgstr "Bruk peer-DNS"
+
+#~ msgid "Use MPPE encryption"
+#~ msgstr "Bruk MPPE-kryptering"
+
+#~ msgid "Use 128 bit MPPE encryption"
+#~ msgstr "Bruk 128-bit MPPE-kryptering"
+
+#~ msgid "Use MPPC compression"
+#~ msgstr "Bruk MPPC-komprimering"
+
+#~ msgid "Do not use deflate compression"
+#~ msgstr "Ikke bruk «deflate»-komprimering"
+
+#~ msgid "Do not use BSD compression"
+#~ msgstr "Ikke bruk BSD-komprimering"
+
+#~ msgid "Exclusive device access by pppd"
+#~ msgstr "Ekslusiv aksess til enheten for pppd"
+
+#~ msgid "Authenticate remote peer"
+#~ msgstr "Autentiser ekstern peer"
+
+#~ msgid "Refuse EAP"
+#~ msgstr "Ikke tillat EAP"
+
+#~ msgid "Refuse CHAP"
+#~ msgstr "Ikke tillat CHAP"
+
+#~ msgid "Maximum transmit unit (in bytes)"
+#~ msgstr "Maksimal overføringsenhet (i byte)"
+
+#~ msgid "Maximum receive unit (in bytes)"
+#~ msgstr "Maksimal enhet for mottak (i byte)"
+
+#~ msgid "Custom PPP options"
+#~ msgstr "Egendefinerte PPP-flagg"
+
+#~ msgid "The following '%s' connection will be created:"
+#~ msgstr "Følgende «%s»-tilkobling vil bli opprettet:"
+
+#~ msgid "\t%s:  %s\n"
+#~ msgstr "\t%s:  %s\n"
+
+#~ msgid "The connection details can be changed using the \"Back\" button."
+#~ msgstr "Tilkoblingsdetaljene kan endres med «Tilbake»-knappen."
+
+#~ msgid "Select file to import"
+#~ msgstr "Velg fil som skal importeres"
+
+#~ msgid "Save as..."
+#~ msgstr "Lagre som..."
+
+#~ msgid "A file named \"%s\" already exists."
+#~ msgstr "En fil med navn «%s» eksisterer allerede."
+
+#~ msgid "Do you want to replace it with the one you are saving?"
+#~ msgstr "Vil du erstatte den med filen du lagrer nå?"
