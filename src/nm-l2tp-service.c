@@ -413,7 +413,7 @@ static ValidProperty valid_properties[] = {
 	{ NM_L2TP_KEY_NODEFLATE,         G_TYPE_BOOLEAN, FALSE },
 	{ NM_L2TP_KEY_NO_VJ_COMP,        G_TYPE_BOOLEAN, FALSE },
 	{ NM_L2TP_KEY_NO_PCOMP,          G_TYPE_BOOLEAN, FALSE },
-	{ NM_L2TP_KEY_USE_ACCOMP,        G_TYPE_BOOLEAN, FALSE },
+	{ NM_L2TP_KEY_NO_ACCOMP,         G_TYPE_BOOLEAN, FALSE },
 	{ NM_L2TP_KEY_LCP_ECHO_FAILURE,  G_TYPE_UINT, FALSE },
 	{ NM_L2TP_KEY_LCP_ECHO_INTERVAL, G_TYPE_UINT, FALSE },
 	{ NM_L2TP_KEY_PASSWORD"-flags",  G_TYPE_UINT, FALSE },
@@ -1141,7 +1141,7 @@ static PPPOpt ppp_options[] = {
 	{NM_L2TP_KEY_NODEFLATE, G_TYPE_BOOLEAN, "nodeflate\n"},
 	{NM_L2TP_KEY_NO_VJ_COMP, G_TYPE_BOOLEAN, "novj\n"},
 	{NM_L2TP_KEY_NO_PCOMP, G_TYPE_BOOLEAN, "nopcomp\n"},
-	/* negate {NM_L2TP_KEY_USE_ACCOMP, G_TYPE_BOOLEAN, "noaccomp\n"}, */
+	{NM_L2TP_KEY_NO_ACCOMP, G_TYPE_BOOLEAN, "noaccomp\n"},
 	{NULL, G_TYPE_NONE, NULL}
 };
 
@@ -1284,10 +1284,6 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		if (value && !strcmp (value, "yes"))
 			write_config_option (pppopt_fd, ppp_options[i].write_to_config);
 	}
-
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USE_ACCOMP);
-	if (!(value && !strcmp (value, "yes")))
-		write_config_option (pppopt_fd, "noaccomp\n");
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_LCP_ECHO_FAILURE);
 	if (value && strlen (value)) {

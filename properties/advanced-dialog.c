@@ -67,7 +67,7 @@ static const char *advanced_keys[] = {
 	NM_L2TP_KEY_NODEFLATE,
 	NM_L2TP_KEY_NO_VJ_COMP,
 	NM_L2TP_KEY_NO_PCOMP,
-	NM_L2TP_KEY_USE_ACCOMP,
+	NM_L2TP_KEY_NO_ACCOMP,
 	NM_L2TP_KEY_LCP_ECHO_FAILURE,
 	NM_L2TP_KEY_LCP_ECHO_INTERVAL,
 	NULL
@@ -483,9 +483,10 @@ advanced_dialog_new (GHashTable *hash)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), FALSE);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ppp_useaccomp"));
-	value = g_hash_table_lookup (hash, NM_L2TP_KEY_USE_ACCOMP);
+	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), TRUE);
+	value = g_hash_table_lookup (hash, NM_L2TP_KEY_NO_ACCOMP);
 	if (value && !strcmp (value, "yes"))
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), TRUE);
+		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), FALSE);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ppp_send_echo_packets"));
 	value = g_hash_table_lookup (hash, NM_L2TP_KEY_LCP_ECHO_INTERVAL);
@@ -550,24 +551,24 @@ advanced_dialog_new_hash_from_dialog (GtkWidget *dialog, GError **error)
 	}
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ppp_allow_bsdcomp"));
-	if (!gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
+	if (!gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget))) /* negate */
 		g_hash_table_insert (hash, g_strdup (NM_L2TP_KEY_NOBSDCOMP), g_strdup ("yes"));
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ppp_allow_deflate"));
-	if (!gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
+	if (!gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget))) /* negate */
 		g_hash_table_insert (hash, g_strdup (NM_L2TP_KEY_NODEFLATE), g_strdup ("yes"));
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ppp_usevj"));
-	if (!gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
+	if (!gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget))) /* negate */
 		g_hash_table_insert (hash, g_strdup (NM_L2TP_KEY_NO_VJ_COMP), g_strdup ("yes"));
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder,"ppp_usepcomp"));
-	if (!gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
+	if (!gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget))) /* negate */
 		g_hash_table_insert (hash, g_strdup (NM_L2TP_KEY_NO_PCOMP), g_strdup ("yes"));
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ppp_useaccomp"));
-	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
-		g_hash_table_insert (hash, g_strdup (NM_L2TP_KEY_USE_ACCOMP), g_strdup ("yes"));
+	if (!gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget))) /* negate */
+		g_hash_table_insert (hash, g_strdup (NM_L2TP_KEY_NO_ACCOMP), g_strdup ("yes"));
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ppp_send_echo_packets"));
 	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget))) {
