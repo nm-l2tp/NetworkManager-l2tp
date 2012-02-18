@@ -117,6 +117,8 @@
                               <object class="GtkTreeView" id="ppp_auth_methods">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
+                                <property name="tooltip_text" translatable="yes">Allow/disable authentication methods.
+config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap</property>
                                 <property name="headers_visible">False</property>
                                 <child internal-child="selection">
                                   <object class="GtkTreeSelection" id="treeview-selection1"/>
@@ -231,6 +233,8 @@
                                           <object class="GtkComboBox" id="ppp_mppe_security_combo">
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
+                                            <property name="tooltip_text" translatable="yes">Require the use of MPPE, with 40/128-bit encryption or all.
+config: require-mppe, require-mppe-128 or require-mppe-40</property>
                                             <property name="model">model1</property>
                                             <child>
                                               <object class="GtkCellRendererText" id="renderer1"/>
@@ -258,6 +262,8 @@
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">False</property>
+                                        <property name="tooltip_text" translatable="yes">Allow MPPE to use stateful mode. Stateless mode is still attempted first.
+config: mppe-stateful (when checked)</property>
                                         <property name="use_action_appearance">False</property>
                                         <property name="use_underline">True</property>
                                         <property name="draw_indicator">True</property>
@@ -290,6 +296,8 @@
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
+                            <property name="tooltip_text" translatable="yes">Allow/disable BSD-Compress compression.
+config: nobsdcomp (when unchecked)</property>
                             <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="draw_indicator">True</property>
@@ -306,6 +314,8 @@
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
+                            <property name="tooltip_text" translatable="yes">Allow/disable Deflate compression.
+config: nodeflate (when unchecked)</property>
                             <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="draw_indicator">True</property>
@@ -322,6 +332,8 @@
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
+                            <property name="tooltip_text" translatable="yes">Allow/disable Van Jacobson style TCP/IP header compression in both the transmit and the receive directions.
+config: novj (when unchecked)</property>
                             <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="draw_indicator">True</property>
@@ -338,6 +350,8 @@
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
+                            <property name="tooltip_text" translatable="yes">Allow protocol field compression negotiation in both the receive and the transmit direction.
+config: nopcomp (when unchecked)</property>
                             <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="draw_indicator">True</property>
@@ -354,6 +368,8 @@
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
+                            <property name="tooltip_text" translatable="yes">Use Address/Control compression in both directions (send and receive).
+config: noaccomp (when unchecked)</property>
                             <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
                             <property name="draw_indicator">True</property>
@@ -410,6 +426,8 @@
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
+                        <property name="tooltip_text" translatable="yes">Send LCP echo-requests to find out whether peer is alive.
+config: lcp-echo-failure and lcp-echo-interval</property>
                         <property name="use_action_appearance">False</property>
                         <property name="use_underline">True</property>
                         <property name="draw_indicator">True</property>
@@ -656,19 +674,6 @@
                 <property name="column_spacing">12</property>
                 <property name="row_spacing">6</property>
                 <child>
-                  <object class="GtkEntry" id="gateway_entry">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="primary_icon_activatable">False</property>
-                    <property name="secondary_icon_activatable">False</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">1</property>
-                    <property name="right_attach">2</property>
-                    <property name="y_options"></property>
-                  </packing>
-                </child>
-                <child>
                   <object class="GtkLabel" id="label23">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
@@ -679,6 +684,21 @@
                   </object>
                   <packing>
                     <property name="x_options">GTK_SHRINK | GTK_FILL</property>
+                    <property name="y_options"></property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="gateway_entry">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="tooltip_text" translatable="yes">L2TP server IP or name.
+config: xl2tpd lns parameter</property>
+                    <property name="primary_icon_activatable">False</property>
+                    <property name="secondary_icon_activatable">False</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="right_attach">2</property>
                     <property name="y_options"></property>
                   </packing>
                 </child>
@@ -734,6 +754,8 @@
                   <object class="GtkEntry" id="domain_entry">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="tooltip_text" translatable="yes">Append the domain name &lt;domain&gt; to the local host name for authentication purposes.
+config: domain &lt;domain&gt;</property>
                     <property name="invisible_char">•</property>
                     <property name="invisible_char_set">True</property>
                   </object>
@@ -799,6 +821,7 @@
                   <object class="GtkEntry" id="user_password_entry">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="tooltip_text" translatable="yes">Password passed to PPPD when prompted for it.</property>
                     <property name="visibility">False</property>
                     <property name="invisible_char">•</property>
                     <property name="invisible_char_set">True</property>
@@ -829,6 +852,8 @@
                   <object class="GtkEntry" id="user_entry">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="tooltip_text" translatable="yes">Set the name used for authenticating the local system to the peer to &lt;name&gt;.
+config: xl2tpd name parameter</property>
                     <property name="invisible_char">•</property>
                     <property name="invisible_char_set">True</property>
                   </object>
