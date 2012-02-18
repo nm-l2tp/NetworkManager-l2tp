@@ -10,15 +10,14 @@ msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-02-19 02:19+0400\n"
-"PO-Revision-Date: 2012-02-19 02:16+0300\n"
+"PO-Revision-Date: 2012-02-19 03:45+0300\n"
 "Last-Translator: Sergey Prokhorov <me@seriyps.ru>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: KBabel 1.11.4\n"
 
 #. Otherwise, we have no saved password, or the password flags indicated
@@ -42,9 +41,8 @@ msgid "_Secondary Password:"
 msgstr "_Вторичный пароль:"
 
 #: ../auth-dialog/vpn-password-dialog.c:239
-#, fuzzy
 msgid "Sh_ow passwords"
-msgstr "Показать пароль"
+msgstr "П_оказать пароли"
 
 #: ../nm-l2tp.desktop.in.h:1
 msgid "Add, Remove, and Edit L2TP VPN Connections"
@@ -146,7 +144,8 @@ msgstr "не могу загрузить требуемые ресурсы из 
 msgid "could not load UI widget"
 msgstr "не могу загрузить виджет"
 
-#: ../properties/nm-l2tp.c:735 ../properties/nm-l2tp.c:743
+#: ../properties/nm-l2tp.c:735
+#: ../properties/nm-l2tp.c:743
 #, c-format
 msgid "unknown L2TP file extension"
 msgstr "неизвестное расширение L2TP файла"
@@ -181,6 +180,8 @@ msgid ""
 "Allow MPPE to use stateful mode. Stateless mode is still attempted first.\n"
 "config: mppe-stateful (when checked)"
 msgstr ""
+"Разрешить MPPE импользовать stateful режим. По прежнему сперва предпринимается попытка использовать stateless режим.\n"
+"опция конфигурации: mppe-stateful (когда отмечено)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Allow _BSD data compression"
@@ -192,10 +193,11 @@ msgstr "Включить компрессию _Deflate"
 
 #: ../properties/nm-l2tp-dialog.ui.h:10
 msgid ""
-"Allow protocol field compression negotiation in both the receive and the "
-"transmit direction.\n"
+"Allow protocol field compression negotiation in both the receive and the transmit direction.\n"
 "config: nopcomp (when unchecked)"
 msgstr ""
+"Разрешить protocol field compression negotiation в обоих направлениях - прием и отправка.\n"
+"опция конфигурации: nopcomp (когда не отмечена)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
 msgid "Allow st_ateful encryption"
@@ -210,32 +212,40 @@ msgid ""
 "Allow/disable BSD-Compress compression.\n"
 "config: nobsdcomp (when unchecked)"
 msgstr ""
+"Разрешить/запретить BSD - сжатие.\n"
+"опция конфигурации: nobsdcomp (когда не отмечена)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
 msgid ""
 "Allow/disable Deflate compression.\n"
 "config: nodeflate (when unchecked)"
 msgstr ""
+"Разрешить/запретить Deflate - сжатие.\n"
+"опция конфигурации: nodeflate (когда не отмечена)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid ""
-"Allow/disable Van Jacobson style TCP/IP header compression in both the "
-"transmit and the receive directions.\n"
+"Allow/disable Van Jacobson style TCP/IP header compression in both the transmit and the receive directions.\n"
 "config: novj (when unchecked)"
 msgstr ""
+"Разрешить/запретить Van Jacobson сжатие TCP/IP заголовков в обоих направлениях - прием и отправка.\n"
+"опция конфигурации: novj (когда не отмечена)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid ""
 "Allow/disable authentication methods.\n"
 "config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 msgstr ""
+"Разрешить/запретить методы аутентификации.\n"
+"опции конфигурации: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 
 #: ../properties/nm-l2tp-dialog.ui.h:22
 msgid ""
-"Append the domain name <domain> to the local host name for authentication "
-"purposes.\n"
+"Append the domain name <domain> to the local host name for authentication purposes.\n"
 "config: domain <domain>"
 msgstr ""
+"Добавить имя домена <domain> к локальному имени хоста для аутентификации.\n"
+"опция конфигурации: domain <domain>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Default"
@@ -265,20 +275,16 @@ msgid ""
 "L2TP server IP or name.\n"
 "config: xl2tpd lns parameter"
 msgstr ""
+"IP адрес или доменное имя L2TP сервера.\n"
+"опция конфигурации: xl2tpd lns параметр"
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
 msgid "NT Domain:"
 msgstr "NT-домен:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
-msgid ""
-"Note: MPPE encryption is only available with MSCHAP authentication methods. "
-"To enable this checkbox, select one or more of the MSCHAP authentication "
-"methods: MSCHAP or MSCHAPv2."
-msgstr ""
-"Замечание: Шифрование MPPE доступно только с методами аутентификации MSCHAP. "
-"Чтобы включить данный пункт, выберите один или более методов аутентификации "
-"MSCHAP: MSCHAP или MSCHAPv2."
+msgid "Note: MPPE encryption is only available with MSCHAP authentication methods. To enable this checkbox, select one or more of the MSCHAP authentication methods: MSCHAP or MSCHAPv2."
+msgstr "Замечание: Шифрование MPPE доступно только с методами аутентификации MSCHAP. Чтобы включить данный пункт, выберите один или более методов аутентификации MSCHAP: MSCHAP или MSCHAPv2."
 
 #: ../properties/nm-l2tp-dialog.ui.h:33
 msgid "PPP Se_ttings..."
@@ -286,7 +292,7 @@ msgstr "Настройки PPP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:34
 msgid "Password passed to PPPD when prompted for it."
-msgstr ""
+msgstr "Пароль, передаваемый PPPD, если будет запрошен."
 
 #: ../properties/nm-l2tp-dialog.ui.h:35
 msgid "Password:"
@@ -301,12 +307,16 @@ msgid ""
 "Require the use of MPPE, with 40/128-bit encryption or all.\n"
 "config: require-mppe, require-mppe-128 or require-mppe-40"
 msgstr ""
+"Требуется использование MPPE, с 40/128-битным шифрованием или любым.\n"
+"опция конфигурации: require-mppe, require-mppe-128 или require-mppe-40"
 
 #: ../properties/nm-l2tp-dialog.ui.h:39
 msgid ""
 "Send LCP echo-requests to find out whether peer is alive.\n"
 "config: lcp-echo-failure and lcp-echo-interval"
 msgstr ""
+"Отправлять LCP эхо-запросы для того чтобы проверять что пир доступен.\n"
+"опция конфигурации: lcp-echo-failure и lcp-echo-interval"
 
 #: ../properties/nm-l2tp-dialog.ui.h:41
 msgid "Send PPP _echo packets"
@@ -314,10 +324,11 @@ msgstr "Посылать _эхо-пакеты PPP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:42
 msgid ""
-"Set the name used for authenticating the local system to the peer to "
-"<name>.\n"
+"Set the name used for authenticating the local system to the peer to <name>.\n"
 "config: xl2tpd name parameter"
 msgstr ""
+"Задает имя, используемое для аутентификации компьютера на VPN сервере.\n"
+"опция конфигурации: xl2tpd name параметр"
 
 #: ../properties/nm-l2tp-dialog.ui.h:44
 msgid "Show password"
@@ -328,6 +339,8 @@ msgid ""
 "Use Address/Control compression in both directions (send and receive).\n"
 "config: noaccomp (when unchecked)"
 msgstr ""
+"Использовать Address/Control сжатие в обоих направлениях - прием и отправка.\n"
+"опция конфигурации: noacomp (когда не отмечена)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:47
 msgid "Use TCP _header compression"
@@ -367,9 +380,7 @@ msgstr "_Шифрование:"
 
 #: ../src/nm-l2tp-service.c:159
 #, c-format
-msgid ""
-"Could not get the system bus.  Make sure the message bus daemon is running!  "
-"Message: %s"
+msgid "Could not get the system bus.  Make sure the message bus daemon is running!  Message: %s"
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:181
@@ -562,17 +573,15 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1547
 msgid "Don't quit when VPN connection terminates"
-msgstr ""
+msgstr "Не выходить когда VPN соединение разорвется"
 
 #: ../src/nm-l2tp-service.c:1548
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr ""
+msgstr "Включить подробное отладочное логгирование (может показать пароли)"
 
 #: ../src/nm-l2tp-service.c:1562
-msgid ""
-"nm-l2tp-service provides L2TP VPN capability with optional IPSec support to "
-"NetworkManager."
-msgstr ""
+msgid "nm-l2tp-service provides L2TP VPN capability with optional IPSec support to NetworkManager."
+msgstr "nm-l2tp-service предоставляет возможности L2TP VPN с опциональной поддержкой IPSec для NetworkManager."
 
 #~ msgid "_Username:"
 #~ msgstr "П_ользователь:"
