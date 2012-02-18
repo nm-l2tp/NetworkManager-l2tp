@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-torrent\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 03:21+0400\n"
+"POT-Creation-Date: 2012-02-19 02:19+0400\n"
 "PO-Revision-Date: 2012-02-19 00:27+0300\n"
 "Last-Translator: Sergey Prokhorov <me@seriyps.ru>\n"
 "Language-Team: en_GB <en@li.org>\n"
@@ -141,8 +141,7 @@ msgstr "could not load required resources at %s"
 msgid "could not load UI widget"
 msgstr "could not load UI widget"
 
-#: ../properties/nm-l2tp.c:735
-#: ../properties/nm-l2tp.c:743
+#: ../properties/nm-l2tp.c:735 ../properties/nm-l2tp.c:743
 #, c-format
 msgid "unknown L2TP file extension"
 msgstr "unknown L2TP file extension"
@@ -173,109 +172,199 @@ msgid "<b>Security and Compression</b>"
 msgstr "<b>Security and Compression</b>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:6
+msgid ""
+"Allow MPPE to use stateful mode. Stateless mode is still attempted first.\n"
+"config: mppe-stateful (when checked)"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Allow _BSD data compression"
 msgstr "Allow _BSD data compression"
 
-#: ../properties/nm-l2tp-dialog.ui.h:7
+#: ../properties/nm-l2tp-dialog.ui.h:9
 msgid "Allow _Deflate data compression"
 msgstr "Allow _Deflate data compression"
 
-#: ../properties/nm-l2tp-dialog.ui.h:8
+#: ../properties/nm-l2tp-dialog.ui.h:10
+msgid ""
+"Allow protocol field compression negotiation in both the receive and the "
+"transmit direction.\n"
+"config: nopcomp (when unchecked)"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:12
 msgid "Allow st_ateful encryption"
 msgstr "Allow st_ateful encryption"
 
-#: ../properties/nm-l2tp-dialog.ui.h:9
+#: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "Allow the following authentication methods:"
 msgstr "Allow the following authentication methods:"
 
-#: ../properties/nm-l2tp-dialog.ui.h:10
+#: ../properties/nm-l2tp-dialog.ui.h:14
+msgid ""
+"Allow/disable BSD-Compress compression.\n"
+"config: nobsdcomp (when unchecked)"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:16
+msgid ""
+"Allow/disable Deflate compression.\n"
+"config: nodeflate (when unchecked)"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:18
+msgid ""
+"Allow/disable Van Jacobson style TCP/IP header compression in both the "
+"transmit and the receive directions.\n"
+"config: novj (when unchecked)"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:20
+msgid ""
+"Allow/disable authentication methods.\n"
+"config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:22
+msgid ""
+"Append the domain name <domain> to the local host name for authentication "
+"purposes.\n"
+"config: domain <domain>"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Default"
 msgstr "Default"
 
-#: ../properties/nm-l2tp-dialog.ui.h:11
+#: ../properties/nm-l2tp-dialog.ui.h:25
 msgid "Gateway ID:"
 msgstr "Gateway ID:"
 
-#: ../properties/nm-l2tp-dialog.ui.h:12
+#: ../properties/nm-l2tp-dialog.ui.h:26
 msgid "Group Name:"
 msgstr "Group Name:"
 
-#: ../properties/nm-l2tp-dialog.ui.h:13
+#: ../properties/nm-l2tp-dialog.ui.h:27
 msgid "L2TP IPSEC Options"
 msgstr "L2TP IPSEC Options"
 
-#: ../properties/nm-l2tp-dialog.ui.h:14
+#: ../properties/nm-l2tp-dialog.ui.h:28
 msgid "L2TP PPP Options"
 msgstr "L2TP PPP Options"
 
-#: ../properties/nm-l2tp-dialog.ui.h:15
+#: ../properties/nm-l2tp-dialog.ui.h:29
+msgid ""
+"L2TP server IP or name.\n"
+"config: xl2tpd lns parameter"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:31
 msgid "NT Domain:"
 msgstr "NT Domain:"
 
-#: ../properties/nm-l2tp-dialog.ui.h:16
-msgid "Note: MPPE encryption is only available with MSCHAP authentication methods. To enable this checkbox, select one or more of the MSCHAP authentication methods: MSCHAP or MSCHAPv2."
-msgstr "Note: MPPE encryption is only available with MSCHAP authentication methods. To enable this checkbox, select one or more of the MSCHAP authentication methods: MSCHAP or MSCHAPv2."
+#: ../properties/nm-l2tp-dialog.ui.h:32
+msgid ""
+"Note: MPPE encryption is only available with MSCHAP authentication methods. "
+"To enable this checkbox, select one or more of the MSCHAP authentication "
+"methods: MSCHAP or MSCHAPv2."
+msgstr ""
+"Note: MPPE encryption is only available with MSCHAP authentication methods. "
+"To enable this checkbox, select one or more of the MSCHAP authentication "
+"methods: MSCHAP or MSCHAPv2."
 
-#: ../properties/nm-l2tp-dialog.ui.h:17
+#: ../properties/nm-l2tp-dialog.ui.h:33
 msgid "PPP Se_ttings..."
 msgstr "PPP Se_ttings..."
 
-#: ../properties/nm-l2tp-dialog.ui.h:18
+#: ../properties/nm-l2tp-dialog.ui.h:34
+msgid "Password passed to PPPD when prompted for it."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:35
 msgid "Password:"
 msgstr "Password:"
 
-#: ../properties/nm-l2tp-dialog.ui.h:19
+#: ../properties/nm-l2tp-dialog.ui.h:36
 msgid "Pre-shared key:"
 msgstr "Pre-shared key:"
 
-#: ../properties/nm-l2tp-dialog.ui.h:20
+#: ../properties/nm-l2tp-dialog.ui.h:37
+msgid ""
+"Require the use of MPPE, with 40/128-bit encryption or all.\n"
+"config: require-mppe, require-mppe-128 or require-mppe-40"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:39
+msgid ""
+"Send LCP echo-requests to find out whether peer is alive.\n"
+"config: lcp-echo-failure and lcp-echo-interval"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:41
 msgid "Send PPP _echo packets"
 msgstr "Send PPP _echo packets"
 
-#: ../properties/nm-l2tp-dialog.ui.h:21
+#: ../properties/nm-l2tp-dialog.ui.h:42
+msgid ""
+"Set the name used for authenticating the local system to the peer to "
+"<name>.\n"
+"config: xl2tpd name parameter"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:44
 msgid "Show password"
 msgstr "Show password"
 
-#: ../properties/nm-l2tp-dialog.ui.h:22
+#: ../properties/nm-l2tp-dialog.ui.h:45
+msgid ""
+"Use Address/Control compression in both directions (send and receive).\n"
+"config: noaccomp (when unchecked)"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:47
 msgid "Use TCP _header compression"
 msgstr "Use TCP _header compression"
 
-#: ../properties/nm-l2tp-dialog.ui.h:23
+#: ../properties/nm-l2tp-dialog.ui.h:48
 msgid "Use _Address/Control compression"
 msgstr "Use _Address/Control compression"
 
-#: ../properties/nm-l2tp-dialog.ui.h:24
+#: ../properties/nm-l2tp-dialog.ui.h:49
 msgid "Use _Point-to-Point encryption (MPPE)"
 msgstr "Use _Point-to-Point encryption (MPPE)"
 
-#: ../properties/nm-l2tp-dialog.ui.h:25
+#: ../properties/nm-l2tp-dialog.ui.h:50
 msgid "Use protocol _field compression negotiation"
 msgstr "Use protocol _field compression negotiation"
 
-#: ../properties/nm-l2tp-dialog.ui.h:26
+#: ../properties/nm-l2tp-dialog.ui.h:51
 msgid "User name:"
 msgstr "User name:"
 
-#: ../properties/nm-l2tp-dialog.ui.h:27
+#: ../properties/nm-l2tp-dialog.ui.h:52
 msgid "_Enable IPsec tunnel to L2TP host"
 msgstr "_Enable IPsec tunnel to L2TP host"
 
-#: ../properties/nm-l2tp-dialog.ui.h:28
+#: ../properties/nm-l2tp-dialog.ui.h:53
 msgid "_Gateway:"
 msgstr "_Gateway:"
 
-#: ../properties/nm-l2tp-dialog.ui.h:29
+#: ../properties/nm-l2tp-dialog.ui.h:54
 msgid "_IPsec Settings..."
 msgstr "_IPsec Settings..."
 
-#: ../properties/nm-l2tp-dialog.ui.h:30
+#: ../properties/nm-l2tp-dialog.ui.h:55
 msgid "_Security:"
 msgstr "_Security:"
 
 #: ../src/nm-l2tp-service.c:159
 #, c-format
-msgid "Could not get the system bus.  Make sure the message bus daemon is running!  Message: %s"
-msgstr "Could not get the system bus.  Make sure the message bus daemon is running!  Message: %s"
+msgid ""
+"Could not get the system bus.  Make sure the message bus daemon is running!  "
+"Message: %s"
+msgstr ""
+"Could not get the system bus.  Make sure the message bus daemon is running!  "
+"Message: %s"
 
 #: ../src/nm-l2tp-service.c:181
 #, c-format
@@ -437,45 +526,49 @@ msgstr "Could not write xl2tpd config."
 msgid "Could not write ppp options."
 msgstr "Could not write ppp options."
 
-#: ../src/nm-l2tp-service.c:1304
+#: ../src/nm-l2tp-service.c:1300
 #, c-format
 msgid "failed to convert lcp-echo-failure value '%s'"
 msgstr "failed to convert lcp-echo-failure value '%s'"
 
-#: ../src/nm-l2tp-service.c:1322
+#: ../src/nm-l2tp-service.c:1318
 #, c-format
 msgid "failed to convert lcp-echo-interval value '%s'"
 msgstr "failed to convert lcp-echo-interval value '%s'"
 
-#: ../src/nm-l2tp-service.c:1372
+#: ../src/nm-l2tp-service.c:1368
 msgid "Could not start pppd plugin helper service."
 msgstr "Could not start pppd plugin helper service."
 
-#: ../src/nm-l2tp-service.c:1392
+#: ../src/nm-l2tp-service.c:1388
 #, c-format
 msgid "ipsec enable flag: %s"
 msgstr "ipsec enable flag: %s"
 
-#: ../src/nm-l2tp-service.c:1394
+#: ../src/nm-l2tp-service.c:1390
 msgid "starting ipsec"
 msgstr "starting ipsec"
 
-#: ../src/nm-l2tp-service.c:1438
+#: ../src/nm-l2tp-service.c:1434
 #, c-format
 msgid "Terminated ppp daemon with PID %d."
 msgstr "Terminated ppp daemon with PID %d."
 
-#: ../src/nm-l2tp-service.c:1551
+#: ../src/nm-l2tp-service.c:1547
 msgid "Don't quit when VPN connection terminates"
 msgstr "Don't quit when VPN connection terminates"
 
-#: ../src/nm-l2tp-service.c:1552
+#: ../src/nm-l2tp-service.c:1548
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Enable verbose debug logging (may expose passwords)"
 
-#: ../src/nm-l2tp-service.c:1566
-msgid "nm-l2tp-service provides L2TP VPN capability with optional IPSec support to NetworkManager."
-msgstr "nm-l2tp-service provides L2TP VPN capability with optional IPSec support to NetworkManager."
+#: ../src/nm-l2tp-service.c:1562
+msgid ""
+"nm-l2tp-service provides L2TP VPN capability with optional IPSec support to "
+"NetworkManager."
+msgstr ""
+"nm-l2tp-service provides L2TP VPN capability with optional IPSec support to "
+"NetworkManager."
 
 #~ msgid "Authentication Type:"
 #~ msgstr "Authentication Type:"
