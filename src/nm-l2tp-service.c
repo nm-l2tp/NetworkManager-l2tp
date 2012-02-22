@@ -1087,6 +1087,8 @@ nm_l2tp_start_l2tpd_binary (NML2tpPlugin *plugin,
 	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup_printf ("/var/run/nm-xl2tpd.conf.%d", my_pid));
 	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup ("-C"));
 	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup_printf ("/var/run/nm-xl2tpd_l2tp-control.%d", my_pid));
+	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup ("-p")); /* pid file named using pid? */
+	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup_printf ("/var/run/nm-xl2tpd_pid.%d", my_pid));
 	g_ptr_array_add (l2tpd_argv, NULL);
 
 	if (!g_spawn_async (NULL, (char **) l2tpd_argv->pdata, NULL,
@@ -1145,6 +1147,50 @@ static PPPOpt ppp_options[] = {
 	{NULL, G_TYPE_NONE, NULL}
 };
 
+/**
+ * Check that specified UDP socket in 0.0.0.0 is not used and we can bind to it.
+ **/
+static gboolean
+is_port_free(int port)
+{
+	struct sockaddr_in addr;
+	int sock;
+	g_message ("Check port %d", port);
+	sock = socket (AF_INET, SOCK_DGRAM, 0);
+	if (!sock){
+		g_warning (_("Can-not create new test socket"));
+		return FALSE;
+	}
+
+	memset(&addr, 0, sizeof(struct sockaddr_in));
+	addr.sin_family = AF_INET;
+	addr.sin_port = htons(port);
+	addr.sin_addr.s_addr = INADDR_ANY;
+
+	if (bind (sock, (struct sockaddr *) &addr, sizeof (addr)) == -1){
+		g_message ("Can't bind to port %d", port);
+		return FALSE;
+	}
+	close(sock);				/* unbind */
+
+	return TRUE;
+}
+
+/* XXX: currently unused! May be useful if l2tp client doesn't accept 0 as port number */
+static int
+get_free_l2tp_port(void)
+{
+	int port = 1701;
+
+	while (!is_port_free (port) && port < 65535)
+		port++;
+
+	if (port == 65535) /* oh no.. */
+		return -1;
+	g_message("found free port %d", port);
+	return port;
+}
+
 static gboolean
 nm_l2tp_config_write (NML2tpPlugin *plugin,
 					  NMSettingVPN *s_vpn,
@@ -1159,6 +1205,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	gint conf_fd = -1;
 	gint ipsec_fd = -1;
 	gint pppopt_fd = -1;
+	int port;
 	int i;
 
 	filename = g_strdup_printf ("/var/run/nm-ipsec-l2tp.%d", pid);
@@ -1239,6 +1286,15 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	/* L2TP options */
 	write_config_option (conf_fd, "[global]\n");
 	write_config_option (conf_fd, "access control = yes\n");
+
+	/* Check that xl2tpd's default port 1701 is free, if not - use 0 (ephemeral random port) */
+	/* port = get_free_l2tp_port(); */
+	port = 1701;
+	if (!is_port_free (port)){
+		port = 0;
+		g_warning("Port 1701 is busy, use ephemeral.");
+	}
+	write_config_option (conf_fd, "port = %d\n", port);
 
 	write_config_option (conf_fd, "[lac l2tp]\n");
 
