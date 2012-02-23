@@ -858,8 +858,8 @@ l2tp_plugin_ui_interface_init (NMVpnPluginUiInterface *iface_class)
 	/* interface implementation */
 	iface_class->ui_factory = ui_factory;
 	iface_class->get_capabilities = get_capabilities;
-	iface_class->import = import;
-	iface_class->export = export;
+	iface_class->import_from_file = import;
+	iface_class->export_to_file = export;
 	iface_class->get_suggested_name = get_suggested_name;
 }
 
