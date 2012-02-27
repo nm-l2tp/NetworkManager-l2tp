@@ -138,11 +138,14 @@ do_export (const char *path, NMConnection *connection, GError **error)
 	const char *value;
 	int i;
 
-	/* s_con = NM_SETTING_CONNECTION (nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION)); */
+	s_con = NM_SETTING_CONNECTION (nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION));
 	/* s_ip4 = (NMSettingIP4Config *) nm_connection_get_setting (connection, NM_TYPE_SETTING_IP4_CONFIG); */
 	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
 
 	export_file = g_key_file_new ();
+
+	value = nm_setting_connection_get_id(s_con);
+	g_key_file_set_string(export_file, CONN_SECTION, "id", value);
 
 	for (i = 0; vpn_properties[i].name; i++){
 		VpnImportExportProperty prop = vpn_properties[i];
