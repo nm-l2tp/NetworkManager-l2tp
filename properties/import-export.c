@@ -131,9 +131,9 @@ do_import (const char *path, GError **error)
 	keyfile = g_key_file_new ();
 	if (!g_key_file_load_from_file (keyfile, path, 0, error)) {
 		g_set_error (error,
-					 L2TP_PLUGIN_UI_ERROR,
-					 L2TP_PLUGIN_UI_ERROR_FILE_NOT_L2TP,
-					 _("does not look like a L2TP VPN connection (parse failed)"));
+		             L2TP_PLUGIN_UI_ERROR,
+		             2TP_PLUGIN_UI_ERROR_FILE_NOT_L2TP,
+		             _("does not look like a L2TP VPN connection (parse failed)"));
 		return NULL;
 	}
 
@@ -161,10 +161,10 @@ do_import (const char *path, GError **error)
 				continue;
 
 			g_set_error (error,
-						 L2TP_PLUGIN_UI_ERROR,
-						 L2TP_PLUGIN_UI_ERROR_MISSING_PROPERTY,
-						 _("Required property %s missing"),
-						 prop.name);
+			             L2TP_PLUGIN_UI_ERROR,
+			             L2TP_PLUGIN_UI_ERROR_MISSING_PROPERTY,
+			             _("Required property %s missing"),
+			             prop.name);
 			g_key_file_free (keyfile);
 			g_object_unref (connection);
 			return NULL;
@@ -178,10 +178,10 @@ do_import (const char *path, GError **error)
 			int_val = g_key_file_get_integer(keyfile, VPN_SECTION, prop.name, error);
 			if (int_val == 0 && *error){
 				g_set_error (error,
-							 L2TP_PLUGIN_UI_ERROR,
-							 L2TP_PLUGIN_UI_ERROR_INVALID_PROPERTY,
-							 _("Property %s can't be parsed as integer."),
-							 prop.name);
+				             L2TP_PLUGIN_UI_ERROR,
+				             L2TP_PLUGIN_UI_ERROR_INVALID_PROPERTY,
+				             _("Property %s can't be parsed as integer."),
+				             prop.name);
 				g_key_file_free (keyfile);
 				g_object_unref (connection);
 				return NULL;
@@ -194,10 +194,10 @@ do_import (const char *path, GError **error)
 				continue;
 			if (!bool_val) {
 				g_set_error (error,
-							 L2TP_PLUGIN_UI_ERROR,
-							 L2TP_PLUGIN_UI_ERROR_INVALID_PROPERTY,
-							 _("Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."),
-							 prop.name);
+				             L2TP_PLUGIN_UI_ERROR,
+				             L2TP_PLUGIN_UI_ERROR_INVALID_PROPERTY,
+				             _("Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."),
+				             prop.name);
 				g_key_file_free (keyfile);
 				g_object_unref (connection);
 				return NULL;
@@ -255,10 +255,10 @@ do_export (const char *path, NMConnection *connection, GError **error)
 		if (!value && prop.required){
 			g_key_file_free(export_file);
 			g_set_error(error,
-						L2TP_PLUGIN_UI_ERROR,
-						L2TP_PLUGIN_UI_ERROR_MISSING_PROPERTY,
-						_("Missing required property '%s'"),
-						prop.name);
+			            L2TP_PLUGIN_UI_ERROR,
+			            L2TP_PLUGIN_UI_ERROR_MISSING_PROPERTY,
+			            _("Missing required property '%s'"),
+			            prop.name);
 			return FALSE;
 		}
 		if (!value)
@@ -273,9 +273,9 @@ do_export (const char *path, NMConnection *connection, GError **error)
 		case G_TYPE_BOOLEAN:
 			if (!strcmp(value, "yes"))
 				g_key_file_set_boolean(export_file,
-									   VPN_SECTION,
-									   prop.name,
-									   TRUE);
+				                       VPN_SECTION,
+				                       prop.name,
+				                       TRUE);
 			/* if key not set - assume as "no" */
 			break;
 		}
@@ -283,9 +283,9 @@ do_export (const char *path, NMConnection *connection, GError **error)
 
 	if (!(file = fopen (path, "w"))) {
 		g_set_error(error,
-					L2TP_PLUGIN_UI_ERROR,
-					L2TP_PLUGIN_UI_ERROR_FILE_NOT_READABLE,
-					_("Couldn't open file for writing."));
+		            L2TP_PLUGIN_UI_ERROR,
+		            L2TP_PLUGIN_UI_ERROR_FILE_NOT_READABLE,
+		            _("Couldn't open file for writing."));
 		g_key_file_free (export_file);
 		return FALSE;
 	}
