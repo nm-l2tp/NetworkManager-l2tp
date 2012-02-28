@@ -25,7 +25,7 @@
 #include <glib.h>
 #include <nm-connection.h>
 
-NMConnection *do_import (const char *path, char **lines, GError **error);
+NMConnection *do_import (const char *path, GError **error);
 
 gboolean do_export (const char *path, NMConnection *connection, GError **error);
 

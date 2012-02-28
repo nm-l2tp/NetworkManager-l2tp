@@ -723,8 +723,6 @@ static NMConnection *
 import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 {
 	NMConnection *connection = NULL;
-	char *contents = NULL;
-	char **lines = NULL;
 	char *ext;
 
 	ext = strrchr (path, '.');
@@ -733,35 +731,27 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 		             L2TP_PLUGIN_UI_ERROR,
 		             L2TP_PLUGIN_UI_ERROR_FILE_NOT_L2TP,
 		             _("unknown L2TP file extension"));
-		goto out;
+		return NULL;
 	}
 
 	if (strcmp (ext, ".conf") && strcmp (ext, ".cnf")) {
 		g_set_error (error,
 		             L2TP_PLUGIN_UI_ERROR,
 		             L2TP_PLUGIN_UI_ERROR_FILE_NOT_L2TP,
-		             _("unknown L2TP file extension"));
-		goto out;
+		             _("unknown L2TP file extension. Allowed .conf or .cnf"));
+		return NULL;
 	}
 
-	if (!g_file_get_contents (path, &contents, NULL, error))
-		return NULL;
-
-	lines = g_strsplit_set (contents, "\r\n", 0);
-	if (g_strv_length (lines) <= 1) {
+	if (!strstr (path, "l2tp")) {
 		g_set_error (error,
 		             L2TP_PLUGIN_UI_ERROR,
-		             L2TP_PLUGIN_UI_ERROR_FILE_NOT_READABLE,
-		             _("not a valid L2TP configuration file"));
-		goto out;
+		             L2TP_PLUGIN_UI_ERROR_FILE_NOT_L2TP,
+		             _("Filename doesn't contains 'l2tp' substring."));
+		return NULL;
 	}
 
-	connection = do_import (path, lines, error);
+	connection = do_import (path, error);
 
-out:
-	if (lines)
-		g_strfreev (lines);
-	g_free (contents);
 	return connection;
 }
 

@@ -112,11 +112,104 @@ static VpnImportExportProperty vpn_properties[] = {
 	{ NULL,                          G_TYPE_NONE,   FALSE }
 };
 
-
+/**
+ * Create new L2TP VPN connection using data from .ini - like file located at #path
+ *
+ * Returns: a newly allocated #NMConnection on success or %NULL on failure
+ **/
 NMConnection *
-do_import (const char *path, char **lines, GError **error)
+do_import (const char *path, GError **error)
 {
-	return NULL;
+	NMConnection *connection = NULL;
+	NMSettingConnection *s_con;
+	NMSettingVPN *s_vpn;
+	NMSettingIP4Config *s_ip4;
+
+	GKeyFile *keyfile;
+	int i;
+
+	keyfile = g_key_file_new ();
+	if (!g_key_file_load_from_file (keyfile, path, 0, error)) {
+		g_set_error (error, 0, 0,
+					 _("does not look like a L2TP VPN connection (parse failed)"));
+		return NULL;
+	}
+
+	connection = nm_connection_new ();
+	s_con = NM_SETTING_CONNECTION (nm_setting_connection_new ());
+	nm_connection_add_setting (connection, NM_SETTING (s_con));
+
+	s_vpn = NM_SETTING_VPN (nm_setting_vpn_new ());
+	g_object_set (s_vpn, NM_SETTING_VPN_SERVICE_TYPE, NM_DBUS_SERVICE_L2TP, NULL);
+	nm_connection_add_setting (connection, NM_SETTING (s_vpn));
+
+	s_ip4 = NM_SETTING_IP4_CONFIG (nm_setting_ip4_config_new ());
+	nm_connection_add_setting (connection, NM_SETTING (s_ip4));
+
+	/* g_message("Start importing L2TP."); */
+
+	for (i = 0; vpn_properties[i].name; i++){
+		VpnImportExportProperty prop = vpn_properties[i];
+		int int_val;
+		gboolean bool_val;
+		char *value;
+
+		if (!g_key_file_has_key (keyfile, VPN_SECTION, prop.name, error)){
+			if (!prop.required)
+				continue;
+
+			g_set_error (error, 0, 0,
+						 _("Required property %s missing"),
+						 prop.name);
+			g_key_file_free (keyfile);
+			g_object_unref (connection);
+			return NULL;
+		}
+
+		switch (prop.type) {
+		case G_TYPE_STRING:
+			value = g_key_file_get_string(keyfile, VPN_SECTION, prop.name, error);
+			break;
+		case G_TYPE_UINT:
+			int_val = g_key_file_get_integer(keyfile, VPN_SECTION, prop.name, error);
+			if (int_val == 0 && *error){
+				g_set_error (error, 0, 0,
+							 _("Property %s can't be parsed as integer."),
+							 prop.name);
+				g_key_file_free (keyfile);
+				g_object_unref (connection);
+				return NULL;
+			}
+			value = g_strdup_printf ("%d", int_val);
+			break;
+		case G_TYPE_BOOLEAN:
+			bool_val = g_key_file_get_boolean(keyfile, VPN_SECTION, prop.name, error);
+			if (!bool_val && !(*error))
+				continue;
+			if (!bool_val) {
+				g_set_error (error, 0, 0,
+							 _("Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."),
+							 prop.name);
+				g_key_file_free (keyfile);
+				g_object_unref (connection);
+				return NULL;
+			}
+			value = g_strdup("yes");
+			break;
+		}
+
+		/* TODO: add custom validators for int and string fields there, add special
+		   "validator_flag" field to #vpn_properties and
+		   then use switch "case validator_flag: validation_function() ..." */
+
+		/* g_message("Import [%s]%s = %s", VPN_SECTION, prop.name, value); */
+		nm_setting_vpn_add_data_item (s_vpn, prop.name, value);
+		g_free (value);
+	}
+
+	/* g_message("Imported L2TP."); */
+
+	return connection;
 }
 
 /**
@@ -170,10 +263,12 @@ do_export (const char *path, NMConnection *connection, GError **error)
 			g_key_file_set_string(export_file, VPN_SECTION, prop.name, value);
 			break;
 		case G_TYPE_BOOLEAN:
-			g_key_file_set_boolean(export_file,
-								   VPN_SECTION,
-								   prop.name,
-								   !strcmp(value, "yes") ? TRUE : FALSE);
+			if (!strcmp(value, "yes"))
+				g_key_file_set_boolean(export_file,
+									   VPN_SECTION,
+									   prop.name,
+									   TRUE);
+			/* if key not set - assume as "no" */
 			break;
 		}
 	}

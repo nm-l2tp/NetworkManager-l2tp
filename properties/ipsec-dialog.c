@@ -187,11 +187,9 @@ ipsec_dialog_new_hash_from_dialog (GtkWidget *dialog, GError **error)
 	hash = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, g_free);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_enable"));
-	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget))) {
+	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
 		g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_ENABLE), g_strdup("yes"));
-	} else {
-		g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_ENABLE), g_strdup("no"));
-	}
+
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_gateway_id"));
 	g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_GATEWAY_ID),
 			g_strdup(gtk_entry_get_text(GTK_ENTRY(widget))));
