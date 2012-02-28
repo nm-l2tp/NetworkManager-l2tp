@@ -130,7 +130,9 @@ do_import (const char *path, GError **error)
 
 	keyfile = g_key_file_new ();
 	if (!g_key_file_load_from_file (keyfile, path, 0, error)) {
-		g_set_error (error, 0, 0,
+		g_set_error (error,
+					 L2TP_PLUGIN_UI_ERROR,
+					 L2TP_PLUGIN_UI_ERROR_FILE_NOT_L2TP,
 					 _("does not look like a L2TP VPN connection (parse failed)"));
 		return NULL;
 	}
@@ -158,7 +160,9 @@ do_import (const char *path, GError **error)
 			if (!prop.required)
 				continue;
 
-			g_set_error (error, 0, 0,
+			g_set_error (error,
+						 L2TP_PLUGIN_UI_ERROR,
+						 L2TP_PLUGIN_UI_ERROR_MISSING_PROPERTY,
 						 _("Required property %s missing"),
 						 prop.name);
 			g_key_file_free (keyfile);
@@ -173,7 +177,9 @@ do_import (const char *path, GError **error)
 		case G_TYPE_UINT:
 			int_val = g_key_file_get_integer(keyfile, VPN_SECTION, prop.name, error);
 			if (int_val == 0 && *error){
-				g_set_error (error, 0, 0,
+				g_set_error (error,
+							 L2TP_PLUGIN_UI_ERROR,
+							 L2TP_PLUGIN_UI_ERROR_INVALID_PROPERTY,
 							 _("Property %s can't be parsed as integer."),
 							 prop.name);
 				g_key_file_free (keyfile);
@@ -187,7 +193,9 @@ do_import (const char *path, GError **error)
 			if (!bool_val && !(*error))
 				continue;
 			if (!bool_val) {
-				g_set_error (error, 0, 0,
+				g_set_error (error,
+							 L2TP_PLUGIN_UI_ERROR,
+							 L2TP_PLUGIN_UI_ERROR_INVALID_PROPERTY,
 							 _("Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."),
 							 prop.name);
 				g_key_file_free (keyfile);
@@ -247,8 +255,8 @@ do_export (const char *path, NMConnection *connection, GError **error)
 		if (!value && prop.required){
 			g_key_file_free(export_file);
 			g_set_error(error,
-						0,
-						0,
+						L2TP_PLUGIN_UI_ERROR,
+						L2TP_PLUGIN_UI_ERROR_MISSING_PROPERTY,
 						_("Missing required property '%s'"),
 						prop.name);
 			return FALSE;
@@ -274,7 +282,10 @@ do_export (const char *path, NMConnection *connection, GError **error)
 	}
 
 	if (!(file = fopen (path, "w"))) {
-		g_warning (_("Could not open file: %s"), path);
+		g_set_error(error,
+					L2TP_PLUGIN_UI_ERROR,
+					L2TP_PLUGIN_UI_ERROR_FILE_NOT_READABLE,
+					_("Couldn't open file for writing."));
 		g_key_file_free (export_file);
 		return FALSE;
 	}
