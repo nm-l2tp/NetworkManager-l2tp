@@ -132,7 +132,7 @@ do_import (const char *path, GError **error)
 	if (!g_key_file_load_from_file (keyfile, path, 0, error)) {
 		g_set_error (error,
 		             L2TP_PLUGIN_UI_ERROR,
-		             2TP_PLUGIN_UI_ERROR_FILE_NOT_L2TP,
+		             L2TP_PLUGIN_UI_ERROR_FILE_NOT_L2TP,
 		             _("does not look like a L2TP VPN connection (parse failed)"));
 		return NULL;
 	}
