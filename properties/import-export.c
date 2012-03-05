@@ -177,6 +177,7 @@ do_import (const char *path, GError **error)
 		case G_TYPE_UINT:
 			int_val = g_key_file_get_integer(keyfile, VPN_SECTION, prop.name, error);
 			if (int_val == 0 && *error){
+				g_clear_error(error);
 				g_set_error (error,
 				             L2TP_PLUGIN_UI_ERROR,
 				             L2TP_PLUGIN_UI_ERROR_INVALID_PROPERTY,
@@ -190,9 +191,10 @@ do_import (const char *path, GError **error)
 			break;
 		case G_TYPE_BOOLEAN:
 			bool_val = g_key_file_get_boolean(keyfile, VPN_SECTION, prop.name, error);
-			if (!bool_val && !(*error))
+			if (!bool_val && !(*error)) /* If boolean value is FALSE */
 				continue;
 			if (!bool_val) {
+				g_clear_error(error);
 				g_set_error (error,
 				             L2TP_PLUGIN_UI_ERROR,
 				             L2TP_PLUGIN_UI_ERROR_INVALID_PROPERTY,

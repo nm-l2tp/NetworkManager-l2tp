@@ -752,6 +752,9 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 
 	connection = do_import (path, error);
 
+	if ((connection == NULL) && (*error != NULL))
+		g_warning(_("Can't import file as L2TP config: %s"), (*error)->message);
+
 	return connection;
 }
 
