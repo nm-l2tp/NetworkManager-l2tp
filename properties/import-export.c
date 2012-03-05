@@ -126,6 +126,7 @@ do_import (const char *path, GError **error)
 	NMSettingIP4Config *s_ip4;
 
 	GKeyFile *keyfile;
+	char *value;
 	int i;
 
 	keyfile = g_key_file_new ();
@@ -150,11 +151,16 @@ do_import (const char *path, GError **error)
 
 	/* g_message("Start importing L2TP."); */
 
+	value = g_key_file_get_string(keyfile, CONN_SECTION, "id", error);
+	g_object_set (G_OBJECT (s_con),
+	              NM_SETTING_CONNECTION_ID, value,
+	              NULL);
+	g_free (value);
+
 	for (i = 0; vpn_properties[i].name; i++){
 		VpnImportExportProperty prop = vpn_properties[i];
 		int int_val;
 		gboolean bool_val;
-		char *value;
 
 		if (!g_key_file_has_key (keyfile, VPN_SECTION, prop.name, error)){
 			if (!prop.required)
