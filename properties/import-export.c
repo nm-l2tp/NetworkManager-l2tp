@@ -287,37 +287,30 @@ export_ip4(NMSettingIP4Config *s_ip4, GKeyFile *keyfile, GError **error)
 
 		for (i=0; i<num_routes; i++){
 			guint32 dest, prefix, nhop, metric;
+			GString *route_s;
 
 			route = nm_setting_ip4_config_get_route(s_ip4, i);
 			dest = nm_ip4_route_get_dest(route);
 			prefix = nm_ip4_route_get_prefix(route);
 			nhop = nm_ip4_route_get_next_hop(route);
 			metric = nm_ip4_route_get_metric(route);
-			if (dest){
-				addr.s_addr = dest;
-				dest_addr = g_strdup(inet_ntoa(addr));
-			}
+
+			/* dest and prefix are required */
+			g_return_val_if_fail (dest, FALSE);
+			g_return_val_if_fail (prefix, FALSE);
+
+			route_s = g_string_new ("");
+
+			addr.s_addr = dest;
+			g_string_append_printf(route_s, "%s/%d", inet_ntoa(addr), prefix);
+
 			if (nhop){
 				addr.s_addr = nhop;
-				nhop_addr = g_strdup(inet_ntoa(addr));
+				g_string_append_printf(route_s, " via %s", inet_ntoa(addr));
 			}
-			if (dest && prefix && nhop && metric){
-				routes[i] = g_strdup_printf("%s/%d via %s metric %d",
-				                            dest_addr, prefix, nhop_addr, metric);
-			} else if (dest && prefix && nhop){
-				routes[i] = g_strdup_printf("%s/%d via %s",
-				                            dest_addr, prefix, nhop_addr);
-			} else if (dest && prefix && metric){
-				routes[i] = g_strdup_printf("%s/%d metric %d",
-				                            dest_addr, prefix, metric);
-			} else if (dest && prefix){
-				routes[i] = g_strdup_printf("%s/%d",
-				                            dest_addr, prefix);
-			}
-			if (dest)
-				g_free(dest_addr);
-			if (nhop)
-				g_free(nhop_addr);
+			if (metric)
+				g_string_append_printf(route_s, " metric %d", metric);
+			routes[i] = g_string_free(route_s, FALSE);
 			g_message("export route #%d of %d: %s", i, num_routes, routes[i]);
 		}
 		g_key_file_set_string_list(keyfile, IP4_SECTION, NM_SETTING_IP4_CONFIG_ROUTES,
