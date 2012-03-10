@@ -33,6 +33,8 @@
 #include <errno.h>
 #include <ctype.h>
 
+#include <netinet/in.h>
+
 #include <glib/gi18n-lib.h>
 
 #include <nm-setting-vpn.h>
@@ -73,7 +75,7 @@ method = auto (str)
 dns = 192.168.0.1,8.8.8.8 (list)
 dns-search = my_domain1,my_domain2 (list)
 addresses = ???
-routes = 192.168.0.0/24 via 192.168.0.1,192.168.1.0/24 via 192.168.0.1 (list with custom parser)
+routes = 192.168.0.0/24 via 192.168.0.1 metric 1,192.168.1.0/24 via 192.168.0.1 metric 2 (list with custom parser)
 ignore-auto-routes = true (list)
 ignore-auto-dns = true (list)
 ???
@@ -229,6 +231,119 @@ do_import (const char *path, GError **error)
 }
 
 /**
+ * Exports #NMSettingIP4Config s_ip4 to #GKeyFile keyfile (only VPN-relsted fields)
+ *
+ * Returns: %TRUE on success or %FALSE on failure
+ **/
+static gboolean
+export_ip4(NMSettingIP4Config *s_ip4, GKeyFile *keyfile, GError **error)
+{
+	const char *str_val;
+	int int_val;
+	gboolean bool_val;
+	guint32 num_dns;
+	guint32 num_dns_searches;
+	guint32 num_routes;
+	int i;
+
+	str_val = nm_setting_ip4_config_get_method(s_ip4);
+	g_key_file_set_string(keyfile, IP4_SECTION, NM_SETTING_IP4_CONFIG_METHOD, str_val);
+
+	num_dns = nm_setting_ip4_config_get_num_dns(s_ip4);
+	if (num_dns > 0){
+		gchar *dnses[num_dns];
+		guint32 dns;
+		struct in_addr addr;
+
+		for (i=0; i<num_dns; i++){
+			dns = nm_setting_ip4_config_get_dns(s_ip4, i);
+			addr.s_addr = dns;
+			dnses[i] = g_strdup(inet_ntoa(addr));
+		}
+		g_key_file_set_string_list(keyfile, IP4_SECTION, NM_SETTING_IP4_CONFIG_DNS,
+		                           (const gchar * const*)dnses, num_dns);
+		for (i=0; i<num_dns; i++)
+			g_free(dnses[i]);
+	}
+
+	num_dns_searches = nm_setting_ip4_config_get_num_dns_searches(s_ip4);
+	if (num_dns_searches > 0){
+		const char *dnses[num_dns_searches];
+
+		for (i=0; i<num_dns_searches; i++){
+			dnses[i] = nm_setting_ip4_config_get_dns_search(s_ip4, i);
+		}
+		g_key_file_set_string_list(keyfile, IP4_SECTION, NM_SETTING_IP4_CONFIG_DNS_SEARCH,
+		                           dnses, num_dns_searches);
+	}
+
+	num_routes = nm_setting_ip4_config_get_num_routes(s_ip4);
+	if (num_routes > 0){
+		char *routes[num_routes];
+		NMIP4Route *route;
+		struct in_addr addr;
+		char *dest_addr;
+		char *nhop_addr;
+
+		for (i=0; i<num_routes; i++){
+			guint32 dest, prefix, nhop, metric;
+
+			route = nm_setting_ip4_config_get_route(s_ip4, i);
+			dest = nm_ip4_route_get_dest(route);
+			prefix = nm_ip4_route_get_prefix(route);
+			nhop = nm_ip4_route_get_next_hop(route);
+			metric = nm_ip4_route_get_metric(route);
+			if (dest){
+				addr.s_addr = dest;
+				dest_addr = g_strdup(inet_ntoa(addr));
+			}
+			if (nhop){
+				addr.s_addr = nhop;
+				nhop_addr = g_strdup(inet_ntoa(addr));
+			}
+			if (dest && prefix && nhop && metric){
+				routes[i] = g_strdup_printf("%s/%d via %s metric %d",
+				                            dest_addr, prefix, nhop_addr, metric);
+			} else if (dest && prefix && nhop){
+				routes[i] = g_strdup_printf("%s/%d via %s",
+				                            dest_addr, prefix, nhop_addr);
+			} else if (dest && prefix && metric){
+				routes[i] = g_strdup_printf("%s/%d metric %d",
+				                            dest_addr, prefix, metric);
+			} else if (dest && prefix){
+				routes[i] = g_strdup_printf("%s/%d",
+				                            dest_addr, prefix);
+			}
+			if (dest)
+				g_free(dest_addr);
+			if (nhop)
+				g_free(nhop_addr);
+			g_message("export route #%d of %d: %s", i, num_routes, routes[i]);
+		}
+		g_key_file_set_string_list(keyfile, IP4_SECTION, NM_SETTING_IP4_CONFIG_ROUTES,
+		                           (const gchar * const*)routes, num_routes);
+		for (i=0; i<num_dns; i++)
+			g_free(routes[i]);
+	}
+
+
+	bool_val = nm_setting_ip4_config_get_ignore_auto_routes(s_ip4);
+	g_key_file_set_boolean(keyfile, IP4_SECTION, NM_SETTING_IP4_CONFIG_IGNORE_AUTO_ROUTES, bool_val);
+
+	bool_val = nm_setting_ip4_config_get_ignore_auto_dns(s_ip4);
+	g_key_file_set_boolean(keyfile, IP4_SECTION, NM_SETTING_IP4_CONFIG_IGNORE_AUTO_DNS, bool_val);
+
+	bool_val = nm_setting_ip4_config_get_dhcp_send_hostname(s_ip4);
+	g_key_file_set_boolean(keyfile, IP4_SECTION, NM_SETTING_IP4_CONFIG_DHCP_SEND_HOSTNAME, bool_val);
+
+	bool_val = nm_setting_ip4_config_get_never_default(s_ip4);
+	g_key_file_set_boolean(keyfile, IP4_SECTION, NM_SETTING_IP4_CONFIG_NEVER_DEFAULT, bool_val);
+
+
+	return TRUE;
+}
+
+/**
  * Exports L2TP connection #connection to .ini - like file named #path
  *
  * Returns: %TRUE on success or %FALSE on failure
@@ -248,10 +363,12 @@ do_export (const char *path, NMConnection *connection, GError **error)
 	int i;
 
 	s_con = NM_SETTING_CONNECTION (nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION));
-	/* s_ip4 = (NMSettingIP4Config *) nm_connection_get_setting (connection, NM_TYPE_SETTING_IP4_CONFIG); */
+	s_ip4 = (NMSettingIP4Config *) nm_connection_get_setting (connection, NM_TYPE_SETTING_IP4_CONFIG);
 	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
 
 	export_file = g_key_file_new ();
+
+	g_key_file_set_comment(export_file, NULL, NULL, NM_DBUS_SERVICE_L2TP, error);
 
 	value = nm_setting_connection_get_id(s_con);
 	g_key_file_set_string(export_file, CONN_SECTION, "id", value);
@@ -288,6 +405,8 @@ do_export (const char *path, NMConnection *connection, GError **error)
 			break;
 		}
 	}
+
+	export_ip4(s_ip4, export_file, error);
 
 	if (!(file = fopen (path, "w"))) {
 		g_set_error(error,
