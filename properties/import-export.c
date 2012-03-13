@@ -114,6 +114,273 @@ static VpnImportExportProperty vpn_properties[] = {
 	{ NULL,                          G_TYPE_NONE,   FALSE }
 };
 
+static VpnImportExportProperty ip4_properties[] = {
+	{ NM_SETTING_IP4_CONFIG_METHOD,             G_TYPE_STRING,  TRUE},
+	{ NM_SETTING_IP4_CONFIG_IGNORE_AUTO_ROUTES, G_TYPE_BOOLEAN, FALSE},
+	{ NM_SETTING_IP4_CONFIG_IGNORE_AUTO_DNS,    G_TYPE_BOOLEAN, FALSE},
+	{ NM_SETTING_IP4_CONFIG_DHCP_SEND_HOSTNAME, G_TYPE_BOOLEAN, FALSE},
+	{ NM_SETTING_IP4_CONFIG_NEVER_DEFAULT,      G_TYPE_BOOLEAN, FALSE},
+	{ NULL,                                     G_TYPE_NONE,    FALSE }
+ /* NM_SETTING_IP4_CONFIG_DNS */
+ /* NM_SETTING_IP4_CONFIG_DNS_SEARCH */
+ /* NM_SETTING_IP4_CONFIG_ROUTES */
+};
+
+static gboolean
+import_ip4 (GKeyFile *keyfile, NMSettingIP4Config *s_ip4, GError **error)
+{
+	char *str_val;
+
+	int i;
+
+	for (i = 0; ip4_properties[i].name; i++){
+		VpnImportExportProperty prop = ip4_properties[i];
+		gboolean bool_val;
+
+		if (!g_key_file_has_key (keyfile, IP4_SECTION, prop.name, error)){
+			if (!prop.required)
+				continue;
+
+			g_set_error (error,
+			             L2TP_PLUGIN_UI_ERROR,
+			             L2TP_PLUGIN_UI_ERROR_MISSING_PROPERTY,
+			             _("Required property %s missing"),
+			             prop.name);
+			return FALSE;
+		}
+
+		switch (prop.type) {
+		case G_TYPE_STRING:
+			str_val = g_key_file_get_string(keyfile, IP4_SECTION, prop.name, error);
+			g_object_set (G_OBJECT (s_ip4),
+			              prop.name, str_val,
+			              NULL);
+			g_free(str_val);
+			break;
+		case G_TYPE_BOOLEAN:
+			bool_val = g_key_file_get_boolean(keyfile, IP4_SECTION, prop.name, error);
+			if (!bool_val && !(*error)) /* If boolean value is FALSE */
+				continue;
+			if (!bool_val) {
+				g_clear_error(error);
+				g_set_error (error,
+				             L2TP_PLUGIN_UI_ERROR,
+				             L2TP_PLUGIN_UI_ERROR_INVALID_PROPERTY,
+				             _("Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."),
+				             prop.name);
+				return FALSE;
+			}
+			g_object_set (G_OBJECT (s_ip4),
+			              prop.name, bool_val,
+			              NULL);
+			break;
+		}
+	}
+
+	if (g_key_file_has_key (keyfile, IP4_SECTION, NM_SETTING_IP4_CONFIG_DNS, error)) {
+		char **dnses;
+		gsize length;
+		struct in_addr addr;
+		guint32 dns;
+
+		dnses = g_key_file_get_string_list (keyfile, IP4_SECTION, NM_SETTING_IP4_CONFIG_DNS,
+		                                    &length, error);
+		for (i=0; i<length; i++) {
+			if (!inet_aton (dnses[i], &addr)){
+				g_set_error (error,
+				             L2TP_PLUGIN_UI_ERROR,
+				             L2TP_PLUGIN_UI_ERROR_INVALID_PROPERTY,
+				             _("Property '%s' value '%s' can't be parsed as ip adress."),
+				             NM_SETTING_IP4_CONFIG_DNS,
+							 dnses[i]);
+				g_strfreev (dnses);
+				return FALSE;
+			}
+			nm_setting_ip4_config_add_dns (s_ip4, addr.s_addr);
+		}
+		g_strfreev (dnses);
+	}
+
+	if (g_key_file_has_key (keyfile, IP4_SECTION, NM_SETTING_IP4_CONFIG_DNS_SEARCH, error)) {
+		char **dnses;
+		gsize length;
+
+		dnses = g_key_file_get_string_list (keyfile, IP4_SECTION, NM_SETTING_IP4_CONFIG_DNS_SEARCH,
+		                                    &length, error);
+		for (i=0; i<length; i++)
+			nm_setting_ip4_config_add_dns_search (s_ip4, (const char *)dnses[i]);
+
+		g_strfreev (dnses);
+	}
+
+	if (g_key_file_has_key (keyfile, IP4_SECTION, NM_SETTING_IP4_CONFIG_ROUTES, error)) {
+		char **routes;
+		gsize length;
+		struct in_addr addr;
+
+		routes = g_key_file_get_string_list (keyfile, IP4_SECTION, NM_SETTING_IP4_CONFIG_ROUTES,
+		                                     &length, error);
+		for (i=0; i<length; i++){
+			NMIP4Route *route;
+			guint32 dest, prefix, next_hop, metric;
+			char *ptr, *dest_s, *prefix_s, *next_hop_s, *metric_s;
+
+			route = nm_ip4_route_new ();
+			dest_s = routes[i];
+			ptr = routes[i];
+			/* 192.168.0.0/24 via 192.168.0.1 metric 1
+			   ^          0^ 0   0^          0       ^
+			   dest        prefix next_hop           metric*/
+			g_message(">> route '%s'", routes[i]);
+
+			/* Parse dest */
+			while ( *ptr != '/' && *ptr != '\0')
+				ptr++;
+			if (*ptr != '\0'){
+				*(ptr) = '\0'; 		/* terminate dest_s */
+				ptr++;
+			}
+			if (!inet_aton (dest_s, &addr)){
+				g_set_error (error,
+				             L2TP_PLUGIN_UI_ERROR,
+				             L2TP_PLUGIN_UI_ERROR_INVALID_PROPERTY,
+				             _("Property '%s' value '%s' can't be parsed as ip adress."),
+				             NM_SETTING_IP4_CONFIG_ROUTES,
+							 dest_s);
+				g_strfreev (routes);
+				nm_ip4_route_unref(route);
+				return FALSE;
+			}
+			g_message("dest is '%s'", dest_s);
+			nm_ip4_route_set_dest(route, addr.s_addr);
+
+			/* Parse prefix */
+			prefix_s = ptr;
+			while ( *ptr != ' ' && *ptr != '\0')
+				ptr++;
+			if (*ptr != '\0'){
+				*(ptr) = '\0'; 		/* terminate prefix_s */
+				ptr++;
+			}
+			errno = 0;
+			prefix = strtol (prefix_s, NULL, 10);
+			if (errno != 0 || prefix <=0 || prefix > 32){
+				g_set_error (error,
+				             L2TP_PLUGIN_UI_ERROR,
+				             L2TP_PLUGIN_UI_ERROR_INVALID_PROPERTY,
+				             _("Property '%s' value '%s' can't be parsed as ip netmask."),
+				             NM_SETTING_IP4_CONFIG_ROUTES,
+				             prefix_s);
+				g_strfreev (routes);
+				nm_ip4_route_unref(route);
+				return FALSE;
+			}
+			g_message("prefix is '%s', %d", prefix_s, prefix);
+			nm_ip4_route_set_prefix(route, prefix);
+			while (*ptr == ' ')
+				ptr++;
+
+			/* Parse next_hop */
+			if (*ptr == 'v'){	/* "via" */
+				*(ptr+3) = '\0'; /* terminate "via" */
+				g_message("via is '%s'", ptr);
+				if (strcmp(ptr, "via")){
+					g_set_error (error,
+					             L2TP_PLUGIN_UI_ERROR,
+					             L2TP_PLUGIN_UI_ERROR_INVALID_PROPERTY,
+					             _("Error parsing property '%s'."),
+					             NM_SETTING_IP4_CONFIG_ROUTES);
+					g_strfreev (routes);
+					nm_ip4_route_unref(route);
+					return FALSE;
+				}
+				ptr += 4;
+				while (*ptr == ' ')
+					ptr++;
+				next_hop_s = ptr;
+				while ( *ptr != ' ' && *ptr != '\0')
+					ptr++;
+				if (*ptr != '\0'){
+					*ptr = '\0'; /* terminate next_hop */
+					ptr++;
+				}
+				g_message("next hop is '%s'", next_hop_s);
+				if (!inet_aton (next_hop_s, &addr)){
+					g_set_error (error,
+					             L2TP_PLUGIN_UI_ERROR,
+					             L2TP_PLUGIN_UI_ERROR_INVALID_PROPERTY,
+					             _("Property '%s' value '%s' can't be parsed as ip adress."),
+					             NM_SETTING_IP4_CONFIG_ROUTES,
+					             next_hop_s);
+					g_strfreev (routes);
+					nm_ip4_route_unref(route);
+					return FALSE;
+				}
+				nm_ip4_route_set_next_hop(route, addr.s_addr);
+				while (*ptr == ' ')
+					ptr++;
+			}
+
+			/* Parse metric */
+			if (*ptr == 'm'){ /* "metric" */
+				*(ptr+6) = '\0'; /* terminate "metric" */
+				g_message("metric is '%s'", ptr);
+				if (strcmp(ptr, "metric")){
+					g_set_error (error,
+					             L2TP_PLUGIN_UI_ERROR,
+					             L2TP_PLUGIN_UI_ERROR_INVALID_PROPERTY,
+					             _("Error parsing property '%s'."),
+					             NM_SETTING_IP4_CONFIG_ROUTES);
+					g_strfreev (routes);
+					nm_ip4_route_unref(route);
+					return FALSE;
+				}
+				ptr += 7;
+				while (*ptr == ' ')
+					ptr++;
+				metric_s = ptr;
+				while ( *ptr != ' ' && *ptr != '\0')
+					ptr++;
+				if (*ptr != '\0'){
+					*ptr = '\0'; /* terminate metric_s */
+					ptr++;
+				}
+				g_message("metric is '%s'", metric_s);
+				errno = 0;
+				metric = strtol (metric_s, NULL, 10);
+				if (errno != 0){
+					g_set_error (error,
+					             L2TP_PLUGIN_UI_ERROR,
+					             L2TP_PLUGIN_UI_ERROR_INVALID_PROPERTY,
+					             _("Property '%s' value '%s' can't be parsed as route metric."),
+					             NM_SETTING_IP4_CONFIG_ROUTES,
+								 metric_s);
+					g_strfreev (routes);
+					nm_ip4_route_unref(route);
+					return FALSE;
+				}
+				nm_ip4_route_set_metric(route, metric);
+				while (*ptr == ' ')
+					ptr++;
+			}
+			if (*ptr != '\0'){
+				g_set_error (error,
+				             L2TP_PLUGIN_UI_ERROR,
+				             L2TP_PLUGIN_UI_ERROR_INVALID_PROPERTY,
+				             _("Error parsing property '%s' value '%s'."),
+				             NM_SETTING_IP4_CONFIG_ROUTES,
+				             ptr);
+				g_strfreev (routes);
+				nm_ip4_route_unref(route);
+				return FALSE;
+			}
+			nm_setting_ip4_config_add_route (s_ip4, route);
+		}
+		g_strfreev(routes);
+	}
+	return TRUE;
+}
+
 /**
  * Create new L2TP VPN connection using data from .ini - like file located at #path
  *
@@ -225,13 +492,19 @@ do_import (const char *path, GError **error)
 		g_free (value);
 	}
 
+	if (!import_ip4(keyfile, s_ip4, error)){
+		g_key_file_free (keyfile);
+		g_object_unref (connection);
+		return NULL;
+	}
+
 	/* g_message("Imported L2TP."); */
 
 	return connection;
 }
 
 /**
- * Exports #NMSettingIP4Config s_ip4 to #GKeyFile keyfile (only VPN-relsted fields)
+ * Exports #NMSettingIP4Config s_ip4 to #GKeyFile keyfile (only VPN-related fields)
  *
  * Returns: %TRUE on success or %FALSE on failure
  **/
