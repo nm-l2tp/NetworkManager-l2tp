@@ -126,16 +126,48 @@ l2tp_plugin_ui_error_get_type (void)
 	return etype;
 }
 
+/**
+ * Return copy of string #s with the leading and trailing spaces removed
+ * result must be freed with g_free()
+ **/
+static char *
+strstrip (const char *s)
+{
+	size_t size;
+	char *end;
+	char *scpy;
+
+	/* leading */
+	while (*s && isspace (*s))
+		s++;
+
+	scpy = g_strdup (s);
+	size = strlen (scpy);
+
+	if (!size)
+		return scpy;
+
+	end = scpy + size - 1;
+
+	while (end >= scpy && isspace (*end))
+		end--;
+	*(end + 1) = '\0';
+
+	return scpy;
+}
+
 static gboolean
 check_validity (L2tpPluginUiWidget *self, GError **error)
 {
 	L2tpPluginUiWidgetPrivate *priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
 	GtkWidget *widget;
 	const char *str;
+	char *s;
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "gateway_entry"));
 	str = gtk_entry_get_text (GTK_ENTRY (widget));
-	if (!str || !strlen (str)) {
+	if (!str || !strlen (s = strstrip (str))) {
+		g_free(s);
 		g_set_error (error,
 		             L2TP_PLUGIN_UI_ERROR,
 		             L2TP_PLUGIN_UI_ERROR_INVALID_PROPERTY,
@@ -544,6 +576,7 @@ update_connection (NMVpnPluginUiWidgetInterface *iface,
 	NMSettingVPN *s_vpn;
 	GtkWidget *widget;
 	const char *str;
+	char *s;
 	gboolean valid = FALSE;
 
 	if (!check_validity (self, error))
@@ -555,8 +588,11 @@ update_connection (NMVpnPluginUiWidgetInterface *iface,
 	/* Gateway */
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "gateway_entry"));
 	str = gtk_entry_get_text (GTK_ENTRY (widget));
-	if (str && strlen (str))
-		nm_setting_vpn_add_data_item (s_vpn, NM_L2TP_KEY_GATEWAY, str);
+	if (str)
+		s = strstrip(str);
+	if (s && strlen (s))
+		nm_setting_vpn_add_data_item (s_vpn, NM_L2TP_KEY_GATEWAY, s);
+	g_free(s);
 
 	/* Username */
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder,  "user_entry"));
