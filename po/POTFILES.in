@@ -4,6 +4,7 @@ auth-dialog/main.c
 auth-dialog/vpn-password-dialog.c
 nm-l2tp.desktop.in
 properties/advanced-dialog.c
+properties/import-export.c
 properties/ipsec-dialog.c
 properties/nm-l2tp.c
 [type: gettext/glade]properties/nm-l2tp-dialog.ui

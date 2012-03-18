@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-torrent\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-19 02:19+0400\n"
-"PO-Revision-Date: 2012-02-19 02:24+0300\n"
+"POT-Creation-Date: 2012-03-18 15:44+0400\n"
+"PO-Revision-Date: 2012-03-18 15:47+0300\n"
 "Last-Translator: Sergey Prokhorov <me@seriyps.ru>\n"
 "Language-Team: en_GB <en@li.org>\n"
 "Language: \n"
@@ -81,6 +81,69 @@ msgstr "MSCHAPv2"
 msgid "EAP"
 msgstr "EAP"
 
+#: ../properties/import-export.c:166
+#: ../properties/import-export.c:418
+#, c-format
+msgid "Required property %s missing"
+msgstr "Required property %s missing"
+
+#: ../properties/import-export.c:187
+#, c-format
+msgid "Property %s value '%s' can't be parsed as boolean."
+msgstr "Property %s value '%s' can't be parsed as boolean."
+
+#: ../properties/import-export.c:211
+#: ../properties/import-export.c:268
+#: ../properties/import-export.c:310
+#, c-format
+msgid "Property '%s' value '%s' can't be parsed as ip adress."
+msgstr "Property '%s' value '%s' can't be parsed as ip adress."
+
+#: ../properties/import-export.c:257
+#, c-format
+msgid "Property '%s' value '%s' couldn't find netmask."
+msgstr "Property '%s' value '%s' couldn't find netmask."
+
+#: ../properties/import-export.c:287
+#, c-format
+msgid "Property '%s' value '%s' can't be parsed as ip netmask."
+msgstr "Property '%s' value '%s' can't be parsed as ip netmask."
+
+#: ../properties/import-export.c:336
+#, c-format
+msgid "Property '%s' value '%s' can't be parsed as route metric."
+msgstr "Property '%s' value '%s' can't be parsed as route metric."
+
+#: ../properties/import-export.c:348
+#, c-format
+msgid "Error parsing property '%s' value '%s'."
+msgstr "Error parsing property '%s' value '%s'."
+
+#: ../properties/import-export.c:383
+#, c-format
+msgid "does not look like a L2TP VPN connection (parse failed)"
+msgstr "does not look like a L2TP VPN connection (parse failed)"
+
+#: ../properties/import-export.c:436
+#, c-format
+msgid "Property %s can't be parsed as integer."
+msgstr "Property %s can't be parsed as integer."
+
+#: ../properties/import-export.c:453
+#, c-format
+msgid "Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."
+msgstr "Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."
+
+#: ../properties/import-export.c:628
+#, c-format
+msgid "Missing required property '%s'"
+msgstr "Missing required property '%s'"
+
+#: ../properties/import-export.c:658
+#, c-format
+msgid "Couldn't open file for writing."
+msgstr "Couldn't open file for writing."
+
 #: ../properties/nm-l2tp.c:49
 msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr "Layer 2 Tunneling Protocol (L2TP)"
@@ -89,68 +152,77 @@ msgstr "Layer 2 Tunneling Protocol (L2TP)"
 msgid "Compatible with L2TP VPN servers."
 msgstr "Compatible with L2TP VPN servers."
 
-#: ../properties/nm-l2tp.c:187
+#: ../properties/nm-l2tp.c:219
 #, c-format
 msgid "%s: error reading advanced settings: %s"
 msgstr "%s: error reading advanced settings: %s"
 
-#: ../properties/nm-l2tp.c:211
+#: ../properties/nm-l2tp.c:243
 #, c-format
 msgid "%s: error reading ipsec settings: %s"
 msgstr "%s: error reading ipsec settings: %s"
 
-#: ../properties/nm-l2tp.c:232
+#: ../properties/nm-l2tp.c:264
 #, c-format
 msgid "%s: failed to create the Advanced dialog!"
 msgstr "%s: failed to create the Advanced dialog!"
 
-#: ../properties/nm-l2tp.c:262
+#: ../properties/nm-l2tp.c:294
 #, c-format
 msgid "%s: failed to create the IPSEC dialog!"
 msgstr "%s: failed to create the IPSEC dialog!"
 
-#: ../properties/nm-l2tp.c:381
+#: ../properties/nm-l2tp.c:413
 msgid "Saved"
 msgstr "Saved"
 
-#: ../properties/nm-l2tp.c:389
+#: ../properties/nm-l2tp.c:421
 msgid "Always Ask"
 msgstr "Always Ask"
 
-#: ../properties/nm-l2tp.c:394
+#: ../properties/nm-l2tp.c:426
 msgid "Not Required"
 msgstr "Not Required"
 
-#: ../properties/nm-l2tp.c:614
+#: ../properties/nm-l2tp.c:650
 #, c-format
 msgid "could not create l2tp object"
 msgstr "could not create l2tp object"
 
-#: ../properties/nm-l2tp.c:626
+#: ../properties/nm-l2tp.c:662
 #, c-format
 msgid "Couldn't load builder file: %s"
 msgstr "Couldn't load builder file: %s"
 
-#: ../properties/nm-l2tp.c:630
+#: ../properties/nm-l2tp.c:666
 #, c-format
 msgid "could not load required resources at %s"
 msgstr "could not load required resources at %s"
 
-#: ../properties/nm-l2tp.c:640
+#: ../properties/nm-l2tp.c:676
 #, c-format
 msgid "could not load UI widget"
 msgstr "could not load UI widget"
 
-#: ../properties/nm-l2tp.c:735
-#: ../properties/nm-l2tp.c:743
+#: ../properties/nm-l2tp.c:769
 #, c-format
 msgid "unknown L2TP file extension"
 msgstr "unknown L2TP file extension"
 
-#: ../properties/nm-l2tp.c:755
+#: ../properties/nm-l2tp.c:777
 #, c-format
-msgid "not a valid L2TP configuration file"
-msgstr "not a valid L2TP configuration file"
+msgid "unknown L2TP file extension. Allowed .conf or .cnf"
+msgstr "unknown L2TP file extension. Allowed .conf or .cnf"
+
+#: ../properties/nm-l2tp.c:785
+#, c-format
+msgid "Filename doesn't contains 'l2tp' substring."
+msgstr "Filename doesn't contains 'l2tp' substring."
+
+#: ../properties/nm-l2tp.c:792
+#, c-format
+msgid "Can't import file as L2TP config: %s"
+msgstr "Can't import file as L2TP config: %s"
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
 msgid "<b>Authentication</b>"
@@ -520,62 +592,69 @@ msgstr "ipsec ready for action"
 msgid "Could not find the xl2tpd binary."
 msgstr "Could not find the xl2tpd binary."
 
-#: ../src/nm-l2tp-service.c:1099
+#: ../src/nm-l2tp-service.c:1101
 #, c-format
 msgid "xl2tpd started with pid %d"
 msgstr "xl2tpd started with pid %d"
 
-#: ../src/nm-l2tp-service.c:1176
+#: ../src/nm-l2tp-service.c:1161
+msgid "Can-not create new test socket"
+msgstr "Can-not create new test socket"
+
+#: ../src/nm-l2tp-service.c:1223
 msgid "Could not write ipsec config."
 msgstr "Could not write ipsec config."
 
-#: ../src/nm-l2tp-service.c:1220
+#: ../src/nm-l2tp-service.c:1267
 msgid "Could not write xl2tpd config."
 msgstr "Could not write xl2tpd config."
 
-#: ../src/nm-l2tp-service.c:1235
+#: ../src/nm-l2tp-service.c:1282
 msgid "Could not write ppp options."
 msgstr "Could not write ppp options."
 
-#: ../src/nm-l2tp-service.c:1300
+#: ../src/nm-l2tp-service.c:1356
 #, c-format
 msgid "failed to convert lcp-echo-failure value '%s'"
 msgstr "failed to convert lcp-echo-failure value '%s'"
 
-#: ../src/nm-l2tp-service.c:1318
+#: ../src/nm-l2tp-service.c:1374
 #, c-format
 msgid "failed to convert lcp-echo-interval value '%s'"
 msgstr "failed to convert lcp-echo-interval value '%s'"
 
-#: ../src/nm-l2tp-service.c:1368
+#: ../src/nm-l2tp-service.c:1424
 msgid "Could not start pppd plugin helper service."
 msgstr "Could not start pppd plugin helper service."
 
-#: ../src/nm-l2tp-service.c:1388
+#: ../src/nm-l2tp-service.c:1444
 #, c-format
 msgid "ipsec enable flag: %s"
 msgstr "ipsec enable flag: %s"
 
-#: ../src/nm-l2tp-service.c:1390
+#: ../src/nm-l2tp-service.c:1446
 msgid "starting ipsec"
 msgstr "starting ipsec"
 
-#: ../src/nm-l2tp-service.c:1434
+#: ../src/nm-l2tp-service.c:1490
 #, c-format
 msgid "Terminated ppp daemon with PID %d."
 msgstr "Terminated ppp daemon with PID %d."
 
-#: ../src/nm-l2tp-service.c:1547
+#: ../src/nm-l2tp-service.c:1603
 msgid "Don't quit when VPN connection terminates"
 msgstr "Don't quit when VPN connection terminates"
 
-#: ../src/nm-l2tp-service.c:1548
+#: ../src/nm-l2tp-service.c:1604
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Enable verbose debug logging (may expose passwords)"
 
-#: ../src/nm-l2tp-service.c:1562
+#: ../src/nm-l2tp-service.c:1618
 msgid "nm-l2tp-service provides L2TP VPN capability with optional IPSec support to NetworkManager."
 msgstr "nm-l2tp-service provides L2TP VPN capability with optional IPSec support to NetworkManager."
+
+#~ msgid "not a valid L2TP configuration file"
+#~ msgstr "not a valid L2TP configuration file"
 
 #~ msgid "Authentication Type:"
 #~ msgstr "Authentication Type:"
