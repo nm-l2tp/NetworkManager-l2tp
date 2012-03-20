@@ -133,8 +133,10 @@ ensure_killed (gpointer data)
 {
 	int pid = GPOINTER_TO_INT (data);
 
-	if (kill (pid, 0) == 0)
+	if (kill (pid, 0) == 0){
+		g_warning("Kill process %d by SIGKILL", pid);
 		kill (pid, SIGKILL);
+	}
 
 	return FALSE;
 }
@@ -1295,15 +1297,17 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		g_warning("Port 1701 is busy, use ephemeral.");
 	}
 	write_config_option (conf_fd, "port = %d\n", port);
+	if (debug){
+		/* write_config_option (conf_fd, "debug network = yes\n"); */
+		write_config_option (conf_fd, "debug state = yes\n");
+		write_config_option (conf_fd, "debug tunnel = yes\n");
+		write_config_option (conf_fd, "debug avp = yes\n");
+	}
 
 	write_config_option (conf_fd, "[lac l2tp]\n");
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_GATEWAY);
 	write_config_option (conf_fd, "lns = %s\n", value);
-	write_config_option (conf_fd, "redial = yes\n");
-	write_config_option (conf_fd, "redial timeout = 10\n");
-	write_config_option (conf_fd, "require chap = yes\n");
-	write_config_option (conf_fd, "require authentication = no\n");
 
 	if (priv->service)
 		service_priv = NM_L2TP_PPP_SERVICE_GET_PRIVATE (priv->service);
@@ -1313,8 +1317,10 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	if (debug)
 		write_config_option (conf_fd, "ppp debug = yes\n");
 	write_config_option (conf_fd, "pppoptfile = /var/run/nm-ppp-options.xl2tpd.%d\n", pid);
-	write_config_option (conf_fd, "require pap = no\n");
 	write_config_option (conf_fd, "autodial = yes\n");
+	write_config_option (conf_fd, "tunnel rws = 8\n");
+	write_config_option (conf_fd, "tx bps = 100000000\n");
+	write_config_option (conf_fd, "rx bps = 100000000\n");
 
 	/* PPP options */
 	if (debug)
@@ -1487,7 +1493,7 @@ real_disconnect (NMVPNPlugin   *plugin,
 		else
 			kill (priv->pid_l2tpd, SIGKILL);
 
-		g_message(_("Terminated ppp daemon with PID %d."), priv->pid_l2tpd);
+		g_message(_("Terminated l2tp daemon with PID %d."), priv->pid_l2tpd);
 		priv->pid_l2tpd = 0;
 	}
 
