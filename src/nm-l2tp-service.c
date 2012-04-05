@@ -382,6 +382,8 @@ typedef struct {
 	GPid pid_l2tpd;
 	gboolean ipsec_up;
 	guint32 ppp_timeout_handler;
+	guint32 naddr;		/* We resolve GW addr before pass it to xl2tpd. network byte-order */
+	char *saddr;
 	NML2tpPppService *service;
 	NMConnection *connection;
 } NML2tpPluginPrivate;
@@ -825,26 +827,22 @@ copy_hash (gpointer key, gpointer value, gpointer user_data)
 	g_hash_table_insert ((GHashTable *) user_data, g_strdup (key), nm_gvalue_dup ((GValue *) value));
 }
 
-static GValue *
-get_l2tp_gw_address_as_gvalue (NMConnection *connection)
+static gboolean
+nm_l2tp_resolve_gateway (NML2tpPlugin *plugin,
+						 NMSettingVPN *s_vpn,
+						 GError **error)
 {
-	NMSettingVPN *s_vpn;
-	const char *tmp, *p;
-	GValue *value = NULL;
-	struct in_addr addr;
+	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
+	const char *p, *src;
 	gboolean is_name = FALSE;
+	struct in_addr naddr;
+	struct addrinfo hints;
+	struct addrinfo *result = NULL, *rp;
+	int err;
+	char buf[INET_ADDRSTRLEN + 1];
 
-	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
-	if (!s_vpn) {
-		g_warning (_("couldn't get VPN setting"));
-		return NULL;
-	}
-
-	p = tmp = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_GATEWAY);
-	if (!tmp || !strlen (tmp)) {
-		g_warning (_("couldn't get L2TP VPN gateway IP address"));
-		return NULL;
-	}
+	p = src = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_GATEWAY);
+	g_return_val_if_fail (src != NULL, FALSE);
 
 	while (*p) {
 		if (*p != '.' && !isdigit (*p)) {
@@ -854,59 +852,81 @@ get_l2tp_gw_address_as_gvalue (NMConnection *connection)
 		p++;
 	}
 
-	/* Resolve a hostname if required */
-	if (is_name) {
-		struct addrinfo hints;
-		struct addrinfo *result = NULL, *rp;
-		int err;
-
-		memset (&hints, 0, sizeof (hints));
-
-		hints.ai_family = AF_INET;
-		hints.ai_flags = AI_ADDRCONFIG;
-		err = getaddrinfo (tmp, NULL, &hints, &result);
-		if (err != 0) {
-			g_warning (_("couldn't look up L2TP VPN gateway IP address '%s' (%d)"), tmp, err);
-			return NULL;
-		}
-
-		/* FIXME: so what if the name resolves to multiple IP addresses?  We
-		 * don't know which one l2tp decided to use so we could end up using a
-		 * different one here, and the VPN just won't work.
-		 */
-		for (rp = result; rp; rp = rp->ai_next) {
-			if (   (rp->ai_family == AF_INET)
-			    && (rp->ai_addrlen == sizeof (struct sockaddr_in))) {
-				struct sockaddr_in *inptr = (struct sockaddr_in *) rp->ai_addr;
-
-				memcpy (&addr, &(inptr->sin_addr), sizeof (struct in_addr));
-				break;
-			}
-		}
-
-		freeaddrinfo (result);
-	} else {
+	if (is_name == FALSE) {
 		errno = 0;
-		if (inet_pton (AF_INET, tmp, &addr) <= 0) {
-			g_warning (_("couldn't convert L2TP VPN gateway IP address '%s' (%d)"), tmp, errno);
-			return NULL;
+		if (inet_pton (AF_INET, src, &naddr) <= 0) {
+			g_set_error (error,
+			             NM_VPN_PLUGIN_ERROR,
+			             NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
+			             _("couldn't convert L2TP VPN gateway IP address '%s' (%d)"),
+			             src, errno);
+			return FALSE;
+		}
+		priv->naddr = naddr.s_addr;
+		priv->saddr = g_strdup (src);
+		return TRUE;
+	}
+
+	/* It's a hostname, resolve it */
+	memset (&hints, 0, sizeof (hints));
+	hints.ai_family = AF_INET;
+	hints.ai_flags = AI_ADDRCONFIG;
+	err = getaddrinfo (src, NULL, &hints, &result);
+	if (err != 0) {
+		g_set_error (error,
+		             NM_VPN_PLUGIN_ERROR,
+		             NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
+		             _("couldn't look up L2TP VPN gateway IP address '%s' (%d)"),
+		             src, err);
+		return FALSE;
+	}
+
+	/* If the hostname resolves to multiple IP addresses, use the first one.
+	 * FIXME: maybe we just want to use a random one instead?
+	 */
+	memset (&naddr, 0, sizeof (naddr));
+	for (rp = result; rp; rp = rp->ai_next) {
+		if (   (rp->ai_family == AF_INET)
+		    && (rp->ai_addrlen == sizeof (struct sockaddr_in))) {
+			struct sockaddr_in *inptr = (struct sockaddr_in *) rp->ai_addr;
+
+			memcpy (&naddr, &(inptr->sin_addr), sizeof (struct in_addr));
+			break;
 		}
 	}
-	
-	if (addr.s_addr != 0) {
-		value = g_slice_new0 (GValue);
-		g_value_init (value, G_TYPE_UINT);
-		g_value_set_uint (value, (guint32) addr.s_addr);
-	} else
-		g_warning (_("couldn't determine L2TP VPN gateway IP address from '%s'"), tmp);
+	freeaddrinfo (result);
 
-	return value;
+	if (naddr.s_addr == 0) {
+		g_set_error (error,
+		             NM_VPN_PLUGIN_ERROR,
+		             NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
+		             _("no usable addresses returned for L2TP VPN gateway '%s'"),
+		             src);
+		return FALSE;
+	}
+
+	memset (buf, 0, sizeof (buf));
+	errno = 0;
+	if (inet_ntop (AF_INET, &naddr, buf, sizeof (buf) - 1) == NULL) {
+		g_set_error (error,
+		             NM_VPN_PLUGIN_ERROR,
+		             NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
+		             _("no usable addresses returned for L2TP VPN gateway '%s' (%d)"),
+		             src, errno);
+		return FALSE;
+	}
+
+	g_message(_("Use '%s' as a gateway"), buf);
+
+	priv->naddr = naddr.s_addr;
+	priv->saddr = g_strdup (buf);
+	return TRUE;
 }
 
 static void
 service_ip4_config_cb (NML2tpPppService *service,
                        GHashTable *config_hash,
-                       NML2tpPlugin *plugin)
+                       NMVPNPlugin *plugin)
 {
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
 	GHashTable *hash;
@@ -918,11 +938,12 @@ service_ip4_config_cb (NML2tpPppService *service,
 	/* Insert the external VPN gateway into the table, which the pppd plugin
 	 * simply doesn't know about.
 	 */
-	value = get_l2tp_gw_address_as_gvalue (priv->connection);
-	if (value)
-		g_hash_table_insert (hash, g_strdup (NM_L2TP_KEY_GATEWAY), value);
+	value = g_slice_new0 (GValue);
+	g_value_init (value, G_TYPE_UINT);
+	g_value_set_uint (value, priv->naddr);
+	g_hash_table_insert (hash, g_strdup (NM_L2TP_KEY_GATEWAY), value);
 
-	nm_vpn_plugin_set_ip4_config (NM_VPN_PLUGIN (plugin), hash);
+	nm_vpn_plugin_set_ip4_config (plugin, hash);
 
 	g_hash_table_destroy (hash);
 }
@@ -1243,8 +1264,8 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 "  left=%%defaultroute\n");
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GROUP_NAME);
 	if(value)write_config_option (ipsec_fd, "  leftid=@%s\n", value);
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_GATEWAY);
-	write_config_option (ipsec_fd, "  right=%s\n", value);
+	/* value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_GATEWAY); */
+	write_config_option (ipsec_fd, "  right=%s\n", priv->saddr);
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GATEWAY_ID);
 	if(value)write_config_option (ipsec_fd, "  rightid=@%s\n", value);
 	write_config_option (ipsec_fd,
@@ -1306,8 +1327,8 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 
 	write_config_option (conf_fd, "[lac l2tp]\n");
 
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_GATEWAY);
-	write_config_option (conf_fd, "lns = %s\n", value);
+    /* value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_GATEWAY); */
+	write_config_option (conf_fd, "lns = %s\n", priv->saddr);
 
 	if (priv->service)
 		service_priv = NM_L2TP_PPP_SERVICE_GET_PRIVATE (priv->service);
@@ -1443,6 +1464,9 @@ real_connect (NMVPNPlugin   *plugin,
 	if (!nm_l2tp_ppp_service_cache_credentials (priv->service, connection, error))
 		return FALSE;
 
+	if (!nm_l2tp_resolve_gateway (NM_L2TP_PLUGIN (plugin), s_vpn, error))
+		return FALSE;
+
 	if (!nm_l2tp_config_write (NM_L2TP_PLUGIN (plugin), s_vpn, error))
 		return FALSE;
 
@@ -1553,6 +1577,9 @@ dispose (GObject *object)
 
 	if (priv->service)
 		g_object_unref (priv->service);
+
+	if (priv->saddr)
+		g_free (priv->saddr);
 
 	G_OBJECT_CLASS (nm_l2tp_plugin_parent_class)->dispose (object);
 }
