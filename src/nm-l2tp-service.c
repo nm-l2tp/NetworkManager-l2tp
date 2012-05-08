@@ -1272,7 +1272,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 "  esp=3des-sha1\n"
 "  keyexchange=ike\n"
 "  ike=3des-sha1-modp1024\n"
-"  aggrmode=yes\n"
+"  aggrmode=no\n"
 "  forceencaps=yes\n");
 
 
