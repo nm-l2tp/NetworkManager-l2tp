@@ -43,6 +43,8 @@
 #define KEYRING_SN_TAG "setting-name"
 #define KEYRING_SK_TAG "setting-key"
 
+#define UI_KEYFILE_GROUP "VPN Plugin UI"
+
 static char *
 keyring_lookup_secret (const char *uuid, const char *secret_name)
 {
@@ -72,11 +74,43 @@ keyring_lookup_secret (const char *uuid, const char *secret_name)
 	return secret;
 }
 
+static void
+keyfile_add_entry_info (GKeyFile    *keyfile,
+                        const gchar *key,
+                        const gchar *value,
+                        const gchar *label,
+                        gboolean     is_secret,
+                        gboolean     should_ask)
+{
+	g_key_file_set_string (keyfile, key, "Value", value);
+	g_key_file_set_string (keyfile, key, "Label", label);
+	g_key_file_set_boolean (keyfile, key, "IsSecret", is_secret);
+	g_key_file_set_boolean (keyfile, key, "ShouldAsk", should_ask);
+}
+
+static void
+keyfile_print_stdout (GKeyFile *keyfile)
+{
+	gchar *data;
+	gsize length;
+
+	data = g_key_file_to_data (keyfile, &length, NULL);
+
+	fputs (data, stdout);
+
+	g_free (data);
+}
+
+#if !GLIB_CHECK_VERSION(2,32,0)
+#define g_key_file_unref g_key_file_free
+#endif
+
 static gboolean
 get_secrets (const char *vpn_uuid,
              const char *vpn_name,
              gboolean retry,
              gboolean allow_interaction,
+             gboolean external_ui_mode,
              const char *in_pw,
              char **out_pw,
              NMSettingSecretFlags pw_flags)
@@ -105,28 +139,39 @@ get_secrets (const char *vpn_uuid,
 		return TRUE;
 	}
 
-	if (!retry) {
-		/* Don't ask the user if we don't need a new password (ie, !retry),
-		 * we have an existing PW, and the password is saved.
-		 */
-		if (pw && !(pw_flags & NM_SETTING_SECRET_FLAG_NOT_SAVED)) {
-			*out_pw = pw;
-			return TRUE;
-		}
-	}
-
-	/* If interaction isn't allowed, just return existing secrets */
-	if (allow_interaction == FALSE) {
-		*out_pw = pw;
-		return TRUE;
-	}
-
 	/* Otherwise, we have no saved password, or the password flags indicated
 	 * that the password should never be saved.
 	 */
 	prompt = g_strdup_printf (_("You need to authenticate to access the Virtual Private Network '%s'."), vpn_name);
+
+	if (external_ui_mode) {
+		GKeyFile *keyfile;
+
+		keyfile = g_key_file_new ();
+
+		g_key_file_set_integer (keyfile, UI_KEYFILE_GROUP, "Version", 2);
+		g_key_file_set_string (keyfile, UI_KEYFILE_GROUP, "Description", prompt);
+		g_key_file_set_string (keyfile, UI_KEYFILE_GROUP, "Title", _("Authenticate VPN"));
+
+		keyfile_add_entry_info (keyfile, NM_PPTP_KEY_PASSWORD, pw ? pw : "", _("Password:"), TRUE, allow_interaction);
+
+		keyfile_print_stdout (keyfile);
+		g_key_file_unref (keyfile);
+		goto out;
+	} else if (   allow_interaction == FALSE
+	           || (!retry && pw && !(pw_flags & NM_SETTING_SECRET_FLAG_NOT_SAVED))) {
+		/* If interaction isn't allowed, just return existing secrets.
+		 * Also, don't ask the user if we don't need a new password (ie, !retry),
+		 * we have an existing PW, and the password is saved.
+		 */
+
+		*out_pw = pw;
+		g_free (prompt);
+		return TRUE;
+	}
+
+
 	dialog = (VpnPasswordDialog *) vpn_password_dialog_new (_("Authenticate VPN"), prompt, NULL);
-	g_free (prompt);
 
 	vpn_password_dialog_set_show_password_secondary (dialog, FALSE);
 
@@ -145,6 +190,9 @@ get_secrets (const char *vpn_uuid,
 
 	gtk_widget_hide (GTK_WIDGET (dialog));
 	gtk_widget_destroy (GTK_WIDGET (dialog));
+
+ out:
+	g_free (prompt);
 
 	return TRUE;
 }
@@ -177,7 +225,7 @@ wait_for_quit (void)
 int 
 main (int argc, char *argv[])
 {
-	gboolean retry = FALSE, allow_interaction = FALSE;
+	gboolean retry = FALSE, allow_interaction = FALSE, external_ui_mode = FALSE;
 	char *vpn_name = NULL, *vpn_uuid = NULL, *vpn_service = NULL, *password = NULL;
 	GHashTable *data = NULL, *secrets = NULL;
 	NMSettingSecretFlags pw_flags = NM_SETTING_SECRET_FLAG_NONE;
@@ -188,6 +236,7 @@ main (int argc, char *argv[])
 			{ "name", 'n', 0, G_OPTION_ARG_STRING, &vpn_name, "Name of VPN connection", NULL},
 			{ "service", 's', 0, G_OPTION_ARG_STRING, &vpn_service, "VPN service type", NULL},
 			{ "allow-interaction", 'i', 0, G_OPTION_ARG_NONE, &allow_interaction, "Allow user interaction", NULL},
+			{ "external-ui-mode", 0, 0, G_OPTION_ARG_NONE, &external_ui_mode, "External UI mode", NULL},
 			{ NULL }
 		};
 
@@ -220,25 +269,26 @@ main (int argc, char *argv[])
 
 	nm_vpn_plugin_utils_get_secret_flags (secrets, NM_L2TP_KEY_PASSWORD, &pw_flags);
 
-	if (!get_secrets (vpn_uuid, vpn_name, retry, allow_interaction,
+	if (!get_secrets (vpn_uuid, vpn_name, retry, allow_interaction, external_ui_mode,
 	                  g_hash_table_lookup (secrets, NM_L2TP_KEY_PASSWORD),
 	                  &password,
 	                  pw_flags))
 		return 1;
 
-	/* dump the passwords to stdout */
-	if (password)
-		printf ("%s\n%s\n", NM_L2TP_KEY_PASSWORD, password);
-	printf ("\n\n");
+	if (!external_ui_mode) {
+		/* dump the passwords to stdout */
+		if (password)
+			printf ("%s\n%s\n", NM_PPTP_KEY_PASSWORD, password);
+		printf ("\n\n");
 
-	if (password)
 		gnome_keyring_memory_free (password);
 
-	/* for good measure, flush stdout since Kansas is going Bye-Bye */
-	fflush (stdout);
+		/* for good measure, flush stdout since Kansas is going Bye-Bye */
+		fflush (stdout);
 
-	/* Wait for quit signal */
-	wait_for_quit ();
+		/* Wait for quit signal */
+		wait_for_quit ();
+	}
 
 	if (data)
 		g_hash_table_unref (data);

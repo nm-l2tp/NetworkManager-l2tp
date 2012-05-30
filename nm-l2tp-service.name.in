@@ -6,3 +6,4 @@ program=@LIBEXECDIR@/nm-l2tp-service
 [GNOME]
 auth-dialog=@LIBEXECDIR@/nm-l2tp-auth-dialog
 properties=libnm-l2tp-properties
+supports-external-ui-mode=true
