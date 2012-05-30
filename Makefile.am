@@ -29,6 +29,8 @@ endif
 nm-l2tp-service.name: $(srcdir)/nm-l2tp-service.name.in
 	sed -e 's|[@]LIBEXECDIR[@]|$(libexecdir)|g' $< >$@
 
+DISTCHECK_CONFIGURE_FLAGS = --enable-more-warnings=yes
+
 EXTRA_DIST = nm-l2tp-service.name.in \
              $(dbusservice_DATA)  \
              $(desktopfile) \

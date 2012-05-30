@@ -1,54 +1,34 @@
-# Temporary files
 *~
-*.swp
-
-# Compiled files
 *.o
-*.la
 *.lo
-auth-dialog/nm-l2tp-auth-dialog
-src/nm-l2tp-service
-
-# Generated
-nm-l2tp-service.name
-src/nm-l2tp-pppd-service-glue.h
-
-# GNU Autotools
-.deps
-.libs
-aclocal.m4
-autom4te.cache/
-depcomp
-compile
-config.guess
-config.h
-config.h.in
-config.h~
-config.log
-config.status
-config.sub
+*.la
+Makefile
+Makefile.in*
 configure
+compile
+config.*
+aclocal.m4
+depcomp
 install-sh
-intltool-extract.in
-intltool-merge.in
-intltool-update.in
 libtool
 ltmain.sh
-m4/
-Makefile
-Makefile.in
 missing
-po/*.pot
-po/Makefile.in.in
-po/POTFILES
-po/stamp-it
-stamp-h1
+mkinstalldirs
+POTFILES
+stamp-*
+.deps
+.libs
+autom4te.cache
+intltool-*
+po/*.gmo
+po/.intltool-merge-cache
+m4/gtk-doc.m4
+m4/intltool.m4
+m4/libtool.m4
+m4/lt*.m4
 
-#cdt files
-.autotools
-.cproject
-.project
-
-# gmo 
-*.gmo
-
+auth-dialog/nm-l2tp-auth-dialog
+nm-l2tp-service.name
+nm-l2tp.desktop
+src/nm-l2tp-pppd-service-glue.h
+src/nm-l2tp-service

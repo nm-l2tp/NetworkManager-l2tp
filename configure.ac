@@ -70,10 +70,10 @@ AC_SUBST(DBUS_GLIB_CFLAGS)
 AC_SUBST(DBUS_GLIB_LIBS)
 
 PKG_CHECK_MODULES(NM,
-                  NetworkManager >= 0.9.0
-				  libnm-util
-				  libnm-glib
-				  libnm-glib-vpn)
+                  NetworkManager >= 0.9.4
+                  libnm-util >= 0.9.4
+                  libnm-glib >= 0.9.4
+                  libnm-glib-vpn >= 0.9.4)
 AC_SUBST(NM_CFLAGS)
 AC_SUBST(NM_LIBS)
 
@@ -101,6 +101,8 @@ if test x"$with_gnome" != xno; then
 	AC_SUBST(GNOMEKEYRING_CFLAGS)
 	AC_SUBST(GNOMEKEYRING_LIBS)
 fi
+
+NM_COMPILER_WARNINGS
 
 dnl
 dnl Distribution version string
