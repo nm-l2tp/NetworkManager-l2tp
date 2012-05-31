@@ -153,7 +153,7 @@ get_secrets (const char *vpn_uuid,
 		g_key_file_set_string (keyfile, UI_KEYFILE_GROUP, "Description", prompt);
 		g_key_file_set_string (keyfile, UI_KEYFILE_GROUP, "Title", _("Authenticate VPN"));
 
-		keyfile_add_entry_info (keyfile, NM_PPTP_KEY_PASSWORD, pw ? pw : "", _("Password:"), TRUE, allow_interaction);
+		keyfile_add_entry_info (keyfile, NM_L2TP_KEY_PASSWORD, pw ? pw : "", _("Password:"), TRUE, allow_interaction);
 
 		keyfile_print_stdout (keyfile);
 		g_key_file_unref (keyfile);
@@ -278,7 +278,7 @@ main (int argc, char *argv[])
 	if (!external_ui_mode) {
 		/* dump the passwords to stdout */
 		if (password)
-			printf ("%s\n%s\n", NM_PPTP_KEY_PASSWORD, password);
+			printf ("%s\n%s\n", NM_L2TP_KEY_PASSWORD, password);
 		printf ("\n\n");
 
 		gnome_keyring_memory_free (password);

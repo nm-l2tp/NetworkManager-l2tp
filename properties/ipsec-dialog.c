@@ -81,9 +81,6 @@ handle_enable_changed (GtkWidget *check, gboolean is_init, GtkBuilder *builder)
 {
 	GtkWidget *widget;
 	gboolean enabledp;
-	GtkTreeModel *model;
-	GtkTreeIter iter;
-	gboolean valid;
 
 	enabledp = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (check));
 
@@ -172,9 +169,6 @@ ipsec_dialog_new_hash_from_dialog (GtkWidget *dialog, GError **error)
 	GHashTable *hash;
 	GtkWidget *widget;
 	GtkBuilder *builder;
-	GtkTreeModel *model;
-	GtkTreeIter iter;
-	gboolean valid;
 
 	g_return_val_if_fail (dialog != NULL, NULL);
 	if (error)

@@ -201,7 +201,6 @@ import_ip4 (GKeyFile *keyfile, NMSettingIP4Config *s_ip4, GError **error)
 		char **dnses;
 		gsize length;
 		struct in_addr addr;
-		guint32 dns;
 
 		dnses = g_key_file_get_string_list (keyfile, IP4_SECTION, NM_SETTING_IP4_CONFIG_DNS,
 		                                    &length, error);
@@ -240,7 +239,7 @@ import_ip4 (GKeyFile *keyfile, NMSettingIP4Config *s_ip4, GError **error)
 		                                     &length, error);
 		for (i=0; i<length; i++){
 			NMIP4Route *route;
-			guint32 dest, prefix, next_hop, metric;
+			guint32 prefix, metric;
 			char *ptr, *dest_s, *prefix_s, *next_hop_s, *metric_s;
 
 			route = nm_ip4_route_new ();
@@ -489,7 +488,6 @@ static gboolean
 export_ip4(NMSettingIP4Config *s_ip4, GKeyFile *keyfile, GError **error)
 {
 	const char *str_val;
-	int int_val;
 	gboolean bool_val;
 	guint32 num_dns;
 	guint32 num_dns_searches;
@@ -532,8 +530,6 @@ export_ip4(NMSettingIP4Config *s_ip4, GKeyFile *keyfile, GError **error)
 		char *routes[num_routes];
 		NMIP4Route *route;
 		struct in_addr addr;
-		char *dest_addr;
-		char *nhop_addr;
 
 		for (i=0; i<num_routes; i++){
 			guint32 dest, prefix, nhop, metric;

@@ -29,6 +29,7 @@
 #include <arpa/inet.h>
 #include <errno.h>
 #include <stdlib.h>
+#include <ctype.h>
 #include <glib/gi18n-lib.h>
 #include <string.h>
 #include <gtk/gtk.h>
@@ -162,7 +163,7 @@ check_validity (L2tpPluginUiWidget *self, GError **error)
 	L2tpPluginUiWidgetPrivate *priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
 	GtkWidget *widget;
 	const char *str;
-	char *s;
+	char *s=NULL;
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "gateway_entry"));
 	str = gtk_entry_get_text (GTK_ENTRY (widget));
@@ -253,8 +254,7 @@ advanced_button_clicked_cb (GtkWidget *button, gpointer user_data)
 {
 	L2tpPluginUiWidget *self = L2TP_PLUGIN_UI_WIDGET (user_data);
 	L2tpPluginUiWidgetPrivate *priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
-	GtkWidget *dialog;
-	GtkWindow *toplevel;
+	GtkWidget *dialog, *toplevel;
 
 	toplevel = gtk_widget_get_toplevel (priv->widget);
 	g_return_if_fail (gtk_widget_is_toplevel (toplevel));
@@ -283,8 +283,7 @@ ipsec_button_clicked_cb (GtkWidget *button, gpointer user_data)
 {
 	L2tpPluginUiWidget *self = L2TP_PLUGIN_UI_WIDGET (user_data);
 	L2tpPluginUiWidgetPrivate *priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
-	GtkWidget *dialog;
-	GtkWindow *toplevel;
+	GtkWidget *dialog, *toplevel;
 
 	toplevel = gtk_widget_get_toplevel (priv->widget);
 	g_return_if_fail (gtk_widget_is_toplevel (toplevel));
@@ -576,7 +575,7 @@ update_connection (NMVpnPluginUiWidgetInterface *iface,
 	NMSettingVPN *s_vpn;
 	GtkWidget *widget;
 	const char *str;
-	char *s;
+	char *s=NULL;
 	gboolean valid = FALSE;
 
 	if (!check_validity (self, error))
@@ -669,7 +668,7 @@ nm_vpn_plugin_ui_widget_interface_new (NMConnection *connection, GError **error)
 		g_object_unref(object);
 		return NULL;
 	}
-	g_free(ui_file);
+	g_free (ui_file);
 
 	priv->widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "l2tp-vbox"));
 	if (!priv->widget) {

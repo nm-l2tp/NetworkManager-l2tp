@@ -230,13 +230,13 @@ nm_ip_up (void *data, int arg)
 }
 
 static int
-get_chap_check()
+get_chap_check(void)
 {
 	return 1;
 }
 
 static int
-get_pap_check()
+get_pap_check(void)
 {
 	return 1;
 }

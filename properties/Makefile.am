@@ -16,22 +16,16 @@ ui_DATA = nm-l2tp-dialog.ui
 
 libnm_l2tp_properties_la_CFLAGS =                    \
         $(GTK_CFLAGS)                                   \
-        $(GCONF_CFLAGS)                                 \
-        $(LIBGNOMEUI_CFLAGS)                            \
-        $(GNOMEKEYRING_CFLAGS)                          \
-        $(NM_CFLAGS)                              \
+        $(NM_CFLAGS)                        \
         -DICONDIR=\""$(datadir)/pixmaps"\"              \
-        -DUIDIR=\""$(uidir)"\" 								\
+        -DUIDIR=\""$(uidir)"\"                          \
         -DG_DISABLE_DEPRECATED                          \
         -DGDK_DISABLE_DEPRECATED                        \
-        -DGNOME_DISABLE_DEPRECATED                      \
-        -DGNOMELOCALEDIR=\"$(datadir)/locale\"          \
+	-DGTK_DISABLE_DEPRECATED                        \
         -DVERSION=\"$(VERSION)\"
 
-libnm_l2tp_properties_la_LIBADD =    \
-        $(GTK_LIBS)                     \
-        $(GCONF_LIBS)                   \
-        $(LIBGNOMEUI_LIBS)              \
+libnm_l2tp_properties_la_LIBADD = \
+        $(GTK_LIBS) \
         $(NM_LIBS)
 
 libnm_l2tp_properties_la_LDFLAGS =   \
