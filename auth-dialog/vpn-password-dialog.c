@@ -124,8 +124,8 @@ add_row (GtkWidget *table, int row, const char *label_text, GtkWidget *entry)
 	label = gtk_label_new_with_mnemonic (label_text);
 	gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
 
-	gtk_table_attach_defaults (GTK_TABLE (table), label, 0, 1, row, row + 1);
-	gtk_table_attach_defaults (GTK_TABLE (table), entry, 1, 2, row, row + 1);
+	gtk_grid_attach (GTK_GRID (table), label, 0, row, 1, 1);
+	gtk_grid_attach (GTK_GRID (table), entry, 1, row, 1, 1);
 
 	gtk_label_set_mnemonic_widget (GTK_LABEL (label), entry);
 }
@@ -154,7 +154,7 @@ add_table_rows (VpnPasswordDialog *dialog)
 	if (priv->show_password_secondary)
 		add_row (priv->table, row++, priv->secondary_password_label,  priv->password_entry_secondary);
 
-	gtk_table_attach_defaults (GTK_TABLE (priv->table), priv->show_passwords_checkbox, 1, 2, row, row + 1);
+	gtk_grid_attach (GTK_GRID (priv->table), priv->show_passwords_checkbox, 1, row, 1, 1);
 
 	gtk_widget_show_all (priv->table);
 }
@@ -228,9 +228,9 @@ vpn_password_dialog_new (const char *title,
 
 	priv->group = gtk_size_group_new (GTK_SIZE_GROUP_HORIZONTAL);
 
-	priv->table = gtk_table_new (4, 2, FALSE);
-	gtk_table_set_col_spacings (GTK_TABLE (priv->table), 12);
-	gtk_table_set_row_spacings (GTK_TABLE (priv->table), 6);
+	priv->table = gtk_grid_new ();
+	gtk_grid_set_column_spacing (GTK_GRID (priv->table), 12);
+	gtk_grid_set_row_spacing (GTK_GRID (priv->table), 6);
 	gtk_container_add (GTK_CONTAINER (priv->table_alignment), priv->table);
 
 	priv->password_entry = gtk_entry_new ();
@@ -458,4 +458,3 @@ void vpn_password_dialog_set_password_secondary_label (VpnPasswordDialog *dialog
 	if (priv->show_password_secondary)
 		add_table_rows (dialog);
 }
-
