@@ -94,6 +94,7 @@ if test x"$with_gnome" != xno; then
 	       *) AC_MSG_ERROR(unknown GTK+ version $with_gtkver!)
 	          ;;
 	esac
+	GTK_CFLAGS="$GTK_CFLAGS -DGDK_VERSION_MIN_REQUIRED=GDK_VERSION_3_0"
 	AC_SUBST(GTK_CFLAGS)
 	AC_SUBST(GTK_LIBS)
 
