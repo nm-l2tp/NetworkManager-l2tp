@@ -13,7 +13,7 @@ AM_CPPFLAGS =							\
 	-DLIBEXECDIR=\""$(libexecdir)"\"			\
 	-DLOCALSTATEDIR=\""$(localstatedir)"\"		 	\
 	-DDATADIR=\"$(datadir)\"				\
-	-DNM_PPTP_LOCALEDIR=\"$(datadir)/locale\"		\
+	-DNM_L2TP_LOCALEDIR=\"$(datadir)/locale\"		\
 	-DPLUGINDIR=\"$(PPPD_PLUGIN_DIR)\" 
 
 libexec_PROGRAMS = nm-l2tp-service
