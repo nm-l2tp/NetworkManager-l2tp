@@ -20,8 +20,6 @@ libnm_l2tp_properties_la_CFLAGS =                    \
         -DICONDIR=\""$(datadir)/pixmaps"\"              \
         -DUIDIR=\""$(uidir)"\"                          \
         -DG_DISABLE_DEPRECATED                          \
-        -DGDK_DISABLE_DEPRECATED                        \
-	-DGTK_DISABLE_DEPRECATED                        \
         -DVERSION=\"$(VERSION)\"
 
 libnm_l2tp_properties_la_LIBADD = \
