@@ -27,7 +27,9 @@ if WITH_GNOME
 endif
 
 nm-l2tp-service.name: $(srcdir)/nm-l2tp-service.name.in
-	sed -e 's|[@]LIBEXECDIR[@]|$(libexecdir)|g' $< >$@
+	sed -e 's|[@]LIBEXECDIR[@]|$(libexecdir)|g' \
+	    -e 's|[@]LIBDIR[@]|$(libdir)|g' \
+	    $< >$@
 
 DISTCHECK_CONFIGURE_FLAGS = --enable-more-warnings=yes
 
