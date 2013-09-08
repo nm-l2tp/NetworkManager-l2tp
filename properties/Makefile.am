@@ -15,6 +15,7 @@ uidir = $(datadir)/gnome-vpn-properties/l2tp
 ui_DATA = nm-l2tp-dialog.ui
 
 libnm_l2tp_properties_la_CFLAGS =                    \
+        $(GLIB_CFLAGS)                                  \
         $(GTK_CFLAGS)                                   \
         $(NM_CFLAGS)                        \
         -DICONDIR=\""$(datadir)/pixmaps"\"              \

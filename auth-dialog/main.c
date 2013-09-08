@@ -101,10 +101,6 @@ keyfile_print_stdout (GKeyFile *keyfile)
 	g_free (data);
 }
 
-#if !GLIB_CHECK_VERSION(2,32,0)
-#define g_key_file_unref g_key_file_free
-#endif
-
 static gboolean
 get_secrets (const char *vpn_uuid,
              const char *vpn_name,

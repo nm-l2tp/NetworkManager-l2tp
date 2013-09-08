@@ -2,7 +2,7 @@ INCLUDES = -I${top_srcdir}
 
 AM_CPPFLAGS =							\
 	$(DBUS_GLIB_CFLAGS)						\
-	$(GTHREAD_CFLAGS)					\
+	$(GLIB_CFLAGS)                                  \
 	$(NM_CFLAGS)				\
 	-DG_DISABLE_DEPRECATED					\
 	-DBINDIR=\"$(bindir)\"					\
@@ -27,7 +27,7 @@ nm-l2tp-pppd-service-glue.h: $(top_srcdir)/src/nm-l2tp-pppd-service.xml
 
 nm_l2tp_service_LDADD = 				\
 				$(DBUS_GLIB_LIBS)		\
-				$(GTHREAD_LIBS)		\
+				$(GLIB_LIBS)           \
 				$(NM_LIBS)
 
 pppd_plugindir = $(PPPD_PLUGIN_DIR)

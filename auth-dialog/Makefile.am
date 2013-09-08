@@ -4,7 +4,7 @@ libexec_PROGRAMS = nm-l2tp-auth-dialog
 
 nm_l2tp_auth_dialog_CPPFLAGS =			\
 	$(NM_CFLAGS)		\
-	$(GTHREAD_CFLAGS)			\
+	$(GLIB_CFLAGS)			\
 	$(GTK_CFLAGS)				\
 	$(GNOMEKEYRING_CFLAGS)			\
 	-DICONDIR=\""$(datadir)/pixmaps"\"	\
