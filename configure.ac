@@ -1,6 +1,6 @@
 AC_PREREQ(2.59)
 
-AC_INIT(NetworkManager-l2tp, 0.9.8.0, root@seriyps.ru, NetworkManager-l2tp)
+AC_INIT(NetworkManager-l2tp, 0.9.8.4, root@seriyps.ru, NetworkManager-l2tp)
 AM_INIT_AUTOMAKE([1.9 foreign no-dist-gzip dist-bzip2 subdir-objects])
 AM_MAINTAINER_MODE
 
@@ -71,10 +71,10 @@ AC_SUBST(DBUS_GLIB_CFLAGS)
 AC_SUBST(DBUS_GLIB_LIBS)
 
 PKG_CHECK_MODULES(NM,
-                  NetworkManager >= 0.9.6
-                  libnm-util >= 0.9.6
-                  libnm-glib >= 0.9.6
-                  libnm-glib-vpn >= 0.9.6)
+                  NetworkManager >= 0.9.8
+                  libnm-util >= 0.9.8
+                  libnm-glib >= 0.9.8
+                  libnm-glib-vpn >= 0.9.8)
 AC_SUBST(NM_CFLAGS)
 AC_SUBST(NM_LIBS)
 

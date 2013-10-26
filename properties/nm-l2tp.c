@@ -894,6 +894,9 @@ nm_vpn_plugin_ui_factory (GError **error)
 	if (error)
 		g_return_val_if_fail (*error == NULL, NULL);
 
+	bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
+	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+
 	return NM_VPN_PLUGIN_UI_INTERFACE (g_object_new (L2TP_TYPE_PLUGIN_UI, NULL));
 }
 
