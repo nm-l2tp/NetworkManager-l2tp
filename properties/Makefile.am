@@ -1,6 +1,8 @@
 plugindir = $(libdir)/NetworkManager
 plugin_LTLIBRARIES = libnm-l2tp-properties.la
 
+INCLUDES = -I${top_srcdir}
+
 libnm_l2tp_properties_la_SOURCES = \
 	nm-l2tp.c \
 	nm-l2tp.h \
@@ -17,7 +19,7 @@ ui_DATA = nm-l2tp-dialog.ui
 libnm_l2tp_properties_la_CFLAGS =                    \
         $(GLIB_CFLAGS)                                  \
         $(GTK_CFLAGS)                                   \
-        $(NM_CFLAGS)                        \
+        $(NM_CFLAGS)                                    \
         -DICONDIR=\""$(datadir)/pixmaps"\"              \
         -DUIDIR=\""$(uidir)"\"                          \
         -DLOCALEDIR=\""$(datadir)/locale"\"             \
