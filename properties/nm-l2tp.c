@@ -222,7 +222,7 @@ advanced_button_clicked_cb (GtkWidget *button, gpointer user_data)
 	L2tpPluginUiWidget *self = L2TP_PLUGIN_UI_WIDGET (user_data);
 	L2tpPluginUiWidgetPrivate *priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
 	GtkWidget *dialog;
-	GtkWindow *toplevel;
+	GtkWidget *toplevel;
 
 	toplevel = gtk_widget_get_toplevel (priv->widget);
 	g_return_if_fail (gtk_widget_is_toplevel (toplevel));
@@ -252,7 +252,7 @@ ipsec_button_clicked_cb (GtkWidget *button, gpointer user_data)
 	L2tpPluginUiWidget *self = L2TP_PLUGIN_UI_WIDGET (user_data);
 	L2tpPluginUiWidgetPrivate *priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
 	GtkWidget *dialog;
-	GtkWindow *toplevel;
+	GtkWidget *toplevel;
 
 	toplevel = gtk_widget_get_toplevel (priv->widget);
 	g_return_if_fail (gtk_widget_is_toplevel (toplevel));
@@ -488,40 +488,6 @@ hash_copy_pair (gpointer key, gpointer data, gpointer user_data)
 	nm_setting_vpn_add_data_item (s_vpn, (const char *) key, (const char *) data);
 }
 
-static void
-save_password_and_flags (NMSettingVPN *s_vpn,
-                         GtkBuilder *builder,
-                         const char *entry_name,
-                         const char *combo_name,
-                         const char *secret_key)
-{
-	NMSettingSecretFlags flags = NM_SETTING_SECRET_FLAG_NONE;
-	const char *password;
-	GtkWidget *entry;
-	GtkWidget *combo;
-
-	/* Grab original password flags */
-	entry = GTK_WIDGET (gtk_builder_get_object (builder, entry_name));
-	flags = GPOINTER_TO_UINT (g_object_get_data (G_OBJECT (entry), "flags"));
-
-	/* And set new ones based on the type combo */
-	combo = GTK_WIDGET (gtk_builder_get_object (builder, combo_name));
-	switch (gtk_combo_box_get_active (GTK_COMBO_BOX (combo))) {
-	case PW_TYPE_SAVE:
-		password = gtk_entry_get_text (GTK_ENTRY (entry));
-		if (password && strlen (password))
-			nm_setting_vpn_add_secret (s_vpn, secret_key, password);
-		break;
-	case PW_TYPE_UNUSED:
-		flags |= NM_SETTING_SECRET_FLAG_NOT_REQUIRED;
-		break;
-	case PW_TYPE_ASK:
-	default:
-		flags |= NM_SETTING_SECRET_FLAG_NOT_SAVED;
-		break;
-	}
-}
-
 static gboolean
 update_connection (NMVpnPluginUiWidgetInterface *iface,
                    NMConnection *connection,
@@ -611,8 +577,6 @@ nm_vpn_plugin_ui_widget_interface_new (NMConnection *connection, GError **error)
 	NMVpnPluginUiWidgetInterface *object;
 	L2tpPluginUiWidgetPrivate *priv;
 	char *ui_file;
-	gboolean new = TRUE;
-	NMSettingVPN *s_vpn;
 
 	if (error)
 		g_return_val_if_fail (*error == NULL, NULL);

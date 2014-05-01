@@ -973,12 +973,12 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
                             NMSettingVPN *s_vpn,
                             GError **error)
 {
-	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
 	const char *ipsec_binary;
 	const char *value;
 	char tmp_secrets[128];
 	char cmd1[4096],cmd11[4096],cmd2[4096];
 	char session_name[128];
+	guint sys=0;
 	FILE *fp;
 
 	if (!(ipsec_binary=nm_find_ipsec())) {
@@ -991,11 +991,11 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	}
 	sprintf(session_name, "nm-ipsec-l2tpd-%d", getpid());
 
-	(void)system(". /var/run/pluto/ipsec.info;"
+	sys += system(". /var/run/pluto/ipsec.info;"
 	"PATH=/usr/local/sbin:/usr/sbin:/sbin; export PATH;"
 	"[ \"x$defaultrouteaddr\" = \"x\" ] && ipsec setup restart");
 
-	(void)system("PATH=/usr/local/sbin:/usr/sbin:/sbin ipsec "
+	sys += system("PATH=/usr/local/sbin:/usr/sbin:/sbin ipsec "
 			" --listen");
 	sprintf(cmd1,". /var/run/pluto/ipsec.info;"
 	"PATH=/usr/local/sbin:/usr/sbin:/sbin ipsec addconn "
@@ -1028,7 +1028,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	}
 
 	if(!(fp=fopen("/etc/ipsec.secrets","w"))) {
-		(void)rename(tmp_secrets, "/etc/ipsec.secrets");
+		rename(tmp_secrets, "/etc/ipsec.secrets");
 		g_set_error (error,
 		             NM_VPN_PLUGIN_ERROR,
 		             NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
@@ -1047,14 +1047,21 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	fprintf(fp, ": PSK \"%s\"\n",value);
 	fclose(fp);
 
-	(void)system("PATH=\"/sbin:/usr/sbin:/usr/local/sbin:$PATH\" ipsec secrets");
-	(void)system(cmd11);
-	(void)system(cmd1);
-	(void)system(cmd2);
+	sys += system("PATH=\"/sbin:/usr/sbin:/usr/local/sbin:$PATH\" ipsec secrets");
+	sys += system(cmd11);
+	sys += system(cmd1);
+	sys += system(cmd2);
 
-	(void)rename(tmp_secrets, "/etc/ipsec.secrets");
-	(void)system("PATH=\"/sbin:/usr/sbin:/usr/local/sbin:$PATH\" ipsec secrets");
-
+	rename(tmp_secrets, "/etc/ipsec.secrets");
+	sys += system("PATH=\"/sbin:/usr/sbin:/usr/local/sbin:$PATH\" ipsec secrets");
+	if (sys != 0) {
+		g_set_error (error,
+		             NM_VPN_PLUGIN_ERROR,
+		             NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
+		             "%s",
+		             _("Possible error in IPSec setup."));
+		return FALSE;
+	}
 	g_message(_("ipsec ready for action"));
 	return TRUE;
 }
@@ -1153,7 +1160,6 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	char *filename;
 	pid_t pid = getpid ();
 	const char *value;
-	const char *username;
 	gint conf_fd = -1;
 	gint ipsec_fd = -1;
 	gint pppopt_fd = -1;
