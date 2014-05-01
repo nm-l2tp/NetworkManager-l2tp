@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-01 21:31+0400\n"
-"PO-Revision-Date: 2012-03-18 15:50+0300\n"
+"PO-Revision-Date: 2014-05-01 21:57+0400\n"
 "Last-Translator: Sergey Prokhorov <me@seriyps.ru>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "Language: ru\n"
@@ -92,64 +92,64 @@ msgstr "EAP"
 #: ../properties/import-export.c:166 ../properties/import-export.c:417
 #, c-format
 msgid "Required property %s missing"
-msgstr ""
+msgstr "Отсутствует обязательный параметр %s"
 
 #: ../properties/import-export.c:187
 #, c-format
 msgid "Property %s value '%s' can't be parsed as boolean."
-msgstr ""
+msgstr "Не могу преобразовать параметр '%s' со значением '%s' как булево."
 
 #: ../properties/import-export.c:210 ../properties/import-export.c:267
 #: ../properties/import-export.c:309
 #, c-format
 msgid "Property '%s' value '%s' can't be parsed as ip adress."
-msgstr ""
+msgstr "Не могу преобразовать параметр '%s' со значением '%s' как IP адрес."
 
 #: ../properties/import-export.c:256
 #, c-format
 msgid "Property '%s' value '%s' couldn't find netmask."
-msgstr ""
+msgstr "Не могу найти сетевую маску у параметра '%s' со значением '%s'."
 
 #: ../properties/import-export.c:286
 #, c-format
 msgid "Property '%s' value '%s' can't be parsed as ip netmask."
-msgstr ""
+msgstr "Не могу преобразовать параметр '%s' со значением '%s' как сетевую маску IP."
 
 #: ../properties/import-export.c:335
 #, c-format
 msgid "Property '%s' value '%s' can't be parsed as route metric."
-msgstr ""
+msgstr "Не могу преобразовать параметр '%s' со значением '%s' как метрику маршрутизации."
 
 #: ../properties/import-export.c:347
 #, c-format
 msgid "Error parsing property '%s' value '%s'."
-msgstr ""
+msgstr "Не могу преобразовать параметр '%s' со значением '%s'."
 
 #: ../properties/import-export.c:382
 #, c-format
 msgid "does not look like a L2TP VPN connection (parse failed)"
-msgstr ""
+msgstr "не похоже на L2TP VPN подключение (ошибка разбора)"
 
 #: ../properties/import-export.c:435
 #, c-format
 msgid "Property %s can't be parsed as integer."
-msgstr ""
+msgstr "Не могу преобразовать параметр %s в целое число."
 
 #: ../properties/import-export.c:452
 #, c-format
 msgid ""
 "Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."
-msgstr ""
+msgstr "Не могу преобразовать параметр %s в булево. Разрешены только 'true' и 'false'."
 
 #: ../properties/import-export.c:624
 #, c-format
 msgid "Missing required property '%s'"
-msgstr ""
+msgstr "Отсутствует обязательный параметр '%s'"
 
 #: ../properties/import-export.c:654
 #, c-format
 msgid "Couldn't open file for writing."
-msgstr ""
+msgstr "Не могу открыть файл для записи."
 
 #: ../properties/nm-l2tp.c:50
 msgid "Layer 2 Tunneling Protocol (L2TP)"
@@ -224,12 +224,12 @@ msgstr "неизвестное расширение L2TP файла"
 #: ../properties/nm-l2tp.c:784
 #, c-format
 msgid "Filename doesn't contains 'l2tp' substring."
-msgstr ""
+msgstr "Имя файла не содержит подстроку 'l2tp'."
 
 #: ../properties/nm-l2tp.c:791
 #, c-format
 msgid "Can't import file as L2TP config: %s"
-msgstr ""
+msgstr "Не могу импортировать файл как L2TP конфиг: %s"
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
 msgid "L2TP PPP Options"
@@ -486,7 +486,7 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:307
 msgid "No cached credentials."
-msgstr ""
+msgstr "Нет закешированных учетных данных."
 
 #: ../src/nm-l2tp-service.c:338
 msgid "L2TP service (IP Config Get) reply received."
