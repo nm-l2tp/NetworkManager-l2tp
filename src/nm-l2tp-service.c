@@ -962,13 +962,14 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 
 	rename(tmp_secrets, "/etc/ipsec.secrets");
 	sys += system("PATH=\"/sbin:/usr/sbin:/usr/local/sbin:$PATH\" ipsec secrets");
-	if (sys != 0)
+	if (sys != 0) {
 		g_set_error (error,
 		             NM_VPN_PLUGIN_ERROR,
 		             NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
 		             "%s",
 		             _("Possible error in IPSec setup."));
 		return FALSE;
+	}
 
 	g_message(_("ipsec ready for action"));
 	return TRUE;
