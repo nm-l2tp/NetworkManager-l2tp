@@ -1161,7 +1161,9 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 "  pfs=no\n"
 "  authby=secret\n"
 "  keyingtries=0\n"
-"  left=%%defaultroute\n");
+"  left=%%defaultroute\n"
+"  leftprotoport=udp/l2tp\n"
+"  rightprotoport=udp/l2tp\n");
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GROUP_NAME);
 	if(value)write_config_option (ipsec_fd, "  leftid=@%s\n", value);
 	/* value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_GATEWAY); */
