@@ -902,7 +902,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 
 	sys += system("test -e /var/run/pluto/ipsec.info && . /var/run/pluto/ipsec.info;"
 	"PATH=/usr/local/sbin:/usr/sbin:/sbin; export PATH;"
-	"[ \"x$defaultrouteaddr\" = \"x\" ] && ipsec setup restart");
+	"if [ \"x$defaultrouteaddr\" = \"x\" ]; then ipsec setup restart; fi");
 
 	sys += system("PATH=/usr/local/sbin:/usr/sbin:/sbin ipsec whack"
 			" --listen");
