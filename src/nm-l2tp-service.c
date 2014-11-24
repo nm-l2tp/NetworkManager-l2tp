@@ -887,6 +887,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	char cmd1[4096],cmd11[4096],cmd2[4096];
 	char session_name[128];
 	guint sys=0;
+	int fd;
 	FILE *fp;
 
 	if (!(ipsec_binary=nm_find_ipsec())) {
@@ -935,7 +936,11 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 		return FALSE;
 	}
 
-	if(!(fp=fopen("/etc/ipsec.secrets","w"))) {
+	fp = NULL;
+	if ((fd = open("/etc/ipsec.secrets", O_CREAT | O_EXCL | O_WRONLY, 0600)) >= 0) {
+		if (NULL == (fp = fdopen(fd, "w"))) close(fd);
+	}
+	if (NULL == fp) {
 		rename(tmp_secrets, "/etc/ipsec.secrets");
 		g_set_error (error,
 		             NM_VPN_PLUGIN_ERROR,
@@ -954,6 +959,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	if(!value)value="";
 	fprintf(fp, ": PSK \"%s\"\n",value);
 	fclose(fp);
+	close(fd);
 
 	sys += system("PATH=\"/sbin:/usr/sbin:/usr/local/sbin:$PATH\" ipsec secrets");
 	sys += system(cmd11);
