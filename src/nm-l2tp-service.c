@@ -648,11 +648,11 @@ l2tpd_watch_cb (GPid pid, gint status, gpointer user_data)
 	g_free(filename);
 
 	filename = g_strdup_printf ("/var/run/nm-ipsec-l2tp.%d/ipsec.conf", my_pid);
-//	unlink(filename);
+	unlink(filename);
 	g_free(filename);
 
 	filename = g_strdup_printf ("/var/run/nm-ipsec-l2tp.%d/ipsec.secrets", my_pid);
-//	unlink(filename);
+	unlink(filename);
 	g_free(filename);
 
 	filename = g_strdup_printf ("/var/run/nm-ipsec-l2tp.%d", my_pid);
@@ -853,6 +853,7 @@ nm_l2tp_stop_ipsec(void)
 	char session_name[128];
 	GPtrArray *whack_argv;
 
+	g_message("ipsec prepare for shut down");
 	if (!(ipsec_binary=nm_find_ipsec())) return;
 
 	sprintf(session_name, "nm-ipsec-l2tpd-%d", getpid());
@@ -886,7 +887,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	char tmp_secrets[128];
 	char cmd1[4096],cmd11[4096],cmd2[4096];
 	char session_name[128];
-	guint sys=0;
+	guint sys=0, sys_tmp=0;
 	int fd;
 	FILE *fp;
 
@@ -901,11 +902,19 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	sprintf(session_name, "nm-ipsec-l2tpd-%d", getpid());
 
 	sys += system("test -e /var/run/pluto/ipsec.info && . /var/run/pluto/ipsec.info;"
-	"PATH=/usr/local/sbin:/usr/sbin:/sbin; export PATH;"
-	"if [ \"x$defaultrouteaddr\" = \"x\" ]; then ipsec setup restart; fi");
+			"PATH=/usr/local/sbin:/usr/sbin:/sbin; export PATH;"
+			"if [ \"x$defaultrouteaddr\" = \"x\" ]; then ipsec setup restart; fi");
+	if ( sys != sys_tmp ) {
+		sys_tmp = sys;
+		g_warning("Possible error in IPSec setup: determine defaultrouteaddr or in \"ipsec setup restart\"");
+	}
 
 	sys += system("PATH=/usr/local/sbin:/usr/sbin:/sbin ipsec whack"
 			" --listen");
+	if ( sys != sys_tmp ) {
+		sys_tmp = sys;
+		g_warning("Possible error in IPSec setup: ipsec whack --listen");
+	}
 	sprintf(cmd1,"test -e /var/run/pluto/ipsec.info && . /var/run/pluto/ipsec.info;"
 	"PATH=/usr/local/sbin:/usr/sbin:/sbin ipsec addconn "
 		" ${defaultrouteaddr:+--defaultroute} $defaultrouteaddr"
@@ -962,12 +971,32 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	close(fd);
 
 	sys += system("PATH=\"/sbin:/usr/sbin:/usr/local/sbin:$PATH\" ipsec secrets");
+	if ( sys != sys_tmp ) {
+		sys_tmp = sys;
+		g_warning("Possible error in IPSec setup: ipsec secrets");
+	}
 	sys += system(cmd11);
+	if ( sys != sys_tmp ) {
+		sys_tmp = sys;
+		g_warning("Possible error in IPSec setup: %s",cmd11);
+	}
 	sys += system(cmd1);
+	if ( sys != sys_tmp ) {
+		sys_tmp = sys;
+		g_warning("Possible error in IPSec setup: %s",cmd1);
+	}
 	sys += system(cmd2);
+	if ( sys != sys_tmp ) {
+		sys_tmp = sys;
+		g_warning("Possible error in IPSec setup: %s",cmd2);
+	}
 
 	rename(tmp_secrets, "/etc/ipsec.secrets");
 	sys += system("PATH=\"/sbin:/usr/sbin:/usr/local/sbin:$PATH\" ipsec secrets");
+	if ( sys != sys_tmp ) {
+		sys_tmp = sys;
+		g_warning("Possible error in IPSec setup: ipsec secrets");
+	}
 	if (sys != 0) {
 		g_set_error (error,
 		             NM_VPN_PLUGIN_ERROR,
@@ -1470,6 +1499,7 @@ real_connect (NMVPNPlugin   *plugin,
 		g_message(_("starting ipsec"));
 		if (!nm_l2tp_start_ipsec(NM_L2TP_PLUGIN (plugin), s_vpn, error))
 			return FALSE;
+		priv->ipsec_up = TRUE;
 	}
 
 	if (!nm_l2tp_start_l2tpd_binary (NM_L2TP_PLUGIN (plugin), s_vpn, error))
