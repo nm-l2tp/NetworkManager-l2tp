@@ -23,6 +23,7 @@
  * (C) Copyright 2011 Alexey Torkhov <atorkhov@gmail.com>
  * (C) Copyright 2011 Geo Carncross <geocar@gmail.com>
  * (C) Copyright 2012 Sergey Prokhorov <me@seriyps.ru>
+ * (C) Copyright 2014 Nathan Dorfman <ndorf@rtfm.net>
  */
 
 #ifdef HAVE_CONFIG_H
@@ -61,6 +62,8 @@
 #if !defined(DIST_VERSION)
 # define DIST_VERSION VERSION
 #endif
+
+#define PATH_PREFIX "PATH=/usr/local/sbin:/usr/sbin:/sbin"
 
 static gboolean debug = FALSE;
 
@@ -130,6 +133,15 @@ enum {
 static guint signals[LAST_SIGNAL] = { 0 };
 
 static gboolean
+nm_l2tp_ipsec_error(GError **error, const char *msg) {
+	g_set_error_literal (error,
+			NM_VPN_PLUGIN_ERROR,
+			NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
+			_(msg));
+	return FALSE;
+}
+
+static gboolean
 _service_cache_credentials (NML2tpPppService *self,
 							NMConnection *connection,
 							GError **error)
@@ -143,47 +155,25 @@ _service_cache_credentials (NML2tpPppService *self,
 
 	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
 	if (!s_vpn) {
-		g_set_error_literal (error,
-							 NM_VPN_PLUGIN_ERROR,
-							 NM_VPN_PLUGIN_ERROR_CONNECTION_INVALID,
-		                     _("Could not find secrets (connection invalid, no vpn setting)."));
-		return FALSE;
+		return nm_l2tp_ipsec_error(error, "Could not load NetworkManager connection settings.");
 	}
 
 	/* Username; try L2TP specific username first, then generic username */
 	username = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER);
-	if (username && strlen (username)) {
-		/* FIXME: This check makes about 0 sense. */
-		if (!username || !strlen (username)) {
-			g_set_error_literal (error,
-								 NM_VPN_PLUGIN_ERROR,
-								 NM_VPN_PLUGIN_ERROR_CONNECTION_INVALID,
-			                     _("Invalid VPN username."));
-			return FALSE;
-		}
-	} else {
+	if (!username || !*username) {
 		username = nm_setting_vpn_get_user_name (s_vpn);
-		if (!username || !strlen (username)) {
-			g_set_error_literal (error,
-								 NM_VPN_PLUGIN_ERROR,
-								 NM_VPN_PLUGIN_ERROR_CONNECTION_INVALID,
-								 _("Missing VPN username."));
-			return FALSE;
+		if (!username || !*username) {
+			return nm_l2tp_ipsec_error(error, "Missing VPN username.");
 		}
 	}
 
 	password = nm_setting_vpn_get_secret (s_vpn, NM_L2TP_KEY_PASSWORD);
-	if (!password || !strlen (password)) {
-		g_set_error_literal (error,
-							 NM_VPN_PLUGIN_ERROR,
-							 NM_VPN_PLUGIN_ERROR_CONNECTION_INVALID,
-							 _("Missing or invalid VPN password."));
-		return FALSE;
+	if (!password || !*password) {
+		return nm_l2tp_ipsec_error(error, "Missing or invalid VPN password.");
 	}
 
 	domain = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_DOMAIN);
-	if (domain && strlen (domain))
-		priv->domain = g_strdup(domain);
+	if (domain && *domain) priv->domain = g_strdup(domain);
 
 	priv->username = g_strdup(username);
 	priv->password = g_strdup(password);
@@ -299,25 +289,18 @@ impl_l2tp_service_need_secrets (NML2tpPppService *self,
 
 	g_signal_emit (G_OBJECT (self), signals[PLUGIN_ALIVE], 0);
 
-	if (!strlen (priv->username) || !strlen (priv->password)) {
-		g_set_error (error,
-		             NM_VPN_PLUGIN_ERROR,
-		             NM_VPN_PLUGIN_ERROR_CONNECTION_INVALID,
-		             "%s",
-		             _("No cached credentials."));
-		goto error;
+	if (!*priv->username || !*priv->password) {
+		return nm_l2tp_ipsec_error(error, "No cached credentials.");
 	}
 
 	/* Success */
-	if (priv->domain && strlen (priv->domain))
+	if (priv->domain && *priv->domain) {
 		*out_username = g_strdup_printf ("%s\\%s", priv->domain, priv->username);
-	else
+	} else {
 		*out_username = g_strdup (priv->username);
+	}
 	*out_password = g_strdup (priv->password);
 	return TRUE;
-
-error:
-	return FALSE;
 }
 
 static gboolean
@@ -411,8 +394,7 @@ validate_gateway (const char *gateway)
 {
 	const char *p = gateway;
 
-	if (!gateway || !strlen (gateway))
-		return FALSE;
+	if (!gateway || !*gateway) return FALSE;
 
 	/* Ensure it's a valid DNS name or IP address */
 	p = gateway;
@@ -429,8 +411,7 @@ validate_ipsec_id (const char *id)
 {
 	const char *p = id;
 
-	if (!id || !strlen (id))
-		return TRUE;
+	if (!id || !*id) return TRUE;
 
 	/* Ensure it's a valid id-name */
 	p = id;
@@ -555,27 +536,20 @@ nm_l2tp_properties_validate (NMSettingVPN *s_vpn,
 
 	nm_setting_vpn_foreach_data_item (s_vpn, validate_one_property, &info);
 	if (!info.have_items) {
-		g_set_error (error,
-		             NM_VPN_PLUGIN_ERROR,
-		             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
-		             "%s",
-		             _("No VPN configuration options."));
-		return FALSE;
+		return nm_l2tp_ipsec_error(error, "No VPN configuration options.");
 	}
 
-	if (*error)
-		return FALSE;
+	if (*error) return FALSE;
 
 	/* Ensure required properties exist */
 	for (i = 0; valid_properties[i].name; i++) {
 		ValidProperty prop = valid_properties[i];
 		const char *value;
 
-		if (!prop.required)
-			continue;
+		if (!prop.required) continue;
 
 		value = nm_setting_vpn_get_data_item (s_vpn, prop.name);
-		if (!value || !strlen (value)) {
+		if (!value || !*value) {
 			g_set_error (error,
 			             NM_VPN_PLUGIN_ERROR,
 			             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
@@ -595,12 +569,7 @@ nm_l2tp_secrets_validate (NMSettingVPN *s_vpn, GError **error)
 
 	nm_setting_vpn_foreach_secret (s_vpn, validate_one_property, &info);
 	if (!info.have_items) {
-		g_set_error (error,
-		             NM_VPN_PLUGIN_ERROR,
-		             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
-		             "%s",
-		             _("No VPN secrets!"));
-		return FALSE;
+		return nm_l2tp_ipsec_error(error, "No VPN secrets!");
 	}
 
 	return *error ? FALSE : TRUE;
@@ -648,11 +617,11 @@ l2tpd_watch_cb (GPid pid, gint status, gpointer user_data)
 	g_free(filename);
 
 	filename = g_strdup_printf ("/var/run/nm-ipsec-l2tp.%d/ipsec.conf", my_pid);
-//	unlink(filename);
+	unlink(filename);
 	g_free(filename);
 
 	filename = g_strdup_printf ("/var/run/nm-ipsec-l2tp.%d/ipsec.secrets", my_pid);
-//	unlink(filename);
+	unlink(filename);
 	g_free(filename);
 
 	filename = g_strdup_printf ("/var/run/nm-ipsec-l2tp.%d", my_pid);
@@ -853,9 +822,10 @@ nm_l2tp_stop_ipsec(void)
 	char session_name[128];
 	GPtrArray *whack_argv;
 
+	g_message("ipsec prepare for shut down");
 	if (!(ipsec_binary=nm_find_ipsec())) return;
 
-	sprintf(session_name, "nm-ipsec-l2tpd-%d", getpid());
+	sprintf(session_name, "nm-ipsec-l2tp-%d", getpid());
 	whack_argv = g_ptr_array_new ();
 	g_ptr_array_add (whack_argv, (gpointer) g_strdup (ipsec_binary));
 	g_ptr_array_add (whack_argv, (gpointer) g_strdup ("whack"));
@@ -884,41 +854,30 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	const char *ipsec_binary;
 	const char *value;
 	char tmp_secrets[128];
-	char cmd1[4096],cmd11[4096],cmd2[4096];
 	char session_name[128];
-	guint sys=0;
+	char cmdbuf[256];
+	int sys = 0;
 	int fd;
 	FILE *fp;
+	gboolean rc = FALSE;
 
 	if (!(ipsec_binary=nm_find_ipsec())) {
-		g_set_error (error,
-		             NM_VPN_PLUGIN_ERROR,
-		             NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
-		             "%s",
-		             _("Could not find the ipsec binary."));
-		return FALSE;
+		return nm_l2tp_ipsec_error(error, "Could not find the ipsec binary. Is Openswan installed?");
 	}
-	sprintf(session_name, "nm-ipsec-l2tpd-%d", getpid());
 
-	sys += system("test -e /var/run/pluto/ipsec.info && . /var/run/pluto/ipsec.info;"
-	"PATH=/usr/local/sbin:/usr/sbin:/sbin; export PATH;"
-	"[ \"x$defaultrouteaddr\" = \"x\" ] && ipsec setup restart");
+	sprintf(session_name, "nm-ipsec-l2tp-%d", getpid());
 
-	sys += system("PATH=/usr/local/sbin:/usr/sbin:/sbin ipsec whack"
-			" --listen");
-	sprintf(cmd1,"test -e /var/run/pluto/ipsec.info && . /var/run/pluto/ipsec.info;"
-	"PATH=/usr/local/sbin:/usr/sbin:/sbin ipsec addconn "
-		" ${defaultrouteaddr:+--defaultroute} $defaultrouteaddr"
-		" ${defaultroutenexthop:+--defaultroutenexthop} $defaultroutenexthop"
-		" --config /var/run/nm-ipsec-l2tp.%d/ipsec.conf --verbose"
-		" %s", getpid(),session_name);
+	sys = system("test -e /var/run/pluto/ipsec.info && . /var/run/pluto/ipsec.info;"
+			PATH_PREFIX "; export PATH;"
+			"if [ \"x$defaultrouteaddr\" = \"x\" ]; then ipsec setup restart; fi");
+	if (sys) {
+		return nm_l2tp_ipsec_error(error, "Could not restart the ipsec service.");
+	}
 
-	sprintf(cmd11, "PATH=/usr/local/sbin:/usr/sbin:/sbin ipsec auto "
-		" --config /var/run/nm-ipsec-l2tp.%d/ipsec.conf --verbose"
-		" --add %s", getpid(),session_name);
-	sprintf(cmd2,"PATH=/usr/local/sbin:/usr/sbin:/sbin ipsec auto "
-		" --config /var/run/nm-ipsec-l2tp.%d/ipsec.conf --verbose"
-		" --up %s",getpid(),session_name);
+	sys = system(PATH_PREFIX " ipsec whack --listen");
+	if (sys) {
+		return nm_l2tp_ipsec_error(error, "Could not talk to IPsec key exchange service.");
+	}
 
 	/* the way this works is sadly very messy
 	   we replace the user's /etc/ipsec.secrets file
@@ -928,12 +887,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	*/
 	sprintf(tmp_secrets, "/etc/ipsec.secrets.%d",getpid());
 	if(-1==rename("/etc/ipsec.secrets", tmp_secrets) && errno != EEXIST) {
-		g_set_error (error,
-		             NM_VPN_PLUGIN_ERROR,
-		             NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
-		             "%s",
-		             _("Cannot save /etc/ipsec.secrets"));
-		return FALSE;
+		return nm_l2tp_ipsec_error(error, "Could not save existing /etc/ipsec.secrets file.");
 	}
 
 	fp = NULL;
@@ -942,12 +896,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	}
 	if (NULL == fp) {
 		rename(tmp_secrets, "/etc/ipsec.secrets");
-		g_set_error (error,
-		             NM_VPN_PLUGIN_ERROR,
-		             NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
-		             "%s",
-		             _("Cannot open /etc/ipsec.secrets for writing"));
-		return FALSE;
+		return nm_l2tp_ipsec_error(error, "Could not write /etc/ipsec.secrets file.");
 	}
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GROUP_NAME);
 	fprintf(fp, "%s%s ",value?"@":"", value?value:"%any");
@@ -961,24 +910,36 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	fclose(fp);
 	close(fd);
 
-	sys += system("PATH=\"/sbin:/usr/sbin:/usr/local/sbin:$PATH\" ipsec secrets");
-	sys += system(cmd11);
-	sys += system(cmd1);
-	sys += system(cmd2);
-
-	rename(tmp_secrets, "/etc/ipsec.secrets");
-	sys += system("PATH=\"/sbin:/usr/sbin:/usr/local/sbin:$PATH\" ipsec secrets");
-	if (sys != 0) {
-		g_set_error (error,
-		             NM_VPN_PLUGIN_ERROR,
-		             NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
-		             "%s",
-		             _("Possible error in IPSec setup."));
-		return FALSE;
+	sys = system(PATH_PREFIX " ipsec secrets");
+	if (!sys) {
+		sprintf(cmdbuf, PATH_PREFIX " ipsec auto "
+				" --config /var/run/nm-ipsec-l2tp.%d/ipsec.conf --verbose"
+				" --add '%s'", getpid(),session_name);
+		sys = system(cmdbuf);
+		if (!sys) {
+			sprintf(cmdbuf, PATH_PREFIX " ipsec auto "
+					" --config /var/run/nm-ipsec-l2tp.%d/ipsec.conf --verbose"
+					" --up '%s'",getpid(),session_name);
+			sys = system(cmdbuf);
+			if (!sys) {
+				rc = TRUE;
+				g_message(_("ipsec ready for action"));
+			} else {
+				nm_l2tp_ipsec_error(error, "Could not establish IPsec tunnel.");
+			}
+		} else {
+			nm_l2tp_ipsec_error(error, "Could not configure IPsec tunnel.");
+		}
+	} else {
+		nm_l2tp_ipsec_error(error, "Could not load new IPsec secret.");
 	}
 
-	g_message(_("ipsec ready for action"));
-	return TRUE;
+	if (rename(tmp_secrets, "/etc/ipsec.secrets") ||
+			system(PATH_PREFIX " ipsec secrets")) {
+		g_warning(_("Could not restore saved /etc/ipsec.secrets from %s."), _(tmp_secrets));
+	}
+
+	return rc;
 }
 
 static gboolean
@@ -994,12 +955,7 @@ nm_l2tp_start_l2tpd_binary (NML2tpPlugin *plugin,
 
 	l2tpd_binary = nm_find_l2tpd ();
 	if (!l2tpd_binary) {
-		g_set_error (error,
-		             NM_VPN_PLUGIN_ERROR,
-		             NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
-		             "%s",
-		             _("Could not find the xl2tpd binary."));
-		return FALSE;
+		return nm_l2tp_ipsec_error(error, "Could not find the xl2tpd binary.");
 	}
 
 	l2tpd_argv = g_ptr_array_new ();
@@ -1139,12 +1095,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	ipsec_fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR);
 	g_free (filename);
 	if (ipsec_fd == -1) {
-		g_set_error (error,
-					 NM_VPN_PLUGIN_ERROR,
-					 NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
-					 "%s",
-					 _("Could not write ipsec config."));
-		return FALSE;
+		return nm_l2tp_ipsec_error(error, "Could not write ipsec config.");
 	}
 	write_config_option (ipsec_fd, "version 2.0\n"
 "config setup\n"
@@ -1153,7 +1104,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 "  protostack=netkey\n"
 "  keep_alive=60\n"
 "\n");
-	write_config_option (ipsec_fd, "conn nm-ipsec-l2tpd-%d\n", pid);
+	write_config_option (ipsec_fd, "conn nm-ipsec-l2tp-%d\n", pid);
 	write_config_option (ipsec_fd,
 "  auto=add\n"
 "  type=transport\n"
@@ -1161,7 +1112,9 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 "  pfs=no\n"
 "  authby=secret\n"
 "  keyingtries=0\n"
-"  left=%%defaultroute\n");
+"  left=%%defaultroute\n"
+"  leftprotoport=udp/l2tp\n"
+"  rightprotoport=udp/l2tp\n");
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GROUP_NAME);
 	if(value)write_config_option (ipsec_fd, "  leftid=@%s\n", value);
 	/* value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_GATEWAY); */
@@ -1183,12 +1136,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 
 	if (conf_fd == -1) {
 		close(ipsec_fd);
-		g_set_error (error,
-					 NM_VPN_PLUGIN_ERROR,
-					 NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
-					 "%s",
-					 _("Could not write xl2tpd config."));
-		return FALSE;
+		return nm_l2tp_ipsec_error(error, "Could not write xl2tpd config.");
 	}
 
 	filename = g_strdup_printf ("/var/run/nm-ppp-options.xl2tpd.%d", pid);
@@ -1198,12 +1146,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	if (pppopt_fd == -1) {
 		close(ipsec_fd);
 		close(conf_fd);
-		g_set_error (error,
-					 NM_VPN_PLUGIN_ERROR,
-					 NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
-					 "%s",
-					 _("Could not write ppp options."));
-		return FALSE;
+		return nm_l2tp_ipsec_error(error, "Could not write ppp options.");
 	}
 
 	/* L2TP options */
@@ -1232,7 +1175,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 
 	if (priv->service)
 		service_priv = NM_L2TP_PPP_SERVICE_GET_PRIVATE (priv->service);
-	if (service_priv && strlen (service_priv->username)) {
+	if (service_priv && *service_priv->username) {
 		write_config_option (conf_fd, "name = %s\n", service_priv->username);
 	}
 	if (debug)
@@ -1262,7 +1205,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	   and pppd on Linux clients won't work without the same option */
 	write_config_option (pppopt_fd, "noccp\n");
 
-	if (service_priv && strlen (service_priv->username)) {
+	if (service_priv && *service_priv->username) {
 		write_config_option (pppopt_fd, "name %s\n", service_priv->username);
 	}
 
@@ -1273,7 +1216,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	}
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_LCP_ECHO_FAILURE);
-	if (value && strlen (value)) {
+	if (value && *value) {
 		long int tmp_int;
 
 		/* Convert to integer and then back to string for security's sake
@@ -1291,7 +1234,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	}
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_LCP_ECHO_INTERVAL);
-	if (value && strlen (value)) {
+	if (value && *value) {
 		long int tmp_int;
 
 		/* Convert to integer and then back to string for security's sake
@@ -1436,12 +1379,7 @@ real_connect (NMVPNPlugin   *plugin,
 
 	priv->service = nm_l2tp_ppp_service_new (connection, error);
 	if (!priv->service) {
-		g_set_error (error,
-		             NM_VPN_PLUGIN_ERROR,
-		             NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
-		             "%s",
-		             _("Could not start pppd plugin helper service."));
-		return FALSE;
+		return nm_l2tp_ipsec_error(error, "Could not start pppd plugin helper service.");
 	}
 
 	priv->connection = g_object_ref (connection);
@@ -1468,6 +1406,7 @@ real_connect (NMVPNPlugin   *plugin,
 		g_message(_("starting ipsec"));
 		if (!nm_l2tp_start_ipsec(NM_L2TP_PLUGIN (plugin), s_vpn, error))
 			return FALSE;
+		priv->ipsec_up = TRUE;
 	}
 
 	if (!nm_l2tp_start_l2tpd_binary (NM_L2TP_PLUGIN (plugin), s_vpn, error))
