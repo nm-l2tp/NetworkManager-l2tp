@@ -25,7 +25,9 @@
 
 #include <glib.h>
 #include <glib-object.h>
-#include <nm-vpn-plugin.h>
+
+#include <NetworkManager.h>
+#include <nm-vpn-service-plugin.h>
 
 #include "nm-l2tp-service-defines.h"
 
@@ -37,11 +39,11 @@
 #define NM_L2TP_PLUGIN_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), NM_TYPE_L2TP_PLUGIN, NML2tpPluginClass))
 
 typedef struct {
-	NMVPNPlugin parent;
+	NMVpnServicePlugin parent;
 } NML2tpPlugin;
 
 typedef struct {
-	NMVPNPluginClass parent;
+	NMVpnServicePluginClass parent;
 } NML2tpPluginClass;
 
 GType nm_l2tp_plugin_get_type (void);
