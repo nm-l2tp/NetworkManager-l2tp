@@ -79,10 +79,20 @@
 
 #define nm_simple_connection_new                        nm_connection_new
 
+#define L2TP_PLUGIN_UI_ERROR                            NM_SETTING_VPN_ERROR
+#define L2TP_PLUGIN_UI_ERROR_INVALID_PROPERTY           NM_SETTING_VPN_ERROR_INVALID_PROPERTY
+#define L2TP_PLUGIN_UI_ERROR_MISSING_PROPERTY           NM_SETTING_VPN_ERROR_MISSING_PROPERTY
+#define L2TP_PLUGIN_UI_ERROR_FAILED                     NM_SETTING_VPN_ERROR_UNKNOWN
+
 #else /* !NM_L2TP_OLD */
 
 #include <NetworkManager.h>
 #include <nm-setting-ip4-config.h>
+
+#define L2TP_PLUGIN_UI_ERROR                            NM_CONNECTION_ERROR
+#define L2TP_PLUGIN_UI_ERROR_INVALID_PROPERTY           NM_CONNECTION_ERROR_INVALID_PROPERTY
+#define L2TP_PLUGIN_UI_ERROR_MISSING_PROPERTY           NM_CONNECTION_ERROR_MISSING_PROPERTY
+#define L2TP_PLUGIN_UI_ERROR_FAILED                     NM_CONNECTION_ERROR_FAILED
 #endif
 
 #include "import-export.h"
@@ -439,7 +449,7 @@ do_import (const char *path, GError **error)
 	if (!g_key_file_load_from_file (keyfile, path, 0, error)) {
 		g_set_error (error,
 		             L2TP_PLUGIN_UI_ERROR,
-		             L2TP_PLUGIN_UI_ERROR_FILE_NOT_L2TP,
+		             L2TP_PLUGIN_UI_ERROR_FAILED,
 		             _("does not look like a L2TP VPN connection (parse failed)"));
 		return NULL;
 	}
@@ -733,7 +743,7 @@ do_export (const char *path, NMConnection *connection, GError **error)
 	if (!(file = fopen (path, "w"))) {
 		g_set_error(error,
 		            L2TP_PLUGIN_UI_ERROR,
-		            L2TP_PLUGIN_UI_ERROR_FILE_NOT_READABLE,
+		            L2TP_PLUGIN_UI_ERROR_FAILED,
 		            _("Couldn't open file for writing."));
 		g_key_file_free (export_file);
 		return FALSE;
