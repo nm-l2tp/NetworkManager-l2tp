@@ -68,13 +68,11 @@ GLIB_CFLAGS="$GLIB_CFLAGS -DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_32"
 
 PKG_CHECK_MODULES(DBUS_GLIB, dbus-glib-1 >= 0.74)
 
-PKG_CHECK_MODULES(NM,
+PKG_CHECK_MODULES(LIBNM_GLIB,
                   NetworkManager >= 0.9.8
                   libnm-util >= 0.9.8
                   libnm-glib >= 0.9.8
                   libnm-glib-vpn >= 0.9.8)
-AC_SUBST(NM_CFLAGS)
-AC_SUBST(NM_LIBS)
 
 if test x"$with_gnome" != xno; then
 	PKG_CHECK_MODULES(GTK, gtk+-3.0 >= 3.4)
@@ -86,6 +84,10 @@ if test x"$with_gnome" != xno; then
 	AC_SUBST(GNOMEKEYRING_CFLAGS)
 	AC_SUBST(GNOMEKEYRING_LIBS)
 fi
+
+PKG_CHECK_MODULES(LIBNM, libnm >= 1.1.0)
+LIBNM_CFLAGS="$LIBNM_CFLAGS -DNM_VERSION_MIN_REQUIRED=NM_VERSION_1_2"
+LIBNM_CFLAGS="$LIBNM_CFLAGS -DNM_VERSION_MAX_ALLOWED=NM_VERSION_1_2"
 
 NM_COMPILER_WARNINGS
 

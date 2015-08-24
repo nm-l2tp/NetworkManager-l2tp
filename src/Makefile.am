@@ -3,7 +3,7 @@ INCLUDES = -I${top_srcdir}
 AM_CPPFLAGS =							\
 	$(DBUS_GLIB_CFLAGS)						\
 	$(GLIB_CFLAGS)                                  \
-	$(NM_CFLAGS)				\
+	$(LIBNM_GLIB_CFLAGS)				\
 	-DG_DISABLE_DEPRECATED					\
 	-DBINDIR=\"$(bindir)\"					\
 	-DPREFIX=\""$(prefix)"\"				\
@@ -29,7 +29,7 @@ nm-l2tp-pppd-service-glue.h: $(top_srcdir)/src/nm-l2tp-pppd-service.xml
 nm_l2tp_service_LDADD = 				\
 				$(DBUS_GLIB_LIBS)		\
 				$(GLIB_LIBS)           \
-				$(NM_LIBS)
+				$(LIBNM_GLIB_LIBS)
 
 pppd_plugindir = $(PPPD_PLUGIN_DIR)
 pppd_plugin_LTLIBRARIES = nm-l2tp-pppd-plugin.la
@@ -41,14 +41,14 @@ nm_l2tp_pppd_plugin_la_SOURCES = \
 nm_l2tp_pppd_plugin_la_CPPFLAGS = \
 	$(DBUS_GLIB_CFLAGS) \
 	$(GLIB_CFLAGS) \
-	$(NM_CFLAGS)
+	$(LIBNM_GLIB_CFLAGS)
 
 nm_l2tp_pppd_plugin_la_LDFLAGS = -module -avoid-version
 
 nm_l2tp_pppd_plugin_la_LIBADD = \
 	$(DBUS_GLIB_LIBS) \
 	$(GLIB_LIBS) \
-	$(NM_LIBS)
+	$(LIBNM_GLIB_LIBS)
 
 BUILT_SOURCES = nm-l2tp-pppd-service-glue.h
 

@@ -22,7 +22,7 @@ ui_DATA = nm-l2tp-dialog.ui
 common_CFLAGS =                                         \
         $(GLIB_CFLAGS)                                  \
         $(GTK_CFLAGS)                                   \
-        $(NM_CFLAGS)                                    \
+        $(LIBNM_GLIB_CFLAGS)                                    \
         -DICONDIR=\""$(datadir)/pixmaps"\"              \
         -DUIDIR=\""$(uidir)"\"                          \
         -DLOCALEDIR=\""$(datadir)/locale"\"             \
@@ -38,11 +38,11 @@ libnm_l2tp_properties_la_CFLAGS =                       \
 
 libnm_vpn_plugin_l2tp_la_LIBADD = \
         $(GTK_LIBS) \
-        $(NM_LIBS)
+        $(LIBNM_GLIB_LIBS)
 
 libnm_l2tp_properties_la_LIBADD = \
         $(GTK_LIBS) \
-        $(NM_LIBS)
+        $(LIBNM_GLIB_LIBS)
 
 libnm_vpn_plugin_l2tp_la_LDFLAGS =   \
         -avoid-version
