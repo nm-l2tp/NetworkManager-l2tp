@@ -35,8 +35,15 @@
 #include <glib.h>
 #include <glib/gi18n-lib.h>
 
+#ifdef NM_L2TP_OLD
+#define NM_VPN_LIBNM_COMPAT
 #include <nm-connection.h>
 #include <nm-setting-vpn.h>
+
+#else /* !NM_L2TP_OLD */
+
+#include <NetworkManager.h>
+#endif
 
 #include "advanced-dialog.h"
 #include "nm-l2tp.h"
@@ -91,11 +98,11 @@ advanced_dialog_new_hash_from_connection (NMConnection *connection,
                                           GError **error)
 {
 	GHashTable *hash;
-	NMSettingVPN *s_vpn;
+	NMSettingVpn *s_vpn;
 
 	hash = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, g_free);
 
-	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
+	s_vpn = (NMSettingVpn *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
 	nm_setting_vpn_foreach_data_item (s_vpn, copy_values, hash);
 	return hash;
 }
