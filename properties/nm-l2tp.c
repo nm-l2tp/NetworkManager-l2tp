@@ -41,20 +41,20 @@
 #include <nm-setting-connection.h>
 #include <nm-setting-ip4-config.h>
 
-#define L2TP_PLUGIN_UI_ERROR                     NM_SETTING_VPN_ERROR
-#define L2TP_PLUGIN_UI_ERROR_INVALID_PROPERTY    NM_SETTING_VPN_ERROR_INVALID_PROPERTY
-#define L2TP_PLUGIN_UI_ERROR_MISSING_PROPERTY    NM_SETTING_VPN_ERROR_MISSING_PROPERTY
-#define L2TP_PLUGIN_UI_ERROR_FAILED              NM_SETTING_VPN_ERROR_UNKNOWN
+#define L2TP_EDITOR_PLUGIN_ERROR                     NM_SETTING_VPN_ERROR
+#define L2TP_EDITOR_PLUGIN_ERROR_INVALID_PROPERTY    NM_SETTING_VPN_ERROR_INVALID_PROPERTY
+#define L2TP_EDITOR_PLUGIN_ERROR_MISSING_PROPERTY    NM_SETTING_VPN_ERROR_MISSING_PROPERTY
+#define L2TP_EDITOR_PLUGIN_ERROR_FAILED              NM_SETTING_VPN_ERROR_UNKNOWN
 
 #else /* !NM_L2TP_OLD */
 
 #include <NetworkManager.h>
 #include <nm-vpn-editor-plugin.h>
 
-#define L2TP_PLUGIN_UI_ERROR                     NM_CONNECTION_ERROR
-#define L2TP_PLUGIN_UI_ERROR_INVALID_PROPERTY    NM_CONNECTION_ERROR_INVALID_PROPERTY
-#define L2TP_PLUGIN_UI_ERROR_MISSING_PROPERTY    NM_CONNECTION_ERROR_MISSING_PROPERTY
-#define L2TP_PLUGIN_UI_ERROR_FAILED              NM_CONNECTION_ERROR_FAILED
+#define L2TP_EDITOR_PLUGIN_ERROR                     NM_CONNECTION_ERROR
+#define L2TP_EDITOR_PLUGIN_ERROR_INVALID_PROPERTY    NM_CONNECTION_ERROR_INVALID_PROPERTY
+#define L2TP_EDITOR_PLUGIN_ERROR_MISSING_PROPERTY    NM_CONNECTION_ERROR_MISSING_PROPERTY
+#define L2TP_EDITOR_PLUGIN_ERROR_FAILED              NM_CONNECTION_ERROR_FAILED
 #endif
 
 #include "src/nm-l2tp-service-defines.h"
@@ -82,21 +82,21 @@ enum {
 	PROP_SERVICE
 };
 
-static void l2tp_plugin_ui_interface_init (NMVpnEditorPluginInterface *iface_class);
+static void l2tp_editor_plugin_interface_init (NMVpnEditorPluginInterface *iface_class);
 
-G_DEFINE_TYPE_EXTENDED (L2tpPluginUi, l2tp_plugin_ui, G_TYPE_OBJECT, 0,
+G_DEFINE_TYPE_EXTENDED (L2tpEditorPlugin, l2tp_editor_plugin, G_TYPE_OBJECT, 0,
 						G_IMPLEMENT_INTERFACE (NM_TYPE_VPN_EDITOR_PLUGIN,
-											   l2tp_plugin_ui_interface_init))
+											   l2tp_editor_plugin_interface_init))
 
 /************** UI widget class **************/
 
-static void l2tp_plugin_ui_widget_interface_init (NMVpnEditorInterface *iface_class);
+static void l2tp_editor_interface_init (NMVpnEditorInterface *iface_class);
 
-G_DEFINE_TYPE_EXTENDED (L2tpPluginUiWidget, l2tp_plugin_ui_widget, G_TYPE_OBJECT, 0,
+G_DEFINE_TYPE_EXTENDED (L2tpEditor, l2tp_editor, G_TYPE_OBJECT, 0,
 						G_IMPLEMENT_INTERFACE (NM_TYPE_VPN_EDITOR,
-											   l2tp_plugin_ui_widget_interface_init))
+											   l2tp_editor_interface_init))
 
-#define L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), L2TP_TYPE_PLUGIN_UI_WIDGET, L2tpPluginUiWidgetPrivate))
+#define L2TP_EDITOR_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), L2TP_TYPE_EDITOR, L2tpEditorPrivate))
 
 typedef struct {
 	GtkBuilder *builder;
@@ -107,7 +107,7 @@ typedef struct {
 	GHashTable *advanced;
 	GHashTable *ipsec;
 	gboolean new_connection;
-} L2tpPluginUiWidgetPrivate;
+} L2tpEditorPrivate;
 
 /**
  * Return copy of string #s with the leading and trailing spaces removed
@@ -140,9 +140,9 @@ strstrip (const char *s)
 }
 
 static gboolean
-check_validity (L2tpPluginUiWidget *self, GError **error)
+check_validity (L2tpEditor *self, GError **error)
 {
-	L2tpPluginUiWidgetPrivate *priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
+	L2tpEditorPrivate *priv = L2TP_EDITOR_GET_PRIVATE (self);
 	GtkWidget *widget;
 	const char *str;
 	char *s=NULL;
@@ -152,8 +152,8 @@ check_validity (L2tpPluginUiWidget *self, GError **error)
 	if (!str || !strlen (s = strstrip (str))) {
 		g_free(s);
 		g_set_error (error,
-		             L2TP_PLUGIN_UI_ERROR,
-		             L2TP_PLUGIN_UI_ERROR_INVALID_PROPERTY,
+		             L2TP_EDITOR_PLUGIN_ERROR,
+		             L2TP_EDITOR_PLUGIN_ERROR_INVALID_PROPERTY,
 		             NM_L2TP_KEY_GATEWAY);
 		return FALSE;
 	}
@@ -164,7 +164,7 @@ check_validity (L2tpPluginUiWidget *self, GError **error)
 static void
 stuff_changed_cb (GtkWidget *widget, gpointer user_data)
 {
-	g_signal_emit_by_name (L2TP_PLUGIN_UI_WIDGET (user_data), "changed");
+	g_signal_emit_by_name (L2TP_EDITOR (user_data), "changed");
 }
 
 static void
@@ -186,8 +186,8 @@ ipsec_dialog_close_cb (GtkWidget *dialog, gpointer user_data)
 static void
 advanced_dialog_response_cb (GtkWidget *dialog, gint response, gpointer user_data)
 {
-	L2tpPluginUiWidget *self = L2TP_PLUGIN_UI_WIDGET (user_data);
-	L2tpPluginUiWidgetPrivate *priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
+	L2tpEditor *self = L2TP_EDITOR (user_data);
+	L2tpEditorPrivate *priv = L2TP_EDITOR_GET_PRIVATE (self);
 	GError *error = NULL;
 
 	if (response != GTK_RESPONSE_OK) {
@@ -210,8 +210,8 @@ advanced_dialog_response_cb (GtkWidget *dialog, gint response, gpointer user_dat
 static void
 ipsec_dialog_response_cb (GtkWidget *dialog, gint response, gpointer user_data)
 {
-	L2tpPluginUiWidget *self = L2TP_PLUGIN_UI_WIDGET (user_data);
-	L2tpPluginUiWidgetPrivate *priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
+	L2tpEditor *self = L2TP_EDITOR (user_data);
+	L2tpEditorPrivate *priv = L2TP_EDITOR_GET_PRIVATE (self);
 	GError *error = NULL;
 
 	if (response != GTK_RESPONSE_OK) {
@@ -234,8 +234,8 @@ ipsec_dialog_response_cb (GtkWidget *dialog, gint response, gpointer user_data)
 static void
 advanced_button_clicked_cb (GtkWidget *button, gpointer user_data)
 {
-	L2tpPluginUiWidget *self = L2TP_PLUGIN_UI_WIDGET (user_data);
-	L2tpPluginUiWidgetPrivate *priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
+	L2tpEditor *self = L2TP_EDITOR (user_data);
+	L2tpEditorPrivate *priv = L2TP_EDITOR_GET_PRIVATE (self);
 	GtkWidget *dialog, *toplevel;
 
 	toplevel = gtk_widget_get_toplevel (priv->widget);
@@ -263,8 +263,8 @@ advanced_button_clicked_cb (GtkWidget *button, gpointer user_data)
 static void
 ipsec_button_clicked_cb (GtkWidget *button, gpointer user_data)
 {
-	L2tpPluginUiWidget *self = L2TP_PLUGIN_UI_WIDGET (user_data);
-	L2tpPluginUiWidgetPrivate *priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
+	L2tpEditor *self = L2TP_EDITOR (user_data);
+	L2tpEditorPrivate *priv = L2TP_EDITOR_GET_PRIVATE (self);
 	GtkWidget *dialog, *toplevel;
 
 	toplevel = gtk_widget_get_toplevel (priv->widget);
@@ -290,13 +290,13 @@ ipsec_button_clicked_cb (GtkWidget *button, gpointer user_data)
 }
 
 static void
-setup_password_widget (L2tpPluginUiWidget *self,
+setup_password_widget (L2tpEditor *self,
                        const char *entry_name,
                        NMSettingVpn *s_vpn,
                        const char *secret_name,
                        gboolean new_connection)
 {
-	L2tpPluginUiWidgetPrivate *priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
+	L2tpEditorPrivate *priv = L2TP_EDITOR_GET_PRIVATE (self);
 	NMSettingSecretFlags secret_flags = NM_SETTING_SECRET_FLAG_NONE;
 	GtkWidget *widget;
 	const char *value;
@@ -321,9 +321,9 @@ setup_password_widget (L2tpPluginUiWidget *self,
 }
 
 static void
-show_toggled_cb (GtkCheckButton *button, L2tpPluginUiWidget *self)
+show_toggled_cb (GtkCheckButton *button, L2tpEditor *self)
 {
-	L2tpPluginUiWidgetPrivate *priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
+	L2tpEditorPrivate *priv = L2TP_EDITOR_GET_PRIVATE (self);
 	GtkWidget *widget;
 	gboolean visible;
 
@@ -337,8 +337,8 @@ show_toggled_cb (GtkCheckButton *button, L2tpPluginUiWidget *self)
 static void
 pw_type_combo_changed_cb (GtkWidget *combo, gpointer user_data)
 {
-	L2tpPluginUiWidget *self = L2TP_PLUGIN_UI_WIDGET (user_data);
-	L2tpPluginUiWidgetPrivate *priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
+	L2tpEditor *self = L2TP_EDITOR (user_data);
+	L2tpEditorPrivate *priv = L2TP_EDITOR_GET_PRIVATE (self);
 	GtkWidget *entry;
 
 	entry = GTK_WIDGET (gtk_builder_get_object (priv->builder, "user_password_entry"));
@@ -362,13 +362,13 @@ pw_type_combo_changed_cb (GtkWidget *combo, gpointer user_data)
 }
 
 static void
-init_one_pw_combo (L2tpPluginUiWidget *self,
+init_one_pw_combo (L2tpEditor *self,
                    NMSettingVpn *s_vpn,
                    const char *combo_name,
                    const char *secret_key,
                    const char *entry_name)
 {
-	L2tpPluginUiWidgetPrivate *priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
+	L2tpEditorPrivate *priv = L2TP_EDITOR_GET_PRIVATE (self);
 	int active = -1;
 	GtkWidget *widget;
 	GtkListStore *store;
@@ -419,9 +419,9 @@ init_one_pw_combo (L2tpPluginUiWidget *self,
 }
 
 static gboolean
-init_plugin_ui (L2tpPluginUiWidget *self, NMConnection *connection, GError **error)
+init_editor_plugin (L2tpEditor *self, NMConnection *connection, GError **error)
 {
-	L2tpPluginUiWidgetPrivate *priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
+	L2tpEditorPrivate *priv = L2TP_EDITOR_GET_PRIVATE (self);
 	NMSettingVpn *s_vpn;
 	GtkWidget *widget;
 	const char *value;
@@ -496,8 +496,8 @@ init_plugin_ui (L2tpPluginUiWidget *self, NMConnection *connection, GError **err
 static GObject *
 get_widget (NMVpnEditor *iface)
 {
-	L2tpPluginUiWidget *self = L2TP_PLUGIN_UI_WIDGET (iface);
-	L2tpPluginUiWidgetPrivate *priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
+	L2tpEditor *self = L2TP_EDITOR (iface);
+	L2tpEditorPrivate *priv = L2TP_EDITOR_GET_PRIVATE (self);
 
 	return G_OBJECT (priv->widget);
 }
@@ -552,8 +552,8 @@ update_connection (NMVpnEditor *iface,
                    NMConnection *connection,
                    GError **error)
 {
-	L2tpPluginUiWidget *self = L2TP_PLUGIN_UI_WIDGET (iface);
-	L2tpPluginUiWidgetPrivate *priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
+	L2tpEditor *self = L2TP_EDITOR (iface);
+	L2tpEditorPrivate *priv = L2TP_EDITOR_GET_PRIVATE (self);
 	NMSettingVpn *s_vpn;
 	GtkWidget *widget;
 	const char *str;
@@ -615,10 +615,10 @@ is_new_func (const char *key, const char *value, gpointer user_data)
 }
 
 static NMVpnEditor *
-nm_vpn_plugin_ui_widget_interface_new (NMConnection *connection, GError **error)
+nm_vpn_editor_interface_new (NMConnection *connection, GError **error)
 {
 	NMVpnEditor *object;
-	L2tpPluginUiWidgetPrivate *priv;
+	L2tpEditorPrivate *priv;
 	char *ui_file;
 	gboolean new = TRUE;
 	NMSettingVpn *s_vpn;
@@ -626,13 +626,13 @@ nm_vpn_plugin_ui_widget_interface_new (NMConnection *connection, GError **error)
 	if (error)
 		g_return_val_if_fail (*error == NULL, NULL);
 
-	object = g_object_new (L2TP_TYPE_PLUGIN_UI_WIDGET, NULL);
+	object = g_object_new (L2TP_TYPE_EDITOR, NULL);
 	if (!object) {
-		g_set_error (error, L2TP_PLUGIN_UI_ERROR, 0, _("could not create l2tp object"));
+		g_set_error (error, L2TP_EDITOR_PLUGIN_ERROR, 0, _("could not create l2tp object"));
 		return NULL;
 	}
 
-	priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE (object);
+	priv = L2TP_EDITOR_GET_PRIVATE (object);
 
 	ui_file = g_strdup_printf ("%s/%s", UIDIR, "nm-l2tp-dialog.ui");
 	priv->builder = gtk_builder_new ();
@@ -643,7 +643,7 @@ nm_vpn_plugin_ui_widget_interface_new (NMConnection *connection, GError **error)
 		g_warning (_("Couldn't load builder file: %s"),
 				error && *error ? (*error)->message : "(unknown)");
 		g_clear_error(error);
-		g_set_error(error, L2TP_PLUGIN_UI_ERROR, 0,
+		g_set_error(error, L2TP_EDITOR_PLUGIN_ERROR, 0,
 					_("could not load required resources at %s"),
 					ui_file);
 		g_free(ui_file);
@@ -654,7 +654,7 @@ nm_vpn_plugin_ui_widget_interface_new (NMConnection *connection, GError **error)
 
 	priv->widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "l2tp-vbox"));
 	if (!priv->widget) {
-		g_set_error (error, L2TP_PLUGIN_UI_ERROR, 0, _("could not load UI widget"));
+		g_set_error (error, L2TP_EDITOR_PLUGIN_ERROR, 0, _("could not load UI widget"));
 		g_object_unref (object);
 		return NULL;
 	}
@@ -667,7 +667,7 @@ nm_vpn_plugin_ui_widget_interface_new (NMConnection *connection, GError **error)
 		nm_setting_vpn_foreach_data_item (s_vpn, is_new_func, &new);
 	priv->new_connection = new;
 
-	if (!init_plugin_ui (L2TP_PLUGIN_UI_WIDGET (object), connection, error)) {
+	if (!init_editor_plugin (L2TP_EDITOR (object), connection, error)) {
 		g_object_unref (object);
 		return NULL;
 	}
@@ -689,8 +689,8 @@ nm_vpn_plugin_ui_widget_interface_new (NMConnection *connection, GError **error)
 static void
 dispose (GObject *object)
 {
-	L2tpPluginUiWidget *plugin = L2TP_PLUGIN_UI_WIDGET (object);
-	L2tpPluginUiWidgetPrivate *priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE (plugin);
+	L2tpEditor *plugin = L2TP_EDITOR (object);
+	L2tpEditorPrivate *priv = L2TP_EDITOR_GET_PRIVATE (plugin);
 
 	if (priv->group)
 		g_object_unref (priv->group);
@@ -710,26 +710,26 @@ dispose (GObject *object)
 	if (priv->ipsec)
 		g_hash_table_destroy (priv->ipsec);
 
-	G_OBJECT_CLASS (l2tp_plugin_ui_widget_parent_class)->dispose (object);
+	G_OBJECT_CLASS (l2tp_editor_parent_class)->dispose (object);
 }
 
 static void
-l2tp_plugin_ui_widget_class_init (L2tpPluginUiWidgetClass *req_class)
+l2tp_editor_class_init (L2tpEditorClass *req_class)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (req_class);
 
-	g_type_class_add_private (req_class, sizeof (L2tpPluginUiWidgetPrivate));
+	g_type_class_add_private (req_class, sizeof (L2tpEditorPrivate));
 
 	object_class->dispose = dispose;
 }
 
 static void
-l2tp_plugin_ui_widget_init (L2tpPluginUiWidget *plugin)
+l2tp_editor_init (L2tpEditor *plugin)
 {
 }
 
 static void
-l2tp_plugin_ui_widget_interface_init (NMVpnEditorInterface *iface_class)
+l2tp_editor_interface_init (NMVpnEditorInterface *iface_class)
 {
 	/* interface implementation */
 	iface_class->get_widget = get_widget;
@@ -745,24 +745,24 @@ import (NMVpnEditorPlugin *iface, const char *path, GError **error)
 	ext = strrchr (path, '.');
 	if (!ext) {
 		g_set_error (error,
-		             L2TP_PLUGIN_UI_ERROR,
-		             L2TP_PLUGIN_UI_ERROR_FAILED,
+		             L2TP_EDITOR_PLUGIN_ERROR,
+		             L2TP_EDITOR_PLUGIN_ERROR_FAILED,
 		             _("unknown L2TP file extension"));
 		return NULL;
 	}
 
 	if (strcmp (ext, ".conf") && strcmp (ext, ".cnf")) {
 		g_set_error (error,
-		             L2TP_PLUGIN_UI_ERROR,
-		             L2TP_PLUGIN_UI_ERROR_FAILED,
+		             L2TP_EDITOR_PLUGIN_ERROR,
+		             L2TP_EDITOR_PLUGIN_ERROR_FAILED,
 		             _("unknown L2TP file extension. Allowed .conf or .cnf"));
 		return NULL;
 	}
 
 	if (!strstr (path, "l2tp")) {
 		g_set_error (error,
-		             L2TP_PLUGIN_UI_ERROR,
-		             L2TP_PLUGIN_UI_ERROR_FAILED,
+		             L2TP_EDITOR_PLUGIN_ERROR,
+		             L2TP_EDITOR_PLUGIN_ERROR_FAILED,
 		             _("Filename doesn't contains 'l2tp' substring."));
 		return NULL;
 	}
@@ -810,7 +810,7 @@ get_capabilities (NMVpnEditorPlugin *iface)
 static NMVpnEditor *
 get_editor (NMVpnEditorPlugin *iface, NMConnection *connection, GError **error)
 {
-	return nm_vpn_plugin_ui_widget_interface_new (connection, error);
+	return nm_vpn_editor_interface_new (connection, error);
 }
 
 static void
@@ -834,7 +834,7 @@ get_property (GObject *object, guint prop_id,
 }
 
 static void
-l2tp_plugin_ui_class_init (L2tpPluginUiClass *req_class)
+l2tp_editor_plugin_class_init (L2tpEditorPluginClass *req_class)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (req_class);
 
@@ -854,12 +854,12 @@ l2tp_plugin_ui_class_init (L2tpPluginUiClass *req_class)
 }
 
 static void
-l2tp_plugin_ui_init (L2tpPluginUi *plugin)
+l2tp_editor_plugin_init (L2tpEditorPlugin *plugin)
 {
 }
 
 static void
-l2tp_plugin_ui_interface_init (NMVpnEditorPluginInterface *iface_class)
+l2tp_editor_plugin_interface_init (NMVpnEditorPluginInterface *iface_class)
 {
 	/* interface implementation */
 	iface_class->get_editor = get_editor;
@@ -879,6 +879,6 @@ nm_vpn_editor_plugin_factory (GError **error)
 	bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 
-	return g_object_new (L2TP_TYPE_PLUGIN_UI, NULL);
+	return g_object_new (L2TP_TYPE_EDITOR_PLUGIN, NULL);
 }
 
