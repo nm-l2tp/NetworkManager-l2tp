@@ -1,9 +1,9 @@
 plugindir = $(libdir)/NetworkManager
-plugin_LTLIBRARIES = libnm-l2tp-properties.la
+plugin_LTLIBRARIES = libnm-vpn-plugin-l2tp.la libnm-l2tp-properties.la
 
 INCLUDES = -I${top_srcdir}
 
-libnm_l2tp_properties_la_SOURCES = \
+libnm_vpn_plugin_l2tp_la_SOURCES = \
 	nm-l2tp.c \
 	nm-l2tp.h \
 	ipsec-dialog.c \
@@ -13,10 +13,13 @@ libnm_l2tp_properties_la_SOURCES = \
 	import-export.c \
 	import-export.h
 
+libnm_l2tp_properties_la_SOURCES = \
+        $(libnm_vpn_plugin_l2tp_la_SOURCES)
+
 uidir = $(datadir)/gnome-vpn-properties/l2tp
 ui_DATA = nm-l2tp-dialog.ui
 
-libnm_l2tp_properties_la_CFLAGS =                    \
+common_CFLAGS =                                         \
         $(GLIB_CFLAGS)                                  \
         $(GTK_CFLAGS)                                   \
         $(NM_CFLAGS)                                    \
@@ -26,12 +29,26 @@ libnm_l2tp_properties_la_CFLAGS =                    \
         -DG_DISABLE_DEPRECATED                          \
         -DVERSION=\"$(VERSION)\"
 
+libnm_vpn_plugin_l2tp_la_CFLAGS =                       \
+        $(common_CFLAGS)
+
+libnm_l2tp_properties_la_CFLAGS =                       \
+        -DNM_L2TP_OLD                                   \
+        $(common_CFLAGS)
+
+libnm_vpn_plugin_l2tp_la_LIBADD = \
+        $(GTK_LIBS) \
+        $(NM_LIBS)
+
 libnm_l2tp_properties_la_LIBADD = \
         $(GTK_LIBS) \
         $(NM_LIBS)
 
-libnm_l2tp_properties_la_LDFLAGS =   \
+libnm_vpn_plugin_l2tp_la_LDFLAGS =   \
         -avoid-version
+
+libnm_l2tp_properties_la_LDFLAGS =   \
+        $(libnm_vpn_plugin_l2tp_la_LDFLAGS)
 
 CLEANFILES = *.bak *~
 

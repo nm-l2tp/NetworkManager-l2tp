@@ -3,6 +3,9 @@ name=l2tp
 service=org.freedesktop.NetworkManager.l2tp
 program=@LIBEXECDIR@/nm-l2tp-service
 
+[libnm]
+plugin=@PLUGINDIR@/libnm-vpn-plugin-l2tp.so
+
 [GNOME]
 auth-dialog=@LIBEXECDIR@/nm-l2tp-auth-dialog
 properties=@PLUGINDIR@/libnm-l2tp-properties
