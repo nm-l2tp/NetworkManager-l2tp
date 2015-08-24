@@ -36,7 +36,7 @@
 #include <nm-setting-vpn.h>
 #include <nm-vpn-plugin-utils.h>
 
-#include "src/nm-l2tp-service.h"
+#include "src/nm-l2tp-service-defines.h"
 #include "vpn-password-dialog.h"
 
 #define KEYRING_UUID_TAG "connection-uuid"

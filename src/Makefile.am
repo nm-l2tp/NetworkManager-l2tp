@@ -20,6 +20,7 @@ libexec_PROGRAMS = nm-l2tp-service
 
 nm_l2tp_service_SOURCES = \
 				nm-l2tp-service.c \
+				nm-l2tp-service-defines.h \
 				nm-l2tp-service.h
 
 nm-l2tp-pppd-service-glue.h: $(top_srcdir)/src/nm-l2tp-pppd-service.xml

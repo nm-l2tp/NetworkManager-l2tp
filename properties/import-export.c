@@ -43,7 +43,7 @@
 
 #include "import-export.h"
 #include "nm-l2tp.h"
-#include "../src/nm-l2tp-service.h"
+#include "../src/nm-l2tp-service-defines.h"
 
 #define CONN_SECTION "connection"
 #define VPN_SECTION "vpn"

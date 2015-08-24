@@ -41,7 +41,7 @@
 #include <nm-setting-connection.h>
 #include <nm-setting-ip4-config.h>
 
-#include "src/nm-l2tp-service.h"
+#include "src/nm-l2tp-service-defines.h"
 #include "nm-l2tp.h"
 #include "import-export.h"
 #include "advanced-dialog.h"
