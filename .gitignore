@@ -32,3 +32,5 @@ nm-l2tp-service.name
 nm-l2tp.desktop
 src/nm-l2tp-pppd-service-glue.h
 src/nm-l2tp-service
+
+/NetworkManager-l2tp*.tar*
