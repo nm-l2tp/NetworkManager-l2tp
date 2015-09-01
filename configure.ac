@@ -53,6 +53,8 @@ dnl GNOME support
 dnl
 AC_ARG_WITH(gnome, AS_HELP_STRING([--without-gnome], [Build NetworkManager-l2tp without GNOME support, e.g. vpn service only]))
 AM_CONDITIONAL(WITH_GNOME, test x"$with_gnome" != xno)
+AC_ARG_WITH(libnm-glib, AS_HELP_STRING([--without-libnm-glib], [Build NetworkManager-l2tp without libnm-glib comatibility]))
+AM_CONDITIONAL(WITH_LIBNM_GLIB, test x"$with_libnm_glib" != xno)
 
 GETTEXT_PACKAGE=NetworkManager-l2tp
 AC_SUBST(GETTEXT_PACKAGE)
@@ -66,12 +68,6 @@ AC_SUBST(GLIB_CFLAGS)
 AC_SUBST(GLIB_LIBS)
 GLIB_CFLAGS="$GLIB_CFLAGS -DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_32"
 
-PKG_CHECK_MODULES(LIBNM_GLIB,
-                  NetworkManager >= 1.1.0
-                  libnm-util >= 1.1.0
-                  libnm-glib >= 1.1.0
-                  libnm-glib-vpn >= 1.1.0)
-
 if test x"$with_gnome" != xno; then
 	PKG_CHECK_MODULES(GTK, gtk+-3.0 >= 3.4)
 	AC_SUBST(GTK_CFLAGS)
@@ -81,6 +77,14 @@ if test x"$with_gnome" != xno; then
 	PKG_CHECK_MODULES(GNOMEKEYRING, gnome-keyring-1)
 	AC_SUBST(GNOMEKEYRING_CFLAGS)
 	AC_SUBST(GNOMEKEYRING_LIBS)
+
+	if test x"$with_libnm_glib" != xno; then
+		PKG_CHECK_MODULES(LIBNM_GLIB,
+		                  NetworkManager >= 1.1.0
+		                  libnm-util >= 1.1.0
+		                  libnm-glib >= 1.1.0
+		                  libnm-glib-vpn >= 1.1.0)
+	fi
 fi
 
 PKG_CHECK_MODULES(LIBNM, libnm >= 1.1.0)
