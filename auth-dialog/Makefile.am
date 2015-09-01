@@ -3,7 +3,7 @@ INCLUDES = -I${top_srcdir}
 libexec_PROGRAMS = nm-l2tp-auth-dialog
 
 nm_l2tp_auth_dialog_CPPFLAGS =			\
-	$(LIBNM_GLIB_CFLAGS)		\
+	$(LIBNM_CFLAGS)				\
 	$(GLIB_CFLAGS)			\
 	$(GTK_CFLAGS)				\
 	$(GNOMEKEYRING_CFLAGS)			\
@@ -19,7 +19,7 @@ nm_l2tp_auth_dialog_SOURCES =			\
 	vpn-password-dialog.h
 
 nm_l2tp_auth_dialog_LDADD =			\
-	$(LIBNM_GLIB_LIBS) \
+	$(LIBNM_LIBS) \
 	$(GTK_LIBS) \
 	$(GNOMEKEYRING_LIBS)
 
