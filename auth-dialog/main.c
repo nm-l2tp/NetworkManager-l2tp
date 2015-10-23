@@ -33,10 +33,10 @@
 #include <gnome-keyring.h>
 #include <gnome-keyring-memory.h>
 
-#include <nm-setting-vpn.h>
-#include <nm-vpn-plugin-utils.h>
+#include <NetworkManager.h>
+#include <nm-vpn-service-plugin.h>
 
-#include "src/nm-l2tp-service.h"
+#include "src/nm-l2tp-service-defines.h"
 #include "vpn-password-dialog.h"
 
 #define KEYRING_UUID_TAG "connection-uuid"
@@ -257,13 +257,13 @@ main (int argc, char *argv[])
 		return 1;
 	}
 
-	if (!nm_vpn_plugin_utils_read_vpn_details (0, &data, &secrets)) {
+	if (!nm_vpn_service_plugin_read_vpn_details (0, &data, &secrets)) {
 		fprintf (stderr, "Failed to read '%s' (%s) data and secrets from stdin.\n",
 		         vpn_name, vpn_uuid);
 		return 1;
 	}
 
-	nm_vpn_plugin_utils_get_secret_flags (secrets, NM_L2TP_KEY_PASSWORD, &pw_flags);
+	nm_vpn_service_plugin_get_secret_flags (secrets, NM_L2TP_KEY_PASSWORD, &pw_flags);
 
 	if (!get_secrets (vpn_uuid, vpn_name, retry, allow_interaction, external_ui_mode,
 	                  g_hash_table_lookup (secrets, NM_L2TP_KEY_PASSWORD),

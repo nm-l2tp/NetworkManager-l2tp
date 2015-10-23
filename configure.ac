@@ -1,7 +1,7 @@
 AC_PREREQ(2.59)
 
-AC_INIT(NetworkManager-l2tp, 0.9.8.5, root@seriyps.ru, NetworkManager-l2tp)
-AM_INIT_AUTOMAKE([1.9 foreign no-dist-gzip dist-bzip2 subdir-objects])
+AC_INIT(NetworkManager-l2tp, 1.1.0, root@seriyps.ru, NetworkManager-l2tp)
+AM_INIT_AUTOMAKE([1.9 foreign no-dist-gzip dist-xz subdir-objects])
 AM_MAINTAINER_MODE
 
 AC_CONFIG_MACRO_DIR([m4])
@@ -53,6 +53,8 @@ dnl GNOME support
 dnl
 AC_ARG_WITH(gnome, AS_HELP_STRING([--without-gnome], [Build NetworkManager-l2tp without GNOME support, e.g. vpn service only]))
 AM_CONDITIONAL(WITH_GNOME, test x"$with_gnome" != xno)
+AC_ARG_WITH(libnm-glib, AS_HELP_STRING([--without-libnm-glib], [Build NetworkManager-l2tp without libnm-glib comatibility]))
+AM_CONDITIONAL(WITH_LIBNM_GLIB, test x"$with_libnm_glib" != xno)
 
 GETTEXT_PACKAGE=NetworkManager-l2tp
 AC_SUBST(GETTEXT_PACKAGE)
@@ -61,22 +63,10 @@ AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package])
 IT_PROG_INTLTOOL([0.35])
 AM_GLIB_GNU_GETTEXT
 
-PKG_CHECK_MODULES(GLIB, glib-2.0 >= 2.32)
+PKG_CHECK_MODULES(GLIB, gio-unix-2.0 >= 2.32)
 AC_SUBST(GLIB_CFLAGS)
 AC_SUBST(GLIB_LIBS)
 GLIB_CFLAGS="$GLIB_CFLAGS -DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_32"
-
-PKG_CHECK_MODULES(DBUS, dbus-glib-1 >= 0.74)
-AC_SUBST(DBUS_GLIB_CFLAGS)
-AC_SUBST(DBUS_GLIB_LIBS)
-
-PKG_CHECK_MODULES(NM,
-                  NetworkManager >= 0.9.8
-                  libnm-util >= 0.9.8
-                  libnm-glib >= 0.9.8
-                  libnm-glib-vpn >= 0.9.8)
-AC_SUBST(NM_CFLAGS)
-AC_SUBST(NM_LIBS)
 
 if test x"$with_gnome" != xno; then
 	PKG_CHECK_MODULES(GTK, gtk+-3.0 >= 3.4)
@@ -87,7 +77,22 @@ if test x"$with_gnome" != xno; then
 	PKG_CHECK_MODULES(GNOMEKEYRING, gnome-keyring-1)
 	AC_SUBST(GNOMEKEYRING_CFLAGS)
 	AC_SUBST(GNOMEKEYRING_LIBS)
+
+	if test x"$with_libnm_glib" != xno; then
+		PKG_CHECK_MODULES(LIBNM_GLIB,
+		                  NetworkManager >= 1.1.0
+		                  libnm-util >= 1.1.0
+		                  libnm-glib >= 1.1.0
+		                  libnm-glib-vpn >= 1.1.0)
+	fi
 fi
+
+PKG_CHECK_MODULES(LIBNM, libnm >= 1.1.0)
+LIBNM_CFLAGS="$LIBNM_CFLAGS -DNM_VERSION_MIN_REQUIRED=NM_VERSION_1_2"
+LIBNM_CFLAGS="$LIBNM_CFLAGS -DNM_VERSION_MAX_ALLOWED=NM_VERSION_1_2"
+
+NM_VPN_SERVICE_DIR=`$PKG_CONFIG --define-variable prefix='\${prefix}' --variable vpnservicedir libnm`
+AC_SUBST(NM_VPN_SERVICE_DIR)
 
 NM_COMPILER_WARNINGS
 

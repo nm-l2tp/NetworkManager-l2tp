@@ -1,9 +1,8 @@
 INCLUDES = -I${top_srcdir}
 
 AM_CPPFLAGS =							\
-	$(DBUS_GLIB_CFLAGS)						\
 	$(GLIB_CFLAGS)                                  \
-	$(NM_CFLAGS)				\
+	$(LIBNM_CFLAGS)				\
 	-DG_DISABLE_DEPRECATED					\
 	-DBINDIR=\"$(bindir)\"					\
 	-DPREFIX=\""$(prefix)"\"				\
@@ -20,15 +19,32 @@ libexec_PROGRAMS = nm-l2tp-service
 
 nm_l2tp_service_SOURCES = \
 				nm-l2tp-service.c \
+				nm-l2tp-service-defines.h \
 				nm-l2tp-service.h
 
-nm-l2tp-pppd-service-glue.h: $(top_srcdir)/src/nm-l2tp-pppd-service.xml
-	dbus-binding-tool --prefix=nm_l2tp_pppd_service --mode=glib-server --output=$@ $<
+# D-Bus stuff
+noinst_LTLIBRARIES = libnm-l2tp-pppd-service-dbus.la
+
+nodist_libnm_l2tp_pppd_service_dbus_la_SOURCES = \
+	nm-l2tp-pppd-service-dbus.c \
+	nm-l2tp-pppd-service-dbus.h
+
+libnm_l2tp_pppd_service_dbus_la_CPPFLAGS = $(filter-out -DGLIB_VERSION_MAX_ALLOWED%,$(AM_CPPFLAGS))
+
+nm-l2tp-pppd-service-dbus.h: $(top_srcdir)/src/nm-l2tp-pppd-service.xml
+	$(AM_V_GEN) gdbus-codegen \
+		--generate-c-code $(basename $@) \
+		--c-namespace NMDBus \
+		--interface-prefix org.freedesktop \
+		$<
+
+nm-l2tp-pppd-service-dbus.c:
+	@true
 
 nm_l2tp_service_LDADD = 				\
-				$(DBUS_GLIB_LIBS)		\
 				$(GLIB_LIBS)           \
-				$(NM_LIBS)
+				$(LIBNM_LIBS)		\
+				libnm-l2tp-pppd-service-dbus.la
 
 pppd_plugindir = $(PPPD_PLUGIN_DIR)
 pppd_plugin_LTLIBRARIES = nm-l2tp-pppd-plugin.la
@@ -38,18 +54,16 @@ nm_l2tp_pppd_plugin_la_SOURCES = \
 	nm-ppp-status.h
 
 nm_l2tp_pppd_plugin_la_CPPFLAGS = \
-	$(DBUS_GLIB_CFLAGS) \
 	$(GLIB_CFLAGS) \
-	$(NM_CFLAGS)
+	$(LIBNM_CFLAGS)
 
 nm_l2tp_pppd_plugin_la_LDFLAGS = -module -avoid-version
 
 nm_l2tp_pppd_plugin_la_LIBADD = \
-	$(DBUS_GLIB_LIBS) \
 	$(GLIB_LIBS) \
-	$(NM_LIBS)
+	$(LIBNM_LIBS)
 
-BUILT_SOURCES = nm-l2tp-pppd-service-glue.h
+BUILT_SOURCES = nm-l2tp-pppd-service-dbus.h nm-l2tp-pppd-service-dbus.c
 
 CLEANFILES = $(BUILT_SOURCES)
 
