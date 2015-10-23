@@ -27,9 +27,7 @@ common_CFLAGS =                                         \
         $(GTK_CFLAGS)                                   \
         -DICONDIR=\""$(datadir)/pixmaps"\"              \
         -DUIDIR=\""$(uidir)"\"                          \
-        -DLOCALEDIR=\""$(datadir)/locale"\"             \
-        -DG_DISABLE_DEPRECATED                          \
-        -DVERSION=\"$(VERSION)\"
+        -DLOCALEDIR=\""$(datadir)/locale"\"
 
 libnm_vpn_plugin_l2tp_la_CFLAGS =                       \
         $(LIBNM_CFLAGS)                                 \
