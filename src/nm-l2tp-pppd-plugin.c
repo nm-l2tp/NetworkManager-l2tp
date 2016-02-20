@@ -32,7 +32,7 @@
 #include <glib-object.h>
 #include <dbus/dbus-glib.h>
 
-#include "nm-l2tp-service-defines.h"
+#include "nm-l2tp-service.h"
 #include "nm-ppp-status.h"
 
 #include <nm-utils.h>
