@@ -1,4 +1,4 @@
-INCLUDES = -I${top_srcdir}
+AM_CPPFLAGS = -I${top_srcdir}
 
 libexec_PROGRAMS = nm-l2tp-auth-dialog
 
