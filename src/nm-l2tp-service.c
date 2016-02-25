@@ -972,7 +972,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 					 " --config /var/run/nm-ipsec-l2tp.%d/ipsec.conf --verbose"
 					 " --start '%s'", priv->ipsec_binary_path, getpid (), session_name);
 		} else {
-			sprintf (cmdbuf,"%s up '%s", priv->ipsec_binary_path, session_name);
+			sprintf (cmdbuf,"%s up '%s'", priv->ipsec_binary_path, session_name);
 		}
 		sys = system (cmdbuf);
 		if (!sys) {
