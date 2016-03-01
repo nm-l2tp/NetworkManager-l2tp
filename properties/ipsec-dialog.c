@@ -142,9 +142,8 @@ ipsec_dialog_new (GHashTable *hash)
 	}
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_group_name"));
-	value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_GROUP_NAME);
-	if (!value) value="GroupVPN";
-	gtk_entry_set_text(GTK_ENTRY(widget), value);
+	if((value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_GROUP_NAME)))
+		gtk_entry_set_text(GTK_ENTRY(widget), value);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_gateway_id"));
 	if((value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_GATEWAY_ID)))
