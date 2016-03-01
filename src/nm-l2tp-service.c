@@ -682,6 +682,9 @@ nm_find_ipsec (void)
 			"/sbin/ipsec",
 			"/usr/sbin/ipsec",
 			"/usr/local/sbin/ipsec",
+			"/sbin/strongswan",
+			"/usr/sbin/strongswan",
+			"/usr/local/sbin/strongswan",
 			NULL
 		};
 
@@ -878,6 +881,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 {
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
 	const char *value;
+	const char *secrets;
 	char tmp_secrets[128];
 	char session_name[128];
 	char cmdbuf[256];
@@ -929,17 +933,23 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	   we whack in our connection,
 	   we then replace the secrets and ask strongswan/libreswan to reload them
 	*/
-	sprintf(tmp_secrets, "/etc/ipsec.secrets.%d",getpid());
-	if(-1==rename("/etc/ipsec.secrets", tmp_secrets) && errno != EEXIST) {
+	secrets = "/etc/ipsec.secrets";
+	if (!priv->is_libreswan) {
+		if (g_file_test ("/etc/strongswan/ipsec.secrets", G_FILE_TEST_EXISTS)) {
+			secrets = "/etc/strongswan/ipsec.secrets";
+		}
+	}
+	sprintf(tmp_secrets, "%s.%d", secrets, getpid());
+	if(-1==rename(secrets, tmp_secrets) && errno != EEXIST) {
 		return nm_l2tp_ipsec_error(error, "Could not save existing /etc/ipsec.secrets file.");
 	}
 
 	fp = NULL;
-	if ((fd = open("/etc/ipsec.secrets", O_CREAT | O_EXCL | O_WRONLY, 0600)) >= 0) {
+	if ((fd = open(secrets, O_CREAT | O_EXCL | O_WRONLY, 0600)) >= 0) {
 		if (NULL == (fp = fdopen(fd, "w"))) close(fd);
 	}
 	if (NULL == fp) {
-		rename(tmp_secrets, "/etc/ipsec.secrets");
+		rename(tmp_secrets, secrets);
 		return nm_l2tp_ipsec_error(error, "Could not write /etc/ipsec.secrets file.");
 	}
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GROUP_NAME);
@@ -986,9 +996,9 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	}
 
 	sprintf (cmdbuf, "%s secrets", priv->ipsec_binary_path);
-	if (rename(tmp_secrets, "/etc/ipsec.secrets") ||
+	if (rename(tmp_secrets, secrets) ||
 			system (cmdbuf)) {
-		g_warning(_("Could not restore saved /etc/ipsec.secrets from %s."), _(tmp_secrets));
+		g_warning(_("Could not restore saved %s from %s."), _(secrets), _(tmp_secrets));
 	}
 
 	return rc;
@@ -1149,7 +1159,6 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	if (ipsec_fd == -1) {
 		return nm_l2tp_ipsec_error(error, "Could not write ipsec config.");
 	}
-	write_config_option (ipsec_fd, "config setup\n\n");
 
 	write_config_option (ipsec_fd, 		"conn nm-ipsec-l2tp-%d\n", pid);
 	write_config_option (ipsec_fd, 		"  auto=add\n"
@@ -1168,10 +1177,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	if(value)write_config_option (ipsec_fd, "  rightid=@%s\n", value);
 
 	if (!priv->is_libreswan) {
-		write_config_option (ipsec_fd,	"  esp=3des-sha1\n"
-						"  ike=3des-sha1-modp1024\n"
-						"  forceencaps=yes\n"
-						"  keyexchange=ikev1\n");
+		write_config_option (ipsec_fd,	"  keyexchange=ikev1\n");
 	}
 
 	filename = g_strdup_printf ("/var/run/nm-xl2tpd.conf.%d", pid);
