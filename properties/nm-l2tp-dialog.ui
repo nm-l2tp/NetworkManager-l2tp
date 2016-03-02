@@ -1,32 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.19.0 -->
 <interface>
-  <requires lib="gtk+" version="2.16"/>
-  <object class="GtkDialog" id="l2tp-advanced-dialog">
+  <requires lib="gtk+" version="3.4"/>
+  <object class="GtkDialog" id="l2tp-ipsec-dialog">
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
-    <property name="title" translatable="yes">L2TP PPP Options</property>
+    <property name="title" translatable="yes">L2TP IPSEC Options</property>
     <property name="window_position">center-on-parent</property>
     <property name="destroy_with_parent">True</property>
-    <property name="icon_name">stock-preferences</property>
     <property name="type_hint">dialog</property>
     <property name="skip_pager_hint">True</property>
     <child internal-child="vbox">
-      <object class="GtkBox" id="dialog-vbox3">
+      <object class="GtkBox" id="dialog-vbox2">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
-          <object class="GtkButtonBox" id="dialog-action_area3">
+          <object class="GtkButtonBox" id="dialog-action_area2">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="layout_style">end</property>
             <child>
-              <object class="GtkButton" id="cancel_button1">
+              <object class="GtkButton" id="ipsec_cancel_button">
                 <property name="label">gtk-cancel</property>
+                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="receives_default">False</property>
-                <property name="use_action_appearance">False</property>
+                <property name="receives_default">True</property>
                 <property name="use_stock">True</property>
               </object>
               <packing>
@@ -36,12 +37,12 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="ok_button1">
+              <object class="GtkButton" id="ipsec_ok_button">
                 <property name="label">gtk-ok</property>
+                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="receives_default">False</property>
-                <property name="use_action_appearance">False</property>
+                <property name="receives_default">True</property>
                 <property name="use_stock">True</property>
               </object>
               <packing>
@@ -59,23 +60,575 @@
           </packing>
         </child>
         <child>
-          <object class="GtkVBox" id="PppPage">
+          <object class="GtkCheckButton" id="ipsec_enable">
+            <property name="label" translatable="yes">_Enable IPsec tunnel to L2TP host</property>
+            <property name="use_action_appearance">False</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="use_underline">True</property>
+            <property name="xalign">0.5</property>
+            <property name="draw_indicator">True</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkGrid" id="grid1">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkLabel" id="label4">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Group Name:</property>
+                <property name="justify">right</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label1">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Gateway ID:</property>
+                <property name="justify">right</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label2">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Pre-shared key:</property>
+                <property name="justify">right</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="ipsec_group_name">
+                <property name="visible">True</property>
+                <property name="sensitive">False</property>
+                <property name="can_focus">True</property>
+                <property name="margin_top">1</property>
+                <property name="margin_bottom">1</property>
+                <property name="invisible_char">●</property>
+                <property name="primary_icon_activatable">False</property>
+                <property name="secondary_icon_activatable">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="ipsec_gateway_id">
+                <property name="visible">True</property>
+                <property name="sensitive">False</property>
+                <property name="can_focus">True</property>
+                <property name="margin_top">1</property>
+                <property name="margin_bottom">1</property>
+                <property name="invisible_char">●</property>
+                <property name="primary_icon_activatable">False</property>
+                <property name="secondary_icon_activatable">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="ipsec_psk">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="margin_top">1</property>
+                <property name="margin_bottom">1</property>
+                <property name="visibility">False</property>
+                <property name="invisible_char">●</property>
+                <property name="primary_icon_activatable">False</property>
+                <property name="secondary_icon_activatable">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">2</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="padding">1</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+    <action-widgets>
+      <action-widget response="-6">ipsec_cancel_button</action-widget>
+      <action-widget response="-5">ipsec_ok_button</action-widget>
+    </action-widgets>
+  </object>
+  <object class="GtkBox" id="l2tp-vbox">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="border_width">12</property>
+    <property name="orientation">vertical</property>
+    <property name="spacing">16</property>
+    <child>
+      <object class="GtkBox" id="vbox8">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">6</property>
+        <child>
+          <object class="GtkLabel" id="label22">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">&lt;b&gt;General&lt;/b&gt;</property>
+            <property name="use_markup">True</property>
+            <property name="xalign">0</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkAlignment" id="alignment8">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="left_padding">12</property>
+            <child>
+              <object class="GtkGrid" id="grid2">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="row_spacing">6</property>
+                <property name="column_spacing">12</property>
+                <child>
+                  <object class="GtkLabel" id="label23">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">_Gateway:</property>
+                    <property name="use_underline">True</property>
+                    <property name="mnemonic_widget">gateway_entry</property>
+                    <property name="xalign">0</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="gateway_entry">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="tooltip_text" translatable="yes">L2TP server IP or name.
+config: xl2tpd lns parameter</property>
+                    <property name="primary_icon_activatable">False</property>
+                    <property name="secondary_icon_activatable">False</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="fill">True</property>
+        <property name="position">0</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkBox" id="vbox11">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">6</property>
+        <child>
+          <object class="GtkLabel" id="label25">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">&lt;b&gt;Optional&lt;/b&gt;</property>
+            <property name="use_markup">True</property>
+            <property name="xalign">0</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkAlignment" id="alignment9">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="left_padding">12</property>
+            <child>
+              <object class="GtkGrid" id="grid3">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="row_spacing">6</property>
+                <property name="column_spacing">12</property>
+                <child>
+                  <object class="GtkEntry" id="domain_entry">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="tooltip_text" translatable="yes">Append the domain name &lt;domain&gt; to the local host name for authentication purposes.
+config: domain &lt;domain&gt;</property>
+                    <property name="invisible_char">•</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">3</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkCheckButton" id="show_passwords_checkbutton">
+                    <property name="label" translatable="yes">Show password</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="xalign">0</property>
+                    <property name="draw_indicator">True</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkComboBox" id="user_pass_type_combo">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="renderer2"/>
+                      <attributes>
+                        <attribute name="text">0</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="top_attach">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="user_password_entry">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="tooltip_text" translatable="yes">Password passed to PPPD when prompted for it.</property>
+                    <property name="visibility">False</property>
+                    <property name="invisible_char">•</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="user_entry">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="tooltip_text" translatable="yes">Set the name used for authenticating the local system to the peer to &lt;name&gt;.
+config: xl2tpd name parameter</property>
+                    <property name="invisible_char">•</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label26">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">User name:</property>
+                    <property name="xalign">0</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label3">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Password:</property>
+                    <property name="xalign">0</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label27">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">NT Domain:</property>
+                    <property name="xalign">0</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">3</property>
+                  </packing>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="fill">False</property>
+        <property name="position">1</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkAlignment" id="alignment1">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="xalign">1</property>
+        <property name="xscale">0</property>
+        <child>
+          <object class="GtkBox" id="hbox1">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkButton" id="ipsec_button">
+                <property name="use_action_appearance">False</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <child>
+                  <object class="GtkBox" id="hbox3">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="spacing">6</property>
+                    <child>
+                      <object class="GtkImage" id="image2">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="stock">gtk-preferences</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="label5">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">_IPsec Settings...</property>
+                        <property name="use_markup">True</property>
+                        <property name="use_underline">True</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="padding">2</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="advanced_button">
+                <property name="use_action_appearance">False</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <child>
+                  <object class="GtkBox" id="hbox4">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="spacing">6</property>
+                    <child>
+                      <object class="GtkImage" id="image1">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="stock">gtk-preferences</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="label6">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">PPP Se_ttings...</property>
+                        <property name="use_markup">True</property>
+                        <property name="use_underline">True</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">False</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="padding">2</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+        </child>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="fill">False</property>
+        <property name="pack_type">end</property>
+        <property name="position">2</property>
+      </packing>
+    </child>
+  </object>
+  <object class="GtkListStore" id="model1">
+    <columns>
+      <!-- column-name gchararray -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">Default</col>
+      </row>
+    </data>
+  </object>
+  <object class="GtkDialog" id="l2tp-advanced-dialog">
+    <property name="can_focus">False</property>
+    <property name="border_width">5</property>
+    <property name="title" translatable="yes">L2TP PPP Options</property>
+    <property name="window_position">center-on-parent</property>
+    <property name="destroy_with_parent">True</property>
+    <property name="icon_name">stock-preferences</property>
+    <property name="type_hint">dialog</property>
+    <property name="skip_pager_hint">True</property>
+    <child internal-child="vbox">
+      <object class="GtkBox" id="dialog-vbox3">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox" id="dialog-action_area3">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="layout_style">end</property>
+            <child>
+              <object class="GtkButton" id="cancel_button1">
+                <property name="label">gtk-cancel</property>
+                <property name="use_action_appearance">False</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="use_stock">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="ok_button1">
+                <property name="label">gtk-ok</property>
+                <property name="use_action_appearance">False</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="use_stock">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="pack_type">end</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="PppPage">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="border_width">5</property>
+            <property name="orientation">vertical</property>
             <property name="spacing">18</property>
             <child>
-              <object class="GtkVBox" id="vbox2">
+              <object class="GtkBox" id="vbox2">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="orientation">vertical</property>
                 <property name="spacing">6</property>
                 <child>
                   <object class="GtkLabel" id="label28">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="xalign">0</property>
                     <property name="label" translatable="yes">&lt;b&gt;Authentication&lt;/b&gt;</property>
                     <property name="use_markup">True</property>
+                    <property name="xalign">0</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -89,16 +642,17 @@
                     <property name="can_focus">False</property>
                     <property name="left_padding">12</property>
                     <child>
-                      <object class="GtkVBox" id="vbox4">
+                      <object class="GtkBox" id="vbox4">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="orientation">vertical</property>
                         <property name="spacing">6</property>
                         <child>
                           <object class="GtkLabel" id="auth_methods_label">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="xalign">0</property>
                             <property name="label" translatable="yes">Allow the following authentication methods:</property>
+                            <property name="xalign">0</property>
                           </object>
                           <packing>
                             <property name="expand">True</property>
@@ -149,17 +703,18 @@ config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap</pr
               </packing>
             </child>
             <child>
-              <object class="GtkVBox" id="vbox5">
+              <object class="GtkBox" id="vbox5">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="orientation">vertical</property>
                 <property name="spacing">6</property>
                 <child>
                   <object class="GtkLabel" id="label29">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="xalign">0</property>
                     <property name="label" translatable="yes">&lt;b&gt;Security and Compression&lt;/b&gt;</property>
                     <property name="use_markup">True</property>
+                    <property name="xalign">0</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -173,24 +728,27 @@ config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap</pr
                     <property name="can_focus">False</property>
                     <property name="left_padding">12</property>
                     <child>
-                      <object class="GtkVBox" id="vbox6">
+                      <object class="GtkBox" id="vbox6">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="orientation">vertical</property>
                         <property name="spacing">6</property>
                         <child>
-                          <object class="GtkVBox" id="vbox7">
+                          <object class="GtkBox" id="vbox7">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
+                            <property name="orientation">vertical</property>
                             <property name="spacing">6</property>
                             <child>
                               <object class="GtkCheckButton" id="ppp_use_mppe">
                                 <property name="label" translatable="yes">Use _Point-to-Point encryption (MPPE)</property>
+                                <property name="use_action_appearance">False</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
                                 <property name="tooltip_text" translatable="yes">Note: MPPE encryption is only available with MSCHAP authentication methods. To enable this checkbox, select one or more of the MSCHAP authentication methods: MSCHAP or MSCHAPv2.</property>
-                                <property name="use_action_appearance">False</property>
                                 <property name="use_underline">True</property>
+                                <property name="xalign">0.5</property>
                                 <property name="draw_indicator">True</property>
                               </object>
                               <packing>
@@ -205,12 +763,13 @@ config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap</pr
                                 <property name="can_focus">False</property>
                                 <property name="left_padding">12</property>
                                 <child>
-                                  <object class="GtkVBox" id="vbox1">
+                                  <object class="GtkBox" id="vbox1">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
+                                    <property name="orientation">vertical</property>
                                     <property name="spacing">6</property>
                                     <child>
-                                      <object class="GtkHBox" id="hbox2">
+                                      <object class="GtkBox" id="hbox2">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="spacing">12</property>
@@ -218,10 +777,10 @@ config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap</pr
                                           <object class="GtkLabel" id="ppp_mppe_security_label">
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
-                                            <property name="xalign">0</property>
                                             <property name="label" translatable="yes">_Security:</property>
                                             <property name="use_underline">True</property>
                                             <property name="mnemonic_widget">ppp_mppe_security_combo</property>
+                                            <property name="xalign">0</property>
                                           </object>
                                           <packing>
                                             <property name="expand">False</property>
@@ -259,13 +818,14 @@ config: require-mppe, require-mppe-128 or require-mppe-40</property>
                                     <child>
                                       <object class="GtkCheckButton" id="ppp_allow_stateful_mppe">
                                         <property name="label" translatable="yes">Allow st_ateful encryption</property>
+                                        <property name="use_action_appearance">False</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">False</property>
                                         <property name="tooltip_text" translatable="yes">Allow MPPE to use stateful mode. Stateless mode is still attempted first.
 config: mppe-stateful (when checked)</property>
-                                        <property name="use_action_appearance">False</property>
                                         <property name="use_underline">True</property>
+                                        <property name="xalign">0.5</property>
                                         <property name="draw_indicator">True</property>
                                       </object>
                                       <packing>
@@ -293,13 +853,14 @@ config: mppe-stateful (when checked)</property>
                         <child>
                           <object class="GtkCheckButton" id="ppp_allow_bsdcomp">
                             <property name="label" translatable="yes">Allow _BSD data compression</property>
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="tooltip_text" translatable="yes">Allow/disable BSD-Compress compression.
 config: nobsdcomp (when unchecked)</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
+                            <property name="xalign">0.5</property>
                             <property name="draw_indicator">True</property>
                           </object>
                           <packing>
@@ -311,13 +872,14 @@ config: nobsdcomp (when unchecked)</property>
                         <child>
                           <object class="GtkCheckButton" id="ppp_allow_deflate">
                             <property name="label" translatable="yes">Allow _Deflate data compression</property>
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="tooltip_text" translatable="yes">Allow/disable Deflate compression.
 config: nodeflate (when unchecked)</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
+                            <property name="xalign">0.5</property>
                             <property name="draw_indicator">True</property>
                           </object>
                           <packing>
@@ -329,13 +891,14 @@ config: nodeflate (when unchecked)</property>
                         <child>
                           <object class="GtkCheckButton" id="ppp_usevj">
                             <property name="label" translatable="yes">Use TCP _header compression</property>
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="tooltip_text" translatable="yes">Allow/disable Van Jacobson style TCP/IP header compression in both the transmit and the receive directions.
 config: novj (when unchecked)</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
+                            <property name="xalign">0.5</property>
                             <property name="draw_indicator">True</property>
                           </object>
                           <packing>
@@ -347,13 +910,14 @@ config: novj (when unchecked)</property>
                         <child>
                           <object class="GtkCheckButton" id="ppp_usepcomp">
                             <property name="label" translatable="yes">Use protocol _field compression negotiation</property>
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="tooltip_text" translatable="yes">Allow protocol field compression negotiation in both the receive and the transmit direction.
 config: nopcomp (when unchecked)</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
+                            <property name="xalign">0.5</property>
                             <property name="draw_indicator">True</property>
                           </object>
                           <packing>
@@ -365,13 +929,14 @@ config: nopcomp (when unchecked)</property>
                         <child>
                           <object class="GtkCheckButton" id="ppp_useaccomp">
                             <property name="label" translatable="yes">Use _Address/Control compression</property>
+                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="tooltip_text" translatable="yes">Use Address/Control compression in both directions (send and receive).
 config: noaccomp (when unchecked)</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="use_underline">True</property>
+                            <property name="xalign">0.5</property>
                             <property name="draw_indicator">True</property>
                           </object>
                           <packing>
@@ -397,17 +962,18 @@ config: noaccomp (when unchecked)</property>
               </packing>
             </child>
             <child>
-              <object class="GtkVBox" id="vbox9">
+              <object class="GtkBox" id="vbox9">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="orientation">vertical</property>
                 <property name="spacing">6</property>
                 <child>
                   <object class="GtkLabel" id="label31">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="xalign">0</property>
                     <property name="label" translatable="yes">&lt;b&gt;Echo&lt;/b&gt;</property>
                     <property name="use_markup">True</property>
+                    <property name="xalign">0</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -423,13 +989,14 @@ config: noaccomp (when unchecked)</property>
                     <child>
                       <object class="GtkCheckButton" id="ppp_send_echo_packets">
                         <property name="label" translatable="yes">Send PPP _echo packets</property>
+                        <property name="use_action_appearance">False</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
                         <property name="tooltip_text" translatable="yes">Send LCP echo-requests to find out whether peer is alive.
 config: lcp-echo-failure and lcp-echo-interval</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="use_underline">True</property>
+                        <property name="xalign">0.5</property>
                         <property name="draw_indicator">True</property>
                       </object>
                     </child>
@@ -460,571 +1027,5 @@ config: lcp-echo-failure and lcp-echo-interval</property>
       <action-widget response="-6">cancel_button1</action-widget>
       <action-widget response="-5">ok_button1</action-widget>
     </action-widgets>
-  </object>
-  <object class="GtkDialog" id="l2tp-ipsec-dialog">
-    <property name="can_focus">False</property>
-    <property name="border_width">5</property>
-    <property name="title" translatable="yes">L2TP IPSEC Options</property>
-    <property name="window_position">center-on-parent</property>
-    <property name="destroy_with_parent">True</property>
-    <property name="type_hint">dialog</property>
-    <property name="skip_pager_hint">True</property>
-    <child internal-child="vbox">
-      <object class="GtkBox" id="dialog-vbox2">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="spacing">2</property>
-        <child internal-child="action_area">
-          <object class="GtkButtonBox" id="dialog-action_area2">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="layout_style">end</property>
-            <child>
-              <object class="GtkButton" id="ipsec_cancel_button">
-                <property name="label">gtk-cancel</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="use_action_appearance">False</property>
-                <property name="use_stock">True</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-                <property name="position">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkButton" id="ipsec_ok_button">
-                <property name="label">gtk-ok</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="use_action_appearance">False</property>
-                <property name="use_stock">True</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-                <property name="position">1</property>
-              </packing>
-            </child>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="pack_type">end</property>
-            <property name="position">0</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkCheckButton" id="ipsec_enable">
-            <property name="label" translatable="yes">_Enable IPsec tunnel to L2TP host</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">False</property>
-            <property name="use_action_appearance">False</property>
-            <property name="use_underline">True</property>
-            <property name="draw_indicator">True</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">1</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkTable" id="table1">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="n_rows">3</property>
-            <property name="n_columns">2</property>
-            <child>
-              <object class="GtkLabel" id="label4">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Group Name:</property>
-                <property name="justify">right</property>
-              </object>
-              <packing>
-                <property name="y_options"></property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkLabel" id="label1">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Gateway ID:</property>
-                <property name="justify">right</property>
-              </object>
-              <packing>
-                <property name="top_attach">1</property>
-                <property name="bottom_attach">2</property>
-                <property name="y_options"></property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkLabel" id="label2">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Pre-shared key:</property>
-                <property name="justify">right</property>
-              </object>
-              <packing>
-                <property name="top_attach">2</property>
-                <property name="bottom_attach">3</property>
-                <property name="y_options"></property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkEntry" id="ipsec_group_name">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="invisible_char">●</property>
-                <property name="primary_icon_activatable">False</property>
-                <property name="secondary_icon_activatable">False</property>
-              </object>
-              <packing>
-                <property name="left_attach">1</property>
-                <property name="right_attach">2</property>
-                <property name="y_options"></property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkEntry" id="ipsec_gateway_id">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="invisible_char">●</property>
-                <property name="primary_icon_activatable">False</property>
-                <property name="secondary_icon_activatable">False</property>
-              </object>
-              <packing>
-                <property name="left_attach">1</property>
-                <property name="right_attach">2</property>
-                <property name="top_attach">1</property>
-                <property name="bottom_attach">2</property>
-                <property name="y_options"></property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkEntry" id="ipsec_psk">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="visibility">False</property>
-                <property name="invisible_char">●</property>
-                <property name="primary_icon_activatable">False</property>
-                <property name="secondary_icon_activatable">False</property>
-              </object>
-              <packing>
-                <property name="left_attach">1</property>
-                <property name="right_attach">2</property>
-                <property name="top_attach">2</property>
-                <property name="bottom_attach">3</property>
-                <property name="y_options"></property>
-              </packing>
-            </child>
-          </object>
-          <packing>
-            <property name="expand">True</property>
-            <property name="fill">True</property>
-            <property name="position">2</property>
-          </packing>
-        </child>
-      </object>
-    </child>
-    <action-widgets>
-      <action-widget response="-6">ipsec_cancel_button</action-widget>
-      <action-widget response="-5">ipsec_ok_button</action-widget>
-    </action-widgets>
-  </object>
-  <object class="GtkVBox" id="l2tp-vbox">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="border_width">12</property>
-    <property name="spacing">16</property>
-    <child>
-      <object class="GtkVBox" id="vbox8">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="spacing">6</property>
-        <child>
-          <object class="GtkLabel" id="label22">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="xalign">0</property>
-            <property name="label" translatable="yes">&lt;b&gt;General&lt;/b&gt;</property>
-            <property name="use_markup">True</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">False</property>
-            <property name="position">0</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkAlignment" id="alignment8">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="left_padding">12</property>
-            <child>
-              <object class="GtkTable" id="table2">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="n_columns">2</property>
-                <property name="column_spacing">12</property>
-                <property name="row_spacing">6</property>
-                <child>
-                  <object class="GtkLabel" id="label23">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="xalign">0</property>
-                    <property name="label" translatable="yes">_Gateway:</property>
-                    <property name="use_underline">True</property>
-                    <property name="mnemonic_widget">gateway_entry</property>
-                  </object>
-                  <packing>
-                    <property name="x_options">GTK_SHRINK | GTK_FILL</property>
-                    <property name="y_options"></property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkEntry" id="gateway_entry">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="tooltip_text" translatable="yes">L2TP server IP or name.
-config: xl2tpd lns parameter</property>
-                    <property name="primary_icon_activatable">False</property>
-                    <property name="secondary_icon_activatable">False</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">1</property>
-                    <property name="right_attach">2</property>
-                    <property name="y_options"></property>
-                  </packing>
-                </child>
-              </object>
-            </child>
-          </object>
-          <packing>
-            <property name="expand">True</property>
-            <property name="fill">True</property>
-            <property name="position">1</property>
-          </packing>
-        </child>
-      </object>
-      <packing>
-        <property name="expand">False</property>
-        <property name="fill">True</property>
-        <property name="position">0</property>
-      </packing>
-    </child>
-    <child>
-      <object class="GtkVBox" id="vbox11">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="spacing">6</property>
-        <child>
-          <object class="GtkLabel" id="label25">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="xalign">0</property>
-            <property name="label" translatable="yes">&lt;b&gt;Optional&lt;/b&gt;</property>
-            <property name="use_markup">True</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">False</property>
-            <property name="position">0</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkAlignment" id="alignment9">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="left_padding">12</property>
-            <child>
-              <object class="GtkTable" id="table3">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="n_rows">4</property>
-                <property name="n_columns">3</property>
-                <property name="column_spacing">12</property>
-                <property name="row_spacing">6</property>
-                <child>
-                  <object class="GtkEntry" id="domain_entry">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="tooltip_text" translatable="yes">Append the domain name &lt;domain&gt; to the local host name for authentication purposes.
-config: domain &lt;domain&gt;</property>
-                    <property name="invisible_char">•</property>
-                    <property name="invisible_char_set">True</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">1</property>
-                    <property name="right_attach">2</property>
-                    <property name="top_attach">3</property>
-                    <property name="bottom_attach">4</property>
-                    <property name="y_options"></property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkLabel" id="label27">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="xalign">0</property>
-                    <property name="label" translatable="yes">NT Domain:</property>
-                  </object>
-                  <packing>
-                    <property name="top_attach">3</property>
-                    <property name="bottom_attach">4</property>
-                    <property name="x_options">GTK_SHRINK | GTK_FILL</property>
-                    <property name="y_options"></property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkCheckButton" id="show_passwords_checkbutton">
-                    <property name="label" translatable="yes">Show password</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
-                    <property name="use_action_appearance">False</property>
-                    <property name="xalign">0</property>
-                    <property name="draw_indicator">True</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">1</property>
-                    <property name="right_attach">2</property>
-                    <property name="top_attach">2</property>
-                    <property name="bottom_attach">3</property>
-                    <property name="y_options"></property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkComboBox" id="user_pass_type_combo">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <child>
-                      <object class="GtkCellRendererText" id="renderer2"/>
-                      <attributes>
-                        <attribute name="text">0</attribute>
-                      </attributes>
-                    </child>
-                  </object>
-                  <packing>
-                    <property name="left_attach">2</property>
-                    <property name="right_attach">3</property>
-                    <property name="top_attach">1</property>
-                    <property name="bottom_attach">2</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkEntry" id="user_password_entry">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="tooltip_text" translatable="yes">Password passed to PPPD when prompted for it.</property>
-                    <property name="visibility">False</property>
-                    <property name="invisible_char">•</property>
-                    <property name="invisible_char_set">True</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">1</property>
-                    <property name="right_attach">2</property>
-                    <property name="top_attach">1</property>
-                    <property name="bottom_attach">2</property>
-                    <property name="y_options"></property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkLabel" id="label3">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="xalign">0</property>
-                    <property name="label" translatable="yes">Password:</property>
-                  </object>
-                  <packing>
-                    <property name="top_attach">1</property>
-                    <property name="bottom_attach">2</property>
-                    <property name="x_options">GTK_SHRINK | GTK_FILL</property>
-                    <property name="y_options"></property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkEntry" id="user_entry">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="tooltip_text" translatable="yes">Set the name used for authenticating the local system to the peer to &lt;name&gt;.
-config: xl2tpd name parameter</property>
-                    <property name="invisible_char">•</property>
-                    <property name="invisible_char_set">True</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">1</property>
-                    <property name="right_attach">2</property>
-                    <property name="y_options"></property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkLabel" id="label26">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="xalign">0</property>
-                    <property name="label" translatable="yes">User name:</property>
-                  </object>
-                  <packing>
-                    <property name="x_options">GTK_SHRINK | GTK_FILL</property>
-                    <property name="y_options"></property>
-                  </packing>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-              </object>
-            </child>
-          </object>
-          <packing>
-            <property name="expand">True</property>
-            <property name="fill">True</property>
-            <property name="position">1</property>
-          </packing>
-        </child>
-      </object>
-      <packing>
-        <property name="expand">False</property>
-        <property name="fill">False</property>
-        <property name="position">1</property>
-      </packing>
-    </child>
-    <child>
-      <object class="GtkAlignment" id="alignment1">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="xalign">1</property>
-        <property name="xscale">0</property>
-        <child>
-          <object class="GtkHBox" id="hbox1">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <child>
-              <object class="GtkButton" id="ipsec_button">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="use_action_appearance">False</property>
-                <child>
-                  <object class="GtkHBox" id="hbox3">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="spacing">6</property>
-                    <child>
-                      <object class="GtkImage" id="image2">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="stock">gtk-preferences</property>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">False</property>
-                        <property name="position">0</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkLabel" id="label5">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="label" translatable="yes">_IPsec Settings...</property>
-                        <property name="use_markup">True</property>
-                        <property name="use_underline">True</property>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">False</property>
-                        <property name="position">1</property>
-                      </packing>
-                    </child>
-                  </object>
-                </child>
-              </object>
-              <packing>
-                <property name="expand">True</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkButton" id="advanced_button">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="use_action_appearance">False</property>
-                <child>
-                  <object class="GtkHBox" id="hbox4">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="spacing">6</property>
-                    <child>
-                      <object class="GtkImage" id="image1">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="stock">gtk-preferences</property>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">False</property>
-                        <property name="position">0</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkLabel" id="label6">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="label" translatable="yes">PPP Se_ttings...</property>
-                        <property name="use_markup">True</property>
-                        <property name="use_underline">True</property>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">False</property>
-                        <property name="position">1</property>
-                      </packing>
-                    </child>
-                  </object>
-                </child>
-              </object>
-              <packing>
-                <property name="expand">True</property>
-                <property name="fill">True</property>
-                <property name="position">1</property>
-              </packing>
-            </child>
-          </object>
-        </child>
-      </object>
-      <packing>
-        <property name="expand">False</property>
-        <property name="fill">False</property>
-        <property name="pack_type">end</property>
-        <property name="position">2</property>
-      </packing>
-    </child>
-  </object>
-  <object class="GtkListStore" id="model1">
-    <columns>
-      <!-- column-name gchararray -->
-      <column type="gchararray"/>
-    </columns>
-    <data>
-      <row>
-        <col id="0" translatable="yes">Default</col>
-      </row>
-    </data>
   </object>
 </interface>
