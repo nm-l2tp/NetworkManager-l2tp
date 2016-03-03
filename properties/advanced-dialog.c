@@ -70,6 +70,8 @@ static const char *advanced_keys[] = {
 	NM_L2TP_KEY_NO_ACCOMP,
 	NM_L2TP_KEY_LCP_ECHO_FAILURE,
 	NM_L2TP_KEY_LCP_ECHO_INTERVAL,
+	NM_L2TP_KEY_MTU,
+	NM_L2TP_KEY_MRU,
 	NULL
 };
 
@@ -497,6 +499,38 @@ advanced_dialog_new (GHashTable *hash)
 	handle_mppe_changed (widget, TRUE, builder);
 	g_signal_connect (G_OBJECT (widget), "toggled", G_CALLBACK (mppe_toggled_cb), builder);
 
+	widget = GTK_WIDGET (gtk_builder_get_object (builder,"ppp_mtu_spinbutton"));
+	value = g_hash_table_lookup (hash, NM_L2TP_KEY_MTU);
+	if (value && *value) {
+		long int tmp_int;
+
+		errno = 0;
+		tmp_int = strtol (value, NULL, 10);
+		if (errno == 0 && tmp_int >= 575 && tmp_int <= 1500) {
+			gtk_spin_button_set_value (GTK_SPIN_BUTTON (widget), (gdouble) tmp_int);
+		}
+	} else {
+		gtk_spin_button_set_value (GTK_SPIN_BUTTON (widget), 1400);
+	}
+
+	widget = GTK_WIDGET (gtk_builder_get_object (builder,"ppp_use_mppe"));
+	handle_mppe_changed (widget, TRUE, builder);
+	g_signal_connect (G_OBJECT (widget), "toggled", G_CALLBACK (mppe_toggled_cb), builder);
+
+	widget = GTK_WIDGET (gtk_builder_get_object (builder,"ppp_mru_spinbutton"));
+	value = g_hash_table_lookup (hash, NM_L2TP_KEY_MRU);
+	if (value && *value) {
+		long int tmp_int;
+
+		errno = 0;
+		tmp_int = strtol (value, NULL, 10);
+		if (errno == 0 && tmp_int >= 575 && tmp_int <= 1500) {
+			gtk_spin_button_set_value (GTK_SPIN_BUTTON (widget), (gdouble) tmp_int);
+		}
+	} else {
+		gtk_spin_button_set_value (GTK_SPIN_BUTTON (widget), 1400);
+	}
+
 out:
 	g_free (ui_file);
 	return dialog;
@@ -511,6 +545,8 @@ advanced_dialog_new_hash_from_dialog (GtkWidget *dialog, GError **error)
 	GtkTreeModel *model;
 	GtkTreeIter iter;
 	gboolean valid;
+	int mtu_num;
+	int mru_num;
 
 	g_return_val_if_fail (dialog != NULL, NULL);
 	if (error)
@@ -603,6 +639,16 @@ advanced_dialog_new_hash_from_dialog (GtkWidget *dialog, GError **error)
 
 		valid = gtk_tree_model_iter_next (model, &iter);
 	}
+
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ppp_mtu_spinbutton"));
+	mtu_num = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (widget));
+	g_hash_table_insert (hash, g_strdup (NM_L2TP_KEY_MTU),
+	                     g_strdup_printf ("%d", mtu_num));
+
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ppp_mru_spinbutton"));
+	mru_num = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (widget));
+	g_hash_table_insert (hash, g_strdup (NM_L2TP_KEY_MRU),
+	                     g_strdup_printf ("%d", mru_num));
 
 	return hash;
 }
