@@ -909,9 +909,10 @@ nm_l2tp_stop_ipsec (NML2tpPluginPrivate *priv)
 	char cmdbuf[256];
 	char session_name[128];
 	GPtrArray *whack_argv;
+	int sys = 0;
 
 	if (priv->is_libreswan) {
-		sprintf (session_name, "nm-ipsec-l2tp-%d", getpid ());
+		snprintf (session_name, sizeof(session_name), "nm-ipsec-l2tp-%d", getpid ());
 		whack_argv = g_ptr_array_new ();
 		g_ptr_array_add (whack_argv, (gpointer) g_strdup (priv->ipsec_binary_path));
 		g_ptr_array_add (whack_argv, (gpointer) g_strdup ("whack"));
@@ -928,8 +929,8 @@ nm_l2tp_stop_ipsec (NML2tpPluginPrivate *priv)
 			return;
 		}
 	} else {
-		sprintf (cmdbuf, "%s down nm-ipsec-l2tp-%d", priv->ipsec_binary_path, getpid ());
-		system (cmdbuf);
+		snprintf (cmdbuf, sizeof(cmdbuf), "%s down nm-ipsec-l2tp-%d", priv->ipsec_binary_path, getpid ());
+		sys = system (cmdbuf);
 	}
 
 	g_message("ipsec shut down");
@@ -951,27 +952,27 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	FILE *fp;
 	gboolean rc = FALSE;
 
-	sprintf(session_name, "nm-ipsec-l2tp-%d", getpid());
+	snprintf(session_name, sizeof(session_name), "nm-ipsec-l2tp-%d", getpid());
 
 	if (priv->is_libreswan) {
 
-		sprintf (cmdbuf, "%s auto --status > /dev/null", priv->ipsec_binary_path);
+		snprintf (cmdbuf, sizeof(cmdbuf), "%s auto --status > /dev/null", priv->ipsec_binary_path);
 		sys = system (cmdbuf);
 		if (sys) {
-			sprintf (cmdbuf, "%s _stackmanager start", priv->ipsec_binary_path);
+			snprintf (cmdbuf, sizeof(cmdbuf), "%s _stackmanager start", priv->ipsec_binary_path);
 			sys = system (cmdbuf);
 			if (sys) {
 				return nm_l2tp_ipsec_error (error, "Could not load required IPsec kernel stack.");
 			}
 		}
 
-		sprintf (cmdbuf, "%s restart", priv->ipsec_binary_path);
+		snprintf (cmdbuf, sizeof(cmdbuf), "%s restart", priv->ipsec_binary_path);
 		sys = system (cmdbuf);
 		if (sys) {
 			return nm_l2tp_ipsec_error (error, "Could not restart the ipsec service.");
 		}
 
-		sprintf (cmdbuf, "%s auto --ready", priv->ipsec_binary_path);
+		snprintf (cmdbuf, sizeof(cmdbuf), "%s auto --ready", priv->ipsec_binary_path);
 		sys = system (cmdbuf);
 		for (retry = 0; retry < 10 && sys != 0; retry++) {
 			sleep (1); // wait for ipsec to get ready
@@ -982,7 +983,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 		}
 
 	} else {
-		sprintf (cmdbuf, "%s restart "
+		snprintf (cmdbuf, sizeof(cmdbuf), "%s restart "
 		                 " --conf /var/run/nm-ipsec-l2tp.%d/ipsec.conf --debug",
 		                 priv->ipsec_binary_path, getpid ());
 		sys = system (cmdbuf);
@@ -1004,7 +1005,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 			secrets = "/etc/strongswan/ipsec.secrets";
 		}
 	}
-	sprintf(tmp_secrets, "%s.%d", secrets, getpid());
+	snprintf(tmp_secrets, sizeof(tmp_secrets), "%s.%d", secrets, getpid());
 	if(-1==rename(secrets, tmp_secrets) && errno != EEXIST) {
 		return nm_l2tp_ipsec_error(error, "Could not save existing /etc/ipsec.secrets file.");
 	}
@@ -1030,9 +1031,9 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	close(fd);
 
 	if (priv->is_libreswan) {
-		sprintf (cmdbuf, "%s auto --rereadsecrets", priv->ipsec_binary_path);
+		snprintf (cmdbuf, sizeof(cmdbuf), "%s auto --rereadsecrets", priv->ipsec_binary_path);
 	} else {
-		sprintf (cmdbuf, "%s rereadsecrets", priv->ipsec_binary_path);
+		snprintf (cmdbuf, sizeof(cmdbuf), "%s rereadsecrets", priv->ipsec_binary_path);
 	}
 	sys = 1;
 	for (retry = 0; retry < 10 && sys != 0; retry++) {
@@ -1043,11 +1044,11 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 
 	if (!sys) {
 		if (priv->is_libreswan) {
-			sprintf (cmdbuf, "%s auto "
+			snprintf (cmdbuf, sizeof(cmdbuf), "%s auto "
 					 " --config /var/run/nm-ipsec-l2tp.%d/ipsec.conf --verbose"
 					 " --start '%s'", priv->ipsec_binary_path, getpid (), session_name);
 		} else {
-			sprintf (cmdbuf,"%s up '%s'", priv->ipsec_binary_path, session_name);
+			snprintf (cmdbuf, sizeof(cmdbuf), "%s up '%s'", priv->ipsec_binary_path, session_name);
 		}
 		sys = system (cmdbuf);
 		if (!sys) {
@@ -1060,7 +1061,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 		nm_l2tp_ipsec_error(error, "Could not load new IPsec secret.");
 	}
 
-	sprintf (cmdbuf, "%s secrets", priv->ipsec_binary_path);
+	snprintf (cmdbuf, sizeof(cmdbuf), "%s secrets", priv->ipsec_binary_path);
 	if (rename(tmp_secrets, secrets) ||
 			system (cmdbuf)) {
 		g_warning(_("Could not restore saved %s from %s."), _(secrets), _(tmp_secrets));
