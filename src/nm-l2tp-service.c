@@ -402,6 +402,7 @@ static ValidProperty valid_properties[] = {
 	{ NM_L2TP_KEY_IPSEC_GATEWAY_ID,  G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_GROUP_NAME,  G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_PSK,         G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_IPSEC_PFS,         G_TYPE_BOOLEAN, FALSE },
 	{ NULL,                          G_TYPE_NONE,   FALSE }
 };
 
@@ -912,6 +913,10 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 
 		sprintf (cmdbuf, "%s auto --ready", priv->ipsec_binary_path);
 		sys = system (cmdbuf);
+		for (retry = 0; retry < 10 && sys != 0; retry++) {
+			sleep (1); // wait for ipsec to get ready
+			sys = system (cmdbuf);
+		}
 		if (sys) {
 			return nm_l2tp_ipsec_error (error, "Could not talk to pluto the IKE daemon.");
 		}
@@ -1179,6 +1184,8 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	if (!priv->is_libreswan) {
 		write_config_option (ipsec_fd,	"  keyexchange=ikev1\n");
 	}
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_PFS);
+	if(value)write_config_option (ipsec_fd, "  pfs=%s\n", value);
 
 	filename = g_strdup_printf ("/var/run/nm-xl2tpd.conf.%d", pid);
 	conf_fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR);

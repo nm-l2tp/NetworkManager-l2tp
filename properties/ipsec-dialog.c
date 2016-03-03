@@ -46,6 +46,7 @@ static const char *ipsec_keys[] = {
 	NM_L2TP_KEY_IPSEC_GROUP_NAME,
 	NM_L2TP_KEY_IPSEC_GATEWAY_ID,
 	NM_L2TP_KEY_IPSEC_PSK,
+	NM_L2TP_KEY_IPSEC_PFS,
 	NULL
 };
 
@@ -141,6 +142,12 @@ ipsec_dialog_new (GHashTable *hash)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), TRUE);
 	}
 
+	value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_PFS);
+	if (value && !strcmp (value, "no")) {
+		widget = GTK_WIDGET (gtk_builder_get_object (builder, "pfs_enable"));
+		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), FALSE);
+	}
+
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_group_name"));
 	if((value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_GROUP_NAME)))
 		gtk_entry_set_text(GTK_ENTRY(widget), value);
@@ -182,6 +189,10 @@ ipsec_dialog_new_hash_from_dialog (GtkWidget *dialog, GError **error)
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_enable"));
 	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
 		g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_ENABLE), g_strdup("yes"));
+
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "pfs_enable"));
+	if (!gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
+		g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_PFS), g_strdup("no"));
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_gateway_id"));
 	g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_GATEWAY_ID),

@@ -63,6 +63,7 @@
 #define NM_L2TP_KEY_IPSEC_GATEWAY_ID  "ipsec-gateway-id"
 #define NM_L2TP_KEY_IPSEC_GROUP_NAME  "ipsec-group-name"
 #define NM_L2TP_KEY_IPSEC_PSK         "ipsec-psk"
+#define NM_L2TP_KEY_IPSEC_PFS         "ipsec-pfs-enabled"
 
 /* For the pppd plugin <-> VPN plugin service */
 #define DBUS_TYPE_G_MAP_OF_VARIANT (dbus_g_type_get_map ("GHashTable", G_TYPE_STRING, G_TYPE_VALUE))

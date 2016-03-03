@@ -2,12 +2,7 @@
 The Debian and Ubuntu GNOME packages don't have reasonable defaults,
 so you have to give ./configure every path manually.
 
-  ./configure \
-	--prefix=/usr --localstatedir=/etc --sysconfdir=/etc \
-	--sharedstatedir=/var/lib --libexecdir=/usr/lib/NetworkManager \
-	--infodir=/usr/share/info --mandir=/usr/share/man \
-	--with-pppd-plugin-dir=/usr/lib/pppd/2.4.5 \
-	--with-dist-version=<my_build_ver>
+  ./configure  --prefix=/usr --localstatedir=/etc --sysconfdir=/etc  --sharedstatedir=/var/lib --libexecdir=/usr/lib/NetworkManager  --infodir=/usr/share/info --mandir=/usr/share/man  --with-pppd-plugin-dir=/usr/lib/pppd/2.4.5  --with-dist-version=vivid
 
 You'll need at least the following installed:
 
