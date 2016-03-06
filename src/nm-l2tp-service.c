@@ -1046,7 +1046,14 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 		if (priv->is_libreswan) {
 			snprintf (cmdbuf, sizeof(cmdbuf), "%s auto "
 					 " --config /var/run/nm-ipsec-l2tp.%d/ipsec.conf --verbose"
-					 " --start '%s'", priv->ipsec_binary_path, getpid (), session_name);
+					 " --add '%s'", priv->ipsec_binary_path, getpid (), session_name);
+			sys = system(cmdbuf);
+			if (!sys) {
+				snprintf(cmdbuf, sizeof(cmdbuf), "%s auto --up '%s'",
+						 priv->ipsec_binary_path, session_name);
+			} else {
+				nm_l2tp_ipsec_error (error, "Could not add IPsec tunnel.");
+			}
 		} else {
 			snprintf (cmdbuf, sizeof(cmdbuf), "%s up '%s'", priv->ipsec_binary_path, session_name);
 		}
