@@ -1,6 +1,6 @@
 AC_PREREQ(2.59)
 
-AC_INIT(NetworkManager-l2tp, 0.9.8.8, root@seriyps.ru, NetworkManager-l2tp)
+AC_INIT(NetworkManager-l2tp, 1.0.0, root@seriyps.ru, NetworkManager-l2tp)
 AM_INIT_AUTOMAKE([1.9 foreign no-dist-gzip dist-bzip2 subdir-objects])
 AM_MAINTAINER_MODE
 
