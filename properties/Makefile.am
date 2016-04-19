@@ -4,7 +4,7 @@ if WITH_LIBNM_GLIB
 plugin_LTLIBRARIES += libnm-l2tp-properties.la
 endif
 
-INCLUDES = -I${top_srcdir}
+AM_CPPFLAGS = -I${top_srcdir}
 
 libnm_vpn_plugin_l2tp_la_SOURCES = \
 	nm-l2tp.c \

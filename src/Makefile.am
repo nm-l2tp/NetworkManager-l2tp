@@ -1,17 +1,16 @@
-INCLUDES = -I${top_srcdir}
-
 AM_CPPFLAGS =							\
-	$(GLIB_CFLAGS)                                  \
-	$(LIBNM_CFLAGS)				\
+	-I${top_srcdir}						\
+	$(GLIB_CFLAGS)						\
+	$(LIBNM_CFLAGS)						\
 	-DBINDIR=\"$(bindir)\"					\
 	-DPREFIX=\""$(prefix)"\"				\
 	-DSYSCONFDIR=\""$(sysconfdir)"\"			\
 	-DLIBDIR=\""$(libdir)"\"				\
 	-DLIBEXECDIR=\""$(libexecdir)"\"			\
-	-DLOCALSTATEDIR=\""$(localstatedir)"\"		 	\
+	-DLOCALSTATEDIR=\""$(localstatedir)"\"	 		\
 	-DDATADIR=\"$(datadir)\"				\
 	-DNM_L2TP_LOCALEDIR=\"$(datadir)/locale\"		\
-	-DPLUGINDIR=\"$(PPPD_PLUGIN_DIR)\" 
+	-DPLUGINDIR=\"$(PPPD_PLUGIN_DIR)\"
 
 libexec_PROGRAMS = nm-l2tp-service
 
@@ -40,7 +39,7 @@ nm-l2tp-pppd-service-dbus.c:
 	@true
 
 nm_l2tp_service_LDADD = 				\
-				$(GLIB_LIBS)           \
+				$(GLIB_LIBS)		\
 				$(LIBNM_LIBS)		\
 				libnm-l2tp-pppd-service-dbus.la
 
