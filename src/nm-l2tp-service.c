@@ -742,6 +742,9 @@ nm_find_ipsec (void)
 			"/sbin/ipsec",
 			"/usr/sbin/ipsec",
 			"/usr/local/sbin/ipsec",
+			"/sbin/strongswan",
+			"/usr/sbin/strongswan",
+			"/usr/local/sbin/strongswan",
 			NULL
 		};
 
@@ -791,8 +794,8 @@ pppd_timed_out (gpointer user_data)
 
 static gboolean
 nm_l2tp_resolve_gateway (NML2tpPlugin *plugin,
-						 NMSettingVpn *s_vpn,
-						 GError **error)
+                         NMSettingVpn *s_vpn,
+                         GError **error)
 {
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
 	const char *p, *src;
@@ -938,6 +941,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 {
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
 	const char *value;
+	const char *secrets;
 	char tmp_secrets[128];
 	char session_name[128];
 	char cmdbuf[256];
@@ -945,57 +949,67 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	int fd;
 	FILE *fp;
 	gboolean rc = FALSE;
-	const char *ipsec_binary_path;
-
-	if (!(ipsec_binary_path=nm_find_ipsec ())) {
-		return nm_l2tp_ipsec_error (error, "Could not find the ipsec binary. Is Strongswan or Libreswan installed?");
-	}
-
-	strncpy (priv->ipsec_binary_path, ipsec_binary_path, 256);
-	priv->is_libreswan = check_is_libreswan (priv->ipsec_binary_path);
 
 	sprintf(session_name, "nm-ipsec-l2tp-%d", getpid());
 
 	if (priv->is_libreswan) {
-		sprintf (cmdbuf, "test -e /var/run/pluto/ipsec.info && . /var/run/pluto/ipsec.info;"
-		                 "if [ \"x$defaultrouteaddr\" = \"x\" ]; then %s setup restart; fi",
-		                 priv->ipsec_binary_path);
+
+		sprintf (cmdbuf, "%s auto --status > /dev/null", priv->ipsec_binary_path);
+		sys = system (cmdbuf);
+		if (sys) {
+			sprintf (cmdbuf, "%s _stackmanager start", priv->ipsec_binary_path);
+			sys = system (cmdbuf);
+			if (sys) {
+				return nm_l2tp_ipsec_error (error, "Could not load required IPsec kernel stack.");
+			}
+		}
+
+		sprintf (cmdbuf, "%s restart", priv->ipsec_binary_path);
+		sys = system (cmdbuf);
+		if (sys) {
+			return nm_l2tp_ipsec_error (error, "Could not restart the ipsec service.");
+		}
+
+		sprintf (cmdbuf, "%s auto --ready", priv->ipsec_binary_path);
+		sys = system (cmdbuf);
+		if (sys) {
+			return nm_l2tp_ipsec_error (error, "Could not talk to pluto the IKE daemon.");
+		}
+
 	} else {
 		sprintf (cmdbuf, "%s restart "
 		                 " --conf /var/run/nm-ipsec-l2tp.%d/ipsec.conf --debug",
 		                 priv->ipsec_binary_path, getpid ());
-	}
-
-	sys = system (cmdbuf);
-	if (sys) {
-		return nm_l2tp_ipsec_error(error, "Could not restart the ipsec service.");
-	}
-
-	if (priv->is_libreswan) {
-		sprintf (cmdbuf, "%s whack --listen", priv->ipsec_binary_path);
 		sys = system (cmdbuf);
 		if (sys) {
-			return nm_l2tp_ipsec_error (error, "Could not talk to IPsec key exchange service.");
+			return nm_l2tp_ipsec_error(error, "Could not restart the ipsec service.");
 		}
 	}
+
 
 	/* the way this works is sadly very messy
 	   we replace the user's /etc/ipsec.secrets file
 	   we ask strongswan/libreswan to reload the secrets,
 	   we whack in our connection,
-	   we then replace the secrets and ask strongswan to reload them
+	   we then replace the secrets and ask strongswan/libreswan to reload them
 	*/
-	sprintf(tmp_secrets, "/etc/ipsec.secrets.%d",getpid());
-	if(-1==rename("/etc/ipsec.secrets", tmp_secrets) && errno != EEXIST) {
+	secrets = "/etc/ipsec.secrets";
+	if (!priv->is_libreswan) {
+		if (g_file_test ("/etc/strongswan/ipsec.secrets", G_FILE_TEST_EXISTS)) {
+			secrets = "/etc/strongswan/ipsec.secrets";
+		}
+	}
+	sprintf(tmp_secrets, "%s.%d", secrets, getpid());
+	if(-1==rename(secrets, tmp_secrets) && errno != EEXIST) {
 		return nm_l2tp_ipsec_error(error, "Could not save existing /etc/ipsec.secrets file.");
 	}
 
 	fp = NULL;
-	if ((fd = open("/etc/ipsec.secrets", O_CREAT | O_EXCL | O_WRONLY, 0600)) >= 0) {
+	if ((fd = open(secrets, O_CREAT | O_EXCL | O_WRONLY, 0600)) >= 0) {
 		if (NULL == (fp = fdopen(fd, "w"))) close(fd);
 	}
 	if (NULL == fp) {
-		rename(tmp_secrets, "/etc/ipsec.secrets");
+		rename(tmp_secrets, secrets);
 		return nm_l2tp_ipsec_error(error, "Could not write /etc/ipsec.secrets file.");
 	}
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GROUP_NAME);
@@ -1010,7 +1024,11 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	fclose(fp);
 	close(fd);
 
-	sprintf (cmdbuf, "%s rereadsecrets", priv->ipsec_binary_path);
+	if (priv->is_libreswan) {
+		sprintf (cmdbuf, "%s auto --rereadsecrets", priv->ipsec_binary_path);
+	} else {
+		sprintf (cmdbuf, "%s rereadsecrets", priv->ipsec_binary_path);
+	}
 	sys = 1;
 	for (retry = 0; retry < 10 && sys != 0; retry++) {
 		sys = system (cmdbuf);
@@ -1021,41 +1039,26 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	if (!sys) {
 		if (priv->is_libreswan) {
 			sprintf (cmdbuf, "%s auto "
-			                 " --config /var/run/nm-ipsec-l2tp.%d/ipsec.conf --verbose"
-			                 " --add '%s'", priv->ipsec_binary_path, getpid (), session_name);
-			sys = system (cmdbuf);
-			if (!sys) {
-				sprintf (cmdbuf, "%s auto "
-				                 " --config /var/run/nm-ipsec-l2tp.%d/ipsec.conf --verbose"
-				                 " --up '%s'", priv->ipsec_binary_path, getpid (), session_name);
-				sys = system (cmdbuf);
-				if (!sys) {
-					rc = TRUE;
-					g_message ( ("ipsec ready for action"));
-				} else {
-					nm_l2tp_ipsec_error (error, "Could not establish IPsec tunnel.");
-				}
-			} else {
-				nm_l2tp_ipsec_error (error, "Could not configure IPsec tunnel.");
-			}
+					 " --config /var/run/nm-ipsec-l2tp.%d/ipsec.conf --verbose"
+					 " --start '%s'", priv->ipsec_binary_path, getpid (), session_name);
 		} else {
-			sprintf (cmdbuf,"%s up 'nm-ipsec-l2tp-%d'", priv->ipsec_binary_path, getpid ());
-			sys = system(cmdbuf);
-			if (!sys) {
-				rc = TRUE;
-				g_message(_("ipsec ready for action"));
-			} else {
-				nm_l2tp_ipsec_error(error, "Could not establish IPsec tunnel.");
-			}
+			sprintf (cmdbuf,"%s up '%s'", priv->ipsec_binary_path, session_name);
+		}
+		sys = system (cmdbuf);
+		if (!sys) {
+			rc = TRUE;
+			g_message ( ("ipsec ready for action"));
+		} else {
+			nm_l2tp_ipsec_error (error, "Could not establish IPsec tunnel.");
 		}
 	} else {
 		nm_l2tp_ipsec_error(error, "Could not load new IPsec secret.");
 	}
 
 	sprintf (cmdbuf, "%s secrets", priv->ipsec_binary_path);
-	if (rename(tmp_secrets, "/etc/ipsec.secrets") ||
+	if (rename(tmp_secrets, secrets) ||
 			system (cmdbuf)) {
-		g_warning(_("Could not restore saved /etc/ipsec.secrets from %s."), _(tmp_secrets));
+		g_warning(_("Could not restore saved %s from %s."), _(secrets), _(tmp_secrets));
 	}
 
 	return rc;
@@ -1191,7 +1194,7 @@ get_free_l2tp_port(void)
 
 static gboolean
 nm_l2tp_config_write (NML2tpPlugin *plugin,
-					  NMSettingVpn *s_vpn,
+                      NMSettingVpn *s_vpn,
                       GError **error)
 {
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
@@ -1216,24 +1219,10 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	if (ipsec_fd == -1) {
 		return nm_l2tp_ipsec_error(error, "Could not write ipsec config.");
 	}
-	write_config_option (ipsec_fd, "version 2.0\n"
-"config setup\n");
-	if (priv->is_libreswan) {
-	    write_config_option (ipsec_fd, 	"  nat_traversal=yes\n"
-						"  force_keepalive=yes\n"
-						"  protostack=netkey\n"
-						"  keep_alive=60\n"
-						"\n");
-	}
 
 	write_config_option (ipsec_fd, 		"conn nm-ipsec-l2tp-%d\n", pid);
 	write_config_option (ipsec_fd, 		"  auto=add\n"
 						"  type=transport\n");
-
-	if (priv->is_libreswan) {
-		write_config_option (ipsec_fd, 	"  auth=esp\n"
-						"  pfs=no\n");
-	}
 
 	write_config_option (ipsec_fd, 		"  authby=secret\n"
 						"  keyingtries=0\n"
@@ -1246,14 +1235,8 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	write_config_option (ipsec_fd, "  right=%s\n", priv->saddr);
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GATEWAY_ID);
 	if(value)write_config_option (ipsec_fd, "  rightid=@%s\n", value);
-	write_config_option (ipsec_fd,		"  esp=3des-sha1\n"
-						"  ike=3des-sha1-modp1024\n"
-						"  forceencaps=yes\n");
 
-	if (priv->is_libreswan) {
-		write_config_option (ipsec_fd,	"  keyexchange=ike\n"
-						"  aggrmode=no\n");
-	} else {
+	if (!priv->is_libreswan) {
 		write_config_option (ipsec_fd,	"  keyexchange=ikev1\n");
 	}
 
@@ -1297,7 +1280,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 
 	write_config_option (conf_fd, "[lac l2tp]\n");
 
-    /* value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_GATEWAY); */
+	/* value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_GATEWAY); */
 	write_config_option (conf_fd, "lns = %s\n", priv->saddr);
 
 	if (priv->service)
@@ -1468,6 +1451,14 @@ real_connect (NMVpnServicePlugin   *plugin,
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
 	NMSettingVpn *s_vpn;
 	const char *value;
+	const char *ipsec_binary_path;
+
+	if (!(ipsec_binary_path=nm_find_ipsec ())) {
+		return nm_l2tp_ipsec_error (error, "Could not find the ipsec binary. Is strongSwan or Libreswan installed?");
+	}
+
+	strncpy (priv->ipsec_binary_path, ipsec_binary_path, 256);
+	priv->is_libreswan = check_is_libreswan (priv->ipsec_binary_path);
 
 	if (getenv ("NM_PPP_DUMP_CONNECTION") || debug)
 		nm_connection_dump (connection);
@@ -1574,7 +1565,7 @@ ensure_killed (gpointer data)
 
 static gboolean
 real_disconnect (NMVpnServicePlugin   *plugin,
-			  GError       **err)
+                 GError       **err)
 {
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
 
