@@ -13,8 +13,18 @@ nmvpnservicedir = $(NM_VPN_SERVICE_DIR)
 nmvpnservice_DATA = nm-l2tp-service.name
 
 if WITH_LIBNM_GLIB
-nmvpnoldservicedir = $(sysconfdir)/NetworkManager/VPN
-nmvpnoldservice_DATA = nm-l2tp-service.name
+# Install a file with full path to plugins for an old gnome-shell
+# https://bugzilla.gnome.org/show_bug.cgi?id=693590
+install-data-hook:
+	mkdir -p $(DESTDIR)$(sysconfdir)/NetworkManager/VPN
+	sed -e "1s|^|# This file is obsoleted by a file in $(NM_VPN_SERVICE_DIR)\n\n|" \
+	    -e 's|[@]LIBEXECDIR[@]|$(libexecdir)|g' \
+	    -e 's|[@]PLUGINDIR[@]|$(libdir)/NetworkManager|g' \
+	    <$(srcdir)/nm-l2tp-service.name.in \
+	    >$(DESTDIR)$(sysconfdir)/NetworkManager/VPN/nm-l2tp-service.name
+
+uninstall-hook:
+	rm -f $(DESTDIR)$(sysconfdir)/NetworkManager/VPN/nm-l2tp-service.name
 endif
 
 desktopfile = nm-l2tp.desktop.in
@@ -31,9 +41,14 @@ if WITH_GNOME
 #icon_DATA = $(iconfile)
 endif
 
+appdatadir = $(datadir)/appdata
+appdata_DATA = $(appdata_in_files:.xml.in=.xml)
+appdata_in_files = appdata/network-manager-l2tp.appdata.xml.in
+@INTLTOOL_XML_RULE@
+
 nm-l2tp-service.name: $(srcdir)/nm-l2tp-service.name.in
 	sed -e 's|[@]LIBEXECDIR[@]|$(libexecdir)|g' \
-	    -e 's|[@]PLUGINDIR[@]|$(libdir)/NetworkManager|g' \
+	    -e 's|[@]PLUGINDIR[@]/|@NM_PLUGIN_DIR@|g' \
 	    $< >$@
 
 DISTCHECK_CONFIGURE_FLAGS = --enable-more-warnings=yes
@@ -42,11 +57,16 @@ EXTRA_DIST = nm-l2tp-service.name.in \
              $(dbusservice_DATA)  \
              $(desktopfile) \
              $(iconfile) \
+             $(appdata_in_files)  \
+             $(appdata_DATA)      \
              intltool-extract.in  \
              intltool-merge.in    \
              intltool-update.in
 
-CLEANFILES = $(nmvpnservice_DATA) $(desktop_DATA) *~
+CLEANFILES = $(nmvpnservice_DATA) \
+             $(desktop_DATA)      \
+             $(appdata_DATA)
+
 DISTCLEANFILES = intltool-extract intltool-merge intltool-update
 
 ACLOCAL_AMFLAGS = -I m4

@@ -1,6 +1,6 @@
 AC_PREREQ(2.59)
 
-AC_INIT(NetworkManager-l2tp, 1.1.0, root@seriyps.ru, NetworkManager-l2tp)
+AC_INIT(NetworkManager-l2tp, 1.2.0, root@seriyps.ru, NetworkManager-l2tp)
 AM_INIT_AUTOMAKE([1.9 foreign no-dist-gzip dist-xz subdir-objects])
 AM_MAINTAINER_MODE
 
@@ -56,6 +56,8 @@ AM_CONDITIONAL(WITH_GNOME, test x"$with_gnome" != xno)
 AC_ARG_WITH(libnm-glib, AS_HELP_STRING([--without-libnm-glib], [Build NetworkManager-l2tp without libnm-glib comatibility]))
 AM_CONDITIONAL(WITH_LIBNM_GLIB, test x"$with_libnm_glib" != xno)
 
+AC_ARG_ENABLE(absolute-paths, AS_HELP_STRING([--enable-absolute-paths], [Use absolute paths to in .name files. Useful for development. (default is no)]))
+
 GETTEXT_PACKAGE=NetworkManager-l2tp
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package])
@@ -74,9 +76,13 @@ if test x"$with_gnome" != xno; then
 	AC_SUBST(GTK_LIBS)
 	GTK_CFLAGS="$GTK_CFLAGS -DGDK_VERSION_MIN_REQUIRED=GDK_VERSION_3_4"
 
-	PKG_CHECK_MODULES(GNOMEKEYRING, gnome-keyring-1)
-	AC_SUBST(GNOMEKEYRING_CFLAGS)
-	AC_SUBST(GNOMEKEYRING_LIBS)
+	PKG_CHECK_MODULES(NMGTK, libnm-gtk >= 0.9.9.0)
+	AC_SUBST(NMGTK_CFLAGS)
+	AC_SUBST(NMGTK_LIBS)
+
+	PKG_CHECK_MODULES(LIBSECRET, libsecret-unstable)
+	AC_SUBST(LIBSECRET_CFLAGS)
+	AC_SUBST(LIBSECRET_LIBS)
 
 	if test x"$with_libnm_glib" != xno; then
 		PKG_CHECK_MODULES(LIBNM_GLIB,
@@ -93,6 +99,9 @@ LIBNM_CFLAGS="$LIBNM_CFLAGS -DNM_VERSION_MAX_ALLOWED=NM_VERSION_1_2"
 
 NM_VPN_SERVICE_DIR=`$PKG_CONFIG --define-variable prefix='\${prefix}' --variable vpnservicedir libnm`
 AC_SUBST(NM_VPN_SERVICE_DIR)
+
+test x"$enable_absolute_paths" = x"yes" && NM_PLUGIN_DIR='$(libdir)/NetworkManager/'
+AC_SUBST(NM_PLUGIN_DIR)
 
 NM_COMPILER_WARNINGS
 
