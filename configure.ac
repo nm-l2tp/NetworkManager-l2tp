@@ -1,6 +1,9 @@
 AC_PREREQ(2.59)
 
-AC_INIT(NetworkManager-l2tp, 1.2.0, root@seriyps.ru, NetworkManager-l2tp)
+AC_INIT(NetworkManager-l2tp,
+        1.2.0,
+        https://github.com/nm-l2tp/network-manager-l2tp/issues,
+        NetworkManager-l2tp)
 AM_INIT_AUTOMAKE([1.9 foreign no-dist-gzip dist-xz subdir-objects])
 AM_MAINTAINER_MODE
 
@@ -66,23 +69,14 @@ IT_PROG_INTLTOOL([0.35])
 AM_GLIB_GNU_GETTEXT
 
 PKG_CHECK_MODULES(GLIB, gio-unix-2.0 >= 2.32)
-AC_SUBST(GLIB_CFLAGS)
-AC_SUBST(GLIB_LIBS)
 GLIB_CFLAGS="$GLIB_CFLAGS -DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_32"
 
 if test x"$with_gnome" != xno; then
 	PKG_CHECK_MODULES(GTK, gtk+-3.0 >= 3.4)
-	AC_SUBST(GTK_CFLAGS)
-	AC_SUBST(GTK_LIBS)
 	GTK_CFLAGS="$GTK_CFLAGS -DGDK_VERSION_MIN_REQUIRED=GDK_VERSION_3_4"
 
 	PKG_CHECK_MODULES(NMGTK, libnm-gtk >= 0.9.9.0)
-	AC_SUBST(NMGTK_CFLAGS)
-	AC_SUBST(NMGTK_LIBS)
-
 	PKG_CHECK_MODULES(LIBSECRET, libsecret-unstable)
-	AC_SUBST(LIBSECRET_CFLAGS)
-	AC_SUBST(LIBSECRET_LIBS)
 
 	if test x"$with_libnm_glib" != xno; then
 		PKG_CHECK_MODULES(LIBNM_GLIB,
