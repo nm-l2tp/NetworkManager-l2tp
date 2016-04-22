@@ -7,7 +7,7 @@ nm_l2tp_auth_dialog_CPPFLAGS =			\
 	$(GLIB_CFLAGS)				\
 	$(GTK_CFLAGS)				\
 	$(NMGTK_CFLAGS)				\
-	$(GNOMEKEYRING_CFLAGS)			\
+	$(LIBSECRET_CFLAGS)			\
 	-DICONDIR=\""$(datadir)/pixmaps"\"	\
 	-DUIDIR=\""$(uidir)"\"			\
 	-DBINDIR=\""$(bindir)"\"
@@ -19,6 +19,6 @@ nm_l2tp_auth_dialog_LDADD =			\
 	$(LIBNM_LIBS)				\
 	$(GTK_LIBS)				\
 	$(NMGTK_LIBS)				\
-	$(GNOMEKEYRING_LIBS)
+	$(LIBSECRET_LIBS)
 
 CLEANFILES = *~
