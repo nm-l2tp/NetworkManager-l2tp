@@ -35,9 +35,9 @@
 
 #include <NetworkManager.h>
 #include <nm-vpn-service-plugin.h>
+#include <nm-vpn-password-dialog.h>
 
-#include "src/nm-l2tp-service-defines.h"
-#include "vpn-password-dialog.h"
+#include "src/nm-l2tp-service.h"
 
 #define KEYRING_UUID_TAG "connection-uuid"
 #define KEYRING_SN_TAG "setting-name"
@@ -111,7 +111,7 @@ get_secrets (const char *vpn_uuid,
              char **out_pw,
              NMSettingSecretFlags pw_flags)
 {
-	VpnPasswordDialog *dialog;
+	NMAVpnPasswordDialog *dialog;
 	char *prompt, *pw = NULL;
 	const char *new_password = NULL;
 
@@ -167,19 +167,19 @@ get_secrets (const char *vpn_uuid,
 	}
 
 
-	dialog = (VpnPasswordDialog *) vpn_password_dialog_new (_("Authenticate VPN"), prompt, NULL);
+	dialog = (NMAVpnPasswordDialog *) nma_vpn_password_dialog_new (_("Authenticate VPN"), prompt, NULL);
 
-	vpn_password_dialog_set_show_password_secondary (dialog, FALSE);
+	nma_vpn_password_dialog_set_show_password_secondary (dialog, FALSE);
 
 	/* pre-fill dialog with the password */
 	if (pw && !(pw_flags & NM_SETTING_SECRET_FLAG_NOT_SAVED))
-		vpn_password_dialog_set_password (dialog, pw);
+		nma_vpn_password_dialog_set_password (dialog, pw);
 
 	gtk_widget_show (GTK_WIDGET (dialog));
 
-	if (vpn_password_dialog_run_and_block (dialog)) {
+	if (nma_vpn_password_dialog_run_and_block (dialog)) {
 
-		new_password = vpn_password_dialog_get_password (dialog);
+		new_password = nma_vpn_password_dialog_get_password (dialog);
 		if (new_password)
 			*out_pw = gnome_keyring_memory_strdup (new_password);
 	}
