@@ -20,12 +20,14 @@ stamp-*
 .libs
 autom4te.cache
 intltool-*
+po/NetworkManager-l2tp.pot
 po/*.gmo
 po/.intltool-merge-cache
 m4/gtk-doc.m4
 m4/intltool.m4
 m4/libtool.m4
 m4/lt*.m4
+network-manager-l2tp.appdata.xml
 
 auth-dialog/nm-l2tp-auth-dialog
 nm-l2tp-service.name

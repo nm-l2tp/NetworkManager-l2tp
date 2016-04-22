@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright Lubomir Rintel 2016 -->
+<component type="addon">
+  <id>network-manager-l2tp</id>
+  <project_license>GPL-2.0+</project_license>
+  <metadata_license>CC0-1.0</metadata_license>
+  <extends>nm-connection-editor.desktop</extends>
+  <extends>gnome-control-center.desktop</extends>
+  <_name>L2TP VPN Client</_name>
+  <_summary>Client for L2TP based virtual private networks</_summary>
+
+  <keywords>
+    <keyword>network</keyword>
+    <keyword>manager</keyword>
+    <keyword>NetworkManager</keyword>
+    <keyword>connection</keyword>
+    <keyword>VPN</keyword>
+    <keyword>L2TP</keyword>
+  </keywords>
+
+  <description>
+    <_p>Support for configuring L2TP based virtual private network connections.</_p>
+    <_p>Compatible with L2TP and L2TP over IPsec services.</_p>
+  </description>
+
+  <screenshots>
+    <screenshot type="default">
+      <image width="800" height="498">https://raw.githubusercontent.com/nm-l2tp/network-manager-l2tp/master/appdata/l2tp.png</image>
+    </screenshot>
+
+    <screenshot type="default">
+      <_caption>The PPP options dialog</_caption>
+      <image width="800" height="627">https://raw.githubusercontent.com/nm-l2tp/network-manager-l2tp/master/appdata/l2tp-ppp.png</image>
+    </screenshot>
+  </screenshots>
+
+  <url type="homepage">https://github.com/nm-l2tp/network-manager-l2tp</url>
+  <url type="bugtracker">https://github.com/nm-l2tp/network-manager-l2tp/issues</url>
+  <update_contact>doug@uq.edu.au</update_contact>
+  <translation type="gettext">NetworkManager-l2tp</translation>
+  <_developer_name>The NetworkManager-L2TP Developers</_developer_name>
+</component>

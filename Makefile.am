@@ -41,6 +41,11 @@ if WITH_GNOME
 #icon_DATA = $(iconfile)
 endif
 
+appdatadir = $(datadir)/appdata
+appdata_DATA = $(appdata_in_files:.xml.in=.xml)
+appdata_in_files = appdata/network-manager-l2tp.appdata.xml.in
+@INTLTOOL_XML_RULE@
+
 nm-l2tp-service.name: $(srcdir)/nm-l2tp-service.name.in
 	sed -e 's|[@]LIBEXECDIR[@]|$(libexecdir)|g' \
 	    -e 's|[@]PLUGINDIR[@]/|@NM_PLUGIN_DIR@|g' \
@@ -52,11 +57,16 @@ EXTRA_DIST = nm-l2tp-service.name.in \
              $(dbusservice_DATA)  \
              $(desktopfile) \
              $(iconfile) \
+             $(appdata_in_files)  \
+             $(appdata_DATA)      \
              intltool-extract.in  \
              intltool-merge.in    \
              intltool-update.in
 
-CLEANFILES = $(nmvpnservice_DATA) $(desktop_DATA) *~
+CLEANFILES = $(nmvpnservice_DATA) \
+             $(desktop_DATA)      \
+             $(appdata_DATA)
+
 DISTCLEANFILES = intltool-extract intltool-merge intltool-update
 
 ACLOCAL_AMFLAGS = -I m4
