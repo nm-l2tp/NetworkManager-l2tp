@@ -302,7 +302,7 @@ plugin_init (void)
 	proxy = g_dbus_proxy_new_for_bus_sync (G_BUS_TYPE_SYSTEM,
 	                                       G_DBUS_PROXY_FLAGS_NONE,
 	                                       NULL,
-	                                       NM_DBUS_SERVICE_L2TP_PPP,
+	                                       NM_DBUS_SERVICE_L2TP,
 	                                       NM_DBUS_PATH_L2TP_PPP,
 	                                       NM_DBUS_INTERFACE_L2TP_PPP,
 	                                       NULL, &err);

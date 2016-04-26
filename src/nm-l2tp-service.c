@@ -1681,13 +1681,20 @@ NML2tpPlugin *
 nm_l2tp_plugin_new (void)
 {
 	NML2tpPlugin *plugin;
+	GError *error = NULL;
 
-	plugin = g_object_new (NM_TYPE_L2TP_PLUGIN,
-	                       NM_VPN_SERVICE_PLUGIN_DBUS_SERVICE_NAME,
-	                       NM_DBUS_SERVICE_L2TP,
-	                       NULL);
+	plugin = g_initable_new (NM_TYPE_L2TP_PLUGIN, NULL, &error,
+	                         NM_VPN_SERVICE_PLUGIN_DBUS_SERVICE_NAME,
+	                         NM_DBUS_SERVICE_L2TP,
+	                         NM_VPN_SERVICE_PLUGIN_DBUS_WATCH_PEER, !debug,
+	                         NULL);
 	if (plugin)
 		g_signal_connect (G_OBJECT (plugin), "state-changed", G_CALLBACK (state_changed_cb), NULL);
+
+	if (debug && error)
+		g_message ("Error: failed to create NML2tpPlugin: %s", error->message);
+	g_clear_error (&error);
+
 	return plugin;
 }
 
