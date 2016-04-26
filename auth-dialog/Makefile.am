@@ -1,13 +1,12 @@
-AM_CPPFLAGS = -I${top_srcdir}
-
 libexec_PROGRAMS = nm-l2tp-auth-dialog
 
 nm_l2tp_auth_dialog_CPPFLAGS =			\
 	$(LIBNM_CFLAGS)				\
 	$(GLIB_CFLAGS)				\
 	$(GTK_CFLAGS)				\
-	$(NMGTK_CFLAGS)				\
+	$(LIBNMA_CFLAGS)			\
 	$(LIBSECRET_CFLAGS)			\
+	-I${top_srcdir}				\
 	-DICONDIR=\""$(datadir)/pixmaps"\"	\
 	-DUIDIR=\""$(uidir)"\"			\
 	-DBINDIR=\""$(bindir)"\"
@@ -18,7 +17,7 @@ nm_l2tp_auth_dialog_SOURCES =			\
 nm_l2tp_auth_dialog_LDADD =			\
 	$(LIBNM_LIBS)				\
 	$(GTK_LIBS)				\
-	$(NMGTK_LIBS)				\
+	$(LIBNMA_LIBS)				\
 	$(LIBSECRET_LIBS)
 
 CLEANFILES = *~

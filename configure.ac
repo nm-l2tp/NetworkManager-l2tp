@@ -75,15 +75,15 @@ if test x"$with_gnome" != xno; then
 	PKG_CHECK_MODULES(GTK, gtk+-3.0 >= 3.4)
 	GTK_CFLAGS="$GTK_CFLAGS -DGDK_VERSION_MIN_REQUIRED=GDK_VERSION_3_4"
 
-	PKG_CHECK_MODULES(NMGTK, libnm-gtk >= 0.9.9.0)
+	PKG_CHECK_MODULES(LIBNMA, libnma >= 1.1.0)
 	PKG_CHECK_MODULES(LIBSECRET, libsecret-unstable)
 
 	if test x"$with_libnm_glib" != xno; then
+		PKG_CHECK_MODULES(LIBNM_GTK, libnm-gtk >= 0.9.10)
 		PKG_CHECK_MODULES(LIBNM_GLIB,
-		                  NetworkManager >= 1.1.0
-		                  libnm-util >= 1.1.0
-		                  libnm-glib >= 1.1.0
-		                  libnm-glib-vpn >= 1.1.0)
+				  NetworkManager >= 1.1.0
+				  libnm-glib >= 1.1.0
+				  libnm-glib-vpn >= 1.1.0)
 	fi
 fi
 
@@ -94,10 +94,10 @@ LIBNM_CFLAGS="$LIBNM_CFLAGS -DNM_VERSION_MAX_ALLOWED=NM_VERSION_1_2"
 NM_VPN_SERVICE_DIR=`$PKG_CONFIG --define-variable prefix='\${prefix}' --variable vpnservicedir libnm`
 AC_SUBST(NM_VPN_SERVICE_DIR)
 
+NM_COMPILER_WARNINGS
+
 test x"$enable_absolute_paths" = x"yes" && NM_PLUGIN_DIR='$(libdir)/NetworkManager/'
 AC_SUBST(NM_PLUGIN_DIR)
-
-NM_COMPILER_WARNINGS
 
 dnl
 dnl Distribution version string
