@@ -167,7 +167,7 @@ _service_cache_credentials (NML2tpPppService *self,
 	g_return_val_if_fail (self != NULL, FALSE);
 	g_return_val_if_fail (connection != NULL, FALSE);
 
-	s_vpn = (NMSettingVpn *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
+	s_vpn = nm_connection_get_setting_vpn (connection);
 	if (!s_vpn) {
 		return nm_l2tp_ipsec_error(error, "Could not load NetworkManager connection settings.");
 	}
@@ -267,9 +267,11 @@ nm_l2tp_ppp_service_dispose (GObject *object)
 {
 	NML2tpPppServicePrivate *priv = NM_L2TP_PPP_SERVICE_GET_PRIVATE (object);
 
-	g_signal_handlers_disconnect_by_func (priv->dbus_skeleton, handle_need_secrets, object);
-	g_signal_handlers_disconnect_by_func (priv->dbus_skeleton, handle_set_state, object);
-	g_signal_handlers_disconnect_by_func (priv->dbus_skeleton, handle_set_ip4_config, object);
+	if (priv->dbus_skeleton) {
+		g_signal_handlers_disconnect_by_func (priv->dbus_skeleton, handle_need_secrets, object);
+		g_signal_handlers_disconnect_by_func (priv->dbus_skeleton, handle_set_state, object);
+		g_signal_handlers_disconnect_by_func (priv->dbus_skeleton, handle_set_ip4_config, object);
+	}
 
 	G_OBJECT_CLASS (nm_l2tp_ppp_service_parent_class)->dispose (object);
 }
@@ -1478,7 +1480,7 @@ real_connect (NMVpnServicePlugin   *plugin,
 	if (getenv ("NM_PPP_DUMP_CONNECTION") || debug)
 		nm_connection_dump (connection);
 
-	s_vpn = NM_SETTING_VPN (nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN));
+	s_vpn = nm_connection_get_setting_vpn (connection);
 	g_assert (s_vpn);
 
 	if (!nm_l2tp_properties_validate (s_vpn, error))
@@ -1488,12 +1490,8 @@ real_connect (NMVpnServicePlugin   *plugin,
 		return FALSE;
 
 	/* Start our pppd plugin helper service */
-	if (priv->service)
-		g_object_unref (priv->service);
-	if (priv->connection) {
-		g_object_unref (priv->connection);
-		priv->connection = NULL;
-	}
+	g_clear_object (&priv->service);
+	g_clear_object (&priv->connection);
 
 	priv->service = nm_l2tp_ppp_service_new (connection, error);
 	if (!priv->service) {
@@ -1542,13 +1540,13 @@ real_need_secrets (NMVpnServicePlugin *plugin,
                    const char **setting_name,
                    GError **error)
 {
-	NMSetting *s_vpn;
+	NMSettingVpn *s_vpn;
 	NMSettingSecretFlags flags = NM_SETTING_SECRET_FLAG_NONE;
 
 	g_return_val_if_fail (NM_IS_VPN_SERVICE_PLUGIN (plugin), FALSE);
 	g_return_val_if_fail (NM_IS_CONNECTION (connection), FALSE);
 
-	s_vpn = nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
+	s_vpn = nm_connection_get_setting_vpn (connection);
 
 	nm_setting_get_secret_flags (NM_SETTING (s_vpn), NM_L2TP_KEY_PASSWORD, &flags, NULL);
 
@@ -1598,15 +1596,8 @@ real_disconnect (NMVpnServicePlugin   *plugin,
 		nm_l2tp_stop_ipsec (priv);
 	}
 
-	if (priv->connection) {
-		g_object_unref (priv->connection);
-		priv->connection = NULL;
-	}
-
-	if (priv->service) {
-		g_object_unref (priv->service);
-		priv->service = NULL;
-	}
+	g_clear_object (&priv->connection);
+	g_clear_object (&priv->service);
 
 	return TRUE;
 }
@@ -1626,14 +1617,8 @@ state_changed_cb (GObject *object, NMVpnServiceState state, gpointer user_data)
 	case NM_VPN_SERVICE_STATE_STOPPING:
 	case NM_VPN_SERVICE_STATE_STOPPED:
 		remove_timeout_handler (NM_L2TP_PLUGIN (object));
-		if (priv->connection) {
-			g_object_unref (priv->connection);
-			priv->connection = NULL;
-		}
-		if (priv->service) {
-			g_object_unref (priv->service);
-			priv->service = NULL;
-		}
+		g_clear_object (&priv->connection);
+		g_clear_object (&priv->service);
 		break;
 	default:
 		break;
@@ -1645,11 +1630,8 @@ dispose (GObject *object)
 {
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (object);
 
-	if (priv->connection)
-		g_object_unref (priv->connection);
-
-	if (priv->service)
-		g_object_unref (priv->service);
+	g_clear_object (&priv->connection);
+	g_clear_object (&priv->service);
 
 	if (priv->saddr)
 		g_free (priv->saddr);
