@@ -79,20 +79,20 @@
 
 #define nm_simple_connection_new                        nm_connection_new
 
-#define L2TP_EDITOR_PLUGIN_ERROR                            NM_SETTING_VPN_ERROR
-#define L2TP_EDITOR_PLUGIN_ERROR_INVALID_PROPERTY           NM_SETTING_VPN_ERROR_INVALID_PROPERTY
-#define L2TP_EDITOR_PLUGIN_ERROR_MISSING_PROPERTY           NM_SETTING_VPN_ERROR_MISSING_PROPERTY
-#define L2TP_EDITOR_PLUGIN_ERROR_FAILED                     NM_SETTING_VPN_ERROR_UNKNOWN
+#define L2TP_PLUGIN_UI_ERROR                            NM_SETTING_VPN_ERROR
+#define L2TP_PLUGIN_UI_ERROR_INVALID_PROPERTY           NM_SETTING_VPN_ERROR_INVALID_PROPERTY
+#define L2TP_PLUGIN_UI_ERROR_MISSING_PROPERTY           NM_SETTING_VPN_ERROR_MISSING_PROPERTY
+#define L2TP_PLUGIN_UI_ERROR_FAILED                     NM_SETTING_VPN_ERROR_UNKNOWN
 
 #else /* !NM_L2TP_OLD */
 
 #include <NetworkManager.h>
 #include <nm-setting-ip4-config.h>
 
-#define L2TP_EDITOR_PLUGIN_ERROR                            NM_CONNECTION_ERROR
-#define L2TP_EDITOR_PLUGIN_ERROR_INVALID_PROPERTY           NM_CONNECTION_ERROR_INVALID_PROPERTY
-#define L2TP_EDITOR_PLUGIN_ERROR_MISSING_PROPERTY           NM_CONNECTION_ERROR_MISSING_PROPERTY
-#define L2TP_EDITOR_PLUGIN_ERROR_FAILED                     NM_CONNECTION_ERROR_FAILED
+#define L2TP_PLUGIN_UI_ERROR                            NM_CONNECTION_ERROR
+#define L2TP_PLUGIN_UI_ERROR_INVALID_PROPERTY           NM_CONNECTION_ERROR_INVALID_PROPERTY
+#define L2TP_PLUGIN_UI_ERROR_MISSING_PROPERTY           NM_CONNECTION_ERROR_MISSING_PROPERTY
+#define L2TP_PLUGIN_UI_ERROR_FAILED                     NM_CONNECTION_ERROR_FAILED
 #endif
 
 #include "import-export.h"
@@ -185,8 +185,8 @@ static void
 ip4_import_error (GError **error, const char *message, const char *key, const char *val)
 {
 	g_set_error (error,
-	             L2TP_EDITOR_PLUGIN_ERROR,
-	             L2TP_EDITOR_PLUGIN_ERROR_INVALID_PROPERTY,
+	             L2TP_PLUGIN_UI_ERROR,
+	             L2TP_PLUGIN_UI_ERROR_INVALID_PROPERTY,
 	             message,
 	             key,
 	             val);
@@ -217,8 +217,8 @@ import_ip4 (GKeyFile *keyfile, NMSettingIPConfig *s_ip4, GError **error)
 				continue;
 
 			g_set_error (error,
-			             L2TP_EDITOR_PLUGIN_ERROR,
-			             L2TP_EDITOR_PLUGIN_ERROR_MISSING_PROPERTY,
+			             L2TP_PLUGIN_UI_ERROR,
+			             L2TP_PLUGIN_UI_ERROR_MISSING_PROPERTY,
 			             _("Required property %s missing"),
 			             prop.name);
 			return FALSE;
@@ -449,8 +449,8 @@ do_import (const char *path, GError **error)
 	keyfile = g_key_file_new ();
 	if (!g_key_file_load_from_file (keyfile, path, 0, error)) {
 		g_set_error (error,
-		             L2TP_EDITOR_PLUGIN_ERROR,
-		             L2TP_EDITOR_PLUGIN_ERROR_FAILED,
+		             L2TP_PLUGIN_UI_ERROR,
+		             L2TP_PLUGIN_UI_ERROR_FAILED,
 		             _("does not look like a L2TP VPN connection (parse failed)"));
 		return NULL;
 	}
@@ -484,8 +484,8 @@ do_import (const char *path, GError **error)
 				continue;
 
 			g_set_error (error,
-			             L2TP_EDITOR_PLUGIN_ERROR,
-			             L2TP_EDITOR_PLUGIN_ERROR_MISSING_PROPERTY,
+			             L2TP_PLUGIN_UI_ERROR,
+			             L2TP_PLUGIN_UI_ERROR_MISSING_PROPERTY,
 			             _("Required property %s missing"),
 			             prop.name);
 			g_key_file_free (keyfile);
@@ -502,8 +502,8 @@ do_import (const char *path, GError **error)
 			if (int_val == 0 && *error){
 				g_clear_error(error);
 				g_set_error (error,
-				             L2TP_EDITOR_PLUGIN_ERROR,
-				             L2TP_EDITOR_PLUGIN_ERROR_INVALID_PROPERTY,
+				             L2TP_PLUGIN_UI_ERROR,
+				             L2TP_PLUGIN_UI_ERROR_INVALID_PROPERTY,
 				             _("Property %s can't be parsed as integer."),
 				             prop.name);
 				g_key_file_free (keyfile);
@@ -519,8 +519,8 @@ do_import (const char *path, GError **error)
 			if (!bool_val) {
 				g_clear_error(error);
 				g_set_error (error,
-				             L2TP_EDITOR_PLUGIN_ERROR,
-				             L2TP_EDITOR_PLUGIN_ERROR_INVALID_PROPERTY,
+				             L2TP_PLUGIN_UI_ERROR,
+				             L2TP_PLUGIN_UI_ERROR_INVALID_PROPERTY,
 				             _("Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."),
 				             prop.name);
 				g_key_file_free (keyfile);
@@ -713,8 +713,8 @@ do_export (const char *path, NMConnection *connection, GError **error)
 		if (!value && prop.required){
 			g_key_file_free(export_file);
 			g_set_error(error,
-			            L2TP_EDITOR_PLUGIN_ERROR,
-			            L2TP_EDITOR_PLUGIN_ERROR_MISSING_PROPERTY,
+			            L2TP_PLUGIN_UI_ERROR,
+			            L2TP_PLUGIN_UI_ERROR_MISSING_PROPERTY,
 			            _("Missing required property '%s'"),
 			            prop.name);
 			return FALSE;
@@ -743,8 +743,8 @@ do_export (const char *path, NMConnection *connection, GError **error)
 
 	if (!(file = fopen (path, "w"))) {
 		g_set_error(error,
-		            L2TP_EDITOR_PLUGIN_ERROR,
-		            L2TP_EDITOR_PLUGIN_ERROR_FAILED,
+		            L2TP_PLUGIN_UI_ERROR,
+		            L2TP_PLUGIN_UI_ERROR_FAILED,
 		            _("Couldn't open file for writing."));
 		g_key_file_free (export_file);
 		return FALSE;

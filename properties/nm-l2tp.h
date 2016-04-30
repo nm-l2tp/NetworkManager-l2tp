@@ -25,46 +25,48 @@
 
 #include <glib-object.h>
 
-#define L2TP_TYPE_EDITOR_PLUGIN            (l2tp_editor_plugin_get_type ())
-#define L2TP_EDITOR_PLUGIN(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), L2TP_TYPE_EDITOR_PLUGIN, L2tpEditorPlugin))
-#define L2TP_EDITOR_PLUGIN_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), L2TP_TYPE_EDITOR_PLUGIN, L2tpEditorPluginClass))
-#define L2TP_IS_EDITOR_PLUGIN(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), L2TP_TYPE_EDITOR_PLUGIN))
-#define L2TP_IS_EDITOR_PLUGIN_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), L2TP_TYPE_EDITOR_PLUGIN))
-#define L2TP_EDITOR_PLUGIN_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), L2TP_TYPE_EDITOR_PLUGIN, L2tpEditorPluginClass))
+#define L2TP_TYPE_PLUGIN_UI            (l2tp_plugin_ui_get_type ())
+#define L2TP_PLUGIN_UI(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), L2TP_TYPE_PLUGIN_UI, L2tpPluginUi))
+#define L2TP_PLUGIN_UI_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), L2TP_TYPE_PLUGIN_UI, L2tpPluginUiClass))
+#define L2TP_IS_PLUGIN_UI(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), L2TP_TYPE_PLUGIN_UI))
+#define L2TP_IS_PLUGIN_UI_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), L2TP_TYPE_PLUGIN_UI))
+#define L2TP_PLUGIN_UI_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), L2TP_TYPE_PLUGIN_UI, L2tpPluginUiClass))
 
-typedef struct _L2tpEditorPlugin L2tpEditorPlugin;
-typedef struct _L2tpEditorPluginClass L2tpEditorPluginClass;
+typedef struct _L2tpPluginUi L2tpPluginUi;
+typedef struct _L2tpPluginUiClass L2tpPluginUiClass;
 
-struct _L2tpEditorPlugin {
+struct _L2tpPluginUi {
 	GObject parent;
 };
 
-struct _L2tpEditorPluginClass {
+struct _L2tpPluginUiClass {
 	GObjectClass parent;
 };
 
-GType l2tp_editor_plugin_get_type (void);
+GType l2tp_plugin_ui_get_type (void);
 
 
-#define L2TP_TYPE_EDITOR            (l2tp_editor_get_type ())
-#define L2TP_EDITOR(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), L2TP_TYPE_EDITOR, L2tpEditor))
-#define L2TP_EDITOR_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), L2TP_TYPE_EDITOR, L2tpEditorClass))
-#define L2TP_IS_EDITOR(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), L2TP_TYPE_EDITOR))
-#define L2TP_IS_EDITOR_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), L2TP_TYPE_EDITOR))
-#define L2TP_EDITOR_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), L2TP_TYPE_EDITOR, L2tpEditorClass))
+#define L2TP_TYPE_PLUGIN_UI_WIDGET            (l2tp_plugin_ui_widget_get_type ())
+#define L2TP_PLUGIN_UI_WIDGET(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), L2TP_TYPE_PLUGIN_UI_WIDGET, L2tpPluginUiWidget))
+#define L2TP_PLUGIN_UI_WIDGET_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), L2TP_TYPE_PLUGIN_UI_WIDGET, L2tpPluginUiWidgetClass))
+#define L2TP_IS_PLUGIN_UI_WIDGET(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), L2TP_TYPE_PLUGIN_UI_WIDGET))
+#define L2TP_IS_PLUGIN_UI_WIDGET_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), L2TP_TYPE_PLUGIN_UI_WIDGET))
+#define L2TP_PLUGIN_UI_WIDGET_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), L2TP_TYPE_PLUGIN_UI_WIDGET, L2tpPluginUiWidgetClass))
 
-typedef struct _L2tpEditor L2tpEditor;
-typedef struct _L2tpEditorClass L2tpEditorClass;
 
-struct _L2tpEditor {
+
+typedef struct _L2tpPluginUiWidget L2tpPluginUiWidget;
+typedef struct _L2tpPluginUiWidgetClass L2tpPluginUiWidgetClass;
+
+struct _L2tpPluginUiWidget {
 	GObject parent;
 };
 
-struct _L2tpEditorClass {
+struct _L2tpPluginUiWidgetClass {
 	GObjectClass parent;
 };
 
-GType l2tp_editor_get_type (void);
+GType l2tp_plugin_ui_widget_get_type (void);
 
 #endif	/* _NM_L2TP_H_ */
 

@@ -104,7 +104,7 @@ advanced_dialog_new_hash_from_connection (NMConnection *connection,
 
 	hash = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, g_free);
 
-	s_vpn = (NMSettingVpn *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
+	s_vpn = nm_connection_get_setting_vpn (connection);
 	nm_setting_vpn_foreach_data_item (s_vpn, copy_values, hash);
 	return hash;
 }
@@ -291,7 +291,7 @@ auth_methods_setup (GtkBuilder *builder, GHashTable *hash)
 	value = g_hash_table_lookup (hash, NM_L2TP_KEY_REQUIRE_MPPE);
 	if (value && !strcmp (value, "yes"))
 		use_mppe = TRUE;
-	
+
 	/* Or MPPE-128 */
 	value = g_hash_table_lookup (hash, NM_L2TP_KEY_REQUIRE_MPPE_128);
 	if (value && !strcmp (value, "yes"))
