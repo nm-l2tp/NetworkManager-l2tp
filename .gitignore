@@ -27,7 +27,7 @@ m4/gtk-doc.m4
 m4/intltool.m4
 m4/libtool.m4
 m4/lt*.m4
-network-manager-l2tp.appdata.xml
+appdata/network-manager-l2tp.metainfo.xml
 
 auth-dialog/nm-l2tp-auth-dialog
 nm-l2tp-service.name

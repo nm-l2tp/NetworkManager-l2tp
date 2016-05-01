@@ -43,7 +43,7 @@ endif
 
 appdatadir = $(datadir)/appdata
 appdata_DATA = $(appdata_in_files:.xml.in=.xml)
-appdata_in_files = appdata/network-manager-l2tp.appdata.xml.in
+appdata_in_files = appdata/network-manager-l2tp.metainfo.xml.in
 @INTLTOOL_XML_RULE@
 
 nm-l2tp-service.name: $(srcdir)/nm-l2tp-service.name.in

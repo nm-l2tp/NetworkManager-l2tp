@@ -1,6 +1,6 @@
 # List of source files containing translatable strings.
 # Please keep this file sorted alphabetically.
-appdata/network-manager-l2tp.appdata.xml.in
+appdata/network-manager-l2tp.metainfo.xml.in
 auth-dialog/main.c
 nm-l2tp.desktop.in
 properties/advanced-dialog.c
