@@ -20,12 +20,11 @@
  * (C) Copyright 2008 Red Hat, Inc.
  */
 
-#ifndef NM_L2TP_SERVICE_H
-#define NM_L2TP_SERVICE_H
+#ifndef NM_L2TP_PLUGIN_H
+#define NM_L2TP_PLUGIN_H
 
 #include <glib.h>
 #include <glib-object.h>
-
 #include <NetworkManager.h>
 #include <nm-vpn-service-plugin.h>
 
@@ -48,6 +47,6 @@ typedef struct {
 
 GType nm_l2tp_plugin_get_type (void);
 
-NML2tpPlugin *nm_l2tp_plugin_new (void);
+NML2tpPlugin *nm_l2tp_plugin_new (const gchar *);
 
-#endif /* NM_L2TP_SERVICE_H */
+#endif /* NM_L2TP_PLUGIN_H */

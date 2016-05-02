@@ -52,7 +52,6 @@
 #include <glib/gi18n.h>
 
 #include <NetworkManager.h>
-#include <nm-vpn-service-plugin.h>
 
 #include "nm-l2tp-service.h"
 #include "nm-ppp-status.h"
@@ -64,362 +63,24 @@
 
 static gboolean debug = FALSE;
 
-/********************************************************/
-/* ppp plugin <-> l2tp-service object                   */
-/********************************************************/
+static void nm_l2tp_plugin_initable_iface_init (GInitableIface *iface);
 
-/* We have a separate object to handle ppp plugin requests from
- * historical reason, because dbus-glib didn't allow multiple
- * interfaces registed on one GObject.
- */
-
-#define NM_TYPE_L2TP_PPP_SERVICE            (nm_l2tp_ppp_service_get_type ())
-#define NM_L2TP_PPP_SERVICE(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), NM_TYPE_L2TP_PPP_SERVICE, NML2tpPppService))
-#define NM_L2TP_PPP_SERVICE_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), NM_TYPE_L2TP_PPP_SERVICE, NML2tpPppServiceClass))
-#define NM_IS_L2TP_PPP_SERVICE(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), NM_TYPE_L2TP_PPP_SERVICE))
-#define NM_IS_L2TP_PPP_SERVICE_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), NM_TYPE_L2TP_PPP_SERVICE))
-#define NM_L2TP_PPP_SERVICE_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), NM_TYPE_L2TP_PPP_SERVICE, NML2tpPppServiceClass))
-
-typedef struct {
-	GObject parent;
-} NML2tpPppService;
-
-typedef struct {
-	GObjectClass parent;
-
-	/* Signals */
-	void (*plugin_alive) (NML2tpPppService *self);
-	void (*ppp_state) (NML2tpPppService *self, guint32 state);
-	void (*ip4_config) (NML2tpPppService *self, GVariant *config_hash);
-} NML2tpPppServiceClass;
-
-GType nm_l2tp_ppp_service_get_type (void);
-
-G_DEFINE_TYPE (NML2tpPppService, nm_l2tp_ppp_service, G_TYPE_OBJECT)
-
-static gboolean handle_need_secrets (NMDBusNetworkManagerL2tpPpp *object,
-                                     GDBusMethodInvocation *invocation,
-                                     gpointer user_data);
-
-static gboolean handle_set_state (NMDBusNetworkManagerL2tpPpp *object,
-                                  GDBusMethodInvocation *invocation,
-                                  guint32 arg_state,
-                                  gpointer user_data);
-
-static gboolean handle_set_ip4_config (NMDBusNetworkManagerL2tpPpp *object,
-                                       GDBusMethodInvocation *invocation,
-                                       GVariant *arg_config,
-                                       gpointer user_data);
-
-#include "nm-l2tp-pppd-service-dbus.h"
-
-#define NM_L2TP_PPP_SERVICE_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), NM_TYPE_L2TP_PPP_SERVICE, NML2tpPppServicePrivate))
-
-typedef struct {
-	char *username;
-	char *domain;
-	char *password;
-	/* D-Bus stuff */
-	NMDBusNetworkManagerL2tpPpp *dbus_skeleton;
-} NML2tpPppServicePrivate;
-
-enum {
-	PLUGIN_ALIVE,
-	PPP_STATE,
-	IP4_CONFIG,
-
-	LAST_SIGNAL
-};
-static guint signals[LAST_SIGNAL] = { 0 };
-
-static gboolean
-nm_l2tp_ipsec_error(GError **error, const char *msg) {
-	g_set_error_literal (error,
-			NM_VPN_PLUGIN_ERROR,
-			NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
-			_(msg));
-	return FALSE;
-}
-
-static gboolean
-check_is_libreswan (const char *path)
-{
-	const char *argv[] = { path, NULL };
-	gboolean libreswan = FALSE;
-	char *output = NULL;
-
-	if (g_spawn_sync (NULL, (char **) argv, NULL, 0, NULL, NULL, &output, NULL, NULL, NULL)) {
-		libreswan = output && strstr (output, " Libreswan ");
-		g_free (output);
-	}
-	return libreswan;
-}
-
-static gboolean
-_service_cache_credentials (NML2tpPppService *self,
-							NMConnection *connection,
-							GError **error)
-{
-	NML2tpPppServicePrivate *priv = NM_L2TP_PPP_SERVICE_GET_PRIVATE (self);
-	NMSettingVpn *s_vpn;
-	const char *username, *password, *domain;
-
-	g_return_val_if_fail (self != NULL, FALSE);
-	g_return_val_if_fail (connection != NULL, FALSE);
-
-	s_vpn = nm_connection_get_setting_vpn (connection);
-	if (!s_vpn) {
-		return nm_l2tp_ipsec_error(error, "Could not load NetworkManager connection settings.");
-	}
-
-	/* Username; try L2TP specific username first, then generic username */
-	username = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER);
-	if (!username || !*username) {
-		username = nm_setting_vpn_get_user_name (s_vpn);
-		if (!username || !*username) {
-			return nm_l2tp_ipsec_error(error, "Missing VPN username.");
-		}
-	}
-
-	password = nm_setting_vpn_get_secret (s_vpn, NM_L2TP_KEY_PASSWORD);
-	if (!password || !*password) {
-		return nm_l2tp_ipsec_error(error, "Missing or invalid VPN password.");
-	}
-
-	domain = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_DOMAIN);
-	if (domain && *domain) priv->domain = g_strdup(domain);
-
-	priv->username = g_strdup(username);
-	priv->password = g_strdup(password);
-	return TRUE;
-}
-
-static NML2tpPppService *
-nm_l2tp_ppp_service_new (NMConnection *connection,
-                         GError **error)
-{
-	NML2tpPppService *self = NULL;
-	NML2tpPppServicePrivate *priv;
-	GDBusConnection *bus;
-	GDBusProxy *proxy;
-	GVariant *ret;
-
-	bus = g_bus_get_sync (G_BUS_TYPE_SYSTEM, NULL, error);
-	if (!bus)
-		return NULL;
-
-	proxy = g_dbus_proxy_new_sync (bus,
-	                               G_DBUS_PROXY_FLAGS_DO_NOT_LOAD_PROPERTIES |
-	                               G_DBUS_PROXY_FLAGS_DO_NOT_CONNECT_SIGNALS,
-	                               NULL,
-	                               "org.freedesktop.DBus",
-	                               "/org/freedesktop/DBus",
-	                               "org.freedesktop.DBus",
-	                               NULL, error);
-	if (!proxy)
-		goto out;
-
-	ret = g_dbus_proxy_call_sync (proxy,
-				      "RequestName",
-				      g_variant_new ("(su)", NM_DBUS_SERVICE_L2TP_PPP, 0),
-				      G_DBUS_CALL_FLAGS_NONE, -1,
-				      NULL, error);
-	if (!ret) {
-		if (error && *error)
-			g_dbus_error_strip_remote_error (*error);
-		g_warning (_("Could not register D-Bus service name.  Message: %s"), (*error)->message);
-		goto out;
-	}
-
-	g_variant_unref (ret);
-
-	self = (NML2tpPppService *) g_object_new (NM_TYPE_L2TP_PPP_SERVICE, NULL);
-	g_assert(self);
-	priv = NM_L2TP_PPP_SERVICE_GET_PRIVATE (self);
-
-	priv->dbus_skeleton = nmdbus_network_manager_l2tp_ppp_skeleton_new ();
-	if (!g_dbus_interface_skeleton_export (G_DBUS_INTERFACE_SKELETON (priv->dbus_skeleton),
-	                                       bus,
-	                                       NM_DBUS_PATH_L2TP_PPP,
-	                                       error))
-		goto out;
-
-	g_dbus_connection_register_object (bus, NM_DBUS_PATH_L2TP_PPP,
-					   nmdbus_network_manager_l2tp_ppp_interface_info (),
-					   NULL, NULL, NULL, NULL);
-
-	g_signal_connect (priv->dbus_skeleton, "handle-need-secrets", G_CALLBACK (handle_need_secrets), self);
-	g_signal_connect (priv->dbus_skeleton, "handle-set-state", G_CALLBACK (handle_set_state), self);
-	g_signal_connect (priv->dbus_skeleton, "handle-set-ip4-config", G_CALLBACK (handle_set_ip4_config), self);
-
-out:
-	g_clear_object (&bus);
-	return self;
-}
-
-static void
-nm_l2tp_ppp_service_init (NML2tpPppService *self)
-{
-}
-
-static void
-nm_l2tp_ppp_service_dispose (GObject *object)
-{
-	NML2tpPppServicePrivate *priv = NM_L2TP_PPP_SERVICE_GET_PRIVATE (object);
-
-	if (priv->dbus_skeleton) {
-		g_signal_handlers_disconnect_by_func (priv->dbus_skeleton, handle_need_secrets, object);
-		g_signal_handlers_disconnect_by_func (priv->dbus_skeleton, handle_set_state, object);
-		g_signal_handlers_disconnect_by_func (priv->dbus_skeleton, handle_set_ip4_config, object);
-	}
-
-	G_OBJECT_CLASS (nm_l2tp_ppp_service_parent_class)->dispose (object);
-}
-
-static void
-finalize (GObject *object)
-{
-	NML2tpPppServicePrivate *priv = NM_L2TP_PPP_SERVICE_GET_PRIVATE (object);
-
-	/* Get rid of the cached username and password */
-	g_free (priv->username);
-	if (priv->password) {
-		memset (priv->password, 0, strlen (priv->password));
-		g_free (priv->password);
-	}
-	g_free (priv->domain);
-
-	G_OBJECT_CLASS (nm_l2tp_ppp_service_parent_class)->finalize (object);
-}
-
-static void
-nm_l2tp_ppp_service_class_init (NML2tpPppServiceClass *service_class)
-{
-	GObjectClass *object_class = G_OBJECT_CLASS (service_class);
-
-	g_type_class_add_private (service_class, sizeof (NML2tpPppServicePrivate));
-
-	/* virtual methods */
-	object_class->dispose = nm_l2tp_ppp_service_dispose;
-	object_class->finalize = finalize;
-
-	/* Signals */
-	signals[PLUGIN_ALIVE] = 
-		g_signal_new ("plugin-alive", 
-		              G_OBJECT_CLASS_TYPE (object_class),
-		              G_SIGNAL_RUN_FIRST,
-		              G_STRUCT_OFFSET (NML2tpPppServiceClass, plugin_alive),
-		              NULL, NULL,
-		              g_cclosure_marshal_VOID__VOID,
-		              G_TYPE_NONE, 0);
-
-	signals[PPP_STATE] = 
-		g_signal_new ("ppp-state", 
-		              G_OBJECT_CLASS_TYPE (object_class),
-		              G_SIGNAL_RUN_FIRST,
-		              G_STRUCT_OFFSET (NML2tpPppServiceClass, ppp_state),
-		              NULL, NULL,
-		              g_cclosure_marshal_VOID__UINT,
-		              G_TYPE_NONE, 1, G_TYPE_UINT);
-
-	signals[IP4_CONFIG] = 
-		g_signal_new ("ip4-config", 
-		              G_OBJECT_CLASS_TYPE (object_class),
-		              G_SIGNAL_RUN_FIRST,
-		              G_STRUCT_OFFSET (NML2tpPppServiceClass, ip4_config),
-		              NULL, NULL,
-		              NULL,
-		              G_TYPE_NONE, 1, G_TYPE_VARIANT);
-}
-
-static gboolean
-handle_need_secrets (NMDBusNetworkManagerL2tpPpp *object,
-                     GDBusMethodInvocation *invocation,
-                     gpointer user_data)
-
-{
-	NML2tpPppService *self = NM_L2TP_PPP_SERVICE (user_data);
-	NML2tpPppServicePrivate *priv = NM_L2TP_PPP_SERVICE_GET_PRIVATE (self);
-	char *username = NULL, *password = NULL;
-	GError *error = NULL;
-
-	g_signal_emit (G_OBJECT (self), signals[PLUGIN_ALIVE], 0);
-
-	if (!*priv->username || !*priv->password) {
-		g_set_error (&error,
-		             NM_VPN_PLUGIN_ERROR,
-		             NM_VPN_PLUGIN_ERROR_INVALID_CONNECTION,
-		             "%s",
-		             _("No cached credentials."));
-		g_dbus_method_invocation_take_error (invocation, error);
-		return FALSE;
-	}
-
-	/* Success */
-	if (priv->domain && *priv->domain) {
-		username = g_strdup_printf ("%s\\%s", priv->domain, priv->username);
-	} else {
-		username = g_strdup (priv->username);
-	}
-	password = g_strdup (priv->password);
-
-	g_dbus_method_invocation_return_value (invocation,
-	                                       g_variant_new ("(ss)", username, password));
-	g_free (username);
-	g_free (password);
-	return TRUE;
-}
-
-static gboolean
-handle_set_state (NMDBusNetworkManagerL2tpPpp *object,
-                  GDBusMethodInvocation *invocation,
-                  guint32 arg_state,
-                  gpointer user_data)
-{
-	NML2tpPppService *self = NM_L2TP_PPP_SERVICE (user_data);
-
-	g_signal_emit (G_OBJECT (self), signals[PLUGIN_ALIVE], 0);
-	g_signal_emit (G_OBJECT (self), signals[PPP_STATE], 0, arg_state);
-	g_dbus_method_invocation_return_value (invocation, NULL);
-
-	return TRUE;
-}
-
-static gboolean
-handle_set_ip4_config (NMDBusNetworkManagerL2tpPpp *object,
-                       GDBusMethodInvocation *invocation,
-                       GVariant *arg_config,
-                       gpointer user_data)
-{
-	NML2tpPppService *self = NM_L2TP_PPP_SERVICE (user_data);
-
-	g_message (_("L2TP service (IP Config Get) reply received."));
-	g_signal_emit (G_OBJECT (self), signals[PLUGIN_ALIVE], 0);
-
-	/* Just forward the pppd plugin config up to our superclass; no need to modify it */
-	g_signal_emit (G_OBJECT (self), signals[IP4_CONFIG], 0, arg_config);
-
-	return TRUE;
-}
-
-
-/********************************************************/
-/* The VPN plugin service                               */
-/********************************************************/
-
-G_DEFINE_TYPE (NML2tpPlugin, nm_l2tp_plugin, NM_TYPE_VPN_SERVICE_PLUGIN);
+G_DEFINE_TYPE_WITH_CODE (NML2tpPlugin, nm_l2tp_plugin, NM_TYPE_VPN_SERVICE_PLUGIN,
+                         G_IMPLEMENT_INTERFACE (G_TYPE_INITABLE, nm_l2tp_plugin_initable_iface_init));
 
 typedef struct {
 	GPid pid_l2tpd;
 	gboolean ipsec_up;
 	gboolean use_cert;
 	guint32 ppp_timeout_handler;
-	guint32 naddr;		/* We resolve GW addr before pass it to xl2tpd. network byte-order */
-	char *saddr;
-	NML2tpPppService *service;
 	NMConnection *connection;
+	NMDBusL2tpPpp *dbus_skeleton;
 	char ipsec_binary_path[256];
 	gboolean is_libreswan;
+
+	/* IP of L2TP gateway in numeric and string format */
+	guint32 naddr;
+	char *saddr;
 } NML2tpPluginPrivate;
 
 #define NM_L2TP_PLUGIN_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), NM_TYPE_L2TP_PLUGIN, NML2tpPluginPrivate))
@@ -460,6 +121,7 @@ static ValidProperty valid_properties[] = {
 	{ NM_L2TP_KEY_NO_ACCOMP,         G_TYPE_BOOLEAN, FALSE },
 	{ NM_L2TP_KEY_LCP_ECHO_FAILURE,  G_TYPE_UINT, FALSE },
 	{ NM_L2TP_KEY_LCP_ECHO_INTERVAL, G_TYPE_UINT, FALSE },
+	{ NM_L2TP_KEY_UNIT_NUM,          G_TYPE_UINT, FALSE },
 	{ NM_L2TP_KEY_PASSWORD"-flags",  G_TYPE_UINT, FALSE },
 	{ NM_L2TP_KEY_IPSEC_ENABLE,      G_TYPE_BOOLEAN, FALSE },
 	{ NM_L2TP_KEY_IPSEC_GATEWAY_ID,  G_TYPE_STRING, FALSE },
@@ -475,11 +137,35 @@ static ValidProperty valid_secrets[] = {
 };
 
 static gboolean
+nm_l2tp_ipsec_error(GError **error, const char *msg) {
+	g_set_error_literal (error,
+			NM_VPN_PLUGIN_ERROR,
+			NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
+			_(msg));
+	return FALSE;
+}
+
+static gboolean
+check_is_libreswan (const char *path)
+{
+	const char *argv[] = { path, NULL };
+	gboolean libreswan = FALSE;
+	char *output = NULL;
+
+	if (g_spawn_sync (NULL, (char **) argv, NULL, 0, NULL, NULL, &output, NULL, NULL, NULL)) {
+		libreswan = output && strstr (output, " Libreswan ");
+		g_free (output);
+	}
+	return libreswan;
+}
+
+static gboolean
 validate_gateway (const char *gateway)
 {
 	const char *p = gateway;
 
-	if (!gateway || !*gateway) return FALSE;
+	if (!gateway || !strlen (gateway))
+		return FALSE;
 
 	/* Ensure it's a valid DNS name or IP address */
 	p = gateway;
@@ -529,8 +215,6 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 	if (!strcmp (key, NM_SETTING_NAME))
 		return;
 
-	/* Search property named 'key' in 'valid_properties'/'valid_secrets' array
-	   XXX: use hash? */
 	for (i = 0; info->table[i].name; i++) {
 		ValidProperty prop = info->table[i];
 		long int tmp;
@@ -553,8 +237,9 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 				             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
 				             _("invalid gateway '%s'"),
 				             key);
-				return;
+				return; /* valid */
 			}
+
 			if (   !strcmp (prop.name, NM_L2TP_KEY_IPSEC_GROUP_NAME)
 			    && !validate_ipsec_id (value)) {
 				g_set_error (info->error,
@@ -562,8 +247,9 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 				             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
 				             _("invalid ipsec-group-name '%s'"),
 				             key);
-				return;
+				return; /* valid */
 			}
+
 			if (   !strcmp (prop.name, NM_L2TP_KEY_IPSEC_GATEWAY_ID)
 			    && !validate_ipsec_id (value)) {
 				g_set_error (info->error,
@@ -571,7 +257,7 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 				             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
 				             _("invalid ipsec-gateway-id '%s'"),
 				             key);
-				return;
+				return; /* valid */
 			}
 		case G_TYPE_UINT:
 			errno = 0;
@@ -624,20 +310,27 @@ nm_l2tp_properties_validate (NMSettingVpn *s_vpn,
 
 	nm_setting_vpn_foreach_data_item (s_vpn, validate_one_property, &info);
 	if (!info.have_items) {
-		return nm_l2tp_ipsec_error(error, "No VPN configuration options.");
+		g_set_error (error,
+		             NM_VPN_PLUGIN_ERROR,
+		             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
+		             "%s",
+		             _("No VPN configuration options."));
+		return FALSE;
 	}
 
-	if (*error) return FALSE;
+	if (*error)
+		return FALSE;
 
 	/* Ensure required properties exist */
 	for (i = 0; valid_properties[i].name; i++) {
 		ValidProperty prop = valid_properties[i];
 		const char *value;
 
-		if (!prop.required) continue;
+		if (!prop.required)
+			continue;
 
 		value = nm_setting_vpn_get_data_item (s_vpn, prop.name);
-		if (!value || !*value) {
+		if (!value || !strlen (value)) {
 			g_set_error (error,
 			             NM_VPN_PLUGIN_ERROR,
 			             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
@@ -657,7 +350,12 @@ nm_l2tp_secrets_validate (NMSettingVpn *s_vpn, GError **error)
 
 	nm_setting_vpn_foreach_secret (s_vpn, validate_one_property, &info);
 	if (!info.have_items) {
-		return nm_l2tp_ipsec_error(error, "No VPN secrets!");
+		g_set_error (error,
+		             NM_VPN_PLUGIN_ERROR,
+		             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
+		             "%s",
+		             _("No VPN secrets!"));
+		return FALSE;
 	}
 
 	return *error ? FALSE : TRUE;
@@ -678,14 +376,14 @@ l2tpd_watch_cb (GPid pid, gint status, gpointer user_data)
 	if (WIFEXITED (status)) {
 		error = WEXITSTATUS (status);
 		if (error != 0)
-			g_warning (_("xl2tpd exited with error code %d"), error);
+			g_warning ("xl2tpd exited with error code %d", error);
 	}
 	else if (WIFSTOPPED (status))
-		g_warning (_("xl2tpd stopped unexpectedly with signal %d"), WSTOPSIG (status));
+		g_warning ("xl2tpd stopped unexpectedly with signal %d", WSTOPSIG (status));
 	else if (WIFSIGNALED (status))
-		g_warning (_("xl2tpd died with signal %d"), WTERMSIG (status));
+		g_warning ("xl2tpd died with signal %d", WTERMSIG (status));
 	else
-		g_warning (_("xl2tpd died from an unknown cause"));
+		g_warning ("xl2tpd died from an unknown cause");
 
 	/* Reap child if needed. */
 	waitpid (priv->pid_l2tpd, NULL, WNOHANG);
@@ -715,6 +413,7 @@ l2tpd_watch_cb (GPid pid, gint status, gpointer user_data)
 	filename = g_strdup_printf ("/var/run/nm-ipsec-l2tp.%d", my_pid);
 	rmdir(filename);
 	g_free(filename);
+
 
 	/* Must be after data->state is set since signals use data->state */
 	switch (error) {
@@ -789,110 +488,14 @@ pppd_timed_out (gpointer user_data)
 {
 	NML2tpPlugin *plugin = NM_L2TP_PLUGIN (user_data);
 
-	g_warning (_("pppd timeout. Looks like pppd didn't initialize our dbus module"));
+	g_warning ("Looks like pppd didn't initialize our dbus module");
 	nm_vpn_service_plugin_failure (NM_VPN_SERVICE_PLUGIN (plugin), NM_VPN_CONNECTION_STATE_REASON_SERVICE_START_TIMEOUT);
 
 	return FALSE;
 }
 
-static gboolean
-nm_l2tp_resolve_gateway (NML2tpPlugin *plugin,
-                         NMSettingVpn *s_vpn,
-                         GError **error)
-{
-	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
-	const char *p, *src;
-	gboolean is_name = FALSE;
-	struct in_addr naddr;
-	struct addrinfo hints;
-	struct addrinfo *result = NULL, *rp;
-	int err;
-	char buf[INET_ADDRSTRLEN + 1];
-
-	p = src = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_GATEWAY);
-	g_return_val_if_fail (src != NULL, FALSE);
-
-	while (*p) {
-		if (*p != '.' && !isdigit (*p)) {
-			is_name = TRUE;
-			break;
-		}
-		p++;
-	}
-
-	if (is_name == FALSE) {
-		errno = 0;
-		if (inet_pton (AF_INET, src, &naddr) <= 0) {
-			g_set_error (error,
-			             NM_VPN_PLUGIN_ERROR,
-			             NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
-			             _("couldn't convert L2TP VPN gateway IP address '%s' (%d)"),
-			             src, errno);
-			return FALSE;
-		}
-		priv->naddr = naddr.s_addr;
-		priv->saddr = g_strdup (src);
-		return TRUE;
-	}
-
-	/* It's a hostname, resolve it */
-	memset (&hints, 0, sizeof (hints));
-	hints.ai_family = AF_INET;
-	hints.ai_flags = AI_ADDRCONFIG;
-	err = getaddrinfo (src, NULL, &hints, &result);
-	if (err != 0) {
-		g_set_error (error,
-		             NM_VPN_PLUGIN_ERROR,
-		             NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
-		             _("couldn't look up L2TP VPN gateway IP address '%s' (%d)"),
-		             src, err);
-		return FALSE;
-	}
-
-	/* If the hostname resolves to multiple IP addresses, use the first one.
-	 * FIXME: maybe we just want to use a random one instead?
-	 */
-	memset (&naddr, 0, sizeof (naddr));
-	for (rp = result; rp; rp = rp->ai_next) {
-		if (   (rp->ai_family == AF_INET)
-		    && (rp->ai_addrlen == sizeof (struct sockaddr_in))) {
-			struct sockaddr_in *inptr = (struct sockaddr_in *) rp->ai_addr;
-
-			memcpy (&naddr, &(inptr->sin_addr), sizeof (struct in_addr));
-			break;
-		}
-	}
-	freeaddrinfo (result);
-
-	if (naddr.s_addr == 0) {
-		g_set_error (error,
-		             NM_VPN_PLUGIN_ERROR,
-		             NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
-		             _("no usable addresses returned for L2TP VPN gateway '%s'"),
-		             src);
-		return FALSE;
-	}
-
-	memset (buf, 0, sizeof (buf));
-	errno = 0;
-	if (inet_ntop (AF_INET, &naddr, buf, sizeof (buf) - 1) == NULL) {
-		g_set_error (error,
-		             NM_VPN_PLUGIN_ERROR,
-		             NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
-		             _("no usable addresses returned for L2TP VPN gateway '%s' (%d)"),
-		             src, errno);
-		return FALSE;
-	}
-
-	g_message(_("Use '%s' as a gateway"), buf);
-
-	priv->naddr = naddr.s_addr;
-	priv->saddr = g_strdup (buf);
-	return TRUE;
-}
-
 static void
-free_args (GPtrArray *args)
+free_l2tpd_args (GPtrArray *args)
 {
 	int i;
 
@@ -904,6 +507,279 @@ free_args (GPtrArray *args)
 	g_ptr_array_free (args, TRUE);
 }
 
+static gboolean
+str_to_int (const char *str, long int *out)
+{
+	long int tmp_int;
+
+	if (!str)
+		return FALSE;
+
+	errno = 0;
+	tmp_int = strtol (str, NULL, 10);
+	if (errno == 0) {
+		*out = tmp_int;
+		return TRUE;
+	}
+	return FALSE;
+}
+
+static inline void
+write_config_option (int fd, const char *format, ...)
+{
+	char * 	string;
+	va_list	args;
+	int		x;
+
+	va_start (args, format);
+	string = g_strdup_vprintf (format, args);
+	x = write (fd, string, strlen (string));
+	g_free (string);
+	va_end (args);
+}
+
+typedef struct {
+	const char *name;
+	GType type;
+	const char *write_to_config;
+} PPPOpt;
+
+static PPPOpt ppp_options[] = {
+	{NM_L2TP_KEY_REFUSE_EAP, G_TYPE_BOOLEAN, "refuse-eap\n"},
+	{NM_L2TP_KEY_REFUSE_PAP, G_TYPE_BOOLEAN, "refuse-pap\n"},
+	{NM_L2TP_KEY_REFUSE_CHAP, G_TYPE_BOOLEAN, "refuse-chap\n"},
+	{NM_L2TP_KEY_REFUSE_MSCHAP, G_TYPE_BOOLEAN, "refuse-mschap\n"},
+	{NM_L2TP_KEY_REFUSE_MSCHAPV2, G_TYPE_BOOLEAN, "refuse-mschap-v2\n"},
+	{NM_L2TP_KEY_REQUIRE_MPPE, G_TYPE_BOOLEAN, "require-mppe\n"},
+	{NM_L2TP_KEY_REQUIRE_MPPE_40, G_TYPE_BOOLEAN, "require-mppe-40\n"},
+	{NM_L2TP_KEY_REQUIRE_MPPE_128, G_TYPE_BOOLEAN, "require-mppe-128\n"},
+	{NM_L2TP_KEY_MPPE_STATEFUL, G_TYPE_BOOLEAN, "mppe-stateful\n"},
+	{NM_L2TP_KEY_NOBSDCOMP, G_TYPE_BOOLEAN, "nobsdcomp\n"},
+	{NM_L2TP_KEY_NODEFLATE, G_TYPE_BOOLEAN, "nodeflate\n"},
+	{NM_L2TP_KEY_NO_VJ_COMP, G_TYPE_BOOLEAN, "novj\n"},
+	{NM_L2TP_KEY_NO_PCOMP, G_TYPE_BOOLEAN, "nopcomp\n"},
+	{NM_L2TP_KEY_NO_ACCOMP, G_TYPE_BOOLEAN, "noaccomp\n"},
+	{NULL, G_TYPE_NONE, NULL}
+};
+
+/**
+ * Check that specified UDP socket in 0.0.0.0 is not used and we can bind to it.
+ **/
+static gboolean
+is_port_free(int port)
+{
+	struct sockaddr_in addr;
+	int sock;
+	g_message ("Check port %d", port);
+	sock = socket (AF_INET, SOCK_DGRAM, 0);
+	if (!sock){
+		g_warning (_("Can-not create new test socket"));
+		return FALSE;
+	}
+
+	memset(&addr, 0, sizeof(struct sockaddr_in));
+	addr.sin_family = AF_INET;
+	addr.sin_port = htons(port);
+	addr.sin_addr.s_addr = INADDR_ANY;
+
+	if (bind (sock, (struct sockaddr *) &addr, sizeof (addr)) == -1){
+		g_message ("Can't bind to port %d", port);
+		return FALSE;
+	}
+	close(sock);				/* unbind */
+
+	return TRUE;
+}
+
+static gboolean
+nm_l2tp_config_write (NML2tpPlugin *plugin,
+                      NMSettingVpn *s_vpn,
+                      GError **error)
+{
+	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
+	char *filename;
+	pid_t pid = getpid ();
+	const char *value;
+	gint conf_fd = -1;
+	gint ipsec_fd = -1;
+	gint pppopt_fd = -1;
+	int port;
+	int i;
+
+	filename = g_strdup_printf ("/var/run/nm-ipsec-l2tp.%d", pid);
+	mkdir(filename,0700);
+	g_free (filename);
+
+	filename = g_strdup_printf ("/var/run/nm-ipsec-l2tp.%d/ipsec.conf", pid);
+	ipsec_fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR);
+	g_free (filename);
+	if (ipsec_fd == -1) {
+		return nm_l2tp_ipsec_error(error, "Could not write ipsec config.");
+	}
+
+	write_config_option (ipsec_fd, 		"conn nm-ipsec-l2tp-%d\n", pid);
+	write_config_option (ipsec_fd, 		"  auto=add\n"
+						"  type=transport\n");
+
+	write_config_option (ipsec_fd, 		"  authby=secret\n"
+						"  keyingtries=0\n"
+						"  left=%%defaultroute\n"
+						"  leftprotoport=udp/l2tp\n"
+						"  rightprotoport=udp/l2tp\n");
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GROUP_NAME);
+	if(value)write_config_option (ipsec_fd, "  leftid=@%s\n", value);
+	/* value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_GATEWAY); */
+	write_config_option (ipsec_fd, "  right=%s\n", priv->saddr);
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GATEWAY_ID);
+	if(value)write_config_option (ipsec_fd, "  rightid=@%s\n", value);
+
+	if (!priv->is_libreswan) {
+		write_config_option (ipsec_fd,	"  keyexchange=ikev1\n");
+	}
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_PFS);
+	if(value)write_config_option (ipsec_fd, "  pfs=%s\n", value);
+
+	filename = g_strdup_printf ("/var/run/nm-xl2tpd.conf.%d", pid);
+	conf_fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR);
+	g_free (filename);
+
+	if (conf_fd == -1) {
+		close(ipsec_fd);
+		return nm_l2tp_ipsec_error(error, "Could not write xl2tpd config.");
+	}
+
+	filename = g_strdup_printf ("/var/run/nm-ppp-options.xl2tpd.%d", pid);
+	pppopt_fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR);
+	g_free (filename);
+
+	if (pppopt_fd == -1) {
+		close(ipsec_fd);
+		close(conf_fd);
+		return nm_l2tp_ipsec_error(error, "Could not write ppp options.");
+	}
+
+	/* L2TP options */
+	write_config_option (conf_fd, "[global]\n");
+	write_config_option (conf_fd, "access control = yes\n");
+
+	/* Check that xl2tpd's default port 1701 is free, if not - use 0 (ephemeral random port) */
+	/* port = get_free_l2tp_port(); */
+	port = 1701;
+	if (!is_port_free (port)){
+		port = 0;
+		g_warning("Port 1701 is busy, use ephemeral.");
+	}
+	write_config_option (conf_fd, "port = %d\n", port);
+	if (debug){
+		/* write_config_option (conf_fd, "debug network = yes\n"); */
+		write_config_option (conf_fd, "debug state = yes\n");
+		write_config_option (conf_fd, "debug tunnel = yes\n");
+		write_config_option (conf_fd, "debug avp = yes\n");
+	}
+
+	write_config_option (conf_fd, "[lac l2tp]\n");
+
+	/* value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_GATEWAY); */
+	write_config_option (conf_fd, "lns = %s\n", priv->saddr);
+
+	/* Username; try L2TP specific username first, then generic username */
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER);
+	if (!value || !*value)
+		value = nm_setting_vpn_get_user_name (s_vpn);
+	if (!value || !*value) {
+		write_config_option (conf_fd, "name = %s\n", value);
+	}
+
+	if (debug)
+		write_config_option (conf_fd, "ppp debug = yes\n");
+	write_config_option (conf_fd, "pppoptfile = /var/run/nm-ppp-options.xl2tpd.%d\n", pid);
+	write_config_option (conf_fd, "autodial = yes\n");
+	write_config_option (conf_fd, "tunnel rws = 8\n");
+	write_config_option (conf_fd, "tx bps = 100000000\n");
+	write_config_option (conf_fd, "rx bps = 100000000\n");
+
+	/* PPP options */
+	if (debug)
+		write_config_option (pppopt_fd, "debug\n");
+
+	write_config_option (pppopt_fd, "ipparam nm-l2tp-service-%d\n", pid);
+
+	write_config_option (pppopt_fd, "nodetach\n");
+	write_config_option (pppopt_fd, "lock\n");
+	write_config_option (pppopt_fd, "usepeerdns\n");
+	write_config_option (pppopt_fd, "noipdefault\n");
+	write_config_option (pppopt_fd, "nodefaultroute\n");
+
+	/* Don't need to auth the L2TP server */
+	write_config_option (pppopt_fd, "noauth\n");
+
+	/* pppd and xl2tpd on Linux require this option to support Android and iOS clients,
+	   and pppd on Linux clients won't work without the same option */
+	write_config_option (pppopt_fd, "noccp\n");
+
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER);
+	if (!value || !*value)
+		value = nm_setting_vpn_get_user_name (s_vpn);
+	if (!value || !*value) {
+		write_config_option (pppopt_fd, "name %s\n", value);
+	}
+
+	for(i=0; ppp_options[i].name; i++){
+		value = nm_setting_vpn_get_data_item (s_vpn, ppp_options[i].name);
+		if (value && !strcmp (value, "yes"))
+			write_config_option (pppopt_fd, ppp_options[i].write_to_config);
+	}
+
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_LCP_ECHO_FAILURE);
+	if (value && *value) {
+		long int tmp_int;
+
+		/* Convert to integer and then back to string for security's sake
+		 * because strtol ignores some leading and trailing characters.
+		 */
+		if (str_to_int (value, &tmp_int)) {
+			write_config_option (pppopt_fd, "lcp-echo-failure %ld\n", tmp_int);
+		} else {
+			g_warning (_("failed to convert lcp-echo-failure value '%s'"), value);
+		}
+	} else {
+		write_config_option (pppopt_fd, "lcp-echo-failure 0\n");
+	}
+
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_LCP_ECHO_INTERVAL);
+	if (value && *value) {
+		long int tmp_int;
+		if (str_to_int (value, &tmp_int)) {
+			write_config_option (pppopt_fd, "lcp-echo-interval %ld\n", tmp_int);
+		} else {
+			g_warning (_("failed to convert lcp-echo-interval value '%s'"), value);
+		}
+	} else {
+		write_config_option (pppopt_fd, "lcp-echo-interval 0\n");
+	}
+
+	write_config_option (pppopt_fd, "plugin %s\n", NM_L2TP_PPPD_PLUGIN);
+
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_MRU);
+	if (value) write_config_option (pppopt_fd, "mru %s\n", value);
+
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_MTU);
+	if (value) write_config_option (pppopt_fd, "mtu %s\n", value);
+
+	/*	
+	if (priv && priv->use_cert) {
+		write_config_option (pppopt_fd, "cert \"%s\"\n", nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_CERT_PUB));
+		write_config_option (pppopt_fd, "ca \"%s\"\n", nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_CERT_CA));
+		write_config_option (pppopt_fd, "key \"%s\"\n", nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_CERT_KEY));
+	}
+	*/
+
+	close(ipsec_fd);
+	close(conf_fd);
+	close(pppopt_fd);
+
+	return TRUE;
+}
 
 static void
 nm_l2tp_stop_ipsec (NML2tpPluginPrivate *priv)
@@ -927,7 +803,7 @@ nm_l2tp_stop_ipsec (NML2tpPluginPrivate *priv)
 			            0, NULL, NULL,
 			            NULL,NULL,
 			            NULL, NULL)) {
-			free_args (whack_argv);
+			free_l2tpd_args (whack_argv);
 			return;
 		}
 	} else {
@@ -1081,8 +957,8 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 
 static gboolean
 nm_l2tp_start_l2tpd_binary (NML2tpPlugin *plugin,
-                            NMSettingVpn *s_vpn,
-                            GError **error)
+                           NMSettingVpn *s_vpn,
+                           GError **error)
 {
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
 	GPid pid;
@@ -1108,12 +984,12 @@ nm_l2tp_start_l2tpd_binary (NML2tpPlugin *plugin,
 
 	if (!g_spawn_async (NULL, (char **) l2tpd_argv->pdata, NULL,
 	                    G_SPAWN_DO_NOT_REAP_CHILD, NULL, NULL, &pid, error)) {
-		free_args (l2tpd_argv);
+		g_ptr_array_free (l2tpd_argv, TRUE);
 		return FALSE;
 	}
-	free_args (l2tpd_argv);
+	free_l2tpd_args (l2tpd_argv);
 
-	g_message(_("xl2tpd started with pid %d"), pid);
+	g_message ("xl2tpd started with pid %d", pid);
 
 	NM_L2TP_PLUGIN_GET_PRIVATE (plugin)->pid_l2tpd = pid;
 	g_child_watch_add (pid, l2tpd_watch_cb, plugin);
@@ -1123,315 +999,90 @@ nm_l2tp_start_l2tpd_binary (NML2tpPlugin *plugin,
 	return TRUE;
 }
 
-
-static inline void
-write_config_option (int fd, const char *format, ...)
-{
-	char * 	string;
-	va_list	args;
-	int		x;
-
-	va_start (args, format);
-	string = g_strdup_vprintf (format, args);
-	x = write (fd, string, strlen (string));
-	g_free (string);
-	va_end (args);
-}
-
-typedef struct {
-	const char *name;
-	GType type;
-	const char *write_to_config;
-} PPPOpt;
-
-static PPPOpt ppp_options[] = {
-	{NM_L2TP_KEY_REFUSE_EAP, G_TYPE_BOOLEAN, "refuse-eap\n"},
-	{NM_L2TP_KEY_REFUSE_PAP, G_TYPE_BOOLEAN, "refuse-pap\n"},
-	{NM_L2TP_KEY_REFUSE_CHAP, G_TYPE_BOOLEAN, "refuse-chap\n"},
-	{NM_L2TP_KEY_REFUSE_MSCHAP, G_TYPE_BOOLEAN, "refuse-mschap\n"},
-	{NM_L2TP_KEY_REFUSE_MSCHAPV2, G_TYPE_BOOLEAN, "refuse-mschap-v2\n"},
-	{NM_L2TP_KEY_REQUIRE_MPPE, G_TYPE_BOOLEAN, "require-mppe\n"},
-	{NM_L2TP_KEY_REQUIRE_MPPE_40, G_TYPE_BOOLEAN, "require-mppe-40\n"},
-	{NM_L2TP_KEY_REQUIRE_MPPE_128, G_TYPE_BOOLEAN, "require-mppe-128\n"},
-	{NM_L2TP_KEY_MPPE_STATEFUL, G_TYPE_BOOLEAN, "mppe-stateful\n"},
-	{NM_L2TP_KEY_NOBSDCOMP, G_TYPE_BOOLEAN, "nobsdcomp\n"},
-	{NM_L2TP_KEY_NODEFLATE, G_TYPE_BOOLEAN, "nodeflate\n"},
-	{NM_L2TP_KEY_NO_VJ_COMP, G_TYPE_BOOLEAN, "novj\n"},
-	{NM_L2TP_KEY_NO_PCOMP, G_TYPE_BOOLEAN, "nopcomp\n"},
-	{NM_L2TP_KEY_NO_ACCOMP, G_TYPE_BOOLEAN, "noaccomp\n"},
-	{NULL, G_TYPE_NONE, NULL}
-};
-
-/**
- * Check that specified UDP socket in 0.0.0.0 is not used and we can bind to it.
- **/
-static gboolean
-is_port_free(int port)
-{
-	struct sockaddr_in addr;
-	int sock;
-	g_message ("Check port %d", port);
-	sock = socket (AF_INET, SOCK_DGRAM, 0);
-	if (!sock){
-		g_warning (_("Can-not create new test socket"));
-		return FALSE;
-	}
-
-	memset(&addr, 0, sizeof(struct sockaddr_in));
-	addr.sin_family = AF_INET;
-	addr.sin_port = htons(port);
-	addr.sin_addr.s_addr = INADDR_ANY;
-
-	if (bind (sock, (struct sockaddr *) &addr, sizeof (addr)) == -1){
-		g_message ("Can't bind to port %d", port);
-		return FALSE;
-	}
-	close(sock);				/* unbind */
-
-	return TRUE;
-}
-
-/* XXX: currently unused! May be useful if l2tp client doesn't accept 0 as port number
-static int
-get_free_l2tp_port(void)
-{
-	int port = 1701;
-
-	while (!is_port_free (port) && port < 65535)
-		port++;
-
-	if (port == 65535) // oh no..
-		return -1;
-	g_message("found free port %d", port);
-	return port;
-}
-*/
-
-static gboolean
-nm_l2tp_config_write (NML2tpPlugin *plugin,
-                      NMSettingVpn *s_vpn,
-                      GError **error)
-{
-	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
-	NML2tpPppServicePrivate *service_priv = NULL;
-	char *filename;
-	pid_t pid = getpid ();
-	const char *value;
-	// const char *username;
-	gint conf_fd = -1;
-	gint ipsec_fd = -1;
-	gint pppopt_fd = -1;
-	int port;
-	int i;
-
-	filename = g_strdup_printf ("/var/run/nm-ipsec-l2tp.%d", pid);
-	mkdir(filename,0700);
-	g_free (filename);
-
-	filename = g_strdup_printf ("/var/run/nm-ipsec-l2tp.%d/ipsec.conf", pid);
-	ipsec_fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR);
-	g_free (filename);
-	if (ipsec_fd == -1) {
-		return nm_l2tp_ipsec_error(error, "Could not write ipsec config.");
-	}
-
-	write_config_option (ipsec_fd, 		"conn nm-ipsec-l2tp-%d\n", pid);
-	write_config_option (ipsec_fd, 		"  auto=add\n"
-						"  type=transport\n");
-
-	write_config_option (ipsec_fd, 		"  authby=secret\n"
-						"  keyingtries=0\n"
-						"  left=%%defaultroute\n"
-						"  leftprotoport=udp/l2tp\n"
-						"  rightprotoport=udp/l2tp\n");
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GROUP_NAME);
-	if(value)write_config_option (ipsec_fd, "  leftid=@%s\n", value);
-	/* value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_GATEWAY); */
-	write_config_option (ipsec_fd, "  right=%s\n", priv->saddr);
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GATEWAY_ID);
-	if(value)write_config_option (ipsec_fd, "  rightid=@%s\n", value);
-
-	if (!priv->is_libreswan) {
-		write_config_option (ipsec_fd,	"  keyexchange=ikev1\n");
-	}
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_PFS);
-	if(value)write_config_option (ipsec_fd, "  pfs=%s\n", value);
-
-	filename = g_strdup_printf ("/var/run/nm-xl2tpd.conf.%d", pid);
-	conf_fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR);
-	g_free (filename);
-
-	if (conf_fd == -1) {
-		close(ipsec_fd);
-		return nm_l2tp_ipsec_error(error, "Could not write xl2tpd config.");
-	}
-
-	filename = g_strdup_printf ("/var/run/nm-ppp-options.xl2tpd.%d", pid);
-	pppopt_fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR);
-	g_free (filename);
-
-	if (pppopt_fd == -1) {
-		close(ipsec_fd);
-		close(conf_fd);
-		return nm_l2tp_ipsec_error(error, "Could not write ppp options.");
-	}
-
-	/* L2TP options */
-	write_config_option (conf_fd, "[global]\n");
-	write_config_option (conf_fd, "access control = yes\n");
-
-	/* Check that xl2tpd's default port 1701 is free, if not - use 0 (ephemeral random port) */
-	/* port = get_free_l2tp_port(); */
-	port = 1701;
-	if (!is_port_free (port)){
-		port = 0;
-		g_warning("Port 1701 is busy, use ephemeral.");
-	}
-	write_config_option (conf_fd, "port = %d\n", port);
-	if (debug){
-		/* write_config_option (conf_fd, "debug network = yes\n"); */
-		write_config_option (conf_fd, "debug state = yes\n");
-		write_config_option (conf_fd, "debug tunnel = yes\n");
-		write_config_option (conf_fd, "debug avp = yes\n");
-	}
-
-	write_config_option (conf_fd, "[lac l2tp]\n");
-
-	/* value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_GATEWAY); */
-	write_config_option (conf_fd, "lns = %s\n", priv->saddr);
-
-	if (priv->service)
-		service_priv = NM_L2TP_PPP_SERVICE_GET_PRIVATE (priv->service);
-	if (service_priv && service_priv->username) {
-		write_config_option (conf_fd, "name = %s\n", service_priv->username);
-	}
-	if (debug)
-		write_config_option (conf_fd, "ppp debug = yes\n");
-	write_config_option (conf_fd, "pppoptfile = /var/run/nm-ppp-options.xl2tpd.%d\n", pid);
-	write_config_option (conf_fd, "autodial = yes\n");
-	write_config_option (conf_fd, "tunnel rws = 8\n");
-	write_config_option (conf_fd, "tx bps = 100000000\n");
-	write_config_option (conf_fd, "rx bps = 100000000\n");
-
-	/* PPP options */
-	if (debug)
-		write_config_option (pppopt_fd, "debug\n");
-
-	write_config_option (pppopt_fd, "ipparam nm-l2tp-service-%d\n", pid);
-
-	write_config_option (pppopt_fd, "nodetach\n");
-	write_config_option (pppopt_fd, "lock\n");
-	write_config_option (pppopt_fd, "usepeerdns\n");
-	write_config_option (pppopt_fd, "noipdefault\n");
-	write_config_option (pppopt_fd, "nodefaultroute\n");
-
-	/* Don't need to auth the L2TP server */
-	write_config_option (pppopt_fd, "noauth\n");
-
-	/* pppd and xl2tpd on Linux require this option to support Android and iOS clients,
-	   and pppd on Linux clients won't work without the same option */
-	write_config_option (pppopt_fd, "noccp\n");
-
-	if (service_priv && service_priv->username) {
-		write_config_option (pppopt_fd, "name %s\n", service_priv->username);
-	}
-
-	for(i=0; ppp_options[i].name; i++){
-		value = nm_setting_vpn_get_data_item (s_vpn, ppp_options[i].name);
-		if (value && !strcmp (value, "yes"))
-			write_config_option (pppopt_fd, ppp_options[i].write_to_config);
-	}
-
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_LCP_ECHO_FAILURE);
-	if (value && *value) {
-		long int tmp_int;
-
-		/* Convert to integer and then back to string for security's sake
-		 * because strtol ignores some leading and trailing characters.
-		 */
-		errno = 0;
-		tmp_int = strtol (value, NULL, 10);
-		if (errno == 0) {
-			write_config_option (pppopt_fd, "lcp-echo-failure %ld\n", tmp_int);
-		} else {
-			g_warning (_("failed to convert lcp-echo-failure value '%s'"), value);
-		}
-	} else {
-		write_config_option (pppopt_fd, "lcp-echo-failure 0\n");
-	}
-
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_LCP_ECHO_INTERVAL);
-	if (value && *value) {
-		long int tmp_int;
-
-		/* Convert to integer and then back to string for security's sake
-		 * because strtol ignores some leading and trailing characters.
-		 */
-		errno = 0;
-		tmp_int = strtol (value, NULL, 10);
-		if (errno == 0) {
-			write_config_option (pppopt_fd, "lcp-echo-interval %ld\n", tmp_int);
-		} else {
-			g_warning (_("failed to convert lcp-echo-interval value '%s'"), value);
-		}
-	} else {
-		write_config_option (pppopt_fd, "lcp-echo-interval 0\n");
-	}
-
-	write_config_option (pppopt_fd, "plugin %s\n", NM_L2TP_PPPD_PLUGIN);
-
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_MRU);
-	if (value) write_config_option (pppopt_fd, "mru %s\n", value);
-
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_MTU);
-	if (value) write_config_option (pppopt_fd, "mtu %s\n", value);
-
-	if (priv && priv->use_cert) {
-		write_config_option (pppopt_fd, "cert \"%s\"\n", nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_CERT_PUB));
-		write_config_option (pppopt_fd, "ca \"%s\"\n", nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_CERT_CA));
-		write_config_option (pppopt_fd, "key \"%s\"\n", nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_CERT_KEY));
-	}
-
-	close(ipsec_fd);
-	close(conf_fd);
-	close(pppopt_fd);
-
-
-	return TRUE;
-}
-
 static void
 remove_timeout_handler (NML2tpPlugin *plugin)
 {
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
-	
+
 	if (priv->ppp_timeout_handler) {
 		g_source_remove (priv->ppp_timeout_handler);
 		priv->ppp_timeout_handler = 0;
 	}
 }
 
-static void
-service_plugin_alive_cb (NML2tpPppService *service,
-                         NML2tpPlugin *plugin)
+static gboolean
+handle_need_secrets (NMDBusL2tpPpp *object,
+                     GDBusMethodInvocation *invocation,
+                     gpointer user_data)
 {
-	remove_timeout_handler (plugin);
+	NML2tpPlugin *self = NM_L2TP_PLUGIN (user_data);
+	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (self);
+	NMSettingVpn *s_vpn;
+	const char *user, *password, *domain;
+	gchar *username;
+
+	remove_timeout_handler (NM_L2TP_PLUGIN (user_data));
+
+	s_vpn = nm_connection_get_setting_vpn (priv->connection);
+	g_assert (s_vpn);
+
+	/* Username; try L2TP specific username first, then generic username */
+	user = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER);
+	if (!user || !strlen (user))
+		user = nm_setting_vpn_get_user_name (s_vpn);
+	if (!user || !strlen (user)) {
+		g_dbus_method_invocation_return_error_literal (invocation,
+		                                               NM_VPN_PLUGIN_ERROR,
+		                                               NM_VPN_PLUGIN_ERROR_INVALID_CONNECTION,
+		                                               _("Missing VPN username."));
+		return FALSE;
+	}
+
+	password = nm_setting_vpn_get_secret (s_vpn, NM_L2TP_KEY_PASSWORD);
+	if (!password || !strlen (password)) {
+		g_dbus_method_invocation_return_error_literal (invocation,
+		                                               NM_VPN_PLUGIN_ERROR,
+		                                               NM_VPN_PLUGIN_ERROR_INVALID_CONNECTION,
+		                                               _("Missing or invalid VPN password."));
+		return FALSE;;
+	}
+
+	/* Domain is optional */
+	domain = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_DOMAIN);
+
+	/* Success */
+	if (domain && strlen (domain))
+		username = g_strdup_printf ("%s\\%s", domain, user);
+	else
+		username = g_strdup (user);
+
+	nmdbus_l2tp_ppp_complete_need_secrets (object, invocation, username, password);
+	g_free (username);
+
+	return TRUE;
 }
 
-static void
-service_ppp_state_cb (NML2tpPppService *service,
-                      guint32 ppp_state,
-                      NML2tpPlugin *plugin)
+static gboolean
+handle_set_state (NMDBusL2tpPpp *object,
+                  GDBusMethodInvocation *invocation,
+                  guint arg_state,
+                  gpointer user_data)
 {
-	if (ppp_state == NM_PPP_STATUS_DEAD || ppp_state == NM_PPP_STATUS_DISCONNECT)
-		nm_vpn_service_plugin_disconnect (NM_VPN_SERVICE_PLUGIN (plugin), NULL);
+	remove_timeout_handler (NM_L2TP_PLUGIN (user_data));
+	if (arg_state == NM_PPP_STATUS_DEAD || arg_state == NM_PPP_STATUS_DISCONNECT)
+		nm_vpn_service_plugin_disconnect (NM_VPN_SERVICE_PLUGIN (user_data), NULL);
+
+	g_dbus_method_invocation_return_value (invocation, NULL);
+	return TRUE;
 }
 
-static void
-service_ip4_config_cb (NML2tpPppService *service,
-                       GVariant *config,
-                       NMVpnServicePlugin *plugin)
+static gboolean
+handle_set_ip4_config (NMDBusL2tpPpp *object,
+                       GDBusMethodInvocation *invocation,
+                       GVariant *arg_config,
+                       gpointer user_data)
 {
+	NML2tpPlugin *plugin = NM_L2TP_PLUGIN (user_data);
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
 	GVariantIter iter;
 	const char *key;
@@ -1439,11 +1090,10 @@ service_ip4_config_cb (NML2tpPppService *service,
 	GVariantBuilder builder;
 	GVariant *new_config;
 
-	if (!config)
-		return;
+	remove_timeout_handler (plugin);
 
 	g_variant_builder_init (&builder, G_VARIANT_TYPE ("a{sv}"));
-	g_variant_iter_init (&iter, config);
+	g_variant_iter_init (&iter, arg_config);
 	while (g_variant_iter_next (&iter, "{&sv}", &key, &value)) {
 		g_variant_builder_add (&builder, "{sv}", key, value);
 		g_variant_unref (value);
@@ -1456,32 +1106,127 @@ service_ip4_config_cb (NML2tpPppService *service,
 	new_config = g_variant_builder_end (&builder);
 	g_variant_ref_sink (new_config);
 
-	nm_vpn_service_plugin_set_ip4_config (plugin, new_config);
+	nm_vpn_service_plugin_set_ip4_config (NM_VPN_SERVICE_PLUGIN (plugin), new_config);
 	g_variant_unref (new_config);
+
+	g_dbus_method_invocation_return_value (invocation, NULL);
+	return TRUE;
 }
 
+
 static gboolean
-real_connect (NMVpnServicePlugin   *plugin,
-              NMConnection  *connection,
-              GError       **error)
+lookup_gateway (NML2tpPlugin *self,
+                const char *src,
+                GError **error)
+{
+	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (self);
+	const char *p = src;
+	gboolean is_name = FALSE;
+	struct in_addr naddr;
+	struct addrinfo hints;
+	struct addrinfo *result = NULL, *rp;
+	int err;
+	char buf[INET_ADDRSTRLEN];
+
+	g_return_val_if_fail (src != NULL, FALSE);
+
+	if (priv->saddr) {
+		g_free (priv->saddr);
+		priv->saddr = NULL;
+	}
+
+	while (*p) {
+		if (*p != '.' && !isdigit (*p)) {
+			is_name = TRUE;
+			break;
+		}
+		p++;
+	}
+
+	if (is_name == FALSE) {
+		errno = 0;
+		if (inet_pton (AF_INET, src, &naddr) <= 0) {
+			return nm_l2tp_ipsec_error(error, "couldn't convert L2TP VPN gateway IP address.");
+		}
+		priv->naddr = naddr.s_addr;
+		priv->saddr = g_strdup (src);
+		return TRUE;
+	}
+
+	/* It's a hostname, resolve it */
+	memset (&hints, 0, sizeof (hints));
+	hints.ai_family = AF_INET;
+	hints.ai_flags = AI_ADDRCONFIG;
+	err = getaddrinfo (src, NULL, &hints, &result);
+	if (err != 0) {
+		return nm_l2tp_ipsec_error(error, "couldn't look up L2TP VPN gateway IP address ");
+	}
+
+	/* If the hostname resolves to multiple IP addresses, use the first one.
+	 * FIXME: maybe we just want to use a random one instead?
+	 */
+	memset (&naddr, 0, sizeof (naddr));
+	for (rp = result; rp; rp = rp->ai_next) {
+		if (   (rp->ai_family == AF_INET)
+		    && (rp->ai_addrlen == sizeof (struct sockaddr_in))) {
+			struct sockaddr_in *inptr = (struct sockaddr_in *) rp->ai_addr;
+
+			memcpy (&naddr, &(inptr->sin_addr), sizeof (struct in_addr));
+			break;
+		}
+	}
+	freeaddrinfo (result);
+
+	if (naddr.s_addr == 0) {
+		return nm_l2tp_ipsec_error(error, "no usable addresses returned for L2TP VPN gateway ");
+	}
+
+	priv->naddr = naddr.s_addr;
+	priv->saddr = g_strdup (inet_ntop (AF_INET, &naddr, buf, sizeof (buf)));
+
+	return TRUE;
+}
+
+
+static gboolean
+real_connect (NMVpnServicePlugin *plugin,
+              NMConnection *connection,
+              GError **error)
 {
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
 	NMSettingVpn *s_vpn;
+	const char *gwaddr;
 	const char *value;
-	const char *ipsec_binary_path;
-
-	if (!(ipsec_binary_path=nm_find_ipsec ())) {
-		return nm_l2tp_ipsec_error (error, "Could not find the ipsec binary. Is strongSwan or Libreswan installed?");
-	}
-
-	strncpy (priv->ipsec_binary_path, ipsec_binary_path, 256);
-	priv->is_libreswan = check_is_libreswan (priv->ipsec_binary_path);
-
-	if (getenv ("NM_PPP_DUMP_CONNECTION") || debug)
-		nm_connection_dump (connection);
 
 	s_vpn = nm_connection_get_setting_vpn (connection);
 	g_assert (s_vpn);
+
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_ENABLE);
+	g_message(_("ipsec enable flag: %s"), value?value:"(null)");
+    priv->is_libreswan = TRUE;
+	if(value && !strcmp(value,"yes")) {
+
+		if (!(value=nm_find_ipsec ())) {
+			return nm_l2tp_ipsec_error(error, "Could not find the ipsec binary. Is strongSwan or Libreswan installed?");
+		}
+		strncpy (priv->ipsec_binary_path, value, sizeof(priv->ipsec_binary_path));
+
+		priv->is_libreswan = check_is_libreswan (priv->ipsec_binary_path);
+	}
+
+	gwaddr = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_GATEWAY);
+	if (!gwaddr || !strlen (gwaddr)) {
+		return nm_l2tp_ipsec_error(error, "Invalid or missing L2TP gateway.");
+	}
+
+	/* Look up the IP address of the L2TP server; if the server has multiple
+	 * addresses, because we can't get the actual IP used back from xl2tp itself,
+	 * we need to do name->addr conversion here and only pass the IP address
+	 * down to pppd/l2tp.  If only xl2tp could somehow return the IP address it's
+	 * using for the connection, we wouldn't need to do this...
+	 */
+	if (!lookup_gateway (NM_L2TP_PLUGIN (plugin), gwaddr, error))
+		return FALSE;
 
 	if (!nm_l2tp_properties_validate (s_vpn, error))
 		return FALSE;
@@ -1489,38 +1234,16 @@ real_connect (NMVpnServicePlugin   *plugin,
 	if (!nm_l2tp_secrets_validate (s_vpn, error))
 		return FALSE;
 
-	/* Start our pppd plugin helper service */
-	g_clear_object (&priv->service);
-	g_clear_object (&priv->connection);
-
-	priv->service = nm_l2tp_ppp_service_new (connection, error);
-	if (!priv->service) {
-		return nm_l2tp_ipsec_error(error, "Could not start pppd plugin helper service.");
-	}
-
-	priv->connection = g_object_ref (connection);
-
-	g_signal_connect (G_OBJECT (priv->service), "plugin-alive", G_CALLBACK (service_plugin_alive_cb), plugin);
-	g_signal_connect (G_OBJECT (priv->service), "ppp-state", G_CALLBACK (service_ppp_state_cb), plugin);
-	g_signal_connect (G_OBJECT (priv->service), "ip4-config", G_CALLBACK (service_ip4_config_cb), plugin);
-
-	/* Cache the username and password so we can relay the secrets to the pppd
-	 * plugin when it asks for them.
-	 */
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USE_CERT);
-	if (value && !strcmp (value,"yes"))
-		priv->use_cert = TRUE;
-	else if (!_service_cache_credentials (priv->service, connection, error))
-		return FALSE;
-
-	if (!nm_l2tp_resolve_gateway (NM_L2TP_PLUGIN (plugin), s_vpn, error))
-		return FALSE;
-
 	if (!nm_l2tp_config_write (NM_L2TP_PLUGIN (plugin), s_vpn, error))
 		return FALSE;
 
+	g_clear_object (&priv->connection);
+	priv->connection = g_object_ref (connection);
+
+	if (getenv ("NM_L2TP_DUMP_CONNECTION") || debug)
+		nm_connection_dump (connection);
+
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_ENABLE);
-	g_message(_("ipsec enable flag: %s"), value?value:"(null)");
 	if(value && !strcmp(value,"yes")) {
 		g_message(_("starting ipsec"));
 		if (!nm_l2tp_start_ipsec(NM_L2TP_PLUGIN (plugin), s_vpn, error))
@@ -1528,10 +1251,9 @@ real_connect (NMVpnServicePlugin   *plugin,
 		priv->ipsec_up = TRUE;
 	}
 
-	if (!nm_l2tp_start_l2tpd_binary (NM_L2TP_PLUGIN (plugin), s_vpn, error))
-		return FALSE;
-
-	return TRUE;
+	return nm_l2tp_start_l2tpd_binary (NM_L2TP_PLUGIN (plugin),
+	                                  s_vpn,
+	                                  error);
 }
 
 static gboolean
@@ -1568,17 +1290,14 @@ ensure_killed (gpointer data)
 {
 	int pid = GPOINTER_TO_INT (data);
 
-	if (kill (pid, 0) == 0){
-		g_warning("Kill process %d by SIGKILL", pid);
+	if (kill (pid, 0) == 0)
 		kill (pid, SIGKILL);
-	}
 
 	return FALSE;
 }
 
 static gboolean
-real_disconnect (NMVpnServicePlugin   *plugin,
-                 GError       **err)
+real_disconnect (NMVpnServicePlugin *plugin, GError **err)
 {
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
 
@@ -1588,7 +1307,7 @@ real_disconnect (NMVpnServicePlugin   *plugin,
 		else
 			kill (priv->pid_l2tpd, SIGKILL);
 
-		g_message(_("Terminated l2tp daemon with PID %d."), priv->pid_l2tpd);
+		g_message ("Terminated xl2tpd daemon with PID %d.", priv->pid_l2tpd);
 		priv->pid_l2tpd = 0;
 	}
 
@@ -1597,7 +1316,10 @@ real_disconnect (NMVpnServicePlugin   *plugin,
 	}
 
 	g_clear_object (&priv->connection);
-	g_clear_object (&priv->service);
+	if (priv->saddr) {
+		g_free (priv->saddr);
+		priv->saddr = NULL;
+	}
 
 	return TRUE;
 }
@@ -1618,7 +1340,10 @@ state_changed_cb (GObject *object, NMVpnServiceState state, gpointer user_data)
 	case NM_VPN_SERVICE_STATE_STOPPED:
 		remove_timeout_handler (NM_L2TP_PLUGIN (object));
 		g_clear_object (&priv->connection);
-		g_clear_object (&priv->service);
+		if (priv->saddr) {
+			g_free (priv->saddr);
+			priv->saddr = NULL;
+		}
 		break;
 	default:
 		break;
@@ -1629,12 +1354,24 @@ static void
 dispose (GObject *object)
 {
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (object);
+	GDBusInterfaceSkeleton *skeleton = NULL;
+
+	if (priv->dbus_skeleton)
+		skeleton = G_DBUS_INTERFACE_SKELETON (priv->dbus_skeleton);
+
+	if (skeleton) {
+		if (g_dbus_interface_skeleton_get_object_path (skeleton))
+			g_dbus_interface_skeleton_unexport (skeleton);
+		g_signal_handlers_disconnect_by_func (skeleton, handle_need_secrets, object);
+		g_signal_handlers_disconnect_by_func (skeleton, handle_set_state, object);
+		g_signal_handlers_disconnect_by_func (skeleton, handle_set_ip4_config, object);
+	}
 
 	g_clear_object (&priv->connection);
-	g_clear_object (&priv->service);
-
-	if (priv->saddr)
+	if (priv->saddr) {
 		g_free (priv->saddr);
+		priv->saddr = NULL;
+	}
 
 	G_OBJECT_CLASS (nm_l2tp_plugin_parent_class)->dispose (object);
 }
@@ -1659,23 +1396,63 @@ nm_l2tp_plugin_class_init (NML2tpPluginClass *l2tp_class)
 	parent_class->disconnect = real_disconnect;
 }
 
+static GInitableIface *ginitable_parent_iface = NULL;
+
+static gboolean
+init_sync (GInitable *object, GCancellable *cancellable, GError **error)
+{
+	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (object);
+	GDBusConnection *bus;
+
+	if (!ginitable_parent_iface->init (object, cancellable, error))
+		return FALSE;
+
+	g_signal_connect (G_OBJECT (object), "state-changed", G_CALLBACK (state_changed_cb), NULL);
+
+	bus = nm_vpn_service_plugin_get_connection (NM_VPN_SERVICE_PLUGIN (object)),
+	priv->dbus_skeleton = nmdbus_l2tp_ppp_skeleton_new ();
+	if (!g_dbus_interface_skeleton_export (G_DBUS_INTERFACE_SKELETON (priv->dbus_skeleton),
+	                                       bus,
+	                                       NM_DBUS_PATH_L2TP_PPP,
+	                                       error)) {
+		g_prefix_error (error, "Failed to export helper interface: ");
+		g_object_unref (bus);
+		return FALSE;
+	}
+
+	g_dbus_connection_register_object (bus, NM_DBUS_PATH_L2TP_PPP,
+	                                   nmdbus_l2tp_ppp_interface_info (),
+	                                   NULL, NULL, NULL, NULL);
+
+	g_signal_connect (priv->dbus_skeleton, "handle-need-secrets", G_CALLBACK (handle_need_secrets), object);
+	g_signal_connect (priv->dbus_skeleton, "handle-set-state", G_CALLBACK (handle_set_state), object);
+	g_signal_connect (priv->dbus_skeleton, "handle-set-ip4-config", G_CALLBACK (handle_set_ip4_config), object);
+
+	g_object_unref (bus);
+	return TRUE;
+}
+
+static void
+nm_l2tp_plugin_initable_iface_init (GInitableIface *iface)
+{
+	ginitable_parent_iface = g_type_interface_peek_parent (iface);
+	iface->init = init_sync;
+}
+
 NML2tpPlugin *
-nm_l2tp_plugin_new (void)
+nm_l2tp_plugin_new (const char *bus_name)
 {
 	NML2tpPlugin *plugin;
 	GError *error = NULL;
 
 	plugin = g_initable_new (NM_TYPE_L2TP_PLUGIN, NULL, &error,
-	                         NM_VPN_SERVICE_PLUGIN_DBUS_SERVICE_NAME,
-	                         NM_DBUS_SERVICE_L2TP,
+	                         NM_VPN_SERVICE_PLUGIN_DBUS_SERVICE_NAME, bus_name,
 	                         NM_VPN_SERVICE_PLUGIN_DBUS_WATCH_PEER, !debug,
 	                         NULL);
-	if (plugin)
-		g_signal_connect (G_OBJECT (plugin), "state-changed", G_CALLBACK (state_changed_cb), NULL);
-
-	if (debug && error)
-		g_message ("Error: failed to create NML2tpPlugin: %s", error->message);
-	g_clear_error (&error);
+	if (!plugin) {
+		g_warning ("Failed to initialize a plugin instance: %s", error->message);
+		g_error_free (error);
+	}
 
 	return plugin;
 }
@@ -1693,10 +1470,12 @@ main (int argc, char *argv[])
 	GMainLoop *main_loop;
 	gboolean persist = FALSE;
 	GOptionContext *opt_ctx = NULL;
+	gchar *bus_name = NM_DBUS_SERVICE_L2TP;
 
 	GOptionEntry options[] = {
 		{ "persist", 0, 0, G_OPTION_ARG_NONE, &persist, N_("Don't quit when VPN connection terminates"), NULL },
 		{ "debug", 0, 0, G_OPTION_ARG_NONE, &debug, N_("Enable verbose debug logging (may expose passwords)"), NULL },
+		{ "bus-name", 0, 0, G_OPTION_ARG_STRING, &bus_name, N_("D-Bus name to use for this instance"), NULL },
 		{NULL}
 	};
 
@@ -1730,7 +1509,10 @@ main (int argc, char *argv[])
 	if (debug)
 		g_message ("nm-l2tp-service (version " DIST_VERSION ") starting...");
 
-	plugin = nm_l2tp_plugin_new ();
+	if (bus_name)
+		setenv ("NM_DBUS_SERVICE_L2TP", bus_name, 0);
+
+	plugin = nm_l2tp_plugin_new (bus_name);
 	if (!plugin)
 		exit (EXIT_FAILURE);
 

@@ -1,13 +1,13 @@
 AM_CPPFLAGS =							\
-	-I${top_srcdir}						\
 	$(GLIB_CFLAGS)						\
 	$(LIBNM_CFLAGS)						\
+	-I${top_srcdir}						\
 	-DBINDIR=\"$(bindir)\"					\
 	-DPREFIX=\""$(prefix)"\"				\
 	-DSYSCONFDIR=\""$(sysconfdir)"\"			\
 	-DLIBDIR=\""$(libdir)"\"				\
 	-DLIBEXECDIR=\""$(libexecdir)"\"			\
-	-DLOCALSTATEDIR=\""$(localstatedir)"\"	 		\
+	-DLOCALSTATEDIR=\""$(localstatedir)"\"			\
 	-DDATADIR=\"$(datadir)\"				\
 	-DNM_L2TP_LOCALEDIR=\"$(datadir)/locale\"		\
 	-DPLUGINDIR=\"$(PPPD_PLUGIN_DIR)\"
@@ -15,9 +15,9 @@ AM_CPPFLAGS =							\
 libexec_PROGRAMS = nm-l2tp-service
 
 nm_l2tp_service_SOURCES = \
-				nm-l2tp-service.c \
-				nm-l2tp-service-defines.h \
-				nm-l2tp-service.h
+	nm-l2tp-service-defines.h \
+	nm-l2tp-service.c \
+	nm-l2tp-service.h
 
 # D-Bus stuff
 noinst_LTLIBRARIES = libnm-l2tp-pppd-service-dbus.la
@@ -32,7 +32,7 @@ nm-l2tp-pppd-service-dbus.h: $(top_srcdir)/src/nm-l2tp-pppd-service.xml
 	$(AM_V_GEN) gdbus-codegen \
 		--generate-c-code $(basename $@) \
 		--c-namespace NMDBus \
-		--interface-prefix org.freedesktop \
+		--interface-prefix org.freedesktop.NetworkManager \
 		$<
 
 nm-l2tp-pppd-service-dbus.c:
