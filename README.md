@@ -1,6 +1,6 @@
 # NetworkMananger-l2tp
 
-NetworkManager-l2tp is a VPN plugin for NetworkManager which provides support for L2TP and
+NetworkManager-l2tp is a VPN plugin for NetworkManager 1.2 which provides support for L2TP and
 L2TP/IPSec (i.e. L2TP over IPSec) connections.
 
 For L2TP support, it uses xl2tpd ( https://www.xelerance.com/software/xl2tpd/ )
@@ -39,7 +39,9 @@ with ./configure arguments. In the configure examples below, you may need to cha
 Issue the following on the command line :
 
 #### Debian and Ubuntu
+    sudo killall -TERM nm-l2tp-service
     sudo /usr/lib/NetworkManager/nm-l2tp-service --debug
 
 #### Fedora and Red Hat Enterprise Linux
+    sudo killall -TERM nm-l2tp-service
     sudo /usr/libexec/nm-l2tp-service --debug
