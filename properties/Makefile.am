@@ -48,6 +48,7 @@ libnm_vpn_plugin_l2tp_la_LIBADD = \
 
 libnm_l2tp_properties_la_LIBADD = \
         $(GTK_LIBS)                                     \
+        $(LIBNM_GTK_LIBS)                               \
         $(LIBNM_GLIB_LIBS)
 
 libnm_vpn_plugin_l2tp_la_LDFLAGS =   \
