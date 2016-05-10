@@ -81,7 +81,7 @@
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
-              <object class="GtkLabel" id="label4">
+              <object class="GtkLabel" id="label_group_name">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">Group Name:</property>
@@ -93,7 +93,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="label1">
+              <object class="GtkLabel" id="label_gateway_id">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">Gateway ID:</property>
@@ -105,7 +105,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="label2">
+              <object class="GtkLabel" id="label_psk">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">Pre-shared key:</property>
@@ -123,7 +123,7 @@
                 <property name="can_focus">True</property>
                 <property name="margin_top">1</property>
                 <property name="margin_bottom">1</property>
-                <property name="invisible_char">●</property>
+                <property name="hexpand">True</property>
                 <property name="primary_icon_activatable">False</property>
                 <property name="secondary_icon_activatable">False</property>
               </object>
@@ -139,7 +139,7 @@
                 <property name="can_focus">True</property>
                 <property name="margin_top">1</property>
                 <property name="margin_bottom">1</property>
-                <property name="invisible_char">●</property>
+                <property name="hexpand">True</property>
                 <property name="primary_icon_activatable">False</property>
                 <property name="secondary_icon_activatable">False</property>
               </object>
@@ -154,8 +154,8 @@
                 <property name="can_focus">True</property>
                 <property name="margin_top">1</property>
                 <property name="margin_bottom">1</property>
+                <property name="hexpand">True</property>
                 <property name="visibility">False</property>
-                <property name="invisible_char">●</property>
                 <property name="primary_icon_activatable">False</property>
                 <property name="secondary_icon_activatable">False</property>
               </object>
@@ -253,6 +253,7 @@
                     <property name="can_focus">True</property>
                     <property name="tooltip_text" translatable="yes">L2TP server IP or name.
 config: xl2tpd lns parameter</property>
+                    <property name="hexpand">True</property>
                     <property name="primary_icon_activatable">False</property>
                     <property name="secondary_icon_activatable">False</property>
                   </object>
@@ -306,6 +307,7 @@ config: xl2tpd lns parameter</property>
               <object class="GtkGrid" id="grid3">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="hexpand">True</property>
                 <property name="row_spacing">6</property>
                 <property name="column_spacing">12</property>
                 <child>
@@ -314,7 +316,7 @@ config: xl2tpd lns parameter</property>
                     <property name="can_focus">True</property>
                     <property name="tooltip_text" translatable="yes">Append the domain name &lt;domain&gt; to the local host name for authentication purposes.
 config: domain &lt;domain&gt;</property>
-                    <property name="invisible_char">•</property>
+                    <property name="hexpand">True</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -357,8 +359,8 @@ config: domain &lt;domain&gt;</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="tooltip_text" translatable="yes">Password passed to PPPD when prompted for it.</property>
+                    <property name="hexpand">True</property>
                     <property name="visibility">False</property>
-                    <property name="invisible_char">•</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -371,7 +373,7 @@ config: domain &lt;domain&gt;</property>
                     <property name="can_focus">True</property>
                     <property name="tooltip_text" translatable="yes">Set the name used for authenticating the local system to the peer to &lt;name&gt;.
 config: xl2tpd name parameter</property>
-                    <property name="invisible_char">•</property>
+                    <property name="hexpand">True</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>

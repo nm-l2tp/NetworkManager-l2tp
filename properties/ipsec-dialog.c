@@ -85,13 +85,25 @@ handle_enable_changed (GtkWidget *check, gboolean is_init, GtkBuilder *builder)
 
 	enabledp = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (check));
 
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "label_psk"));
+	gtk_widget_set_sensitive (widget, enabledp);
+
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_psk"));
+	gtk_widget_set_sensitive (widget, enabledp);
+
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "label_gateway_id"));
 	gtk_widget_set_sensitive (widget, enabledp);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_gateway_id"));
 	gtk_widget_set_sensitive (widget, enabledp);
 
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "label_group_name"));
+	gtk_widget_set_sensitive (widget, enabledp);
+
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_group_name"));
+	gtk_widget_set_sensitive (widget, enabledp);
+
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "pfs_enable"));
 	gtk_widget_set_sensitive (widget, enabledp);
 }
 
