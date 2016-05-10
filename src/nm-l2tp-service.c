@@ -1434,20 +1434,24 @@ real_connect (NMVPNPlugin   *plugin,
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
 	NMSettingVPN *s_vpn;
 	const char *value;
-	const char *ipsec_binary_path;
-
-	if (!(ipsec_binary_path=nm_find_ipsec ())) {
-		return nm_l2tp_ipsec_error (error, "Could not find the ipsec binary. Is Strongswan or Libreswan installed?");
-	}
-
-	strncpy (priv->ipsec_binary_path, ipsec_binary_path, 256);
-	priv->is_libreswan = check_is_libreswan (priv->ipsec_binary_path);
 
 	if (getenv ("NM_PPP_DUMP_CONNECTION") || debug)
 		nm_connection_dump (connection);
 
 	s_vpn = NM_SETTING_VPN (nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN));
 	g_assert (s_vpn);
+
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_ENABLE);
+	g_message(_("ipsec enable flag: %s"), value?value:"(null)");
+	priv->is_libreswan = TRUE;
+	if(value && !strcmp(value,"yes")) {
+		if (!(value=nm_find_ipsec ())) {
+			return nm_l2tp_ipsec_error (error, "Could not find the ipsec binary. Is Strongswan or Libreswan installed?");
+		}
+
+		strncpy (priv->ipsec_binary_path, value, sizeof(priv->ipsec_binary_path));
+		priv->is_libreswan = check_is_libreswan (priv->ipsec_binary_path);
+	}
 
 	if (!nm_l2tp_properties_validate (s_vpn, error))
 		return FALSE;
@@ -1490,7 +1494,6 @@ real_connect (NMVPNPlugin   *plugin,
 		return FALSE;
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_ENABLE);
-	g_message(_("ipsec enable flag: %s"), value?value:"(null)");
 	if(value && !strcmp(value,"yes")) {
 		g_message(_("starting ipsec"));
 		if (!nm_l2tp_start_ipsec(NM_L2TP_PLUGIN (plugin), s_vpn, error))
