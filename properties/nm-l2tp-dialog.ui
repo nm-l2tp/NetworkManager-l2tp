@@ -81,7 +81,7 @@
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
-              <object class="GtkLabel" id="label4">
+              <object class="GtkLabel" id="label_group_name">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">Group Name:</property>
@@ -93,7 +93,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="label1">
+              <object class="GtkLabel" id="label_gateway_id">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">Gateway ID:</property>
@@ -105,7 +105,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="label2">
+              <object class="GtkLabel" id="label_psk">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">Pre-shared key:</property>
@@ -123,6 +123,7 @@
                 <property name="can_focus">True</property>
                 <property name="margin_top">1</property>
                 <property name="margin_bottom">1</property>
+                <property name="hexpand">True</property>
                 <property name="primary_icon_activatable">False</property>
                 <property name="secondary_icon_activatable">False</property>
               </object>
@@ -138,6 +139,7 @@
                 <property name="can_focus">True</property>
                 <property name="margin_top">1</property>
                 <property name="margin_bottom">1</property>
+                <property name="hexpand">True</property>
                 <property name="primary_icon_activatable">False</property>
                 <property name="secondary_icon_activatable">False</property>
               </object>
@@ -152,6 +154,7 @@
                 <property name="can_focus">True</property>
                 <property name="margin_top">1</property>
                 <property name="margin_bottom">1</property>
+                <property name="hexpand">True</property>
                 <property name="visibility">False</property>
                 <property name="primary_icon_activatable">False</property>
                 <property name="secondary_icon_activatable">False</property>
