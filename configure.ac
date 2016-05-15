@@ -33,7 +33,7 @@ AC_ARG_WITH([pppd-plugin-dir], AS_HELP_STRING([--with-pppd-plugin-dir=DIR], [pat
 if test -n "$with_pppd_plugin_dir" ; then
 	PPPD_PLUGIN_DIR="$with_pppd_plugin_dir"
 else
-	PPPD_PLUGIN_DIR="${libdir}/pppd/2.4.5"
+	PPPD_PLUGIN_DIR="${libdir}/pppd/2.4.7"
 fi
 AC_SUBST(PPPD_PLUGIN_DIR)
 
