@@ -1258,7 +1258,10 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	write_config_option (pppopt_fd, "ipparam nm-l2tp-service-%d\n", pid);
 
 	write_config_option (pppopt_fd, "nodetach\n");
+	/* revisit - xl2tpd-1.3.7 generates an unrecognized option 'lock' error.
+	   but with xl2tpd-1.3.6, pppd wasn't creating a lock file under /var/run/lock/ anyway.
 	write_config_option (pppopt_fd, "lock\n");
+	*/
 	write_config_option (pppopt_fd, "usepeerdns\n");
 	write_config_option (pppopt_fd, "noipdefault\n");
 	write_config_option (pppopt_fd, "nodefaultroute\n");
