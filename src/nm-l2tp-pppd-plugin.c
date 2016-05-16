@@ -191,13 +191,6 @@ nm_ip_up (void *data, int arg)
 		                                                  dns, len, sizeof (guint32)));
 	}
 
-	/* Default MTU to 1400, which is also what Windows XP/Vista use */
-	g_variant_builder_add (&builder, "{sv}",
-	                       NM_VPN_PLUGIN_IP4_CONFIG_MTU,
-	                       g_variant_new_uint32 (1400));
-
-	g_message ("nm-l2tp-ppp-plugin: (%s): sending Ip4Config to NetworkManager-l2tp...", __func__);
-
 	g_dbus_proxy_call (proxy,
 	                   "SetIp4Config",
 	                   g_variant_new ("(a{sv})", &builder),
