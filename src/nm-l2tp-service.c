@@ -1456,7 +1456,11 @@ real_connect (NMVPNPlugin   *plugin,
 	if (!nm_l2tp_properties_validate (s_vpn, error))
 		return FALSE;
 
-	if (!nm_l2tp_secrets_validate (s_vpn, error))
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USE_CERT);
+	if (value && !strcmp (value,"yes"))
+		priv->use_cert = TRUE;
+
+	if (!priv->use_cert && !nm_l2tp_secrets_validate (s_vpn, error))
 		return FALSE;
 
 	/* Start our pppd plugin helper service */
@@ -1481,10 +1485,7 @@ real_connect (NMVPNPlugin   *plugin,
 	/* Cache the username and password so we can relay the secrets to the pppd
 	 * plugin when it asks for them.
 	 */
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USE_CERT);
-	if (value && !strcmp (value,"yes"))
-		priv->use_cert = TRUE;
-	else if (!_service_cache_credentials (priv->service, connection, error))
+	if (!priv->use_cert && !_service_cache_credentials (priv->service, connection, error))
 		return FALSE;
 
 	if (!nm_l2tp_resolve_gateway (NM_L2TP_PLUGIN (plugin), s_vpn, error))
