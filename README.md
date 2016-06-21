@@ -1,11 +1,11 @@
 # NetworkMananger-l2tp
 
 NetworkManager-l2tp is a VPN plugin for NetworkManager 1.2 which provides support for L2TP and
-L2TP/IPSec (i.e. L2TP over IPSec) connections.
+L2TP/IPsec (i.e. L2TP over IPsec) connections.
 
 For L2TP support, it uses xl2tpd ( https://www.xelerance.com/software/xl2tpd/ )
 
-For IPSec support, it uses either of the following :
+For IPsec support, it uses either of the following :
 * Libreswan ( https://libreswan.org ) 
 * strongSwan ( https://www.strongswan.org )
 

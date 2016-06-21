@@ -173,8 +173,8 @@ msgstr "%s: failed to create the Advanced dialog!"
 
 #: ../properties/nm-l2tp.c:293
 #, c-format
-msgid "%s: failed to create the IPSEC dialog!"
-msgstr "%s: failed to create the IPSEC dialog!"
+msgid "%s: failed to create the IPsec dialog!"
+msgstr "%s: failed to create the IPsec dialog!"
 
 #: ../properties/nm-l2tp.c:412
 msgid "Saved"
@@ -371,8 +371,8 @@ msgstr ""
 "config: lcp-echo-failure and lcp-echo-interval"
 
 #: ../properties/nm-l2tp-dialog.ui.h:34
-msgid "L2TP IPSEC Options"
-msgstr "L2TP IPSEC Options"
+msgid "L2TP IPsec Options"
+msgstr "L2TP IPsec Options"
 
 #: ../properties/nm-l2tp-dialog.ui.h:35
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -663,10 +663,10 @@ msgstr "Enable verbose debug logging (may expose passwords)"
 
 #: ../src/nm-l2tp-service.c:1661
 msgid ""
-"nm-l2tp-service provides L2TP VPN capability with optional IPSec support to "
+"nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
 msgstr ""
-"nm-l2tp-service provides L2TP VPN capability with optional IPSec support to "
+"nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
 
 #~ msgid ""

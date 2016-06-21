@@ -171,8 +171,8 @@ msgstr "%s：创建高级对话失败！"
 
 #: ../properties/nm-l2tp.c:293
 #, c-format
-msgid "%s: failed to create the IPSEC dialog!"
-msgstr "%s：创建 IPSEC 对话失败！"
+msgid "%s: failed to create the IPsec dialog!"
+msgstr "%s：创建 IPsec 对话失败！"
 
 #: ../properties/nm-l2tp.c:412
 msgid "Saved"
@@ -367,8 +367,8 @@ msgstr ""
 "配置：lcp-echo-failure 和 lcp-echo-interval"
 
 #: ../properties/nm-l2tp-dialog.ui.h:34
-msgid "L2TP IPSEC Options"
-msgstr "L2TP IPSEC 选项"
+msgid "L2TP IPsec Options"
+msgstr "L2TP IPsec 选项"
 
 #: ../properties/nm-l2tp-dialog.ui.h:35
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -658,10 +658,10 @@ msgstr "启用详细的调试记录(可能暴露密码)"
 
 #: ../src/nm-l2tp-service.c:1661
 msgid ""
-"nm-l2tp-service provides L2TP VPN capability with optional IPSec support to "
+"nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
 msgstr ""
-"nm-l2tp-service 为网络管理器提供了集成的带可选 IPSec 支持的 L2TP VPN 功能。"
+"nm-l2tp-service 为网络管理器提供了集成的带可选 IPsec 支持的 L2TP VPN 功能。"
 
 #~ msgid "_Username:"
 #~ msgstr "用户名(_U):"

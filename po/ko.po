@@ -178,7 +178,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp.c:293
 #, c-format
-msgid "%s: failed to create the IPSEC dialog!"
+msgid "%s: failed to create the IPsec dialog!"
 msgstr ""
 
 #: ../properties/nm-l2tp.c:412
@@ -364,7 +364,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:34
 #, fuzzy
-msgid "L2TP IPSEC Options"
+msgid "L2TP IPsec Options"
 msgstr "PPP 옵션"
 
 #: ../properties/nm-l2tp-dialog.ui.h:35
@@ -652,7 +652,7 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1661
 msgid ""
-"nm-l2tp-service provides L2TP VPN capability with optional IPSec support to "
+"nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
 msgstr ""
 

@@ -1501,7 +1501,7 @@ main (int argc, char *argv[])
 	g_option_context_add_main_entries (opt_ctx, options, NULL);
 
 	g_option_context_set_summary (opt_ctx,
-	    _("nm-l2tp-service provides L2TP VPN capability with optional IPSec support to NetworkManager."));
+	    _("nm-l2tp-service provides L2TP VPN capability with optional IPsec support to NetworkManager."));
 
 	g_option_context_parse (opt_ctx, &argc, &argv, NULL);
 	g_option_context_free (opt_ctx);
