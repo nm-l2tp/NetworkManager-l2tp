@@ -176,8 +176,8 @@ msgstr "%s: не удалось создать диалог Дополнител
 
 #: ../properties/nm-l2tp.c:293
 #, c-format
-msgid "%s: failed to create the IPSEC dialog!"
-msgstr "%s: не удалось создать диалог настроек IPSEC!"
+msgid "%s: failed to create the IPsec dialog!"
+msgstr "%s: не удалось создать диалог настроек IPsec!"
 
 #: ../properties/nm-l2tp.c:412
 msgid "Saved"
@@ -377,7 +377,7 @@ msgstr ""
 "опция конфигурации: lcp-echo-failure и lcp-echo-interval"
 
 #: ../properties/nm-l2tp-dialog.ui.h:34
-msgid "L2TP IPSEC Options"
+msgid "L2TP IPsec Options"
 msgstr "Параметры L2TP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:35
@@ -667,11 +667,11 @@ msgstr "Включить подробное отладочное логгиро�
 
 #: ../src/nm-l2tp-service.c:1661
 msgid ""
-"nm-l2tp-service provides L2TP VPN capability with optional IPSec support to "
+"nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
 msgstr ""
 "nm-l2tp-service предоставляет возможности L2TP VPN с опциональной поддержкой "
-"IPSec для NetworkManager."
+"IPsec для NetworkManager."
 
 #~ msgid "not a valid L2TP configuration file"
 #~ msgstr "неправильный L2TP конфигурационный файл"

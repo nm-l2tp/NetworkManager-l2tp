@@ -290,7 +290,7 @@ ipsec_button_clicked_cb (GtkWidget *button, gpointer user_data)
 
 	dialog = ipsec_dialog_new (priv->ipsec);
 	if (!dialog) {
-		g_warning (_("%s: failed to create the IPSEC dialog!"), __func__);
+		g_warning (_("%s: failed to create the IPsec dialog!"), __func__);
 		return;
 	}
 
