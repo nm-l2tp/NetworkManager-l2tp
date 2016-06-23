@@ -24,6 +24,7 @@
 #endif
 
 #include <string.h>
+#include <inttypes.h>
 #include <sys/types.h>
 #include <stdlib.h>
 #include <stdio.h>
