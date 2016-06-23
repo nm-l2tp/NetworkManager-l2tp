@@ -649,7 +649,7 @@ export_ip4(NMSettingIPConfig *s_ip4, GKeyFile *keyfile, GError **error)
 			if (nm_ip_route_get_next_hop (route))
 				g_string_append_printf(route_s, " via %s", nm_ip_route_get_next_hop (route));
 			if (nm_ip_route_get_metric (route) != -1)
-				g_string_append_printf(route_s, " metric %ld", nm_ip_route_get_metric (route));
+				g_string_append_printf(route_s, " metric %" PRId64, nm_ip_route_get_metric (route));
 #endif
 			routes[i] = g_string_free(route_s, FALSE);
 			g_message("export route #%d of %d: %s", i, num_routes, routes[i]);
