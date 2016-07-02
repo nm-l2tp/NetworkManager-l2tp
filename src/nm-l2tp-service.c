@@ -160,6 +160,20 @@ check_is_libreswan (const char *path)
 }
 
 static gboolean
+check_is_strongswan (const char *path)
+{
+	const char *argv[] = { path, "--version", NULL };
+	gboolean strongswan = FALSE;
+	char *output = NULL;
+
+	if (g_spawn_sync (NULL, (char **) argv, NULL, 0, NULL, NULL, &output, NULL, NULL, NULL)) {
+		strongswan = output && strstr (output, " strongSwan ");
+		g_free (output);
+	}
+	return strongswan;
+}
+
+static gboolean
 validate_gateway (const char *gateway)
 {
 	const char *p = gateway;
@@ -876,9 +890,9 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 
 	/* the way this works is sadly very messy
 	   we replace the user's /etc/ipsec.secrets file
-	   we ask strongswan/libreswan to reload the secrets,
+	   we ask strongSwan/Libreswan to reload the secrets,
 	   we whack in our connection,
-	   we then replace the secrets and ask strongswan/libreswan to reload them
+	   we then replace the secrets and ask strongSwan/Libreswan to reload them
 	*/
 	secrets = "/etc/ipsec.secrets";
 	if (!priv->is_libreswan) {
@@ -920,7 +934,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	for (retry = 0; retry < 10 && sys != 0; retry++) {
 		sys = system (cmdbuf);
 		if (sys != 0)
-			sleep (1); // wait for ipsec to get ready
+			sleep (1); // wait for strongSwan to get ready
 	}
 
 	if (!sys) {
@@ -1210,11 +1224,14 @@ real_connect (NMVpnServicePlugin *plugin,
 	if(value && !strcmp(value,"yes")) {
 
 		if (!(value=nm_find_ipsec ())) {
-			return nm_l2tp_ipsec_error(error, "Could not find the ipsec binary. Is strongSwan or Libreswan installed?");
+			return nm_l2tp_ipsec_error(error, "Could not find the ipsec binary. Is Libreswan or strongSwan installed?");
 		}
 		strncpy (priv->ipsec_binary_path, value, sizeof(priv->ipsec_binary_path));
 
 		priv->is_libreswan = check_is_libreswan (priv->ipsec_binary_path);
+		if (!priv->is_libreswan && !check_is_strongswan (priv->ipsec_binary_path)) {
+			return nm_l2tp_ipsec_error (error, "Neither Libreswan nor strongSwan were found.");
+		}
 	}
 
 	gwaddr = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_GATEWAY);
