@@ -842,6 +842,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	char tmp_secrets[128];
 	char session_name[128];
 	char cmdbuf[256];
+	char *output = NULL;
 	int sys = 0, retry;
 	int fd;
 	FILE *fp;
@@ -946,21 +947,40 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 			if (!sys) {
 				snprintf(cmdbuf, sizeof(cmdbuf), "%s auto --up '%s'",
 						 priv->ipsec_binary_path, session_name);
+				sys = system (cmdbuf);
+				if (!sys) {
+					rc = TRUE;
+					g_message ( ("Libreswan ready for action."));
+				} else {
+					g_warning(_("Could not establish IPsec tunnel."));
+				}
 			} else {
-				nm_l2tp_ipsec_error (error, "Could not add IPsec tunnel.");
+				g_warning(_("Could not establish IPsec tunnel."));
 			}
+
 		} else {
 			snprintf (cmdbuf, sizeof(cmdbuf), "%s up '%s'", priv->ipsec_binary_path, session_name);
+			sys = system (cmdbuf);
+			if (!sys) {
+				// Do not trust exit status of strongSwan 'ipsec up' command.
+				// explictly check if connection is established.
+				snprintf (cmdbuf, sizeof(cmdbuf), "%s status '%s'", priv->ipsec_binary_path, session_name);
+				if (g_spawn_command_line_sync(cmdbuf, &output, NULL, NULL, NULL)) {
+					rc = output && strstr (output, "ESTABLISHED");
+					g_free (output);
+					if (rc) {
+						g_message ( ("strongSwan ready for action."));
+					} else {
+						g_warning(_("Could not establish IPsec tunnel."));
+					}
+				}
+			} else {
+				g_warning(_("Could not establish IPsec tunnel."));
+			}
 		}
-		sys = system (cmdbuf);
-		if (!sys) {
-			rc = TRUE;
-			g_message ( ("ipsec ready for action"));
-		} else {
-			nm_l2tp_ipsec_error (error, "Could not establish IPsec tunnel.");
-		}
+
 	} else {
-		nm_l2tp_ipsec_error(error, "Could not load new IPsec secret.");
+		g_warning(_("Could not load new IPsec secret."));
 	}
 
 	snprintf (cmdbuf, sizeof(cmdbuf), "%s secrets", priv->ipsec_binary_path);
