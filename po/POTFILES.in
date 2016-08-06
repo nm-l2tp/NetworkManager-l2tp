@@ -7,6 +7,8 @@ properties/advanced-dialog.c
 properties/import-export.c
 properties/ipsec-dialog.c
 properties/nm-l2tp.c
+shared/nm-utils/nm-shared-utils.c
+shared/nm-vpn/nm-vpn-plugin-utils.c
 [type: gettext/glade]properties/nm-l2tp-dialog.ui
 src/nm-l2tp-service.c
 
