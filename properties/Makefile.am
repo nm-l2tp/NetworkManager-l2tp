@@ -22,7 +22,7 @@ ui_DATA = nm-l2tp-dialog.ui
 common_CFLAGS = \
     $(GLIB_CFLAGS) \
     $(GTK_CFLAGS) \
-    -I$(top_srcdir)/src \
+    -I"$(top_srcdir)/shared" \
     -DICONDIR=\""$(datadir)/pixmaps"\" \
     -DUIDIR=\""$(uidir)"\" \
     -DLOCALEDIR=\""$(datadir)/locale"\"

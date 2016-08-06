@@ -1,7 +1,7 @@
 AM_CPPFLAGS = \
     $(GLIB_CFLAGS) \
     $(LIBNM_CFLAGS) \
-    -I${top_srcdir} \
+    -I"${top_srcdir}/shared/" \
     -DBINDIR=\"$(bindir)\" \
     -DPREFIX=\""$(prefix)"\" \
     -DSYSCONFDIR=\""$(sysconfdir)"\" \
@@ -15,7 +15,7 @@ AM_CPPFLAGS = \
 libexec_PROGRAMS = nm-l2tp-service
 
 nm_l2tp_service_SOURCES = \
-    nm-l2tp-service-defines.h \
+    $(top_srcdir)/shared/nm-service-defines.h \
     nm-l2tp-service.c \
     nm-l2tp-service.h
 
@@ -52,6 +52,7 @@ nm_l2tp_pppd_plugin_la_SOURCES = \
     nm-ppp-status.h
 
 nm_l2tp_pppd_plugin_la_CPPFLAGS = \
+    -I"$(top_srcdir)/shared/" \
     $(GLIB_CFLAGS) \
     $(LIBNM_CFLAGS)
 

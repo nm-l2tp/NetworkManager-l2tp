@@ -47,7 +47,7 @@
 
 #include "advanced-dialog.h"
 #include "nm-l2tp.h"
-#include "../src/nm-l2tp-service-defines.h"
+#include "nm-service-defines.h"
 
 #define COL_NAME  0
 #define COL_VALUE 1

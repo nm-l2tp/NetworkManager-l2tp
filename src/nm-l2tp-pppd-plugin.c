@@ -32,7 +32,7 @@
 #include <glib.h>
 #include <gio/gio.h>
 
-#include "nm-l2tp-service-defines.h"
+#include "nm-service-defines.h"
 #include "nm-ppp-status.h"
 
 #include <NetworkManager.h>

@@ -28,7 +28,7 @@
 #include <NetworkManager.h>
 #include <nm-vpn-service-plugin.h>
 
-#include "nm-l2tp-service-defines.h"
+#include "nm-service-defines.h"
 
 #define NM_TYPE_L2TP_PLUGIN            (nm_l2tp_plugin_get_type ())
 #define NM_L2TP_PLUGIN(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), NM_TYPE_L2TP_PLUGIN, NML2tpPlugin))

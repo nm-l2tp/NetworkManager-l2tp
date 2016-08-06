@@ -49,7 +49,7 @@
 #include <nma-ui-utils.h>
 #endif
 
-#include "nm-l2tp-service-defines.h"
+#include "nm-service-defines.h"
 #include "nm-l2tp.h"
 #include "import-export.h"
 #include "advanced-dialog.h"

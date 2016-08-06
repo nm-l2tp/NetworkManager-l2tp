@@ -46,7 +46,7 @@
 
 #include "ipsec-dialog.h"
 #include "nm-l2tp.h"
-#include "../src/nm-l2tp-service-defines.h"
+#include "nm-service-defines.h"
 
 static const char *ipsec_keys[] = {
 	NM_L2TP_KEY_IPSEC_ENABLE,
