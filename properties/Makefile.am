@@ -36,7 +36,7 @@ libnm_vpn_plugin_l2tp_la_CFLAGS =                       \
         $(LIBNM_CFLAGS)
 
 libnm_l2tp_properties_la_CFLAGS =                       \
-        -DNM_L2TP_OLD                                   \
+        -DNM_VPN_OLD                                   \
         $(common_CFLAGS)                                \
         $(LIBNM_GLIB_CFLAGS)                            \
         $(LIBNM_GTK_CFLAGS)

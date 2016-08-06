@@ -35,7 +35,7 @@
 #include <string.h>
 #include <gtk/gtk.h>
 
-#ifdef NM_L2TP_OLD
+#ifdef NM_VPN_OLD
 #define NM_VPN_LIBNM_COMPAT
 #include <nm-vpn-plugin-ui-interface.h>
 #include <nm-setting-vpn.h>
@@ -48,7 +48,7 @@
 #define L2TP_PLUGIN_UI_ERROR_MISSING_PROPERTY    NM_SETTING_VPN_ERROR_MISSING_PROPERTY
 #define L2TP_PLUGIN_UI_ERROR_FAILED              NM_SETTING_VPN_ERROR_UNKNOWN
 
-#else /* !NM_L2TP_OLD */
+#else /* !NM_VPN_OLD */
 
 #include <NetworkManager.h>
 #include <nma-ui-utils.h>

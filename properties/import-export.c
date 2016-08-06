@@ -39,7 +39,7 @@
 
 #include <glib/gi18n-lib.h>
 
-#ifdef NM_L2TP_OLD
+#ifdef NM_VPN_OLD
 #define NM_VPN_LIBNM_COMPAT
 #include <nm-setting-vpn.h>
 #include <nm-setting-connection.h>
@@ -85,7 +85,7 @@
 #define L2TP_PLUGIN_UI_ERROR_MISSING_PROPERTY           NM_SETTING_VPN_ERROR_MISSING_PROPERTY
 #define L2TP_PLUGIN_UI_ERROR_FAILED                     NM_SETTING_VPN_ERROR_UNKNOWN
 
-#else /* !NM_L2TP_OLD */
+#else /* !NM_VPN_OLD */
 
 #include <NetworkManager.h>
 #include <nm-setting-ip4-config.h>
@@ -205,7 +205,7 @@ import_ip4 (GKeyFile *keyfile, NMSettingIPConfig *s_ip4, GError **error)
 {
 	char *str_val;
 	int i;
-#if !NM_L2TP_OLD
+#if !NM_VPN_OLD
 	GError *local_error = NULL;
 #endif
 
@@ -261,7 +261,7 @@ import_ip4 (GKeyFile *keyfile, NMSettingIPConfig *s_ip4, GError **error)
 		dnses = g_key_file_get_string_list (keyfile, IP4_SECTION, NM_SETTING_IP_CONFIG_DNS,
 		                                    &length, error);
 		for (i=0; i<length; i++) {
-#if NM_L2TP_OLD
+#if NM_VPN_OLD
 			struct in_addr addr;
 			if (!inet_aton (dnses[i], &addr)){
 				ip4_import_error (error,
@@ -401,7 +401,7 @@ import_ip4 (GKeyFile *keyfile, NMSettingIPConfig *s_ip4, GError **error)
 				return FALSE;
 			}
 
-#if NM_L2TP_OLD
+#if NM_VPN_OLD
 			route = nm_ip4_route_new ();
 			nm_ip4_route_set_dest(route, dest.s_addr);
 			nm_ip4_route_set_prefix(route, prefix);
@@ -575,7 +575,7 @@ export_ip4(NMSettingIPConfig *s_ip4, GKeyFile *keyfile, GError **error)
 		gchar *dnses[num_dns];
 
 		for (i=0; i<num_dns; i++){
-#if NM_L2TP_OLD
+#if NM_VPN_OLD
 			struct in_addr addr;
 			guint32 dns;
 
@@ -610,7 +610,7 @@ export_ip4(NMSettingIPConfig *s_ip4, GKeyFile *keyfile, GError **error)
 
 		for (i=0; i<num_routes; i++){
 			GString *route_s;
-#if NM_L2TP_OLD
+#if NM_VPN_OLD
 			guint32 dest, prefix, nhop, metric;
 			struct in_addr addr;
 
