@@ -98,16 +98,6 @@ enum {
 	LAST_PROP
 };
 
-GQuark
-nmv_editor_plugin_error_quark (void)
-{
-	static GQuark error_quark = 0;
-
-	if (G_UNLIKELY (error_quark == 0))
-		error_quark = g_quark_from_static_string ("l2tp-plugin-ui-error-quark");
-
-	return error_quark;
-}
 
 /**
  * Return copy of string #s with the leading and trailing spaces removed
