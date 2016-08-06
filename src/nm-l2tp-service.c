@@ -617,6 +617,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	gint conf_fd = -1;
 	gint ipsec_fd = -1;
 	gint pppopt_fd = -1;
+	struct in_addr naddr;
 	int port;
 	int i;
 
@@ -641,11 +642,28 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 						"  leftprotoport=udp/l2tp\n"
 						"  rightprotoport=udp/l2tp\n");
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GROUP_NAME);
-	if(value)write_config_option (ipsec_fd, "  leftid=@%s\n", value);
-	/* value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_GATEWAY); */
+	if (priv->is_libreswan) {
+		if(inet_pton(AF_INET, value, &naddr)) {
+			if(value)write_config_option (ipsec_fd, "  leftid=%s\n", value);
+		} else {
+			/* @ prefix prevents leftid being resolved to an IP address */
+			if(value)write_config_option (ipsec_fd, "  leftid=@%s\n", value);
+		}
+	} else {
+		if(value)write_config_option (ipsec_fd, "  leftid=%s\n", value);
+	}
 	write_config_option (ipsec_fd, "  right=%s\n", priv->saddr);
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GATEWAY_ID);
-	if(value)write_config_option (ipsec_fd, "  rightid=@%s\n", value);
+	if (priv->is_libreswan) {
+		if(inet_pton(AF_INET, value, &naddr)) {
+			if(value)write_config_option (ipsec_fd, "  rightid=%s\n", value);
+		} else {
+			/* @ prefix prevents rightid being resolved to an IP address */
+			if(value)write_config_option (ipsec_fd, "  rightid=@%s\n", value);
+		}
+	} else {
+		if(value)write_config_option (ipsec_fd, "  rightid=%s\n", value);
+	}
 
 	if (!priv->is_libreswan) {
 		write_config_option (ipsec_fd, "  esp=aes128-sha1,3des-sha1\n");
