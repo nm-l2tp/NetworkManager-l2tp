@@ -27,8 +27,7 @@ directory that exists.
       --sysconfdir=/etc --libdir=/usr/lib/x86_64-linux-gnu \
       --libexecdir=/usr/lib/NetworkManager \
       --localstatedir=/var \
-      --with-pppd-plugin-dir=/usr/lib/pppd/2.4.7 \
-      --enable-absolute-paths
+      --with-pppd-plugin-dir=/usr/lib/pppd/2.4.7
 
 #### Fedora and Red Hat Enterprise Linux (x86-64)
 
