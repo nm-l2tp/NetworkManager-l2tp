@@ -25,6 +25,19 @@
 
 #include <glib-object.h>
 
+typedef enum
+{
+	NMV_EDITOR_PLUGIN_ERROR_UNKNOWN = 0,
+	NMV_EDITOR_PLUGIN_ERROR_INVALID_PROPERTY,
+	NMV_EDITOR_PLUGIN_ERROR_MISSING_PROPERTY,
+	NMV_EDITOR_PLUGIN_ERROR_FILE_NOT_READABLE,
+	NMV_EDITOR_PLUGIN_ERROR_FILE_NOT_WRITEABLE,
+	NMV_EDITOR_PLUGIN_ERROR_FILE_NOT_VPN,
+} L2tpPluginUiError;
+
+#define NMV_EDITOR_PLUGIN_ERROR (nmv_editor_plugin_error_quark ())
+GQuark nmv_editor_plugin_error_quark (void);
+
 #define L2TP_TYPE_PLUGIN_UI            (l2tp_plugin_ui_get_type ())
 #define L2TP_PLUGIN_UI(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), L2TP_TYPE_PLUGIN_UI, L2tpPluginUi))
 #define L2TP_PLUGIN_UI_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), L2TP_TYPE_PLUGIN_UI, L2tpPluginUiClass))

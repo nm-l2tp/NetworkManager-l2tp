@@ -43,20 +43,10 @@
 #include <nm-setting-ip4-config.h>
 #include <nm-ui-utils.h>
 
-#define L2TP_PLUGIN_UI_ERROR                     NM_SETTING_VPN_ERROR
-#define L2TP_PLUGIN_UI_ERROR_INVALID_PROPERTY    NM_SETTING_VPN_ERROR_INVALID_PROPERTY
-#define L2TP_PLUGIN_UI_ERROR_MISSING_PROPERTY    NM_SETTING_VPN_ERROR_MISSING_PROPERTY
-#define L2TP_PLUGIN_UI_ERROR_FAILED              NM_SETTING_VPN_ERROR_UNKNOWN
-
 #else /* !NM_VPN_OLD */
 
 #include <NetworkManager.h>
 #include <nma-ui-utils.h>
-
-#define L2TP_PLUGIN_UI_ERROR                     NM_CONNECTION_ERROR
-#define L2TP_PLUGIN_UI_ERROR_INVALID_PROPERTY    NM_CONNECTION_ERROR_INVALID_PROPERTY
-#define L2TP_PLUGIN_UI_ERROR_MISSING_PROPERTY    NM_CONNECTION_ERROR_MISSING_PROPERTY
-#define L2TP_PLUGIN_UI_ERROR_FAILED              NM_CONNECTION_ERROR_FAILED
 #endif
 
 #include "nm-l2tp-service-defines.h"
@@ -108,6 +98,17 @@ enum {
 	LAST_PROP
 };
 
+GQuark
+nmv_editor_plugin_error_quark (void)
+{
+	static GQuark error_quark = 0;
+
+	if (G_UNLIKELY (error_quark == 0))
+		error_quark = g_quark_from_static_string ("l2tp-plugin-ui-error-quark");
+
+	return error_quark;
+}
+
 /**
  * Return copy of string #s with the leading and trailing spaces removed
  * result must be freed with g_free()
@@ -151,8 +152,8 @@ check_validity (L2tpPluginUiWidget *self, GError **error)
 	if (!str || !strlen (s = strstrip (str))) {
 		g_free(s);
 		g_set_error (error,
-		             L2TP_PLUGIN_UI_ERROR,
-		             L2TP_PLUGIN_UI_ERROR_INVALID_PROPERTY,
+		             NMV_EDITOR_PLUGIN_ERROR,
+		             NMV_EDITOR_PLUGIN_ERROR_INVALID_PROPERTY,
 		             NM_L2TP_KEY_GATEWAY);
 		return FALSE;
 	}
@@ -570,7 +571,7 @@ nm_vpn_plugin_ui_widget_interface_new (NMConnection *connection, GError **error)
 
 	object = NM_VPN_EDITOR (g_object_new (L2TP_TYPE_PLUGIN_UI_WIDGET, NULL));
 	if (!object) {
-		g_set_error (error, L2TP_PLUGIN_UI_ERROR, 0, _("could not create l2tp object"));
+		g_set_error (error, NMV_EDITOR_PLUGIN_ERROR, 0, _("could not create l2tp object"));
 		return NULL;
 	}
 
@@ -585,7 +586,7 @@ nm_vpn_plugin_ui_widget_interface_new (NMConnection *connection, GError **error)
 		g_warning (_("Couldn't load builder file: %s"),
 				error && *error ? (*error)->message : "(unknown)");
 		g_clear_error(error);
-		g_set_error(error, L2TP_PLUGIN_UI_ERROR, 0,
+		g_set_error(error, NMV_EDITOR_PLUGIN_ERROR, 0,
 					_("could not load required resources at %s"),
 					ui_file);
 		g_free(ui_file);
@@ -596,7 +597,7 @@ nm_vpn_plugin_ui_widget_interface_new (NMConnection *connection, GError **error)
 
 	priv->widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "l2tp-vbox"));
 	if (!priv->widget) {
-		g_set_error (error, L2TP_PLUGIN_UI_ERROR, 0, _("could not load UI widget"));
+		g_set_error (error, NMV_EDITOR_PLUGIN_ERROR, 0, _("could not load UI widget"));
 		g_object_unref (object);
 		return NULL;
 	}
@@ -693,24 +694,24 @@ import (NMVpnEditorPlugin *iface, const char *path, GError **error)
 	ext = strrchr (path, '.');
 	if (!ext) {
 		g_set_error (error,
-		             L2TP_PLUGIN_UI_ERROR,
-		             L2TP_PLUGIN_UI_ERROR_FAILED,
+		             NMV_EDITOR_PLUGIN_ERROR,
+		             NMV_EDITOR_PLUGIN_ERROR_FILE_NOT_VPN,
 		             _("unknown L2TP file extension"));
 		return NULL;
 	}
 
 	if (strcmp (ext, ".conf") && strcmp (ext, ".cnf")) {
 		g_set_error (error,
-		             L2TP_PLUGIN_UI_ERROR,
-		             L2TP_PLUGIN_UI_ERROR_FAILED,
+		             NMV_EDITOR_PLUGIN_ERROR,
+		             NMV_EDITOR_PLUGIN_ERROR_FILE_NOT_VPN,
 		             _("unknown L2TP file extension. Allowed .conf or .cnf"));
 		return NULL;
 	}
 
 	if (!strstr (path, "l2tp")) {
 		g_set_error (error,
-		             L2TP_PLUGIN_UI_ERROR,
-		             L2TP_PLUGIN_UI_ERROR_FAILED,
+		             NMV_EDITOR_PLUGIN_ERROR,
+		             NMV_EDITOR_PLUGIN_ERROR_FILE_NOT_VPN,
 		             _("Filename doesn't contains 'l2tp' substring."));
 		return NULL;
 	}
