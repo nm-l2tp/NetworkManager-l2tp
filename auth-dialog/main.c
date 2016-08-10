@@ -26,8 +26,6 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <gtk/gtk.h>
-
-#define SECRET_API_SUBJECT_TO_CHANGE
 #include <libsecret/secret.h>
 
 #include <nma-vpn-password-dialog.h>
