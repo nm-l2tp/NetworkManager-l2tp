@@ -18,24 +18,26 @@
  * with this program; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * 
  */
 
-#include <string.h>
+#include <config.h>
+#define ___CONFIG_H__
+
+/* pppd headers *sigh* */
 #include <pppd/pppd.h>
 #include <pppd/fsm.h>
 #include <pppd/ipcp.h>
+
+#include "nm-default.h"
+
+#include <string.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
-#include <dlfcn.h>
 #include <arpa/inet.h>
-#include <glib.h>
-#include <gio/gio.h>
+#include <dlfcn.h>
 
-#include "nm-service-defines.h"
+#include "nm-l2tp-service.h"
 #include "nm-ppp-status.h"
-
-#include <NetworkManager.h>
 
 int plugin_init (void);
 

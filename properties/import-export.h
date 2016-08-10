@@ -22,9 +22,6 @@
 #ifndef _IMPORT_EXPORT_H_
 #define _IMPORT_EXPORT_H_
 
-#include <glib.h>
-#include <nm-connection.h>
-
 NMConnection *do_import (const char *path, GError **error);
 
 gboolean do_export (const char *path, NMConnection *connection, GError **error);

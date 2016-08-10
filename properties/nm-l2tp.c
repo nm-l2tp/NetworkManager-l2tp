@@ -22,9 +22,9 @@
  *
  **************************************************************************/
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
+#include "nm-default.h"
+
+#include "nm-l2tp.h"
 
 #include <netinet/in.h>
 #include <arpa/inet.h>
@@ -35,22 +35,6 @@
 #include <string.h>
 #include <gtk/gtk.h>
 
-#ifdef NM_VPN_OLD
-#define NM_VPN_LIBNM_COMPAT
-#include <nm-vpn-plugin-ui-interface.h>
-#include <nm-setting-vpn.h>
-#include <nm-setting-connection.h>
-#include <nm-setting-ip4-config.h>
-#include <nm-ui-utils.h>
-
-#else /* !NM_VPN_OLD */
-
-#include <NetworkManager.h>
-#include <nma-ui-utils.h>
-#endif
-
-#include "nm-service-defines.h"
-#include "nm-l2tp.h"
 #include "import-export.h"
 #include "advanced-dialog.h"
 #include "ipsec-dialog.h"

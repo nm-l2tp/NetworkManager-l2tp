@@ -19,9 +19,9 @@
  *
  **************************************************************************/
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
+#include "nm-default.h"
+
+#include "import-export.h"
 
 #include <string.h>
 #include <inttypes.h>
@@ -36,8 +36,6 @@
 #include <arpa/inet.h>
 
 #include <netinet/in.h>
-
-#include <glib/gi18n-lib.h>
 
 #ifdef NM_VPN_OLD
 #define NM_VPN_LIBNM_COMPAT
@@ -82,13 +80,11 @@
 
 #else /* !NM_VPN_OLD */
 
-#include <NetworkManager.h>
 #include <nm-setting-ip4-config.h>
 #endif
 
 #include "import-export.h"
 #include "nm-l2tp.h"
-#include "nm-service-defines.h"
 
 #define CONN_SECTION "connection"
 #define VPN_SECTION "vpn"

@@ -20,9 +20,9 @@
  *
  **************************************************************************/
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
+#include "nm-default.h"
+
+#include "advanced-dialog.h"
 
 #include <string.h>
 #include <sys/types.h>
@@ -32,22 +32,7 @@
 #include <unistd.h>
 #include <errno.h>
 
-#include <glib.h>
-#include <glib/gi18n-lib.h>
-
-#ifdef NM_VPN_OLD
-#define NM_VPN_LIBNM_COMPAT
-#include <nm-connection.h>
-#include <nm-setting-vpn.h>
-
-#else /* !NM_VPN_OLD */
-
-#include <NetworkManager.h>
-#endif
-
-#include "advanced-dialog.h"
 #include "nm-l2tp.h"
-#include "nm-service-defines.h"
 
 #define COL_NAME  0
 #define COL_VALUE 1

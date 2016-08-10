@@ -22,10 +22,7 @@
 #ifndef _AUTH_HELPERS_H_
 #define _AUTH_HELPERS_H_
 
-#include <glib.h>
 #include <gtk/gtk.h>
-
-#include <nm-connection.h>
 
 GtkWidget *advanced_dialog_new (GHashTable *hash);
 

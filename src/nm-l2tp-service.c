@@ -26,9 +26,9 @@
  * (C) Copyright 2014 Nathan Dorfman <ndorf@rtfm.net>
  */
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
+#include "nm-default.h"
+
+#include "nm-l2tp-service.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -49,11 +49,6 @@
 #include <arpa/inet.h>
 #include <netdb.h>
 
-#include <glib/gi18n.h>
-
-#include <NetworkManager.h>
-
-#include "nm-l2tp-service.h"
 #include "nm-ppp-status.h"
 #include "nm-l2tp-pppd-service-dbus.h"
 
