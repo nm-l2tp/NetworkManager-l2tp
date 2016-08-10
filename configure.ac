@@ -75,7 +75,7 @@ if test x"$with_gnome" != xno; then
 	PKG_CHECK_MODULES(GTK, gtk+-3.0 >= 3.4)
 	GTK_CFLAGS="$GTK_CFLAGS -DGDK_VERSION_MIN_REQUIRED=GDK_VERSION_3_4"
 
-	PKG_CHECK_MODULES(LIBNMA, libnma >= 1.1.0)
+	PKG_CHECK_MODULES(LIBNMA, libnma >= 1.2.0)
 	PKG_CHECK_MODULES(LIBSECRET, libsecret-1 >= 0.18, [], [
 		dnl We use the secret service API that went stable in 0.18
 		PKG_CHECK_MODULES(LIBSECRET, libsecret-unstable)
@@ -83,15 +83,15 @@ if test x"$with_gnome" != xno; then
 	])
 
 	if test x"$with_libnm_glib" != xno; then
-		PKG_CHECK_MODULES(LIBNM_GTK, libnm-gtk >= 0.9.10)
+		PKG_CHECK_MODULES(LIBNM_GTK, libnm-gtk >= 1.2.0)
 		PKG_CHECK_MODULES(LIBNM_GLIB,
-				  NetworkManager >= 1.1.0
-				  libnm-glib >= 1.1.0
-				  libnm-glib-vpn >= 1.1.0)
+				  NetworkManager >= 1.2.0
+				  libnm-glib >= 1.2.0
+				  libnm-glib-vpn >= 1.2.0)
 	fi
 fi
 
-PKG_CHECK_MODULES(LIBNM, libnm >= 1.1.0)
+PKG_CHECK_MODULES(LIBNM, libnm >= 1.2.0)
 LIBNM_CFLAGS="$LIBNM_CFLAGS -DNM_VERSION_MIN_REQUIRED=NM_VERSION_1_2"
 LIBNM_CFLAGS="$LIBNM_CFLAGS -DNM_VERSION_MAX_ALLOWED=NM_VERSION_1_2"
 
