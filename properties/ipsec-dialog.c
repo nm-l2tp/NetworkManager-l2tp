@@ -45,7 +45,8 @@
 #endif
 
 #include "ipsec-dialog.h"
-#include "nm-l2tp.h"
+#include "nm-default.h"
+#include "nm-l2tp-editor.h"
 #include "nm-service-defines.h"
 
 static const char *ipsec_keys[] = {

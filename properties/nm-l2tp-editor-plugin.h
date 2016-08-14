@@ -1,7 +1,5 @@
 /* -*- Mode: C; tab-width: 4; indent-tabs-mode: t; c-basic-offset: 4 -*- */
 /***************************************************************************
- * nm-l2tp.h : GNOME UI dialogs for configuring l2tp VPN connections
- *
  * Copyright (C) 2008 Dan Williams, <dcbw@redhat.com>
  *
  * This program is free software; you can redistribute it and/or modify
@@ -20,8 +18,8 @@
  *
  **************************************************************************/
 
-#ifndef _NM_L2TP_H_
-#define _NM_L2TP_H_
+#ifndef __NM_L2TP_EDITOR_PLUGIN_H__
+#define __NM_L2TP_EDITOR_PLUGIN_H__
 
 #define L2TP_TYPE_PLUGIN_UI            (l2tp_plugin_ui_get_type ())
 #define L2TP_PLUGIN_UI(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), L2TP_TYPE_PLUGIN_UI, L2tpPluginUi))
@@ -43,28 +41,14 @@ struct _L2tpPluginUiClass {
 
 GType l2tp_plugin_ui_get_type (void);
 
+typedef NMVpnEditor *(*NMVpnEditorFactory) (NMVpnEditorPlugin *editor_plugin,
+                                            NMConnection *connection,
+                                            GError **error);
 
-#define L2TP_TYPE_PLUGIN_UI_WIDGET            (l2tp_plugin_ui_widget_get_type ())
-#define L2TP_PLUGIN_UI_WIDGET(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), L2TP_TYPE_PLUGIN_UI_WIDGET, L2tpPluginUiWidget))
-#define L2TP_PLUGIN_UI_WIDGET_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), L2TP_TYPE_PLUGIN_UI_WIDGET, L2tpPluginUiWidgetClass))
-#define L2TP_IS_PLUGIN_UI_WIDGET(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), L2TP_TYPE_PLUGIN_UI_WIDGET))
-#define L2TP_IS_PLUGIN_UI_WIDGET_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), L2TP_TYPE_PLUGIN_UI_WIDGET))
-#define L2TP_PLUGIN_UI_WIDGET_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), L2TP_TYPE_PLUGIN_UI_WIDGET, L2tpPluginUiWidgetClass))
+NMVpnEditor *
+nm_vpn_editor_factory_l2tp (NMVpnEditorPlugin *editor_plugin,
+                            NMConnection *connection,
+                            GError **error);
 
-
-
-typedef struct _L2tpPluginUiWidget L2tpPluginUiWidget;
-typedef struct _L2tpPluginUiWidgetClass L2tpPluginUiWidgetClass;
-
-struct _L2tpPluginUiWidget {
-	GObject parent;
-};
-
-struct _L2tpPluginUiWidgetClass {
-	GObjectClass parent;
-};
-
-GType l2tp_plugin_ui_widget_get_type (void);
-
-#endif	/* _NM_L2TP_H_ */
+#endif /* __NM_L2TP_EDITOR_PLUGIN_H__ */
 

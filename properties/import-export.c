@@ -84,7 +84,7 @@
 #endif
 
 #include "import-export.h"
-#include "nm-l2tp.h"
+#include "nm-l2tp-editor.h"
 
 #define CONN_SECTION "connection"
 #define VPN_SECTION "vpn"

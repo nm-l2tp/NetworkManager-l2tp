@@ -1,7 +1,7 @@
 AC_PREREQ(2.59)
 
 AC_INIT(NetworkManager-l2tp,
-        1.2.0,
+        1.2.2,
         https://github.com/nm-l2tp/network-manager-l2tp/issues,
         NetworkManager-l2tp)
 AM_INIT_AUTOMAKE([1.9 foreign no-dist-gzip dist-xz subdir-objects])
@@ -54,10 +54,24 @@ AC_CHECK_FUNCS(select socket uname)
 dnl
 dnl GNOME support
 dnl
-AC_ARG_WITH(gnome, AS_HELP_STRING([--without-gnome], [Build NetworkManager-l2tp without GNOME support, e.g. vpn service only]))
-AM_CONDITIONAL(WITH_GNOME, test x"$with_gnome" != xno)
-AC_ARG_WITH(libnm-glib, AS_HELP_STRING([--without-libnm-glib], [Build NetworkManager-l2tp without libnm-glib comatibility]))
-AM_CONDITIONAL(WITH_LIBNM_GLIB, test x"$with_libnm_glib" != xno)
+AC_ARG_WITH(gnome, AS_HELP_STRING([--without-gnome], [Build NetworkManager-l2tp without GNOME support, e.g. vpn service only]), [], [with_gnome_specified=no])
+AC_ARG_WITH(libnm-glib, AS_HELP_STRING([--without-libnm-glib], [Build NetworkManager-l2tp without libnm-glib comatibility]), [], [with_libnm_glib_specified=no])
+if test "$with_libnm_glib_specified" != no -a "$with_libnm_glib" != no; then
+	if test "$with_gnome_specified" != no -a "$with_gnome" == no; then
+		AC_MSG_ERROR(Building --with-libnm-glib conflicts with --without-gnome)
+	fi
+fi
+if test "$with_gnome" != no; then
+	with_gnome=yes
+fi
+if test "$with_libnm_glib_specified" == no; then
+	with_libnm_glib="$with_gnome"
+fi
+if test "$with_libnm_glib" != no; then
+	with_libnm_glib=yes
+fi
+AM_CONDITIONAL(WITH_GNOME, test "$with_gnome" != no)
+AM_CONDITIONAL(WITH_LIBNM_GLIB, test "$with_libnm_glib" != no)
 
 AC_ARG_ENABLE(absolute-paths, AS_HELP_STRING([--enable-absolute-paths], [Use absolute paths to in .name files. Useful for development. (default is no)]))
 
@@ -68,6 +82,7 @@ AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package])
 IT_PROG_INTLTOOL([0.35])
 AM_GLIB_GNU_GETTEXT
 
+# gio-unix will require glib and gio
 PKG_CHECK_MODULES(GLIB, gio-unix-2.0 >= 2.32)
 GLIB_CFLAGS="$GLIB_CFLAGS -DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_32"
 
@@ -85,9 +100,13 @@ if test x"$with_gnome" != xno; then
 	if test x"$with_libnm_glib" != xno; then
 		PKG_CHECK_MODULES(LIBNM_GTK, libnm-gtk >= 1.2.0)
 		PKG_CHECK_MODULES(LIBNM_GLIB,
-				  NetworkManager >= 1.2.0
-				  libnm-glib >= 1.2.0
-				  libnm-glib-vpn >= 1.2.0)
+			NetworkManager >= 1.2.0
+			libnm-util >= 1.2.0
+			libnm-glib >= 1.2.0
+			libnm-glib-vpn >= 1.2.0);
+
+		LIBNM_GLIB_CFLAGS="$LIBNM_GLIB_CFLAGS -DNM_VERSION_MIN_REQUIRED=NM_VERSION_1_2"
+		LIBNM_GLIB_CFLAGS="$LIBNM_GLIB_CFLAGS -DNM_VERSION_MAX_ALLOWED=NM_VERSION_1_2"
 	fi
 fi
 
@@ -100,8 +119,15 @@ AC_SUBST(NM_VPN_SERVICE_DIR)
 
 NM_COMPILER_WARNINGS
 
-test x"$enable_absolute_paths" = x"yes" && NM_PLUGIN_DIR='$(libdir)/NetworkManager/'
+NM_PLUGIN_DIR="$libdir/NetworkManager"
 AC_SUBST(NM_PLUGIN_DIR)
+if test x"$enable_absolute_paths" == x"yes"; then
+	NM_PLUGIN_DIR_NAME_FILE="$NM_PLUGIN_DIR/"
+else
+	enable_absolute_paths=no
+	NM_PLUGIN_DIR_NAME_FILE=""
+fi
+AC_SUBST(NM_PLUGIN_DIR_NAME_FILE)
 
 dnl
 dnl Distribution version string
@@ -120,3 +146,10 @@ po/Makefile.in
 shared/Makefile
 ])
 AC_OUTPUT
+
+echo ""
+echo "Build configuration: "
+echo "  --with-gnome=$with_gnome"
+echo "  --with-libnm-glib=$with_libnm_glib"
+echo "  --enable-absolute-paths=$enable_absolute_paths"
+echo "  --enable-more-warnings=$set_more_warnings"

@@ -2,14 +2,12 @@
 # Please keep this file sorted alphabetically.
 appdata/network-manager-l2tp.metainfo.xml.in
 auth-dialog/main.c
-nm-l2tp.desktop.in
 properties/advanced-dialog.c
 properties/import-export.c
 properties/ipsec-dialog.c
-properties/nm-l2tp.c
+properties/nm-l2tp-editor-plugin.c
+properties/nm-l2tp-editor.c
 shared/nm-utils/nm-shared-utils.c
 shared/nm-vpn/nm-vpn-plugin-utils.c
-[type: gettext/glade]properties/nm-l2tp-dialog.ui
 src/nm-l2tp-service.c
-
-
+[type: gettext/glade]properties/nm-l2tp-dialog.ui
