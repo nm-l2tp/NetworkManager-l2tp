@@ -27,64 +27,15 @@
 #include <inttypes.h>
 #include <sys/types.h>
 #include <stdlib.h>
-#include <stdio.h>
 #include <sys/stat.h>
+#include <arpa/inet.h>
 #include <fcntl.h>
 #include <unistd.h>
 #include <errno.h>
 #include <ctype.h>
-#include <arpa/inet.h>
+#include <stdio.h>
 
-#include <netinet/in.h>
-
-#ifdef NM_VPN_OLD
-#define NM_VPN_LIBNM_COMPAT
-#include <nm-setting-vpn.h>
-#include <nm-setting-connection.h>
-#include <nm-setting-ip4-config.h>
-
-#define NM_SETTING_IP_CONFIG_DHCP_SEND_HOSTNAME         NM_SETTING_IP4_CONFIG_DHCP_SEND_HOSTNAME
-#define NM_SETTING_IP_CONFIG_DHCP_SEND_HOSTNAME         NM_SETTING_IP4_CONFIG_DHCP_SEND_HOSTNAME
-#define NM_SETTING_IP_CONFIG_DNS                        NM_SETTING_IP4_CONFIG_DNS
-#define NM_SETTING_IP_CONFIG_DNS_SEARCH                 NM_SETTING_IP4_CONFIG_DNS_SEARCH
-#define NM_SETTING_IP_CONFIG_IGNORE_AUTO_DNS            NM_SETTING_IP4_CONFIG_IGNORE_AUTO_DNS
-#define NM_SETTING_IP_CONFIG_IGNORE_AUTO_DNS            NM_SETTING_IP4_CONFIG_IGNORE_AUTO_DNS
-#define NM_SETTING_IP_CONFIG_IGNORE_AUTO_ROUTES         NM_SETTING_IP4_CONFIG_IGNORE_AUTO_ROUTES
-#define NM_SETTING_IP_CONFIG_IGNORE_AUTO_ROUTES         NM_SETTING_IP4_CONFIG_IGNORE_AUTO_ROUTES
-#define NM_SETTING_IP_CONFIG_METHOD                     NM_SETTING_IP4_CONFIG_METHOD
-#define NM_SETTING_IP_CONFIG_NEVER_DEFAULT              NM_SETTING_IP4_CONFIG_NEVER_DEFAULT
-#define NM_SETTING_IP_CONFIG_NEVER_DEFAULT              NM_SETTING_IP4_CONFIG_NEVER_DEFAULT
-#define NM_SETTING_IP_CONFIG_ROUTES                     NM_SETTING_IP4_CONFIG_ROUTES
-#define NM_SETTING_IP_CONFIG                            NM_SETTING_IP4_CONFIG
-
-#define nm_setting_ip_config_add_dns                    nm_setting_ip4_config_add_dns
-#define nm_setting_ip_config_add_dns_search             nm_setting_ip4_config_add_dns_search
-#define nm_setting_ip_config_add_route                  nm_setting_ip4_config_add_route
-#define nm_setting_ip_config_get_dhcp_send_hostname     nm_setting_ip4_config_get_dhcp_send_hostname
-#define nm_setting_ip_config_get_dns                    nm_setting_ip4_config_get_dns
-#define nm_setting_ip_config_get_dns_search             nm_setting_ip4_config_get_dns_search
-#define nm_setting_ip_config_get_ignore_auto_dns        nm_setting_ip4_config_get_ignore_auto_dns
-#define nm_setting_ip_config_get_ignore_auto_routes     nm_setting_ip4_config_get_ignore_auto_routes
-#define nm_setting_ip_config_get_method                 nm_setting_ip4_config_get_method
-#define nm_setting_ip_config_get_never_default          nm_setting_ip4_config_get_never_default
-#define nm_setting_ip_config_get_num_dns                nm_setting_ip4_config_get_num_dns
-#define nm_setting_ip_config_get_num_dns_searches       nm_setting_ip4_config_get_num_dns_searches
-#define nm_setting_ip_config_get_num_routes             nm_setting_ip4_config_get_num_routes
-#define nm_setting_ip_config_get_route                  nm_setting_ip4_config_get_route
-#define nm_setting_ip_config_new                        nm_setting_ip4_config_new
-
-#define NMSettingIPConfig                               NMSettingIP4Config
-#define NMIPRoute                                       NMIP4Route
-
-#define nm_simple_connection_new                        nm_connection_new
-
-#else /* !NM_VPN_OLD */
-
-#include <nm-setting-ip4-config.h>
-#endif
-
-#include "import-export.h"
-#include "nm-l2tp-editor.h"
+#include "nm-utils/nm-vpn-plugin-utils.h"
 
 #define CONN_SECTION "connection"
 #define VPN_SECTION "vpn"
@@ -731,7 +682,7 @@ do_export (const char *path, NMConnection *connection, GError **error)
 	if (!(file = fopen (path, "w"))) {
 		g_set_error(error,
 		            NMV_EDITOR_PLUGIN_ERROR,
-		            NMV_EDITOR_PLUGIN_ERROR_FILE_NOT_WRITEABLE,
+		            NMV_EDITOR_PLUGIN_ERROR_FAILED,
 		            _("Couldn't open file for writing."));
 		g_key_file_free (export_file);
 		return FALSE;
