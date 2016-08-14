@@ -1570,6 +1570,8 @@ main (int argc, char *argv[])
 
 	if (bus_name)
 		setenv ("NM_DBUS_SERVICE_L2TP", bus_name, 0);
+	else
+		unsetenv ("NM_DBUS_SERVICE_L2TP");
 
 	plugin = nm_l2tp_plugin_new (bus_name);
 	if (!plugin)
