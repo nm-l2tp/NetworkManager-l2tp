@@ -38,6 +38,8 @@ common_CFLAGS = \
 ###############################################################################
 
 libnm_vpn_plugin_l2tp_la_SOURCES = \
+    $(top_srcdir)/shared/nm-utils/nm-vpn-plugin-utils.c \
+    $(top_srcdir)/shared/nm-utils/nm-vpn-plugin-utils.h \
     $(plugin_sources)
 
 libnm_vpn_plugin_l2tp_la_CFLAGS = \
@@ -47,8 +49,7 @@ libnm_vpn_plugin_l2tp_la_CFLAGS = \
     $(LIBNM_CFLAGS)
 
 libnm_vpn_plugin_l2tp_la_LIBADD = \
-    $(LIBNM_LIBS) \
-    $(top_builddir)/shared/libnm-vpn-editor-utils-shared.la
+    $(LIBNM_LIBS)
 
 libnm_vpn_plugin_l2tp_la_LDFLAGS = \
     -avoid-version \
