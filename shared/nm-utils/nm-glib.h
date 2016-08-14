@@ -24,6 +24,8 @@
 #include <gio/gio.h>
 #include <string.h>
 
+#include "gsystem-local-alloc.h"
+
 #ifdef __clang__
 
 #undef G_GNUC_BEGIN_IGNORE_DEPRECATIONS

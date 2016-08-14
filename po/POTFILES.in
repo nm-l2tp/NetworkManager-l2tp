@@ -8,6 +8,6 @@ properties/ipsec-dialog.c
 properties/nm-l2tp-editor-plugin.c
 properties/nm-l2tp-editor.c
 shared/nm-utils/nm-shared-utils.c
-shared/nm-vpn/nm-vpn-plugin-utils.c
+shared/nm-utils/nm-vpn-plugin-utils.c
 src/nm-l2tp-service.c
 [type: gettext/glade]properties/nm-l2tp-dialog.ui

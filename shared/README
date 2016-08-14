@@ -1,23 +1,9 @@
-The files in the "shared/" directory are supposed to be shared
-across NetworkManager related projects (reuse-by-copying).
+The files in the "shared/" directory are used by all components
+inside the VPN plugin repository (src, properties, auth-dialog).
 
-(1) the files
-    shared/nm-utils/gsystem-local-alloc.h
-    shared/nm-utils/nm-glib.h
-    shared/nm-utils/nm-macros-internal.h
-    shared/nm-utils/nm-shared-utils.c
-    shared/nm-utils/nm-shared-utils.h
-are copied as-is from NetworkManager
-  https://cgit.freedesktop.org/NetworkManager/NetworkManager/tree/shared?id=9770024f63b85da604f1134a8bc8dc968278dcd1
-
-2) the files
-    shared/nm-vpn/nm-vpn-plugin-utils.c
-    shared/nm-vpn/nm-vpn-plugin-utils.h
-are copied as-is from nm-openvpn
-  https://git.gnome.org/browse/network-manager-openvpn/tree/shared?id=3d0ac3ca94b4bf24f77306cef5a95172ddaf5fc4
-
-
-Do *not* modify these files locally so that they don't diverge.
-Fix/extend them in their respective origin first, and re-import
-the files as a whole.
+The files in shared/nm-utils are copied from NetworkManager
+repository and used as is:
+Do *not* modify these files locally so that they don't diverge
+from their original. Fix/extend them in their respective origin
+first, and re-import the files as a whole.
 

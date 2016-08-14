@@ -24,12 +24,15 @@
 
 #include <stdlib.h>
 
+#include "nm-glib.h"
+
 /********************************************************/
 
 #define _nm_packed __attribute__ ((packed))
 #define _nm_unused __attribute__ ((unused))
 #define _nm_pure   __attribute__ ((pure))
 #define _nm_const  __attribute__ ((const))
+#define _nm_printf(a,b) __attribute__ ((__format__ (__printf__, a, b)))
 
 #define nm_auto(fcn) __attribute__ ((cleanup(fcn)))
 
@@ -481,6 +484,36 @@ nm_strstrip (char *str)
 {
 	/* g_strstrip doesn't like NULL. */
 	return str ? g_strstrip (str) : NULL;
+}
+
+/* g_ptr_array_sort()'s compare function takes pointers to the
+ * value. Thus, you cannot use strcmp directly. You can use
+ * nm_strcmp_p().
+ *
+ * Like strcmp(), this function is not forgiving to accept %NULL. */
+static inline int
+nm_strcmp_p (gconstpointer a, gconstpointer b)
+{
+	const char *s1 = *((const char **) a);
+	const char *s2 = *((const char **) b);
+
+	return strcmp (s1, s2);
+}
+
+/* like nm_strcmp_p(), suitable for g_ptr_array_sort_with_data().
+ * g_ptr_array_sort() just casts nm_strcmp_p() to a function of different
+ * signature. I guess, in glib there are knowledgeable people that ensure
+ * that this additional argument doesn't cause problems due to different ABI
+ * for every architecture that glib supports.
+ * For NetworkManager, we'd rather avoid such stunts.
+ **/
+static inline int
+nm_strcmp_p_with_data (gconstpointer a, gconstpointer b, gpointer user_data)
+{
+	const char *s1 = *((const char **) a);
+	const char *s2 = *((const char **) b);
+
+	return strcmp (s1, s2);
 }
 
 /*****************************************************************************/

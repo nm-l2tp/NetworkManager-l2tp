@@ -22,6 +22,8 @@
 #ifndef __NM_VPN_PLUGIN_UTILS_H__
 #define __NM_VPN_PLUGIN_UTILS_H__
 
+#include <NetworkManager.h>
+
 typedef NMVpnEditor *(NMVpnPluginUtilsEditorFactory) (gpointer factory,
                                                       NMVpnEditorPlugin *editor_plugin,
                                                       NMConnection *connection,
