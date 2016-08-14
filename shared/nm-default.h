@@ -89,24 +89,6 @@
 #define NM_SETTING_IP_CONFIG_METHOD                     NM_SETTING_IP4_CONFIG_METHOD
 #define NM_SETTING_IP_CONFIG_NEVER_DEFAULT              NM_SETTING_IP4_CONFIG_NEVER_DEFAULT
 #define NM_SETTING_IP_CONFIG_ROUTES                     NM_SETTING_IP4_CONFIG_ROUTES
-#define NM_SETTING_IP_CONFIG                            NM_SETTING_IP4_CONFIG
-
-#define nm_setting_ip_config_add_dns                    nm_setting_ip4_config_add_dns
-#define nm_setting_ip_config_add_dns_search             nm_setting_ip4_config_add_dns_search
-#define nm_setting_ip_config_add_route                  nm_setting_ip4_config_add_route
-#define nm_setting_ip_config_get_dhcp_send_hostname     nm_setting_ip4_config_get_dhcp_send_hostname
-#define nm_setting_ip_config_get_dns                    nm_setting_ip4_config_get_dns
-#define nm_setting_ip_config_get_dns_search             nm_setting_ip4_config_get_dns_search
-#define nm_setting_ip_config_get_ignore_auto_dns        nm_setting_ip4_config_get_ignore_auto_dns
-#define nm_setting_ip_config_get_ignore_auto_routes     nm_setting_ip4_config_get_ignore_auto_routes
-#define nm_setting_ip_config_get_method                 nm_setting_ip4_config_get_method
-#define nm_setting_ip_config_get_never_default          nm_setting_ip4_config_get_never_default
-#define nm_setting_ip_config_get_num_dns                nm_setting_ip4_config_get_num_dns
-#define nm_setting_ip_config_get_num_dns_searches       nm_setting_ip4_config_get_num_dns_searches
-#define nm_setting_ip_config_get_num_routes             nm_setting_ip4_config_get_num_routes
-#define nm_setting_ip_config_get_route                  nm_setting_ip4_config_get_route
-#define nm_setting_ip_config_new                        nm_setting_ip4_config_new
-
 
 #define NMV_EDITOR_PLUGIN_ERROR                     NM_SETTING_VPN_ERROR
 #define NMV_EDITOR_PLUGIN_ERROR_FAILED              NM_SETTING_VPN_ERROR_UNKNOWN
