@@ -1,0 +1,4 @@
+#!/usr/bin/dh-exec
+etc
+usr/lib/pppd/*/*.so
+usr/lib/NetworkManager/nm-l2tp-service
