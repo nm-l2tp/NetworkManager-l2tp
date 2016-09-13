@@ -1,6 +1,6 @@
-network-manager-l2tp (1.2.4.0-0debian1) stretch; urgency=medium
+network-manager-l2tp (1.2.4-1) stretch; urgency=medium
   * updated, change repo 
- -- CarrolCox <mr.jsdive@gmail.com>  Thu, 13 Sep 2016 15:41:00 +0500
+ -- CarrolCox <mr.jsdive@gmail.com>  Thu, 13 Sep 2016 16:52:00 +0500
 
 network-manager-l2tp (1.0.6.0-0stretch1) stretch; urgency=medium
   * fix build rules 'intltoolize -c -f' 
