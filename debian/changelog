@@ -1,0 +1,84 @@
+network-manager-l2tp (1.2.4-1) stretch; urgency=medium
+  * updated, change repo 
+ -- CarrolCox <mr.jsdive@gmail.com>  Thu, 13 Sep 2016 16:52:00 +0500
+
+network-manager-l2tp (1.0.6.0-0stretch1) stretch; urgency=medium
+  * fix build rules 'intltoolize -c -f' 
+ -- CarrolCox <mr.jsdive@gmail.com>  Thu, 15 Sep 2015 00:42:19 +0500
+
+network-manager-l2tp (0.9.8.6-0vivid1) vivid; urgency=medium
+
+  * Fixed depends and removed deprecated gnome-keyring calls.
+  * Made buildable on Ubuntu 15.04 (vivid).
+    * Still requires openswan from the trusty repos at the moment.
+
+ -- T. Scott Barnes <scott@awesomebarnes.com>  Fri, 05 Jun 2015 17:39:19 -0400
+
+network-manager-l2tp (0.9.8.5-0utopic1) utopic; urgency=medium
+
+  * Fixed typo in nm-l2tp-service.name
+
+ -- Sergey Prokhorov <root@seriyps.ru>  Tue, 28 Oct 2014 00:11:04 +0300
+
+network-manager-l2tp (0.9.8.4-0saucy1) saucy; urgency=low
+
+  * Fix IPSec startup commands
+  * noccp pppd option added
+  * minor locales fixes
+  * require new versions of gtk+ and glib
+
+ -- Sergey Prokhorov <root@seriyps.ru>  Sat, 26 Oct 2013 23:21:52 +0400
+
+network-manager-l2tp (0.9.8-0raring1) raring; urgency=low
+
+  * Builds against the GNOME 3.8 versions of GLib and Gtk+
+  * Fix undefuned NM_L2TP_LOCALEDIR
+  * License file added
+  * Minor localization fixes
+
+ -- Sergey Prokhorov <root@seriyps.ru>  Thu, 09 May 2013 19:02:12 +0400
+
+network-manager-l2tp (0.9.6-0quantal1) quantal; urgency=low
+
+  * fix toggling PAP/CHAP/EAP when both MSCHAP & MSCHAP2 are unchecked
+  * Add missing command ("whack") to ipsec initialization
+  * Fix IS_*_KLASS macroses
+  * Applied Debian patches
+
+ -- Sergey Prokhorov <root@seriyps.ru>  Mon, 22 Oct 2012 02:25:04 +0400
+
+network-manager-l2tp (0.9.4-0precise1) precise; urgency=low
+
+  * Synchronize code with pptp plugin and adjust version numbers
+  * Fix many warnings
+  * Add support for auth-dialog's external-ui mode
+
+ -- Sergey Prokhorov <root@seriyps.ru>  Mon, 25 Jun 2012 00:13:23 +0400
+
+network-manager-l2tp (0.3.3-0precise1) precise; urgency=low
+
+  * More verbose debug output
+  * Fixed issue with routes to multi-IP gateway
+  * Disable aggrmode for ipsec
+
+ -- Sergey Prokhorov <root@seriyps.ru>  Wed, 09 May 2012 00:52:50 +0400
+
+network-manager-l2tp (0.3.2-0oneiric1) oneiric; urgency=low
+
+  * Bind to ephemeral port if 1701 busy
+  * Working import-export
+
+ -- Sergey Prokhorov <root@seriyps.ru>  Sun, 18 Mar 2012 16:10:26 +0400
+
+network-manager-l2tp (0.3.0-0oneiric1) oneiric; urgency=low
+
+  * Minor UI enhancements
+  * Built with GTK3
+
+ -- Sergey Prokhorov <root@seriyps.ru>  Fri, 10 Feb 2012 02:32:36 +0400
+
+network-manager-l2tp (0.2~oneric1) oneiric; urgency=low
+
+  * Initial release.
+
+ -- Sergey Prokhorov <root@seriyps.ru>  Mon, 30 Jan 2012 00:58:24 +0400

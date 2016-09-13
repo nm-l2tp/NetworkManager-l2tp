@@ -1,6 +1,6 @@
-# NetworkMananger-l2tp
+# network-mananger-l2tp
 
-NetworkManager-l2tp is a VPN plugin for NetworkManager 1.2 which provides
+network-nanager-l2tp is a VPN plugin for NetworkManager 1.2 which provides
 support for L2TP and L2TP/IPsec (i.e. L2TP over IPsec) connections.
 
 For L2TP support, it uses xl2tpd ( https://www.xelerance.com/software/xl2tpd/ )
@@ -8,6 +8,15 @@ For L2TP support, it uses xl2tpd ( https://www.xelerance.com/software/xl2tpd/ )
 For IPsec support, it uses either of the following :
 * Libreswan ( https://libreswan.org ) 
 * strongSwan ( https://www.strongswan.org )
+
+## Debian-way buld package
+
+Install dependences before continue
+
+```
+cd /path/to/network-mananger-l2tp
+dpkg-source --before-build . && dpkg-buildpackage -b -uc -us -rfakeroot && dpkg-source --after-build .
+```
 
 ## Building
 

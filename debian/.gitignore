@@ -1,0 +1,8 @@
+/network-manager-l2tp
+/network-manager-l2tp-gnome
+/tmp
+/autoreconf.*
+/files
+/*.log
+/*.debhelper
+/*.substvars

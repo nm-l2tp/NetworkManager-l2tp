@@ -1,0 +1,3 @@
+version=3
+
+http://githubredir.debian.net/github/nm-l2tp/network-manager-l2tp (.+).tar.gz
