@@ -21,3 +21,6 @@ override_dh_makeshlibs:
 		-X\$${prefix}/lib/$(DEB_HOST_MULTIARCH)/NetworkManager/* \
 		-X\$${prefix}/lib/NetworkManager/* \
 		-X\$${prefix}/lib/pppd/$(PPPD_VERSION)/*
+
+override_dh_install:
+		dh_install --list-missing

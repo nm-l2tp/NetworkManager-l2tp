@@ -15,7 +15,7 @@ Install dependences before continue
 
 ```
 cd /path/to/network-mananger-l2tp
-dpkg-source --before-build . && ./autogen.sh && dpkg-buildpackage -b -uc -us -rfakeroot && dpkg-source --after-build .
+dpkg-source --before-build . && dpkg-buildpackage -b -uc -us -rfakeroot && dpkg-source --after-build .
 ```
 
 ## Building
