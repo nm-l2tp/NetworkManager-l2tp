@@ -51,6 +51,9 @@ AC_PROG_GCC_TRADITIONAL
 AC_FUNC_MEMCMP
 AC_CHECK_FUNCS(select socket uname)
 
+AC_SEARCH_LIBS([dlopen], [dl dld], [], [ac_cv_search_dlopen=])
+AC_SUBST([DL_LIBS], "$ac_cv_search_dlopen")
+
 dnl
 dnl GNOME support
 dnl

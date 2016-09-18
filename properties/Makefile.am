@@ -49,7 +49,9 @@ libnm_vpn_plugin_l2tp_la_CFLAGS = \
     $(LIBNM_CFLAGS)
 
 libnm_vpn_plugin_l2tp_la_LIBADD = \
-    $(LIBNM_LIBS)
+    $(LIBNM_LIBS) \
+    $(DL_LIBS) \
+    $(NULL)
 
 libnm_vpn_plugin_l2tp_la_LDFLAGS = \
     -avoid-version \
