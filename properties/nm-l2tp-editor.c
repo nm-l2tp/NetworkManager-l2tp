@@ -696,3 +696,20 @@ get_suggested_filename (NMVpnEditorPlugin *iface, NMConnection *connection)
 	return g_strdup_printf ("%s (l2tp).conf", id);
 }
 
+/*****************************************************************************/
+
+#ifndef NM_VPN_OLD
+
+#include "nm-l2tp-editor-plugin.h"
+
+G_MODULE_EXPORT NMVpnEditor *
+nm_vpn_editor_factory_l2tp (NMVpnEditorPlugin *editor_plugin,
+                            NMConnection *connection,
+                            GError **error)
+{
+	g_return_val_if_fail (!error || !*error, NULL);
+
+	return nm_vpn_plugin_ui_widget_interface_new (connection, error);
+}
+#endif
+
