@@ -797,10 +797,19 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	write_config_option (pppopt_fd, "plugin %s\n", NM_L2TP_PPPD_PLUGIN);
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_MRU);
-	if (value) write_config_option (pppopt_fd, "mru %s\n", value);
+	if (value) {
+		write_config_option (pppopt_fd, "mru %s\n", value);
+	} else {
+		write_config_option (pppopt_fd, "mru 1400\n");
+	}
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_MTU);
-	if (value) write_config_option (pppopt_fd, "mtu %s\n", value);
+	if (value) {
+		write_config_option (pppopt_fd, "mtu %s\n", value);
+	} else {
+		/* Default MTU to 1400, which is also what Microsoft Windows uses */
+		write_config_option (pppopt_fd, "mtu 1400\n");
+	}
 
 	/*	
 	if (priv && priv->use_cert) {
