@@ -16,6 +16,7 @@ libexec_PROGRAMS = nm-l2tp-service
 
 nm_l2tp_service_SOURCES = \
     $(top_srcdir)/shared/nm-service-defines.h \
+ $  $(top_srcdir)/shared/nm-utils/nm-vpn-plugin-macros.h \
     nm-l2tp-service.c \
     nm-l2tp-service.h
 

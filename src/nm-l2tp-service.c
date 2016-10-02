@@ -51,6 +51,7 @@
 
 #include "nm-ppp-status.h"
 #include "nm-l2tp-pppd-service-dbus.h"
+#include "nm-utils/nm-vpn-plugin-macros.h"
 
 #if !defined(DIST_VERSION)
 # define DIST_VERSION VERSION
@@ -58,6 +59,7 @@
 
 static struct {
 	gboolean debug;
+	int log_level;
 } gl/*lobal*/;
 
 static void nm_l2tp_plugin_initable_iface_init (GInitableIface *iface);
@@ -85,6 +87,30 @@ typedef struct {
 #define NM_L2TP_PPPD_PLUGIN PLUGINDIR "/nm-l2tp-pppd-plugin.so"
 #define NM_L2TP_WAIT_PPPD 10000 /* 10 seconds */
 #define L2TP_SERVICE_SECRET_TRIES "l2tp-service-secret-tries"
+
+/*****************************************************************************/
+
+#define _NMLOG(level, ...) \
+    G_STMT_START { \
+         if (gl.log_level >= (level)) { \
+              g_print ("nm-l2tp[%ld] %-7s " _NM_UTILS_MACRO_FIRST (__VA_ARGS__) "\n", \
+                       (long) getpid (), \
+                       nm_utils_syslog_to_str (level) \
+                       _NM_UTILS_MACRO_REST (__VA_ARGS__)); \
+         } \
+    } G_STMT_END
+
+static gboolean
+_LOGD_enabled (void)
+{
+	return gl.log_level >= LOG_INFO;
+}
+
+#define _LOGD(...) _NMLOG(LOG_INFO,    __VA_ARGS__)
+#define _LOGI(...) _NMLOG(LOG_NOTICE,  __VA_ARGS__)
+#define _LOGW(...) _NMLOG(LOG_WARNING, __VA_ARGS__)
+
+/*****************************************************************************/
 
 typedef struct {
 	const char *name;
@@ -387,14 +413,14 @@ l2tpd_watch_cb (GPid pid, gint status, gpointer user_data)
 	if (WIFEXITED (status)) {
 		error = WEXITSTATUS (status);
 		if (error != 0)
-			g_warning ("xl2tpd exited with error code %d", error);
+			_LOGW ("xl2tpd exited with error code %d", error);
 	}
 	else if (WIFSTOPPED (status))
-		g_warning ("xl2tpd stopped unexpectedly with signal %d", WSTOPSIG (status));
+		_LOGW ("xl2tpd stopped unexpectedly with signal %d", WSTOPSIG (status));
 	else if (WIFSIGNALED (status))
-		g_warning ("xl2tpd died with signal %d", WTERMSIG (status));
+		_LOGW ("xl2tpd died with signal %d", WTERMSIG (status));
 	else
-		g_warning ("xl2tpd died from an unknown cause");
+		_LOGW ("xl2tpd died from an unknown cause");
 
 	/* Reap child if needed. */
 	waitpid (priv->pid_l2tpd, NULL, WNOHANG);
@@ -499,7 +525,7 @@ pppd_timed_out (gpointer user_data)
 {
 	NML2tpPlugin *plugin = NM_L2TP_PLUGIN (user_data);
 
-	g_warning ("Looks like pppd didn't initialize our dbus module");
+	_LOGW ("Looks like pppd didn't initialize our dbus module");
 	nm_vpn_service_plugin_failure (NM_VPN_SERVICE_PLUGIN (plugin), NM_VPN_PLUGIN_FAILURE_CONNECT_FAILED);
 
 	return FALSE;
@@ -584,7 +610,7 @@ is_port_free(int port)
 	g_message ("Check port %d", port);
 	sock = socket (AF_INET, SOCK_DGRAM, 0);
 	if (!sock){
-		g_warning (_("Can-not create new test socket"));
+		_LOGW ("Can-not create new test socket");
 		return FALSE;
 	}
 
@@ -702,10 +728,10 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	port = 1701;
 	if (!is_port_free (port)){
 		port = 0;
-		g_warning("Port 1701 is busy, use ephemeral.");
+		_LOGW ("Port 1701 is busy, use ephemeral.");
 	}
 	write_config_option (conf_fd, "port = %d\n", port);
-	if (gl.debug){
+	if (_LOGD_enabled ()){
 		/* write_config_option (conf_fd, "debug network = yes\n"); */
 		write_config_option (conf_fd, "debug state = yes\n");
 		write_config_option (conf_fd, "debug tunnel = yes\n");
@@ -725,7 +751,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		write_config_option (conf_fd, "name = %s\n", value);
 	}
 
-	if (gl.debug)
+	if (_LOGD_enabled ())
 		write_config_option (conf_fd, "ppp debug = yes\n");
 	write_config_option (conf_fd, "pppoptfile = /var/run/nm-ppp-options.xl2tpd.%d\n", pid);
 	write_config_option (conf_fd, "autodial = yes\n");
@@ -734,7 +760,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	write_config_option (conf_fd, "rx bps = 100000000\n");
 
 	/* PPP options */
-	if (gl.debug)
+	if (_LOGD_enabled ())
 		write_config_option (pppopt_fd, "debug\n");
 
 	write_config_option (pppopt_fd, "ipparam nm-l2tp-service-%d\n", pid);
@@ -778,7 +804,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		if (str_to_int (value, &tmp_int)) {
 			write_config_option (pppopt_fd, "lcp-echo-failure %ld\n", tmp_int);
 		} else {
-			g_warning (_("failed to convert lcp-echo-failure value '%s'"), value);
+			_LOGW ("failed to convert lcp-echo-failure value '%s'", value);
 		}
 	} else {
 		write_config_option (pppopt_fd, "lcp-echo-failure 0\n");
@@ -790,7 +816,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		if (str_to_int (value, &tmp_int)) {
 			write_config_option (pppopt_fd, "lcp-echo-interval %ld\n", tmp_int);
 		} else {
-			g_warning (_("failed to convert lcp-echo-interval value '%s'"), value);
+			_LOGW ("failed to convert lcp-echo-interval value '%s'", value);
 		}
 	} else {
 		write_config_option (pppopt_fd, "lcp-echo-interval 0\n");
@@ -980,12 +1006,12 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 				sys = system (cmdbuf);
 				if (!sys) {
 					rc = TRUE;
-					g_message ( ("Libreswan ready for action."));
+					_LOGI ("Libreswan ready for action.");
 				} else {
-					g_warning(_("Could not establish IPsec tunnel."));
+					_LOGW ("Could not establish IPsec tunnel.");
 				}
 			} else {
-				g_warning(_("Could not establish IPsec tunnel."));
+				_LOGW ("Could not establish IPsec tunnel.");
 			}
 
 		} else {
@@ -999,24 +1025,24 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 					rc = output && strstr (output, "ESTABLISHED");
 					g_free (output);
 					if (rc) {
-						g_message ( ("strongSwan ready for action."));
+						_LOGI ("strongSwan ready for action.");
 					} else {
-						g_warning(_("Could not establish IPsec tunnel."));
+						_LOGW ("Could not establish IPsec tunnel.");
 					}
 				}
 			} else {
-				g_warning(_("Could not establish IPsec tunnel."));
+				_LOGW ("Could not establish IPsec tunnel.");
 			}
 		}
 
 	} else {
-		g_warning(_("Could not load new IPsec secret."));
+		_LOGW ("Could not load new IPsec secret.");
 	}
 
 	snprintf (cmdbuf, sizeof(cmdbuf), "%s secrets", priv->ipsec_binary_path);
 	if (rename(tmp_secrets, secrets) ||
 			system (cmdbuf)) {
-		g_warning(_("Could not restore saved %s from %s."), _(secrets), _(tmp_secrets));
+		_LOGW ("Could not restore saved %s from %s.", secrets, tmp_secrets);
 	}
 
 	return rc;
@@ -1269,7 +1295,7 @@ real_connect (NMVpnServicePlugin *plugin,
 	g_assert (s_vpn);
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_ENABLE);
-	g_message(_("ipsec enable flag: %s"), value?value:"(null)");
+	_LOGI ("ipsec enable flag: %s", value ? value : "(null)");
     priv->is_libreswan = TRUE;
 	if(value && !strcmp(value,"yes")) {
 
@@ -1310,12 +1336,12 @@ real_connect (NMVpnServicePlugin *plugin,
 	g_clear_object (&priv->connection);
 	priv->connection = g_object_ref (connection);
 
-	if (getenv ("NM_L2TP_DUMP_CONNECTION") || gl.debug)
+	if (getenv ("NM_L2TP_DUMP_CONNECTION") || _LOGD_enabled ())
 		nm_connection_dump (connection);
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_ENABLE);
 	if(value && !strcmp(value,"yes")) {
-		g_message(_("starting ipsec"));
+		_LOGI ("starting ipsec");
 		if (!nm_l2tp_start_ipsec(NM_L2TP_PLUGIN (plugin), s_vpn, error))
 			return FALSE;
 		priv->ipsec_up = TRUE;
@@ -1377,7 +1403,7 @@ real_disconnect (NMVpnServicePlugin *plugin, GError **err)
 		else
 			kill (priv->pid_l2tpd, SIGKILL);
 
-		g_message ("Terminated xl2tpd daemon with PID %d.", priv->pid_l2tpd);
+		_LOGI ("Terminated xl2tpd daemon with PID %d.", priv->pid_l2tpd);
 		priv->pid_l2tpd = 0;
 	}
 
@@ -1517,10 +1543,10 @@ nm_l2tp_plugin_new (const char *bus_name)
 
 	plugin = g_initable_new (NM_TYPE_L2TP_PLUGIN, NULL, &error,
 	                         NM_VPN_SERVICE_PLUGIN_DBUS_SERVICE_NAME, bus_name,
-	                         NM_VPN_SERVICE_PLUGIN_DBUS_WATCH_PEER, !gl.debug,
+	                         NM_VPN_SERVICE_PLUGIN_DBUS_WATCH_PEER, !_LOGD_enabled (),
 	                         NULL);
 	if (!plugin) {
-		g_warning ("Failed to initialize a plugin instance: %s", error->message);
+		_LOGW ("Failed to initialize a plugin instance: %s", error->message);
 		g_error_free (error);
 	}
 
@@ -1541,12 +1567,13 @@ main (int argc, char *argv[])
 	gboolean persist = FALSE;
 	GOptionContext *opt_ctx = NULL;
 	GError *error = NULL;
-	gchar *bus_name = NM_DBUS_SERVICE_L2TP;
+	gs_free char *bus_name_free = NULL;
+	const char *bus_name;
 
 	GOptionEntry options[] = {
 		{ "persist", 0, 0, G_OPTION_ARG_NONE, &persist, N_("Don't quit when VPN connection terminates"), NULL },
 		{ "debug", 0, 0, G_OPTION_ARG_NONE, &gl.debug, N_("Enable verbose debug logging (may expose passwords)"), NULL },
-		{ "bus-name", 0, 0, G_OPTION_ARG_STRING, &bus_name, N_("D-Bus name to use for this instance"), NULL },
+		{ "bus-name", 0, 0, G_OPTION_ARG_STRING, &bus_name_free, N_("D-Bus name to use for this instance"), NULL },
 		{NULL}
 	};
 
@@ -1577,16 +1604,17 @@ main (int argc, char *argv[])
 	}
 	g_option_context_free (opt_ctx);
 
+	bus_name = bus_name_free ?: NM_DBUS_SERVICE_L2TP;
+
 	if (getenv ("NM_PPP_DEBUG"))
 		gl.debug = TRUE;
 
-	if (gl.debug)
-		g_message ("nm-l2tp-service (version " DIST_VERSION ") starting...");
+	gl.log_level = gl.debug ? LOG_INFO : LOG_NOTICE;
 
-	if (bus_name)
-		setenv ("NM_DBUS_SERVICE_L2TP", bus_name, 0);
-	else
-		unsetenv ("NM_DBUS_SERVICE_L2TP");
+	_LOGD ("nm-l2tp-service (version " DIST_VERSION ") starting...");
+	_LOGD (" uses%s --bus-name \"%s\"", bus_name_free ? "" : " default", bus_name);
+
+	setenv ("NM_DBUS_SERVICE_L2TP", bus_name, 0);
 
 	plugin = nm_l2tp_plugin_new (bus_name);
 	if (!plugin)
