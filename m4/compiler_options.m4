@@ -1,22 +1,37 @@
-dnl Check whether a particular compiler flag works with code provided,
-dnl disable it in CFLAGS if the check fails.
-AC_DEFUN([NM_COMPILER_WARNING], [
+AC_DEFUN([_NM_COMPILER_FLAG], [
 	CFLAGS_SAVED="$CFLAGS"
-	CFLAGS="$CFLAGS -Werror -W$1"
-	AC_MSG_CHECKING(whether -W$1 works)
+	CFLAGS="$CFLAGS $GLIB_CFLAGS -Werror $1"
+	AC_MSG_CHECKING([whether $1 works as expected])
 
 	AC_COMPILE_IFELSE([AC_LANG_SOURCE([[]])], [
 		AC_COMPILE_IFELSE([AC_LANG_SOURCE([[$2]])], [
 			AC_MSG_RESULT(yes)
-			CFLAGS="$CFLAGS_SAVED -W$1"
+			CFLAGS="$CFLAGS_SAVED"
+			$3
 		],[
 			AC_MSG_RESULT(no)
-			CFLAGS="$CFLAGS_SAVED -Wno-$1"
+			CFLAGS="$CFLAGS_SAVED"
+			$4
 		])
 	],[
 		AC_MSG_RESULT(not supported)
 		CFLAGS="$CFLAGS_SAVED"
 	])
+])
+
+dnl Check whether a particular compiler flag is supported,
+dnl add it to CFLAGS if it is
+AC_DEFUN([NM_COMPILER_FLAG], [
+        _NM_COMPILER_FLAG([$1], [], [
+		CFLAGS="$CFLAGS $1"
+		$2
+	], [$3])
+])
+
+dnl Check whether a particular warning is not emitted with code provided,
+dnl disable it in CFLAGS if the check fails.
+AC_DEFUN([NM_COMPILER_WARNING], [
+        _NM_COMPILER_FLAG([-W$1], [$2], [CFLAGS="$CFLAGS -W$1"], [CFLAGS="$CFLAGS -Wno-$1"])
 ])
 
 AC_DEFUN([NM_COMPILER_WARNINGS],
@@ -40,7 +55,6 @@ if test "$GCC" = "yes" -a "$set_more_warnings" != "no"; then
 	dnl attach it to the CFLAGS.
 	NM_COMPILER_WARNING([unknown-warning-option], [])
 
-	CFLAGS_SAVED="$CFLAGS"
 	CFLAGS_MORE_WARNINGS="-Wall -std=gnu89"
 
 	if test "x$set_more_warnings" = xerror; then
@@ -52,26 +66,16 @@ if test "$GCC" = "yes" -a "$set_more_warnings" != "no"; then
 		      -Wfloat-equal -Wno-unused-parameter -Wno-sign-compare \
 		      -Wno-duplicate-decl-specifier \
 		      -Wstrict-prototypes \
-		      -fno-strict-aliasing -Wno-unused-but-set-variable \
+		      -Wno-unused-but-set-variable \
+		      -Wno-format-y2k \
 		      -Wundef -Wimplicit-function-declaration \
-		      -Wpointer-arith -Winit-self \
+		      -Wpointer-arith -Winit-self -Wformat-nonliteral \
 		      -Wmissing-include-dirs -Wno-pragmas; do
 		dnl GCC 4.4 does not warn when checking for -Wno-* flags (https://gcc.gnu.org/wiki/FAQ#wnowarning)
-		CFLAGS="-Werror $CFLAGS_MORE_WARNINGS $(printf '%s' "$option" | sed 's/^-Wno-/-W/')  $CFLAGS_SAVED"
-		AC_MSG_CHECKING([whether compiler understands $option])
-		AC_TRY_COMPILE([], [],
-			has_option=yes,
-			has_option=no,)
-		if test $has_option != no; then
-			CFLAGS_MORE_WARNINGS="$CFLAGS_MORE_WARNINGS $option"
-		fi
-		AC_MSG_RESULT($has_option)
-		unset has_option
+                _NM_COMPILER_FLAG([$(printf '%s' "$option" | sed 's/^-Wno-/-W/')], [],
+		                  [CFLAGS_MORE_WARNINGS="$CFLAGS_MORE_WARNINGS $option"], [])
 	done
 	unset option
-
-	CFLAGS="$CFLAGS_SAVED"
-	unset CFLAGS_SAVED
 
 	dnl Disable warnings triggered by known compiler problems
 
