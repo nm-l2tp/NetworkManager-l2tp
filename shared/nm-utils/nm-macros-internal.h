@@ -51,6 +51,14 @@ _nm_auto_unset_gvalue_impl (GValue *v)
 }
 #define nm_auto_unset_gvalue nm_auto(_nm_auto_unset_gvalue_impl)
 
+static inline void
+_nm_auto_free_gstring_impl (GString **str)
+{
+	if (*str)
+		g_string_free (*str, TRUE);
+}
+#define nm_auto_free_gstring nm_auto(_nm_auto_free_gstring_impl)
+
 /********************************************************/
 
 /* http://stackoverflow.com/a/11172679 */
@@ -294,6 +302,22 @@ _NM_IN_STRSET_streq (const char *x, const char *s)
 
 /*****************************************************************************/
 
+#define nm_str_not_empty(str) \
+	({ \
+		/* implemented as macro to preserve constness */ \
+		typeof (str) __str = (str); \
+		_nm_unused const char *__str_type_check = __str; \
+		((__str && __str[0]) ? __str : ((char *) NULL)); \
+	})
+
+static inline char *
+nm_strdup_not_empty (const char *str)
+{
+	return str && str[0] ? g_strdup (str) : NULL;
+}
+
+/*****************************************************************************/
+
 #define NM_PRINT_FMT_QUOTED(cond, prefix, str, suffix, str_else) \
 	(cond) ? (prefix) : "", \
 	(cond) ? (str) : (str_else), \
@@ -345,6 +369,24 @@ _notify (obj_type *obj, _PropertyEnums prop) \
 	nm_assert ((gsize) prop < G_N_ELEMENTS (obj_properties)); \
 	g_object_notify_by_pspec ((GObject *) obj, obj_properties[prop]); \
 }
+
+/*****************************************************************************/
+
+#define __NM_GET_PRIVATE(self, type, is_check, result_cmd) \
+	({ \
+		/* preserve the const-ness of self. Unfortunately, that
+		 * way, @self cannot be a void pointer */ \
+		typeof (self) _self = (self); \
+		\
+		/* Get compiler error if variable is of wrong type */ \
+		_nm_unused const type *_self2 = (_self); \
+		\
+		nm_assert (is_check (_self)); \
+		( result_cmd ); \
+	})
+
+#define _NM_GET_PRIVATE(self, type, is_check)     __NM_GET_PRIVATE(self, type, is_check, &_self->_priv)
+#define _NM_GET_PRIVATE_PTR(self, type, is_check) __NM_GET_PRIVATE(self, type, is_check,  _self->_priv)
 
 /*****************************************************************************/
 
@@ -518,6 +560,50 @@ nm_strcmp_p_with_data (gconstpointer a, gconstpointer b, gpointer user_data)
 
 /*****************************************************************************/
 
+/* Taken from systemd's UNIQ_T and UNIQ macros. */
+
+#define NM_UNIQ_T(x, uniq) G_PASTE(__unique_prefix_, G_PASTE(x, uniq))
+#define NM_UNIQ __COUNTER__
+
+/*****************************************************************************/
+
+/* glib's MIN()/MAX() macros don't have function-like behavior, in that they evaluate
+ * the argument possibly twice.
+ *
+ * Taken from systemd's MIN()/MAX() macros. */
+
+#define NM_MIN(a, b) __NM_MIN(NM_UNIQ, a, NM_UNIQ, b)
+#define __NM_MIN(aq, a, bq, b) \
+	({ \
+		typeof (a) NM_UNIQ_T(A, aq) = (a); \
+		typeof (b) NM_UNIQ_T(B, bq) = (b); \
+		((NM_UNIQ_T(A, aq) < NM_UNIQ_T(B, bq)) ? NM_UNIQ_T(A, aq) : NM_UNIQ_T(B, bq)); \
+	})
+
+#define NM_MAX(a, b) __NM_MAX(NM_UNIQ, a, NM_UNIQ, b)
+#define __NM_MAX(aq, a, bq, b) \
+	({ \
+		typeof (a) NM_UNIQ_T(A, aq) = (a); \
+		typeof (b) NM_UNIQ_T(B, bq) = (b); \
+		((NM_UNIQ_T(A, aq) > NM_UNIQ_T(B, bq)) ? NM_UNIQ_T(A, aq) : NM_UNIQ_T(B, bq)); \
+	})
+
+#define NM_CLAMP(x, low, high) __NM_CLAMP(NM_UNIQ, x, NM_UNIQ, low, NM_UNIQ, high)
+#define __NM_CLAMP(xq, x, lowq, low, highq, high) \
+	({ \
+		typeof(x)NM_UNIQ_T(X,xq) = (x); \
+		typeof(low) NM_UNIQ_T(LOW,lowq) = (low); \
+		typeof(high) NM_UNIQ_T(HIGH,highq) = (high); \
+		\
+		( (NM_UNIQ_T(X,xq) > NM_UNIQ_T(HIGH,highq)) \
+		  ? NM_UNIQ_T(HIGH,highq) \
+		  : (NM_UNIQ_T(X,xq) < NM_UNIQ_T(LOW,lowq)) \
+		     ? NM_UNIQ_T(LOW,lowq) \
+		     : NM_UNIQ_T(X,xq)); \
+	})
+
+/*****************************************************************************/
+
 static inline guint
 nm_encode_version (guint major, guint minor, guint micro) {
 	/* analog to the preprocessor macro NM_ENCODE_VERSION(). */
@@ -531,6 +617,35 @@ nm_decode_version (guint version, guint *major, guint *minor, guint *micro) {
 	*micro = (version & 0x000000FFu);
 }
 /*****************************************************************************/
+
+/* if @str is NULL, return "(null)". Otherwise, allocate a buffer using
+ * alloca() of size @bufsize and fill it with @str. @str will be quoted with
+ * single quote, and in case @str is too long, the final quote will be '^'. */
+#define nm_strquote_a(bufsize, str) \
+	({ \
+		G_STATIC_ASSERT ((bufsize) >= 6); \
+		const gsize _BUFSIZE = (bufsize); \
+		const char *const _s = (str); \
+		char *_r; \
+		gsize _l; \
+		gboolean _truncated; \
+		\
+		nm_assert (_BUFSIZE >= 6); \
+		\
+		if (_s) { \
+			_l = strlen (_s) + 3; \
+			if ((_truncated = (_BUFSIZE < _l))) \
+				_l = _BUFSIZE; \
+			\
+			_r = g_alloca (_l); \
+			_r[0] = '\''; \
+			memcpy (&_r[1], _s, _l - 3); \
+			_r[_l - 2] = _truncated ? '^' : '\''; \
+			_r[_l - 1] = '\0'; \
+		} else \
+			_r = "(null)"; \
+		_r; \
+	})
 
 #define nm_sprintf_buf(buf, format, ...) ({ \
 		char * _buf = (buf); \

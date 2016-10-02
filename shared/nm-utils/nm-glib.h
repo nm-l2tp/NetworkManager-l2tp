@@ -313,14 +313,14 @@ _g_key_file_save_to_file (GKeyFile     *key_file,
 
 #if GLIB_CHECK_VERSION (2, 36, 0)
 #define g_credentials_get_unix_pid(creds, error) \
-	G_GNUC_EXTENSION ({ \
+	({ \
 		G_GNUC_BEGIN_IGNORE_DEPRECATIONS \
 			(g_credentials_get_unix_pid) ((creds), (error)); \
 		G_GNUC_END_IGNORE_DEPRECATIONS \
 	})
 #else
 #define g_credentials_get_unix_pid(creds, error) \
-	G_GNUC_EXTENSION ({ \
+	({ \
 		struct ucred *native_creds; \
 		 \
 		native_creds = g_credentials_get_native ((creds), G_CREDENTIALS_TYPE_LINUX_UCRED); \
@@ -357,12 +357,12 @@ _nm_g_hash_table_get_keys_as_array (GHashTable *hash_table,
 #endif
 #if !GLIB_CHECK_VERSION(2, 40, 0)
 #define g_hash_table_get_keys_as_array(hash_table, length) \
-	G_GNUC_EXTENSION ({ \
+	({ \
 		_nm_g_hash_table_get_keys_as_array (hash_table, length); \
 	})
 #else
 #define g_hash_table_get_keys_as_array(hash_table, length) \
-	G_GNUC_EXTENSION ({ \
+	({ \
 		G_GNUC_BEGIN_IGNORE_DEPRECATIONS \
 			(g_hash_table_get_keys_as_array) ((hash_table), (length)); \
 		G_GNUC_END_IGNORE_DEPRECATIONS \
@@ -393,5 +393,60 @@ g_steal_pointer (gpointer pp)
 #define g_steal_pointer(pp) \
   (0 ? (*(pp)) : (g_steal_pointer) (pp))
 #endif
+
+
+static inline gboolean
+_nm_g_strv_contains (const gchar * const *strv,
+                     const gchar         *str)
+{
+#if !GLIB_CHECK_VERSION(2, 44, 0)
+	g_return_val_if_fail (strv != NULL, FALSE);
+	g_return_val_if_fail (str != NULL, FALSE);
+
+	for (; *strv != NULL; strv++) {
+		if (g_str_equal (str, *strv))
+			return TRUE;
+	}
+
+	return FALSE;
+#else
+	G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+	return g_strv_contains (strv, str);
+	G_GNUC_END_IGNORE_DEPRECATIONS
+#endif
+}
+#define g_strv_contains _nm_g_strv_contains
+
+static inline GVariant *
+_nm_g_variant_new_take_string (gchar *string)
+{
+#if !GLIB_CHECK_VERSION(2, 36, 0)
+	GVariant *value;
+
+	g_return_val_if_fail (string != NULL, NULL);
+	g_return_val_if_fail (g_utf8_validate (string, -1, NULL), NULL);
+
+	value = g_variant_new_string (string);
+	g_free (string);
+	return value;
+#elif !GLIB_CHECK_VERSION(2, 38, 0)
+	GVariant *value;
+	GBytes *bytes;
+
+	g_return_val_if_fail (string != NULL, NULL);
+	g_return_val_if_fail (g_utf8_validate (string, -1, NULL), NULL);
+
+	bytes = g_bytes_new_take (string, strlen (string) + 1);
+	value = g_variant_new_from_bytes (G_VARIANT_TYPE_STRING, bytes, TRUE);
+	g_bytes_unref (bytes);
+
+	return value;
+#else
+	G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+	return g_variant_new_take_string (string);
+	G_GNUC_END_IGNORE_DEPRECATIONS
+#endif
+}
+#define g_variant_new_take_string _nm_g_variant_new_take_string
 
 #endif  /* __NM_GLIB_H__ */
