@@ -56,7 +56,9 @@
 # define DIST_VERSION VERSION
 #endif
 
-static gboolean debug = FALSE;
+static struct {
+	gboolean debug;
+} gl/*lobal*/;
 
 static void nm_l2tp_plugin_initable_iface_init (GInitableIface *iface);
 
@@ -703,7 +705,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		g_warning("Port 1701 is busy, use ephemeral.");
 	}
 	write_config_option (conf_fd, "port = %d\n", port);
-	if (debug){
+	if (gl.debug){
 		/* write_config_option (conf_fd, "debug network = yes\n"); */
 		write_config_option (conf_fd, "debug state = yes\n");
 		write_config_option (conf_fd, "debug tunnel = yes\n");
@@ -723,7 +725,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		write_config_option (conf_fd, "name = %s\n", value);
 	}
 
-	if (debug)
+	if (gl.debug)
 		write_config_option (conf_fd, "ppp debug = yes\n");
 	write_config_option (conf_fd, "pppoptfile = /var/run/nm-ppp-options.xl2tpd.%d\n", pid);
 	write_config_option (conf_fd, "autodial = yes\n");
@@ -732,7 +734,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	write_config_option (conf_fd, "rx bps = 100000000\n");
 
 	/* PPP options */
-	if (debug)
+	if (gl.debug)
 		write_config_option (pppopt_fd, "debug\n");
 
 	write_config_option (pppopt_fd, "ipparam nm-l2tp-service-%d\n", pid);
@@ -1308,7 +1310,7 @@ real_connect (NMVpnServicePlugin *plugin,
 	g_clear_object (&priv->connection);
 	priv->connection = g_object_ref (connection);
 
-	if (getenv ("NM_L2TP_DUMP_CONNECTION") || debug)
+	if (getenv ("NM_L2TP_DUMP_CONNECTION") || gl.debug)
 		nm_connection_dump (connection);
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_ENABLE);
@@ -1515,7 +1517,7 @@ nm_l2tp_plugin_new (const char *bus_name)
 
 	plugin = g_initable_new (NM_TYPE_L2TP_PLUGIN, NULL, &error,
 	                         NM_VPN_SERVICE_PLUGIN_DBUS_SERVICE_NAME, bus_name,
-	                         NM_VPN_SERVICE_PLUGIN_DBUS_WATCH_PEER, !debug,
+	                         NM_VPN_SERVICE_PLUGIN_DBUS_WATCH_PEER, !gl.debug,
 	                         NULL);
 	if (!plugin) {
 		g_warning ("Failed to initialize a plugin instance: %s", error->message);
@@ -1543,7 +1545,7 @@ main (int argc, char *argv[])
 
 	GOptionEntry options[] = {
 		{ "persist", 0, 0, G_OPTION_ARG_NONE, &persist, N_("Don't quit when VPN connection terminates"), NULL },
-		{ "debug", 0, 0, G_OPTION_ARG_NONE, &debug, N_("Enable verbose debug logging (may expose passwords)"), NULL },
+		{ "debug", 0, 0, G_OPTION_ARG_NONE, &gl.debug, N_("Enable verbose debug logging (may expose passwords)"), NULL },
 		{ "bus-name", 0, 0, G_OPTION_ARG_STRING, &bus_name, N_("D-Bus name to use for this instance"), NULL },
 		{NULL}
 	};
@@ -1576,9 +1578,9 @@ main (int argc, char *argv[])
 	g_option_context_free (opt_ctx);
 
 	if (getenv ("NM_PPP_DEBUG"))
-		debug = TRUE;
+		gl.debug = TRUE;
 
-	if (debug)
+	if (gl.debug)
 		g_message ("nm-l2tp-service (version " DIST_VERSION ") starting...");
 
 	if (bus_name)
