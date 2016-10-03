@@ -4,7 +4,7 @@ AC_INIT(NetworkManager-l2tp,
         1.2.2,
         https://github.com/nm-l2tp/network-manager-l2tp/issues,
         NetworkManager-l2tp)
-AM_INIT_AUTOMAKE([1.9 foreign no-dist-gzip dist-xz])
+AM_INIT_AUTOMAKE([1.9 foreign subdir-objects no-dist-gzip dist-xz])
 AM_MAINTAINER_MODE
 
 AC_CONFIG_MACRO_DIR([m4])
