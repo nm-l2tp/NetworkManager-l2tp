@@ -1,3 +1,13 @@
+libexec_PROGRAMS = nm-l2tp-service
+
+noinst_LTLIBRARIES = libnm-l2tp-pppd-service-dbus.la
+
+shared_sources = \
+    $(top_srcdir)/shared/nm-service-defines.h \
+    $(top_srcdir)/shared/nm-utils/nm-shared-utils.c \
+    $(top_srcdir)/shared/nm-utils/nm-shared-utils.h \
+    $(top_srcdir)/shared/nm-utils/nm-vpn-plugin-macros.h
+
 AM_CPPFLAGS = \
     $(GLIB_CFLAGS) \
     $(LIBNM_CFLAGS) \
@@ -12,17 +22,7 @@ AM_CPPFLAGS = \
     -DNM_L2TP_LOCALEDIR=\"$(datadir)/locale\" \
     -DPLUGINDIR=\"$(PPPD_PLUGIN_DIR)\"
 
-libexec_PROGRAMS = nm-l2tp-service
-
-nm_l2tp_service_SOURCES = \
-    $(top_srcdir)/shared/nm-service-defines.h \
- $  $(top_srcdir)/shared/nm-utils/nm-vpn-plugin-macros.h \
-    nm-l2tp-service.c \
-    nm-l2tp-service.h
-
-
-# D-Bus stuff
-noinst_LTLIBRARIES = libnm-l2tp-pppd-service-dbus.la
+###############################################################################
 
 nodist_libnm_l2tp_pppd_service_dbus_la_SOURCES = \
     nm-l2tp-pppd-service-dbus.c \
@@ -40,15 +40,25 @@ nm-l2tp-pppd-service-dbus.h: $(top_srcdir)/src/nm-l2tp-pppd-service.xml
 nm-l2tp-pppd-service-dbus.c:
 	@true
 
+###############################################################################
+
+nm_l2tp_service_SOURCES = \
+    $(shared_sources) \
+    nm-l2tp-service.c \
+    nm-l2tp-service.h
+
 nm_l2tp_service_LDADD = \
     $(GLIB_LIBS) \
     $(LIBNM_LIBS) \
     libnm-l2tp-pppd-service-dbus.la
 
+###############################################################################
+
 pppd_plugindir = $(PPPD_PLUGIN_DIR)
 pppd_plugin_LTLIBRARIES = nm-l2tp-pppd-plugin.la
 
 nm_l2tp_pppd_plugin_la_SOURCES = \
+    $(shared_sources) \
     nm-l2tp-pppd-plugin.c \
     nm-ppp-status.h
 
@@ -63,9 +73,13 @@ nm_l2tp_pppd_plugin_la_LIBADD = \
     $(GLIB_LIBS) \
     $(LIBNM_LIBS)
 
-BUILT_SOURCES = nm-l2tp-pppd-service-dbus.h nm-l2tp-pppd-service-dbus.c
+###############################################################################
+
+BUILT_SOURCES = \
+    nm-l2tp-pppd-service-dbus.h \
+    nm-l2tp-pppd-service-dbus.c
 
 CLEANFILES = $(BUILT_SOURCES)
 
-EXTRA_DIST = nm-l2tp-pppd-service.xml
-
+EXTRA_DIST = \
+    nm-l2tp-pppd-service.xml
