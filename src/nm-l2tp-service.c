@@ -974,8 +974,8 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GROUP_NAME);
 	fprintf(fp, "%s%s ",value?"@":"", value?value:"%any");
 
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GATEWAY_ID);
-	fprintf(fp, "%s%s ",value?"@":"", value?value:"%any");
+	//value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GATEWAY_ID);
+	//fprintf(fp, "%s%s ",value?"@":"", value?value:"%any");
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_PSK);
 	if(!value)value="";
