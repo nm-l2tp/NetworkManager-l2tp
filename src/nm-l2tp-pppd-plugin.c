@@ -31,6 +31,7 @@
 #include "nm-default.h"
 
 #include <string.h>
+#include <stdlib.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
@@ -39,6 +40,9 @@
 #include "nm-l2tp-service.h"
 #include "nm-ppp-status.h"
 
+#include "nm-utils/nm-shared-utils.h"
+#include "nm-utils/nm-vpn-plugin-macros.h"
+
 int plugin_init (void);
 
 char pppd_version[] = VERSION;
@@ -46,8 +50,28 @@ char pppd_version[] = VERSION;
 /*****************************************************************************/
 
 struct {
+	int log_level;
+	const char *log_prefix_token;
 	GDBusProxy *proxy;
 } gl/*lobal*/;
+
+/*****************************************************************************/
+
+#define _NMLOG(level, ...) \
+    G_STMT_START { \
+         if (gl.log_level >= (level)) { \
+             syslog (nm_utils_syslog_coerce_from_nm (level), \
+                     "nm-l2tp[%s] %-7s [helper-%ld] " _NM_UTILS_MACRO_FIRST (__VA_ARGS__) "\n", \
+                     gl.log_prefix_token, \
+                     nm_utils_syslog_to_str (level), \
+                     (long) getpid () \
+                     _NM_UTILS_MACRO_REST (__VA_ARGS__)); \
+         } \
+    } G_STMT_END
+
+#define _LOGI(...) _NMLOG(LOG_NOTICE,  __VA_ARGS__)
+#define _LOGW(...) _NMLOG(LOG_WARNING, __VA_ARGS__)
+#define _LOGE(...) _NMLOG(LOG_ERR, __VA_ARGS__)
 
 /*****************************************************************************/
 
@@ -118,10 +142,8 @@ nm_phasechange (void *data, int arg)
 		break;
 	}
 
-	g_message ("nm-l2tp-ppp-plugin: (%s): status %d / phase '%s'",
-	           __func__,
-	           ppp_status,
-	           ppp_phase);
+	_LOGI ("phasechange: status %d / phase '%s'",
+	       ppp_status, ppp_phase);
 
 	if (ppp_status != NM_PPP_STATUS_UNKNOWN) {
 		g_dbus_proxy_call (gl.proxy,
@@ -143,10 +165,10 @@ nm_ip_up (void *data, int arg)
 
 	g_return_if_fail (G_IS_DBUS_PROXY (gl.proxy));
 
-	g_message ("nm-l2tp-ppp-plugin: (%s): ip-up event", __func__);
+	_LOGI ("ip-up: event");
 
 	if (!opts.ouraddr) {
-		g_warning ("nm-l2tp-ppp-plugin: (%s): didn't receive an internal IP from pppd!", __func__);
+		_LOGW ("ip-up: didn't receive an internal IP from pppd!");
 		nm_phasechange (NULL, PHASE_DEAD);
 		return;
 	}
@@ -156,6 +178,10 @@ nm_ip_up (void *data, int arg)
 	g_variant_builder_add (&builder, "{sv}",
 	                       NM_VPN_PLUGIN_IP4_CONFIG_TUNDEV,
 	                       g_variant_new_string (ifname));
+
+	g_variant_builder_add (&builder, "{sv}",
+	                       NM_VPN_PLUGIN_IP4_CONFIG_ADDRESS,
+	                       g_variant_new_uint32 (opts.ouraddr));
 
 	/* Prefer the peer options remote address first, _unless_ pppd made the
 	 * address up, at which point prefer the local options remote address,
@@ -177,10 +203,6 @@ nm_ip_up (void *data, int arg)
 	}
 
 	g_variant_builder_add (&builder, "{sv}",
-	                       NM_VPN_PLUGIN_IP4_CONFIG_ADDRESS,
-	                       g_variant_new_uint32 (opts.ouraddr));
-
-	g_variant_builder_add (&builder, "{sv}",
 	                       NM_VPN_PLUGIN_IP4_CONFIG_PREFIX,
 	                       g_variant_new_uint32 (32));
 
@@ -198,6 +220,8 @@ nm_ip_up (void *data, int arg)
 		                       g_variant_new_fixed_array (G_VARIANT_TYPE_UINT32,
 		                                                  dns, len, sizeof (guint32)));
 	}
+
+	_LOGI ("ip-up: sending Ip4Config to NetworkManager-l2tp...");
 
 	g_dbus_proxy_call (gl.proxy,
 	                   "SetIp4Config",
@@ -226,7 +250,7 @@ get_credentials (char *username, char *password)
 	const char *my_password = NULL;
 	size_t len;
 	GVariant *ret;
-	GError *err = NULL;
+	GError *error = NULL;
 
 	if (!password) {
 		/* pppd is checking pap support; return 1 for supported */
@@ -237,23 +261,21 @@ get_credentials (char *username, char *password)
 	g_return_val_if_fail (username, -1);
 	g_return_val_if_fail (G_IS_DBUS_PROXY (gl.proxy), -1);
 
-	g_message ("nm-l2tp-ppp-plugin: (%s): passwd-hook, requesting credentials...", __func__);
+	_LOGI ("passwd-hook: requesting credentials...");
 
 	ret = g_dbus_proxy_call_sync (gl.proxy,
 	                              "NeedSecrets",
 	                              NULL,
 	                              G_DBUS_CALL_FLAGS_NONE, -1,
-	                              NULL, &err);
+	                              NULL, &error);
 	if (!ret) {
-		g_warning ("nm-l2tp-ppp-plugin: (%s): could not get secrets: (%d) %s",
-		           __func__,
-		           err ? err->code : -1,
-		           err->message ? err->message : "(unknown)");
-		g_error_free (err);
+		_LOGW ("passwd-hook: could not get secrets: %s",
+		       error->message);
+		g_error_free (error);
 		return -1;
 	}
 
-	g_message ("nm-l2tp-ppp-plugin: (%s): got credentials from NetworkManager-l2tp", __func__);
+	_LOGI ("passwd-hook: got credentials from NetworkManager-l2tp");
 
 	g_variant_get (ret, "(&s&s)", &my_username, &my_password);
 
@@ -283,32 +305,54 @@ nm_exit_notify (void *data, int arg)
 {
 	g_return_if_fail (G_IS_DBUS_PROXY (gl.proxy));
 
-	g_message ("nm-l2tp-ppp-plugin: (%s): cleaning up", __func__);
-
+	_LOGI ("exit: cleaning up");
 	g_clear_object (&gl.proxy);
 }
 
 int
 plugin_init (void)
 {
-	GError *err = NULL;
+	GDBusConnection *bus;
+	GError *error = NULL;
+	const char *bus_name;
 
-	g_type_init ();
+	nm_g_type_init ();
 
-	g_message ("nm-l2tp-ppp-plugin: (%s): initializing", __func__);
+	g_return_val_if_fail (!gl.proxy, -1);
 
-	gl.proxy = g_dbus_proxy_new_for_bus_sync (G_BUS_TYPE_SYSTEM,
-	                                          G_DBUS_PROXY_FLAGS_NONE,
-	                                          NULL,
-	                                          NM_DBUS_SERVICE_L2TP,
-	                                          NM_DBUS_PATH_L2TP_PPP,
-	                                          NM_DBUS_INTERFACE_L2TP_PPP,
-	                                          NULL, &err);
+	bus_name = getenv ("NM_DBUS_SERVICE_L2TP");
+	if (!bus_name)
+		bus_name = NM_DBUS_SERVICE_L2TP;
+
+	gl.log_level = _nm_utils_ascii_str_to_int64 (getenv ("NM_VPN_LOG_LEVEL"),
+	                                             10, 0, LOG_DEBUG,
+	                                             LOG_NOTICE);
+	gl.log_prefix_token = getenv ("NM_VPN_LOG_PREFIX_TOKEN") ?: "???";
+
+	_LOGI ("initializing");
+
+	bus = g_bus_get_sync (G_BUS_TYPE_SYSTEM, NULL, &error);
+	if (!bus) {
+		_LOGE ("couldn't connect to system bus: %s",
+		       error->message);
+		g_error_free (error);
+		return -1;
+	}
+
+	gl.proxy = g_dbus_proxy_new_sync (bus,
+	                                  G_DBUS_PROXY_FLAGS_DO_NOT_LOAD_PROPERTIES,
+	                                  NULL,
+	                                  bus_name,
+	                                  NM_DBUS_PATH_L2TP_PPP,
+	                                  NM_DBUS_INTERFACE_L2TP_PPP,
+	                                  NULL, &error);
+	g_object_unref (bus);
+
 	if (!gl.proxy) {
-		g_warning ("nm-l2tp-pppd-plugin: (%s): couldn't create D-Bus proxy: %s",
-		           __func__, err->message);
-		g_error_free (err);
-		return 1;
+		_LOGE ("couldn't create D-Bus proxy: %s",
+		       error->message);
+		g_error_free (error);
+		return -1;
 	}
 
 	chap_passwd_hook = get_credentials;
@@ -319,6 +363,5 @@ plugin_init (void)
 	add_notifier (&phasechange, nm_phasechange, NULL);
 	add_notifier (&ip_up_notifier, nm_ip_up, NULL);
 	add_notifier (&exitnotify, nm_exit_notify, NULL);
-
 	return 0;
 }
