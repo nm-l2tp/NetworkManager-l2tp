@@ -752,8 +752,8 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		write_config_option (conf_fd, "name = %s\n", value);
 	}
 
-	if (_LOGD_enabled ())
-		write_config_option (conf_fd, "ppp debug = yes\n");
+	//if (_LOGD_enabled ())
+	write_config_option (conf_fd, "ppp debug = yes\n");
 	write_config_option (conf_fd, "pppoptfile = /var/run/nm-ppp-options.xl2tpd.%d\n", pid);
 	write_config_option (conf_fd, "autodial = yes\n");
 	write_config_option (conf_fd, "tunnel rws = 8\n");
@@ -761,8 +761,8 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	write_config_option (conf_fd, "rx bps = 100000000\n");
 
 	/* PPP options */
-	if (_LOGD_enabled ())
-		write_config_option (pppopt_fd, "debug\n");
+	//if (_LOGD_enabled ())
+	write_config_option (pppopt_fd, "debug\n");
 
 	write_config_option (pppopt_fd, "ipparam nm-l2tp-service-%d\n", pid);
 
@@ -900,6 +900,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	char session_name[128];
 	char cmdbuf[256];
 	char *output = NULL;
+	struct in_addr naddr;
 	int sys = 0, retry;
 	int fd;
 	FILE *fp;
@@ -971,11 +972,30 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 		rename(tmp_secrets, secrets);
 		return nm_l2tp_ipsec_error(error, "Could not write /etc/ipsec.secrets file.");
 	}
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GROUP_NAME);
-	fprintf(fp, "%s%s ",value?"@":"", value?value:"%any");
 
-	//value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GATEWAY_ID);
-	//fprintf(fp, "%s%s ",value?"@":"", value?value:"%any");
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GROUP_NAME);
+	if (value) {
+		if(inet_pton(AF_INET, value, &naddr)) {
+			fprintf(fp, "%s ", "%any");
+		} else {
+			/* @ prefix prevents lefttid being resolved to an IP address */
+			fprintf(fp, "@%s ", value?value:"%any");					
+		}
+	} else {
+		fprintf(fp, "%s ", value?value:"%any");
+	}
+	
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GATEWAY_ID);
+	if (value) {
+		if(inet_pton(AF_INET, value, &naddr)) {
+			fprintf(fp, "%s ", "%any");
+		} else {
+			/* @ prefix prevents rightid being resolved to an IP address */
+			fprintf(fp, "@%s ", value?value:"%any");					
+		}
+	} else {
+		fprintf(fp, "%s ", value?value:"%any");
+	}	
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_PSK);
 	if(!value)value="";
@@ -1041,10 +1061,10 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	}
 
 	snprintf (cmdbuf, sizeof(cmdbuf), "%s secrets", priv->ipsec_binary_path);
-	if (rename(tmp_secrets, secrets) ||
-			system (cmdbuf)) {
-		_LOGW ("Could not restore saved %s from %s.", secrets, tmp_secrets);
-	}
+	//if (rename(tmp_secrets, secrets) ||
+	//		system (cmdbuf)) {
+//		_LOGW ("Could not restore saved %s from %s.", secrets, tmp_secrets);
+//	}
 
 	return rc;
 }
