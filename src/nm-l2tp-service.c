@@ -752,8 +752,8 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		write_config_option (conf_fd, "name = %s\n", value);
 	}
 
-	//if (_LOGD_enabled ())
-	write_config_option (conf_fd, "ppp debug = yes\n");
+	if (_LOGD_enabled ())
+		write_config_option (conf_fd, "ppp debug = yes\n");
 	write_config_option (conf_fd, "pppoptfile = /var/run/nm-ppp-options.xl2tpd.%d\n", pid);
 	write_config_option (conf_fd, "autodial = yes\n");
 	write_config_option (conf_fd, "tunnel rws = 8\n");
@@ -761,8 +761,8 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	write_config_option (conf_fd, "rx bps = 100000000\n");
 
 	/* PPP options */
-	//if (_LOGD_enabled ())
-	write_config_option (pppopt_fd, "debug\n");
+	if (_LOGD_enabled ())
+		write_config_option (pppopt_fd, "debug\n");
 
 	write_config_option (pppopt_fd, "ipparam nm-l2tp-service-%d\n", pid);
 
@@ -1061,10 +1061,10 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	}
 
 	snprintf (cmdbuf, sizeof(cmdbuf), "%s secrets", priv->ipsec_binary_path);
-	//if (rename(tmp_secrets, secrets) ||
-	//		system (cmdbuf)) {
-//		_LOGW ("Could not restore saved %s from %s.", secrets, tmp_secrets);
-//	}
+	if (rename(tmp_secrets, secrets) ||
+			system (cmdbuf)) {
+		_LOGW ("Could not restore saved %s from %s.", secrets, tmp_secrets);
+	}
 
 	return rc;
 }
