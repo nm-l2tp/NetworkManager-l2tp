@@ -900,6 +900,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	char session_name[128];
 	char cmdbuf[256];
 	char *output = NULL;
+	struct in_addr naddr;
 	int sys = 0, retry;
 	int fd;
 	FILE *fp;
@@ -971,11 +972,30 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 		rename(tmp_secrets, secrets);
 		return nm_l2tp_ipsec_error(error, "Could not write /etc/ipsec.secrets file.");
 	}
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GROUP_NAME);
-	fprintf(fp, "%s%s ",value?"@":"", value?value:"%any");
 
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GROUP_NAME);
+	if (value) {
+		if(inet_pton(AF_INET, value, &naddr)) {
+			fprintf(fp, "%s ", "%any");
+		} else {
+			/* @ prefix prevents lefttid being resolved to an IP address */
+			fprintf(fp, "@%s ", value?value:"%any");					
+		}
+	} else {
+		fprintf(fp, "%s ", value?value:"%any");
+	}
+	
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GATEWAY_ID);
-	fprintf(fp, "%s%s ",value?"@":"", value?value:"%any");
+	if (value) {
+		if(inet_pton(AF_INET, value, &naddr)) {
+			fprintf(fp, "%s ", "%any");
+		} else {
+			/* @ prefix prevents rightid being resolved to an IP address */
+			fprintf(fp, "@%s ", value?value:"%any");					
+		}
+	} else {
+		fprintf(fp, "%s ", value?value:"%any");
+	}	
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_PSK);
 	if(!value)value="";
