@@ -72,6 +72,7 @@ typedef struct {
 	GPid pid_l2tpd;
 	gboolean ipsec_up;
 	gboolean use_cert;
+	guint32 ipsec_timeout_handler;
 	guint32 ppp_timeout_handler;
 	NMConnection *connection;
 	NMDBusL2tpPpp *dbus_skeleton;
@@ -86,7 +87,8 @@ typedef struct {
 #define NM_L2TP_PLUGIN_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), NM_TYPE_L2TP_PLUGIN, NML2tpPluginPrivate))
 
 #define NM_L2TP_PPPD_PLUGIN PLUGINDIR "/nm-l2tp-pppd-plugin.so"
-#define NM_L2TP_WAIT_PPPD 10000 /* 10 seconds */
+#define NM_L2TP_WAIT_IPSEC 10000 /* 10 seconds */
+#define NM_L2TP_WAIT_PPPD 14000  /* 14 seconds */
 #define L2TP_SERVICE_SECRET_TRIES "l2tp-service-secret-tries"
 
 /*****************************************************************************/
@@ -522,6 +524,20 @@ nm_find_l2tpd (void)
 }
 
 static gboolean
+ipsec_timed_out (gpointer user_data)
+{
+	NML2tpPlugin *plugin = NM_L2TP_PLUGIN (user_data);
+	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
+
+	_LOGW ("Timeout trying to establish IPsec connection");
+	nm_l2tp_stop_ipsec(priv);
+	nm_vpn_service_plugin_failure (NM_VPN_SERVICE_PLUGIN (plugin), NM_VPN_PLUGIN_FAILURE_CONNECT_FAILED);
+
+
+	return FALSE;
+}
+
+static gboolean
 pppd_timed_out (gpointer user_data)
 {
 	NML2tpPlugin *plugin = NM_L2TP_PLUGIN (user_data);
@@ -881,7 +897,7 @@ nm_l2tp_stop_ipsec (NML2tpPluginPrivate *priv)
 			return;
 		}
 	} else {
-		snprintf (cmdbuf, sizeof(cmdbuf), "%s down nm-ipsec-l2tp-%d", priv->ipsec_binary_path, getpid ());
+		snprintf (cmdbuf, sizeof(cmdbuf), "%s stop nm-ipsec-l2tp-%d", priv->ipsec_binary_path, getpid ());
 		sys = system (cmdbuf);
 	}
 
@@ -1016,6 +1032,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	}
 
 	if (!sys) {
+		priv->ipsec_timeout_handler = g_timeout_add (NM_L2TP_WAIT_IPSEC, ipsec_timed_out, plugin);
 		if (priv->is_libreswan) {
 			snprintf (cmdbuf, sizeof(cmdbuf), "%s auto "
 					 " --config /var/run/nm-ipsec-l2tp.%d/ipsec.conf --verbose"
@@ -1055,6 +1072,9 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 				_LOGW ("Could not establish IPsec tunnel.");
 			}
 		}
+
+		g_source_remove (priv->ipsec_timeout_handler);
+		priv->ipsec_timeout_handler = 0;
 
 	} else {
 		_LOGW ("Could not load new IPsec secret.");
