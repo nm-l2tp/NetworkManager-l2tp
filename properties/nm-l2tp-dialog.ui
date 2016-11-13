@@ -165,8 +165,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkCheckButton" id="pfs_enable">
-                <property name="label" translatable="yes">_Perfect Forward Secrecy</property>
+              <object class="GtkCheckButton" id="forceencaps_enable">
+                <property name="label" translatable="yes">_Enforce UDP encapsulation</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
