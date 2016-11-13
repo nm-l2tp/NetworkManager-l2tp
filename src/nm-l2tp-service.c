@@ -153,7 +153,7 @@ static const ValidProperty valid_properties[] = {
 	{ NM_L2TP_KEY_IPSEC_GATEWAY_ID,  G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_GROUP_NAME,  G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_PSK,         G_TYPE_STRING, FALSE },
-	{ NM_L2TP_KEY_IPSEC_PFS,         G_TYPE_BOOLEAN, FALSE },
+	{ NM_L2TP_KEY_IPSEC_FORCEENCAPS, G_TYPE_BOOLEAN, FALSE },
 	{ NULL }
 };
 
@@ -709,13 +709,15 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		}
 	}
 
-	if (!priv->is_libreswan) {
+	if (priv->is_libreswan) {
+		write_config_option (ipsec_fd, "  pfs=no");
+	} else {
 		write_config_option (ipsec_fd, "  esp=aes128-sha1,3des-sha1\n");
 		write_config_option (ipsec_fd, "  ike=aes128-sha1-modp2048,3des-sha1-modp1536,3des-sha1-modp1024\n");
 		write_config_option (ipsec_fd, "  keyexchange=ikev1\n");
 	}
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_PFS);
-	if(value)write_config_option (ipsec_fd, "  pfs=%s\n", value);
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_FORCEENCAPS);
+	if(value)write_config_option (ipsec_fd, "  forceencaps=%s\n", value);
 
 	filename = g_strdup_printf ("/var/run/nm-xl2tpd.conf.%d", pid);
 	conf_fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR);
