@@ -27,7 +27,6 @@
 #include <ctype.h>
 #include <gtk/gtk.h>
 
-#include "import-export.h"
 #include "advanced-dialog.h"
 #include "ipsec-dialog.h"
 
@@ -629,71 +628,6 @@ l2tp_plugin_ui_widget_interface_init (NMVpnEditorInterface *iface_class)
 {
 	iface_class->get_widget = get_widget;
 	iface_class->update_connection = update_connection;
-}
-
-static NMConnection *
-import (NMVpnEditorPlugin *iface, const char *path, GError **error)
-{
-	NMConnection *connection = NULL;
-	char *ext;
-
-	ext = strrchr (path, '.');
-	if (!ext) {
-		g_set_error (error,
-		             NMV_EDITOR_PLUGIN_ERROR,
-		             NMV_EDITOR_PLUGIN_ERROR_FILE_NOT_VPN,
-		             _("unknown L2TP file extension"));
-		return NULL;
-	}
-
-	if (strcmp (ext, ".conf") && strcmp (ext, ".cnf")) {
-		g_set_error (error,
-		             NMV_EDITOR_PLUGIN_ERROR,
-		             NMV_EDITOR_PLUGIN_ERROR_FILE_NOT_VPN,
-		             _("unknown L2TP file extension. Allowed .conf or .cnf"));
-		return NULL;
-	}
-
-	if (!strstr (path, "l2tp")) {
-		g_set_error (error,
-		             NMV_EDITOR_PLUGIN_ERROR,
-		             NMV_EDITOR_PLUGIN_ERROR_FILE_NOT_VPN,
-		             _("Filename doesn't contains 'l2tp' substring."));
-		return NULL;
-	}
-
-	connection = do_import (path, error);
-
-	if ((connection == NULL) && (*error != NULL))
-		g_warning(_("Can't import file as L2TP config: %s"), (*error)->message);
-
-	return connection;
-}
-
-static gboolean
-export (NMVpnEditorPlugin *iface,
-        const char *path,
-        NMConnection *connection,
-        GError **error)
-{
-	return do_export (path, connection, error);
-}
-
-static char *
-get_suggested_filename (NMVpnEditorPlugin *iface, NMConnection *connection)
-{
-	NMSettingConnection *s_con;
-	const char *id;
-
-	g_return_val_if_fail (connection != NULL, NULL);
-
-	s_con = nm_connection_get_setting_connection (connection);
-	g_return_val_if_fail (s_con != NULL, NULL);
-
-	id = nm_setting_connection_get_id (s_con);
-	g_return_val_if_fail (id != NULL, NULL);
-
-	return g_strdup_printf ("%s (l2tp).conf", id);
 }
 
 /*****************************************************************************/

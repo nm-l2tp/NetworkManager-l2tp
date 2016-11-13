@@ -163,9 +163,9 @@ ipsec_dialog_new (GHashTable *hash)
 	}
 
 	value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_FORCEENCAPS);
-	if (value && !strcmp (value, "no")) {
+	if (value && !strcmp (value, "yes")) {
 		widget = GTK_WIDGET (gtk_builder_get_object (builder, "forceencaps_enable"));
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), FALSE);
+		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), TRUE);
 	}
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_group_name"));
@@ -211,8 +211,8 @@ ipsec_dialog_new_hash_from_dialog (GtkWidget *dialog, GError **error)
 		g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_ENABLE), g_strdup("yes"));
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "forceencaps_enable"));
-	if (!gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
-		g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_FORCEENCAPS), g_strdup("no"));
+	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
+		g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_FORCEENCAPS), g_strdup("yes"));
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_gateway_id"));
 	g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_GATEWAY_ID),

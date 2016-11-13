@@ -11,13 +11,13 @@ AM_CPPFLAGS = -I${top_srcdir}
 
 plugin_sources = \
     nm-l2tp-editor-plugin.c \
-    nm-l2tp-editor-plugin.h
+    nm-l2tp-editor-plugin.h \
+    import-export.c \
+    import-export.h
 
 editor_sources = \
     advanced-dialog.c \
     advanced-dialog.h \
-    import-export.c \
-    import-export.h \
     ipsec-dialog.c \
     ipsec-dialog.h \
     nm-l2tp-editor.c \

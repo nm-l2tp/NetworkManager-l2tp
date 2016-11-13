@@ -56,44 +56,29 @@ enum {
 static NMConnection *
 import (NMVpnEditorPlugin *iface, const char *path, GError **error)
 {
-	gs_free char *contents = NULL;
-	gs_strfreev char **lines = NULL;
+	NMConnection *connection = NULL;
+	char *contents = NULL;
 	char *ext;
+	gsize contents_len;
 
 	ext = strrchr (path, '.');
-	if (!ext) {
-		g_set_error (error,
-		             NMV_EDITOR_PLUGIN_ERROR,
-		             NMV_EDITOR_PLUGIN_ERROR_FILE_NOT_VPN,
-		             "unknown L2TP file extension");
-		return NULL;
+
+	if (!ext || ( !g_str_has_suffix (ext, ".conf") && !g_str_has_suffix (ext, ".cnf"))) {
+		g_set_error_literal (error,
+		                     NMV_EDITOR_PLUGIN_ERROR,
+		                     NMV_EDITOR_PLUGIN_ERROR_FILE_NOT_VPN,
+		                     _("unknown L2TP file extension"));
+		goto out;
 	}
 
-	if (strcmp (ext, ".conf") && strcmp (ext, ".cnf")) {
-		g_set_error (error,
-		             NMV_EDITOR_PLUGIN_ERROR,
-		             NMV_EDITOR_PLUGIN_ERROR_FILE_NOT_VPN,
-		             "unknown L2TP file extension");
-		return NULL;
-	}
-
-	if (!g_file_get_contents (path, &contents, NULL, error))
+	if (!g_file_get_contents (path, &contents, &contents_len, error))
 		return NULL;
 
-	lines = g_strsplit_set (contents, "\r\n", 0);
-	if (g_strv_length (lines) <= 1) {
-		g_set_error (error,
-		             NMV_EDITOR_PLUGIN_ERROR,
-		             NMV_EDITOR_PLUGIN_ERROR_FILE_NOT_READABLE,
-		             "not a valid L2TP configuration file");
-		return NULL;
-	}
+	connection = do_import (path, contents, contents_len, error);
 
-	g_set_error_literal (error,
-	                     NMV_EDITOR_PLUGIN_ERROR,
-	                     NMV_EDITOR_PLUGIN_ERROR_FAILED,
-	                     "L2TP import is not implemented");
-	return NULL;
+out:
+	g_free (contents);
+	return connection;
 }
 
 static gboolean
@@ -102,11 +87,7 @@ export (NMVpnEditorPlugin *iface,
         NMConnection *connection,
         GError **error)
 {
-	g_set_error_literal (error,
-	                     NMV_EDITOR_PLUGIN_ERROR,
-	                     NMV_EDITOR_PLUGIN_ERROR_FAILED,
-	                     "L2TP export is not implemented");
-	return FALSE;
+	return do_export (path, connection, error);
 }
 
 static char *
@@ -129,7 +110,8 @@ get_suggested_filename (NMVpnEditorPlugin *iface, NMConnection *connection)
 static NMVpnEditorPluginCapability
 get_capabilities (NMVpnEditorPlugin *iface)
 {
-	return NM_VPN_EDITOR_PLUGIN_CAPABILITY_NONE;
+	return (NM_VPN_EDITOR_PLUGIN_CAPABILITY_IMPORT |
+	        NM_VPN_EDITOR_PLUGIN_CAPABILITY_EXPORT);
 }
 
 #ifndef NM_VPN_OLD
