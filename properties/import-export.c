@@ -144,7 +144,7 @@ import_ip4 (GKeyFile *keyfile, NMSettingIPConfig *s_ip4, GError **error)
 {
 	char *str_val;
 	int i;
-#if !NM_VPN_OLD
+#ifndef NM_VPN_OLD
 	GError *local_error = NULL;
 #endif
 
@@ -200,7 +200,7 @@ import_ip4 (GKeyFile *keyfile, NMSettingIPConfig *s_ip4, GError **error)
 		dnses = g_key_file_get_string_list (keyfile, IP4_SECTION, NM_SETTING_IP_CONFIG_DNS,
 		                                    &length, error);
 		for (i=0; i<length; i++) {
-#if NM_VPN_OLD
+#ifdef NM_VPN_OLD
 			struct in_addr addr;
 			if (!inet_aton (dnses[i], &addr)){
 				ip4_import_error (error,
@@ -225,8 +225,11 @@ import_ip4 (GKeyFile *keyfile, NMSettingIPConfig *s_ip4, GError **error)
 		dnses = g_key_file_get_string_list (keyfile, IP4_SECTION, NM_SETTING_IP_CONFIG_DNS_SEARCH,
 		                                    &length, error);
 		for (i=0; i<length; i++)
+#ifdef NM_VPN_OLD
+			nm_setting_ip4_config_add_dns_search (s_ip4, (const char *)dnses[i]);
+#else
 			nm_setting_ip_config_add_dns_search (s_ip4, (const char *)dnses[i]);
-
+#endif
 		g_strfreev (dnses);
 	}
 
@@ -340,7 +343,7 @@ import_ip4 (GKeyFile *keyfile, NMSettingIPConfig *s_ip4, GError **error)
 				return FALSE;
 			}
 
-#if NM_VPN_OLD
+#ifdef NM_VPN_OLD
 			route = nm_ip4_route_new ();
 			nm_ip4_route_set_dest(route, dest.s_addr);
 			nm_ip4_route_set_prefix(route, prefix);
@@ -348,7 +351,7 @@ import_ip4 (GKeyFile *keyfile, NMSettingIPConfig *s_ip4, GError **error)
 				nm_ip4_route_set_next_hop(route, next_hop.s_addr);
 			if (metric != -1)
 				nm_ip4_route_set_metric(route, metric);
-			nm_setting_ip_config_add_route (s_ip4, route);
+			nm_setting_ip4_config_add_route (s_ip4, route);
 #else
 			route = nm_ip_route_new (AF_INET, dest_s, prefix, next_hop_s, metric, &local_error);
 			if (route) {
@@ -506,15 +509,25 @@ export_ip4(NMSettingIPConfig *s_ip4, GKeyFile *keyfile, GError **error)
 	guint32 num_routes;
 	int i;
 
+#ifdef NM_VPN_OLD
+	str_val = nm_setting_ip4_config_get_method(s_ip4);
+
+	g_key_file_set_string(keyfile, IP4_SECTION, NM_SETTING_IP_CONFIG_METHOD, str_val);
+
+	num_dns = nm_setting_ip4_config_get_num_dns(s_ip4);
+#else
 	str_val = nm_setting_ip_config_get_method(s_ip4);
+
 	g_key_file_set_string(keyfile, IP4_SECTION, NM_SETTING_IP_CONFIG_METHOD, str_val);
 
 	num_dns = nm_setting_ip_config_get_num_dns(s_ip4);
+#endif
+
 	if (num_dns > 0){
 		gchar *dnses[num_dns];
 
 		for (i=0; i<num_dns; i++){
-#if NM_VPN_OLD
+#ifdef NM_VPN_OLD
 			struct in_addr addr;
 			guint32 dns;
 
@@ -531,29 +544,42 @@ export_ip4(NMSettingIPConfig *s_ip4, GKeyFile *keyfile, GError **error)
 			g_free(dnses[i]);
 	}
 
+#ifdef NM_VPN_OLD
+	num_dns_searches = nm_setting_ip4_config_get_num_dns_searches(s_ip4);
+#else
 	num_dns_searches = nm_setting_ip_config_get_num_dns_searches(s_ip4);
+#endif
 	if (num_dns_searches > 0){
 		const char *dnses[num_dns_searches];
 
 		for (i=0; i<num_dns_searches; i++){
+#ifdef NM_VPN_OLD
+			dnses[i] = nm_setting_ip4_config_get_dns_search(s_ip4, i);
+#else
 			dnses[i] = nm_setting_ip_config_get_dns_search(s_ip4, i);
+#endif
 		}
 		g_key_file_set_string_list(keyfile, IP4_SECTION, NM_SETTING_IP_CONFIG_DNS_SEARCH,
 		                           dnses, num_dns_searches);
 	}
 
+#ifdef NM_VPN_OLD
+	num_routes = nm_setting_ip4_config_get_num_routes(s_ip4);
+#else
 	num_routes = nm_setting_ip_config_get_num_routes(s_ip4);
+#endif
+
 	if (num_routes > 0){
 		char *routes[num_routes];
 		NMIPRoute *route;
 
 		for (i=0; i<num_routes; i++){
 			GString *route_s;
-#if NM_VPN_OLD
+#ifdef NM_VPN_OLD
 			guint32 dest, prefix, nhop, metric;
 			struct in_addr addr;
 
-			route = nm_setting_ip_config_get_route(s_ip4, i);
+			route = nm_setting_ip4_config_get_route(s_ip4, i);
 			dest = nm_ip4_route_get_dest(route);
 			prefix = nm_ip4_route_get_prefix(route);
 			nhop = nm_ip4_route_get_next_hop(route);
@@ -599,17 +625,32 @@ export_ip4(NMSettingIPConfig *s_ip4, GKeyFile *keyfile, GError **error)
 			g_free(routes[i]);
 	}
 
-
+#ifdef NM_VPN_OLD
+	bool_val = nm_setting_ip4_config_get_ignore_auto_routes(s_ip4);
+#else
 	bool_val = nm_setting_ip_config_get_ignore_auto_routes(s_ip4);
+#endif
 	g_key_file_set_boolean(keyfile, IP4_SECTION, NM_SETTING_IP_CONFIG_IGNORE_AUTO_ROUTES, bool_val);
 
+#ifdef NM_VPN_OLD
+	bool_val = nm_setting_ip4_config_get_ignore_auto_dns(s_ip4);
+#else
 	bool_val = nm_setting_ip_config_get_ignore_auto_dns(s_ip4);
+#endif
 	g_key_file_set_boolean(keyfile, IP4_SECTION, NM_SETTING_IP_CONFIG_IGNORE_AUTO_DNS, bool_val);
 
+#ifdef NM_VPN_OLD
+	bool_val = nm_setting_ip4_config_get_dhcp_send_hostname(s_ip4);
+#else
 	bool_val = nm_setting_ip_config_get_dhcp_send_hostname(s_ip4);
+#endif
 	g_key_file_set_boolean(keyfile, IP4_SECTION, NM_SETTING_IP_CONFIG_DHCP_SEND_HOSTNAME, bool_val);
 
+#ifdef NM_VPN_OLD
+	bool_val = nm_setting_ip4_config_get_never_default(s_ip4);
+#else
 	bool_val = nm_setting_ip_config_get_never_default(s_ip4);
+#endif
 	g_key_file_set_boolean(keyfile, IP4_SECTION, NM_SETTING_IP_CONFIG_NEVER_DEFAULT, bool_val);
 
 

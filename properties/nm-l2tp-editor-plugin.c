@@ -31,6 +31,8 @@
 #include "nm-utils/nm-vpn-plugin-utils.h"
 #endif
 
+#include "import-export.h"
+
 #define L2TP_PLUGIN_NAME    _("Point-to-Point Tunneling Protocol (L2TP)")
 #define L2TP_PLUGIN_DESC    _("Compatible with Microsoft and other L2TP VPN servers.")
 
@@ -56,29 +58,44 @@ enum {
 static NMConnection *
 import (NMVpnEditorPlugin *iface, const char *path, GError **error)
 {
-	NMConnection *connection = NULL;
-	char *contents = NULL;
+	gs_free char *contents = NULL;
+	gs_strfreev char **lines = NULL;
 	char *ext;
-	gsize contents_len;
 
 	ext = strrchr (path, '.');
-
-	if (!ext || ( !g_str_has_suffix (ext, ".conf") && !g_str_has_suffix (ext, ".cnf"))) {
-		g_set_error_literal (error,
-		                     NMV_EDITOR_PLUGIN_ERROR,
-		                     NMV_EDITOR_PLUGIN_ERROR_FILE_NOT_VPN,
-		                     _("unknown L2TP file extension"));
-		goto out;
+	if (!ext) {
+		g_set_error (error,
+		             NMV_EDITOR_PLUGIN_ERROR,
+		             NMV_EDITOR_PLUGIN_ERROR_FILE_NOT_VPN,
+		             "unknown L2TP file extension");
+		return NULL;
 	}
 
-	if (!g_file_get_contents (path, &contents, &contents_len, error))
+	if (strcmp (ext, ".conf") && strcmp (ext, ".cnf")) {
+		g_set_error (error,
+		             NMV_EDITOR_PLUGIN_ERROR,
+		             NMV_EDITOR_PLUGIN_ERROR_FILE_NOT_VPN,
+		             "unknown L2TP file extension");
+		return NULL;
+	}
+
+	if (!g_file_get_contents (path, &contents, NULL, error))
 		return NULL;
 
-	connection = do_import (path, contents, contents_len, error);
+	lines = g_strsplit_set (contents, "\r\n", 0);
+	if (g_strv_length (lines) <= 1) {
+		g_set_error (error,
+		             NMV_EDITOR_PLUGIN_ERROR,
+		             NMV_EDITOR_PLUGIN_ERROR_FILE_NOT_READABLE,
+		             "not a valid L2TP configuration file");
+		return NULL;
+	}
 
-out:
-	g_free (contents);
-	return connection;
+	g_set_error_literal (error,
+	                     NMV_EDITOR_PLUGIN_ERROR,
+	                     NMV_EDITOR_PLUGIN_ERROR_FAILED,
+	                     "L2TP import is not implemented");
+	return NULL;
 }
 
 static gboolean
