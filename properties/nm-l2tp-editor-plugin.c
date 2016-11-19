@@ -58,8 +58,7 @@ enum {
 static NMConnection *
 import (NMVpnEditorPlugin *iface, const char *path, GError **error)
 {
-	gs_free char *contents = NULL;
-	gs_strfreev char **lines = NULL;
+	NMConnection *connection = NULL;
 	char *ext;
 
 	ext = strrchr (path, '.');
@@ -79,23 +78,12 @@ import (NMVpnEditorPlugin *iface, const char *path, GError **error)
 		return NULL;
 	}
 
-	if (!g_file_get_contents (path, &contents, NULL, error))
-		return NULL;
+	connection = do_import (path, error);
 
-	lines = g_strsplit_set (contents, "\r\n", 0);
-	if (g_strv_length (lines) <= 1) {
-		g_set_error (error,
-		             NMV_EDITOR_PLUGIN_ERROR,
-		             NMV_EDITOR_PLUGIN_ERROR_FILE_NOT_READABLE,
-		             "not a valid L2TP configuration file");
-		return NULL;
-	}
+	if ((connection == NULL) && (*error != NULL))
+		g_warning("Can't import file as L2TP config: %s", (*error)->message);
 
-	g_set_error_literal (error,
-	                     NMV_EDITOR_PLUGIN_ERROR,
-	                     NMV_EDITOR_PLUGIN_ERROR_FAILED,
-	                     "L2TP import is not implemented");
-	return NULL;
+	return connection;
 }
 
 static gboolean
