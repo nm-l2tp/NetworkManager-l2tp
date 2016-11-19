@@ -710,7 +710,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	}
 
 	if (priv->is_libreswan) {
-		write_config_option (ipsec_fd, "  pfs=no");
+		write_config_option (ipsec_fd, "  pfs=no\n");
 	} else {
 		write_config_option (ipsec_fd, "  esp=aes128-sha1,3des-sha1\n");
 		write_config_option (ipsec_fd, "  ike=aes128-sha1-modp2048,3des-sha1-modp1536,3des-sha1-modp1024\n");
