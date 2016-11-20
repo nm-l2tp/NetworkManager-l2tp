@@ -9,6 +9,9 @@ For IPsec support, it uses either of the following :
 * Libreswan ( https://libreswan.org ) 
 * strongSwan ( https://www.strongswan.org )
 
+For further package dependencies and known issues, please see the Wiki :
+* https://github.com/nm-l2tp/network-manager-l2tp/wiki 
+
 ## Building
 
     ./autogen.sh
