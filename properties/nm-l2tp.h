@@ -25,23 +25,6 @@
 
 #include <glib-object.h>
 
-typedef enum
-{
-	L2TP_PLUGIN_UI_ERROR_UNKNOWN = 0,
-	L2TP_PLUGIN_UI_ERROR_INVALID_CONNECTION,
-	L2TP_PLUGIN_UI_ERROR_INVALID_PROPERTY,
-	L2TP_PLUGIN_UI_ERROR_MISSING_PROPERTY,
-	L2TP_PLUGIN_UI_ERROR_FILE_NOT_READABLE,
-	L2TP_PLUGIN_UI_ERROR_FILE_NOT_L2TP
-} L2tpPluginUiError;
-
-#define L2TP_TYPE_PLUGIN_UI_ERROR (l2tp_plugin_ui_error_get_type ()) 
-GType l2tp_plugin_ui_error_get_type (void);
-
-#define L2TP_PLUGIN_UI_ERROR (l2tp_plugin_ui_error_quark ())
-GQuark l2tp_plugin_ui_error_quark (void);
-
-
 #define L2TP_TYPE_PLUGIN_UI            (l2tp_plugin_ui_get_type ())
 #define L2TP_PLUGIN_UI(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), L2TP_TYPE_PLUGIN_UI, L2tpPluginUi))
 #define L2TP_PLUGIN_UI_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), L2TP_TYPE_PLUGIN_UI, L2tpPluginUiClass))
@@ -69,6 +52,8 @@ GType l2tp_plugin_ui_get_type (void);
 #define L2TP_IS_PLUGIN_UI_WIDGET(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), L2TP_TYPE_PLUGIN_UI_WIDGET))
 #define L2TP_IS_PLUGIN_UI_WIDGET_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), L2TP_TYPE_PLUGIN_UI_WIDGET))
 #define L2TP_PLUGIN_UI_WIDGET_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), L2TP_TYPE_PLUGIN_UI_WIDGET, L2tpPluginUiWidgetClass))
+
+
 
 typedef struct _L2tpPluginUiWidget L2tpPluginUiWidget;
 typedef struct _L2tpPluginUiWidgetClass L2tpPluginUiWidgetClass;

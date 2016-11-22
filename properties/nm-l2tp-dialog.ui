@@ -339,22 +339,6 @@ config: domain &lt;domain&gt;</property>
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkComboBox" id="user_pass_type_combo">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <child>
-                      <object class="GtkCellRendererText" id="renderer2"/>
-                      <attributes>
-                        <attribute name="text">0</attribute>
-                      </attributes>
-                    </child>
-                  </object>
-                  <packing>
-                    <property name="left_attach">2</property>
-                    <property name="top_attach">1</property>
-                  </packing>
-                </child>
-                <child>
                   <object class="GtkEntry" id="user_password_entry">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
@@ -415,15 +399,6 @@ config: xl2tpd name parameter</property>
                     <property name="left_attach">0</property>
                     <property name="top_attach">3</property>
                   </packing>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
                 </child>
                 <child>
                   <placeholder/>

@@ -24,6 +24,7 @@
 #endif
 
 #include <string.h>
+#include <inttypes.h>
 #include <sys/types.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -32,6 +33,7 @@
 #include <unistd.h>
 #include <errno.h>
 #include <ctype.h>
+#include <arpa/inet.h>
 
 #include <netinet/in.h>
 
@@ -40,6 +42,11 @@
 #include <nm-setting-vpn.h>
 #include <nm-setting-connection.h>
 #include <nm-setting-ip4-config.h>
+
+#define L2TP_PLUGIN_UI_ERROR                            NM_SETTING_VPN_ERROR
+#define L2TP_PLUGIN_UI_ERROR_INVALID_PROPERTY           NM_SETTING_VPN_ERROR_INVALID_PROPERTY
+#define L2TP_PLUGIN_UI_ERROR_MISSING_PROPERTY           NM_SETTING_VPN_ERROR_MISSING_PROPERTY
+#define L2TP_PLUGIN_UI_ERROR_FAILED                     NM_SETTING_VPN_ERROR_UNKNOWN
 
 #include "import-export.h"
 #include "nm-l2tp.h"
@@ -139,18 +146,16 @@ ip4_import_error (GError **error, const char *message, const char *key, const ch
 }
 
 static void
-ip4_route_import_error(GError **error, char *message, const char *val, NMIP4Route *route, char **routes)
+ip4_route_import_error(GError **error, char *message, const char *val, char **routes)
 {
 	ip4_import_error (error, message, NM_SETTING_IP4_CONFIG_ROUTES, val);
 	g_strfreev (routes);
-	nm_ip4_route_unref(route);
 }
 
 static gboolean
 import_ip4 (GKeyFile *keyfile, NMSettingIP4Config *s_ip4, GError **error)
 {
 	char *str_val;
-
 	int i;
 
 	for (i = 0; ip4_properties[i].name; i++){
@@ -201,11 +206,11 @@ import_ip4 (GKeyFile *keyfile, NMSettingIP4Config *s_ip4, GError **error)
 	if (g_key_file_has_key (keyfile, IP4_SECTION, NM_SETTING_IP4_CONFIG_DNS, error)) {
 		char **dnses;
 		gsize length;
-		struct in_addr addr;
 
 		dnses = g_key_file_get_string_list (keyfile, IP4_SECTION, NM_SETTING_IP4_CONFIG_DNS,
 		                                    &length, error);
 		for (i=0; i<length; i++) {
+			struct in_addr addr;
 			if (!inet_aton (dnses[i], &addr)){
 				ip4_import_error (error,
 				                  _("Property '%s' value '%s' can't be parsed as ip adress."),
@@ -234,16 +239,15 @@ import_ip4 (GKeyFile *keyfile, NMSettingIP4Config *s_ip4, GError **error)
 	if (g_key_file_has_key (keyfile, IP4_SECTION, NM_SETTING_IP4_CONFIG_ROUTES, error)) {
 		char **routes;
 		gsize length;
-		struct in_addr addr;
+		struct in_addr dest, next_hop = { 0, };
 
 		routes = g_key_file_get_string_list (keyfile, IP4_SECTION, NM_SETTING_IP4_CONFIG_ROUTES,
 		                                     &length, error);
 		for (i=0; i<length; i++){
 			NMIP4Route *route;
-			guint32 prefix, metric;
-			char *ptr, *dest_s, *prefix_s, *next_hop_s, *metric_s;
+			guint32 prefix, metric = -1;
+			char *ptr, *dest_s, *prefix_s, *next_hop_s = NULL, *metric_s;
 
-			route = nm_ip4_route_new ();
 			ptr = routes[i];
 			/* 192.168.0.0/24 via 192.168.0.1 metric 1
 			   ^          0^ 0    ^          0       ^
@@ -256,22 +260,19 @@ import_ip4 (GKeyFile *keyfile, NMSettingIP4Config *s_ip4, GError **error)
 				ip4_route_import_error (error,
 				                       _("Property '%s' value '%s' couldn't find netmask."),
 				                       routes[i],
-				                       route,
 				                       routes);
 				return FALSE;
 			}
 			*(ptr) = '\0'; 		/* terminate dest_s */
 			ptr++;
 
-			if (!inet_aton (dest_s, &addr)){
+			if (!inet_aton (dest_s, &dest)){
 				ip4_route_import_error (error,
 				                        _("Property '%s' value '%s' can't be parsed as ip adress."),
 				                        dest_s,
-				                        route,
 				                        routes);
 				return FALSE;
 			}
-			nm_ip4_route_set_dest(route, addr.s_addr);
 
 			/* Parse prefix */
 			prefix_s = ptr;
@@ -286,11 +287,9 @@ import_ip4 (GKeyFile *keyfile, NMSettingIP4Config *s_ip4, GError **error)
 				ip4_route_import_error (error,
 				                        _("Property '%s' value '%s' can't be parsed as ip netmask."),
 				                        prefix_s,
-				                        route,
 				                        routes);
 				return FALSE;
 			}
-			nm_ip4_route_set_prefix(route, prefix);
 			while (ptr && *ptr == ' ')
 				ptr++;
 
@@ -305,15 +304,13 @@ import_ip4 (GKeyFile *keyfile, NMSettingIP4Config *s_ip4, GError **error)
 					*ptr = '\0'; /* terminate next_hop */
 					ptr++;
 				}
-				if (!inet_aton (next_hop_s, &addr)){
+				if (!inet_aton (next_hop_s, &next_hop)){
 					ip4_route_import_error (error,
 					                        _("Property '%s' value '%s' can't be parsed as ip adress."),
 					                        next_hop_s,
-					                        route,
 					                        routes);
 					return FALSE;
 				}
-				nm_ip4_route_set_next_hop(route, addr.s_addr);
 				while (ptr && *ptr == ' ')
 					ptr++;
 			}
@@ -335,11 +332,9 @@ import_ip4 (GKeyFile *keyfile, NMSettingIP4Config *s_ip4, GError **error)
 					ip4_route_import_error (error,
 					                        _("Property '%s' value '%s' can't be parsed as route metric."),
 					                        metric_s,
-					                        route,
 					                        routes);
 					return FALSE;
 				}
-				nm_ip4_route_set_metric(route, metric);
 				while (ptr && *ptr == ' ')
 					ptr++;
 			}
@@ -347,10 +342,17 @@ import_ip4 (GKeyFile *keyfile, NMSettingIP4Config *s_ip4, GError **error)
 				ip4_route_import_error (error,
 				                        _("Error parsing property '%s' value '%s'."),
 				                        ptr,
-				                        route,
 				                        routes);
 				return FALSE;
 			}
+
+			route = nm_ip4_route_new ();
+			nm_ip4_route_set_dest(route, dest.s_addr);
+			nm_ip4_route_set_prefix(route, prefix);
+			if (next_hop.s_addr)
+				nm_ip4_route_set_next_hop(route, next_hop.s_addr);
+			if (metric != -1)
+				nm_ip4_route_set_metric(route, metric);
 			nm_setting_ip4_config_add_route (s_ip4, route);
 		}
 		g_strfreev(routes);
@@ -379,7 +381,7 @@ do_import (const char *path, GError **error)
 	if (!g_key_file_load_from_file (keyfile, path, 0, error)) {
 		g_set_error (error,
 		             L2TP_PLUGIN_UI_ERROR,
-		             L2TP_PLUGIN_UI_ERROR_FILE_NOT_L2TP,
+		             L2TP_PLUGIN_UI_ERROR_FAILED,
 		             _("does not look like a L2TP VPN connection (parse failed)"));
 		return NULL;
 	}
@@ -501,10 +503,11 @@ export_ip4(NMSettingIP4Config *s_ip4, GKeyFile *keyfile, GError **error)
 	num_dns = nm_setting_ip4_config_get_num_dns(s_ip4);
 	if (num_dns > 0){
 		gchar *dnses[num_dns];
-		guint32 dns;
-		struct in_addr addr;
 
 		for (i=0; i<num_dns; i++){
+			struct in_addr addr;
+			guint32 dns;
+
 			dns = nm_setting_ip4_config_get_dns(s_ip4, i);
 			addr.s_addr = dns;
 			dnses[i] = g_strdup(inet_ntoa(addr));
@@ -530,11 +533,11 @@ export_ip4(NMSettingIP4Config *s_ip4, GKeyFile *keyfile, GError **error)
 	if (num_routes > 0){
 		char *routes[num_routes];
 		NMIP4Route *route;
-		struct in_addr addr;
 
 		for (i=0; i<num_routes; i++){
-			guint32 dest, prefix, nhop, metric;
 			GString *route_s;
+			guint32 dest, prefix, nhop, metric;
+			struct in_addr addr;
 
 			route = nm_setting_ip4_config_get_route(s_ip4, i);
 			dest = nm_ip4_route_get_dest(route);
@@ -565,7 +568,6 @@ export_ip4(NMSettingIP4Config *s_ip4, GKeyFile *keyfile, GError **error)
 		for (i=0; i<num_dns; i++)
 			g_free(routes[i]);
 	}
-
 
 	bool_val = nm_setting_ip4_config_get_ignore_auto_routes(s_ip4);
 	g_key_file_set_boolean(keyfile, IP4_SECTION, NM_SETTING_IP4_CONFIG_IGNORE_AUTO_ROUTES, bool_val);
@@ -651,7 +653,7 @@ do_export (const char *path, NMConnection *connection, GError **error)
 	if (!(file = fopen (path, "w"))) {
 		g_set_error(error,
 		            L2TP_PLUGIN_UI_ERROR,
-		            L2TP_PLUGIN_UI_ERROR_FILE_NOT_READABLE,
+		            L2TP_PLUGIN_UI_ERROR_FAILED,
 		            _("Couldn't open file for writing."));
 		g_key_file_free (export_file);
 		return FALSE;

@@ -16,15 +16,15 @@ libnm_l2tp_properties_la_SOURCES = \
 uidir = $(datadir)/gnome-vpn-properties/l2tp
 ui_DATA = nm-l2tp-dialog.ui
 
-libnm_l2tp_properties_la_CFLAGS =                    \
+libnm_l2tp_properties_la_CFLAGS = \
         $(GLIB_CFLAGS)                                  \
         $(GTK_CFLAGS)                                   \
         $(NM_CFLAGS)                                    \
+        $(NMGTK_CFLAGS)                                 \
+        -I$(top_srcdir)/src                             \
         -DICONDIR=\""$(datadir)/pixmaps"\"              \
         -DUIDIR=\""$(uidir)"\"                          \
-        -DLOCALEDIR=\""$(datadir)/locale"\"             \
-        -DG_DISABLE_DEPRECATED                          \
-        -DVERSION=\"$(VERSION)\"
+        -DLOCALEDIR=\""$(datadir)/locale"\"
 
 libnm_l2tp_properties_la_LIBADD = \
         $(GTK_LIBS) \
