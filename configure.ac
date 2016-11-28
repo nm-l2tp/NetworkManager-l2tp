@@ -83,7 +83,7 @@ if test x"$with_gnome" != xno; then
 
 	PKG_CHECK_MODULES(LIBSECRET, libsecret-unstable)
 	PKG_CHECK_MODULES(NMGTK, libnm-gtk )
-	AC_CHECK_LIB(libnm-gtk, nma_utils_setup_password_storage,, AC_DEFINE([NEED_PASSWORD_STORAGE_ICON],1,[Define to 1 if missing password, storage and icon functions in libnm-gtk]))
+	AC_CHECK_LIB(nm-gtk, nma_utils_setup_password_storage,, AC_DEFINE([NEED_PASSWORD_STORAGE_ICON],1,[Define to 1 if missing password, storage and icon functions in libnm-gtk]))
 fi
 
 NM_COMPILER_WARNINGS
