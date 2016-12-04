@@ -274,8 +274,8 @@ nm_l2tp_ppp_service_class_init (NML2tpPppServiceClass *service_class)
 	object_class->finalize = finalize;
 
 	/* Signals */
-	signals[PLUGIN_ALIVE] = 
-		g_signal_new ("plugin-alive", 
+	signals[PLUGIN_ALIVE] =
+		g_signal_new ("plugin-alive",
 		              G_OBJECT_CLASS_TYPE (object_class),
 		              G_SIGNAL_RUN_FIRST,
 		              G_STRUCT_OFFSET (NML2tpPppServiceClass, plugin_alive),
@@ -283,8 +283,8 @@ nm_l2tp_ppp_service_class_init (NML2tpPppServiceClass *service_class)
 		              g_cclosure_marshal_VOID__VOID,
 		              G_TYPE_NONE, 0);
 
-	signals[PPP_STATE] = 
-		g_signal_new ("ppp-state", 
+	signals[PPP_STATE] =
+		g_signal_new ("ppp-state",
 		              G_OBJECT_CLASS_TYPE (object_class),
 		              G_SIGNAL_RUN_FIRST,
 		              G_STRUCT_OFFSET (NML2tpPppServiceClass, ppp_state),
@@ -292,8 +292,8 @@ nm_l2tp_ppp_service_class_init (NML2tpPppServiceClass *service_class)
 		              g_cclosure_marshal_VOID__UINT,
 		              G_TYPE_NONE, 1, G_TYPE_UINT);
 
-	signals[IP4_CONFIG] = 
-		g_signal_new ("ip4-config", 
+	signals[IP4_CONFIG] =
+		g_signal_new ("ip4-config",
 		              G_OBJECT_CLASS_TYPE (object_class),
 		              G_SIGNAL_RUN_FIRST,
 		              G_STRUCT_OFFSET (NML2tpPppServiceClass, ip4_config),
@@ -364,6 +364,7 @@ typedef struct {
 	GPid pid_l2tpd;
 	gboolean ipsec_up;
 	gboolean use_cert;
+	guint32 ipsec_timeout_handler;
 	guint32 ppp_timeout_handler;
 	guint32 naddr;		/* We resolve GW addr before pass it to xl2tpd. network byte-order */
 	char *saddr;
@@ -376,7 +377,8 @@ typedef struct {
 #define NM_L2TP_PLUGIN_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), NM_TYPE_L2TP_PLUGIN, NML2tpPluginPrivate))
 
 #define NM_L2TP_PPPD_PLUGIN PLUGINDIR "/nm-l2tp-pppd-plugin.so"
-#define NM_L2TP_WAIT_PPPD 10000 /* 10 seconds */
+#define NM_L2TP_WAIT_IPSEC 10000 /* 10 seconds */
+#define NM_L2TP_WAIT_PPPD 14000  /* 14 seconds */
 #define L2TP_SERVICE_SECRET_TRIES "l2tp-service-secret-tries"
 
 typedef struct {
@@ -737,6 +739,20 @@ nm_find_l2tpd (void)
 }
 
 static gboolean
+ipsec_timed_out (gpointer user_data)
+{
+	NML2tpPlugin *plugin = NM_L2TP_PLUGIN (user_data);
+	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
+
+	g_warning (_("Timeout trying to establish IPsec connection"));
+	nm_l2tp_stop_ipsec(priv);
+	nm_vpn_plugin_failure (NM_VPN_PLUGIN (plugin), NM_VPN_CONNECTION_STATE_REASON_SERVICE_START_TIMEOUT);
+
+
+	return FALSE;
+}
+
+static gboolean
 pppd_timed_out (gpointer user_data)
 {
 	NML2tpPlugin *plugin = NM_L2TP_PLUGIN (user_data);
@@ -901,7 +917,8 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	char tmp_secrets[128];
 	char session_name[128];
 	char cmdbuf[256];
-	char *output;
+	char *output = NULL;
+	struct in_addr naddr;
 	int sys = 0, retry;
 	int fd;
 	FILE *fp;
@@ -973,11 +990,30 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 		rename(tmp_secrets, secrets);
 		return nm_l2tp_ipsec_error(error, "Could not write /etc/ipsec.secrets file.");
 	}
+
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GROUP_NAME);
-	fprintf(fp, "%s%s ",value?"@":"", value?value:"%any");
+	if (value) {
+		if(inet_pton(AF_INET, value, &naddr)) {
+			fprintf(fp, "%s ", "%any");
+		} else {
+			/* @ prefix prevents lefttid being resolved to an IP address */
+			fprintf(fp, "@%s ", value?value:"%any");
+		}
+	} else {
+		fprintf(fp, "%s ", value?value:"%any");
+	}
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GATEWAY_ID);
-	fprintf(fp, "%s%s ",value?"@":"", value?value:"%any");
+	if (value) {
+		if(inet_pton(AF_INET, value, &naddr)) {
+			fprintf(fp, "%s ", "%any");
+		} else {
+			/* @ prefix prevents rightid being resolved to an IP address */
+			fprintf(fp, "@%s ", value?value:"%any");
+		}
+	} else {
+		fprintf(fp, "%s ", value?value:"%any");
+	}
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_PSK);
 	if(!value)value="";
@@ -998,6 +1034,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	}
 
 	if (!sys) {
+		priv->ipsec_timeout_handler = g_timeout_add (NM_L2TP_WAIT_IPSEC, ipsec_timed_out, plugin);
 		if (priv->is_libreswan) {
 			snprintf (cmdbuf, sizeof(cmdbuf), "%s auto "
 					 " --config /var/run/nm-ipsec-l2tp.%d/ipsec.conf --verbose"
@@ -1009,7 +1046,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 				sys = system (cmdbuf);
 				if (!sys) {
 					rc = TRUE;
-					g_message ( ("Libreswan ready for action"));
+					g_message (_("Libreswan ready for action."));
 				} else {
 					g_warning(_("Could not establish IPsec tunnel."));
 				}
@@ -1028,7 +1065,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 					rc = output && strstr (output, "ESTABLISHED");
 					g_free (output);
 					if (rc) {
-						g_message ( ("strongSwan ready for action"));
+						g_message (_("strongSwan ready for action."));
 					} else {
 						g_warning(_("Could not establish IPsec tunnel."));
 					}
@@ -1037,6 +1074,10 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 				g_warning(_("Could not establish IPsec tunnel."));
 			}
 		}
+
+		g_source_remove (priv->ipsec_timeout_handler);
+		priv->ipsec_timeout_handler = 0;
+
 	} else {
 		g_warning(_("Could not load new IPsec secret."));
 	}
@@ -1407,7 +1448,6 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	close(conf_fd);
 	close(pppopt_fd);
 
-
 	return TRUE;
 }
 
@@ -1415,7 +1455,7 @@ static void
 remove_timeout_handler (NML2tpPlugin *plugin)
 {
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
-	
+
 	if (priv->ppp_timeout_handler) {
 		g_source_remove (priv->ppp_timeout_handler);
 		priv->ppp_timeout_handler = 0;
