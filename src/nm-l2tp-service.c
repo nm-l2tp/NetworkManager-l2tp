@@ -991,30 +991,6 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 		return nm_l2tp_ipsec_error(error, "Could not write /etc/ipsec.secrets file.");
 	}
 
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GROUP_NAME);
-	if (value) {
-		if(inet_pton(AF_INET, value, &naddr)) {
-			fprintf(fp, "%s ", "%any");
-		} else {
-			/* @ prefix prevents lefttid being resolved to an IP address */
-			fprintf(fp, "@%s ", value?value:"%any");					
-		}
-	} else {
-		fprintf(fp, "%s ", value?value:"%any");
-	}
-	
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GATEWAY_ID);
-	if (value) {
-		if(inet_pton(AF_INET, value, &naddr)) {
-			fprintf(fp, "%s ", "%any");
-		} else {
-			/* @ prefix prevents rightid being resolved to an IP address */
-			fprintf(fp, "@%s ", value?value:"%any");					
-		}
-	} else {
-		fprintf(fp, "%s ", value?value:"%any");
-	}	
-
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_PSK);
 	if(!value)value="";
 	fprintf(fp, ": PSK \"%s\"\n",value);
