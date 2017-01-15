@@ -600,7 +600,6 @@ export_ip4(NMSettingIPConfig *s_ip4, GKeyFile *keyfile, GError **error)
 			}
 			if (metric)
 				g_string_append_printf(route_s, " metric %d", metric);
-			routes[i] = g_string_free(route_s, FALSE);
 #else
 			route = nm_setting_ip_config_get_route(s_ip4, i);
 			if (nm_ip_route_get_family (route) != AF_INET) {
