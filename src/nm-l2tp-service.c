@@ -676,7 +676,9 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	write_config_option (ipsec_fd, 		"  auto=add\n"
 						"  type=transport\n");
 
-	write_config_option (ipsec_fd, 		"  authby=secret\n"
+	write_config_option (ipsec_fd, 		"  right=%%any\n"
+						"  rightid=%%any\n"
+						"  authby=secret\n"
 						"  keyingtries=0\n"
 						"  left=%%defaultroute\n"
 						"  leftprotoport=udp/l2tp\n"
