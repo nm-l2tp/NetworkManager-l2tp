@@ -676,7 +676,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	write_config_option (ipsec_fd, 		"  auto=add\n"
 						"  type=transport\n");
 
-	write_config_option (ipsec_fd, 		"  authby=secret\n"
+	write_config_option (ipsec_fd,	"  authby=secret\n"
 						"  keyingtries=0\n"
 						"  left=%%defaultroute\n"
 						"  leftprotoport=udp/l2tp\n"
@@ -707,6 +707,8 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		} else {
 			write_config_option (ipsec_fd, "  rightid=%s\n", value);
 		}
+	} else {
+		write_config_option (ipsec_fd, "  rightid=%%any\n");
 	}
 
 	if (priv->is_libreswan) {
@@ -858,7 +860,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		write_config_option (pppopt_fd, "mtu 1400\n");
 	}
 
-	/*	
+	/*
 	if (priv && priv->use_cert) {
 		write_config_option (pppopt_fd, "cert \"%s\"\n", nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_CERT_PUB));
 		write_config_option (pppopt_fd, "ca \"%s\"\n", nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_CERT_CA));
