@@ -65,6 +65,8 @@
 #define NM_L2TP_KEY_IPSEC_GATEWAY_ID  "ipsec-gateway-id"
 #define NM_L2TP_KEY_IPSEC_GROUP_NAME  "ipsec-group-name"
 #define NM_L2TP_KEY_IPSEC_PSK         "ipsec-psk"
+#define NM_L2TP_KEY_IPSEC_IKE         "ipsec-ike"
+#define NM_L2TP_KEY_IPSEC_ESP         "ipsec-esp"
 #define NM_L2TP_KEY_IPSEC_FORCEENCAPS "ipsec-forceencaps"
 
 #endif /* __NM_SERVICE_DEFINES_H__ */

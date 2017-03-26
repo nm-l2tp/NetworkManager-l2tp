@@ -54,6 +54,8 @@ static const char *ipsec_keys[] = {
 	NM_L2TP_KEY_IPSEC_GROUP_NAME,
 	NM_L2TP_KEY_IPSEC_GATEWAY_ID,
 	NM_L2TP_KEY_IPSEC_PSK,
+	NM_L2TP_KEY_IPSEC_IKE,
+	NM_L2TP_KEY_IPSEC_ESP,
 	NM_L2TP_KEY_IPSEC_FORCEENCAPS,
 	NULL
 };
@@ -93,6 +95,9 @@ handle_enable_changed (GtkWidget *check, gboolean is_init, GtkBuilder *builder)
 
 	enabledp = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (check));
 
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "general_label"));
+	gtk_widget_set_sensitive (widget, enabledp);
+
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "label_psk"));
 	gtk_widget_set_sensitive (widget, enabledp);
 
@@ -111,7 +116,12 @@ handle_enable_changed (GtkWidget *check, gboolean is_init, GtkBuilder *builder)
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_group_name"));
 	gtk_widget_set_sensitive (widget, enabledp);
 
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "forceencaps_enable"));
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "label_advanced"));
+	gtk_widget_set_sensitive (widget, enabledp);
+
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "advanced_expander"));
+	if (!enabledp)
+		gtk_expander_set_expanded (GTK_EXPANDER (widget), FALSE);
 	gtk_widget_set_sensitive (widget, enabledp);
 }
 
@@ -162,12 +172,6 @@ ipsec_dialog_new (GHashTable *hash)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), TRUE);
 	}
 
-	value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_FORCEENCAPS);
-	if (value && !strcmp (value, "yes")) {
-		widget = GTK_WIDGET (gtk_builder_get_object (builder, "forceencaps_enable"));
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), TRUE);
-	}
-
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_group_name"));
 	if((value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_GROUP_NAME)))
 		gtk_entry_set_text(GTK_ENTRY(widget), value);
@@ -180,8 +184,25 @@ ipsec_dialog_new (GHashTable *hash)
 	if((value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_PSK)))
 		gtk_entry_set_text(GTK_ENTRY(widget), value);
 
-	widget = GTK_WIDGET (gtk_builder_get_object (builder,"ipsec_enable"));
-	handle_enable_changed (widget, TRUE, builder);
+	/* Phase 1 Algorithms: IKE */
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_phase1"));
+	if((value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_IKE))) {
+		gtk_entry_set_text(GTK_ENTRY(widget), value);
+		widget = GTK_WIDGET (gtk_builder_get_object (builder, "advanced_expander"));
+		gtk_expander_set_expanded (GTK_EXPANDER (widget), TRUE);
+	}
+
+	/* Phase 2 Algorithms: ESP */
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_phase2"));
+	if((value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_ESP)))
+		gtk_entry_set_text(GTK_ENTRY(widget), value);
+
+	value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_FORCEENCAPS);
+	if (value && !strcmp (value, "yes")) {
+		widget = GTK_WIDGET (gtk_builder_get_object (builder, "forceencaps_enable"));
+		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), TRUE);
+	}
+
 	g_signal_connect (G_OBJECT (widget), "toggled", G_CALLBACK (enable_toggled_cb), builder);
 
 out:
@@ -203,16 +224,11 @@ ipsec_dialog_new_hash_from_dialog (GtkWidget *dialog, GError **error)
 	builder = g_object_get_data (G_OBJECT (dialog), "gtkbuilder-xml");
 	g_return_val_if_fail (builder != NULL, NULL);
 
-
 	hash = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, g_free);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_enable"));
 	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
 		g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_ENABLE), g_strdup("yes"));
-
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "forceencaps_enable"));
-	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
-		g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_FORCEENCAPS), g_strdup("yes"));
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_gateway_id"));
 	g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_GATEWAY_ID),
@@ -225,6 +241,18 @@ ipsec_dialog_new_hash_from_dialog (GtkWidget *dialog, GError **error)
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_psk"));
 	g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_PSK),
 			g_strdup(gtk_entry_get_text(GTK_ENTRY(widget))));
+
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_phase1"));
+	g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_IKE),
+			g_strdup(gtk_entry_get_text(GTK_ENTRY(widget))));
+
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_phase2"));
+	g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_ESP),
+			g_strdup(gtk_entry_get_text(GTK_ENTRY(widget))));
+
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "forceencaps_enable"));
+	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
+		g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_FORCEENCAPS), g_strdup("yes"));
 
 	return hash;
 }

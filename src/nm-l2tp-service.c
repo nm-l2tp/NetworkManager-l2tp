@@ -152,6 +152,8 @@ static const ValidProperty valid_properties[] = {
 	{ NM_L2TP_KEY_IPSEC_GATEWAY_ID,  G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_GROUP_NAME,  G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_PSK,         G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_IPSEC_IKE,         G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_IPSEC_ESP,         G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_FORCEENCAPS, G_TYPE_BOOLEAN, FALSE },
 	{ NULL }
 };
@@ -266,7 +268,9 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 			if (!strcmp (prop.name, NM_L2TP_KEY_IPSEC_PSK) ||
 			    !strcmp (prop.name, NM_L2TP_KEY_CERT_PUB)  ||
 			    !strcmp (prop.name, NM_L2TP_KEY_CERT_CA)  ||
-			    !strcmp (prop.name, NM_L2TP_KEY_CERT_KEY))
+			    !strcmp (prop.name, NM_L2TP_KEY_CERT_KEY) ||
+			    !strcmp (prop.name, NM_L2TP_KEY_IPSEC_IKE) ||
+			    !strcmp (prop.name, NM_L2TP_KEY_IPSEC_ESP))
 				return; /* valid */
 
 			if (   !strcmp (prop.name, NM_L2TP_KEY_GATEWAY)
@@ -699,10 +703,15 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	if (priv->is_libreswan) {
 		write_config_option (ipsec_fd, "  pfs=no\n");
 	} else {
-		write_config_option (ipsec_fd, "  esp=aes128-sha1,3des-sha1\n");
-		write_config_option (ipsec_fd, "  ike=aes128-sha1-modp2048,3des-sha1-modp1536,3des-sha1-modp1024\n");
 		write_config_option (ipsec_fd, "  keyexchange=ikev1\n");
 	}
+
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_IKE);
+	if(value)write_config_option (ipsec_fd, "  ike=%s\n", value);
+
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_ESP);
+	if(value)write_config_option (ipsec_fd, "  esp=%s\n", value);
+
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_FORCEENCAPS);
 	if(value)write_config_option (ipsec_fd, "  forceencaps=%s\n", value);
 
