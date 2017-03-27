@@ -268,7 +268,7 @@ msgid ""
 "methods: MSCHAP or MSCHAPv2."
 msgstr ""
 "Achtung: MPPE-Verschlüsselung ist nur mit MSCHAP-Legitimierungsmethoden "
-"verfügbar. Um dieses anjreuzfeld zu aktivieren, wählen Sie eine oder mehrere "
+"verfügbar. Um dieses ankreuzfeld zu aktivieren, wählen Sie eine oder mehrere "
 "der folgenden Legitimierungsmethoden aus: MSCHAP oder MSCHAPv2."
 
 #: ../properties/nm-l2tp-dialog.ui.h:9
