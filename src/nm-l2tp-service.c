@@ -1342,14 +1342,23 @@ real_connect (NMVpnServicePlugin *plugin,
 	NMSettingVpn *s_vpn;
 	const char *gwaddr;
 	const char *value;
+	gboolean is_l2tp_port_free;
+
+	/* Check that xl2tpd's default port 1701 is free */
+	is_l2tp_port_free = is_port_free (1701);
 
 	s_vpn = nm_connection_get_setting_vpn (connection);
 	g_assert (s_vpn);
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_ENABLE);
 	_LOGI ("ipsec enable flag: %s", value ? value : "(null)");
-    priv->is_libreswan = TRUE;
+	priv->is_libreswan = TRUE;
 	if(value && !strcmp(value,"yes")) {
+		/* For L2TP/IPsec, fail if UDP port 1701 is not free */
+		if (!is_l2tp_port_free) {
+			return nm_l2tp_ipsec_error(error,
+				"UDP port 1701 is in use, please stop any running instance of xl2tpd.");
+		}
 
 		if (!(value=nm_find_ipsec ())) {
 			return nm_l2tp_ipsec_error(error, "Could not find the ipsec binary. Is Libreswan or strongSwan installed?");
