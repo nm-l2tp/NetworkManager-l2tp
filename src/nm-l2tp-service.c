@@ -926,21 +926,20 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	snprintf(session_name, sizeof(session_name), "nm-ipsec-l2tp-%d", getpid());
 
 	if (priv->is_libreswan) {
-
 		snprintf (cmdbuf, sizeof(cmdbuf), "%s auto --status > /dev/null", priv->ipsec_binary_path);
 		sys = system (cmdbuf);
-		if (sys) {
-			snprintf (cmdbuf, sizeof(cmdbuf), "%s _stackmanager start", priv->ipsec_binary_path);
+		if (sys == 1) {
+			snprintf (cmdbuf, sizeof(cmdbuf), "%s start", priv->ipsec_binary_path);
 			sys = system (cmdbuf);
 			if (sys) {
-				return nm_l2tp_ipsec_error (error, "Could not load required IPsec kernel stack.");
+				return nm_l2tp_ipsec_error (error, "Could not start the ipsec service.");
 			}
-		}
-
-		snprintf (cmdbuf, sizeof(cmdbuf), "%s restart", priv->ipsec_binary_path);
-		sys = system (cmdbuf);
-		if (sys) {
-			return nm_l2tp_ipsec_error (error, "Could not restart the ipsec service.");
+		} else {
+			snprintf (cmdbuf, sizeof(cmdbuf), "%s restart", priv->ipsec_binary_path);
+			sys = system (cmdbuf);
+			if (sys) {
+				return nm_l2tp_ipsec_error (error, "Could not restart the ipsec service.");
+			}
 		}
 
 		snprintf (cmdbuf, sizeof(cmdbuf), "%s auto --ready", priv->ipsec_binary_path);
@@ -954,15 +953,26 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 		}
 
 	} else {
-		snprintf (cmdbuf, sizeof(cmdbuf), "%s restart "
-		                 " --conf /var/run/nm-ipsec-l2tp.%d/ipsec.conf --debug",
-		                 priv->ipsec_binary_path, getpid ());
+		snprintf (cmdbuf, sizeof(cmdbuf), "%s status > /dev/null", priv->ipsec_binary_path);
 		sys = system (cmdbuf);
-		if (sys) {
-			return nm_l2tp_ipsec_error(error, "Could not restart the ipsec service.");
+		if (sys == 3) {
+			snprintf (cmdbuf, sizeof(cmdbuf), "%s start "
+				             " --conf /var/run/nm-ipsec-l2tp.%d/ipsec.conf --debug",
+				             priv->ipsec_binary_path, getpid ());
+			sys = system (cmdbuf);
+			if (sys) {
+				return nm_l2tp_ipsec_error(error, "Could not start the ipsec service.");
+			}
+		} else {
+			snprintf (cmdbuf, sizeof(cmdbuf), "%s restart "
+				             " --conf /var/run/nm-ipsec-l2tp.%d/ipsec.conf --debug",
+				             priv->ipsec_binary_path, getpid ());
+			sys = system (cmdbuf);
+			if (sys) {
+				return nm_l2tp_ipsec_error(error, "Could not restart the ipsec service.");
+			}
 		}
 	}
-
 
 	/* the way this works is sadly very messy
 	   we replace the user's /etc/ipsec.secrets file
