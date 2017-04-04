@@ -64,9 +64,11 @@ The current list of broken algorithms and Diffie Hellman groups can be found her
 * https://wiki.strongswan.org/projects/strongswan/wiki/IKEv1CipherSuites
 
 strongSwan 5.4.0 dropped the following phase 1 (IKE) cipher suites as defaults:
+
     aes128-sha1-modp2048,3des-sha1-modp1536
 
 and for phase 2 (ESP), strongSwan 5.4.0 dropped :
+
     aes128-sha1,3des-sha1
 
 Older versions of NetworkManager-l2tp also used 3des-sha1-modp1024 for phase 1.
