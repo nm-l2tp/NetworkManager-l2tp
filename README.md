@@ -107,6 +107,7 @@ then start your VPN connection and reproduce the problem.
 
 NetworkManager and pppd logging goes to the Systemd journal which can be viewed
 by issuing the following which will show the logs since the last boot:
+
     journalctl --boot
 
 For non-Systemd based Linux distributions, view the appropriate system log
