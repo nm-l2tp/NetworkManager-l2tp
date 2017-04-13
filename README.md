@@ -56,8 +56,8 @@ service and disable it from starting at boot time:
 
 #### VPN servers using broken IPsec IKEv1 cipher suites
 
-The following has recommendations on algorithms that are broken in regards
-to security and should not be used :
+The following has recommendations on algorithms that are broken in regards to
+security and advises not to use :
 * https://wiki.strongswan.org/projects/strongswan/wiki/SecurityRecommendations
 
 The current list of broken algorithms and Diffie Hellman groups can be found here :
@@ -78,11 +78,10 @@ the default strongSwan or Libreswan cipher suites can be specified in the
 IPsec configuration dialog box under Advanced options.
 
 For example if you have no control of the cipher suites the VPN server uses
-and you must use the same cipher suites as strongSwan 5.4.0 did when using a
-later versions of strongSwan, enter the following in the corresponding IPsec
-configuration dialog text boxes:
+and you need to use the ones the older versions of this VPN plugin used, enter
+the following in the corresponding IPsec configuration dialog text boxes:
 
-* Phase1 Algorithms : aes128-sha1-modp2048,3des-sha1-modp1536
+* Phase1 Algorithms : aes128-sha1-modp2048,3des-sha1-modp1536,3des-sha1-modp1024
 * Phase2 Algorithms : aes128-sha1,3des-sha1
 
 Please see the following for the `ike` (phase 1) and `esp` (phase2alg)
