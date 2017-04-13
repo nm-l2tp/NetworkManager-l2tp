@@ -1,7 +1,7 @@
 # NetworkMananger-l2tp
 
-NetworkManager-l2tp is a VPN plugin for NetworkManager 1.2 which provides
-support for L2TP and L2TP/IPsec (i.e. L2TP over IPsec) connections.
+NetworkManager-l2tp is a VPN plugin for NetworkManager 1.2 and later which
+provides support for L2TP and L2TP/IPsec (i.e. L2TP over IPsec) connections.
 
 For L2TP support, it uses xl2tpd ( https://www.xelerance.com/software/xl2tpd/ )
 
@@ -84,8 +84,8 @@ the following in the corresponding IPsec configuration dialog text boxes:
 * Phase1 Algorithms : aes128-sha1-modp2048,3des-sha1-modp1536,3des-sha1-modp1024
 * Phase2 Algorithms : aes128-sha1,3des-sha1
 
-Please see the following for the `ike` (phase 1) and `esp` (phase2alg)
-directives' syntax for cipher suites:
+Please see the following for more details on the `ike` (phase 1) and
+`esp` (phase2alg) directives, including the syntax:
 
 * https://wiki.strongswan.org/projects/strongswan/wiki/ConnSection
 * https://libreswan.org/man/ipsec.conf.5.html
