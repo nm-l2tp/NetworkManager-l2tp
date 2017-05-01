@@ -18,6 +18,7 @@ AM_CPPFLAGS = \
     -DLIBDIR=\""$(libdir)"\" \
     -DLIBEXECDIR=\""$(libexecdir)"\" \
     -DLOCALSTATEDIR=\""$(localstatedir)"\" \
+    -DRUNSTATEDIR=\""$(runstatedir)"\" \
     -DDATADIR=\"$(datadir)\" \
     -DNM_L2TP_LOCALEDIR=\"$(datadir)/locale\" \
     -DPLUGINDIR=\"$(PPPD_PLUGIN_DIR)\"
