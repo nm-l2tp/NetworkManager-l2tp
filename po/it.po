@@ -152,7 +152,7 @@ msgstr ""
 #: ../properties/nm-l2tp.c:50
 #, fuzzy
 msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr "Point-to-Point Tunneling Protocol (L2TP)"
+msgstr "Layer 2 Tunneling Protocol (L2TP)"
 
 #: ../properties/nm-l2tp.c:51
 #, fuzzy

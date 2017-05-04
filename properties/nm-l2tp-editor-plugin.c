@@ -33,7 +33,7 @@
 
 #include "import-export.h"
 
-#define L2TP_PLUGIN_NAME    _("Point-to-Point Tunneling Protocol (L2TP)")
+#define L2TP_PLUGIN_NAME    _("Layer 2 Tunneling Protocol (L2TP)")
 #define L2TP_PLUGIN_DESC    _("Compatible with Microsoft and other L2TP VPN servers.")
 
 /*****************************************************************************/
