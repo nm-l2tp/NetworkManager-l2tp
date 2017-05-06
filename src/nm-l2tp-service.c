@@ -58,8 +58,8 @@
 # define DIST_VERSION VERSION
 #endif
 
-#ifdef RUNSTATEDIR
-# define RUNDIR RUNSTATEDIR
+#ifdef LOCALSTATEDIR
+# define RUNDIR LOCALSTATEDIR"/run"
 #else
 # define RUNDIR "/var/run"
 #endif
