@@ -180,6 +180,28 @@ nm_l2tp_ipsec_error(GError **error, const char *msg) {
 }
 
 static gboolean
+check_include_ipsec_secrets (const char *path) {
+	gs_free char *contents = NULL;
+	gs_strfreev char **all_lines = NULL;
+	guint i;
+
+	if (!g_file_get_contents (path, &contents, NULL, NULL))
+		return FALSE;
+
+	all_lines = g_strsplit (contents, "\n", 0);
+	for (i = 0; all_lines[i]; i++) {
+		g_strstrip (all_lines[i]);
+		if (all_lines[i][0] == '#' || all_lines[i][0] == '\0')
+			continue;
+		if (g_str_has_prefix (all_lines[i], "include ")) {
+			if (strstr (all_lines[i], "ipsec.d/*.secrets"))
+				return TRUE;
+		}
+	}
+	return FALSE;
+}
+
+static gboolean
 check_is_libreswan (const char *path)
 {
 	const char *argv[] = { path, NULL };
@@ -463,6 +485,14 @@ l2tpd_watch_cb (GPid pid, gint status, gpointer user_data)
 	unlink(filename);
 	g_free(filename);
 
+	filename = g_strdup_printf ("/etc/ipsec.d/nm-l2tp-ipsec-%s.secrets", priv->uuid);
+	unlink(filename);
+	g_free(filename);
+
+	filename = g_strdup_printf ("/etc/strongswan/ipsec.d/nm-l2tp-ipsec-%s.secrets", priv->uuid);
+	unlink(filename);
+	g_free(filename);
+
 	/* Must be after data->state is set since signals use data->state */
 	switch (error) {
 	case 16:
@@ -645,15 +675,18 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
                       GError **error)
 {
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
-	char *filename;
+	const char *secrets;
+	const char *ipsec_d;
 	const char *value;
-	gint conf_fd = -1;
-	gint ipsec_fd = -1;
-	gint pppopt_fd = -1;
+	char *filename;
+	char errorbuf[128];
+	gint fd = -1;
+	FILE *fp;
 	struct in_addr naddr;
 	int port;
 	int i;
 	int errsv;
+	gboolean has_include;
 
 	/* Setup runtime directory */
 	if (g_mkdir_with_parents (RUNDIR, 0755) != 0) {
@@ -666,89 +699,138 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		return FALSE;
 	}
 
-	filename = g_strdup_printf (RUNDIR"/nm-l2tp-ipsec-%s.conf", priv->uuid);
-	ipsec_fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR);
-	g_free (filename);
-	if (ipsec_fd == -1) {
-		return nm_l2tp_ipsec_error(error, "Could not write ipsec config.");
-	}
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_ENABLE);
+	if (value && !strcmp(value,"yes")) {
+		/*
+		 * IPsec secrets
+		 */
+		secrets = "/etc/ipsec.secrets";
+		ipsec_d = "/etc/ipsec.d";
+		if (!priv->is_libreswan) {
+			if (g_file_test ("/etc/strongswan", G_FILE_TEST_IS_DIR)) {
+				secrets = "/etc/strongswan/ipsec.secrets";
+				ipsec_d = "/etc/strongswan/ipsec.d";
+			}
+		}
 
-	write_config_option (ipsec_fd, 		"conn %s\n", priv->uuid);
-	write_config_option (ipsec_fd, 		"  auto=add\n"
-						"  type=transport\n");
+		// check, if not add "include /etc/ipsec.d/*.secrets" to /etc/ipsec.secrets
+		has_include = FALSE;
+		if (g_file_test (secrets, G_FILE_TEST_EXISTS)) {
+			if (check_include_ipsec_secrets(secrets)) {
+				has_include = TRUE;
+			}
+		}
+		if (!has_include) {
+			fd = open (secrets, O_CREAT|O_WRONLY, S_IRUSR|S_IWUSR);
+			if (fd == -1) {
+				snprintf (errorbuf, sizeof(errorbuf), "Could not open %s", secrets);
+				return nm_l2tp_ipsec_error(error, errorbuf);
+			}
+			fp = fdopen(fd, "a");
+			fprintf(fp, "\n# Following line was added by NetworkManager-l2tp\n");
+			fprintf(fp, "include %s/*.secrets\n",ipsec_d);
+			fclose(fp);
+			close(fd);
+		}
 
-	write_config_option (ipsec_fd,	"  authby=secret\n"
-						"  keyingtries=0\n"
-						"  left=%%defaultroute\n"
-						"  leftprotoport=udp/l2tp\n"
-						"  rightprotoport=udp/l2tp\n");
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GROUP_NAME);
-	if (value) {
-		if (priv->is_libreswan) {
-			if(inet_pton(AF_INET, value, &naddr)) {
-				write_config_option (ipsec_fd, "  leftid=%s\n", value);
+		filename = g_strdup_printf ("%s/nm-l2tp-ipsec-%s.secrets", ipsec_d, priv->uuid);
+		fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR);
+		g_free (filename);
+		if (fd == -1) {
+			snprintf (errorbuf, sizeof(errorbuf),
+					  "Could not write %s/nm-l2tp-ipsec-%s.secrets",
+					  ipsec_d, priv->uuid);
+			return nm_l2tp_ipsec_error(error, errorbuf);
+		}
+
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_PSK);
+		if (!value) value="";
+		write_config_option (fd, ": PSK \"%s\"\n", value);
+		close(fd);
+
+		/*
+		 * IPsec config
+		 */
+		filename = g_strdup_printf (RUNDIR"/nm-l2tp-ipsec-%s.conf", priv->uuid);
+		fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR);
+		g_free (filename);
+		if (fd == -1) {
+			return nm_l2tp_ipsec_error(error, "Could not write ipsec config.");
+		}
+
+		write_config_option (fd, 		"conn %s\n", priv->uuid);
+		write_config_option (fd, 		"  auto=add\n"
+							"  type=transport\n");
+
+		write_config_option (fd,	"  authby=secret\n"
+							"  keyingtries=0\n"
+							"  left=%%defaultroute\n"
+							"  leftprotoport=udp/l2tp\n"
+							"  rightprotoport=udp/l2tp\n");
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GROUP_NAME);
+		if (value) {
+			if (priv->is_libreswan) {
+				if(inet_pton(AF_INET, value, &naddr)) {
+					write_config_option (fd, "  leftid=%s\n", value);
+				} else {
+					/* @ prefix prevents leftid being resolved to an IP address */
+					write_config_option (fd, "  leftid=@%s\n", value);
+				}
 			} else {
-				/* @ prefix prevents leftid being resolved to an IP address */
-				write_config_option (ipsec_fd, "  leftid=@%s\n", value);
+				write_config_option (fd, "  leftid=%s\n", value);
+			}
+		}
+		write_config_option (fd, "  right=%s\n", priv->saddr);
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GATEWAY_ID);
+		if (value) {
+			if (priv->is_libreswan) {
+				if(inet_pton(AF_INET, value, &naddr)) {
+					write_config_option (fd, "  rightid=%s\n", value);
+				} else {
+					/* @ prefix prevents rightid being resolved to an IP address */
+					write_config_option (fd, "  rightid=@%s\n", value);
+				}
+			} else {
+				write_config_option (fd, "  rightid=%s\n", value);
 			}
 		} else {
-			write_config_option (ipsec_fd, "  leftid=%s\n", value);
+			write_config_option (fd, "  rightid=%%any\n");
 		}
-	}
-	write_config_option (ipsec_fd, "  right=%s\n", priv->saddr);
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GATEWAY_ID);
-	if (value) {
+
 		if (priv->is_libreswan) {
-			if(inet_pton(AF_INET, value, &naddr)) {
-				write_config_option (ipsec_fd, "  rightid=%s\n", value);
-			} else {
-				/* @ prefix prevents rightid being resolved to an IP address */
-				write_config_option (ipsec_fd, "  rightid=@%s\n", value);
-			}
+			write_config_option (fd, "  pfs=no\n");
 		} else {
-			write_config_option (ipsec_fd, "  rightid=%s\n", value);
+			write_config_option (fd, "  keyexchange=ikev1\n");
 		}
-	} else {
-		write_config_option (ipsec_fd, "  rightid=%%any\n");
+
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_IKE);
+		if(value)write_config_option (fd, "  ike=%s\n", value);
+
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_ESP);
+		if(value)write_config_option (fd, "  esp=%s\n", value);
+
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_FORCEENCAPS);
+		if(value)write_config_option (fd, "  forceencaps=%s\n", value);
+
+		close(fd);
+
 	}
 
-	if (priv->is_libreswan) {
-		write_config_option (ipsec_fd, "  pfs=no\n");
-	} else {
-		write_config_option (ipsec_fd, "  keyexchange=ikev1\n");
-	}
+	/*
+	 * L2TP options
+	 */
 
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_IKE);
-	if(value)write_config_option (ipsec_fd, "  ike=%s\n", value);
-
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_ESP);
-	if(value)write_config_option (ipsec_fd, "  esp=%s\n", value);
-
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_FORCEENCAPS);
-	if(value)write_config_option (ipsec_fd, "  forceencaps=%s\n", value);
-
+	/* xl2tpd config */
 	filename = g_strdup_printf (RUNDIR"/nm-l2tp-xl2tpd-%s.conf", priv->uuid);
-	conf_fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR|S_IRGRP|S_IROTH);
+	fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR|S_IRGRP|S_IROTH);
 	g_free (filename);
 
-	if (conf_fd == -1) {
-		close(ipsec_fd);
+	if (fd == -1) {
 		return nm_l2tp_ipsec_error(error, "Could not write xl2tpd config.");
 	}
 
-	filename = g_strdup_printf (RUNDIR"/nm-l2tp-ppp-options-%s", priv->uuid);
-	pppopt_fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR|S_IRGRP|S_IROTH);
-	g_free (filename);
-
-	if (pppopt_fd == -1) {
-		close(ipsec_fd);
-		close(conf_fd);
-		return nm_l2tp_ipsec_error(error, "Could not write ppp options.");
-	}
-
-	/* L2TP options */
-	write_config_option (conf_fd, "[global]\n");
-	write_config_option (conf_fd, "access control = yes\n");
+	write_config_option (fd, "[global]\n");
+	write_config_option (fd, "access control = yes\n");
 
 	/* Check that xl2tpd's default port 1701 is free, if not - use 0 (ephemeral random port) */
 	/* port = get_free_l2tp_port(); */
@@ -757,68 +839,79 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		port = 0;
 		_LOGW ("Port 1701 is busy, use ephemeral.");
 	}
-	write_config_option (conf_fd, "port = %d\n", port);
+	write_config_option (fd, "port = %d\n", port);
 	if (_LOGD_enabled ()){
-		/* write_config_option (conf_fd, "debug network = yes\n"); */
-		write_config_option (conf_fd, "debug state = yes\n");
-		write_config_option (conf_fd, "debug tunnel = yes\n");
-		write_config_option (conf_fd, "debug avp = yes\n");
+		/* write_config_option (fd, "debug network = yes\n"); */
+		write_config_option (fd, "debug state = yes\n");
+		write_config_option (fd, "debug tunnel = yes\n");
+		write_config_option (fd, "debug avp = yes\n");
 	}
 
-	write_config_option (conf_fd, "[lac l2tp]\n");
+	write_config_option (fd, "[lac l2tp]\n");
 
 	/* value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_GATEWAY); */
-	write_config_option (conf_fd, "lns = %s\n", priv->saddr);
+	write_config_option (fd, "lns = %s\n", priv->saddr);
 
 	/* Username; try L2TP specific username first, then generic username */
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER);
 	if (!value || !*value)
 		value = nm_setting_vpn_get_user_name (s_vpn);
 	if (!value || !*value) {
-		write_config_option (conf_fd, "name = %s\n", value);
+		write_config_option (fd, "name = %s\n", value);
 	}
 
 	if (_LOGD_enabled ())
-		write_config_option (conf_fd, "ppp debug = yes\n");
-	write_config_option (conf_fd, "pppoptfile = "RUNDIR"/nm-l2tp-ppp-options-%s\n", priv->uuid);
-	write_config_option (conf_fd, "autodial = yes\n");
-	write_config_option (conf_fd, "tunnel rws = 8\n");
-	write_config_option (conf_fd, "tx bps = 100000000\n");
-	write_config_option (conf_fd, "rx bps = 100000000\n");
+		write_config_option (fd, "ppp debug = yes\n");
+	write_config_option (fd, "pppoptfile = "RUNDIR"/nm-l2tp-ppp-options-%s\n", priv->uuid);
+	write_config_option (fd, "autodial = yes\n");
+	write_config_option (fd, "tunnel rws = 8\n");
+	write_config_option (fd, "tx bps = 100000000\n");
+	write_config_option (fd, "rx bps = 100000000\n");
+
+	close(fd);
 
 	/* PPP options */
+
+	filename = g_strdup_printf (RUNDIR"/nm-l2tp-ppp-options-%s", priv->uuid);
+	fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR|S_IRGRP|S_IROTH);
+	g_free (filename);
+
+	if (fd == -1) {
+		return nm_l2tp_ipsec_error(error, "Could not write ppp options.");
+	}
+
 	if (_LOGD_enabled ())
-		write_config_option (pppopt_fd, "debug\n");
+		write_config_option (fd, "debug\n");
 
-	write_config_option (pppopt_fd, "ipparam %s\n", priv->uuid);
+	write_config_option (fd, "ipparam %s\n", priv->uuid);
 
-	write_config_option (pppopt_fd, "nodetach\n");
+	write_config_option (fd, "nodetach\n");
 	/* revisit - xl2tpd-1.3.7 generates an unrecognized option 'lock' error.
 	   but with xl2tpd-1.3.6, pppd wasn't creating a lock file under /var/run/lock/ anyway.
-	write_config_option (pppopt_fd, "lock\n");
+	write_config_option (fd, "lock\n");
 	*/
-	write_config_option (pppopt_fd, "usepeerdns\n");
-	write_config_option (pppopt_fd, "noipdefault\n");
-	write_config_option (pppopt_fd, "nodefaultroute\n");
+	write_config_option (fd, "usepeerdns\n");
+	write_config_option (fd, "noipdefault\n");
+	write_config_option (fd, "nodefaultroute\n");
 
 	/* Don't need to auth the L2TP server */
-	write_config_option (pppopt_fd, "noauth\n");
+	write_config_option (fd, "noauth\n");
 
 	/* pppd and xl2tpd on Linux require this option to support Android and iOS clients,
 	   and pppd on Linux clients won't work without the same option */
-	write_config_option (pppopt_fd, "noccp\n");
+	write_config_option (fd, "noccp\n");
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER);
 	if (!value || !*value)
 		value = nm_setting_vpn_get_user_name (s_vpn);
 	if (!value || !*value) {
-		write_config_option (pppopt_fd, "name %s\n", value);
+		write_config_option (fd, "name %s\n", value);
 	}
 
 	for(i=0; ppp_options[i].name; i++){
 		value = nm_setting_vpn_get_data_item (s_vpn, ppp_options[i].name);
 		if (value && !strcmp (value, "yes"))
-			write_config_option (pppopt_fd, ppp_options[i].write_to_config);
+			write_config_option (fd, ppp_options[i].write_to_config);
 	}
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_LCP_ECHO_FAILURE);
@@ -829,54 +922,52 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		 * because strtol ignores some leading and trailing characters.
 		 */
 		if (str_to_int (value, &tmp_int)) {
-			write_config_option (pppopt_fd, "lcp-echo-failure %ld\n", tmp_int);
+			write_config_option (fd, "lcp-echo-failure %ld\n", tmp_int);
 		} else {
 			_LOGW ("failed to convert lcp-echo-failure value '%s'", value);
 		}
 	} else {
-		write_config_option (pppopt_fd, "lcp-echo-failure 0\n");
+		write_config_option (fd, "lcp-echo-failure 0\n");
 	}
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_LCP_ECHO_INTERVAL);
 	if (value && *value) {
 		long int tmp_int;
 		if (str_to_int (value, &tmp_int)) {
-			write_config_option (pppopt_fd, "lcp-echo-interval %ld\n", tmp_int);
+			write_config_option (fd, "lcp-echo-interval %ld\n", tmp_int);
 		} else {
 			_LOGW ("failed to convert lcp-echo-interval value '%s'", value);
 		}
 	} else {
-		write_config_option (pppopt_fd, "lcp-echo-interval 0\n");
+		write_config_option (fd, "lcp-echo-interval 0\n");
 	}
 
-	write_config_option (pppopt_fd, "plugin %s\n", NM_L2TP_PPPD_PLUGIN);
+	write_config_option (fd, "plugin %s\n", NM_L2TP_PPPD_PLUGIN);
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_MRU);
 	if (value) {
-		write_config_option (pppopt_fd, "mru %s\n", value);
+		write_config_option (fd, "mru %s\n", value);
 	} else {
-		write_config_option (pppopt_fd, "mru 1400\n");
+		write_config_option (fd, "mru 1400\n");
 	}
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_MTU);
 	if (value) {
-		write_config_option (pppopt_fd, "mtu %s\n", value);
+		write_config_option (fd, "mtu %s\n", value);
 	} else {
 		/* Default MTU to 1400, which is also what Microsoft Windows uses */
-		write_config_option (pppopt_fd, "mtu 1400\n");
+		write_config_option (fd, "mtu 1400\n");
 	}
 
 	/*
 	if (priv && priv->use_cert) {
-		write_config_option (pppopt_fd, "cert \"%s\"\n", nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_CERT_PUB));
-		write_config_option (pppopt_fd, "ca \"%s\"\n", nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_CERT_CA));
-		write_config_option (pppopt_fd, "key \"%s\"\n", nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_CERT_KEY));
+		write_config_option (fd, "cert \"%s\"\n", nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_CERT_PUB));
+		write_config_option (fd, "ca \"%s\"\n", nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_CERT_CA));
+		write_config_option (fd, "key \"%s\"\n", nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_CERT_KEY));
 	}
 	*/
 
-	close(ipsec_fd);
-	close(conf_fd);
-	close(pppopt_fd);
+	close(fd);
 
 	return TRUE;
 }
@@ -918,15 +1009,10 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
                             GError **error)
 {
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
-	const char *value;
-	const char *secrets;
-	char tmp_secrets[128];
 	char cmdbuf[256];
 	char *output = NULL;
 	int sys = 0, status, retry;
-	int fd;
 	int msec;
-	FILE *fp;
 	gboolean rc = FALSE;
 	gchar *argv[5];
 	GPid pid_ipsec_up;
@@ -980,50 +1066,12 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 				return nm_l2tp_ipsec_error(error, "Could not restart the ipsec service.");
 			}
 		}
-	}
-
-	/* the way this works is sadly very messy
-	   we replace the user's /etc/ipsec.secrets file
-	   we ask strongSwan/Libreswan to reload the secrets,
-	   we whack in our connection,
-	   we then replace the secrets and ask strongSwan/Libreswan to reload them
-	*/
-	secrets = "/etc/ipsec.secrets";
-	if (!priv->is_libreswan) {
-		if (g_file_test ("/etc/strongswan/ipsec.secrets", G_FILE_TEST_EXISTS)) {
-			secrets = "/etc/strongswan/ipsec.secrets";
-		}
-	}
-	snprintf(tmp_secrets, sizeof(tmp_secrets), "%s-%s", secrets, priv->uuid);
-	if(-1==rename(secrets, tmp_secrets) && errno != EEXIST) {
-		return nm_l2tp_ipsec_error(error, "Could not save existing /etc/ipsec.secrets file.");
-	}
-
-	fp = NULL;
-	if ((fd = open(secrets, O_CREAT | O_EXCL | O_WRONLY, 0600)) >= 0) {
-		if (NULL == (fp = fdopen(fd, "w"))) close(fd);
-	}
-	if (NULL == fp) {
-		rename(tmp_secrets, secrets);
-		return nm_l2tp_ipsec_error(error, "Could not write /etc/ipsec.secrets file.");
-	}
-
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_PSK);
-	if(!value)value="";
-	fprintf(fp, ": PSK \"%s\"\n",value);
-	fclose(fp);
-	close(fd);
-
-	if (priv->is_libreswan) {
-		snprintf (cmdbuf, sizeof(cmdbuf), "%s auto --rereadsecrets", priv->ipsec_binary_path);
-	} else {
 		snprintf (cmdbuf, sizeof(cmdbuf), "%s rereadsecrets", priv->ipsec_binary_path);
-	}
-	sys = 1;
-	for (retry = 0; retry < 10 && sys != 0; retry++) {
 		sys = system (cmdbuf);
-		if (sys != 0)
-			sleep (1); // wait for strongSwan to get ready
+		for (retry = 0; retry < 10 && sys != 0; retry++) {
+			sleep (1); // wait for ipsec to get ready
+			sys = system (cmdbuf);
+		}
 	}
 
 	/* spawn ipsec script asynchronously as it sometimes doesn't exit */
@@ -1107,12 +1155,6 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 
 	if (!rc) {
 		_LOGW ("Could not establish IPsec tunnel.");
-	}
-
-	snprintf (cmdbuf, sizeof(cmdbuf), "%s secrets", priv->ipsec_binary_path);
-	if (rename(tmp_secrets, secrets) ||
-			system (cmdbuf)) {
-		_LOGW ("Could not restore saved %s from %s.", secrets, tmp_secrets);
 	}
 
 	return rc;
