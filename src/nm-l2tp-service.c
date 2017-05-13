@@ -687,6 +687,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	int i;
 	int errsv;
 	gboolean has_include;
+	gboolean l2tp_port_is_free;
 
 	/* Setup runtime directory */
 	if (g_mkdir_with_parents (RUNDIR, 0755) != 0) {
@@ -698,6 +699,9 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 			RUNDIR, g_strerror (errsv));
 		return FALSE;
 	}
+
+	/* Check that xl2tpd's default port 1701 is free */
+	l2tp_port_is_free = is_port_free (1701);
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_ENABLE);
 	if (value && !strcmp(value,"yes")) {
@@ -764,9 +768,11 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 
 		write_config_option (fd,	"  authby=secret\n"
 							"  keyingtries=0\n"
-							"  left=%%defaultroute\n"
-							"  leftprotoport=udp/l2tp\n"
-							"  rightprotoport=udp/l2tp\n");
+							"  left=%%defaultroute\n");
+		if (l2tp_port_is_free) {
+			write_config_option (fd, "  leftprotoport=udp/l2tp\n");
+		}
+		write_config_option (fd, "  rightprotoport=udp/l2tp\n");
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GROUP_NAME);
 		if (value) {
 			if (priv->is_libreswan) {
@@ -832,12 +838,11 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	write_config_option (fd, "[global]\n");
 	write_config_option (fd, "access control = yes\n");
 
-	/* Check that xl2tpd's default port 1701 is free, if not - use 0 (ephemeral random port) */
-	/* port = get_free_l2tp_port(); */
+	/* If xl2tpd's default port 1701 is busy, use 0 (ephemeral random port) */
 	port = 1701;
-	if (!is_port_free (port)){
+	if (!l2tp_port_is_free){
 		port = 0;
-		_LOGW ("Port 1701 is busy, use ephemeral.");
+		_LOGW ("L2TP port 1701 is busy, using ephemeral.");
 	}
 	write_config_option (fd, "port = %d\n", port);
 	if (_LOGD_enabled ()){
@@ -1401,11 +1406,7 @@ real_connect (NMVpnServicePlugin *plugin,
 	NMSettingVpn *s_vpn;
 	const char *gwaddr;
 	const char *value;
-	gboolean is_l2tp_port_free;
 	const char *uuid;
-
-	/* Check that xl2tpd's default port 1701 is free */
-	is_l2tp_port_free = is_port_free (1701);
 
 	s_vpn = nm_connection_get_setting_vpn (connection);
 	g_assert (s_vpn);
@@ -1414,12 +1415,6 @@ real_connect (NMVpnServicePlugin *plugin,
 	_LOGI ("ipsec enable flag: %s", value ? value : "(null)");
 	priv->is_libreswan = TRUE;
 	if(value && !strcmp(value,"yes")) {
-		/* For L2TP/IPsec, fail if UDP port 1701 is not free */
-		if (!is_l2tp_port_free) {
-			return nm_l2tp_ipsec_error(error,
-				"UDP port 1701 is in use, please stop any running instance of xl2tpd.");
-		}
-
 		if (!(value=nm_find_ipsec ())) {
 			return nm_l2tp_ipsec_error(error, "Could not find the ipsec binary. Is Libreswan or strongSwan installed?");
 		}
