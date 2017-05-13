@@ -1018,7 +1018,6 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	GPid pid_ipsec_up;
 	pid_t wpid;
 
-
 	if (priv->is_libreswan) {
 		snprintf (cmdbuf, sizeof(cmdbuf), "%s auto --status > /dev/null", priv->ipsec_binary_path);
 		sys = system (cmdbuf);
@@ -1035,11 +1034,11 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 				return nm_l2tp_ipsec_error (error, "Could not restart the ipsec service.");
 			}
 		}
-
+		/* wait for Libreswan to get ready before performing an up operation */
 		snprintf (cmdbuf, sizeof(cmdbuf), "%s auto --ready", priv->ipsec_binary_path);
 		sys = system (cmdbuf);
 		for (retry = 0; retry < 10 && sys != 0; retry++) {
-			sleep (1); // wait for ipsec to get ready
+			sleep (1);
 			sys = system (cmdbuf);
 		}
 		if (sys) {
@@ -1066,10 +1065,11 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 				return nm_l2tp_ipsec_error(error, "Could not restart the ipsec service.");
 			}
 		}
+		/* wait for strongSwan to get ready before performing an up operation  */
 		snprintf (cmdbuf, sizeof(cmdbuf), "%s rereadsecrets", priv->ipsec_binary_path);
 		sys = system (cmdbuf);
 		for (retry = 0; retry < 10 && sys != 0; retry++) {
-			sleep (1); // wait for ipsec to get ready
+			sleep (1);
 			sys = system (cmdbuf);
 		}
 	}
@@ -1113,7 +1113,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 		}
 	} else {
 		_LOGW ("Could not load new IPsec secret.");
-    }
+	}
 
 	if (pid_ipsec_up > 0) {
 		msec = 0;
@@ -1135,7 +1135,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 			if (!WEXITSTATUS (status)) {
 				if (priv->is_libreswan) {
 					rc = TRUE;
-					_LOGI ("Libreswan is ready.");
+					_LOGI ("Libreswan IPsec tunnel is up.");
 				} else {
 					/* Do not trust exit status of strongSwan 'ipsec up' command.
 					   explictly check if connection is established.
@@ -1145,7 +1145,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 						rc = output && strstr (output, "ESTABLISHED");
 						g_free (output);
 						if (rc) {
-							_LOGI ("strongSwan is ready.");
+							_LOGI ("strongSwan IPsec tunnel is up.");
 						}
 					}
 				}
