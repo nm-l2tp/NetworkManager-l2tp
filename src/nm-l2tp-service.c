@@ -1098,7 +1098,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 			}
 		}
 	} else {
-		_LOGW ("Could not load new IPsec secret.");
+		_LOGW ("IPsec service is not ready.");
 	}
 
 	if (pid_ipsec_up > 0) {
