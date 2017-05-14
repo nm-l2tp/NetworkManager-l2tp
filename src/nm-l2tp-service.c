@@ -1031,10 +1031,6 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 			sleep (1);
 			sys = system (cmdbuf);
 		}
-		if (sys) {
-			return nm_l2tp_ipsec_error (error, "Could not talk to pluto the IKE daemon.");
-		}
-
 	} else {
 		snprintf (cmdbuf, sizeof(cmdbuf), "%s status > /dev/null", priv->ipsec_binary_path);
 		sys = system (cmdbuf);
