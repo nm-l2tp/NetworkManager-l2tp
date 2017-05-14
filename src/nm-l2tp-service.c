@@ -1177,22 +1177,6 @@ is_port_free(int port)
 	return TRUE;
 }
 
-/* XXX: currently unused! May be useful if l2tp client doesn't accept 0 as port number
-static int
-get_free_l2tp_port(void)
-{
-	int port = 1701;
-
-	while (!is_port_free (port) && port < 65535)
-		port++;
-
-	if (port == 65535) // oh no..
-		return -1;
-	g_message("found free port %d", port);
-	return port;
-}
-*/
-
 static gboolean
 nm_l2tp_config_write (NML2tpPlugin *plugin,
 					  NMSettingVPN *s_vpn,
@@ -1211,6 +1195,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	int i;
 	int errsv;
 	gboolean has_include;
+	gboolean l2tp_port_is_free;
 
 	/* Setup runtime directory */
 	if (g_mkdir_with_parents (RUNDIR, 0755) != 0) {
@@ -1222,6 +1207,9 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 			RUNDIR, g_strerror (errsv));
 		return FALSE;
 	}
+
+	/* Check that xl2tpd's default port 1701 is free */
+	l2tp_port_is_free = is_port_free (1701);
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_ENABLE);
 	if (value && !strcmp(value,"yes")) {
@@ -1301,10 +1289,11 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 
 		write_config_option (fd, 		"  authby=secret\n"
 							"  keyingtries=0\n"
-							"  left=%%defaultroute\n"
-							"  leftprotoport=udp/l2tp\n"
-							"  rightprotoport=udp/l2tp\n");
-
+							"  left=%%defaultroute\n");
+		if (l2tp_port_is_free) {
+			write_config_option (fd, "  leftprotoport=udp/l2tp\n");
+		}
+		write_config_option (fd, "  rightprotoport=udp/l2tp\n");
 		write_config_option (fd, "  right=%s\n", priv->saddr);
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GROUP_NAME);
 		if (value) {
@@ -1370,12 +1359,11 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	write_config_option (fd, "[global]\n");
 	write_config_option (fd, "access control = yes\n");
 
-	/* Check that xl2tpd's default port 1701 is free, if not - use 0 (ephemeral random port) */
-	/* port = get_free_l2tp_port(); */
+	/* If xl2tpd's default port 1701 is busy, use 0 (ephemeral random port) */
 	port = 1701;
-	if (!is_port_free (port)){
+	if (!l2tp_port_is_free){
 		port = 0;
-		g_warning("Port 1701 is busy, use ephemeral.");
+		g_warning("L2TP port 1701 is busy, using ephemeral.");
 	}
 	write_config_option (fd, "port = %d\n", port);
 	if (debug){
