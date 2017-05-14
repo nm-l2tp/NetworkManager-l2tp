@@ -46,21 +46,20 @@
 name = my-l2tp-connection
 
 [vpn]
-# password-flags = 1 (int)
-noaccomp = true (bool)
-nopcomp = true (bool)
-no-vj-comp = true (bool)
-refuse_eap = true (bool)
-nobsdcomp = true (bool)
-nodeflate = true (bool)
-refuse-pap = true (bool)
-user = my_login (str)
-gateway = 192.168.0.1 (str)
+gateway=my.gateway.org (str)
+user=my_login (str)
+refuse-eap=true (bool)
+refuse-pap=true (bool)
+refuse-chap=true (bool)
+refuse-mschap=true (bool)
+require-mppe=true (bool)
+mru=1200 (int)
+mtu=1200 (int)
 
-ipsec-enabled = true (bool)
-ipsec-group-name = GroupVPN (str)
-ipsec-psk = my_psk (str) ????
-ipsec-gateway-id = my_gateway (str)
+ipsec-enabled=true (bool)
+ipsec-gateway-id=192.168.0.1 (str)
+ipsec-psk=my_psk (str)
+ipsec-forceencaps=true (bool)
 
 [ipv4]
 method = auto (str)
@@ -103,7 +102,6 @@ static VpnImportExportProperty vpn_properties[] = {
 	/* { NM_L2TP_KEY_PASSWORD"-flags",  G_TYPE_UINT, FALSE }, */
 	{ NM_L2TP_KEY_IPSEC_ENABLE,      G_TYPE_BOOLEAN, FALSE },
 	{ NM_L2TP_KEY_IPSEC_GATEWAY_ID,  G_TYPE_STRING, FALSE },
-	{ NM_L2TP_KEY_IPSEC_GROUP_NAME,  G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_PSK,         G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_IKE,         G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_ESP,         G_TYPE_STRING, FALSE },

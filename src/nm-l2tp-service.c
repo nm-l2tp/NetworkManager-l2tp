@@ -234,7 +234,7 @@ validate_gateway (const char *gateway)
 {
 	const char *p = gateway;
 
-	if (!gateway || !strlen (gateway))
+	if (!gateway || !gateway[0])
 		return FALSE;
 
 	/* Ensure it's a valid DNS name or IP address */
@@ -248,20 +248,15 @@ validate_gateway (const char *gateway)
 }
 
 static gboolean
-validate_ipsec_id (const char *id)
+validate_gateway_id (const char *id)
 {
-	const char *p = id;
+	struct in_addr addr;
 
-	if (!id || !*id) return TRUE;
+	if (!id || !id[0])
+		return FALSE;
 
-	/* Ensure it's a valid id-name */
-	p = id;
-	while (*p) {
-		if (!isalnum (*p) && (*p != '_') && (*p != '-') && (*p != '.'))
-			return FALSE;
-		p++;
-	}
-	return TRUE;
+	/* Ensure it's a valid IP address */
+	return inet_aton (id, &addr);
 }
 
 typedef struct ValidateInfo {
@@ -299,7 +294,8 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 			    !strcmp (prop.name, NM_L2TP_KEY_CERT_CA)  ||
 			    !strcmp (prop.name, NM_L2TP_KEY_CERT_KEY) ||
 			    !strcmp (prop.name, NM_L2TP_KEY_IPSEC_IKE) ||
-			    !strcmp (prop.name, NM_L2TP_KEY_IPSEC_ESP))
+			    !strcmp (prop.name, NM_L2TP_KEY_IPSEC_ESP) ||
+				!strcmp (prop.name, NM_L2TP_KEY_IPSEC_GROUP_NAME))
 				return; /* valid */
 
 			if (   !strcmp (prop.name, NM_L2TP_KEY_GATEWAY)
@@ -311,19 +307,8 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 				             key);
 				return; /* valid */
 			}
-
-			if (   !strcmp (prop.name, NM_L2TP_KEY_IPSEC_GROUP_NAME)
-			    && !validate_ipsec_id (value)) {
-				g_set_error (info->error,
-				             NM_VPN_PLUGIN_ERROR,
-				             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
-				             _("invalid ipsec-group-name '%s'"),
-				             key);
-				return; /* valid */
-			}
-
 			if (   !strcmp (prop.name, NM_L2TP_KEY_IPSEC_GATEWAY_ID)
-			    && !validate_ipsec_id (value)) {
+			    && !validate_gateway_id (value)) {
 				g_set_error (info->error,
 				             NM_VPN_PLUGIN_ERROR,
 				             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
@@ -786,19 +771,6 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 			write_config_option (fd, "  leftprotoport=udp/l2tp\n");
 		}
 		write_config_option (fd, "  rightprotoport=udp/l2tp\n");
-		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GROUP_NAME);
-		if (value) {
-			if (priv->is_libreswan) {
-				if(inet_pton(AF_INET, value, &naddr)) {
-					write_config_option (fd, "  leftid=%s\n", value);
-				} else {
-					/* @ prefix prevents leftid being resolved to an IP address */
-					write_config_option (fd, "  leftid=@%s\n", value);
-				}
-			} else {
-				write_config_option (fd, "  leftid=%s\n", value);
-			}
-		}
 		write_config_option (fd, "  right=%s\n", priv->saddr);
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GATEWAY_ID);
 		if (value) {
