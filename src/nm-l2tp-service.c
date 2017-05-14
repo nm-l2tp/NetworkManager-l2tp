@@ -747,6 +747,19 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 			return nm_l2tp_ipsec_error(error, errorbuf);
 		}
 
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GATEWAY_ID);
+		if (value) {
+			if (priv->is_libreswan) {
+				write_config_option (fd, "%%any ");
+			}
+			/* With PSK, only IP addresses are allowed as IDs */
+			if (inet_pton(AF_INET, value, &naddr)) {
+				write_config_option (fd, "%s ", value);
+			} else {
+				write_config_option (fd, "%%any ");
+			}
+		}
+
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_PSK);
 		if (!value) value="";
 		write_config_option (fd, ": PSK \"%s\"\n", value);
