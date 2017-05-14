@@ -167,10 +167,12 @@ ipsec_dialog_new (GHashTable *hash)
 			builder, (GDestroyNotify) g_object_unref);
 
 	value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_ENABLE);
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_enable"));
 	if (value && !strcmp (value, "yes")) {
-		widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_enable"));
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), TRUE);
 	}
+	handle_enable_changed (widget, TRUE, builder);
+	g_signal_connect (G_OBJECT (widget), "toggled", G_CALLBACK (enable_toggled_cb), builder);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_group_name"));
 	if((value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_GROUP_NAME)))
@@ -202,8 +204,6 @@ ipsec_dialog_new (GHashTable *hash)
 		widget = GTK_WIDGET (gtk_builder_get_object (builder, "forceencaps_enable"));
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), TRUE);
 	}
-
-	g_signal_connect (G_OBJECT (widget), "toggled", G_CALLBACK (enable_toggled_cb), builder);
 
 out:
 	g_free (ui_file);
