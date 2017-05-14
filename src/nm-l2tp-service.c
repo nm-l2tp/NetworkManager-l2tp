@@ -59,8 +59,14 @@
 #include "nm-l2tp-service.h"
 #include "nm-ppp-status.h"
 
-#if !defined(DIST_VERSION)
+#ifndef DIST_VERSION
 # define DIST_VERSION VERSION
+#endif
+
+#ifdef LOCALSTATEDIR
+# define RUNDIR LOCALSTATEDIR"/run"
+#else
+# define RUNDIR "/var/run"
 #endif
 
 static gboolean debug = FALSE;
@@ -371,6 +377,7 @@ typedef struct {
 	NML2tpPppService *service;
 	NMConnection *connection;
 	char ipsec_binary_path[256];
+	char *uuid;
 	gboolean is_libreswan;
 } NML2tpPluginPrivate;
 
@@ -629,7 +636,6 @@ l2tpd_watch_cb (GPid pid, gint status, gpointer user_data)
 	NML2tpPlugin *plugin = NM_L2TP_PLUGIN (user_data);
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
 	guint error = 0;
-	pid_t my_pid = getpid ();
 	char *filename;
 
 	if (WIFEXITED (status)) {
@@ -653,24 +659,32 @@ l2tpd_watch_cb (GPid pid, gint status, gpointer user_data)
 	}
 
 	/* Cleaning up config files */
-	filename = g_strdup_printf ("/var/run/nm-xl2tpd.conf.%d", my_pid);
+	filename = g_strdup_printf (RUNDIR"/nm-l2tp-xl2tpd-%s.conf", priv->uuid);
 	unlink(filename);
 	g_free(filename);
 
-	filename = g_strdup_printf ("/var/run/nm-ppp-options.xl2tpd.%d", my_pid);
+	filename = g_strdup_printf (RUNDIR"/nm-l2tp-ppp-options-%s", priv->uuid);
 	unlink(filename);
 	g_free(filename);
 
-	filename = g_strdup_printf ("/var/run/nm-ipsec-l2tp.%d/ipsec.conf", my_pid);
+	filename = g_strdup_printf (RUNDIR"/nm-l2tp-xl2tpd-control-%s", priv->uuid);
 	unlink(filename);
 	g_free(filename);
 
-	filename = g_strdup_printf ("/var/run/nm-ipsec-l2tp.%d/ipsec.secrets", my_pid);
+	filename = g_strdup_printf (RUNDIR"/nm-l2tp-xl2tpd-%s.pid", priv->uuid);
 	unlink(filename);
 	g_free(filename);
 
-	filename = g_strdup_printf ("/var/run/nm-ipsec-l2tp.%d", my_pid);
-	rmdir(filename);
+	filename = g_strdup_printf (RUNDIR"/nm-l2tp-ipsec-%s.conf", priv->uuid);
+	unlink(filename);
+	g_free(filename);
+
+	filename = g_strdup_printf ("/etc/ipsec.d/nm-l2tp-ipsec-%s.secrets", priv->uuid);
+	unlink(filename);
+	g_free(filename);
+
+	filename = g_strdup_printf ("/etc/strongswan/ipsec.d/nm-l2tp-ipsec-%s.secrets", priv->uuid);
+	unlink(filename);
 	g_free(filename);
 
 	/* Must be after data->state is set since signals use data->state */
@@ -876,23 +890,37 @@ free_args (GPtrArray *args)
 	g_ptr_array_free (args, TRUE);
 }
 
+static gboolean
+str_to_int (const char *str, long int *out)
+{
+        long int tmp_int;
+
+        if (!str)
+                return FALSE;
+
+        errno = 0;
+        tmp_int = strtol (str, NULL, 10);
+        if (errno == 0) {
+                *out = tmp_int;
+                return TRUE;
+        }
+        return FALSE;
+}
 
 static void
 nm_l2tp_stop_ipsec (NML2tpPluginPrivate *priv)
 {
 	char cmdbuf[256];
-	char session_name[128];
 	GPtrArray *whack_argv;
 	int sys = 0;
 
 	if (priv->is_libreswan) {
-		snprintf (session_name, sizeof(session_name), "nm-ipsec-l2tp-%d", getpid ());
 		whack_argv = g_ptr_array_new ();
 		g_ptr_array_add (whack_argv, (gpointer) g_strdup (priv->ipsec_binary_path));
 		g_ptr_array_add (whack_argv, (gpointer) g_strdup ("whack"));
 		g_ptr_array_add (whack_argv, (gpointer) g_strdup ("--delete"));
 		g_ptr_array_add (whack_argv, (gpointer) g_strdup ("--name"));
-		g_ptr_array_add (whack_argv, (gpointer) g_strdup (session_name));
+		g_ptr_array_add (whack_argv, (gpointer) g_strdup (priv->uuid));
 		g_ptr_array_add (whack_argv, NULL);
 
 		if (!g_spawn_sync (NULL, (char **) whack_argv->pdata, NULL,
@@ -903,7 +931,7 @@ nm_l2tp_stop_ipsec (NML2tpPluginPrivate *priv)
 			return;
 		}
 	} else {
-		snprintf (cmdbuf, sizeof(cmdbuf), "%s down nm-ipsec-l2tp-%d", priv->ipsec_binary_path, getpid ());
+		snprintf (cmdbuf, sizeof(cmdbuf), "%s down nm-l2tp-ipsec-%s", priv->ipsec_binary_path, priv->uuid);
 		sys = system (cmdbuf);
 	}
 
@@ -919,7 +947,6 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	const char *value;
 	const char *secrets;
 	char tmp_secrets[128];
-	char session_name[128];
 	char cmdbuf[256];
 	char *output = NULL;
 	struct in_addr naddr;
@@ -927,8 +954,6 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	int fd;
 	FILE *fp;
 	gboolean rc = FALSE;
-
-	snprintf(session_name, sizeof(session_name), "nm-ipsec-l2tp-%d", getpid());
 
 	if (priv->is_libreswan) {
 
@@ -960,8 +985,8 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 
 	} else {
 		snprintf (cmdbuf, sizeof(cmdbuf), "%s restart "
-		                 " --conf /var/run/nm-ipsec-l2tp.%d/ipsec.conf --debug",
-		                 priv->ipsec_binary_path, getpid ());
+		                 " --conf /var/run/nm-l2tp-ipsec.%s/ipsec.conf --debug",
+		                 priv->ipsec_binary_path, priv->uuid);
 		sys = system (cmdbuf);
 		if (sys) {
 			return nm_l2tp_ipsec_error(error, "Could not restart the ipsec service.");
@@ -981,7 +1006,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 			secrets = "/etc/strongswan/ipsec.secrets";
 		}
 	}
-	snprintf(tmp_secrets, sizeof(tmp_secrets), "%s.%d", secrets, getpid());
+	snprintf(tmp_secrets, sizeof(tmp_secrets), "%s.%s", secrets, priv->uuid);
 	if(-1==rename(secrets, tmp_secrets) && errno != EEXIST) {
 		return nm_l2tp_ipsec_error(error, "Could not save existing /etc/ipsec.secrets file.");
 	}
@@ -1041,12 +1066,12 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 		priv->ipsec_timeout_handler = g_timeout_add (NM_L2TP_WAIT_IPSEC, ipsec_timed_out, plugin);
 		if (priv->is_libreswan) {
 			snprintf (cmdbuf, sizeof(cmdbuf), "%s auto "
-					 " --config /var/run/nm-ipsec-l2tp.%d/ipsec.conf --verbose"
-					 " --add '%s'", priv->ipsec_binary_path, getpid (), session_name);
+					 " --config /var/run/nm-l2tp-ipsec.%s/ipsec.conf --verbose"
+					 " --add '%s'", priv->ipsec_binary_path, priv->uuid, priv->uuid);
 			sys = system(cmdbuf);
 			if (!sys) {
 				snprintf(cmdbuf, sizeof(cmdbuf), "%s auto --up '%s'",
-						 priv->ipsec_binary_path, session_name);
+						 priv->ipsec_binary_path, priv->uuid);
 				sys = system (cmdbuf);
 				if (!sys) {
 					rc = TRUE;
@@ -1059,12 +1084,12 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 			}
 
 		} else {
-			snprintf (cmdbuf, sizeof(cmdbuf), "%s up '%s'", priv->ipsec_binary_path, session_name);
+			snprintf (cmdbuf, sizeof(cmdbuf), "%s up '%s'", priv->ipsec_binary_path, priv->uuid);
 			sys = system (cmdbuf);
 			if (!sys) {
 				// Do not trust exit status of strongSwan 'ipsec up' command.
 				// explictly check if connection is established.
-				snprintf (cmdbuf, sizeof(cmdbuf), "%s status '%s'", priv->ipsec_binary_path, session_name);
+				snprintf (cmdbuf, sizeof(cmdbuf), "%s status '%s'", priv->ipsec_binary_path, priv->uuid);
 				if (g_spawn_command_line_sync(cmdbuf, &output, NULL, NULL, NULL)) {
 					rc = output && strstr (output, "ESTABLISHED");
 					g_free (output);
@@ -1104,7 +1129,6 @@ nm_l2tp_start_l2tpd_binary (NML2tpPlugin *plugin,
 	GPid pid;
 	const char *l2tpd_binary;
 	GPtrArray *l2tpd_argv;
-	pid_t my_pid = getpid ();
 
 	l2tpd_binary = nm_find_l2tpd ();
 	if (!l2tpd_binary) {
@@ -1115,11 +1139,11 @@ nm_l2tp_start_l2tpd_binary (NML2tpPlugin *plugin,
 	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup (l2tpd_binary));
 	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup ("-D"));
 	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup ("-c"));
-	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup_printf ("/var/run/nm-xl2tpd.conf.%d", my_pid));
+	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup_printf (RUNDIR"/nm-l2tp-xl2tpd-%s.conf", priv->uuid));
 	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup ("-C"));
-	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup_printf ("/var/run/nm-xl2tpd_l2tp-control.%d", my_pid));
-	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup ("-p")); /* pid file named using pid? */
-	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup_printf ("/var/run/nm-xl2tpd_pid.%d", my_pid));
+	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup_printf (RUNDIR"/nm-l2tp-xl2tp-control.%s", priv->uuid));
+	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup ("-p"));
+	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup_printf (RUNDIR"/nm-xl2tpd-%s.pid", priv->uuid));
 	g_ptr_array_add (l2tpd_argv, NULL);
 
 	if (!g_spawn_async (NULL, (char **) l2tpd_argv->pdata, NULL,
@@ -1231,28 +1255,34 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
 	NML2tpPppServicePrivate *service_priv = NULL;
 	char *filename;
-	pid_t pid = getpid ();
 	const char *value;
-	// const char *username;
 	gint conf_fd = -1;
 	gint ipsec_fd = -1;
 	gint pppopt_fd = -1;
 	struct in_addr naddr;
 	int port;
 	int i;
+	int errsv;
 
-	filename = g_strdup_printf ("/var/run/nm-ipsec-l2tp.%d", pid);
-	mkdir(filename,0700);
-	g_free (filename);
+	/* Setup runtime directory */
+	if (g_mkdir_with_parents (RUNDIR, 0755) != 0) {
+		errsv = errno;
+		g_set_error (error,
+			NM_VPN_PLUGIN_ERROR,
+			NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
+			"Cannot create run-dir %s (%s)",
+			RUNDIR, g_strerror (errsv));
+		return FALSE;
+	}
 
-	filename = g_strdup_printf ("/var/run/nm-ipsec-l2tp.%d/ipsec.conf", pid);
+	filename = g_strdup_printf (RUNDIR"/nm-l2tp-ipsec-%s.conf", priv->uuid);
 	ipsec_fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR);
 	g_free (filename);
 	if (ipsec_fd == -1) {
 		return nm_l2tp_ipsec_error(error, "Could not write ipsec config.");
 	}
 
-	write_config_option (ipsec_fd, 		"conn nm-ipsec-l2tp-%d\n", pid);
+	write_config_option (ipsec_fd, 		"conn %s\n", priv->uuid);
 	write_config_option (ipsec_fd, 		"  auto=add\n"
 						"  type=transport\n");
 
@@ -1274,9 +1304,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 			write_config_option (ipsec_fd, "  leftid=%s\n", value);
 		}
 	}
-
 	write_config_option (ipsec_fd, "  right=%s\n", priv->saddr);
-
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GATEWAY_ID);
 	if (value) {
 		if (priv->is_libreswan) {
@@ -1292,7 +1320,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	}
 
 	if (priv->is_libreswan) {
-		write_config_option (ipsec_fd, "  pfs=no");
+		write_config_option (ipsec_fd, "  pfs=no\n");
 	} else {
 		write_config_option (ipsec_fd, "  keyexchange=ikev1\n");
 	}
@@ -1306,8 +1334,8 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_FORCEENCAPS);
 	if(value)write_config_option (ipsec_fd, "  forceencaps=%s\n", value);
 
-	filename = g_strdup_printf ("/var/run/nm-xl2tpd.conf.%d", pid);
-	conf_fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR);
+	filename = g_strdup_printf (RUNDIR"/nm-l2tp-xl2tpd-%s.conf", priv->uuid);
+	conf_fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR|S_IRGRP|S_IROTH);
 	g_free (filename);
 
 	if (conf_fd == -1) {
@@ -1315,8 +1343,8 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		return nm_l2tp_ipsec_error(error, "Could not write xl2tpd config.");
 	}
 
-	filename = g_strdup_printf ("/var/run/nm-ppp-options.xl2tpd.%d", pid);
-	pppopt_fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR);
+	filename = g_strdup_printf (RUNDIR"/nm-l2tp-ppp-options-%s", priv->uuid);
+	pppopt_fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR|S_IRGRP|S_IROTH);
 	g_free (filename);
 
 	if (pppopt_fd == -1) {
@@ -1354,9 +1382,10 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	if (service_priv && service_priv->username) {
 		write_config_option (conf_fd, "name = %s\n", service_priv->username);
 	}
+
 	if (debug)
 		write_config_option (conf_fd, "ppp debug = yes\n");
-	write_config_option (conf_fd, "pppoptfile = /var/run/nm-ppp-options.xl2tpd.%d\n", pid);
+	write_config_option (conf_fd, "pppoptfile = "RUNDIR"/nm-l2tp-ppp-options-%s\n", priv->uuid);
 	write_config_option (conf_fd, "autodial = yes\n");
 	write_config_option (conf_fd, "tunnel rws = 8\n");
 	write_config_option (conf_fd, "tx bps = 100000000\n");
@@ -1366,7 +1395,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	if (debug)
 		write_config_option (pppopt_fd, "debug\n");
 
-	write_config_option (pppopt_fd, "ipparam nm-l2tp-service-%d\n", pid);
+	write_config_option (pppopt_fd, "ipparam %s\n", priv->uuid);
 
 	write_config_option (pppopt_fd, "nodetach\n");
 	/* revisit - xl2tpd-1.3.7 generates an unrecognized option 'lock' error.
@@ -1401,12 +1430,10 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		/* Convert to integer and then back to string for security's sake
 		 * because strtol ignores some leading and trailing characters.
 		 */
-		errno = 0;
-		tmp_int = strtol (value, NULL, 10);
-		if (errno == 0) {
+		if (str_to_int (value, &tmp_int)) {
 			write_config_option (pppopt_fd, "lcp-echo-failure %ld\n", tmp_int);
 		} else {
-			g_warning (_("failed to convert lcp-echo-failure value '%s'"), value);
+			g_warning("failed to convert lcp-echo-failure value '%s'", value);
 		}
 	} else {
 		write_config_option (pppopt_fd, "lcp-echo-failure 0\n");
@@ -1415,16 +1442,10 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_LCP_ECHO_INTERVAL);
 	if (value && *value) {
 		long int tmp_int;
-
-		/* Convert to integer and then back to string for security's sake
-		 * because strtol ignores some leading and trailing characters.
-		 */
-		errno = 0;
-		tmp_int = strtol (value, NULL, 10);
-		if (errno == 0) {
+		if (str_to_int (value, &tmp_int)) {
 			write_config_option (pppopt_fd, "lcp-echo-interval %ld\n", tmp_int);
 		} else {
-			g_warning (_("failed to convert lcp-echo-interval value '%s'"), value);
+			g_warning("failed to convert lcp-echo-interval value '%s'", value);
 		}
 	} else {
 		write_config_option (pppopt_fd, "lcp-echo-interval 0\n");
@@ -1556,6 +1577,7 @@ real_connect (NMVPNPlugin   *plugin,
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
 	NMSettingVPN *s_vpn;
 	const char *value;
+	const char *uuid;
 
 	if (getenv ("NM_PPP_DUMP_CONNECTION") || debug)
 		nm_connection_dump (connection);
@@ -1588,20 +1610,24 @@ real_connect (NMVPNPlugin   *plugin,
 	if (!priv->use_cert && !nm_l2tp_secrets_validate (s_vpn, error))
 		return FALSE;
 
-	/* Start our pppd plugin helper service */
-	if (priv->service)
-		g_object_unref (priv->service);
-	if (priv->connection) {
-		g_object_unref (priv->connection);
-		priv->connection = NULL;
-	}
+	g_clear_object (&priv->service);
+	g_clear_object (&priv->connection);
 
+	/* Start our pppd plugin helper service */
 	priv->service = nm_l2tp_ppp_service_new (connection, error);
 	if (!priv->service) {
 		return nm_l2tp_ipsec_error(error, "Could not start pppd plugin helper service.");
 	}
 
 	priv->connection = g_object_ref (connection);
+
+	uuid = nm_connection_get_uuid (priv->connection);
+	if (!(uuid && *uuid)) {
+		return nm_l2tp_ipsec_error(error, "could not retrive connection UUID");
+	}
+
+	g_free (priv->uuid);
+	priv->uuid = g_strdup (uuid);
 
 	g_signal_connect (G_OBJECT (priv->service), "plugin-alive", G_CALLBACK (service_plugin_alive_cb), plugin);
 	g_signal_connect (G_OBJECT (priv->service), "ppp-state", G_CALLBACK (service_ppp_state_cb), plugin);
