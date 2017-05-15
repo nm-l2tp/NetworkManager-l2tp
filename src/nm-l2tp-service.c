@@ -394,7 +394,6 @@ typedef struct {
 	GPid pid_l2tpd;
 	gboolean ipsec_up;
 	gboolean use_cert;
-	guint32 ipsec_timeout_handler;
 	guint32 ppp_timeout_handler;
 	guint32 naddr;		/* We resolve GW addr before pass it to xl2tpd. network byte-order */
 	char *saddr;
@@ -781,20 +780,6 @@ nm_find_l2tpd (void)
 }
 
 static gboolean
-ipsec_timed_out (gpointer user_data)
-{
-	NML2tpPlugin *plugin = NM_L2TP_PLUGIN (user_data);
-	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
-
-	g_warning (_("Timeout trying to establish IPsec connection"));
-	nm_l2tp_stop_ipsec(priv);
-	nm_vpn_plugin_failure (NM_VPN_PLUGIN (plugin), NM_VPN_CONNECTION_STATE_REASON_SERVICE_START_TIMEOUT);
-
-
-	return FALSE;
-}
-
-static gboolean
 pppd_timed_out (gpointer user_data)
 {
 	NML2tpPlugin *plugin = NM_L2TP_PLUGIN (user_data);
@@ -970,8 +955,12 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
 	char cmdbuf[256];
 	char *output = NULL;
-	int sys = 0, retry;
+	int sys = 0, status, retry;
+	int msec;
 	gboolean rc = FALSE;
+	gchar *argv[5];
+	GPid pid_ipsec_up;
+	pid_t wpid;
 
 	if (priv->is_libreswan) {
 		snprintf (cmdbuf, sizeof(cmdbuf), "%s auto --status > /dev/null", priv->ipsec_binary_path);
@@ -1025,53 +1014,87 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 		}
 	}
 
+	/* spawn ipsec script asynchronously as it sometimes doesn't exit */
+	pid_ipsec_up = 0;
 	if (!sys) {
-		priv->ipsec_timeout_handler = g_timeout_add (NM_L2TP_WAIT_IPSEC, ipsec_timed_out, plugin);
 		if (priv->is_libreswan) {
 			snprintf (cmdbuf, sizeof(cmdbuf), "%s auto "
-					 " --conf "RUNDIR"/nm-l2tp-ipsec-%s.conf --verbose"
+					 " --config "RUNDIR"/nm-l2tp-ipsec-%s.conf --verbose"
 					 " --add '%s'", priv->ipsec_binary_path, priv->uuid, priv->uuid);
 			sys = system(cmdbuf);
 			if (!sys) {
-				snprintf(cmdbuf, sizeof(cmdbuf), "%s auto --up '%s'",
-						 priv->ipsec_binary_path, priv->uuid);
-				sys = system (cmdbuf);
-				if (!sys) {
-					rc = TRUE;
-					g_message (_("Libreswan ready for action."));
-				} else {
-					g_warning(_("Could not establish IPsec tunnel."));
-				}
-			} else {
-				g_warning(_("Could not establish IPsec tunnel."));
-			}
+				argv[0] = priv->ipsec_binary_path;
+				argv[1] = "auto";
+				argv[2] = "--up";
+				argv[3] = priv->uuid;
+				argv[4] = NULL;
 
-		} else {
-			snprintf (cmdbuf, sizeof(cmdbuf), "%s up '%s'", priv->ipsec_binary_path, priv->uuid);
-			sys = system (cmdbuf);
-			if (!sys) {
-				// Do not trust exit status of strongSwan 'ipsec up' command.
-				// explictly check if connection is established.
-				snprintf (cmdbuf, sizeof(cmdbuf), "%s status '%s'", priv->ipsec_binary_path, priv->uuid);
-				if (g_spawn_command_line_sync(cmdbuf, &output, NULL, NULL, NULL)) {
-					rc = output && strstr (output, "ESTABLISHED");
-					g_free (output);
-					if (rc) {
-						g_message (_("strongSwan ready for action."));
-					} else {
-						g_warning(_("Could not establish IPsec tunnel."));
-					}
+				if (!g_spawn_async (NULL, argv, NULL, G_SPAWN_DO_NOT_REAP_CHILD,
+					NULL, NULL, &pid_ipsec_up, NULL)) {
+					pid_ipsec_up = 0;
+				} else {
+					if (pid_ipsec_up)
+						g_message ("Spawned ipsec auto --up script with PID %d.", pid_ipsec_up);
 				}
+			}
+		} else {
+			argv[0] = priv->ipsec_binary_path;
+			argv[1] = "up";
+			argv[2] = priv->uuid;
+			argv[3] = NULL;
+
+			if (!g_spawn_async (NULL, argv, NULL, G_SPAWN_DO_NOT_REAP_CHILD,
+				 NULL, NULL, &pid_ipsec_up, NULL)) {
+				pid_ipsec_up = 0;
 			} else {
-				g_warning(_("Could not establish IPsec tunnel."));
+				if (pid_ipsec_up)
+					g_message ("Spawned ipsec up script with PID %d.", pid_ipsec_up);
 			}
 		}
-
-		g_source_remove (priv->ipsec_timeout_handler);
-		priv->ipsec_timeout_handler = 0;
-
 	} else {
-		g_warning(_("IPsec service is not ready."));
+		g_warning (_("IPsec service is not ready."));
+	}
+
+	if (pid_ipsec_up > 0) {
+		msec = 0;
+		do {
+			usleep (250000); /* 0.25 seconds */
+			msec += 250;     /* 250 ms == 0.25 seconds */
+			wpid = waitpid (pid_ipsec_up, &status, WNOHANG);
+		} while (wpid == 0 && msec < NM_L2TP_WAIT_IPSEC);
+
+		if (wpid <= 0) {
+			if (kill (pid_ipsec_up, 0) == 0) {
+				g_warning (_("Timeout trying to establish IPsec connection"));
+				g_message ("Terminating ipsec script with PID %d.", pid_ipsec_up);
+				kill (pid_ipsec_up, SIGKILL);
+				/* Reap child */
+				waitpid (pid_ipsec_up, NULL, 0);
+			}
+		} else if (wpid == pid_ipsec_up && WIFEXITED (status)) {
+			if (!WEXITSTATUS (status)) {
+				if (priv->is_libreswan) {
+					rc = TRUE;
+					g_message (_("Libreswan IPsec tunnel is up."));
+				} else {
+					/* Do not trust exit status of strongSwan 'ipsec up' command.
+					   explictly check if connection is established.
+					*/
+					snprintf (cmdbuf, sizeof(cmdbuf), "%s status '%s'", priv->ipsec_binary_path, priv->uuid);
+					if (g_spawn_command_line_sync(cmdbuf, &output, NULL, NULL, NULL)) {
+						rc = output && strstr (output, "ESTABLISHED");
+						g_free (output);
+						if (rc) {
+							g_message (_("strongSwan IPsec tunnel is up."));
+						}
+					}
+				}
+			}
+		}
+	}
+
+	if (!rc) {
+		g_warning(_("Could not establish IPsec tunnel."));
 	}
 
 	return rc;
