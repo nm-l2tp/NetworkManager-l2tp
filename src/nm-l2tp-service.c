@@ -159,7 +159,7 @@ check_include_ipsec_secrets (const char *path) {
 		if (line) {
 			g_strstrip (line);
 			if (g_str_has_prefix (line, "include "))
-				found = strstr (line, "ipsec.d/*.secrets") != 0;
+				found = strstr (line, "ipsec.d/*.secrets") != NULL;
 			g_free (line);
 		}
 	}
@@ -1121,9 +1121,9 @@ nm_l2tp_start_l2tpd_binary (NML2tpPlugin *plugin,
 	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup ("-c"));
 	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup_printf (RUNDIR"/nm-l2tp-xl2tpd-%s.conf", priv->uuid));
 	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup ("-C"));
-	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup_printf (RUNDIR"/nm-l2tp-xl2tp-control.%s", priv->uuid));
+	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup_printf (RUNDIR"nm-l2tp-xl2tpd-control-%s", priv->uuid));
 	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup ("-p"));
-	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup_printf (RUNDIR"/nm-xl2tpd-%s.pid", priv->uuid));
+	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup_printf (RUNDIR"/nm-l2tp-xl2tpd-%s.pid", priv->uuid));
 	g_ptr_array_add (l2tpd_argv, NULL);
 
 	if (!g_spawn_async (NULL, (char **) l2tpd_argv->pdata, NULL,
