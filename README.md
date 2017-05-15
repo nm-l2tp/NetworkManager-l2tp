@@ -40,6 +40,15 @@ directory that exists.
       --localstatedir=/var \
       --with-pppd-plugin-dir=/usr/lib64/pppd/2.4.7
 
+#### openSUSE (x86-64)
+
+    ./configure \
+      --disable-static --prefix=/usr \
+      --sysconfdir=/etc --libdir=/usr/lib64 \
+      --libexecdir=/usr/lib \
+      --localstatedir=/var \
+      --with-pppd-plugin-dir=/usr/lib64/pppd/2.4.7
+
 ## Debugging mode
 
 Issue the following on the command line :
@@ -51,3 +60,8 @@ Issue the following on the command line :
 #### Fedora and Red Hat Enterprise Linux
     sudo killall -TERM nm-l2tp-service
     sudo /usr/libexec/nm-l2tp-service --debug
+
+#### openSUSE
+    sudo killall -TERM nm-l2tp-service
+    sudo /usr/lib/nm-l2tp-service --debug
+
