@@ -974,21 +974,20 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	gboolean rc = FALSE;
 
 	if (priv->is_libreswan) {
-
 		snprintf (cmdbuf, sizeof(cmdbuf), "%s auto --status > /dev/null", priv->ipsec_binary_path);
 		sys = system (cmdbuf);
-		if (sys) {
-			snprintf (cmdbuf, sizeof(cmdbuf), "%s _stackmanager start", priv->ipsec_binary_path);
+		if (sys == 1) {
+			snprintf (cmdbuf, sizeof(cmdbuf), "%s start", priv->ipsec_binary_path);
 			sys = system (cmdbuf);
 			if (sys) {
-				return nm_l2tp_ipsec_error (error, "Could not load required IPsec kernel stack.");
+				return nm_l2tp_ipsec_error (error, "Could not start the ipsec service.");
 			}
-		}
-
-		snprintf (cmdbuf, sizeof(cmdbuf), "%s restart", priv->ipsec_binary_path);
-		sys = system (cmdbuf);
-		if (sys) {
-			return nm_l2tp_ipsec_error (error, "Could not restart the ipsec service.");
+		} else {
+			snprintf (cmdbuf, sizeof(cmdbuf), "%s restart", priv->ipsec_binary_path);
+			sys = system (cmdbuf);
+			if (sys) {
+				return nm_l2tp_ipsec_error (error, "Could not restart the ipsec service.");
+			}
 		}
 		/* wait for Libreswan to get ready before performing an up operation */
 		snprintf (cmdbuf, sizeof(cmdbuf), "%s auto --ready", priv->ipsec_binary_path);
@@ -998,12 +997,24 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 			sys = system (cmdbuf);
 		}
 	} else {
-		snprintf (cmdbuf, sizeof(cmdbuf), "%s restart "
-		                 " --conf "RUNDIR"/nm-l2tp-ipsec-%s.conf --debug",
-		                 priv->ipsec_binary_path, priv->uuid);
+		snprintf (cmdbuf, sizeof(cmdbuf), "%s status > /dev/null", priv->ipsec_binary_path);
 		sys = system (cmdbuf);
-		if (sys) {
-			return nm_l2tp_ipsec_error(error, "Could not restart the ipsec service.");
+		if (sys == 3) {
+			snprintf (cmdbuf, sizeof(cmdbuf), "%s start "
+				             " --conf "RUNDIR"/nm-l2tp-ipsec-%s.conf --debug",
+				             priv->ipsec_binary_path, priv->uuid);
+			sys = system (cmdbuf);
+			if (sys) {
+				return nm_l2tp_ipsec_error(error, "Could not start the ipsec service.");
+			}
+		} else {
+			snprintf (cmdbuf, sizeof(cmdbuf), "%s restart "
+				             " --conf "RUNDIR"/nm-l2tp-ipsec-%s.conf --debug",
+				             priv->ipsec_binary_path, priv->uuid);
+			sys = system (cmdbuf);
+			if (sys) {
+				return nm_l2tp_ipsec_error(error, "Could not restart the ipsec service.");
+			}
 		}
 		/* wait for strongSwan to get ready before performing an up operation  */
 		snprintf (cmdbuf, sizeof(cmdbuf), "%s rereadsecrets", priv->ipsec_binary_path);
