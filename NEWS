@@ -9,18 +9,16 @@ This is a new stable release of NetworkManager-l2tp.  Notable changes include:
   "leftprotoport=udp/l2tp" (which is equivalent to "leftprotoport=udp/1701") to
   the ipsec config file. This was done to ensures L2TP is encapsulated in IPsec
 * Uses UUID instead of PID for run-time generated filenames
+* No longer temporarily replaces stsem /etc/ipsec.secrets file
 * IPsec rekeying is now possible because the following file remains for the
-  life of the VPN connection :
+  lifetime of the VPN connection :
     /etc/ipsec.d/nm-l2tp-ipsec-UUID.secrets
-* Following two lines are added to /etc/ipsec.secrets if include line is
+* Following line is appended to /etc/ipsec.secrets if the include line is
   missing:
-    # Following line was added by NetworkManager-l2tp
     include /etc/ipsec.d/*.secrets
 * Removed IPsec Group Name from user interface
 * Added IPsec Phase 1 (ike) & Phase 2 (esp) to user interface
 * New timeout code for IPsec connection up script.
-  Asynchronously spawns IPsec connection up script then polls to determine
-  when or if it exits within a 10 second timeout
 
 =======================================================
 NetworkManager-l2tp-1.2.4
