@@ -764,29 +764,21 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		write_config_option (fd, 		"  auto=add\n"
 							"  type=transport\n");
 
-		write_config_option (fd,	"  authby=secret\n"
+		write_config_option (fd, 		"  authby=secret\n"
 							"  keyingtries=0\n"
 							"  left=%%defaultroute\n");
 		if (l2tp_port_is_free) {
 			write_config_option (fd, "  leftprotoport=udp/l2tp\n");
 		}
-		write_config_option (fd, "  rightprotoport=udp/l2tp\n");
+
 		write_config_option (fd, "  right=%s\n", priv->saddr);
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GATEWAY_ID);
 		if (value) {
-			if (priv->is_libreswan) {
-				if(inet_pton(AF_INET, value, &naddr)) {
-					write_config_option (fd, "  rightid=%s\n", value);
-				} else {
-					/* @ prefix prevents rightid being resolved to an IP address */
-					write_config_option (fd, "  rightid=@%s\n", value);
-				}
-			} else {
-				write_config_option (fd, "  rightid=%s\n", value);
-			}
+			write_config_option (fd, "  rightid=%s\n", value);
 		} else {
 			write_config_option (fd, "  rightid=%%any\n");
 		}
+		write_config_option (fd, "  rightprotoport=udp/l2tp\n");
 
 		if (priv->is_libreswan) {
 			write_config_option (fd, "  pfs=no\n");
