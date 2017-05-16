@@ -9,7 +9,8 @@ For IPsec support, it uses either of the following :
 * Libreswan ( https://libreswan.org )
 * strongSwan ( https://www.strongswan.org )
 
-For further package dependencies and known issues, please see the Wiki :
+For details on pre-built packages, known issues and build package dependencies,
+please visit the Wiki :
 * https://github.com/nm-l2tp/network-manager-l2tp/wiki
 
 ## Building
@@ -132,6 +133,4 @@ and for phase 2 (ESP), strongSwan 5.4.0 dropped :
     aes128-sha1,3des-sha1
 
 Older versions of NetworkManager-l2tp also used 3des-sha1-modp1024 for phase 1.
-
-
 
