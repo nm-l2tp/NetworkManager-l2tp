@@ -87,21 +87,22 @@ file which is most likely located under `/var/log/`.
 
 where _UUID_ is the NetworkManager UUID for the VPN connection.
 
-NetworkManager-l2tp will be appended the following line to `/etc/ipsec.secrets`
-at run-time if the line is missing:
+NetworkManager-l2tp will append the following line to `/etc/ipsec.secrets` at
+run-time if the line is missing:
+
     include /etc/ipsec.d/*.secrets
 
 The above file locations under `/var/run` assume `--localstatedir=/var`
 was supplied to the configure script at build time.
 
-#### User specified IPsec IKEv1 cipher suites
+## User specified IPsec IKEv1 cipher suites
 
 User specified phase 1 (ike) and phase 2 (esp) cipher suites that supplement
 the default strongSwan or Libreswan cipher suites can be specified in the
 IPsec configuration dialog box under Advanced options.
 
 For example if you have no control of the cipher suites the VPN server uses
-and you need to use the same ciphers (that are now most likely considered
+and you need to use the same ciphers (which are now most likely considered
 broken) that older versions of strongSwan and this VPN plugin used, enter the
 following in the corresponding IPsec configuration dialog text boxes:
 
@@ -115,7 +116,7 @@ Please see the following for more details on the `ike` (phase 1) and
 * https://libreswan.org/man/ipsec.conf.5.html
 
 The following has recommendations on algorithms that are considered broken in
-regards to security and advises against using :
+regards to security and advises against using them:
 * https://wiki.strongswan.org/projects/strongswan/wiki/SecurityRecommendations
 
 The current list of broken algorithms and Diffie Hellman groups can be found
