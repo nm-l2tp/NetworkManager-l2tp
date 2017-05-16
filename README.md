@@ -40,55 +40,14 @@ directory that exists.
       --localstatedir=/var \
       --with-pppd-plugin-dir=/usr/lib64/pppd/2.4.7
 
-## Running
+#### openSUSE (x86-64)
 
-#### L2TP with optional IPsec enabled
-
-Stop any xl2tpd service (or other l2tp daemon), this should allow
-NetworkManager-l2tp to start its own xl2tpd child process that needs UDP port
-1701 to be free.
-
-For Systemd based Linux distributions, issue the following to stop the xl2tpd
-service and disable it from starting at boot time:
-
-    sudo systemctl stop xl2tpd
-    sudo systemctl disable xl2tpd
-
-#### VPN servers using broken IPsec IKEv1 cipher suites
-
-The following has recommendations on algorithms that are broken in regards to
-security and advises not to use :
-* https://wiki.strongswan.org/projects/strongswan/wiki/SecurityRecommendations
-
-The current list of broken algorithms and Diffie Hellman groups can be found here :
-* https://wiki.strongswan.org/projects/strongswan/wiki/IKEv1CipherSuites
-
-strongSwan 5.4.0 dropped the following phase 1 (IKE) cipher suites as defaults:
-
-    aes128-sha1-modp2048,3des-sha1-modp1536
-
-and for phase 2 (ESP), strongSwan 5.4.0 dropped :
-
-    aes128-sha1,3des-sha1
-
-Older versions of NetworkManager-l2tp also used 3des-sha1-modp1024 for phase 1.
-
-User specified phase 1 (ike) and phase 2 (esp) cipher suites that supplement
-the default strongSwan or Libreswan cipher suites can be specified in the
-IPsec configuration dialog box under Advanced options.
-
-For example if you have no control of the cipher suites the VPN server uses
-and you need to use the ones the older versions of this VPN plugin used, enter
-the following in the corresponding IPsec configuration dialog text boxes:
-
-* Phase1 Algorithms : aes128-sha1-modp2048,3des-sha1-modp1536,3des-sha1-modp1024
-* Phase2 Algorithms : aes128-sha1,3des-sha1
-
-Please see the following for more details on the `ike` (phase 1) and
-`esp` (phase2alg) directives, including the syntax:
-
-* https://wiki.strongswan.org/projects/strongswan/wiki/ConnSection
-* https://libreswan.org/man/ipsec.conf.5.html
+    ./configure \
+      --disable-static --prefix=/usr \
+      --sysconfdir=/etc --libdir=/usr/lib64 \
+      --libexecdir=/usr/lib \
+      --localstatedir=/var \
+      --with-pppd-plugin-dir=/usr/lib64/pppd/2.4.7
 
 ## Debugging
 
@@ -103,6 +62,10 @@ debugging :
     sudo killall -TERM nm-l2tp-service
     sudo /usr/libexec/nm-l2tp-service --debug
 
+#### openSUSE
+    sudo killall -TERM nm-l2tp-service
+    sudo /usr/lib/nm-l2tp-service --debug
+
 then start your VPN connection and reproduce the problem.
 
 NetworkManager and pppd logging goes to the Systemd journal which can be viewed
@@ -112,4 +75,62 @@ by issuing the following which will show the logs since the last boot:
 
 For non-Systemd based Linux distributions, view the appropriate system log
 file which is most likely located under `/var/log/`.
+
+## Run-time generated files
+
+* /var/run/nm-l2tp-xl2tpd-_UUID_.conf
+* /var/run/nm-l2tp-ppp-options-_UUID_
+* /var/run/nm-l2tp-xl2tpd-control-_UUID_
+* /var/run/nm-l2tp-xl2tpd-_UUID_.pid
+* /var/run/nm-l2tp-ipsec-_UUID_.conf
+* /etc/ipsec.d/nm-l2tp-ipsec-_UUID_.secrets
+
+where _UUID_ is the NetworkManager UUID for the VPN connection.
+
+NetworkManager-l2tp will be appended the following line to `/etc/ipsec.secrets`
+at run-time if the line is missing:
+    include /etc/ipsec.d/*.secrets
+
+The above file locations under `/var/run` assume `--localstatedir=/var`
+was supplied to the configure script at build time.
+
+#### User specified IPsec IKEv1 cipher suites
+
+User specified phase 1 (ike) and phase 2 (esp) cipher suites that supplement
+the default strongSwan or Libreswan cipher suites can be specified in the
+IPsec configuration dialog box under Advanced options.
+
+For example if you have no control of the cipher suites the VPN server uses
+and you need to use the same ciphers (that are now most likely considered
+broken) that older versions of strongSwan and this VPN plugin used, enter the
+following in the corresponding IPsec configuration dialog text boxes:
+
+* Phase1 Algorithms : aes128-sha1-modp2048,3des-sha1-modp1536,3des-sha1-modp1024
+* Phase2 Algorithms : aes128-sha1,3des-sha1
+
+Please see the following for more details on the `ike` (phase 1) and
+`esp` (phase2alg) directives, including the syntax:
+
+* https://wiki.strongswan.org/projects/strongswan/wiki/ConnSection
+* https://libreswan.org/man/ipsec.conf.5.html
+
+The following has recommendations on algorithms that are considered broken in
+regards to security and advises against using :
+* https://wiki.strongswan.org/projects/strongswan/wiki/SecurityRecommendations
+
+The current list of broken algorithms and Diffie Hellman groups can be found
+here :
+* https://wiki.strongswan.org/projects/strongswan/wiki/IKEv1CipherSuites
+
+strongSwan 5.4.0 dropped the following phase 1 (IKE) cipher suites as defaults:
+
+    aes128-sha1-modp2048,3des-sha1-modp1536
+
+and for phase 2 (ESP), strongSwan 5.4.0 dropped :
+
+    aes128-sha1,3des-sha1
+
+Older versions of NetworkManager-l2tp also used 3des-sha1-modp1024 for phase 1.
+
+
 
