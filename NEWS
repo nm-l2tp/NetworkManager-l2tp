@@ -9,7 +9,7 @@ This is a new stable release of NetworkManager-l2tp.  Notable changes include:
   "leftprotoport=udp/l2tp" (which is equivalent to "leftprotoport=udp/1701") to
   the ipsec config file. This was done to ensures L2TP is encapsulated in IPsec
 * Uses UUID instead of PID for run-time generated filenames
-* No longer temporarily replaces stsem /etc/ipsec.secrets file
+* No longer temporarily replaces system /etc/ipsec.secrets file
 * IPsec rekeying is now possible because the following file remains for the
   lifetime of the VPN connection :
     /etc/ipsec.d/nm-l2tp-ipsec-UUID.secrets

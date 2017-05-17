@@ -93,7 +93,7 @@ run-time if the line is missing:
 
     include /etc/ipsec.d/*.secrets
 
-The above files located under `/var/run` assume `--localstatedir=/var`was
+The above files located under `/var/run` assume `--localstatedir=/var` was
 supplied to the configure script at build time.
 
 ## User specified IPsec IKEv1 cipher suites
