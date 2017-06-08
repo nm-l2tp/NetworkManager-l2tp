@@ -189,9 +189,11 @@ ipsec_dialog_new (GHashTable *hash)
 		gtk_entry_set_text(GTK_ENTRY(widget), value);
 
 	value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_FORCEENCAPS);
-	if (value && !strcmp (value, "yes")) {
-		widget = GTK_WIDGET (gtk_builder_get_object (builder, "forceencaps_enable"));
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "forceencaps_enable"));
+	if (value && strcmp (value, "yes")) {
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), TRUE);
+	} else {
+		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), FALSE);
 	}
 
 out:
