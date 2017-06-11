@@ -37,7 +37,7 @@ AC_DEFUN([NM_COMPILER_WARNING], [
 AC_DEFUN([NM_COMPILER_WARNINGS],
 [AC_ARG_ENABLE(more-warnings,
 	AS_HELP_STRING([--enable-more-warnings], [Possible values: no/yes/error]),
-	set_more_warnings="$enableval",set_more_warnings=yes)
+	set_more_warnings="$enableval",set_more_warnings=$1)
 AC_MSG_CHECKING(for more warnings)
 if test "$GCC" = "yes" -a "$set_more_warnings" != "no"; then
 	AC_MSG_RESULT(yes)
@@ -55,22 +55,37 @@ if test "$GCC" = "yes" -a "$set_more_warnings" != "no"; then
 	dnl attach it to the CFLAGS.
 	NM_COMPILER_WARNING([unknown-warning-option], [])
 
-	CFLAGS_MORE_WARNINGS="-Wall -std=gnu89"
+	CFLAGS_MORE_WARNINGS="-Wall -std=gnu99"
 
 	if test "x$set_more_warnings" = xerror; then
 		CFLAGS_MORE_WARNINGS="$CFLAGS_MORE_WARNINGS -Werror"
 	fi
 
-	for option in -Wshadow -Wmissing-declarations -Wmissing-prototypes \
-		      -Wdeclaration-after-statement -Wformat-security \
-		      -Wfloat-equal -Wno-unused-parameter -Wno-sign-compare \
-		      -Wno-duplicate-decl-specifier \
+	for option in \
+		      -Wextra \
+		      -Wdeclaration-after-statement \
+		      -Wfloat-equal \
+		      -Wformat-nonliteral \
+		      -Wformat-security \
+		      -Wimplicit-fallthrough \
+		      -Wimplicit-function-declaration \
+		      -Winit-self \
+		      -Wmissing-declarations \
+		      -Wmissing-include-dirs \
+		      -Wmissing-prototypes \
+		      -Wpointer-arith \
+		      -Wshadow \
 		      -Wstrict-prototypes \
-		      -Wno-unused-but-set-variable \
+		      -Wundef \
+		      -Wno-duplicate-decl-specifier \
+		      -Wno-format-truncation \
 		      -Wno-format-y2k \
-		      -Wundef -Wimplicit-function-declaration \
-		      -Wpointer-arith -Winit-self -Wformat-nonliteral \
-		      -Wmissing-include-dirs -Wno-pragmas; do
+		      -Wno-missing-field-initializers \
+		      -Wno-pragmas \
+		      -Wno-sign-compare \
+		      -Wno-unused-but-set-variable \
+		      -Wno-unused-parameter \
+		      ; do
 		dnl GCC 4.4 does not warn when checking for -Wno-* flags (https://gcc.gnu.org/wiki/FAQ#wnowarning)
                 _NM_COMPILER_FLAG([$(printf '%s' "$option" | sed 's/^-Wno-/-W/')], [],
 		                  [CFLAGS_MORE_WARNINGS="$CFLAGS_MORE_WARNINGS $option"], [])
@@ -109,3 +124,35 @@ else
 	AC_MSG_RESULT(no)
 fi
 ])
+
+AC_DEFUN([NM_LTO],
+[AC_ARG_ENABLE(lto, AS_HELP_STRING([--enable-lto], [Enable Link Time Optimization for smaller size (default: no)]))
+if (test "${enable_lto}" = "yes"); then
+	CC_CHECK_FLAG_APPEND([lto_flags], [CFLAGS], [-flto])
+	if (test -n "${lto_flags}"); then
+		CFLAGS="-flto $CFLAGS"
+	else
+		AC_MSG_ERROR([Link Time Optimization -flto is not supported.])
+	fi
+else
+	enable_lto='no'
+fi
+])
+
+AC_DEFUN([NM_LD_GC],
+[AC_ARG_ENABLE(ld-gc, AS_HELP_STRING([--enable-ld-gc], [Enable garbage collection of unused symbols on linking (default: auto)]))
+if (test "${enable_ld_gc}" != "no"); then
+	CC_CHECK_FLAG_APPEND([ld_gc_flags], [CFLAGS], [-fdata-sections -ffunction-sections -Wl,--gc-sections])
+	if (test -n "${ld_gc_flags}"); then
+		enable_ld_gc="yes"
+		CFLAGS="$ld_gc_flags $CFLAGS"
+	else
+		if (test "${enable_ld_gc}" = "yes"); then
+			AC_MSG_ERROR([Unused symbol eviction requested but not supported.])
+		else
+			enable_ld_gc="no"
+		fi
+	fi
+fi
+])
+
