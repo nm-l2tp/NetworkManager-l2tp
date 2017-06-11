@@ -928,7 +928,7 @@ nm_l2tp_stop_ipsec (NML2tpPluginPrivate *priv)
 			return;
 		}
 	} else {
-		snprintf (cmdbuf, sizeof(cmdbuf), "%s down %s", priv->ipsec_binary_path, priv->uuid);
+		snprintf (cmdbuf, sizeof(cmdbuf), "%s stop", priv->ipsec_binary_path);
 		sys = system (cmdbuf);
 	}
 
@@ -1082,6 +1082,10 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	}
 
 	if (!rc) {
+		if (!priv->is_libreswan) {
+			snprintf (cmdbuf, sizeof(cmdbuf), "%s stop", priv->ipsec_binary_path);
+			sys = system (cmdbuf);
+		}
 		g_warning(_("Could not establish IPsec tunnel."));
 	}
 
