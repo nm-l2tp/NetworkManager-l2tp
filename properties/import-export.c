@@ -213,13 +213,8 @@ import_ip4 (GKeyFile *keyfile, NMSettingIP4Config *s_ip4, GError **error)
 			struct in_addr addr;
 			if (!inet_aton (dnses[i], &addr)){
 				ip4_import_error (error,
-<<<<<<< HEAD
-				                  _("Property '%s' value '%s' can't be parsed as ip adress."),
-				                  NM_SETTING_IP4_CONFIG_DNS,
-=======
 				                  _("Property '%s' value '%s' can't be parsed as IP address."),
-				                  NM_SETTING_IP_CONFIG_DNS,
->>>>>>> d74f208... all: fix Debian Lintian spelling-error-in-binary report
+				                  NM_SETTING_IP4_CONFIG_DNS,
 				                  dnses[i]);
 				g_strfreev (dnses);
 				return FALSE;
