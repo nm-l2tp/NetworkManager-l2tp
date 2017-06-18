@@ -109,7 +109,7 @@ msgstr ""
 #: ../properties/import-export.c:210 ../properties/import-export.c:267
 #: ../properties/import-export.c:309
 #, c-format
-msgid "Property '%s' value '%s' can't be parsed as ip adress."
+msgid "Property '%s' value '%s' can't be parsed as IP address."
 msgstr ""
 
 #: ../properties/import-export.c:256

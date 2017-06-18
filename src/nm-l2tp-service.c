@@ -1642,7 +1642,7 @@ real_connect (NMVPNPlugin   *plugin,
 
 	uuid = nm_connection_get_uuid (priv->connection);
 	if (!(uuid && *uuid)) {
-		return nm_l2tp_ipsec_error(error, "could not retrive connection UUID");
+		return nm_l2tp_ipsec_error(error, "could not retrieve connection UUID");
 	}
 
 	g_free (priv->uuid);
