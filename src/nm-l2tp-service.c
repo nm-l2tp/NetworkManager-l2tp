@@ -1265,8 +1265,9 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 				return nm_l2tp_ipsec_error(error, errorbuf);
 			}
 			fp = fdopen(fd, "a");
-			fprintf(fp, "\n# Following line was added by NetworkManager-l2tp\n");
-			fprintf(fp, "include %s/*.secrets\n",ipsec_d);
+			fprintf(fp, "\n");
+			fprintf(fp, _("# Following line was added by NetworkManager-l2tp"));
+			fprintf(fp, "\ninclude %s/*.secrets\n",ipsec_d);
 			fclose(fp);
 			close(fd);
 		}
@@ -1276,7 +1277,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		g_free (filename);
 		if (fd == -1) {
 			snprintf (errorbuf, sizeof(errorbuf),
-					  "Could not write %s/nm-l2tp-ipsec-%s.secrets",
+					  _("Could not write %s/nm-l2tp-ipsec-%s.secrets"),
 					  ipsec_d, priv->uuid);
 			return nm_l2tp_ipsec_error(error, errorbuf);
 		}
