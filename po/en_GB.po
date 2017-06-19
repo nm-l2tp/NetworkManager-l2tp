@@ -114,8 +114,8 @@ msgstr "Property '%s' value '%s' couldn't find netmask."
 
 #: ../properties/import-export.c:285
 #, c-format
-msgid "Property '%s' value '%s' can't be parsed as ip netmask."
-msgstr "Property '%s' value '%s' can't be parsed as ip netmask."
+msgid "Property '%s' value '%s' can't be parsed as IP netmask."
+msgstr "Property '%s' value '%s' can't be parsed as IP netmask."
 
 #: ../properties/import-export.c:330
 #, c-format

@@ -118,7 +118,7 @@ msgstr "Не могу найти сетевую маску у параметра
 
 #: ../properties/import-export.c:285
 #, c-format
-msgid "Property '%s' value '%s' can't be parsed as ip netmask."
+msgid "Property '%s' value '%s' can't be parsed as IP netmask."
 msgstr ""
 "Не могу преобразовать параметр '%s' со значением '%s' как сетевую маску IP."
 

@@ -113,7 +113,7 @@ msgstr "属性 '%s' 的值 '%s' 无法找到网络掩码"
 
 #: ../properties/import-export.c:285
 #, c-format
-msgid "Property '%s' value '%s' can't be parsed as ip netmask."
+msgid "Property '%s' value '%s' can't be parsed as IP netmask."
 msgstr "属性 '%s' 的值 '%s' 无法解析成 IP 网络掩码"
 
 #: ../properties/import-export.c:330

@@ -282,7 +282,7 @@ import_ip4 (GKeyFile *keyfile, NMSettingIPConfig *s_ip4, GError **error)
 			prefix = strtol (prefix_s, NULL, 10);
 			if (errno != 0 || prefix <=0 || prefix > 32){
 				ip4_route_import_error (error,
-				                        _("Property '%s' value '%s' can't be parsed as ip netmask."),
+				                        _("Property '%s' value '%s' can't be parsed as IP netmask."),
 				                        prefix_s,
 				                        routes);
 				return FALSE;
