@@ -1,0 +1,1038 @@
+# Catalan translation of NetworkManager-l2tp
+# Copyright © 2005 The Free Software Foundation, Inc.
+# This file is distributed under the same license as the
+#   NetworkManager-l2tp package.
+# Gil Forcada <gilforcada@guifi.net>, 2006, 2007.
+# David Planella <david.planella@gmail.com>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: NetworkManager-l2tp\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-06-19 22:46+1000\n"
+"PO-Revision-Date: 2009-01-14 22:33+0100\n"
+"Last-Translator: David Planella <david.planella@gmail.com>\n"
+"Language-Team: Catalan <tradgnome@softcatala.org>\n"
+"Language: ca@valencia\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
+#, fuzzy
+msgid "L2TP VPN Client"
+msgstr "Client L2TP"
+
+#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:2
+msgid "Client for L2TP based virtual private networks"
+msgstr ""
+
+#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:3
+msgid "Support for configuring L2TP based virtual private network connections."
+msgstr ""
+
+#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:4
+#, fuzzy
+msgid "Compatible with L2TP and L2TP over IPsec services."
+msgstr "Compatible amb els servidors L2TP VPN de Microsoft i d'altres."
+
+#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:5
+#, fuzzy
+msgid "The PPP options dialog"
+msgstr "Opcions PPP personalitzables"
+
+#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:6
+msgid "The NetworkManager-L2TP Developers"
+msgstr ""
+
+#. Otherwise, we have no saved password, or the password flags indicated
+#. * that the password should never be saved.
+#.
+#: ../auth-dialog/main.c:146
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network '%s'."
+msgstr ""
+"Cal que vos autentiqueu per a poder accedir a la xarxa privada virtual «%s»."
+
+#: ../auth-dialog/main.c:155 ../auth-dialog/main.c:175
+msgid "Authenticate VPN"
+msgstr "Autentica la VPN"
+
+#: ../auth-dialog/main.c:157 ../properties/nm-l2tp-dialog.ui.h:25
+msgid "Password:"
+msgstr "Contrasenya:"
+
+#: ../properties/advanced-dialog.c:172
+msgid "All Available (Default)"
+msgstr "Tots els disponibles (predeterminat)"
+
+#: ../properties/advanced-dialog.c:176
+msgid "128-bit (most secure)"
+msgstr "128-bits (el més segur)"
+
+#: ../properties/advanced-dialog.c:185
+msgid "40-bit (less secure)"
+msgstr "40-bits (menys segur)"
+
+#: ../properties/advanced-dialog.c:289
+msgid "PAP"
+msgstr "PAP"
+
+#: ../properties/advanced-dialog.c:302
+msgid "CHAP"
+msgstr "CHAP"
+
+#: ../properties/advanced-dialog.c:314
+msgid "MSCHAP"
+msgstr "MSCHAP"
+
+#: ../properties/advanced-dialog.c:326
+msgid "MSCHAPv2"
+msgstr "MSCHAP v2"
+
+#: ../properties/advanced-dialog.c:339
+msgid "EAP"
+msgstr "EAP"
+
+#: ../properties/import-export.c:162 ../properties/import-export.c:432
+#, c-format
+msgid "Required property %s missing"
+msgstr ""
+
+#: ../properties/import-export.c:183
+#, c-format
+msgid "Property %s value '%s' can't be parsed as boolean."
+msgstr ""
+
+#: ../properties/import-export.c:207 ../properties/import-export.c:268
+#: ../properties/import-export.c:306
+#, c-format
+msgid "Property '%s' value '%s' can't be parsed as IP address."
+msgstr ""
+
+#: ../properties/import-export.c:258
+#, c-format
+msgid "Property '%s' value '%s' couldn't find netmask."
+msgstr ""
+
+#: ../properties/import-export.c:285
+#, c-format
+msgid "Property '%s' value '%s' can't be parsed as IP netmask."
+msgstr ""
+
+#: ../properties/import-export.c:330
+#, c-format
+msgid "Property '%s' value '%s' can't be parsed as route metric."
+msgstr ""
+
+#: ../properties/import-export.c:340
+#, c-format
+msgid "Error parsing property '%s' value '%s'."
+msgstr ""
+
+#: ../properties/import-export.c:362
+#, c-format
+msgid "Error parsing property '%s': %s."
+msgstr ""
+
+#: ../properties/import-export.c:397
+#, c-format
+msgid "does not look like a L2TP VPN connection (parse failed)"
+msgstr ""
+
+#: ../properties/import-export.c:450
+#, c-format
+msgid "Property %s can't be parsed as integer."
+msgstr ""
+
+#: ../properties/import-export.c:467
+#, c-format
+msgid ""
+"Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."
+msgstr ""
+
+#: ../properties/import-export.c:698
+#, c-format
+msgid "Missing required property '%s'"
+msgstr ""
+
+#: ../properties/import-export.c:728
+#, c-format
+msgid "Couldn't open file for writing."
+msgstr ""
+
+#: ../properties/nm-l2tp-editor-plugin.c:36
+#, fuzzy
+msgid "Layer 2 Tunneling Protocol (L2TP)"
+msgstr "Protocol de túnel punt a punt (L2TP)"
+
+#: ../properties/nm-l2tp-editor-plugin.c:37
+#, fuzzy
+msgid "Compatible with Microsoft and other L2TP VPN servers."
+msgstr "Compatible amb els servidors L2TP VPN de Microsoft i d'altres."
+
+#: ../properties/nm-l2tp-editor.c:146
+#, c-format
+msgid "%s: error reading advanced settings: %s"
+msgstr ""
+
+#: ../properties/nm-l2tp-editor.c:170
+#, c-format
+msgid "%s: error reading ipsec settings: %s"
+msgstr ""
+
+#: ../properties/nm-l2tp-editor.c:190
+#, c-format
+msgid "%s: failed to create the Advanced dialog!"
+msgstr ""
+
+#: ../properties/nm-l2tp-editor.c:219
+#, c-format
+msgid "%s: failed to create the IPsec dialog!"
+msgstr ""
+
+#: ../properties/nm-l2tp-editor.c:525
+#, c-format
+msgid "could not create l2tp object"
+msgstr ""
+
+#: ../properties/nm-l2tp-editor.c:537
+#, c-format
+msgid "Couldn't load builder file: %s"
+msgstr ""
+
+#: ../properties/nm-l2tp-editor.c:541
+#, c-format
+msgid "could not load required resources at %s"
+msgstr ""
+
+#: ../properties/nm-l2tp-editor.c:551
+#, c-format
+msgid "could not load UI widget"
+msgstr ""
+
+#: ../shared/nm-utils/nm-shared-utils.c:185
+#, c-format
+msgid "object class '%s' has no property named '%s'"
+msgstr ""
+
+#: ../shared/nm-utils/nm-shared-utils.c:192
+#, c-format
+msgid "property '%s' of object class '%s' is not writable"
+msgstr ""
+
+#: ../shared/nm-utils/nm-shared-utils.c:199
+#, c-format
+msgid ""
+"construct property \"%s\" for object '%s' can't be set after construction"
+msgstr ""
+
+#: ../shared/nm-utils/nm-shared-utils.c:207
+#, c-format
+msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
+msgstr ""
+
+#: ../shared/nm-utils/nm-shared-utils.c:216
+#, c-format
+msgid "unable to set property '%s' of type '%s' from value of type '%s'"
+msgstr ""
+
+#: ../shared/nm-utils/nm-shared-utils.c:227
+#, c-format
+msgid ""
+"value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
+"type '%s'"
+msgstr ""
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:80
+#, c-format
+msgid "missing plugin file \"%s\""
+msgstr ""
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:86
+#, c-format
+msgid "cannot load editor plugin: %s"
+msgstr ""
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:95
+#, c-format
+msgid "cannot load factory %s from plugin: %s"
+msgstr ""
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:121
+msgid "unknown error creating editor instance"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:306
+#, c-format
+msgid "invalid gateway '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:315
+#, c-format
+msgid "invalid ipsec-gateway-id '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:328
+#, c-format
+msgid "invalid integer property '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:338
+#, c-format
+msgid "invalid boolean property '%s' (not yes or no)"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:345
+#, c-format
+msgid "unhandled property '%s' type %s"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:356
+#, c-format
+msgid "property '%s' invalid or not supported"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:374
+msgid "No VPN configuration options."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:394
+#, c-format
+msgid "Missing required option '%s'."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:414
+msgid "No VPN secrets!"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:720
+#, c-format
+msgid "# Following line was added by NetworkManager-l2tp"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:731
+#, c-format
+msgid "Could not write %s/nm-l2tp-ipsec-%s.secrets"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1224
+msgid "Missing VPN username."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1233
+msgid "Missing or invalid VPN password."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1678
+msgid "Don't quit when VPN connection terminates"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1679
+msgid "Enable verbose debug logging (may expose passwords)"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1680
+msgid "D-Bus name to use for this instance"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1701
+msgid ""
+"nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
+"NetworkManager."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:1
+#, fuzzy
+msgid "L2TP IPsec Options"
+msgstr "Opcions PPP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:2
+msgid "_Enable IPsec tunnel to L2TP host"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:3
+#, fuzzy
+msgid "General"
+msgstr "<b>General</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:4
+#, fuzzy
+msgid "Gateway ID:"
+msgstr "_Pasarel·la:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:5
+msgid ""
+"IP address.\n"
+"Optional, how the IPsec server should be identified for authentication.\n"
+"config: ipsec rightid\n"
+"ipsec.secrets: ID"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:9
+msgid "Pre-shared key:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:10
+msgid "Phase2 Algorithms:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:11
+msgid "Phase1 Algorithms:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:12
+msgid "_Enforce UDP encapsulation"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:13
+#, fuzzy
+msgid "Ad_vanced"
+msgstr "A_vançat..."
+
+#: ../properties/nm-l2tp-dialog.ui.h:14
+msgid "_Gateway:"
+msgstr "_Pasarel·la:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:15
+msgid ""
+"L2TP server IP or name.\n"
+"config: xl2tpd lns parameter"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:17
+#, fuzzy
+msgid "Optional"
+msgstr "<b>Opcional</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:18
+msgid ""
+"Append the domain name <domain> to the local host name for authentication "
+"purposes.\n"
+"config: domain <domain>"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:20
+msgid "Show password"
+msgstr "Mostra la contrasenya"
+
+#: ../properties/nm-l2tp-dialog.ui.h:21
+msgid "Password passed to PPPD when prompted for it."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:22
+msgid ""
+"Set the name used for authenticating the local system to the peer to "
+"<name>.\n"
+"config: xl2tpd name parameter"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:24
+msgid "User name:"
+msgstr "Nom d'usuari:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:26
+msgid "NT Domain:"
+msgstr "Domini NT:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:27
+msgid "_IPsec Settings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:28
+msgid "PPP Se_ttings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:29
+msgid "Default"
+msgstr "Predeterminat"
+
+#: ../properties/nm-l2tp-dialog.ui.h:30
+#, fuzzy
+msgid "L2TP PPP Options"
+msgstr "Opcions PPP personalitzables"
+
+#: ../properties/nm-l2tp-dialog.ui.h:31
+#, fuzzy
+msgid "Authentication"
+msgstr "Tipus d'autenticació:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:32
+msgid "Allow the following authentication methods:"
+msgstr "Permet els mètodes d'autenticació següents:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:33
+msgid ""
+"Allow/disable authentication methods.\n"
+"config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:35
+#, fuzzy
+msgid "Security and Compression"
+msgstr "<b>Seguretat i compressió</b>"
+
+#: ../properties/nm-l2tp-dialog.ui.h:36
+msgid "Use _Point-to-Point encryption (MPPE)"
+msgstr "Utilitza el xifratge _punt a punt (MPPE)"
+
+#: ../properties/nm-l2tp-dialog.ui.h:37
+msgid ""
+"Note: MPPE encryption is only available with MSCHAP authentication methods. "
+"To enable this checkbox, select one or more of the MSCHAP authentication "
+"methods: MSCHAP or MSCHAPv2."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:38
+msgid "_Security:"
+msgstr "_Seguretat"
+
+#: ../properties/nm-l2tp-dialog.ui.h:39
+msgid ""
+"Require the use of MPPE, with 40/128-bit encryption or all.\n"
+"config: require-mppe, require-mppe-128 or require-mppe-40"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:41
+msgid "Allow st_ateful encryption"
+msgstr "Permet el xifratge d'_estats"
+
+#: ../properties/nm-l2tp-dialog.ui.h:42
+msgid ""
+"Allow MPPE to use stateful mode. Stateless mode is still attempted first.\n"
+"config: mppe-stateful (when checked)"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:44
+msgid "Allow _BSD data compression"
+msgstr "Permet la compressió de dades _BSD"
+
+#: ../properties/nm-l2tp-dialog.ui.h:45
+msgid ""
+"Allow/disable BSD-Compress compression.\n"
+"config: nobsdcomp (when unchecked)"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:47
+msgid "Allow _Deflate data compression"
+msgstr "Permet la compressió de dades _deflate"
+
+#: ../properties/nm-l2tp-dialog.ui.h:48
+msgid ""
+"Allow/disable Deflate compression.\n"
+"config: nodeflate (when unchecked)"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:50
+msgid "Use TCP _header compression"
+msgstr "Utilitza compressió de les capçaleres _TCP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:51
+msgid ""
+"Allow/disable Van Jacobson style TCP/IP header compression in both the "
+"transmit and the receive directions.\n"
+"config: novj (when unchecked)"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:53
+msgid "Use protocol _field compression negotiation"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:54
+msgid ""
+"Allow protocol field compression negotiation in both the receive and the "
+"transmit direction.\n"
+"config: nopcomp (when unchecked)"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:56
+#, fuzzy
+msgid "Use _Address/Control compression"
+msgstr "Utilitza compressió de les capçaleres _TCP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:57
+msgid ""
+"Use Address/Control compression in both directions (send and receive).\n"
+"config: noaccomp (when unchecked)"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:59
+msgid "Echo"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:60
+msgid "Send PPP _echo packets"
+msgstr "Envia paquets d'_eco PPP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:61
+msgid ""
+"Send LCP echo-requests to find out whether peer is alive.\n"
+"config: lcp-echo-failure and lcp-echo-interval"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:63
+msgid "Misc"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:64
+msgid "MTU :"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:65
+msgid "MRU :"
+msgstr ""
+
+#~ msgid "_Secondary Password:"
+#~ msgstr "Contrasenya _secundària:"
+
+#~ msgid "_Username:"
+#~ msgstr "Nom d'_usuari:"
+
+#~ msgid "_Domain:"
+#~ msgstr "_Domini:"
+
+#~ msgid "_Password:"
+#~ msgstr "_Contrasenya:"
+
+#~ msgid "Connect _anonymously"
+#~ msgstr "Connecta _anònimament"
+
+#~ msgid "Connect as _user:"
+#~ msgstr "Connecta com a _usuari:"
+
+#~ msgid "_Remember passwords for this session"
+#~ msgstr "_Recorda les contrasenyes durant esta sessió"
+
+#~ msgid "_Save passwords in keyring"
+#~ msgstr "Al_ça les contrasenyes a l'anell de claus"
+
+#~ msgid "Add, Remove, and Edit L2TP VPN Connections"
+#~ msgstr "Afegiu, suprimiu i editeu connexions VPN L2TP"
+
+#~ msgid "L2TP VPN Connection Manager"
+#~ msgstr "Gestor de connexions VPN L2TP"
+
+#~ msgid "<b>Authentication</b>"
+#~ msgstr "<b>Autenticació</b>"
+
+#~ msgid "<b>Echo</b>"
+#~ msgstr "<b>Eco</b>"
+
+#~ msgid "_Remember for this session"
+#~ msgstr "_Recorda-la per aquesta sessió"
+
+#~ msgid "_Save in keyring"
+#~ msgstr "_Desa-la a l'anell de claus"
+
+#~ msgid "Authenticate Connection"
+#~ msgstr "Autentica la connexió"
+
+#~ msgid ""
+#~ "<span weight=\"bold\" size=\"larger\">Authentication Information</span>\n"
+#~ "\n"
+#~ "The connection '%s' may need some form of authentication.\n"
+#~ "\n"
+#~ "Please select an appropriate authentication type and provide the "
+#~ "necessary credentials below:\n"
+#~ msgstr ""
+#~ "<span weight=\"bold\" size=\"larger\">Informació d'autenticació</span>\n"
+#~ "\n"
+#~ "La connexió «%s» potser necessita alguna forma d'autenticació.\n"
+#~ "\n"
+#~ "Seleccioneu un tipus d'autenticació apropiada i proporcioneu les "
+#~ "credencials necessàries aquí sota:\n"
+
+#~ msgid "Authentication Required"
+#~ msgstr "Es requereix autenticació"
+
+#~ msgid "_Authentication Type:"
+#~ msgstr "Tipus d'_autenticació:"
+
+#~ msgid "_Remote name:"
+#~ msgstr "Nom _remot:"
+
+#~ msgid "VPN Connection Manager (PPP generic)"
+#~ msgstr "Gestor de connexions VPN (PPP genèric)"
+
+#~ msgid "00:00:00:00"
+#~ msgstr "00:00:00:00"
+
+#~ msgid "<b>Delays &amp; Timeouts</b>"
+#~ msgstr "<b>Retards i temps d'espera</b>"
+
+#~ msgid "<b>Packet Parameters</b>"
+#~ msgstr "<b>Paràmetres dels paquets</b>"
+
+#~ msgid "<i>Example: 172.16.0.0/16 10.11.12.0/24</i>"
+#~ msgstr "<i>Exemple: 172.16.0.0/16 10.11.12.0/24</i>"
+
+#~ msgid ""
+#~ "A list of extra options to pppd as would be typed on the command line"
+#~ msgstr ""
+#~ "Una llista d'opcions extra per al pppd, com si s'haguessin escrit a la "
+#~ "línia d'ordres"
+
+#~ msgid "Allow B_SD Compression"
+#~ msgstr "Permet la compressió B_SD"
+
+#~ msgid "C_hannel:"
+#~ msgstr "_Canal:"
+
+#~ msgid "Co_nnect delay:"
+#~ msgstr "Retard de co_nnexió:"
+
+#~ msgid "Compression & Encryption"
+#~ msgstr "Compressió i xifratge"
+
+#~ msgid "Connection"
+#~ msgstr "Connexió"
+
+#~ msgid "Connection na_me:"
+#~ msgstr "No_m de la connexió:"
+
+#~ msgid "Context _number:"
+#~ msgstr "_Número de context:"
+
+#~ msgid "Custom _PPP options:"
+#~ msgstr "Opcions personalitzades del _PPP:"
+
+#~ msgid "Debug _output"
+#~ msgstr "Sortida _detallada"
+
+#~ msgid "Disconnect after this many LCP echo requests fail"
+#~ msgstr ""
+#~ "Desconnecta si es produeixen aquesta quantitat d'errades en sol·licituds "
+#~ "d'eco LCP"
+
+#~ msgid "E_xclusive device access (UUCP-style lock)"
+#~ msgstr "Accés e_xclusiu al dispositiu (bloqueig a l'estil UUCP)"
+
+#~ msgid "Enable stateful _MPPE"
+#~ msgstr "Habilita el _MPPE d'estats"
+
+#~ msgid "Find Device"
+#~ msgstr "Cerca un dispositiu"
+
+#~ msgid ""
+#~ "For security reasons, options entered in the box above are checked "
+#~ "against a list of allowed options before a connection is established.  "
+#~ "Currently there are no options on the list."
+#~ msgstr ""
+#~ "Per raons de seguretat, abans d'establir la connexió les opcions entrades "
+#~ "a la caixa de sobre són comparades amb una llista d'opcions permeses. "
+#~ "Actualment no hi ha opcions a la llista."
+
+#~ msgid "GPRS Options"
+#~ msgstr "Opcions GPRS"
+
+#~ msgid "Host name or IP address of the L2TP server"
+#~ msgstr "Nom de la màquina o adreça IP del servidor L2TP"
+
+#~ msgid "IP a_ddress:"
+#~ msgstr "A_dreça IP:"
+
+#~ msgid ""
+#~ "If BSD compression is not allowed the 'nobsdcomp' option is passed to pppd"
+#~ msgstr ""
+#~ "Si no està permesa la compressió BSD, es passarà l'opció «nobsdcomp» al "
+#~ "pppd"
+
+#~ msgid ""
+#~ "If Deflate compression is not allowed the 'nodefate' option is passed to "
+#~ "pppd"
+#~ msgstr ""
+#~ "Si no està permesa la compressió desinflada, es passarà l'opció "
+#~ "«nodefate» al pppd"
+
+#~ msgid "Maximum Receive Unit"
+#~ msgstr "Unitat màxima de recepció"
+
+#~ msgid "Maximum Transmit Unit"
+#~ msgstr "Unitat màxima d'enviament"
+
+#~ msgid "Refuse C_HAP"
+#~ msgstr "Rebutja C_HAP"
+
+#~ msgid "Refuse _EAP"
+#~ msgstr "Rebutja _EAP"
+
+#~ msgid "Refuse _MS CHAP"
+#~ msgstr "Rebutja _MS CHAP"
+
+#~ msgid "Require 128 bit M_PPE encryption"
+#~ msgstr "Requereix el xifratge M_PPE de 128 bits"
+
+#~ msgid "Require MPPE _encryption"
+#~ msgstr "Requereix el xifratg_e MPPE"
+
+#~ msgid "Require explicit IP _address"
+#~ msgstr "Requereix explícitament una _adreça IP"
+
+#~ msgid "Requires existing network connection"
+#~ msgstr "Es requereix que ja hi hagi una connexió a la xarxa"
+
+#~ msgid "Routing"
+#~ msgstr "Encaminament"
+
+#~ msgid "Serial Options"
+#~ msgstr "Opcions del sèrie"
+
+#~ msgid "Service providers GPRS access point from device config"
+#~ msgstr ""
+#~ "Punts d'accés proveïdors del servei GPRS des de la configuració del "
+#~ "dispositiu"
+
+#~ msgid "Service providers IP address"
+#~ msgstr "Adreça IP del proveïdor del servei"
+
+#~ msgid "Telep_hone number:"
+#~ msgstr "Número de _telèfon:"
+
+#~ msgid ""
+#~ "This is the friendly name that will be used to identify this network "
+#~ "connection, \n"
+#~ "e.g. \"Campus VPN\" or \"Corporate Network\""
+#~ msgstr ""
+#~ "El nom que es farà servir per a identificar la connexió a la xarxa, \n"
+#~ "per exemple: «VPN del Campus» o «Xarxa corporativa»"
+
+#~ msgid "Time in seconds between echo requests"
+#~ msgstr "Temps en segons entre sol·licituds d'eco"
+
+#~ msgid "Typ_e:"
+#~ msgstr "_Tipus:"
+
+# FIXME
+#~ msgid "Use peer _DNS"
+#~ msgstr "Utilitza un _DNS a iguals"
+
+#~ msgid "When checked the \"refuse-chap\" option is passed to pppd."
+#~ msgstr "Si està activat, es passa, l'opció «refuse-chap» al pppd."
+
+#~ msgid "When checked the \"refuse-eap\" option is passed to pppd."
+#~ msgstr "Si està activat, es passa l'opció «refuse-eap» al pppd."
+
+#~ msgid "When checked the \"refuse-mschap\" option is passed to pppd."
+#~ msgstr "Si està activat, es passa l'opció «refuse-mschap» al pppd."
+
+#~ msgid "When checked the 'lock' option is passed to pppd"
+#~ msgstr "Si està activat, es passa l'opció «lock» al pppd."
+
+#~ msgid "When checked the 'require-mppc' option is passed to pppd"
+#~ msgstr "Si està activat, es passa l'opció «require-mppc» al pppd."
+
+#~ msgid ""
+#~ "When checked this sets the pppd 'debug' option and adds some extra "
+#~ "information from the NetworkManager plugin"
+#~ msgstr ""
+#~ "Si està activat, això estableix l'opció del pppd «debug» i afegeix "
+#~ "informació extra des del connector del NetworkManager"
+
+#~ msgid "When checked this sets the pppd 'noipdefault' option"
+#~ msgstr "Si està activat, això estableix l'opció del pppd «noipdefault»"
+
+#~ msgid "When checked this sets the pppd 'usepeerdns' option"
+#~ msgstr "Si està activat, això estableix l'opció del pppd «userpeerdns»"
+
+#~ msgid ""
+#~ "When this check box is cleared the \"noauth\" option is passed to pppd."
+#~ msgstr "Quan aquesta caixa està buida es passa l'opció «noauth» al pppd."
+
+#~ msgid "_Access point name:"
+#~ msgstr "Nom del punt d'_accés:"
+
+# FIXME
+#~ msgid "_Authenticate peer"
+#~ msgstr "_Autentica l'igual remot"
+
+#~ msgid "_Device address:"
+#~ msgstr "Adreça del _dispositiu:"
+
+#~ msgid "_Hardware RTS/CTS"
+#~ msgstr "_Maquinari RTS/CTS"
+
+#~ msgid "_Import Saved Configuration..."
+#~ msgstr "_Importa la configuració desada..."
+
+#~ msgid "_Modem connection"
+#~ msgstr "Connexió amb _mòdem"
+
+#~ msgid "_Only use VPN connection for these addresses:"
+#~ msgstr "_Fes servir només la connexió VPN per a aquestes adreces:"
+
+#~ msgid "_Packet type:"
+#~ msgstr "Tipus de _paquet:"
+
+#~ msgid "_Peer DNS through tunnel"
+#~ msgstr "DNS a i_guals a través del túnel"
+
+#~ msgid "_Require MPPC compression"
+#~ msgstr "_Requereix la compressió MPPC"
+
+#~ msgid "pppd tunnel (L2TP, BTGPRS, Dialup)"
+#~ msgstr "túnel pppd (L2TP, BGTPRS, Dialup)"
+
+#~ msgid "Name"
+#~ msgstr "Nom"
+
+#~ msgid "L2TP Server"
+#~ msgstr "Servidor L2TP"
+
+#~ msgid "Telephone Number"
+#~ msgstr "Número de telèfon"
+
+#~ msgid "Bluetooth Address"
+#~ msgstr "Adreça Bluetooth"
+
+#~ msgid "Bluetooth Channel"
+#~ msgstr "Canal Bluetooth"
+
+#~ msgid "GPRS APN"
+#~ msgstr "APN GPRS"
+
+#~ msgid "GPRS IP"
+#~ msgstr "IP GRPS"
+
+#~ msgid "GPRS Context No."
+#~ msgstr "Número de context GPRS"
+
+#~ msgid "GPRS Packet Type"
+#~ msgstr "Tipus de paquet GPRS"
+
+#~ msgid "Use CTS/RTS flow control"
+#~ msgstr "Utilitza el control de flux CTS/RTS"
+
+#~ msgid "Connect via a modem"
+#~ msgstr "Connecta a través de mòdem"
+
+#~ msgid "Require IP to be provided"
+#~ msgstr "Requereix que es proporcioni la IP"
+
+# FIXME
+#~ msgid "Use Peer DNS"
+#~ msgstr "Utilitza un DNS a iguals"
+
+#~ msgid "Use 128 bit MPPE encryption"
+#~ msgstr "Utilitza xifratge MPPE de 128 bits"
+
+#~ msgid "Enable stateful MPPE"
+#~ msgstr "Habilita el MPPE d'estats"
+
+#~ msgid "Do not use deflate compression"
+#~ msgstr "No utilitzis compressió desinflada"
+
+#~ msgid "Do not use BSD compression"
+#~ msgstr "No utilitzis compressió BSD"
+
+#~ msgid "Exclusive device access by pppd"
+#~ msgstr "Accés exclusiu al dispositiu pel pppd"
+
+# FIXME
+#~ msgid "Authenticate remote peer"
+#~ msgstr "Autentica l'igual remot"
+
+#~ msgid "Refuse EAP"
+#~ msgstr "Rebutja EAP"
+
+#~ msgid "Refuse CHAP"
+#~ msgstr "Rebutja CHAP"
+
+#~ msgid "Maximum transmit unit (in bytes)"
+#~ msgstr "Unitat màxima de transmissió (en bytes)"
+
+#~ msgid "Maximum receive unit (in bytes)"
+#~ msgstr "Unitat màxima de recepció (en bytes)"
+
+#~ msgid "Number of failed LCP echos to cause disconnect"
+#~ msgstr "Nombre d'ecos LCP fallats per causar la desconnexió"
+
+#~ msgid "Interval (in seconds) at which to issue LCP echos"
+#~ msgstr "Interval (en segons) per enviar ecos LCP"
+
+#~ msgid "Interval (in milliseconds) to wait before connecting."
+#~ msgstr "Interval (en mil·lisegons) a esperar abans de connectar."
+
+# FIXME
+#~ msgid "Use Peer DNS over the Tunnel"
+#~ msgstr "Utilitza DNS a iguals pel túnel"
+
+#~ msgid "Specific networks available"
+#~ msgstr "Especifica les xarxes disponibles"
+
+#~ msgid "Limit to specific networks"
+#~ msgstr "Límit de xarxes disponibles"
+
+#~ msgid "The following '%s' connection will be created:"
+#~ msgstr "Es crearà la següent connexió «%s»:"
+
+#~ msgid "\t%s:  %s\n"
+#~ msgstr "\t%s:  %s\n"
+
+#~ msgid "The connection details can be changed using the \"Back\" button."
+#~ msgstr "Els detalls de la connexió es poden canviar amb el botó «Enrera»."
+
+#~ msgid "Select file to import"
+#~ msgstr "Seleccioneu el fitxer a importar"
+
+#~ msgid "Save as..."
+#~ msgstr "Anomena i desa..."
+
+#~ msgid "A file named \"%s\" already exists."
+#~ msgstr "Ja existeix un fitxer anomenat «%s»."
+
+#~ msgid "Do you want to replace it with the one you are saving?"
+#~ msgstr "Voleu reemplaçar-lo amb el que voleu desar?"
+
+#~ msgid "Remote:  %s"
+#~ msgstr "Remot: %s"
+
+#~ msgid "Username:  %s"
+#~ msgstr "Nom d'usuari:  %s"
+
+#~ msgid "Use MPPC Compression: %s"
+#~ msgstr "Utilitza la compressió MPPC: %s"
+
+#~ msgid "Yes"
+#~ msgstr "Sí"
+
+#~ msgid "No"
+#~ msgstr "No"
+
+#~ msgid "Cannot import settings"
+#~ msgstr "No s'han pogut importar els paràmetres"
+
+#~ msgid "The VPN settings file '%s' does not contain valid data."
+#~ msgstr "Les dades del fitxer dels paràmetres VPN «%s» no són vàlides."
+
+#~ msgid "<b>Connection Name</b>"
+#~ msgstr "<b>Nom de la connexió</b>"
+
+#~ msgid "<b>Required Information</b>"
+#~ msgstr "<b>Informació requerida</b>"
+
+#~ msgid ""
+#~ "Please enter the information provided by your system administrator below. "
+#~ "Do not enter your password here as you will be prompted when connecting."
+#~ msgstr ""
+#~ "Introduïu la informació proporcionada pel vostre administrador de "
+#~ "sistemes aquí sota. No hi introduïu la contrasenya, ja se us preguntarà "
+#~ "quan us connecteu."
+
+#~ msgid ""
+#~ "Your password must be defined \n"
+#~ "in /etc/ppp/chap-secrets"
+#~ msgstr ""
+#~ "La contrasenya ha d'estar definida \n"
+#~ "a /etc/ppp/chap-secrets"
+
+#~ msgid "auth-chap-window"
+#~ msgstr "auth-chap-window"
+
+#~ msgid "auth-mschapv2-window"
+#~ msgstr "auth-mschapv2-window"
+
+#~ msgid "auth-none-window"
+#~ msgstr "auth-none-window"
+
+#~ msgid "Telephone number to dial"
+#~ msgstr "Número de telèfon al que trucar"
