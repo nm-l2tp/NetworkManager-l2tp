@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-l2tp.master.te\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-19 22:07+1000\n"
+"POT-Creation-Date: 2017-06-19 22:46+1000\n"
 "PO-Revision-Date: 2009-10-27 19:25+0530\n"
 "Last-Translator: Krishna Babu K <kkrothap@redhat.com>\n"
 "Language-Team: Telugu <en@li.org>\n"
@@ -168,7 +168,6 @@ msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr "పాయింట్-నుండి-పాయింట్ టన్నెలింగ్ ప్రోటోకాల్ (L2TP)"
 
 #: ../properties/nm-l2tp-editor-plugin.c:37
-#, fuzzy
 msgid "Compatible with Microsoft and other L2TP VPN servers."
 msgstr "Microsoft మరియు యితర L2TP VPN సేవికలతో సారూప్యమైనది."
 
@@ -414,7 +413,6 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
-#, fuzzy
 msgid "Show password"
 msgstr "సంకేతపదమును చూపుము"
 
@@ -583,40 +581,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "_Password:"
-#~ msgstr "సంకేతపదము (_P):"
-
-#~ msgid "_Secondary Password:"
-#~ msgstr "రెండవ సంకేతపదము (_S):"
-
-#, fuzzy
-#~ msgid "Sh_ow passwords"
-#~ msgstr "సంకేతపదమును చూపుము"
-
-#~ msgid "L2TP VPN Connection Manager"
-#~ msgstr "L2TP VPN అనుసంధానపు నిర్వాహిక"
-
-#~ msgid "Add, Remove, and Edit L2TP VPN Connections"
-#~ msgstr "L2TP VPN అనుసంధానములను జతచేయుము, తీసివేయుము, మరియు సరికూర్చుము"
-
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>ఎకో</b>"
-
-#~ msgid "_Username:"
-#~ msgstr "వినియోగదారినామము (_U):"
-
-#~ msgid "_Domain:"
-#~ msgstr "డొమైన్ (_D):"
-
-#~ msgid "Connect _anonymously"
-#~ msgstr "నామములేకుండా అనుసంధానము అవ్వుము (_a)"
-
-#~ msgid "Connect as _user:"
-#~ msgstr "వినియోగదారివలె అనుసంధానము అవ్వుము (_u):"
-
-#~ msgid "_Remember passwords for this session"
-#~ msgstr "సంకేతపదములను ఈ సెషన్‌కు గుర్తుంచుకొనుము (_R)"
-
-#~ msgid "_Save passwords in keyring"
-#~ msgstr "సంకేతపదములను కీరింగునందు దాయుము (_S)"

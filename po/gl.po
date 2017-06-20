@@ -5,19 +5,23 @@
 # Ignacio Casal Quinteiro <icq@cvs.gnome.org>, 2007, 2008.
 # Mancomún - Centro de Referencia e Servizos de Software Libre <g11n@mancomun.org>, 2009.
 # Francisco Diéguez <frandieguez@ubuntu.com>, 2010.
+# Fran Diéguez <frandieguez@gnome.org>, 2011.
+# Xosé M. Lamas <correo.xmgz@gmail.com>, 2011.
+# Fran Dieguez <frandieguez@gnome.org>, 2012.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-19 22:07+1000\n"
-"PO-Revision-Date: 2010-03-06 23:15+0100\n"
-"Last-Translator: Francisco Diéguez <frandieguez@ubuntu.com>\n"
-"Language-Team: Galician <proxecto@trasno.net>\n"
+"POT-Creation-Date: 2017-06-19 22:46+1000\n"
+"PO-Revision-Date: 2012-03-24 00:47+0100\n"
+"Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
+"Language-Team: Galician <gnome-l10n-gl@gnome.org>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
 msgid "L2TP VPN Client"
@@ -166,7 +170,6 @@ msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr "Protocolo de Túnel Punto a Punto (L2TP)"
 
 #: ../properties/nm-l2tp-editor-plugin.c:37
-#, fuzzy
 msgid "Compatible with Microsoft and other L2TP VPN servers."
 msgstr "Compatíbel con Microsoft e outros servidores VPN L2TP."
 
@@ -265,7 +268,7 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:306
 #, c-format
 msgid "invalid gateway '%s'"
-msgstr ""
+msgstr "pasarela «%s» non válida"
 
 #: ../src/nm-l2tp-service.c:315
 #, c-format
@@ -275,35 +278,35 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:328
 #, c-format
 msgid "invalid integer property '%s'"
-msgstr ""
+msgstr "propiedade enteira «%s» non válida"
 
 #: ../src/nm-l2tp-service.c:338
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
-msgstr ""
+msgstr "propiedade booleana «%s» inválida (non «yes» ou «non»)"
 
 #: ../src/nm-l2tp-service.c:345
 #, c-format
 msgid "unhandled property '%s' type %s"
-msgstr ""
+msgstr "propiedade «%s» do tipo %s non se xestiona"
 
 #: ../src/nm-l2tp-service.c:356
 #, c-format
 msgid "property '%s' invalid or not supported"
-msgstr ""
+msgstr "a propiedade «%s» non é válida ou non se admite"
 
 #: ../src/nm-l2tp-service.c:374
 msgid "No VPN configuration options."
-msgstr ""
+msgstr "Non hai opcións de configuración da VPN."
 
 #: ../src/nm-l2tp-service.c:394
 #, c-format
 msgid "Missing required option '%s'."
-msgstr ""
+msgstr "Falta a opción «%s» requirida."
 
 #: ../src/nm-l2tp-service.c:414
 msgid "No VPN secrets!"
-msgstr ""
+msgstr "Non hai segredos de VPN!"
 
 #: ../src/nm-l2tp-service.c:720
 #, c-format
@@ -317,19 +320,21 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1224
 msgid "Missing VPN username."
-msgstr ""
+msgstr "Falta o nome de usuario da VPN."
 
 #: ../src/nm-l2tp-service.c:1233
 msgid "Missing or invalid VPN password."
-msgstr ""
+msgstr "Falta o contrasinal da VPN ou é inválido."
 
 #: ../src/nm-l2tp-service.c:1678
 msgid "Don't quit when VPN connection terminates"
-msgstr ""
+msgstr "Non saír"
 
 #: ../src/nm-l2tp-service.c:1679
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr ""
+"Activar o modo detallado de rexistro de depuración (pode mostrar "
+"contrasinais en claro)."
 
 #: ../src/nm-l2tp-service.c:1680
 msgid "D-Bus name to use for this instance"
@@ -374,11 +379,11 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:10
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "Algoritmos de Phase2:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:11
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "Algoritmos de Phase1:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
 msgid "_Enforce UDP encapsulation"
@@ -410,9 +415,11 @@ msgid ""
 "purposes.\n"
 "config: domain <domain>"
 msgstr ""
+"Engadir o nome do dominio <domain> ao nome local do equipo por motivos de "
+"autenticación.\n"
+"opción: domain <dominio>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
-#, fuzzy
 msgid "Show password"
 msgstr "Mostrar o contrasinal"
 
@@ -445,7 +452,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:29
 msgid "Default"
-msgstr "Predefinido"
+msgstr "Predeterminado"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 #, fuzzy
@@ -466,6 +473,8 @@ msgid ""
 "Allow/disable authentication methods.\n"
 "config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 msgstr ""
+"Permitir/desactivar métodos de autenticación.\n"
+"opción: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 
 #: ../properties/nm-l2tp-dialog.ui.h:35
 #, fuzzy
@@ -495,6 +504,8 @@ msgid ""
 "Require the use of MPPE, with 40/128-bit encryption or all.\n"
 "config: require-mppe, require-mppe-128 or require-mppe-40"
 msgstr ""
+"Requirir o uso de MPPE, con cifrado de 40/128 bits para todo.\n"
+"opción: require-mppe, require-mppe-128 o require-mppe-40"
 
 #: ../properties/nm-l2tp-dialog.ui.h:41
 msgid "Allow st_ateful encryption"
@@ -505,6 +516,9 @@ msgid ""
 "Allow MPPE to use stateful mode. Stateless mode is still attempted first.\n"
 "config: mppe-stateful (when checked)"
 msgstr ""
+"Permitir a MPPE usar o modo con estado. O modo sen estado séguese tentando "
+"primeiro.\n"
+"opción: mppe-stateful (desmarcada)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:44
 msgid "Allow _BSD data compression"
@@ -515,6 +529,8 @@ msgid ""
 "Allow/disable BSD-Compress compression.\n"
 "config: nobsdcomp (when unchecked)"
 msgstr ""
+"Permitir/desactivar compresión «BSD-Compress».\n"
+"opción: nobsdcomp (desmarcada)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:47
 msgid "Allow _Deflate data compression"
@@ -525,6 +541,8 @@ msgid ""
 "Allow/disable Deflate compression.\n"
 "config: nodeflate (when unchecked)"
 msgstr ""
+"Permitir/desactivar a compresión por desinfrado.\n"
+"opción: nodeflate (desmarcada)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:50
 msgid "Use TCP _header compression"
@@ -536,6 +554,9 @@ msgid ""
 "transmit and the receive directions.\n"
 "config: novj (when unchecked)"
 msgstr ""
+"Permitir/desactivar compresión de cabeceiras TCP/IP estilo Van Jacobson ao "
+"envair e recibir.\n"
+"opción: novj (desmarcada)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:53
 msgid "Use protocol _field compression negotiation"
@@ -572,6 +593,8 @@ msgid ""
 "Send LCP echo-requests to find out whether peer is alive.\n"
 "config: lcp-echo-failure and lcp-echo-interval"
 msgstr ""
+"Enviar solicitudes de eco LCP para averiguar se o par está vivo.\n"
+"opción: lcp-echo-failure e lcp-echo-interval"
 
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid "Misc"
@@ -584,40 +607,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "_Password:"
-#~ msgstr "_Contrasinal:"
-
-#~ msgid "_Secondary Password:"
-#~ msgstr "Contrasinal _secundario:"
-
-#, fuzzy
-#~ msgid "Sh_ow passwords"
-#~ msgstr "Mostrar o contrasinal"
-
-#~ msgid "L2TP VPN Connection Manager"
-#~ msgstr "Xestor de conexión VPN L2TP"
-
-#~ msgid "Add, Remove, and Edit L2TP VPN Connections"
-#~ msgstr "Engadir, eliminar e editar conexión VPN L2TP"
-
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>Echo</b>"
-
-#~ msgid "_Username:"
-#~ msgstr "Nome de _usuario:"
-
-#~ msgid "_Domain:"
-#~ msgstr "_Dominio:"
-
-#~ msgid "Connect _anonymously"
-#~ msgstr "Conectarse _anonimamente"
-
-#~ msgid "Connect as _user:"
-#~ msgstr "Conectarse como _usuario:"
-
-#~ msgid "_Remember passwords for this session"
-#~ msgstr "_Lembrar os contrasinais para esta sesión"
-
-#~ msgid "_Save passwords in keyring"
-#~ msgstr "_Gardar os contrasinais no anel de chaves"

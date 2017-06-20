@@ -168,7 +168,6 @@ msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr "Noktadan Noktaya Tünelleme Protokolü (L2TP)"
 
 #: ../properties/nm-l2tp-editor-plugin.c:37
-#, fuzzy
 msgid "Compatible with Microsoft and other L2TP VPN servers."
 msgstr "Microsoft ve diğer L2TP VPN sunucularıyla uyumludur."
 
@@ -381,11 +380,11 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:10
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "Faz2 Algoritması:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:11
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "Faz1 Algoritması:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
 msgid "_Enforce UDP encapsulation"
@@ -625,71 +624,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>Echo</b>"
-
-#~ msgid "<b>Misc</b>"
-#~ msgstr "<b>Çeşitli</b>"
-
-#~ msgid "Use custom _unit number:"
-#~ msgstr "Özel _birim sayısı kullan:"
-
-#~ msgid ""
-#~ "Enable custom index for ppp<n> device name.\n"
-#~ "config: unit <n>"
-#~ msgstr ""
-#~ "Ppp<n> aygıt adı için özel dizini etkinleştir.\n"
-#~ "yapılandırma: birim <n>"
-
-#~ msgid "couldn't convert L2TP VPN gateway IP address '%s' (%d)"
-#~ msgstr "L2TP VPN ağ geçidi IP adresi dönüştürülemedi '%s' (%d)"
-
-#~ msgid "couldn't look up L2TP VPN gateway IP address '%s' (%d)"
-#~ msgstr "L2TP VPN ağ geçidi IP adresine bakılamadı '%s' (%d)"
-
-#~ msgid "no usable addresses returned for L2TP VPN gateway '%s'"
-#~ msgstr "L2TP VPN ağ geçidi '%s' için kullanılabilir bir adres dönmedi"
-
-#~ msgid "no usable addresses returned for L2TP VPN gateway '%s' (%d)"
-#~ msgstr "L2TP VPN ağ geçidi '%s' için kullanılabilir bir adres dönmedi (%d)"
-
-#~ msgid "Could not find secrets (connection invalid, no vpn setting)."
-#~ msgstr "Gizli bilgi bulunamadı (bağlantı geçersiz, vpn ayarı yok)."
-
-#~| msgid "Missing or invalid VPN password."
-#~ msgid "Missing or invalid VPN username."
-#~ msgstr "Eksik veya geçersiz VPN kullanıcı adı."
-
-#~ msgid "No cached credentials."
-#~ msgstr "Ön belleğe alınmış kimlik yok."
-
-#~ msgid "Could not find l2tp client binary."
-#~ msgstr "L2tp istemci uygulaması bulunamadı."
-
-#~ msgid "Missing VPN gateway."
-#~ msgstr "VPN ağ geçidi eksik."
-
-#~ msgid "Could not find the pppd binary."
-#~ msgstr "Pppd uygulaması bulunamadı."
-
-#~ msgid "Invalid or missing L2TP gateway."
-#~ msgstr "Eksik veya geçersiz L2TP ağ geçidi."
-
-#~ msgid "Saved"
-#~ msgstr "Kaydedildi"
-
-#~ msgid "Always Ask"
-#~ msgstr "Her Zaman Sor"
-
-#~ msgid "Not Required"
-#~ msgstr "Gerekli Değil"
-
-#~ msgid "Invalid VPN username."
-#~ msgstr "Geçersiz VPN kullanıcı adı."
-
-#~ msgid "L2TP VPN Connection Manager"
-#~ msgstr "L2TP VPN Bağlantı Yöneticisi"
-
-#~ msgid "Add, Remove, and Edit L2TP VPN Connections"
-#~ msgstr "L2TP VPN Bağlantılarını Ekle, Kaldır ve Düzenle"

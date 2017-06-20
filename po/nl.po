@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager L2TP\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-19 22:07+1000\n"
+"POT-Creation-Date: 2017-06-19 22:46+1000\n"
 "PO-Revision-Date: 2008-09-14 18:07+0200\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -168,7 +168,6 @@ msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr "Layer 2 Tunneling Protocol (L2TP)"
 
 #: ../properties/nm-l2tp-editor-plugin.c:37
-#, fuzzy
 msgid "Compatible with Microsoft and other L2TP VPN servers."
 msgstr "Compatible met Microsoft en andere L2TP VPN-servers."
 
@@ -584,40 +583,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "_Password:"
-#~ msgstr "_Wachtwoord:"
-
-#~ msgid "_Secondary Password:"
-#~ msgstr "_Secondair wachtwoord:"
-
-#, fuzzy
-#~ msgid "Sh_ow passwords"
-#~ msgstr "_Wachtwoord:"
-
-#~ msgid "L2TP VPN Connection Manager"
-#~ msgstr "L2TP VPN-verbindingsmanager"
-
-#~ msgid "Add, Remove, and Edit L2TP VPN Connections"
-#~ msgstr "L2TP VPN-verbindingen toevoegen, verwijderen en bewerken"
-
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>Echo</b>"
-
-#~ msgid "_Username:"
-#~ msgstr "_Gebruikersnaam:"
-
-#~ msgid "_Domain:"
-#~ msgstr "_Domein:"
-
-#~ msgid "Connect _anonymously"
-#~ msgstr "A_noniem verbinden"
-
-#~ msgid "Connect as _user:"
-#~ msgstr "Verbinden als _gebruiker:"
-
-#~ msgid "_Remember passwords for this session"
-#~ msgstr "_Wachtwoorden gedurende deze sessie onthouden"
-
-#~ msgid "_Save passwords in keyring"
-#~ msgstr "Wachtwoorden in de sleutelbos op_slaan"

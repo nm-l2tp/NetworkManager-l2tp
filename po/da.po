@@ -1,22 +1,27 @@
-# Danish translation of NetworkManager-l2tp
-# Copyright (C) 2005-2007
-# This file is distributed under the same license as the NetworkManager-l2tp package.
+# Danish translation of network-manager-l2tp.
+# Copyright (C) 2017 network-manager-l2tp og nedenstående oversættere.
+# This file is distributed under the same license as the network-manager-l2tp package.
 # David Zeuthen <davidz@redhat.com>, 2005.
 # Lasse Bang Mikkelsen <lbm@fatalerror.dk>, 2006, 07.
 # Mads Bille Lundby <lundbymads@gmail.com>, 2009.
+# Kim Iskov <kimiskov@gmail.com>, 2010.
+# Joe Hansen <joedalton2@yahoo.dk>, 2011, 2012.
+# Alan Mortensen <alanmortensen.am@gmail.com>, 2017.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-l2tp\n"
+"Project-Id-Version: network-manager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-19 22:07+1000\n"
-"PO-Revision-Date: 2009-02-24 21:28+0100\n"
-"Last-Translator: Mads Lundby <lundbymads@gmail.com>\n"
+"POT-Creation-Date: 2017-06-19 22:46+1000\n"
+"PO-Revision-Date: 2017-02-25 19:30+0100\n"
+"Last-Translator: Alan Mortensen <alanmortensen.am@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
 #, fuzzy
@@ -168,7 +173,6 @@ msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr "Layer 2 Tunneling Protocol (L2TP)"
 
 #: ../properties/nm-l2tp-editor-plugin.c:37
-#, fuzzy
 msgid "Compatible with Microsoft and other L2TP VPN servers."
 msgstr "Kompatibel med Microsoft og andre L2TP-VPN-servere."
 
@@ -212,57 +216,75 @@ msgstr ""
 msgid "could not load UI widget"
 msgstr ""
 
+# streng også i modulet applet
 #: ../shared/nm-utils/nm-shared-utils.c:185
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr ""
+msgstr "objektklassen \"%s\" har ingen egenskab ved navn \"%s\""
 
+# streng også i modulet applet
 #: ../shared/nm-utils/nm-shared-utils.c:192
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr ""
+msgstr "egenskaben \"%s\" for objektklassen \"%s\" er skrivebeskyttet"
 
+# streng også i modulet applet
 #: ../shared/nm-utils/nm-shared-utils.c:199
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
+"construct-egenskaben \"%s\" for objektet \"%s\" kan ikke angives efter "
+"konstruktion"
 
+# streng også i modulet applet
 #: ../shared/nm-utils/nm-shared-utils.c:207
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
 msgstr ""
+"\"%s::%s\" er ikke et gyldigt egenskabsnavn; \"%s\" er ikke en undertype af "
+"GObjekt"
 
+# streng også i modulet applet
 #: ../shared/nm-utils/nm-shared-utils.c:216
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
 msgstr ""
+"kan ikke angive egenskaben \"%s\" af type \"%s\" ud fra værdien af typen \"%s"
+"\""
 
+# streng også i modulet applet
 #: ../shared/nm-utils/nm-shared-utils.c:227
 #, c-format
 msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
+"værdien \"%s\" af typen \"%s\" er ugyldig eller uden for intervallet for "
+"egenskaben \"%s\" af typen \"%s\""
 
+# streng også i modulet vpnc
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:80
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr ""
+msgstr "manglende udvidelsesmodulfil \"%s\""
 
+# streng også i modulet vpnc
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:86
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr ""
+msgstr "kan ikke indlæse udvidelsesmodul til redigering: %s"
 
+# streng også i modulet vpnc
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:95
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr ""
+msgstr "kan ikke indlæse fabrikken %s fra udvidelsesmodul: %s"
 
+# streng også i modulet vpnc
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:121
 msgid "unknown error creating editor instance"
-msgstr ""
+msgstr "ukendt fejl i forsøget på at danne redigeringsinstans"
 
 #: ../src/nm-l2tp-service.c:306
 #, c-format
@@ -296,7 +318,7 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:374
 msgid "No VPN configuration options."
-msgstr ""
+msgstr "Ingen indstillinger for VPN-konfiguration."
 
 #: ../src/nm-l2tp-service.c:394
 #, c-format
@@ -305,7 +327,7 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:414
 msgid "No VPN secrets!"
-msgstr ""
+msgstr "Ingen VPN-hemmeligheder!"
 
 #: ../src/nm-l2tp-service.c:720
 #, c-format
@@ -319,11 +341,11 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1224
 msgid "Missing VPN username."
-msgstr ""
+msgstr "Manglende VPN-brugernavn."
 
 #: ../src/nm-l2tp-service.c:1233
 msgid "Missing or invalid VPN password."
-msgstr ""
+msgstr "Manglende eller ugyldig VPN-adgangskode."
 
 #: ../src/nm-l2tp-service.c:1678
 msgid "Don't quit when VPN connection terminates"
@@ -331,11 +353,12 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1679
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr ""
+msgstr "Aktiver uddybende fejlsøgningslog (kan afsløre adgangskoder)"
 
+# streng findes også i vpnc
 #: ../src/nm-l2tp-service.c:1680
 msgid "D-Bus name to use for this instance"
-msgstr ""
+msgstr "Navn på D-Bus der skal bruges i dette tilfælde"
 
 #: ../src/nm-l2tp-service.c:1701
 msgid ""
@@ -353,9 +376,8 @@ msgid "_Enable IPsec tunnel to L2TP host"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:3
-#, fuzzy
 msgid "General"
-msgstr "<b>Generelt</b>"
+msgstr "Generelt"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
 #, fuzzy
@@ -376,24 +398,23 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:10
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "Phase2-algoritmer:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:11
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "Phase1-algoritmer:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
 msgid "_Enforce UDP encapsulation"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
-#, fuzzy
 msgid "Ad_vanced"
-msgstr "A_vanceret..."
+msgstr "A_vanceret"
 
 #: ../properties/nm-l2tp-dialog.ui.h:14
 msgid "_Gateway:"
-msgstr "Ad_gangspunkt:"
+msgstr "_Gateway:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:15
 msgid ""
@@ -402,9 +423,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
-#, fuzzy
 msgid "Optional"
-msgstr "<b>Valgfri</b>"
+msgstr "Valgfrit"
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid ""
@@ -412,9 +432,11 @@ msgid ""
 "purposes.\n"
 "config: domain <domain>"
 msgstr ""
+"Tilføj domænenavnet <domæne> til det lokale værtsnavn for "
+"godkendelsesformål.\n"
+"Konfiguration: domain <domæne>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
-#, fuzzy
 msgid "Show password"
 msgstr "Vis adgangskode"
 
@@ -455,9 +477,8 @@ msgid "L2TP PPP Options"
 msgstr "PPP-indstillinger"
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
-#, fuzzy
 msgid "Authentication"
-msgstr "Godkendelsestype:"
+msgstr "Godkendelse"
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
 msgid "Allow the following authentication methods:"
@@ -468,11 +489,13 @@ msgid ""
 "Allow/disable authentication methods.\n"
 "config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 msgstr ""
+"Tillad/deaktivér godkendelsesmetoder.\n"
+"Konfiguration: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, "
+"refuse-eap"
 
 #: ../properties/nm-l2tp-dialog.ui.h:35
-#, fuzzy
 msgid "Security and Compression"
-msgstr "<b>Sikkerhed og komprimering</b>"
+msgstr "Sikkerhed og komprimering"
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid "Use _Point-to-Point encryption (MPPE)"
@@ -484,6 +507,9 @@ msgid ""
 "To enable this checkbox, select one or more of the MSCHAP authentication "
 "methods: MSCHAP or MSCHAPv2."
 msgstr ""
+"Bemærk: MPPE-kryptering er kun tilgængelig for MSCHAP-godkendelsesmetoder. "
+"Vælg en eller flere MSCHAP-godkendelsesmetoder (MSCHAP eller MSCHAPv2) for "
+"at aktivere dette afkrydsningsfelt."
 
 #: ../properties/nm-l2tp-dialog.ui.h:38
 msgid "_Security:"
@@ -494,6 +520,8 @@ msgid ""
 "Require the use of MPPE, with 40/128-bit encryption or all.\n"
 "config: require-mppe, require-mppe-128 or require-mppe-40"
 msgstr ""
+"Kræv brug af MPPE, med 40/128-bit-kryptering eller alle.\n"
+"Konfiguration: require-mppe, require-mppe-128 eller require-mppe-40"
 
 #: ../properties/nm-l2tp-dialog.ui.h:41
 msgid "Allow st_ateful encryption"
@@ -504,6 +532,9 @@ msgid ""
 "Allow MPPE to use stateful mode. Stateless mode is still attempted first.\n"
 "config: mppe-stateful (when checked)"
 msgstr ""
+"Tillad at MPPE kører som tilstandsbærende. Tilstandsfri kørsel forsøges "
+"først.\n"
+"Konfiguration: mppe-stateful (når afkrydset)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:44
 msgid "Allow _BSD data compression"
@@ -514,6 +545,8 @@ msgid ""
 "Allow/disable BSD-Compress compression.\n"
 "config: nobsdcomp (when unchecked)"
 msgstr ""
+"Tillad/deaktivér komprimering med BSD-Compress.\n"
+"Konfiguration: nobsdcomp (når ikke afkrydset)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:47
 msgid "Allow _Deflate data compression"
@@ -524,6 +557,8 @@ msgid ""
 "Allow/disable Deflate compression.\n"
 "config: nodeflate (when unchecked)"
 msgstr ""
+"Tillad/deaktivér komprimering med Deflate.\n"
+"Konfiguration: nodeflate (når ikke afkrydset)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:50
 msgid "Use TCP _header compression"
@@ -535,6 +570,9 @@ msgid ""
 "transmit and the receive directions.\n"
 "config: novj (when unchecked)"
 msgstr ""
+"Tillad/deaktivér TCP/IP-hovedkomprimering i Van Jacobson-stil ved både "
+"afsendelse og modtagelse.\n"
+"Konfiguration: novj (når ikke afkrydset)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:53
 msgid "Use protocol _field compression negotiation"
@@ -560,7 +598,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:59
 msgid "Echo"
-msgstr ""
+msgstr "Ekko"
 
 #: ../properties/nm-l2tp-dialog.ui.h:60
 msgid "Send PPP _echo packets"
@@ -571,10 +609,12 @@ msgid ""
 "Send LCP echo-requests to find out whether peer is alive.\n"
 "config: lcp-echo-failure and lcp-echo-interval"
 msgstr ""
+"Send LCP-echo-forespørgsler for at undersøge om modparten er i live.\n"
+"Konfiguration: lcp-echo-failure og lcp-echo-interval"
 
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid "Misc"
-msgstr ""
+msgstr "Diverse"
 
 #: ../properties/nm-l2tp-dialog.ui.h:64
 msgid "MTU :"
@@ -583,448 +623,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "_Password:"
-#~ msgstr "_Adgangskode:"
-
-#~ msgid "_Secondary Password:"
-#~ msgstr "_Sekundær adgangskode:"
-
-#, fuzzy
-#~ msgid "Sh_ow passwords"
-#~ msgstr "Vis adgangskode"
-
-#
-#~ msgid "L2TP VPN Connection Manager"
-#~ msgstr "Håndtering af L2TP-VPN-forbindelser"
-
-#~ msgid "Add, Remove, and Edit L2TP VPN Connections"
-#~ msgstr "Tilføj, fjern og redigér L2TP-VPN-forbindelser"
-
-#~ msgid "<b>Authentication</b>"
-#~ msgstr "<b>Godkendelse</b>"
-
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>Ekko</b>"
-
-#~ msgid "_Username:"
-#~ msgstr "_Brugernavn:"
-
-#~ msgid "_Domain:"
-#~ msgstr "_Domæne:"
-
-#~ msgid "Connect _anonymously"
-#~ msgstr "Forbind _anonymt"
-
-#~ msgid "Connect as _user:"
-#~ msgstr "Forbind som _bruger:"
-
-#~ msgid "_Remember passwords for this session"
-#~ msgstr "_Husk adgangskoder for denne session"
-
-#~ msgid "_Save passwords in keyring"
-#~ msgstr "_Gem adgangskoder i nøglering"
-
-#~ msgid "_Remember for this session"
-#~ msgstr "_Husk for denne session"
-
-#~ msgid "_Save in keyring"
-#~ msgstr "_Gem i nøglering"
-
-#~ msgid "Authenticate Connection"
-#~ msgstr "Godkend forbindelse"
-
-#~ msgid ""
-#~ "<span weight=\"bold\" size=\"larger\">Authentication Information</span>\n"
-#~ "\n"
-#~ "The connection '%s' may need some form of authentication.\n"
-#~ "\n"
-#~ "Please select an appropriate authentication type and provide the "
-#~ "necessary credentials below:\n"
-#~ msgstr ""
-#~ "<span weight=\"bold\" size=\"larger\">Godkendelsesinformation</span>\n"
-#~ "\n"
-#~ "Forbindelsen \"%s\" kræver mulighed en form for godkendelse.\n"
-#~ "\n"
-#~ "Vælg venligst en passende godkendelsestype og angiv de nødvendige "
-#~ "oplysninger nedenfor:\n"
-
-#~ msgid "Authentication Required"
-#~ msgstr "Godkendelse påkrævet"
-
-#~ msgid "_Authentication Type:"
-#~ msgstr "_Godkendelsestype:"
-
-#~ msgid "_Remote name:"
-#~ msgstr "_Fjernnavn:"
-
-#~ msgid "auth-chap-window"
-#~ msgstr "auth-chap-window"
-
-#~ msgid "auth-mschapv2-window"
-#~ msgstr "auth-mschapv2-window"
-
-#~ msgid "auth-none-window"
-#~ msgstr "auth-none-window"
-
-#~ msgid "VPN Connection Manager (PPP generic)"
-#~ msgstr "VPN-forbindelser (generisk PPP)"
-
-#~ msgid "00:00:00:00"
-#~ msgstr "00:00:00:00"
-
-#~ msgid "<b>Connection Name</b>"
-#~ msgstr "<b>Navn på forbindelse</b>"
-
-#~ msgid "<b>Delays and TImeouts</b>"
-#~ msgstr "<b>Forsinkelser og tidsudløb</b>"
-
-#~ msgid "<b>Packet Parameters</b>"
-#~ msgstr "<b>Pakkeparametre</b>"
-
-#~ msgid "<i>example: 172.16.0.0/16 10.11.12.0/24</i>"
-#~ msgstr "<i>eksempel: 172.16.0.0/16 10.11.12.0/24</i>"
-
-#~ msgid ""
-#~ "A list of extra options to pppd as would be typed on the command line"
-#~ msgstr ""
-#~ "En liste af ekstra tilvalg til pppd, som det ville skrives på "
-#~ "kommandolinjen"
-
-#~ msgid "Compression & Encryption"
-#~ msgstr "Komprimering & kryptering"
-
-#~ msgid "Connection"
-#~ msgstr "Forbindelse"
-
-#~ msgid "Debug Output"
-#~ msgstr "Fejlsøgningsuddata"
-
-#~ msgid "Disconnect after this many LCP echo requests fail"
-#~ msgstr "Afbryd efter dette antal LCP ekko-forespørgsler fejler"
-
-#~ msgid "Enable stateful MPPE"
-#~ msgstr "Aktivér tilstandsbevidst MPPE"
-
-#~ msgid "Exclusive device access (UUCP-style lock)"
-#~ msgstr "Eksklusiv enhedsadgang (UUCP-lås)"
-
-#~ msgid "Find Device"
-#~ msgstr "Find enhed"
-
-#~ msgid ""
-#~ "For security reasons, options entered in the box above are checked "
-#~ "against a list of allowed options before a connection is established.  "
-#~ "Currently there are no options on the list."
-#~ msgstr ""
-#~ "Af sikkerhedshensyn vil tilvalg indtastet i dette felt blive tjekket mod "
-#~ "en liste over tilladte tilvalg, inden en forbindelse etableres.  Der er i "
-#~ "øjeblikket ingen tilvalg på listen."
-
-#~ msgid "GPRS Options"
-#~ msgstr "GPRS-indstillinger"
-
-#~ msgid "Hardware RTS/CTS"
-#~ msgstr "Hardware RTS/CTS"
-
-#~ msgid "Host name or IP address of the L2TP server"
-#~ msgstr "Værtsnavn eller IP-adresse på L2TP-serveren"
-
-#~ msgid ""
-#~ "If BSD compression is not allowed the 'nobsdcomp' option is passed to pppd"
-#~ msgstr ""
-#~ "Hvis BSD-komprimering ikke er tilladt, sættes pppd-tilvalget \"nobsdcomp"
-#~ "\"."
-
-#~ msgid ""
-#~ "If Deflate compression is not allowed the 'nodefate' option is passed to "
-#~ "pppd"
-#~ msgstr ""
-#~ "Hvis Deflate-komprimering ikke er tilladt, sættes pppd-tilvalget "
-#~ "\"nodeflate\"."
-
-#~ msgid "Maximum Receive Unit"
-#~ msgstr "Maksimal modtageenhed"
-
-#~ msgid "Maximum Transmit Unit"
-#~ msgstr "Maksimal sendeenhed"
-
-#~ msgid "Modem Connection"
-#~ msgstr "Modem-forbindelse"
-
-#~ msgid "Peer DNS through tunnel"
-#~ msgstr "Fjernserver DNS igennem tunnel"
-
-#~ msgid "Refuse CHAP"
-#~ msgstr "Afvis CHAP"
-
-#~ msgid "Refuse EAP"
-#~ msgstr "Afvis EAP"
-
-#~ msgid "Refuse MS CHAP"
-#~ msgstr "Afvis MS CHAP"
-
-#~ msgid "Require 128 bit MPPE encryption"
-#~ msgstr "Påkræv 128-bit MPPE-kryptering"
-
-#~ msgid "Require Explicit IP Addr"
-#~ msgstr "Påkræv fast IP-adresse"
-
-#~ msgid "Require MPPC Compression"
-#~ msgstr "Påkræv MPPC-komprimering"
-
-#~ msgid "Require MPPE encryption"
-#~ msgstr "Påkræv MPPE-kryptering"
-
-#~ msgid "Requires existing network connection"
-#~ msgstr "Kræver eksisterende netværksforbindelse"
-
-#~ msgid "Routing"
-#~ msgstr "Routing"
-
-#~ msgid "Serial Options"
-#~ msgstr "Serielle indstillinger"
-
-#~ msgid "Service providers GPRS access point from device config"
-#~ msgstr "Udbyderens GPRS-adgangspunkt fra enhedens konfiguration"
-
-#~ msgid "Service providers IP address"
-#~ msgstr "Udbyderens IP-adresse"
-
-#~ msgid "Telephone number to dial"
-#~ msgstr "Telefonnummer at ringe til"
-
-#~ msgid ""
-#~ "This is the friendly name that will be used to identify this network "
-#~ "connection, \n"
-#~ "e.g. \"Campus VPN\" or \"Corporate Network\""
-#~ msgstr ""
-#~ "Dette er et brugervenligt navn til at identificere denne forbindelse, \n"
-#~ "f.eks. \"Universitets VPN\" eller \"Virksomhedens netværk\""
-
-#~ msgid "Time in seconds between echo requests"
-#~ msgstr "Tid i sekunder mellem ekko-forespørgsler"
-
-#~ msgid "Type:"
-#~ msgstr "Type:"
-
-#~ msgid "Use Peer DNS"
-#~ msgstr "Brug fjernserver DNS"
-
-#~ msgid "When checked the \"refuse-chap\" option is passed to pppd."
-#~ msgstr "Hvis afkrydset, sættes pppd-tilvalget \"refuse-chap\"."
-
-#~ msgid "When checked the \"refuse-eap\" option is passed to pppd."
-#~ msgstr "Hvis afkrydset, sættes pppd-tilvalget \"refuse-eap\"."
-
-#~ msgid "When checked the \"refuse-mschap\" option is passed to pppd."
-#~ msgstr "Hvis afkrydset, sættes pppd-tilvalget \"refuse-mschap\"."
-
-#~ msgid "When checked the 'lock' option is passed to pppd"
-#~ msgstr "Hvis afkrydset, sættes pppd-tilvalget \"lock\"."
-
-#~ msgid "When checked the 'require-mppc' option is passed to pppd"
-#~ msgstr "Hvis afkrydset, sættes pppd-tilvalget \"require-mppc\"."
-
-#~ msgid ""
-#~ "When checked this sets the pppd 'debug' option and adds some extra "
-#~ "information from the NetworkManager plugin"
-#~ msgstr ""
-#~ "Hvis afkrydset, sættes pppd-tilvalget \"debug\" og der tilføjes ekstra "
-#~ "information fra NetworkManager-udvidelsesmodulet"
-
-#~ msgid "When checked this sets the pppd 'noipdefault' option"
-#~ msgstr "Hvis afkrydset, sættes pppd-tilvalget \"noipdefault\"."
-
-#~ msgid "When checked this sets the pppd 'usepeerdns' option"
-#~ msgstr "Hvis afkrydset, sættes pppd-tilvalget \"usepeerdns\"."
-
-#~ msgid ""
-#~ "When this check box is cleared the \"noauth\" option is passed to pppd."
-#~ msgstr "Hvis ikke-afkrydset, sættes pppd-tilvalget \"noauth\"."
-
-#~ msgid "_Access Point Name:"
-#~ msgstr "Navn på _adgangspunkt:"
-
-#~ msgid "_Channel:"
-#~ msgstr "_Kanal:"
-
-#~ msgid "_Context Num"
-#~ msgstr "_Kontekstnummer"
-
-#~ msgid "_Custom PPP options:"
-#~ msgstr "_Brugerdefinerede PPP-indstillinger:"
-
-#~ msgid "_Device Address:"
-#~ msgstr "_Enhedsadresse:"
-
-#~ msgid "_IP Address:"
-#~ msgstr "_IP-adresse:"
-
-#~ msgid "_Import Saved Configuration..."
-#~ msgstr "_Importér gemt konfiguration..."
-
-#~ msgid "_Only use VPN connection for these addresses"
-#~ msgstr "_Brug kun VPN-forbindelse til flg. adresser"
-
-#~ msgid "_Packet Type"
-#~ msgstr "_Pakketype"
-
-#~ msgid "_Telephone Number:"
-#~ msgstr "_Telefonnummer:"
-
-#~ msgid "connect-delay"
-#~ msgstr "connect-delay"
-
-#~ msgid "pppd tunnel (L2TP, BTGPRS, Dialup)"
-#~ msgstr "pppd-tunnel (L2TP, BTGPRS, opkald)"
-
-#~ msgid "Name"
-#~ msgstr "Navn"
-
-#~ msgid "L2TP Server"
-#~ msgstr "L2TP-server"
-
-#~ msgid "Telephone Number"
-#~ msgstr "Telefonnummer"
-
-#~ msgid "Bluetooth Address"
-#~ msgstr "Bluetooth-adresse"
-
-#~ msgid "Bluetooth Channel"
-#~ msgstr "Bluetooth-kanal"
-
-#~ msgid "GPRS APN"
-#~ msgstr "GPRS APN"
-
-#~ msgid "GPRS IP"
-#~ msgstr "GPRS IP"
-
-#~ msgid "GPRS Context No."
-#~ msgstr "GPRS kontekstnr."
-
-#~ msgid "GPRS Packet Type"
-#~ msgstr "GPRS pakketype"
-
-#~ msgid "Use CTS/RTS flow control"
-#~ msgstr "Brug CTS/RTS flowkontrol"
-
-#~ msgid "Connect via a modem"
-#~ msgstr "Tilslut via et modem"
-
-#~ msgid "Require IP to be provided"
-#~ msgstr "Påkræv at IP tilbydes"
-
-#~ msgid "Use 128 bit MPPE encryption"
-#~ msgstr "Brug 128-bit MPPE-kryptering"
-
-#~ msgid "Do not use deflate compression"
-#~ msgstr "Brug ikke deflate-komprimering"
-
-#~ msgid "Do not use BSD compression"
-#~ msgstr "Brug ikke BSD-komprimering"
-
-#~ msgid "Exclusive device access by pppd"
-#~ msgstr "Eksklusiv enhedsadgang af pppd"
-
-#~ msgid "Authenticate remote peer"
-#~ msgstr "Godkend fjernserver"
-
-#~ msgid "Maximum transmit unit (in bytes)"
-#~ msgstr "Maksimal sendeenhed (i bytes)"
-
-#~ msgid "Maximum receive unit (in bytes)"
-#~ msgstr "Maksimal modtageenhed (i bytes)"
-
-#~ msgid "Number of failed LCP echos to cause disconnect"
-#~ msgstr "Antal fejlede LCP ekkoer før der afbrydes"
-
-#~ msgid "Interval (in seconds) at which to issue LCP echos"
-#~ msgstr "Interval (i sekunder) mellem LCP ekkoer"
-
-#~ msgid "Interval (in milliseconds) to wait before connecting."
-#~ msgstr "Interval (i millisekunder) som ventes inden der tilsluttes."
-
-#~ msgid "Custom PPP options"
-#~ msgstr "Brugerdefinerede PPP-indstillinger"
-
-#~ msgid "Use Peer DNS over the Tunnel"
-#~ msgstr "Brug server DNS over tunnellen"
-
-#~ msgid "Specific networks available"
-#~ msgstr "Specifikke netværk tilgængelige"
-
-#~ msgid "Limit to specific networks"
-#~ msgstr "Begræns til specifikke netværk"
-
-#~ msgid "The following '%s' connection will be created:"
-#~ msgstr "Følgende \"%s\"-forbindelse vil blive oprettet:"
-
-#~ msgid "\t%s:  %s\n"
-#~ msgstr "\t%s:  %s\n"
-
-#~ msgid "The connection details can be changed using the \"Back\" button."
-#~ msgstr "Forbindelsens detaljer kan ændres ved at bruge knappen \"Tilbage\"."
-
-#~ msgid "Select file to import"
-#~ msgstr "Vælg fil der skal importeres"
-
-#~ msgid "Save as..."
-#~ msgstr "Gem som..."
-
-#~ msgid "A file named \"%s\" already exists."
-#~ msgstr "En fil med navnet \"%s\" eksisterer allerede."
-
-#~ msgid "Do you want to replace it with the one you are saving?"
-#~ msgstr "Vil du erstatte den med den du gemmer?"
-
-#~ msgid "<b>Required Information</b>"
-#~ msgstr "<b>Påkrævede oplysninger</b>"
-
-#, fuzzy
-#~ msgid "<b>Routing options</b>"
-#~ msgstr "<b>Påkrævede oplysninger</b>"
-
-#
-#, fuzzy
-#~ msgid "Connection Type:"
-#~ msgstr "VPN-forbindelsen fejlede"
-
-#, fuzzy
-#~ msgid "MPPE encryption"
-#~ msgstr "Påkræv MPPE-kryptering"
-
-#~ msgid ""
-#~ "Please enter the information provided by your system administrator below. "
-#~ "Do not enter your password here as you will be prompted when connecting."
-#~ msgstr ""
-#~ "Indtast oplysninger fra din systemadministrator nedenfor. Du skal ikke "
-#~ "indtaste din adgangskode her, da du bliver spurgt om den ved tilslutning."
-
-#~ msgid "Remote:  %s"
-#~ msgstr "Fjern:  %s"
-
-#~ msgid "Username:  %s"
-#~ msgstr "Brugernavn:  %s"
-
-#~ msgid "Use MPPC Compression: %s"
-#~ msgstr "Brug MPPC-komprimering: %s"
-
-#~ msgid "Yes"
-#~ msgstr "Ja"
-
-#~ msgid "No"
-#~ msgstr "Nej"
-
-#~ msgid "Cannot import settings"
-#~ msgstr "Kan ikke importere opsætning"
-
-#~ msgid "The VPN settings file '%s' does not contain valid data."
-#~ msgstr "VPN-opsætningsfilen '%s' indeholder ikke gyldige data."
-
-#~ msgid ""
-#~ "Your password must be defined \n"
-#~ "in /etc/ppp/chap-secrets"
-#~ msgstr ""
-#~ "Din adgangskode skal være defineret \n"
-#~ "i /etc/ppp/chap-secrets"

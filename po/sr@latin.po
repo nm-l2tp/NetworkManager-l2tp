@@ -170,7 +170,6 @@ msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr "Protok tunelisanja od tačke do tačke (L2TP)"
 
 #: ../properties/nm-l2tp-editor-plugin.c:37
-#, fuzzy
 msgid "Compatible with Microsoft and other L2TP VPN servers."
 msgstr "Saglasno sa Majkrosoftovim i drugim L2TP VPN serverima."
 
@@ -386,20 +385,19 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:10
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "Algoritmi faze 2:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:11
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "Algoritmi faze 1:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
 msgid "_Enforce UDP encapsulation"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
-#, fuzzy
 msgid "Ad_vanced"
-msgstr "_Napredno…"
+msgstr "_Napredno"
 
 #: ../properties/nm-l2tp-dialog.ui.h:14
 msgid "_Gateway:"
@@ -627,87 +625,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "Compatible with various L2TP servers including Microsoft."
-#~ msgstr "Saglasno sa i raznim L2TP serverima uključujući i Majkrosoft."
-
-#~ msgid "Could not find l2tp client binary."
-#~ msgstr "Ne mogu da pronađem izvršni l2tp klijenta."
-
-#~ msgid "Missing VPN gateway."
-#~ msgstr "Nedostaje VPN mrežni prolaz."
-
-#~ msgid "Could not find the pppd binary."
-#~ msgstr "Ne mogu da pronađem l2tp izvršni."
-
-#~| msgid "couldn't convert L2TP VPN gateway IP address '%s' (%d)"
-#~ msgid "couldn’t convert L2TP VPN gateway IP address “%s” (%d)"
-#~ msgstr "ne mogu da pretvorim IP adresu L2TP VPN mrežnog prolaza „%s“ (%d)"
-
-#~| msgid "couldn't look up L2TP VPN gateway IP address '%s' (%d)"
-#~ msgid "couldn’t look up L2TP VPN gateway IP address “%s” (%d)"
-#~ msgstr "ne mogu da potražim IP adresu L2TP VPN mrežnog prolaza „%s“ (%d)"
-
-#~| msgid "no usable addresses returned for L2TP VPN gateway '%s'"
-#~ msgid "no usable addresses returned for L2TP VPN gateway “%s”"
-#~ msgstr "nisu vraćene upotrebljive adrese za L2TP VPN mrežni prolaz „%s“"
-
-#~ msgid "Invalid or missing L2TP gateway."
-#~ msgstr "Neispravan ili nedostaje L2TP mrežni prolaz."
-
-#~ msgid "Use custom _unit number:"
-#~ msgstr "Koristi proizvoljni broj _jedinice:"
-
-#~ msgid ""
-#~ "Enable custom index for ppp<n> device name.\n"
-#~ "config: unit <n>"
-#~ msgstr ""
-#~ "Uključi proizvoljni indeks za naziv „ppp<n>“ uređaja.\n"
-#~ "podešavanje: jedinica <n>"
-
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>Odjek</b>"
-
-#~ msgid "<b>Misc</b>"
-#~ msgstr "<b>Razno</b>"
-
-#~ msgid "no usable addresses returned for L2TP VPN gateway '%s' (%d)"
-#~ msgstr ""
-#~ "nisu vraćene upotrebljive adrese za L2TP VPN mrežni prolaz „%s“ (%d)"
-
-#~ msgid "Could not find secrets (connection invalid, no vpn setting)."
-#~ msgstr ""
-#~ "Ne mogu da pronađem tajne (veza je neispravna, nema vpn podešavanja)."
-
-#~ msgid "Missing or invalid VPN username."
-#~ msgstr "Nedostaje ili je neispravno VPN korisničko ime."
-
-#~ msgid "No cached credentials."
-#~ msgstr "Nema pričuvanih uverenja."
-
-#~ msgid "_Password:"
-#~ msgstr "_Lozinka:"
-
-#~ msgid "_Secondary Password:"
-#~ msgstr "_Sekundarna lozinka:"
-
-#~ msgid "Sh_ow passwords"
-#~ msgstr "Pri_kaži lozinku"
-
-#~ msgid "L2TP VPN Connection Manager"
-#~ msgstr "L2TP VPN upravnik veze"
-
-#~ msgid "Add, Remove, and Edit L2TP VPN Connections"
-#~ msgstr "Dodajte, uklanjajte i uređujte L2TP VPN veze"
-
-#~ msgid "Saved"
-#~ msgstr "Sačuvano"
-
-#~ msgid "Always Ask"
-#~ msgstr "Pitaj uvek"
-
-#~ msgid "Not Required"
-#~ msgstr "Nije zatraženo"
-
-#~ msgid "Invalid VPN username."
-#~ msgstr "Neispravno VPN korisničko ime."

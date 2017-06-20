@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Young-Ho Cha <ganadist@gmail.com>, 2007.
 # Namhyung Kim <namhyung@gmail.com>, 2007.
+# Changwoo Ryu <cwryu@debian.org>, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: nm-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-19 22:07+1000\n"
-"PO-Revision-Date: 2007-12-24 18:16+0900\n"
-"Last-Translator: Namhyung Kim <namhyung@gmail.com>\n"
-"Language-Team: GNOME Korea <gnome-kr-hackers@lists.kldp.net>\n"
+"POT-Creation-Date: 2017-06-19 22:46+1000\n"
+"PO-Revision-Date: 2011-03-19 23:03+0900\n"
+"Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
+"Language-Team: GNOME Korea <gnome-kr@googlegroups.com>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,52 +47,49 @@ msgstr ""
 #. * that the password should never be saved.
 #.
 #: ../auth-dialog/main.c:146
-#, fuzzy, c-format
+#, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
-msgstr "'%s'에 접근할 때 인증이 필요합니다."
+msgstr "'%s' VPN에 접근하려면 인증이 필요합니다."
 
 #: ../auth-dialog/main.c:155 ../auth-dialog/main.c:175
-#, fuzzy
 msgid "Authenticate VPN"
-msgstr "peer 인증(_A)"
+msgstr "VPN 인증"
 
 #: ../auth-dialog/main.c:157 ../properties/nm-l2tp-dialog.ui.h:25
-#, fuzzy
 msgid "Password:"
-msgstr "암호(_P):"
+msgstr "암호:"
 
 #: ../properties/advanced-dialog.c:172
 msgid "All Available (Default)"
-msgstr ""
+msgstr "모두 사용 가능 (기본값)"
 
 #: ../properties/advanced-dialog.c:176
 msgid "128-bit (most secure)"
-msgstr ""
+msgstr "128비트 (가장 안전)"
 
 #: ../properties/advanced-dialog.c:185
 msgid "40-bit (less secure)"
-msgstr ""
+msgstr "40비트 (덜 안전)"
 
 #: ../properties/advanced-dialog.c:289
 msgid "PAP"
-msgstr ""
+msgstr "PAP"
 
 #: ../properties/advanced-dialog.c:302
 msgid "CHAP"
-msgstr ""
+msgstr "CHAP"
 
 #: ../properties/advanced-dialog.c:314
-#, fuzzy
 msgid "MSCHAP"
-msgstr "MSCHAP 거부"
+msgstr "MSCHAP"
 
 #: ../properties/advanced-dialog.c:326
 msgid "MSCHAPv2"
-msgstr ""
+msgstr "MSCHAPv2"
 
 #: ../properties/advanced-dialog.c:339
 msgid "EAP"
-msgstr ""
+msgstr "EAP"
 
 #: ../properties/import-export.c:162 ../properties/import-export.c:432
 #, c-format
@@ -166,7 +164,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-editor-plugin.c:37
 msgid "Compatible with Microsoft and other L2TP VPN servers."
-msgstr ""
+msgstr "마이크로소프트 및 기타 L2TP VPN 서버와 호환됩니다."
 
 #: ../properties/nm-l2tp-editor.c:146
 #, c-format
@@ -396,9 +394,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
-#, fuzzy
 msgid "Optional"
-msgstr "<b>IP 옵션</b>"
+msgstr "추가 정보"
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid ""
@@ -408,9 +405,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
-#, fuzzy
 msgid "Show password"
-msgstr "암호(_P):"
+msgstr "암호 표시"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Password passed to PPPD when prompted for it."
@@ -424,14 +420,12 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:24
-#, fuzzy
 msgid "User name:"
-msgstr "사용자 이름(_U):"
+msgstr "사용자 이름:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
-#, fuzzy
 msgid "NT Domain:"
-msgstr "도메인(_D):"
+msgstr "NT 도메인:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:27
 msgid "_IPsec Settings..."
@@ -443,7 +437,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:29
 msgid "Default"
-msgstr ""
+msgstr "기본값"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 #, fuzzy
@@ -457,7 +451,7 @@ msgstr "인증 형식:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
 msgid "Allow the following authentication methods:"
-msgstr ""
+msgstr "다음 인증 방법 허용:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:33
 msgid ""
@@ -471,9 +465,8 @@ msgid "Security and Compression"
 msgstr "<b>압축</b>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
-#, fuzzy
 msgid "Use _Point-to-Point encryption (MPPE)"
-msgstr "MPPE 암호화 사용"
+msgstr "포인트투포인트 암호화 (MPPE) 사용(_P)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:37
 msgid ""
@@ -481,10 +474,12 @@ msgid ""
 "To enable this checkbox, select one or more of the MSCHAP authentication "
 "methods: MSCHAP or MSCHAPv2."
 msgstr ""
+"주의: MPPE 암호화는 MSCHAP 인증 방식에서만 사용할 수 있습니다. 이 확인란을 사"
+"용하면 MSCHAP 인증 방식 중 하나 이상을 선택하십시오: MSCHAP 또는 MSCHAPv2."
 
 #: ../properties/nm-l2tp-dialog.ui.h:38
 msgid "_Security:"
-msgstr ""
+msgstr "보안(_S):"
 
 #: ../properties/nm-l2tp-dialog.ui.h:39
 msgid ""
@@ -493,9 +488,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:41
-#, fuzzy
 msgid "Allow st_ateful encryption"
-msgstr "Deflate 압축 허용(_D)"
+msgstr "스테이트 있는 암호화 사용(_A)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:42
 msgid ""
@@ -504,9 +498,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:44
-#, fuzzy
 msgid "Allow _BSD data compression"
-msgstr "Deflate 압축 허용(_D)"
+msgstr "BSD 데이터 압축 허용(_B)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:45
 msgid ""
@@ -515,9 +508,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:47
-#, fuzzy
 msgid "Allow _Deflate data compression"
-msgstr "Deflate 압축 허용(_D)"
+msgstr "Deflate 데이터 압축 허용(_D)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:48
 msgid ""
@@ -526,9 +518,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:50
-#, fuzzy
 msgid "Use TCP _header compression"
-msgstr "MPPC 압축 사용"
+msgstr "TCP 헤더 압축 사용(_H)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:51
 msgid ""
@@ -565,7 +556,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:60
 msgid "Send PPP _echo packets"
-msgstr ""
+msgstr "PPP 에코 패킷 보내기(_E)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:61
 msgid ""
@@ -584,407 +575,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "_Password:"
-#~ msgstr "암호(_P):"
-
-#~ msgid "_Secondary Password:"
-#~ msgstr "보조 암호(_S):"
-
-#, fuzzy
-#~ msgid "Sh_ow passwords"
-#~ msgstr "암호(_P):"
-
-#, fuzzy
-#~ msgid "L2TP VPN Connection Manager"
-#~ msgstr "VPN 연결 실패"
-
-#, fuzzy
-#~ msgid "Add, Remove, and Edit L2TP VPN Connections"
-#~ msgstr "VPN 연결 더하기, 지우기, 편집"
-
-#, fuzzy
-#~ msgid "<b>Authentication</b>"
-#~ msgstr "인증"
-
-#, fuzzy
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>암호화</b>"
-
-#~ msgid "_Remember for this session"
-#~ msgstr "이 세션에서 기억(_R)"
-
-#~ msgid "_Save in keyring"
-#~ msgstr "키링에 저장(_S)"
-
-#~ msgid "Authenticate Connection"
-#~ msgstr "연결 인증"
-
-#~ msgid ""
-#~ "<span weight=\"bold\" size=\"larger\">Authentication Information</span>\n"
-#~ "\n"
-#~ "The connection '%s' may need some form of authentication.\n"
-#~ "\n"
-#~ "Please select an appropriate authentication type and provide the "
-#~ "necessary credentials below:\n"
-#~ msgstr ""
-#~ "<span weight=\"bold\" size=\"larger\">인증 정보</span>\n"
-#~ "\n"
-#~ "연결 '%s'에 몇몇 인증 형식이 필요합니다.\n"
-#~ "\n"
-#~ "아래에서 적당한 인증 방법을 선택하고, 필요한 인증서를 준비하십시오:\n"
-
-#~ msgid "Authentication Required"
-#~ msgstr "인증 필요"
-
-#~ msgid "_Authentication Type:"
-#~ msgstr "인증 형식(_A):"
-
-#~ msgid "_Remote name:"
-#~ msgstr "원격 이름(_R):"
-
-#~ msgid "Connect _anonymously"
-#~ msgstr "익명으로 연결(_A)"
-
-#~ msgid "Connect as _user:"
-#~ msgstr "사용자로 연결(_U):"
-
-#~ msgid "_Remember password for this session"
-#~ msgstr "이 세션에서 암호 기억(_R)"
-
-#~ msgid "_Save password in keyring"
-#~ msgstr "키링에 암호 저장(_S)"
-
-#~ msgid "VPN Connection Manager (PPP generic)"
-#~ msgstr "VPN 연결 관리자 (일반 PPP)"
-
-#~ msgid "00:00:00:00"
-#~ msgstr "00:00:00:00"
-
-#~ msgid "<b>Delays &amp; Timeouts</b>"
-#~ msgstr "<b>지연과 시간제한</b>"
-
-#~ msgid "<b>Packet Parameters</b>"
-#~ msgstr "<b>패킷 매개 변수</b>"
-
-#~ msgid "<i>Example: 172.16.0.0/16 10.11.12.0/24</i>"
-#~ msgstr "<i>예: 172.16.0.0/16 10.11.12.0/24</i>"
-
-#~ msgid ""
-#~ "A list of extra options to pppd as would be typed on the command line"
-#~ msgstr "명령행에서 입력할 수 있는 pppd의 기타 옵션 목록"
-
-#~ msgid "Allow B_SD Compression"
-#~ msgstr "BSD 압축 허용(_S)"
-
-#~ msgid "C_hannel:"
-#~ msgstr "채널(_C):"
-
-#~ msgid "Co_nnect delay:"
-#~ msgstr "연결 지연(_N):"
-
-#~ msgid "Compression & Encryption"
-#~ msgstr "압축 및 암호화"
-
-#~ msgid "Connection"
-#~ msgstr "연결"
-
-#~ msgid "Connection na_me:"
-#~ msgstr "연결 이름(_M):"
-
-# FIXME
-#~ msgid "Context _number:"
-#~ msgstr "컨텍스트 번호(_N):"
-
-#~ msgid "Custom _PPP options:"
-#~ msgstr "사용자 지정 PPP 옵션(_P):"
-
-#~ msgid "Debug _output"
-#~ msgstr "디버그 출력(_O)"
-
-#~ msgid "Disconnect after this many LCP echo requests fail"
-#~ msgstr "LCP echo 요청 실패후 연결 끊기"
-
-#~ msgid "E_xclusive device access (UUCP-style lock)"
-#~ msgstr "배타적 장치 접근 (UUCP 형식 잠금)"
-
-#~ msgid "Enable stateful _MPPE"
-#~ msgstr "상태 기반(stateful) MPPE 사용(_M)"
-
-#~ msgid "Find Device"
-#~ msgstr "장치 찾기"
-
-#~ msgid ""
-#~ "For security reasons, options entered in the box above are checked "
-#~ "against a list of allowed options before a connection is established.  "
-#~ "Currently there are no options on the list."
-#~ msgstr ""
-#~ "보안적인 이유로, 입력된 옵션은 연결되기 전에 허용된 옵션목록에 대해 검사하"
-#~ "게 됩니다. 현재 목록에 그런 옵션이 없습니다."
-
-#~ msgid "GPRS Options"
-#~ msgstr "GPRS 옵션"
-
-#~ msgid "Host name or IP address of the L2TP server"
-#~ msgstr "L2TP 서버의 호스트 이름 또는 IP 주소"
-
-#~ msgid "IP a_ddress:"
-#~ msgstr "IP 주소(_D):"
-
-#~ msgid ""
-#~ "If BSD compression is not allowed the 'nobsdcomp' option is passed to pppd"
-#~ msgstr ""
-#~ "BSD 압축이 허용되어 있지 않으면, 'nobsdcomp'옵션이 pppd에 설정됩니다"
-
-#~ msgid ""
-#~ "If Deflate compression is not allowed the 'nodefate' option is passed to "
-#~ "pppd"
-#~ msgstr ""
-#~ "Deflate 압축이 허용되어 있지 않으면, 'nodefate'옵션이 pppd에 설정됩니다"
-
-#~ msgid "Maximum Receive Unit"
-#~ msgstr "최대 수신 단위"
-
-#~ msgid "Maximum Transmit Unit"
-#~ msgstr "최대 전송 단위"
-
-#~ msgid "Refuse C_HAP"
-#~ msgstr "CHAP 거부(_H)"
-
-#~ msgid "Refuse _EAP"
-#~ msgstr "EAP 거부(_E)"
-
-#~ msgid "Refuse _MS CHAP"
-#~ msgstr "MS CHAP 거부(_M)"
-
-#~ msgid "Require 128 bit M_PPE encryption"
-#~ msgstr "128비트 MPPE 암호화 필요(_P)"
-
-#~ msgid "Require MPPE _encryption"
-#~ msgstr "MPPE 암호화 필요(_E)"
-
-#~ msgid "Require explicit IP _address"
-#~ msgstr "수동 IP주소 입력 필요(_A)"
-
-#~ msgid "Requires existing network connection"
-#~ msgstr "기존의 네트워크 연결 필요"
-
-#~ msgid "Routing"
-#~ msgstr "라우팅"
-
-#~ msgid "Serial Options"
-#~ msgstr "시리얼 옵션"
-
-#~ msgid "Service providers GPRS access point from device config"
-#~ msgstr "장치 설정의 서비스 제공업자 GPRS 접근 지점"
-
-#~ msgid "Service providers IP address"
-#~ msgstr "서비스 제공업자 IP 주소"
-
-#~ msgid "Telep_hone number:"
-#~ msgstr "전화 번호(_H):"
-
-#~ msgid ""
-#~ "This is the friendly name that will be used to identify this network "
-#~ "connection, \n"
-#~ "e.g. \"Campus VPN\" or \"Corporate Network\""
-#~ msgstr ""
-#~ "이러한 이름들은 네트워크 연결을 구분할 이름입니다.\n"
-#~ "예, \"학교 VPN\", \"회사 네트워크\""
-
-#~ msgid "Time in seconds between echo requests"
-#~ msgstr "echo 요청 사이의 시간 (초단위)"
-
-#~ msgid "Typ_e:"
-#~ msgstr "형식(_E):"
-
-#~ msgid "Use peer _DNS"
-#~ msgstr "Peer DNS 사용(_D)"
-
-#~ msgid "When checked the \"refuse-chap\" option is passed to pppd."
-#~ msgstr "pppd에 \"refuse-chap\" 옵션을 설정합니다."
-
-#~ msgid "When checked the \"refuse-eap\" option is passed to pppd."
-#~ msgstr "pppd에 \"refuse-eap\" 옵션을 설정합니다."
-
-#~ msgid "When checked the \"refuse-mschap\" option is passed to pppd."
-#~ msgstr "pppd에 \"refuse-mschap\" 옵션을 설정합니다."
-
-#~ msgid "When checked the 'lock' option is passed to pppd"
-#~ msgstr "pppd에 'lock' 옵션을 설정합니다."
-
-#~ msgid "When checked the 'require-mppc' option is passed to pppd"
-#~ msgstr "pppd에 'require-mppc' 옵션을 설정합니다."
-
-#~ msgid ""
-#~ "When checked this sets the pppd 'debug' option and adds some extra "
-#~ "information from the NetworkManager plugin"
-#~ msgstr ""
-#~ "pppd에 'debug'옵션을 설정해서, NetworkManager 플러그인에 더 많은 정보를 "
-#~ "볼 수 있게 합니다."
-
-#~ msgid "When checked this sets the pppd 'noipdefault' option"
-#~ msgstr "pppd에 'noipdefault'옵션을 설정합니다"
-
-#~ msgid "When checked this sets the pppd 'usepeerdns' option"
-#~ msgstr "pppd에 'usepeerdns'옵션을 설정합니다"
-
-#~ msgid ""
-#~ "When this check box is cleared the \"noauth\" option is passed to pppd."
-#~ msgstr "이 체크박스를 설정하지 않으면, pppd에 \"noauth\"옵션이 설정됩니다."
-
-#~ msgid "_Access point name:"
-#~ msgstr "접속 지점 이름(_A):"
-
-#~ msgid "_Device address:"
-#~ msgstr "장치 주소(_D):"
-
-#~ msgid "_Hardware RTS/CTS"
-#~ msgstr "하드웨어 RTS/CTS(_H)"
-
-#~ msgid "_Import Saved Configuration..."
-#~ msgstr "저장된 설정 가져오기(_I)..."
-
-#~ msgid "_Modem connection"
-#~ msgstr "모뎀 연결(_M)"
-
-#~ msgid "_Only use VPN connection for these addresses:"
-#~ msgstr "이 주소에는 VPN 연결 만 사용(_O):"
-
-#~ msgid "_Packet type:"
-#~ msgstr "패킷 형식(_P):"
-
-#~ msgid "_Peer DNS through tunnel"
-#~ msgstr "터널을 통한 Peer DNS(_P)"
-
-#~ msgid "_Require MPPC compression"
-#~ msgstr "MPPC 압축 필요(_R)"
-
-#~ msgid "pppd tunnel (L2TP, BTGPRS, Dialup)"
-#~ msgstr "pppd 터널 (PPTD, BTGPRS, 전화걸기)"
-
-#~ msgid "Name"
-#~ msgstr "이름"
-
-#~ msgid "L2TP Server"
-#~ msgstr "L2TP 서버"
-
-#~ msgid "Telephone Number"
-#~ msgstr "전화번호"
-
-#~ msgid "Bluetooth Address"
-#~ msgstr "블루투스 주소"
-
-#~ msgid "Bluetooth Channel"
-#~ msgstr "블루투스 채널"
-
-#~ msgid "GPRS APN"
-#~ msgstr "GPRS APN"
-
-#~ msgid "GPRS IP"
-#~ msgstr "GPRS IP"
-
-#~ msgid "GPRS Context No."
-#~ msgstr "GPRS 컨텍스트 번호"
-
-#~ msgid "GPRS Packet Type"
-#~ msgstr "GPRS 패킷 형식"
-
-#~ msgid "Use CTS/RTS flow control"
-#~ msgstr "CTS/RTS 흐름제어 사용"
-
-#~ msgid "Connect via a modem"
-#~ msgstr "모뎀으로 연결"
-
-#~ msgid "Require IP to be provided"
-#~ msgstr "IP 필요"
-
-#~ msgid "Use Peer DNS"
-#~ msgstr "Peer DNS 사용"
-
-#~ msgid "Use 128 bit MPPE encryption"
-#~ msgstr "128비트 MPPE 암호화 사용"
-
-#~ msgid "Enable stateful MPPE"
-#~ msgstr "상태기반 MPPE 사용"
-
-#~ msgid "Do not use deflate compression"
-#~ msgstr "Deflate 압축 사용 안함"
-
-#~ msgid "Do not use BSD compression"
-#~ msgstr "BSD 압축 사용 안함"
-
-#~ msgid "Exclusive device access by pppd"
-#~ msgstr "pppd에서만 장치 사용"
-
-#~ msgid "Authenticate remote peer"
-#~ msgstr "원격 peer 인증"
-
-#~ msgid "Refuse EAP"
-#~ msgstr "EAP 거부"
-
-#~ msgid "Refuse CHAP"
-#~ msgstr "CHAP 거부"
-
-#~ msgid "Maximum transmit unit (in bytes)"
-#~ msgstr "최대 전송 단위 (바이트)"
-
-#~ msgid "Maximum receive unit (in bytes)"
-#~ msgstr "최대 수신 단위 (바이트)"
-
-#~ msgid "Number of failed LCP echos to cause disconnect"
-#~ msgstr "연결을 종료시킬 LCP 반향 실패 횟수"
-
-#~ msgid "Interval (in seconds) at which to issue LCP echos"
-#~ msgstr "LCP 반향 발생 간격(초단위)"
-
-#~ msgid "Interval (in milliseconds) to wait before connecting."
-#~ msgstr "연결 전 대기 간격 (밀리초)."
-
-#~ msgid "Custom PPP options"
-#~ msgstr "PPP 추가 옵션"
-
-#~ msgid "Use Peer DNS over the Tunnel"
-#~ msgstr "터널상에서 Peer DNS 사용"
-
-#~ msgid "Specific networks available"
-#~ msgstr "지정한 네트워크 사용 가능"
-
-#~ msgid "Limit to specific networks"
-#~ msgstr "지정된 네트워크에 제한"
-
-#~ msgid "The following '%s' connection will be created:"
-#~ msgstr "다음 '%s' 연결이 만들어집니다:"
-
-#~ msgid "\t%s:  %s\n"
-#~ msgstr "\t%s:  %s\n"
-
-#~ msgid "The connection details can be changed using the \"Back\" button."
-#~ msgstr "\"뒤로\" 단추를 눌러서 연결 설정을 바꿀 수 있습니다."
-
-#~ msgid "Select file to import"
-#~ msgstr "가져올 파일 선택"
-
-#~ msgid "Save as..."
-#~ msgstr "다른 이름으로 저장..."
-
-#~ msgid "A file named \"%s\" already exists."
-#~ msgstr "\"%s\" 파일이 이미 있습니다."
-
-#~ msgid "Do you want to replace it with the one you are saving?"
-#~ msgstr "이를 저장할 파일로 바꾸겠습니까?"
-
-#~ msgid "auth-chap-window"
-#~ msgstr "auth-chap-window"
-
-#~ msgid "auth-mschapv2-window"
-#~ msgstr "auth-mschapv2-window"
-
-#~ msgid "auth-none-window"
-#~ msgstr "auth-none-window"
-
-#~ msgid "<b>Connection Name</b>"
-#~ msgstr "<b>연결 이름</b>"
-
-#~ msgid "Telephone number to dial"
-#~ msgstr "전화걸 번호"

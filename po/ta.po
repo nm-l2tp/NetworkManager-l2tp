@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-l2tp.master.ta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-19 22:07+1000\n"
+"POT-Creation-Date: 2017-06-19 22:46+1000\n"
 "PO-Revision-Date: 2009-10-29 15:36+0530\n"
 "Last-Translator: I. Felix <ifelix@redhat.com>\n"
 "Language-Team: Tamil <fedora-trans-ta@redhat.com>\n"
@@ -170,7 +170,6 @@ msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr "Layer 2 Tunneling Protocol (L2TP)"
 
 #: ../properties/nm-l2tp-editor-plugin.c:37
-#, fuzzy
 msgid "Compatible with Microsoft and other L2TP VPN servers."
 msgstr "Microsoft மற்றும் மற்ற L2TP VPN சேவையகங்களுடன் குறுக்கவும்."
 
@@ -416,7 +415,6 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
-#, fuzzy
 msgid "Show password"
 msgstr "கடவுச்சொல்லைக் காட்டு"
 
@@ -588,40 +586,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "_Password:"
-#~ msgstr "(_P) கடவுச்சொல்:"
-
-#~ msgid "_Secondary Password:"
-#~ msgstr "இரண்டாவது கடவுச்சொல் (_S):"
-
-#, fuzzy
-#~ msgid "Sh_ow passwords"
-#~ msgstr "கடவுச்சொல்லைக் காட்டு"
-
-#~ msgid "L2TP VPN Connection Manager"
-#~ msgstr "L2TP VPN இணைப்பு மேலாளர்"
-
-#~ msgid "Add, Remove, and Edit L2TP VPN Connections"
-#~ msgstr "சேர், நீக்கு, மற்றும் L2TP VPN இணைப்புகளை திருத்தவும்"
-
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>எதிரொலி</b>"
-
-#~ msgid "_Username:"
-#~ msgstr "(_U) பயனர் பெயர்:"
-
-#~ msgid "_Domain:"
-#~ msgstr "செய்களம் (_D):"
-
-#~ msgid "Connect _anonymously"
-#~ msgstr "பெயரில்லாமல் இணை (_a)"
-
-#~ msgid "Connect as _user:"
-#~ msgstr "பயனராக இணைக்கவும் (_u):"
-
-#~ msgid "_Remember passwords for this session"
-#~ msgstr "இந்த அமர்வுக்கு கடவுச்சொற்களை நினைவு கொள்ளவும் (_R)"
-
-#~ msgid "_Save passwords in keyring"
-#~ msgstr "கீரிங்கில் கடவுச்சொற்களை சேமிக்கவும் (_S)"

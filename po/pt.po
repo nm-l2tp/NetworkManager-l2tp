@@ -2,20 +2,23 @@
 # Copyright © 2007, 2009 NetworkManager-l2tp
 # This file is distributed under the same license as the NetworkManager-l2tp package.
 # Duarte Loreto <happyguy_pt@hotmail.com>, 2007.
+# Filipe Gomes <filipefgomes@gmail.com>, 2009, 2010, 2012.
+# Pedro Albuquerque <palbuquerque73@gmail.com>, 2015.
 #
-# Filipe Gomes <filipefgomes@gmail.com>, 2009, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: 2.26\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-19 22:07+1000\n"
-"PO-Revision-Date: 2010-03-07 15:38+0000\n"
-"Last-Translator: Filipe Gomes <filipefgomes@gmail.com>\n"
+"POT-Creation-Date: 2017-06-19 22:46+1000\n"
+"PO-Revision-Date: 2015-11-13 08:44+0000\n"
+"Last-Translator:  <>\n"
 "Language-Team: Portuguese <gnome_pt@yahoogroups.com>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
 msgid "L2TP VPN Client"
@@ -49,11 +52,11 @@ msgstr ""
 #: ../auth-dialog/main.c:146
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
-msgstr "Tem de se autenticar para aceder à Rede Privada Virtual(VPN) '%s'."
+msgstr "Tem de se autenticar para aceder à rede privada virtual(VPN) \"%s\"."
 
 #: ../auth-dialog/main.c:155 ../auth-dialog/main.c:175
 msgid "Authenticate VPN"
-msgstr "Autenticar VPN"
+msgstr "Autenticação VPN"
 
 #: ../auth-dialog/main.c:157 ../properties/nm-l2tp-dialog.ui.h:25
 msgid "Password:"
@@ -61,7 +64,7 @@ msgstr "Senha:"
 
 #: ../properties/advanced-dialog.c:172
 msgid "All Available (Default)"
-msgstr "Todas as Disponíveis (Omissão)"
+msgstr "Todas as disponíveis (predefinição)"
 
 #: ../properties/advanced-dialog.c:176
 msgid "128-bit (most secure)"
@@ -164,7 +167,6 @@ msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr "Protocolo de Tunneling Ponto-a-Ponto (L2TP)"
 
 #: ../properties/nm-l2tp-editor-plugin.c:37
-#, fuzzy
 msgid "Compatible with Microsoft and other L2TP VPN servers."
 msgstr "Compatível com servidores VPN L2TP da Microsoft e outros."
 
@@ -263,7 +265,7 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:306
 #, c-format
 msgid "invalid gateway '%s'"
-msgstr ""
+msgstr "gateway \"%s\" inválido"
 
 #: ../src/nm-l2tp-service.c:315
 #, c-format
@@ -273,35 +275,35 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:328
 #, c-format
 msgid "invalid integer property '%s'"
-msgstr ""
+msgstr "propriedade inteira \"%s\" inválida"
 
 #: ../src/nm-l2tp-service.c:338
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
-msgstr ""
+msgstr "propriedade booliana \"%s\" inválida (nem sim, nem não)"
 
 #: ../src/nm-l2tp-service.c:345
 #, c-format
 msgid "unhandled property '%s' type %s"
-msgstr ""
+msgstr "propriedade \"%s\" de tipo %s não gerida"
 
 #: ../src/nm-l2tp-service.c:356
 #, c-format
 msgid "property '%s' invalid or not supported"
-msgstr ""
+msgstr "propriedade \"%s\" inválida ou não suportada"
 
 #: ../src/nm-l2tp-service.c:374
 msgid "No VPN configuration options."
-msgstr ""
+msgstr "Sem opções de configuração VPN."
 
 #: ../src/nm-l2tp-service.c:394
 #, c-format
 msgid "Missing required option '%s'."
-msgstr ""
+msgstr "Opção necessária \"%s\" em falta."
 
 #: ../src/nm-l2tp-service.c:414
 msgid "No VPN secrets!"
-msgstr ""
+msgstr "Sem segredos VPN!"
 
 #: ../src/nm-l2tp-service.c:720
 #, c-format
@@ -319,19 +321,19 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1233
 msgid "Missing or invalid VPN password."
-msgstr ""
+msgstr "Senha VPN inválida ou em falta."
 
 #: ../src/nm-l2tp-service.c:1678
 msgid "Don't quit when VPN connection terminates"
-msgstr ""
+msgstr "Não sair quando a ligaçãp VPN termina"
 
 #: ../src/nm-l2tp-service.c:1679
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr ""
+msgstr "Ativar depurador descritivo (pode expor senhas)"
 
 #: ../src/nm-l2tp-service.c:1680
 msgid "D-Bus name to use for this instance"
-msgstr ""
+msgstr "Nome D-Bus a usar nesta instância"
 
 #: ../src/nm-l2tp-service.c:1701
 msgid ""
@@ -372,11 +374,11 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:10
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "Algoritmos Phase2:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:11
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "Algoritmos Phase1:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
 msgid "_Enforce UDP encapsulation"
@@ -408,11 +410,13 @@ msgid ""
 "purposes.\n"
 "config: domain <domain>"
 msgstr ""
+"Acrescenta o nome de domínio <domain> ao nome de máquina local para fins de "
+"autenticação.\n"
+"configuração: domínio <domain>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
-#, fuzzy
 msgid "Show password"
-msgstr "Apresentar Senha"
+msgstr "Mostrar senha"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Password passed to PPPD when prompted for it."
@@ -443,7 +447,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:29
 msgid "Default"
-msgstr "Omissão"
+msgstr "Predefinição"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 #, fuzzy
@@ -464,6 +468,9 @@ msgid ""
 "Allow/disable authentication methods.\n"
 "config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 msgstr ""
+"Permite/desativa métodos de autenticação.\n"
+"configuração: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, "
+"refuse-eap"
 
 #: ../properties/nm-l2tp-dialog.ui.h:35
 #, fuzzy
@@ -472,7 +479,7 @@ msgstr "<b>Segurança e Compressão</b>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid "Use _Point-to-Point encryption (MPPE)"
-msgstr "Utilizar encriptação _Ponto-a-Ponto (MPPE)"
+msgstr "Usar encriptação _Ponto-a-Ponto (MPPE)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:37
 msgid ""
@@ -481,8 +488,8 @@ msgid ""
 "methods: MSCHAP or MSCHAPv2."
 msgstr ""
 "Nota: encriptação MPPE encontra-se apenas disponível com métodos de "
-"autenticação MSCHAP. Para activar esta caixa de selecção, seleccione um ou "
-"mais métodos de autenticação MSCHAP: MSCHAP ou MSCHAPv2."
+"autenticação MSCHAP. Para ativar esta caixa de seleção, selecione um ou mais "
+"métodos de autenticação MSCHAP: MSCHAP ou MSCHAPv2."
 
 #: ../properties/nm-l2tp-dialog.ui.h:38
 msgid "_Security:"
@@ -493,40 +500,49 @@ msgid ""
 "Require the use of MPPE, with 40/128-bit encryption or all.\n"
 "config: require-mppe, require-mppe-128 or require-mppe-40"
 msgstr ""
+"Requer a utilização de MPPE, com encriptação com 40 ou 128 bits ou os dois.\n"
+"configuração: require-mppe, require-mppe-128 ou require-mppe-40"
 
 #: ../properties/nm-l2tp-dialog.ui.h:41
 msgid "Allow st_ateful encryption"
-msgstr "Permitir encriptação com est_ado"
+msgstr "Permitir encriptação com est_Ado"
 
 #: ../properties/nm-l2tp-dialog.ui.h:42
 msgid ""
 "Allow MPPE to use stateful mode. Stateless mode is still attempted first.\n"
 "config: mppe-stateful (when checked)"
 msgstr ""
+"Permite ao MPPE utilizar o modo com estado. O modo sem estado é sempre "
+"tentado primeiro.\n"
+"configuração: mppe-stateful (quando marcado)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:44
 msgid "Allow _BSD data compression"
-msgstr "Permitir Compressão de dados _BSD"
+msgstr "Permitir compressão de dados _BSD"
 
 #: ../properties/nm-l2tp-dialog.ui.h:45
 msgid ""
 "Allow/disable BSD-Compress compression.\n"
 "config: nobsdcomp (when unchecked)"
 msgstr ""
+"Permite/desativa a compressão BSD-Compress.\n"
+"configuração: nobsdcomp (quando desmarcado)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:47
 msgid "Allow _Deflate data compression"
-msgstr "Permitir Compressão de dados _Deflate"
+msgstr "Permitir compressão de dados _Deflate"
 
 #: ../properties/nm-l2tp-dialog.ui.h:48
 msgid ""
 "Allow/disable Deflate compression.\n"
 "config: nodeflate (when unchecked)"
 msgstr ""
+"Permite/desativa a compressão Deflate.\n"
+"configuração: nodeflate (quando desmarcado)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:50
 msgid "Use TCP _header compression"
-msgstr "Utilizar compressão de _cabeçalho TCP"
+msgstr "Usar compressão de cabeçal_Ho TCP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:51
 msgid ""
@@ -534,6 +550,9 @@ msgid ""
 "transmit and the receive directions.\n"
 "config: novj (when unchecked)"
 msgstr ""
+"Permite/desativa a compressão de cabeçalho TCP/IP do estilo Van Jacobson em "
+"ambas as direções de transmissão e receção.\n"
+"configuração: novj (quando desmarcado)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:53
 msgid "Use protocol _field compression negotiation"
@@ -563,13 +582,15 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:60
 msgid "Send PPP _echo packets"
-msgstr "Enviar pacotes de _eco PPP"
+msgstr "Enviar pacotes de _Eco PPP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:61
 msgid ""
 "Send LCP echo-requests to find out whether peer is alive.\n"
 "config: lcp-echo-failure and lcp-echo-interval"
 msgstr ""
+"Envia os pedidos eco LCP a fim de saber se o cliente está ativo.\n"
+"configuração: lcp-echo-failure e lcp-echo-interval"
 
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid "Misc"
@@ -582,402 +603,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "_Password:"
-#~ msgstr "_Senha:"
-
-#~ msgid "_Secondary Password:"
-#~ msgstr "Sen_ha Secundária:"
-
-#, fuzzy
-#~ msgid "Sh_ow passwords"
-#~ msgstr "Apresentar Senha"
-
-#~ msgid "L2TP VPN Connection Manager"
-#~ msgstr "Gestor de Ligações VPN L2TP"
-
-#~ msgid "Add, Remove, and Edit L2TP VPN Connections"
-#~ msgstr "Adicionar, Remover e Editar Ligações VPN L2TP"
-
-#~ msgid "<b>Authentication</b>"
-#~ msgstr "<b>Autenticação</b>"
-
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>Eco</b>"
-
-#~ msgid "_Username:"
-#~ msgstr "_Utilizador:"
-
-#~ msgid "_Domain:"
-#~ msgstr "_Domínio:"
-
-#~ msgid "Connect _anonymously"
-#~ msgstr "Ligar-se _anonimamente"
-
-#~ msgid "Connect as _user:"
-#~ msgstr "Ligar-se como o _utilizador:"
-
-#~ msgid "_Remember passwords for this session"
-#~ msgstr "_Recordar senhas durante esta sessão"
-
-#~ msgid "_Save passwords in keyring"
-#~ msgstr "_Gravar senhas no chaveiro"
-
-#~ msgid "_Remember for this session"
-#~ msgstr "_Recordar durante esta sessão"
-
-#~ msgid "_Save in keyring"
-#~ msgstr "_Gravar no chaveiro"
-
-#~ msgid "Authenticate Connection"
-#~ msgstr "Autenticar a Ligação"
-
-#~ msgid ""
-#~ "<span weight=\"bold\" size=\"larger\">Authentication Information</span>\n"
-#~ "\n"
-#~ "The connection '%s' may need some form of authentication.\n"
-#~ "\n"
-#~ "Please select an appropriate authentication type and provide the "
-#~ "necessary credentials below:\n"
-#~ msgstr ""
-#~ "<span weight=\"bold\" size=\"larger\">Informação de Autenticação</span>\n"
-#~ "\n"
-#~ "A ligação '%s' poderá necessitar de alguma forma de autenticação.\n"
-#~ "\n"
-#~ "Seleccione o tipo de autenticação apropriado e forneça abaixo as "
-#~ "credenciais necessárias:\n"
-
-#~ msgid "Authentication Required"
-#~ msgstr "Autenticação Requerida"
-
-#~ msgid "_Authentication Type:"
-#~ msgstr "Tipo de _Autenticação:"
-
-#~ msgid "_Remote name:"
-#~ msgstr "Nome _remoto:"
-
-#~ msgid "auth-chap-window"
-#~ msgstr "auth-chap-window"
-
-#~ msgid "auth-mschapv2-window"
-#~ msgstr "auth-mschapv2-window"
-
-#~ msgid "auth-none-window"
-#~ msgstr "auth-none-window"
-
-#~ msgid "VPN Connection Manager (PPP generic)"
-#~ msgstr "Gestor de Ligações VPN (genérico PPP)"
-
-#~ msgid "00:00:00:00"
-#~ msgstr "00:00:00:00"
-
-#~ msgid "<b>Connection Name</b>"
-#~ msgstr "<b>Nome da Ligação</b>"
-
-#~ msgid "<b>Delays and TImeouts</b>"
-#~ msgstr "<b>Atrasos e Expirações</b>"
-
-#~ msgid "<b>Packet Parameters</b>"
-#~ msgstr "<b>Parâmetros de Pacote</b>"
-
-#~ msgid "<i>example: 172.16.0.0/16 10.11.12.0/24</i>"
-#~ msgstr "<i>exemplo: 172.16.0.0/16 10.11.12.0/24</i>"
-
-#~ msgid ""
-#~ "A list of extra options to pppd as would be typed on the command line"
-#~ msgstr ""
-#~ "Uma lista de opções extra para o pppd tal como seriam introduzidas na "
-#~ "linha de comandos"
-
-#~ msgid "Compression & Encryption"
-#~ msgstr "Compressão & Encriptação"
-
-#~ msgid "Connection"
-#~ msgstr "Ligação"
-
-#~ msgid "Debug Output"
-#~ msgstr "Resultados da Depuração"
-
-#~ msgid "Disconnect after this many LCP echo requests fail"
-#~ msgstr "Desligar após este número de falhas de pedidos LCP echo"
-
-#~ msgid "Enable stateful MPPE"
-#~ msgstr "Activar MPPE com estado"
-
-#~ msgid "Exclusive device access (UUCP-style lock)"
-#~ msgstr "Acesso exclusivo ao dispositivo (exclusividade estilo UUCP)"
-
-#~ msgid "Find Device"
-#~ msgstr "Procurar Dispositivo"
-
-#~ msgid ""
-#~ "For security reasons, options entered in the box above are checked "
-#~ "against a list of allowed options before a connection is established.  "
-#~ "Currently there are no options on the list."
-#~ msgstr ""
-#~ "Por motivos de segurança, as opções introduzidas na caixa acima são "
-#~ "verificadas contra uma lista de opções permitidas antes de se estabelecer "
-#~ "a ligação.  De momento não existem opções nessa lista."
-
-#~ msgid "GPRS Options"
-#~ msgstr "Opções GPRS"
-
-#~ msgid "Hardware RTS/CTS"
-#~ msgstr "RTS/CTS por Equipamento"
-
-#~ msgid "Host name or IP address of the L2TP server"
-#~ msgstr "Nome da máquina ou endereço IP do servidor L2TP"
-
-#~ msgid ""
-#~ "If BSD compression is not allowed the 'nobsdcomp' option is passed to pppd"
-#~ msgstr ""
-#~ "Se compressão BSD não for permitida será passada ao pppd a opção "
-#~ "'nobsdcomp'"
-
-#~ msgid ""
-#~ "If Deflate compression is not allowed the 'nodefate' option is passed to "
-#~ "pppd"
-#~ msgstr ""
-#~ "Se compressão Deflate não for permitida será passada ao pppd a opção "
-#~ "'nodeflate'"
-
-#~ msgid "Maximum Receive Unit"
-#~ msgstr "Unidade Máxima de Recepção"
-
-#~ msgid "Maximum Transmit Unit"
-#~ msgstr "Únidade Máxima de Transferência"
-
-#~ msgid "Modem Connection"
-#~ msgstr "Ligação do Modem"
-
-#~ msgid "Peer DNS through tunnel"
-#~ msgstr "DNS a Parceiro através de túnel"
-
-#~ msgid "Refuse CHAP"
-#~ msgstr "Recusar CHAP"
-
-#~ msgid "Refuse EAP"
-#~ msgstr "Recusar EAP"
-
-#~ msgid "Refuse MS CHAP"
-#~ msgstr "Recusar MS CHAP"
-
-#~ msgid "Require 128 bit MPPE encryption"
-#~ msgstr "Requerer encriptação 128 bit MPPE"
-
-#~ msgid "Require Explicit IP Addr"
-#~ msgstr "Requerer Endereço IP Explícito"
-
-#~ msgid "Require MPPC Compression"
-#~ msgstr "Requerer Compressão MPPC"
-
-#~ msgid "Require MPPE encryption"
-#~ msgstr "Requer encriptação MPPE"
-
-#~ msgid "Requires existing network connection"
-#~ msgstr "Requerer ligação de rede existente"
-
-#~ msgid "Routing"
-#~ msgstr "Routeamento"
-
-#~ msgid "Serial Options"
-#~ msgstr "Opções Série"
-
-#~ msgid "Service providers GPRS access point from device config"
-#~ msgstr ""
-#~ "Ponto de acesso GPRS do fornecedor de serviço pela configuração do "
-#~ "dispositivo"
-
-#~ msgid "Service providers IP address"
-#~ msgstr "Endereço IP do fornecedor de servidor"
-
-#~ msgid "Telephone number to dial"
-#~ msgstr "Número de telefone a marcar"
-
-#~ msgid ""
-#~ "This is the friendly name that will be used to identify this network "
-#~ "connection, \n"
-#~ "e.g. \"Campus VPN\" or \"Corporate Network\""
-#~ msgstr ""
-#~ "Este é o nome utilizado para identificar esta ligação à rede privada, \n"
-#~ "por. ex. \"VPN da Universidade\" ou \"Rede da Empresa\""
-
-#~ msgid "Time in seconds between echo requests"
-#~ msgstr "Tempo em segundos entre pedidos echo"
-
-#~ msgid "Type:"
-#~ msgstr "Tipo:"
-
-#~ msgid "Use Peer DNS"
-#~ msgstr "Utilizar o DNS do Parceiro"
-
-#~ msgid "When checked the \"refuse-chap\" option is passed to pppd."
-#~ msgstr "Quando seleccionada a opção \"refuse-chap\" é passada ao pppd."
-
-#~ msgid "When checked the \"refuse-eap\" option is passed to pppd."
-#~ msgstr "Quando seleccionada a opção \"refuse-eap\" é passada ao pppd."
-
-#~ msgid "When checked the \"refuse-mschap\" option is passed to pppd."
-#~ msgstr "Quando seleccionada a opção \"refuse-mschap\" é passada ao pppd."
-
-#~ msgid "When checked the 'lock' option is passed to pppd"
-#~ msgstr "Quando seleccionada a opção 'lock' é passada ao pppd"
-
-#~ msgid "When checked the 'require-mppc' option is passed to pppd"
-#~ msgstr "Quando seleccionada a opção 'require-mppc' é passada ao pppd"
-
-#~ msgid ""
-#~ "When checked this sets the pppd 'debug' option and adds some extra "
-#~ "information from the NetworkManager plugin"
-#~ msgstr ""
-#~ "Quando seleccionada define a opção 'debug' do pppd e adiciona alguma "
-#~ "informação extra do plugin NetworkManager"
-
-#~ msgid "When checked this sets the pppd 'noipdefault' option"
-#~ msgstr "Quando seleccionada define a opção pppd 'noipdefault'"
-
-#~ msgid "When checked this sets the pppd 'usepeerdns' option"
-#~ msgstr "Quando seleccionada define a opção pppd 'usepeerdns'"
-
-#~ msgid ""
-#~ "When this check box is cleared the \"noauth\" option is passed to pppd."
-#~ msgstr ""
-#~ "Quando esta caixa de selecção está limpa é passada a opção \"noauth\" ao "
-#~ "pppd."
-
-#~ msgid "_Access Point Name:"
-#~ msgstr "Nome do Ponto de _Acesso:"
-
-#~ msgid "_Channel:"
-#~ msgstr "_Canal:"
-
-#~ msgid "_Context Num"
-#~ msgstr "Núm de _Contexto"
-
-#~ msgid "_Custom PPP options:"
-#~ msgstr "_Opções personalizadas PPP:"
-
-#~ msgid "_Device Address:"
-#~ msgstr "Endereço do _Dispositivo:"
-
-#~ msgid "_IP Address:"
-#~ msgstr "Endereço _IP:"
-
-#~ msgid "_Import Saved Configuration..."
-#~ msgstr "_Importar a Configuração Gravada..."
-
-#~ msgid "_Only use VPN connection for these addresses"
-#~ msgstr "_Apenas utilizar a ligação VPN para estes endereços"
-
-#~ msgid "_Packet Type"
-#~ msgstr "Tipo de _Pacote"
-
-#~ msgid "_Telephone Number:"
-#~ msgstr "Número de _Telefone:"
-
-#~ msgid "connect-delay"
-#~ msgstr "atraso-ligação"
-
-#~ msgid "pppd tunnel (L2TP, BTGPRS, Dialup)"
-#~ msgstr "túnel pppd (L2TP, BTGPRS, Dialup)"
-
-#~ msgid "Name"
-#~ msgstr "Nome"
-
-#~ msgid "L2TP Server"
-#~ msgstr "Servidor L2TP"
-
-#~ msgid "Telephone Number"
-#~ msgstr "Número de Telefone"
-
-#~ msgid "Bluetooth Address"
-#~ msgstr "Endereço Bluetooth"
-
-#~ msgid "Bluetooth Channel"
-#~ msgstr "Canal Bluetooth"
-
-#~ msgid "GPRS APN"
-#~ msgstr "APN GPRS"
-
-#~ msgid "GPRS IP"
-#~ msgstr "IP GPRS"
-
-#~ msgid "GPRS Context No."
-#~ msgstr "Nº de Contexto GPRS"
-
-#~ msgid "GPRS Packet Type"
-#~ msgstr "Tipo de Pacote GPRS"
-
-#~ msgid "Use CTS/RTS flow control"
-#~ msgstr "Utilizar controlo de fluxo CTS/RTS"
-
-#~ msgid "Connect via a modem"
-#~ msgstr "Ligar-se através de um modem"
-
-#~ msgid "Require IP to be provided"
-#~ msgstr "Requerer que seja fornecido um IP"
-
-#~ msgid "Use 128 bit MPPE encryption"
-#~ msgstr "Utilizar encriptação 128 bit MPPE"
-
-#~ msgid "Do not use deflate compression"
-#~ msgstr "Não utilizar compressão deflate"
-
-#~ msgid "Do not use BSD compression"
-#~ msgstr "Não utilizar compressão BSD"
-
-#~ msgid "Exclusive device access by pppd"
-#~ msgstr "Acesso exclusivo ao dispositivo pelo pppd"
-
-#~ msgid "Authenticate remote peer"
-#~ msgstr "Autenticar o parceiro remoto"
-
-#~ msgid "Maximum transmit unit (in bytes)"
-#~ msgstr "Unidade máxima de transmissão (em bytes)"
-
-#~ msgid "Maximum receive unit (in bytes)"
-#~ msgstr "Unidade máxima de recepção (em bytes)"
-
-#~ msgid "Number of failed LCP echos to cause disconnect"
-#~ msgstr "Número de LCP echos falhados para terminar a ligação"
-
-#~ msgid "Interval (in seconds) at which to issue LCP echos"
-#~ msgstr "Intervalo (em segundos) entre envios de LCP echos"
-
-#~ msgid "Interval (in milliseconds) to wait before connecting."
-#~ msgstr "Intervalo (em milisegundos) para aguardar antes de se ligar."
-
-#~ msgid "Custom PPP options"
-#~ msgstr "Opções PPP personalizadas"
-
-#~ msgid "Use Peer DNS over the Tunnel"
-#~ msgstr "Utilizar o DNS do Parceiro através do Túnel"
-
-#~ msgid "Specific networks available"
-#~ msgstr "Redes específicas disponíveis"
-
-#~ msgid "Limit to specific networks"
-#~ msgstr "Limitar a redes específicas"
-
-#~ msgid "The following '%s' connection will be created:"
-#~ msgstr "Será criada a seguinte ligação '%s':"
-
-#~ msgid "\t%s:  %s\n"
-#~ msgstr "\t%s:  %s\n"
-
-#~ msgid "The connection details can be changed using the \"Back\" button."
-#~ msgstr ""
-#~ "Os detalhes da ligação podem ser alterados utilizando o botão \"Retroceder"
-#~ "\"."
-
-#~ msgid "Select file to import"
-#~ msgstr "Seleccionar o ficheiro a importar"
-
-#~ msgid "Save as..."
-#~ msgstr "Gravar como..."
-
-#~ msgid "A file named \"%s\" already exists."
-#~ msgstr "Já existe um ficheiro denominado \"%s\"."
-
-#~ msgid "Do you want to replace it with the one you are saving?"
-#~ msgstr "Deseja substituí-lo pelo que está a gravar?"

@@ -167,7 +167,6 @@ msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr "Protocol di tunel pont a pont (L2TP)"
 
 #: ../properties/nm-l2tp-editor-plugin.c:37
-#, fuzzy
 msgid "Compatible with Microsoft and other L2TP VPN servers."
 msgstr "Compatibil cun Microsoft e altris servidôrs VPN L2TP."
 
@@ -384,20 +383,19 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:10
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "Algoritmis fase2:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:11
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "Algoritmis fase1:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
 msgid "_Enforce UDP encapsulation"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
-#, fuzzy
 msgid "Ad_vanced"
-msgstr "A_vanzât..."
+msgstr "A_vanzadis"
 
 #: ../properties/nm-l2tp-dialog.ui.h:14
 msgid "_Gateway:"
@@ -622,37 +620,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "Compatible with various L2TP servers including Microsoft."
-#~ msgstr "Compatibil cun varis servidôrs L2TP includût Microsoft."
-
-#~ msgid "Could not find l2tp client binary."
-#~ msgstr "Impussibil cjatâ il binari dal client l2tp."
-
-#~ msgid "Missing VPN gateway."
-#~ msgstr "Al mancje il gateway VPN"
-
-#~ msgid "Could not find the pppd binary."
-#~ msgstr "Impussibil cjatâ il binari pppd."
-
-#~ msgid "couldn’t convert L2TP VPN gateway IP address “%s” (%d)"
-#~ msgstr "impussibil convertî la direzion IP dal gateway VPN L2TP “%s” (%d)"
-
-#~ msgid "couldn’t look up L2TP VPN gateway IP address “%s” (%d)"
-#~ msgstr "impussibil cjatâ la direzion IP dal gateway VPN L2TP “%s” (%d)"
-
-#~ msgid "no usable addresses returned for L2TP VPN gateway “%s”"
-#~ msgstr "nissune direzion doprabile tornade pal gateway VPN L2TP “%s”"
-
-#~ msgid "Invalid or missing L2TP gateway."
-#~ msgstr "gateway L2TP mancjant o no valit."
-
-#~ msgid "Use custom _unit number:"
-#~ msgstr "Doprâ _unitât personalizade:"
-
-#~ msgid ""
-#~ "Enable custom index for ppp<n> device name.\n"
-#~ "config: unit <n>"
-#~ msgstr ""
-#~ "Abilite indiç personalizât pal non dal dispositîf ppp<n>.\n"
-#~ "config: unit <n>"

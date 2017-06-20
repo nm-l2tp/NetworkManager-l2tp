@@ -1,21 +1,23 @@
-# translation of eu.po to Basque
+# Basque translation of network-manager-l2tp.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
-# Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2008, 2009, 2010.
+# 
+# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2008, 2009, 2010, 2014, 2015.
+# Edurne Labaka <elabaka@uzei.com>, 2015.
+# 
 msgid ""
 msgstr ""
-"Project-Id-Version: eu\n"
+"Project-Id-Version: network-manager-l2tp master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-19 22:07+1000\n"
-"PO-Revision-Date: 2010-03-20 19:41+0100\n"
-"Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
-"Language-Team: Basque <itzulpena@euskalgnu.org>\n"
+"POT-Creation-Date: 2017-06-19 22:46+1000\n"
+"PO-Revision-Date: 2014-11-19 16:39+0100\n"
+"Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@zundan.com>\n"
+"Language-Team: Basque <librezale@librezale.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Poedit 1.6.10\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
@@ -165,7 +167,6 @@ msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr "Puntutik punturako tunelaren protokoloa (L2TP)"
 
 #: ../properties/nm-l2tp-editor-plugin.c:37
-#, fuzzy
 msgid "Compatible with Microsoft and other L2TP VPN servers."
 msgstr "Microsoft eta beste L2TP VPN zerbitzariekin bateragarria."
 
@@ -264,7 +265,7 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:306
 #, c-format
 msgid "invalid gateway '%s'"
-msgstr ""
+msgstr "Baliogabeko '%s' atebidea"
 
 #: ../src/nm-l2tp-service.c:315
 #, c-format
@@ -274,35 +275,35 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:328
 #, c-format
 msgid "invalid integer property '%s'"
-msgstr ""
+msgstr "baliogabeko '%s' propietatearen zenbaki osokoa"
 
 #: ../src/nm-l2tp-service.c:338
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
-msgstr ""
+msgstr "baliogabeko '%s' propietatearen boolearra (ez bai/ez)"
 
 #: ../src/nm-l2tp-service.c:345
 #, c-format
 msgid "unhandled property '%s' type %s"
-msgstr ""
+msgstr "kudeatu gabeko '%s' propietatearen '%s' mota"
 
 #: ../src/nm-l2tp-service.c:356
 #, c-format
 msgid "property '%s' invalid or not supported"
-msgstr ""
+msgstr "'%s' propietatea baliogabea edo ez dago onartuta"
 
 #: ../src/nm-l2tp-service.c:374
 msgid "No VPN configuration options."
-msgstr ""
+msgstr "Ez dago VPNaren konfigurazioaren aukerarik."
 
 #: ../src/nm-l2tp-service.c:394
 #, c-format
 msgid "Missing required option '%s'."
-msgstr ""
+msgstr "Beharrezko '%s' aukera falta da."
 
 #: ../src/nm-l2tp-service.c:414
 msgid "No VPN secrets!"
-msgstr ""
+msgstr "Ez dago VPNaren ezkutukorik."
 
 #: ../src/nm-l2tp-service.c:720
 #, c-format
@@ -316,19 +317,19 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1224
 msgid "Missing VPN username."
-msgstr ""
+msgstr "VPN-aren erabiltzaile-izena falta da."
 
 #: ../src/nm-l2tp-service.c:1233
 msgid "Missing or invalid VPN password."
-msgstr ""
+msgstr "VPN-aren pasahitza falta da, edo baliogabea da."
 
 #: ../src/nm-l2tp-service.c:1678
 msgid "Don't quit when VPN connection terminates"
-msgstr ""
+msgstr "Ez irten VPNaren konexioa amaitzean"
 
 #: ../src/nm-l2tp-service.c:1679
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr ""
+msgstr "Gaitu arazketaren erregistro xehea (pasahitzak erakuts ditzake)"
 
 #: ../src/nm-l2tp-service.c:1680
 msgid "D-Bus name to use for this instance"
@@ -373,11 +374,11 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:10
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "2. faseko algoritmoak:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:11
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "1. faseko algoritmoak:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
 msgid "_Enforce UDP encapsulation"
@@ -409,9 +410,11 @@ msgid ""
 "purposes.\n"
 "config: domain <domain>"
 msgstr ""
+"Erantsi <domeinua> domeinu-izena ostalari lokalaren izenari "
+"autentifikatzeko.\n"
+"konfigurazioa: domain <domeinua>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
-#, fuzzy
 msgid "Show password"
 msgstr "Erakutsi pasahitza"
 
@@ -465,6 +468,9 @@ msgid ""
 "Allow/disable authentication methods.\n"
 "config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 msgstr ""
+"Baimendu/desgaitu autentifikazio-metodoak.\n"
+"konfigurazioa: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, "
+"refuse-eap"
 
 #: ../properties/nm-l2tp-dialog.ui.h:35
 #, fuzzy
@@ -494,16 +500,21 @@ msgid ""
 "Require the use of MPPE, with 40/128-bit encryption or all.\n"
 "config: require-mppe, require-mppe-128 or require-mppe-40"
 msgstr ""
+"MPPE erabiltzea behar du, 40/128 bit-eko enkriptazioarekin edo guztiak.\n"
+"konfigurazioa: require-mppe, require-mppe-128 or require-mppe-40"
 
 #: ../properties/nm-l2tp-dialog.ui.h:41
 msgid "Allow st_ateful encryption"
-msgstr "Onartu enkripzioa _egoerarekin"
+msgstr "Onartu enkriptazioa _egoerarekin"
 
 #: ../properties/nm-l2tp-dialog.ui.h:42
 msgid ""
 "Allow MPPE to use stateful mode. Stateless mode is still attempted first.\n"
 "config: mppe-stateful (when checked)"
 msgstr ""
+"Baimendu MPPE-k egoeraren modua erabiltzea. Hala ere, egoerarik gabeko modua "
+"saiatuko da lehendabizi.\n"
+"konfigurazioa: mppe-stateful (aktibatutakoan)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:44
 msgid "Allow _BSD data compression"
@@ -514,6 +525,8 @@ msgid ""
 "Allow/disable BSD-Compress compression.\n"
 "config: nobsdcomp (when unchecked)"
 msgstr ""
+"Baimendu/desgaitu BSD-Compress konpresioa.\n"
+"konfigurazioa: nobsdcomp (desaktibatutakoan)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:47
 msgid "Allow _Deflate data compression"
@@ -524,6 +537,8 @@ msgid ""
 "Allow/disable Deflate compression.\n"
 "config: nodeflate (when unchecked)"
 msgstr ""
+"Baimendu/desgaitu Deflate konpresioa.\n"
+"konfigurazioa: nodeflate (desaktibatutakoan)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:50
 msgid "Use TCP _header compression"
@@ -535,6 +550,9 @@ msgid ""
 "transmit and the receive directions.\n"
 "config: novj (when unchecked)"
 msgstr ""
+"Baimendu/desgaitu Van Jacobson estiloa TCP/IParen goiburuaren konpresioan bi "
+"noranzkoetan: jasotzekoa eta bidaltzekoa.\n"
+"konfigurazioa: novj (desaktibatutakoan)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:53
 msgid "Use protocol _field compression negotiation"
@@ -571,6 +589,8 @@ msgid ""
 "Send LCP echo-requests to find out whether peer is alive.\n"
 "config: lcp-echo-failure and lcp-echo-interval"
 msgstr ""
+"Bidali LCP oihartzun-eskaerak zer pareko konektatuta dagoen bilatzeko.\n"
+"konfigurazioa: lcp-echo-failure eta lcp-echo-interval"
 
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid "Misc"
@@ -583,40 +603,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "_Password:"
-#~ msgstr "_Pasahitza:"
-
-#~ msgid "_Secondary Password:"
-#~ msgstr "_Bigarren pasahitza:"
-
-#, fuzzy
-#~ msgid "Sh_ow passwords"
-#~ msgstr "Erakutsi pasahitza"
-
-#~ msgid "L2TP VPN Connection Manager"
-#~ msgstr "L2TP VPN konexio-kudeatzailea"
-
-#~ msgid "Add, Remove, and Edit L2TP VPN Connections"
-#~ msgstr "Gehitu, kendu eta editatu L2TP VPN konexioak"
-
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>Ohiartzuna</b>"
-
-#~ msgid "_Username:"
-#~ msgstr "_Erabiltzaile-izena:"
-
-#~ msgid "_Domain:"
-#~ msgstr "_Domeinua:"
-
-#~ msgid "Connect _anonymously"
-#~ msgstr "Konektatu _anonimo gisa"
-
-#~ msgid "Connect as _user:"
-#~ msgstr "Konektatu _erabiltzaile gisa:"
-
-#~ msgid "_Remember passwords for this session"
-#~ msgstr "_Gogoratu pasahitza saio honetan"
-
-#~ msgid "_Save passwords in keyring"
-#~ msgstr "_Gorde pasahitza gako-sortan"

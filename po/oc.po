@@ -165,7 +165,6 @@ msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr "Protocòl de tunèl Point-to-Point (L2TP)"
 
 #: ../properties/nm-l2tp-editor-plugin.c:37
-#, fuzzy
 msgid "Compatible with Microsoft and other L2TP VPN servers."
 msgstr "Compatible amb Microsoft e d'autres servidors VPN L2TP."
 
@@ -387,9 +386,8 @@ msgid "_Enforce UDP encapsulation"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
-#, fuzzy
 msgid "Ad_vanced"
-msgstr "A_vançat..."
+msgstr "A_vançat"
 
 #: ../properties/nm-l2tp-dialog.ui.h:14
 msgid "_Gateway:"
@@ -621,69 +619,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "L2TP VPN Connection Manager"
-#~ msgstr "Gestionari de connexion VPN L2TP"
-
-#~ msgid "Add, Remove, and Edit L2TP VPN Connections"
-#~ msgstr "Apondre, suprimir e modificar de connexions VPN L2TP"
-
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>Resson</b>"
-
-#~ msgid "Saved"
-#~ msgstr "Enregistrat"
-
-#~ msgid "Always Ask"
-#~ msgstr "Demandar totjorn"
-
-#~ msgid "Not Required"
-#~ msgstr "Pas requesit"
-
-#~ msgid "couldn't convert L2TP VPN gateway IP address '%s' (%d)"
-#~ msgstr ""
-#~ "impossible de convertir l'adreça IP « %s » (%d) de la palanca VPN L2TP"
-
-#~ msgid "couldn't look up L2TP VPN gateway IP address '%s' (%d)"
-#~ msgstr ""
-#~ "impossible de consultar l'adreça IP « %s » (%d) de la palanca VPN L2TP"
-
-#~ msgid "no usable addresses returned for L2TP VPN gateway '%s'"
-#~ msgstr ""
-#~ "Cap d'adreça utilizabla pas obtenguda per la palanca VPN L2TP « %s »"
-
-#~ msgid "no usable addresses returned for L2TP VPN gateway '%s' (%d)"
-#~ msgstr ""
-#~ "Cap d'adreça utilizabla pas obtenguda per la palanca VPN L2TP « %s » (%d)"
-
-#~ msgid "Could not find secrets (connection invalid, no vpn setting)."
-#~ msgstr ""
-#~ "Impossible de trobar las infos secretas (connexion pas valida, pas de "
-#~ "paramètres VPN)."
-
-#~ msgid "Invalid VPN username."
-#~ msgstr "Nom d'utilizaire VPN invalid."
-
-#~ msgid "No cached credentials."
-#~ msgstr "Pas de donadas d'autentificacion en escondedor."
-
-#~ msgid "Could not find l2tp client binary."
-#~ msgstr "Impossible de trobar lo client binari l2tp."
-
-#~ msgid "Missing VPN gateway."
-#~ msgstr "Palanca VPN mancanta."
-
-#~ msgid "Could not find the pppd binary."
-#~ msgstr "Impossible de trobar lo binari pppd."
-
-#~ msgid "Invalid or missing L2TP gateway."
-#~ msgstr "Palanca L2TP invalida o absenta."
-
-#~ msgid "_Password:"
-#~ msgstr "Se_nhal :"
-
-#~ msgid "_Secondary Password:"
-#~ msgstr "Senhal _segondari :"
-
-#~ msgid "Sh_ow passwords"
-#~ msgstr "A_fichar lo senhal"

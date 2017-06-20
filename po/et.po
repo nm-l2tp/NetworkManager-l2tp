@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-19 22:07+1000\n"
+"POT-Creation-Date: 2017-06-19 22:46+1000\n"
 "PO-Revision-Date: 2010-03-10 06:41+0300\n"
 "Last-Translator: Mattias Põldaru <mahfiaz gmail com>\n"
 "Language-Team: Estonian <gnome-et@linux.ee>\n"
@@ -167,7 +167,6 @@ msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr "Point-to-Point tunneli protokoll (L2TP)"
 
 #: ../properties/nm-l2tp-editor-plugin.c:37
-#, fuzzy
 msgid "Compatible with Microsoft and other L2TP VPN servers."
 msgstr "Ühildub Microsofti ja teiste L2TP VPN serveritega."
 
@@ -413,7 +412,6 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
-#, fuzzy
 msgid "Show password"
 msgstr "Parooli näidatakse"
 
@@ -585,40 +583,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "_Password:"
-#~ msgstr "_Parool:"
-
-#~ msgid "_Secondary Password:"
-#~ msgstr "_Teisene parool:"
-
-#, fuzzy
-#~ msgid "Sh_ow passwords"
-#~ msgstr "Parooli näidatakse"
-
-#~ msgid "L2TP VPN Connection Manager"
-#~ msgstr "L2TP VPN-ühenduste haldur"
-
-#~ msgid "Add, Remove, and Edit L2TP VPN Connections"
-#~ msgstr "L2TP VPN-ühenduste lisamine, muutmine ja eemaldamine"
-
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>Echo</b>"
-
-#~ msgid "_Username:"
-#~ msgstr "_Kasutajanimi:"
-
-#~ msgid "_Domain:"
-#~ msgstr "_Domeen:"
-
-#~ msgid "Connect _anonymously"
-#~ msgstr "Ühendu _anonüümselt"
-
-#~ msgid "Connect as _user:"
-#~ msgstr "Ühendu ka_sutajana:"
-
-#~ msgid "_Remember passwords for this session"
-#~ msgstr "_Jäta paroolid selle sessiooni ajaks meelde"
-
-#~ msgid "_Save passwords in keyring"
-#~ msgstr "Paroolide _salvestamine võtmerõngasse"

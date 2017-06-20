@@ -1,21 +1,25 @@
 # Italian translation of  NetworkManager-L2TP.
-# Copyright (C) 2006, 2007, 2008, 2009, 2010 the NetworkManager-L2TP'S COPYRIGHT HOLDER
+# Copyright (C) 2006, 2007, 2008, 2009, 2010, 2012, 2015, 2016, 2017 the NetworkManager-L2TP'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the NetworkManager-L2TP package.
 # Francesco Marletta <francesco.marletta@tiscali.it>, 2006, 2007, 2008, 2009, 2010.
 # Luca Ferretti <elle.uca@libero.it>, 2010.
+# Milo Casagrande <milo@milo.name>, 2012, 2015, 2016, 2017.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-l2tp 0.8.x\n"
+"Project-Id-Version: network-manager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-19 22:07+1000\n"
-"PO-Revision-Date: 2010-03-12 09:35+0100\n"
-"Last-Translator: Francesco Marletta <francesco.marletta@tiscali.it>\n"
+"POT-Creation-Date: 2017-06-19 22:46+1000\n"
+"PO-Revision-Date: 2017-03-14 13:31+0100\n"
+"Last-Translator: Milo Casagrande <milo@milo.name>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Launchpad-Export-Date: 2012-04-14 14:49+0000\n"
+"X-Generator: Poedit 2.0beta3\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
 msgid "L2TP VPN Client"
@@ -165,7 +169,6 @@ msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr "Layer 2 Tunneling Protocol (L2TP)"
 
 #: ../properties/nm-l2tp-editor-plugin.c:37
-#, fuzzy
 msgid "Compatible with Microsoft and other L2TP VPN servers."
 msgstr "Compatibile con i server Microsoft e altri server VPN L2TP."
 
@@ -212,28 +215,32 @@ msgstr ""
 #: ../shared/nm-utils/nm-shared-utils.c:185
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr ""
+msgstr "l'oggetto di classe «%s» non ha una proprietà di nome «%s»"
 
 #: ../shared/nm-utils/nm-shared-utils.c:192
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr ""
+msgstr "la proprietà «%s» dell'oggetto di classe «%s» non è scrivibile"
 
 #: ../shared/nm-utils/nm-shared-utils.c:199
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
+"proprietà costruttore «%s» dell'oggetto «%s» non può essere impostata dopo "
+"l'inizializzazione"
 
 #: ../shared/nm-utils/nm-shared-utils.c:207
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
 msgstr ""
+"«%s::%s» non è un nome valido di proprietà; «%s» non un sotto-tipo GObject"
 
 #: ../shared/nm-utils/nm-shared-utils.c:216
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
 msgstr ""
+"impossibile impostare la proprietà «%s» di tipo «%s» dal valore di tipo «%s»"
 
 #: ../shared/nm-utils/nm-shared-utils.c:227
 #, c-format
@@ -241,25 +248,27 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
+"il valore «%s» di tipo «%s» non è valido o fuori dall'intervallo per la "
+"proprietà «%s» di tipo «%s»"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:80
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr ""
+msgstr "file di plugin «%s» mancante"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:86
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr ""
+msgstr "Impossibile caricare l'editor del plugin: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:95
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr ""
+msgstr "impossibile caricare %s dal plugin: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:121
 msgid "unknown error creating editor instance"
-msgstr ""
+msgstr "errore sconosciuto nel create l'istanza dell'editor"
 
 #: ../src/nm-l2tp-service.c:306
 #, c-format
@@ -293,7 +302,7 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:374
 msgid "No VPN configuration options."
-msgstr ""
+msgstr "Nessuna opzione di configurazione VPN."
 
 #: ../src/nm-l2tp-service.c:394
 #, c-format
@@ -302,7 +311,7 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:414
 msgid "No VPN secrets!"
-msgstr ""
+msgstr "Nessun segreto VPN."
 
 #: ../src/nm-l2tp-service.c:720
 #, c-format
@@ -316,11 +325,11 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1224
 msgid "Missing VPN username."
-msgstr ""
+msgstr "Nome utente VPN mancante."
 
 #: ../src/nm-l2tp-service.c:1233
 msgid "Missing or invalid VPN password."
-msgstr ""
+msgstr "Password VPN mancante o non valida."
 
 #: ../src/nm-l2tp-service.c:1678
 msgid "Don't quit when VPN connection terminates"
@@ -328,11 +337,11 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1679
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr ""
+msgstr "Abilita output prolisso per il debug (potrebbe visualizzare password)"
 
 #: ../src/nm-l2tp-service.c:1680
 msgid "D-Bus name to use for this instance"
-msgstr ""
+msgstr "Nome D-Bus da usare per questa istanza"
 
 #: ../src/nm-l2tp-service.c:1701
 msgid ""
@@ -350,9 +359,8 @@ msgid "_Enable IPsec tunnel to L2TP host"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:3
-#, fuzzy
 msgid "General"
-msgstr "<b>Generale</b>"
+msgstr "Generale"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
 #, fuzzy
@@ -373,20 +381,19 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:10
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "Algoritmi phase2:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:11
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "Algoritmi phase1:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
 msgid "_Enforce UDP encapsulation"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
-#, fuzzy
 msgid "Ad_vanced"
-msgstr "A_vanzate..."
+msgstr "A_vanzate"
 
 #: ../properties/nm-l2tp-dialog.ui.h:14
 msgid "_Gateway:"
@@ -399,9 +406,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
-#, fuzzy
 msgid "Optional"
-msgstr "<b>Opzionali</b>"
+msgstr "Opzionale"
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid ""
@@ -409,9 +415,11 @@ msgid ""
 "purposes.\n"
 "config: domain <domain>"
 msgstr ""
+"Aggiunge il nome del dominio <dominio> al nome host locale per "
+"autenticazione.\n"
+"config: domain <dominio>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
-#, fuzzy
 msgid "Show password"
 msgstr "Mostra password"
 
@@ -452,9 +460,8 @@ msgid "L2TP PPP Options"
 msgstr "Opzioni avanzate L2TP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
-#, fuzzy
 msgid "Authentication"
-msgstr "<b>Autenticazione</b>"
+msgstr "Autenticazione"
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
 msgid "Allow the following authentication methods:"
@@ -465,11 +472,12 @@ msgid ""
 "Allow/disable authentication methods.\n"
 "config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 msgstr ""
+"Abilita/Disabilita i metodi di autenticazione.\n"
+"config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 
 #: ../properties/nm-l2tp-dialog.ui.h:35
-#, fuzzy
 msgid "Security and Compression"
-msgstr "<b>Sicurezza e compressione</b>"
+msgstr "Sicurezza e compressione"
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid "Use _Point-to-Point encryption (MPPE)"
@@ -494,6 +502,8 @@ msgid ""
 "Require the use of MPPE, with 40/128-bit encryption or all.\n"
 "config: require-mppe, require-mppe-128 or require-mppe-40"
 msgstr ""
+"Richiede l'uso di MPPE con cifratura a 40/128-bit o tutte.\n"
+"config: require-mppe, require-mppe-128 oppure require-mppe-40"
 
 #: ../properties/nm-l2tp-dialog.ui.h:41
 msgid "Allow st_ateful encryption"
@@ -504,6 +514,9 @@ msgid ""
 "Allow MPPE to use stateful mode. Stateless mode is still attempted first.\n"
 "config: mppe-stateful (when checked)"
 msgstr ""
+"Consente MPPE di utilizzare la modalità stateful. La modalità sateless viene "
+"provata per prima.\n"
+"config: mppe-stateful (quando selezionata)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:44
 msgid "Allow _BSD data compression"
@@ -514,6 +527,8 @@ msgid ""
 "Allow/disable BSD-Compress compression.\n"
 "config: nobsdcomp (when unchecked)"
 msgstr ""
+"Abilita/Disabilita compressione BSD-Compress.\n"
+"config: nobsdcomp (quando non selezionata)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:47
 msgid "Allow _Deflate data compression"
@@ -524,6 +539,8 @@ msgid ""
 "Allow/disable Deflate compression.\n"
 "config: nodeflate (when unchecked)"
 msgstr ""
+"Abilita/Disabilita compressione Deflate.\n"
+"config: nodeflate (quando non selezionata)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:50
 msgid "Use TCP _header compression"
@@ -535,6 +552,9 @@ msgid ""
 "transmit and the receive directions.\n"
 "config: novj (when unchecked)"
 msgstr ""
+"Abilita/Disabilita compressione header TCP/IP in stile Van Jacobson in "
+"ricezione e trasmissione.\n"
+"config: novj (quando non selezionata)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:53
 msgid "Use protocol _field compression negotiation"
@@ -560,21 +580,23 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:59
 msgid "Echo"
-msgstr ""
+msgstr "Echo"
 
 #: ../properties/nm-l2tp-dialog.ui.h:60
 msgid "Send PPP _echo packets"
-msgstr "Inviare i pacchetti _eco PPP"
+msgstr "Inviare pacchetti _eco PPP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:61
 msgid ""
 "Send LCP echo-requests to find out whether peer is alive.\n"
 "config: lcp-echo-failure and lcp-echo-interval"
 msgstr ""
+"Invia richieste echo LCP per verificare se il nodo è attivo.\n"
+"config: lcp-echo-failure e lcp-echo-interval"
 
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid "Misc"
-msgstr ""
+msgstr "Varie"
 
 #: ../properties/nm-l2tp-dialog.ui.h:64
 msgid "MTU :"
@@ -583,40 +605,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "_Password:"
-#~ msgstr "Pass_word:"
-
-#~ msgid "_Secondary Password:"
-#~ msgstr "Password _secondaria:"
-
-#, fuzzy
-#~ msgid "Sh_ow passwords"
-#~ msgstr "Mostra password"
-
-#~ msgid "L2TP VPN Connection Manager"
-#~ msgstr "Gestore connessioni VPN L2TP"
-
-#~ msgid "Add, Remove, and Edit L2TP VPN Connections"
-#~ msgstr "Aggiunge, rimuove e modifica connessioni VPN L2TP"
-
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>Eco</b>"
-
-#~ msgid "_Username:"
-#~ msgstr "Nome _utente:"
-
-#~ msgid "_Domain:"
-#~ msgstr "_Dominio:"
-
-#~ msgid "Connect _anonymously"
-#~ msgstr "Connessione _anonima"
-
-#~ msgid "Connect as _user:"
-#~ msgstr "Connessione come _utente:"
-
-#~ msgid "_Remember passwords for this session"
-#~ msgstr "_Ricorda le password per questa sessione"
-
-#~ msgid "_Save passwords in keyring"
-#~ msgstr "_Salva le password nel portachiavi"

@@ -2,22 +2,23 @@
 # Copyright (C) 2008 Free Software Foundation, Inc.
 # This file is distributed under the same license as the NetworkManager package.
 # Žygimantas Beručka <zygis@gnome.org>, 2008.
-#
+# Aurimas Černius <aurisc4@gmail.com>, 2015, 2016, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-19 22:07+1000\n"
-"PO-Revision-Date: 2010-03-27 12:39+0200\n"
-"Last-Translator: Gintautas Miliauskas <gintautas@miliauskas.lt>\n"
-"Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
+"POT-Creation-Date: 2017-06-19 22:46+1000\n"
+"PO-Revision-Date: 2017-03-13 23:50+0200\n"
+"Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
+"Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
 "%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Gtranslator 2.91.7\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
 msgid "L2TP VPN Client"
@@ -168,7 +169,6 @@ msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr "PPP tuneliavimo protokolas (L2TP)"
 
 #: ../properties/nm-l2tp-editor-plugin.c:37
-#, fuzzy
 msgid "Compatible with Microsoft and other L2TP VPN servers."
 msgstr "Suderinama su Microsoft ir kitais L2TP VPN serveriais."
 
@@ -215,28 +215,32 @@ msgstr ""
 #: ../shared/nm-utils/nm-shared-utils.c:185
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr ""
+msgstr "objekto klasė „%s“ neturi savybės pavadinimu „%s“"
 
 #: ../shared/nm-utils/nm-shared-utils.c:192
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr ""
+msgstr "savybė „%s“, kuri priklauso klasei „%s“, nėra skirta rašymui"
 
 #: ../shared/nm-utils/nm-shared-utils.c:199
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
+"konstruktoriaus savybė „%s“, kuri priklauso objektui „%s“, negali būti "
+"nustatyta po sukonstravimo"
 
 #: ../shared/nm-utils/nm-shared-utils.c:207
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
-msgstr ""
+msgstr "„%s::%s“ nėra tinkamas savybės pavadinimas; „%s“ nėra GObject potipis"
 
 #: ../shared/nm-utils/nm-shared-utils.c:216
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
 msgstr ""
+"nepavyko nustatyti savybės „%s“, priklausančios tipui „%s“, į „%s“ tipo "
+"reikšmę"
 
 #: ../shared/nm-utils/nm-shared-utils.c:227
 #, c-format
@@ -244,25 +248,27 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
+"reikšmė „%s“, kuri priklauso tipui „%s“, yra netinkama arba už savybės „%s“, "
+"priklausančios tipui „%s“, ribų"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:80
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr ""
+msgstr "trūksta „%s“ įskiepio failo"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:86
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr ""
+msgstr "nepavyksta įkelti redaktoriaus įskiepio: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:95
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr ""
+msgstr "nepavyksta įkelti %s gamyklos iš įskiepio: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:121
 msgid "unknown error creating editor instance"
-msgstr ""
+msgstr "nežinoma klaida kuriant redaktoriaus vienetą"
 
 #: ../src/nm-l2tp-service.c:306
 #, c-format
@@ -296,7 +302,7 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:374
 msgid "No VPN configuration options."
-msgstr ""
+msgstr "Nėra VPN konfigūracijos parametrų."
 
 #: ../src/nm-l2tp-service.c:394
 #, c-format
@@ -305,7 +311,7 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:414
 msgid "No VPN secrets!"
-msgstr ""
+msgstr "Nėra VPN paslapčių!"
 
 #: ../src/nm-l2tp-service.c:720
 #, c-format
@@ -319,11 +325,11 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1224
 msgid "Missing VPN username."
-msgstr ""
+msgstr "Trūksta VPN naudotojo vardo."
 
 #: ../src/nm-l2tp-service.c:1233
 msgid "Missing or invalid VPN password."
-msgstr ""
+msgstr "Nėra arba netinkamas VPN slaptažodis."
 
 #: ../src/nm-l2tp-service.c:1678
 msgid "Don't quit when VPN connection terminates"
@@ -331,11 +337,11 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1679
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr ""
+msgstr "Įjungti išsamų derinimo žurnalą (gali parodyti slaptažodžius)"
 
 #: ../src/nm-l2tp-service.c:1680
 msgid "D-Bus name to use for this instance"
-msgstr ""
+msgstr "D-Bus vardas, naudojamas šiam vienetui"
 
 #: ../src/nm-l2tp-service.c:1701
 msgid ""
@@ -353,9 +359,8 @@ msgid "_Enable IPsec tunnel to L2TP host"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:3
-#, fuzzy
 msgid "General"
-msgstr "<b>Bendra</b>"
+msgstr "Bendra"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
 #, fuzzy
@@ -376,24 +381,23 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:10
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "Antros fazės algoritmai:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:11
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "Pirmos fazės algoritmai:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
 msgid "_Enforce UDP encapsulation"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
-#, fuzzy
 msgid "Ad_vanced"
-msgstr "Išsa_miau..."
+msgstr "Išplė_stiniai"
 
 #: ../properties/nm-l2tp-dialog.ui.h:14
 msgid "_Gateway:"
-msgstr "Š_liuzas:"
+msgstr "_Tinklų sietuvas:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:15
 msgid ""
@@ -402,9 +406,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
-#, fuzzy
 msgid "Optional"
-msgstr "<b>Neprivaloma</b>"
+msgstr "Neprivaloma"
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid ""
@@ -412,9 +415,11 @@ msgid ""
 "purposes.\n"
 "config: domain <domain>"
 msgstr ""
+"Pridėti srities vardą <sritis> prie vietinio serverio pavadinimo tapatybės "
+"nustatymo tikslais.\n"
+"konfig.: domain <sritis>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
-#, fuzzy
 msgid "Show password"
 msgstr "Rodyti slaptažodį"
 
@@ -455,9 +460,8 @@ msgid "L2TP PPP Options"
 msgstr "L2TP sudėtingesni nustatymai"
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
-#, fuzzy
 msgid "Authentication"
-msgstr "<b>Tapatybės nustatymas</b>"
+msgstr "Tapatybės nustatymas"
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
 msgid "Allow the following authentication methods:"
@@ -468,11 +472,12 @@ msgid ""
 "Allow/disable authentication methods.\n"
 "config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 msgstr ""
+"Leisti/išjungti tapatybės nustatymo metodus.\n"
+"konfig: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 
 #: ../properties/nm-l2tp-dialog.ui.h:35
-#, fuzzy
 msgid "Security and Compression"
-msgstr "<b>Saugumas ir glaudinimas</b>"
+msgstr "Saugumas ir glaudinimas"
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid "Use _Point-to-Point encryption (MPPE)"
@@ -484,9 +489,9 @@ msgid ""
 "To enable this checkbox, select one or more of the MSCHAP authentication "
 "methods: MSCHAP or MSCHAPv2."
 msgstr ""
-"Pastaba: MPPE šifravimas galimas tik su MSCHAP autentikacijos metodais. "
-"Norėdami jį pasirinkti, pasirinkite vieną ar kelis MSCHAP autentikacijos "
-"metodus: MSCHAP arba MSCHAPv2."
+"Pastaba: MPPE šifravimas galimas tik su MSCHAP tapatybės nustatymo metodais. "
+"Norėdami jį pasirinkti, pasirinkite vieną ar kelis MSCHAP tapatybės "
+"nustatymo metodus: MSCHAP arba MSCHAPv2."
 
 #: ../properties/nm-l2tp-dialog.ui.h:38
 msgid "_Security:"
@@ -497,6 +502,8 @@ msgid ""
 "Require the use of MPPE, with 40/128-bit encryption or all.\n"
 "config: require-mppe, require-mppe-128 or require-mppe-40"
 msgstr ""
+"Reikalauti naudoti MPPE su 40/128-bitų šifravimu ar visais.\n"
+"konfig: require-mppe, require-mppe-128 or require-mppe-40"
 
 #: ../properties/nm-l2tp-dialog.ui.h:41
 msgid "Allow st_ateful encryption"
@@ -507,6 +514,9 @@ msgid ""
 "Allow MPPE to use stateful mode. Stateless mode is still attempted first.\n"
 "config: mppe-stateful (when checked)"
 msgstr ""
+"Leisti MPPE naudoti veikseną su būsena. Pirmiausia bandoma veiksena be "
+"būsenos.\n"
+"konfig: mppe-statefull (kai tikrinama)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:44
 msgid "Allow _BSD data compression"
@@ -517,6 +527,8 @@ msgid ""
 "Allow/disable BSD-Compress compression.\n"
 "config: nobsdcomp (when unchecked)"
 msgstr ""
+"Leisti/išjungti BSD-Compress suspaudimą.\n"
+"konfig: nobsdcomp (kai nepažymėta)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:47
 msgid "Allow _Deflate data compression"
@@ -527,6 +539,8 @@ msgid ""
 "Allow/disable Deflate compression.\n"
 "config: nodeflate (when unchecked)"
 msgstr ""
+"Leisti/išjungti Deflate suspaudimą.\n"
+"konfig: nodeflate (kai nepažymėta)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:50
 msgid "Use TCP _header compression"
@@ -538,6 +552,9 @@ msgid ""
 "transmit and the receive directions.\n"
 "config: novj (when unchecked)"
 msgstr ""
+"Leisti/išjungti Van Jacobson stiliaus TCP/IP antraštės suspaudimą siuntimo "
+"ir gavimo kryptyse.\n"
+"konfig: novj (kai nepažymėta)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:53
 msgid "Use protocol _field compression negotiation"
@@ -563,7 +580,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:59
 msgid "Echo"
-msgstr ""
+msgstr "Aidas"
 
 #: ../properties/nm-l2tp-dialog.ui.h:60
 msgid "Send PPP _echo packets"
@@ -574,10 +591,12 @@ msgid ""
 "Send LCP echo-requests to find out whether peer is alive.\n"
 "config: lcp-echo-failure and lcp-echo-interval"
 msgstr ""
+"Siųsti LCP aido prašymus pasitikrinimui, ar porininkas veikia.\n"
+"konfig: lcp-echo-failure ir lcp-echo-interval"
 
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid "Misc"
-msgstr ""
+msgstr "Įvairūs"
 
 #: ../properties/nm-l2tp-dialog.ui.h:64
 msgid "MTU :"
@@ -586,40 +605,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "_Password:"
-#~ msgstr "_Slaptažodis:"
-
-#~ msgid "_Secondary Password:"
-#~ msgstr "_Antrinis slaptažodis:"
-
-#, fuzzy
-#~ msgid "Sh_ow passwords"
-#~ msgstr "Rodyti slaptažodį"
-
-#~ msgid "L2TP VPN Connection Manager"
-#~ msgstr "L2TP VPN ryšių valdyklė"
-
-#~ msgid "Add, Remove, and Edit L2TP VPN Connections"
-#~ msgstr "Pridėti, šalinti ir taisyti L2TP VPN ryšius"
-
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>Aidas</b>"
-
-#~ msgid "_Username:"
-#~ msgstr "_Naudotojo vardas:"
-
-#~ msgid "_Domain:"
-#~ msgstr "S_ritis:"
-
-#~ msgid "Connect _anonymously"
-#~ msgstr "Jungtis an_onimiškai"
-
-#~ msgid "Connect as _user:"
-#~ msgstr "Prisijungti kaip na_udotojas:"
-
-#~ msgid "_Remember passwords for this session"
-#~ msgstr "_Atsiminti slaptažodžius šiam seansui"
-
-#~ msgid "_Save passwords in keyring"
-#~ msgstr "Iš_saugoti slaptažodžius raktinėje"

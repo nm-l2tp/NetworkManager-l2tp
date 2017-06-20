@@ -1,20 +1,23 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Simplified Chinese translation of network-manager-l2tp
+# Copyright (C) 2009, 2010 Free software Foundation, Inc.
+# This file is distributed under the same license as the network-manager-l2tp package.
 # Wei Mingzhi <whistler@openoffice.org>, 2009.
+# Aron Xu <aronxu@gnome.org>, 2010.
+# YunQiang Su <wzssyqa@gmail.com>, 2011.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-l2tp HEAD\n"
+"Project-Id-Version: NetworkManager-l2tp master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-19 22:07+1000\n"
-"PO-Revision-Date: 2009-02-18 14:59+0800\n"
-"Last-Translator: Wei Mingzhi <whistler@openoffice.org>\n"
-"Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
+"POT-Creation-Date: 2017-06-19 22:46+1000\n"
+"PO-Revision-Date: 2011-11-27 18:26+0800\n"
+"Last-Translator: YunQiang Su <wzssyqa@gmail.com>\n"
+"Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
 msgid "L2TP VPN Client"
@@ -68,7 +71,7 @@ msgstr "128 位 (最安全的)"
 
 #: ../properties/advanced-dialog.c:185
 msgid "40-bit (less secure)"
-msgstr "40 位 (不甚安全)"
+msgstr "40 位 (不太安全)"
 
 #: ../properties/advanced-dialog.c:289
 msgid "PAP"
@@ -162,9 +165,8 @@ msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr "第2层隧道协议 (L2TP)"
 
 #: ../properties/nm-l2tp-editor-plugin.c:37
-#, fuzzy
 msgid "Compatible with Microsoft and other L2TP VPN servers."
-msgstr "与 L2TP VPN 服务器兼容。"
+msgstr "与微软及其他的 L2TP VPN 服务器兼容。"
 
 #: ../properties/nm-l2tp-editor.c:146
 #, c-format
@@ -261,7 +263,7 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:306
 #, c-format
 msgid "invalid gateway '%s'"
-msgstr "无效的网关 '%s'"
+msgstr "无效的网关“%s”"
 
 #: ../src/nm-l2tp-service.c:315
 #, c-format
@@ -271,22 +273,22 @@ msgstr "无效的 ipsec 网关 ID '%s'"
 #: ../src/nm-l2tp-service.c:328
 #, c-format
 msgid "invalid integer property '%s'"
-msgstr "无效的整数属性 '%s'"
+msgstr "无效的整型属性“%s”"
 
 #: ../src/nm-l2tp-service.c:338
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
-msgstr "无效的布尔属性 '%s' (不是yes或no)"
+msgstr "无效的布尔型属性“%s”(不是 yes 或 no)"
 
 #: ../src/nm-l2tp-service.c:345
 #, c-format
 msgid "unhandled property '%s' type %s"
-msgstr "无法处理的属性 '%s' 类型 %s"
+msgstr "无法处理的属性“%s”类型 %s"
 
 #: ../src/nm-l2tp-service.c:356
 #, c-format
 msgid "property '%s' invalid or not supported"
-msgstr "属性 '%s' 无效或不支持"
+msgstr "属性“%s”无效或不支持"
 
 #: ../src/nm-l2tp-service.c:374
 msgid "No VPN configuration options."
@@ -295,11 +297,11 @@ msgstr "没有 VPN 配置选项。"
 #: ../src/nm-l2tp-service.c:394
 #, c-format
 msgid "Missing required option '%s'."
-msgstr "缺失需要的选项 '%s'。"
+msgstr "缺少需要的选项“%s”。"
 
 #: ../src/nm-l2tp-service.c:414
 msgid "No VPN secrets!"
-msgstr "没有 VPN 加密！"
+msgstr "没有 VPN 机密信息！"
 
 #: ../src/nm-l2tp-service.c:720
 #, c-format
@@ -313,11 +315,11 @@ msgstr "无法写入 ipsec 配置。"
 
 #: ../src/nm-l2tp-service.c:1224
 msgid "Missing VPN username."
-msgstr "缺失 VPN 用户名。"
+msgstr "缺少 VPN 用户名。"
 
 #: ../src/nm-l2tp-service.c:1233
 msgid "Missing or invalid VPN password."
-msgstr "缺失或无效的 VPN 密码"
+msgstr "VPN 密码缺失或无效。"
 
 #: ../src/nm-l2tp-service.c:1678
 msgid "Don't quit when VPN connection terminates"
@@ -412,7 +414,6 @@ msgstr ""
 " 配置：domain <domain>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
-#, fuzzy
 msgid "Show password"
 msgstr "显示密码"
 
@@ -431,7 +432,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "User name:"
-msgstr "用户名："
+msgstr "用户名(_U)："
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid "NT Domain:"
@@ -485,12 +486,12 @@ msgid ""
 "To enable this checkbox, select one or more of the MSCHAP authentication "
 "methods: MSCHAP or MSCHAPv2."
 msgstr ""
-"注意：MPPE 加密仅适用于 MSCHAP 认证方式。要启用该复选框，选择一个或多个 "
-"MSCHAP 认证方式: MSCHAP 或 MSCHAPv2。"
+"注意：MPPE 加密仅在使用 MSCHAP 认证方式时可用。要启用此选项，请选择 MSCHAP 认"
+"证方式之中的一个或多个：MSCHAP 或 MSCHAPv2"
 
 #: ../properties/nm-l2tp-dialog.ui.h:38
 msgid "_Security:"
-msgstr "安全性(_S):"
+msgstr "安全性(_S)："
 
 #: ../properties/nm-l2tp-dialog.ui.h:39
 msgid ""
@@ -601,365 +602,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "_Password:"
-#~ msgstr "密码(_P):"
-
-#~ msgid "_Secondary Password:"
-#~ msgstr "次要密码(_S):"
-
-#~ msgid "Sh_ow passwords"
-#~ msgstr "显示密码(_O)"
-
-#~ msgid "L2TP VPN Connection Manager"
-#~ msgstr "L2TP VPN 连接管理器"
-
-#~ msgid "Add, Remove, and Edit L2TP VPN Connections"
-#~ msgstr "添加、删除及编辑 L2TP VPN 连接"
-
-#~ msgid "Saved"
-#~ msgstr "保存"
-
-#~ msgid "Always Ask"
-#~ msgstr "总是询问"
-
-#~ msgid "Not Required"
-#~ msgstr "不需要"
-
-#~ msgid "unknown L2TP file extension"
-#~ msgstr "未知的 L2TP 文件扩展名"
-
-#~ msgid "unknown L2TP file extension. Allowed .conf or .cnf"
-#~ msgstr "位置的 L2TP 文件扩展名。允许 .conf 或者 .cnf"
-
-#~ msgid "Filename doesn't contains 'l2tp' substring."
-#~ msgstr "文件名没有包含 'l2tp' 字符串。"
-
-#~ msgid "Can't import file as L2TP config: %s"
-#~ msgstr "无法导出文件为 L2TP 配置：%s"
-
-#~ msgid "<b>Authentication</b>"
-#~ msgstr "<b>身份验证</b>"
-
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>回响</b>"
-
-#~ msgid "Group Name:"
-#~ msgstr "组名称："
-
-#~ msgid "Could not find secrets (connection invalid, no vpn setting)."
-#~ msgstr "无法找到加密(连接无效，没有 VPN 设置)。"
-
-#~ msgid "Invalid VPN username."
-#~ msgstr "无效的 VPN 用户名。"
-
-#~ msgid "Could not register D-Bus service name.  Message: %s"
-#~ msgstr "无法注册 D-Bus 服务名。信息：%s"
-
-#~ msgid "No cached credentials."
-#~ msgstr "没有缓存的整数。"
-
-#~ msgid "L2TP service (IP Config Get) reply received."
-#~ msgstr "L2TP 服务(IP 配置获取)收到答复。"
-
-#~ msgid "invalid ipsec-group-name '%s'"
-#~ msgstr "无效的 ipsec 组名 '%s'"
-
-#~ msgid "xl2tpd exited with error code %d"
-#~ msgstr "xl2tpd 退出，错误代码 %d"
-
-#~ msgid "xl2tpd stopped unexpectedly with signal %d"
-#~ msgstr "xl2tpd 意外停止，信号 %d"
-
-#~ msgid "xl2tpd died with signal %d"
-#~ msgstr "xl2tpd 已死，信号 %d"
-
-#~ msgid "xl2tpd died from an unknown cause"
-#~ msgstr "xl2tpd 因未知原因死亡"
-
-#~ msgid "pppd timeout. Looks like pppd didn't initialize our dbus module"
-#~ msgstr "pppd 超时。看起来像 PPD 未初始化我们的 dbus 模块"
-
-#~ msgid "couldn't convert L2TP VPN gateway IP address '%s' (%d)"
-#~ msgstr "无法转换 L2TP VPN 网关 IP 地址 '%s' (%d)"
-
-#~ msgid "couldn't look up L2TP VPN gateway IP address '%s' (%d)"
-#~ msgstr "无法找到 L2TP VPN 网关 IP 地址 '%s' (%D)"
-
-#~ msgid "no usable addresses returned for L2TP VPN gateway '%s'"
-#~ msgstr "没用可用的地址从 L2TP VPN 网关 '%s' 返回"
-
-#~ msgid "no usable addresses returned for L2TP VPN gateway '%s' (%d)"
-#~ msgstr "没用可用的地址从 L2TP VPN 网关 '%s' (%d) 返回"
-
-#~ msgid "Use '%s' as a gateway"
-#~ msgstr "使用 '%s' 作为网关"
-
-#~ msgid "Could not find the ipsec binary."
-#~ msgstr "无法找到 ipsec 二进制程序。"
-
-#~ msgid "Cannot save /etc/ipsec.secrets"
-#~ msgstr "无法保存 /etc/ipsec.secrets"
-
-#~ msgid "Cannot open /etc/ipsec.secrets for writing"
-#~ msgstr "无法打开 /etc/ipsec.secrets 以写入"
-
-#~ msgid "ipsec ready for action"
-#~ msgstr "ipsec 准备好操作"
-
-#~ msgid "Could not find the xl2tpd binary."
-#~ msgstr "无法找到 xl2tpd 二进制程序"
-
-#~ msgid "xl2tpd started with pid %d"
-#~ msgstr "xl2tpd 已启动以 pid %d"
-
-#~ msgid "Can-not create new test socket"
-#~ msgstr "无法创建新的测试套接字"
-
-#~ msgid "Could not write xl2tpd config."
-#~ msgstr "无法写入 xl2tpd 配置。"
-
-#~ msgid "Could not write ppp options."
-#~ msgstr "无法写入 ppp 配置。"
-
-#~ msgid "failed to convert lcp-echo-failure value '%s'"
-#~ msgstr "转换 lcp-echo-failure 值 '%s' 失败"
-
-#~ msgid "failed to convert lcp-echo-interval value '%s'"
-#~ msgstr "转换 lcp-echo-interval 值 '%s' 失败"
-
-#~ msgid "Could not start pppd plugin helper service."
-#~ msgstr "无法启动 pppd 助手服务"
-
-#~ msgid "ipsec enable flag: %s"
-#~ msgstr "ipsec 启用标志：%s"
-
-#~ msgid "starting ipsec"
-#~ msgstr "正在启动 ipsec"
-
-#~ msgid "Terminated l2tp daemon with PID %d."
-#~ msgstr "终止 l2tp 后台，PID %d 。"
-
-#~ msgid "_Username:"
-#~ msgstr "用户名(_U):"
-
-#~ msgid "_Domain:"
-#~ msgstr "域(_D):"
-
-#~ msgid "Connect _anonymously"
-#~ msgstr "匿名连接(_A)"
-
-#~ msgid "Connect as _user:"
-#~ msgstr "以用户连接(_U):"
-
-#~ msgid "_Remember passwords for this session"
-#~ msgstr "本次会话记住密码(_R)"
-
-#~ msgid "_Save passwords in keyring"
-#~ msgstr "在密钥环中保存密码(_S)"
-
-#~ msgid "_Remember for this session"
-#~ msgstr "本次会话记住(_R)"
-
-#~ msgid "_Save in keyring"
-#~ msgstr "在密钥环中保存(_S)"
-
-#~ msgid "Authenticate Connection"
-#~ msgstr "身份验证连接"
-
-#~ msgid ""
-#~ "<span weight=\"bold\" size=\"larger\">Authentication Information</span>\n"
-#~ "\n"
-#~ "The connection '%s' may need some form of authentication.\n"
-#~ "\n"
-#~ "Please select an appropriate authentication type and provide the "
-#~ "necessary credentials below:\n"
-#~ msgstr ""
-#~ "<span weight=\"bold\" size=\"larger\">身份验证信息</span>\n"
-#~ "\n"
-#~ "连接“%s”可能需要某种形式的身份验证。\n"
-#~ "\n"
-#~ "请在下面选择适当的身份验证类型，并提供必要的信息：\n"
-
-#~ msgid "Authentication Required"
-#~ msgstr "需要身份验证"
-
-#~ msgid "_Authentication Type:"
-#~ msgstr "身份验证连接(_A)："
-
-#~ msgid "_Remote name:"
-#~ msgstr "远程名称(_U)："
-
-#~ msgid "VPN Connection Manager (PPP generic)"
-#~ msgstr "VPN 连接管理器(通用 PPP)"
-
-#~ msgid "<b>Delays &amp; Timeouts</b>"
-#~ msgstr "<b>延迟和超时</b>"
-
-#~ msgid "<b>Packet Parameters</b>"
-#~ msgstr "<b>包选项</b>"
-
-#~ msgid "<i>Example: 172.16.0.0/16 10.11.12.0/24</i>"
-#~ msgstr "<i>如：172.16.0.0/16 10.11.12.0/24</i>"
-
-#~ msgid "Allow B_SD Compression"
-#~ msgstr "允许 B_SD 压缩"
-
-#~ msgid "C_hannel:"
-#~ msgstr "频道(_H)："
-
-#~ msgid "Co_nnect delay:"
-#~ msgstr "连接延迟(_N)："
-
-#~ msgid "Compression & Encryption"
-#~ msgstr "压缩和加密"
-
-#~ msgid "Connection"
-#~ msgstr "连接"
-
-#~ msgid "Connection na_me:"
-#~ msgstr "连接名称(_M)："
-
-#~ msgid "Context _number:"
-#~ msgstr "环境号码(_N)："
-
-#~ msgid "Custom _PPP options:"
-#~ msgstr "自定义 PPP 选项(_P)："
-
-#~ msgid "Debug _output"
-#~ msgstr "调试输出(_O)"
-
-#~ msgid "E_xclusive device access (UUCP-style lock)"
-#~ msgstr "独占设备访问(UUCP 风格锁定)(_X)"
-
-#~ msgid "Find Device"
-#~ msgstr "查找设备"
-
-#~ msgid "GPRS Options"
-#~ msgstr "GPRS 选项"
-
-#~ msgid "Host name or IP address of the L2TP server"
-#~ msgstr "此 L2TP 服务器的主机名或 IP 地址"
-
-#~ msgid "IP a_ddress:"
-#~ msgstr "IP 地址(_D)："
-
-#~ msgid "Refuse _EAP"
-#~ msgstr "拒绝 _EAP"
-
-#~ msgid "Refuse _MS CHAP"
-#~ msgstr "拒绝 _MS CHAP"
-
-#~ msgid "Require 128 bit M_PPE encryption"
-#~ msgstr "需要 128 位 MPPE 加密(_P)"
-
-#~ msgid "Require MPPE _encryption"
-#~ msgstr "使用 MPPE 加密(_E)"
-
-#~ msgid "Require explicit IP _address"
-#~ msgstr "需要显式 IP 地址(_A)"
-
-#~ msgid "Requires existing network connection"
-#~ msgstr "需要已有的网络连接"
-
-#~ msgid "Routing"
-#~ msgstr "路由"
-
-#~ msgid "Serial Options"
-#~ msgstr "串行选项"
-
-#~ msgid "Service providers GPRS access point from device config"
-#~ msgstr "设备配置的服务提供商 GPRS 访问点"
-
-#~ msgid "Service providers IP address"
-#~ msgstr "服务提供商 IP 地址"
-
-#~ msgid "Telep_hone number:"
-#~ msgstr "电话号码(_H)："
-
-#~ msgid "Typ_e:"
-#~ msgstr "类型(_E)："
-
-#~ msgid "Use peer _DNS"
-#~ msgstr "使用对端 _DNS"
-
-#~ msgid "_Access point name:"
-#~ msgstr "接入点名称(_A)："
-
-#~ msgid "_Device address:"
-#~ msgstr "设备地址(_D)："
-
-#~ msgid "_Hardware RTS/CTS"
-#~ msgstr "硬件 RTS/CTS(_H)"
-
-#~ msgid "_Import Saved Configuration..."
-#~ msgstr "导入保存的配置(_I)…"
-
-#~ msgid "_Modem connection"
-#~ msgstr "调制解调器连接(_M)"
-
-#~ msgid "_Only use VPN connection for these addresses:"
-#~ msgstr "只对这些地址使用 VPN 连接(_O)："
-
-#~ msgid "_Packet type:"
-#~ msgstr "包类型(_P)："
-
-#~ msgid "_Require MPPC compression"
-#~ msgstr "需要 MPPC 压缩(_R)"
-
-#~ msgid "Name"
-#~ msgstr "名称"
-
-#~ msgid "L2TP Server"
-#~ msgstr "L2TP 服务器"
-
-#~ msgid "Telephone Number"
-#~ msgstr "电话号码"
-
-#~ msgid "Bluetooth Address"
-#~ msgstr "蓝牙地址"
-
-#~ msgid "Bluetooth Channel"
-#~ msgstr "蓝牙频道"
-
-#~ msgid "GPRS APN"
-#~ msgstr "GPRS APN"
-
-#~ msgid "GPRS IP"
-#~ msgstr "GPRS IP"
-
-#~ msgid "GPRS Context No."
-#~ msgstr "GPRS 环境编号"
-
-#~ msgid "GPRS Packet Type"
-#~ msgstr "GPRS 包类型"
-
-#~ msgid "Use CTS/RTS flow control"
-#~ msgstr "使用 CTS/RTS 流控制"
-
-#~ msgid "Connect via a modem"
-#~ msgstr "通过调制解调器连接"
-
-#~ msgid "Require IP to be provided"
-#~ msgstr "需要提供 IP"
-
-#~ msgid "Use Peer DNS"
-#~ msgstr "使用对端 DNS"
-
-#~ msgid "Use 128 bit MPPE encryption"
-#~ msgstr "使用 128 位 MPPE 加密"
-
-#~ msgid "Do not use BSD compression"
-#~ msgstr "不使用 BSD 压缩"
-
-#~ msgid "Select file to import"
-#~ msgstr "选择要导入的文件"
-
-#~ msgid "Save as..."
-#~ msgstr "另存为..."
-
-#~ msgid "A file named \"%s\" already exists."
-#~ msgstr "名为“%s”的文件已经存在。"
-
-#~ msgid "Do you want to replace it with the one you are saving?"
-#~ msgstr "您是否想要将其替换为您正在保存的文件？"

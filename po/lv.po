@@ -2,19 +2,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>, 2010.
+# Rūdofls Mazurs <rudolfs.mazurs@gmail.com>, 2011, 2012, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-19 22:07+1000\n"
-"PO-Revision-Date: 2010-03-26 11:17+0200\n"
+"POT-Creation-Date: 2017-06-19 22:46+1000\n"
+"PO-Revision-Date: 2013-04-21 23:10+0300\n"
 "Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
-"Language-Team: Latviešu <kde-i18n-doc@kde.org>\n"
-"Language: \n"
+"Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
+"Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.0\n"
+"X-Generator: Lokalize 1.4\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 
@@ -51,7 +52,7 @@ msgstr ""
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr ""
-"Jums vajag autentificēties, lai piekļūtu virtuālajam privātajam tīklam '%s'."
+"Jums vajag autentificēties, lai piekļūtu virtuālajam privātajam tīklam “%s”."
 
 #: ../auth-dialog/main.c:155 ../auth-dialog/main.c:175
 msgid "Authenticate VPN"
@@ -166,7 +167,6 @@ msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr "Divp_unktu tunelēšanas protokols (L2TP)"
 
 #: ../properties/nm-l2tp-editor-plugin.c:37
-#, fuzzy
 msgid "Compatible with Microsoft and other L2TP VPN servers."
 msgstr "Savietojams ar Microsoft un citiem L2TP VPN serveriem."
 
@@ -265,7 +265,7 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:306
 #, c-format
 msgid "invalid gateway '%s'"
-msgstr ""
+msgstr "nederīga vārteja “%s”"
 
 #: ../src/nm-l2tp-service.c:315
 #, c-format
@@ -275,35 +275,35 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:328
 #, c-format
 msgid "invalid integer property '%s'"
-msgstr ""
+msgstr "nederīga veselā skaitļa īpašība “%s”"
 
 #: ../src/nm-l2tp-service.c:338
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
-msgstr ""
+msgstr "nederīga būla īpašība “%s” (nav jā vai nē)"
 
 #: ../src/nm-l2tp-service.c:345
 #, c-format
 msgid "unhandled property '%s' type %s"
-msgstr ""
+msgstr "neapstrādāts īpašības “%s” tips %s"
 
 #: ../src/nm-l2tp-service.c:356
 #, c-format
 msgid "property '%s' invalid or not supported"
-msgstr ""
+msgstr "īpašība “%s” nederīga vai nav atbalstīta"
 
 #: ../src/nm-l2tp-service.c:374
 msgid "No VPN configuration options."
-msgstr ""
+msgstr "Nav VPN konfigurācijas opciju."
 
 #: ../src/nm-l2tp-service.c:394
 #, c-format
 msgid "Missing required option '%s'."
-msgstr ""
+msgstr "Trūkst vajadzīgās opcijas “%s”."
 
 #: ../src/nm-l2tp-service.c:414
 msgid "No VPN secrets!"
-msgstr ""
+msgstr "Nav VPN noslēpumu!"
 
 #: ../src/nm-l2tp-service.c:720
 #, c-format
@@ -317,19 +317,19 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1224
 msgid "Missing VPN username."
-msgstr ""
+msgstr "Trūkts VPN lietotājvārda."
 
 #: ../src/nm-l2tp-service.c:1233
 msgid "Missing or invalid VPN password."
-msgstr ""
+msgstr "Trūkst vai nav derīga VPN parole."
 
 #: ../src/nm-l2tp-service.c:1678
 msgid "Don't quit when VPN connection terminates"
-msgstr ""
+msgstr "Neiziet, kad tiek pārtraukts VPN savienojums"
 
 #: ../src/nm-l2tp-service.c:1679
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr ""
+msgstr "Aktivēt detalizētu atkļūdošanas reģistrēšanu (var atklāt paroles)"
 
 #: ../src/nm-l2tp-service.c:1680
 msgid "D-Bus name to use for this instance"
@@ -374,11 +374,11 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:10
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "Phase2 algoritms:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:11
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "Phase1 algoritms:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
 msgid "_Enforce UDP encapsulation"
@@ -410,9 +410,11 @@ msgid ""
 "purposes.\n"
 "config: domain <domain>"
 msgstr ""
+"Pievienot domēna nosaukumu <domain> lokālā datora nosaukumam, lai "
+"autentificētos.\n"
+"config: domain <domain>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
-#, fuzzy
 msgid "Show password"
 msgstr "Rādīt paroli"
 
@@ -429,7 +431,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "User name:"
-msgstr "Lietotāja vārds:"
+msgstr "Lietotājvārds:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid "NT Domain:"
@@ -466,6 +468,8 @@ msgid ""
 "Allow/disable authentication methods.\n"
 "config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 msgstr ""
+"Atļaut/deaktivēt autentifikācijas metodes.\n"
+"config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 
 #: ../properties/nm-l2tp-dialog.ui.h:35
 #, fuzzy
@@ -474,7 +478,7 @@ msgstr "<b>Drošība un kompresija</b>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid "Use _Point-to-Point encryption (MPPE)"
-msgstr "Izmantot divp_unktu šifrēšanu (MPPE)"
+msgstr "Izmantot div_punktu šifrēšanu (MPPE)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:37
 msgid ""
@@ -495,6 +499,8 @@ msgid ""
 "Require the use of MPPE, with 40/128-bit encryption or all.\n"
 "config: require-mppe, require-mppe-128 or require-mppe-40"
 msgstr ""
+"Pieprasīt MPPE izmantošanu ar 40/128 bitu šifrēšanu vai visu.\n"
+"config: require-mppe, require-mppe-128 or require-mppe-40"
 
 #: ../properties/nm-l2tp-dialog.ui.h:41
 msgid "Allow st_ateful encryption"
@@ -505,6 +511,9 @@ msgid ""
 "Allow MPPE to use stateful mode. Stateless mode is still attempted first.\n"
 "config: mppe-stateful (when checked)"
 msgstr ""
+"Ļaut MPPE izmantot stāvokļa saglabāšanas režīmu. Tāpat vispirms tiks "
+"mēģināts bezstāvokļa zežīms. \n"
+"config: mppe-stateful (kad atzīmēts)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:44
 msgid "Allow _BSD data compression"
@@ -515,6 +524,8 @@ msgid ""
 "Allow/disable BSD-Compress compression.\n"
 "config: nobsdcomp (when unchecked)"
 msgstr ""
+"Ļaut/dekativēt BSD-Compress saspiešanu.\n"
+"config: nobsdcomp (kad nav atzīmēts)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:47
 msgid "Allow _Deflate data compression"
@@ -525,6 +536,8 @@ msgid ""
 "Allow/disable Deflate compression.\n"
 "config: nodeflate (when unchecked)"
 msgstr ""
+"Ļaut/deaktivēt Deflate saspiešanu.\n"
+"config: nodeflate (kad nav atzīmēts)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:50
 msgid "Use TCP _header compression"
@@ -536,6 +549,9 @@ msgid ""
 "transmit and the receive directions.\n"
 "config: novj (when unchecked)"
 msgstr ""
+"Atļaut/deaktivēt Van Jacobson stila TCP/IP galveņu saspiešanu gan sūtīšanas "
+"gan saņemšanas virzienā.\n"
+"config: novj (kad nav atzīmēts)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:53
 msgid "Use protocol _field compression negotiation"
@@ -572,6 +588,8 @@ msgid ""
 "Send LCP echo-requests to find out whether peer is alive.\n"
 "config: lcp-echo-failure and lcp-echo-interval"
 msgstr ""
+"Sūtīt LCP atbalss pieprasījumus, lai redzētu, vai dalībnieks vēl ir dzīvs.\n"
+"config: lcp-echo-failure un lcp-echo-interval"
 
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid "Misc"
@@ -584,40 +602,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "_Password:"
-#~ msgstr "_Parole:"
-
-#~ msgid "_Secondary Password:"
-#~ msgstr "_Sekundārā parole:"
-
-#, fuzzy
-#~ msgid "Sh_ow passwords"
-#~ msgstr "Rādīt paroli"
-
-#~ msgid "L2TP VPN Connection Manager"
-#~ msgstr "L2TP VPN savienojumu pārvaldnieks"
-
-#~ msgid "Add, Remove, and Edit L2TP VPN Connections"
-#~ msgstr "Pievienot, noņemt, rediģēt L2TP VPN savienojumus"
-
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>Atbalss</b>"
-
-#~ msgid "_Username:"
-#~ msgstr "_Lietotājvārds:"
-
-#~ msgid "_Domain:"
-#~ msgstr "_Domēns:"
-
-#~ msgid "Connect _anonymously"
-#~ msgstr "Savienoties _anonīmi"
-
-#~ msgid "Connect as _user:"
-#~ msgstr "Savienoties kā _lietotājam:"
-
-#~ msgid "_Remember passwords for this session"
-#~ msgstr "Atce_rēties paroli šai sesijai"
-
-#~ msgid "_Save passwords in keyring"
-#~ msgstr "_Saglabāt paroli atslēgu saišķī"

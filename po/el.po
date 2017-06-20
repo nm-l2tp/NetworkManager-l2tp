@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-19 22:07+1000\n"
-"PO-Revision-Date: 2010-03-14 12:47+0200\n"
-"Last-Translator: Kostas Papadimas <pkst@gnome.org>\n"
+"POT-Creation-Date: 2017-06-19 22:46+1000\n"
+"PO-Revision-Date: 2016-03-10 14:28+0200\n"
+"Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
 "Language-Team: Greek <team@gnome.gr>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 0.2\n"
+"X-Generator: Poedit 1.8.7\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
@@ -62,7 +62,7 @@ msgstr "Πιστοποίηση VPN"
 
 #: ../auth-dialog/main.c:157 ../properties/nm-l2tp-dialog.ui.h:25
 msgid "Password:"
-msgstr "Συνθηματικό:"
+msgstr "Κωδικός πρόσβασης:"
 
 #: ../properties/advanced-dialog.c:172
 msgid "All Available (Default)"
@@ -169,10 +169,9 @@ msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr "Πρωτόκολλο Point-to-Point Tunneling (L2TP)"
 
 #: ../properties/nm-l2tp-editor-plugin.c:37
-#, fuzzy
 msgid "Compatible with Microsoft and other L2TP VPN servers."
 msgstr ""
-"Συμβατό με τους εξυπηρετητές L2TP VPN της Microsoft και άλλων εταιρειών."
+"Συμβατό με τους διακομιστές L2TP VPN της Microsoft και άλλων εταιρειών."
 
 #: ../properties/nm-l2tp-editor.c:146
 #, c-format
@@ -269,7 +268,7 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:306
 #, c-format
 msgid "invalid gateway '%s'"
-msgstr ""
+msgstr "Μη έγκυρη πύλη '%s'"
 
 #: ../src/nm-l2tp-service.c:315
 #, c-format
@@ -279,35 +278,35 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:328
 #, c-format
 msgid "invalid integer property '%s'"
-msgstr ""
+msgstr "Μη έγκυρη ακέραια τιμή '%s'"
 
 #: ../src/nm-l2tp-service.c:338
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
-msgstr ""
+msgstr "μη έγκυρη λογική τιμή '%s' (ούτε ναι ή όχι)"
 
 #: ../src/nm-l2tp-service.c:345
 #, c-format
 msgid "unhandled property '%s' type %s"
-msgstr ""
+msgstr "απρόσμενη τιμή '%s' τύπου %s"
 
 #: ../src/nm-l2tp-service.c:356
 #, c-format
 msgid "property '%s' invalid or not supported"
-msgstr ""
+msgstr "Μη έγκυρη ή μη υποστηριζόμενη τιμή '%s'"
 
 #: ../src/nm-l2tp-service.c:374
 msgid "No VPN configuration options."
-msgstr ""
+msgstr "Δεν υπάρχουν επιλογές ρύθμισης παραμέτρων VPN."
 
 #: ../src/nm-l2tp-service.c:394
 #, c-format
 msgid "Missing required option '%s'."
-msgstr ""
+msgstr "Λείπει η απαιτούμενη επιλογή '%s'."
 
 #: ../src/nm-l2tp-service.c:414
 msgid "No VPN secrets!"
-msgstr ""
+msgstr "Δεν υπάρχουν απόρρητα VPN!"
 
 #: ../src/nm-l2tp-service.c:720
 #, c-format
@@ -321,23 +320,25 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1224
 msgid "Missing VPN username."
-msgstr ""
+msgstr "Λείπει το όνομα χρήστη VPN."
 
 #: ../src/nm-l2tp-service.c:1233
 msgid "Missing or invalid VPN password."
-msgstr ""
+msgstr "Λείπει ή μη έγκυρος κωδικός πρόσβασης VPN."
 
 #: ../src/nm-l2tp-service.c:1678
 msgid "Don't quit when VPN connection terminates"
-msgstr ""
+msgstr "Να μην γίνει έξοδος όταν η σύνδεση VPN τερματίζει."
 
 #: ../src/nm-l2tp-service.c:1679
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr ""
+"Ενεργοποίηση καταγραφής εντοπισμού σφαλμάτων (μπορεί να εκθέσει τους "
+"κωδικούς πρόσβασης)"
 
 #: ../src/nm-l2tp-service.c:1680
 msgid "D-Bus name to use for this instance"
-msgstr ""
+msgstr "Ονομασία D-Bus που θα χρησιμοποιηθεί για αυτή τη συνεδρία"
 
 #: ../src/nm-l2tp-service.c:1701
 msgid ""
@@ -378,20 +379,19 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:10
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "Αλγόριθμοι Phase2:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:11
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "Αλγόριθμοι Phase1:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
 msgid "_Enforce UDP encapsulation"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
-#, fuzzy
 msgid "Ad_vanced"
-msgstr "Για π_ροχωρημένους..."
+msgstr "Για προ_χωρημένους"
 
 #: ../properties/nm-l2tp-dialog.ui.h:14
 msgid "_Gateway:"
@@ -414,11 +414,13 @@ msgid ""
 "purposes.\n"
 "config: domain <domain>"
 msgstr ""
+"Προσθέστε το όνομα τομέα <domain> στο τοπικό όνομα υπολογιστή για λόγους "
+"πιστοποίησης.\n"
+"config: domain <domain>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
-#, fuzzy
 msgid "Show password"
-msgstr "Εμφάνιση συνθηματικού"
+msgstr "Εμφάνιση κωδικού πρόσβασης"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Password passed to PPPD when prompted for it."
@@ -470,6 +472,8 @@ msgid ""
 "Allow/disable authentication methods.\n"
 "config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 msgstr ""
+"Επιτρέψτε/απενεργοποιήσετε τις μεθόδους πιστοποίησης.\n"
+"config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 
 #: ../properties/nm-l2tp-dialog.ui.h:35
 #, fuzzy
@@ -499,16 +503,21 @@ msgid ""
 "Require the use of MPPE, with 40/128-bit encryption or all.\n"
 "config: require-mppe, require-mppe-128 or require-mppe-40"
 msgstr ""
+"Απαιτείται η χρήση MPPE, με κρυπτογράφηση 40/128-bit ή όλη.\n"
+"config: require-mppe, require-mppe-128 ή require-mppe-40"
 
 #: ../properties/nm-l2tp-dialog.ui.h:41
 msgid "Allow st_ateful encryption"
-msgstr "Να επιτρέπεται η _stateful κρυπτογράφηση"
+msgstr "Να επιτρέπεται η κρυπτογράφηση με _επίβλεψη κατάστασης  "
 
 #: ../properties/nm-l2tp-dialog.ui.h:42
 msgid ""
 "Allow MPPE to use stateful mode. Stateless mode is still attempted first.\n"
 "config: mppe-stateful (when checked)"
 msgstr ""
+"Να επιτρέπεται στην MPPE να χρησιμοποιεί λειτουργία με επίβλεψη κατάστασης. "
+"Εξακολουθεί να γίνεται πρώτα κατάσταση λειτουργίας χωρίς επίβλεψη.\n"
+"config: mppe-stateful (όταν είναι επιλεγμένο)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:44
 msgid "Allow _BSD data compression"
@@ -519,6 +528,8 @@ msgid ""
 "Allow/disable BSD-Compress compression.\n"
 "config: nobsdcomp (when unchecked)"
 msgstr ""
+"Επιτρέψτε/απενεργοποιήσετε τη συμπίεση BSD-Compress.\n"
+"config: nobsdcomp (όταν δεν είναι επιλεγμένο)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:47
 msgid "Allow _Deflate data compression"
@@ -529,6 +540,8 @@ msgid ""
 "Allow/disable Deflate compression.\n"
 "config: nodeflate (when unchecked)"
 msgstr ""
+"Επιτρέψτε/απενεργοποιήσετε τη συμπίεση Deflate.\n"
+"config: nodeflate (όταν δεν είναι επιλεγμένο)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:50
 msgid "Use TCP _header compression"
@@ -540,6 +553,9 @@ msgid ""
 "transmit and the receive directions.\n"
 "config: novj (when unchecked)"
 msgstr ""
+"Επιτρέψτε/απενεργοποιήσετε την συμπίεση κεφαλίδας TCP/IP τύπου Van Jacobson "
+"τόσο στην μετάδοση όσο και στη λήψη.\n"
+"config: novj (όταν δεν είναι επιλεγμένο)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:53
 msgid "Use protocol _field compression negotiation"
@@ -576,6 +592,8 @@ msgid ""
 "Send LCP echo-requests to find out whether peer is alive.\n"
 "config: lcp-echo-failure and lcp-echo-interval"
 msgstr ""
+"Στείλτε αιτήσεις-echo LCP για να βρείτε αν είναι εν ενεργεία ο ομότιμος.\n"
+"config: lcp-echo-failure και lcp-echo-interval"
 
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid "Misc"
@@ -588,40 +606,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "_Password:"
-#~ msgstr "_Συνθηματικό:"
-
-#~ msgid "_Secondary Password:"
-#~ msgstr "_Δευτερεύον συνθηματικό:"
-
-#, fuzzy
-#~ msgid "Sh_ow passwords"
-#~ msgstr "Εμφάνιση συνθηματικού"
-
-#~ msgid "L2TP VPN Connection Manager"
-#~ msgstr "Διαχείριση συνδέσεων L2TP VPN"
-
-#~ msgid "Add, Remove, and Edit L2TP VPN Connections"
-#~ msgstr "Προσθήκη, απομάκρυνση και επεξεργασία συνδέσεων L2TP VPN"
-
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>Echo</b>"
-
-#~ msgid "_Username:"
-#~ msgstr "Ό_νομα χρήστη:"
-
-#~ msgid "_Domain:"
-#~ msgstr "_Τομέας:"
-
-#~ msgid "Connect _anonymously"
-#~ msgstr "_Ανώνυμη σύνδεση"
-
-#~ msgid "Connect as _user:"
-#~ msgstr "Σύνδεση ως _χρήστης:"
-
-#~ msgid "_Remember passwords for this session"
-#~ msgstr "Απομνη_μόνευση συνθηματικών για αυτή τη συνεδρία"
-
-#~ msgid "_Save passwords in keyring"
-#~ msgstr "Απο_θήκευση συνθηματικών στην κλειδοθήκη"

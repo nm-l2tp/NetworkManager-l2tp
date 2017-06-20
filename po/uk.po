@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager l2tp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-19 22:07+1000\n"
+"POT-Creation-Date: 2017-06-19 22:46+1000\n"
 "PO-Revision-Date: 2010-04-02 03:32+0200\n"
 "Last-Translator: Maxim Dziumanenko <dziumanenko@gmail.com>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -166,7 +166,6 @@ msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr "Layer 2 Tunneling Protocol (L2TP)"
 
 #: ../properties/nm-l2tp-editor-plugin.c:37
-#, fuzzy
 msgid "Compatible with Microsoft and other L2TP VPN servers."
 msgstr "Сумісний з серверами Microsoft та іншими серверами L2TP VPN."
 
@@ -412,7 +411,6 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
-#, fuzzy
 msgid "Show password"
 msgstr "Показати пароль"
 
@@ -584,40 +582,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "_Password:"
-#~ msgstr "_Пароль:"
-
-#~ msgid "_Secondary Password:"
-#~ msgstr "_Вторинний пароль:"
-
-#, fuzzy
-#~ msgid "Sh_ow passwords"
-#~ msgstr "Показати пароль"
-
-#~ msgid "L2TP VPN Connection Manager"
-#~ msgstr "Менеджер з'єднань L2TP VPN"
-
-#~ msgid "Add, Remove, and Edit L2TP VPN Connections"
-#~ msgstr "Додавання, видалення та редагування з'єднань типу VPN L2TP"
-
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>Луна</b>"
-
-#~ msgid "_Username:"
-#~ msgstr "_Ім'я:"
-
-#~ msgid "_Domain:"
-#~ msgstr "_Домен"
-
-#~ msgid "Connect _anonymously"
-#~ msgstr "З'єднуватись _анонімно"
-
-#~ msgid "Connect as _user:"
-#~ msgstr "З'єднуватись як _користувач:"
-
-#~ msgid "_Remember passwords for this session"
-#~ msgstr "Па_м'ятати пароль для цього сеансу"
-
-#~ msgid "_Save passwords in keyring"
-#~ msgstr "З_берегти пароль у в'язці паролів"

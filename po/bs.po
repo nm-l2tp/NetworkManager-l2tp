@@ -160,7 +160,6 @@ msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr "Point-to-Point tunelski protokol (L2TP)"
 
 #: ../properties/nm-l2tp-editor-plugin.c:37
-#, fuzzy
 msgid "Compatible with Microsoft and other L2TP VPN servers."
 msgstr "Kompatibilno ss Microsoft i drugim L2TP VPN serverima."
 
@@ -371,11 +370,11 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:10
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "Faza2Algoritmi;:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:11
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "Faza1Algoritmi;:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
 msgid "_Enforce UDP encapsulation"
@@ -613,54 +612,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "L2TP VPN Connection Manager"
-#~ msgstr "L2TP VPN upravljač konekcijama"
-
-#~ msgid "Add, Remove, and Edit L2TP VPN Connections"
-#~ msgstr "Dodaj, ukloni i izmijeni L2TP VPN konekcije"
-
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>Eho</b>"
-
-#~ msgid "Saved"
-#~ msgstr "Snimljeno"
-
-#~ msgid "Always Ask"
-#~ msgstr "Uvijek pitaj"
-
-#~ msgid "Not Required"
-#~ msgstr "Nije potrebno"
-
-#~ msgid "couldn't convert L2TP VPN gateway IP address '%s' (%d)"
-#~ msgstr "ne mogu konvrtovati L2TP VPN izlaznu IP adresu '%s' (%d)"
-
-#~ msgid "couldn't look up L2TP VPN gateway IP address '%s' (%d)"
-#~ msgstr "ne mogu pogledati L2TP VPN izlaznu IP adresu '%s' (%d)"
-
-#~ msgid "no usable addresses returned for L2TP VPN gateway '%s'"
-#~ msgstr "nema upotrebljivih adresa vraćenih za L2TP VPN izlaz '%s'"
-
-#~ msgid "no usable addresses returned for L2TP VPN gateway '%s' (%d)"
-#~ msgstr "nema upotrebljivih adresa vraćenih za L2TP VPN izlaz '%s' (%d)"
-
-#~ msgid "Could not find secrets (connection invalid, no vpn setting)."
-#~ msgstr "Ne mogu da nađem tajne (konekcija neispravna, nema vpn postavki)."
-
-#~ msgid "Invalid VPN username."
-#~ msgstr "Nevažeće VPN korisničko ime."
-
-#~ msgid "No cached credentials."
-#~ msgstr "Nema keširanih povjerenja."
-
-#~ msgid "Could not find l2tp client binary."
-#~ msgstr "Ne mogu naći l2tp klijentski program."
-
-#~ msgid "Missing VPN gateway."
-#~ msgstr "Nedostaje VPN izlaz."
-
-#~ msgid "Could not find the pppd binary."
-#~ msgstr "Ne mogu naći pppd program."
-
-#~ msgid "Invalid or missing L2TP gateway."
-#~ msgstr "Nevažeći ili nedostaje L2TP izlaz."

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-l2tp master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-19 22:07+1000\n"
+"POT-Creation-Date: 2017-06-19 22:46+1000\n"
 "PO-Revision-Date: 2010-03-11 09:10+0200\n"
 "Last-Translator: Krasimir Chonov <mk2616@abv.bg>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
@@ -166,7 +166,6 @@ msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr "Тунелиращ протокол — точка до точка (L2TP)"
 
 #: ../properties/nm-l2tp-editor-plugin.c:37
-#, fuzzy
 msgid "Compatible with Microsoft and other L2TP VPN servers."
 msgstr "Съвместим със сървърите на Microsoft и други за ВЧМ по L2TP."
 
@@ -412,7 +411,6 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
-#, fuzzy
 msgid "Show password"
 msgstr "Показване на паролата"
 
@@ -584,40 +582,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "_Password:"
-#~ msgstr "_Парола:"
-
-#~ msgid "_Secondary Password:"
-#~ msgstr "_Втора парола:"
-
-#, fuzzy
-#~ msgid "Sh_ow passwords"
-#~ msgstr "Показване на паролата"
-
-#~ msgid "L2TP VPN Connection Manager"
-#~ msgstr "Управление на връзки за ВЧМ по L2TP"
-
-#~ msgid "Add, Remove, and Edit L2TP VPN Connections"
-#~ msgstr "Добавяне, изтриване и редактиране на връзки към ВЧМ по L2TP"
-
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>Ехо</b>"
-
-#~ msgid "_Username:"
-#~ msgstr "Потребителско _име:"
-
-#~ msgid "_Domain:"
-#~ msgstr "_Домейн:"
-
-#~ msgid "Connect _anonymously"
-#~ msgstr "_Анонимно свързване"
-
-#~ msgid "Connect as _user:"
-#~ msgstr "Свързване _като потребителя:"
-
-#~ msgid "_Remember passwords for this session"
-#~ msgstr "_Запомняне на паролата за тази сесия"
-
-#~ msgid "_Save passwords in keyring"
-#~ msgstr "Запазване на паролата в клю_чодържателя"

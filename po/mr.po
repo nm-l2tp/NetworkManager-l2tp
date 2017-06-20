@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-l2tp.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-19 22:07+1000\n"
+"POT-Creation-Date: 2017-06-19 22:46+1000\n"
 "PO-Revision-Date: 2009-03-04 18:58+0530\n"
 "Last-Translator: Sandeep Shedmake <sandeep.shedmake@gmail.com>\n"
 "Language-Team: marathi\n"
@@ -164,7 +164,6 @@ msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr "Layer 2 Tunneling Protocol (L2TP)"
 
 #: ../properties/nm-l2tp-editor-plugin.c:37
-#, fuzzy
 msgid "Compatible with Microsoft and other L2TP VPN servers."
 msgstr "Microsoft व इतर L2TP VPN सर्वरशी सहत्व."
 
@@ -409,7 +408,6 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
-#, fuzzy
 msgid "Show password"
 msgstr "परवलीचा शब्द"
 
@@ -577,40 +575,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "_Password:"
-#~ msgstr "परवलीचा शब्द (_P):"
-
-#~ msgid "_Secondary Password:"
-#~ msgstr "दुय्यम परवलीचा शब्द (_S):"
-
-#, fuzzy
-#~ msgid "Sh_ow passwords"
-#~ msgstr "परवलीचा शब्द"
-
-#~ msgid "L2TP VPN Connection Manager"
-#~ msgstr "L2TP VPN जुळवणी व्यवस्थापक"
-
-#~ msgid "Add, Remove, and Edit L2TP VPN Connections"
-#~ msgstr "L2TP VPN जुळवणी समावेष करा, काढूण टाका, व संपादीत करा"
-
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>Echo</b>"
-
-#~ msgid "_Username:"
-#~ msgstr "वापरकर्ता नाव (_U):"
-
-#~ msgid "_Domain:"
-#~ msgstr "क्षेत्र (_D):"
-
-#~ msgid "Connect _anonymously"
-#~ msgstr "निनावी नुरूप जुळवा (_a)"
-
-#~ msgid "Connect as _user:"
-#~ msgstr "वापरकर्ता नुरूप जुळवा (_u):"
-
-#~ msgid "_Remember passwords for this session"
-#~ msgstr "या सत्र करीता परवलीचा शब्द लक्षात ठेवा (_R)"
-
-#~ msgid "_Save passwords in keyring"
-#~ msgstr "किरींग अंतर्गत परवलीचा शब्द साठवा (_S)"

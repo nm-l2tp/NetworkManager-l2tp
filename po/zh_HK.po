@@ -1,13 +1,14 @@
 # Chinese (Hong Kong) translation of Network Manager.
 # Copyright (C) 2005 Free Software Foundation, Inc.
-# Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>, 2008.
+# Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>, 2008, 2009.
+# Wei-Lun Chao <chaoweilun@gmail.com>, 2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Network Manager-l2tp 0.7.0\n"
+"Project-Id-Version: Network Manager-l2tp 0.8.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-19 22:07+1000\n"
-"PO-Revision-Date: 2009-04-23 21:14+0800\n"
+"POT-Creation-Date: 2017-06-19 22:46+1000\n"
+"PO-Revision-Date: 2011-01-25 19:41+0800\n"
 "Last-Translator: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>\n"
 "Language-Team: Chinese (Hong Kong) <community@linuxhall.org>\n"
 "Language: zh_HK\n"
@@ -161,7 +162,6 @@ msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr "點對點穿隧通訊協定 (L2TP)"
 
 #: ../properties/nm-l2tp-editor-plugin.c:37
-#, fuzzy
 msgid "Compatible with Microsoft and other L2TP VPN servers."
 msgstr "兼容於 Microsoft 與其他 L2TP VPN 伺服器。"
 
@@ -406,7 +406,6 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
-#, fuzzy
 msgid "Show password"
 msgstr "顯示密碼"
 
@@ -475,6 +474,8 @@ msgid ""
 "To enable this checkbox, select one or more of the MSCHAP authentication "
 "methods: MSCHAP or MSCHAPv2."
 msgstr ""
+"注意：MPPE 加密只能使用 MSCHAP 驗證方法。要啟用這個核取方塊，請選擇一個或更多"
+"的 MSCHAP 驗證方法：MSCHAP 或 MSCHAPv2。"
 
 #: ../properties/nm-l2tp-dialog.ui.h:38
 msgid "_Security:"
@@ -574,40 +575,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "_Password:"
-#~ msgstr "密碼(_P):"
-
-#~ msgid "_Secondary Password:"
-#~ msgstr "第二密碼(_S):"
-
-#, fuzzy
-#~ msgid "Sh_ow passwords"
-#~ msgstr "顯示密碼"
-
-#~ msgid "L2TP VPN Connection Manager"
-#~ msgstr "L2TP VPN 連線管理程式"
-
-#~ msgid "Add, Remove, and Edit L2TP VPN Connections"
-#~ msgstr "加入、移除與編輯 L2TP VPN 連線"
-
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>回應</b>"
-
-#~ msgid "_Username:"
-#~ msgstr "使用者名稱(_U):"
-
-#~ msgid "_Domain:"
-#~ msgstr "網域(_D):"
-
-#~ msgid "Connect _anonymously"
-#~ msgstr "匿名連線(_A)"
-
-#~ msgid "Connect as _user:"
-#~ msgstr "以此使用者連線(_U):"
-
-#~ msgid "_Remember passwords for this session"
-#~ msgstr "在這個作業階段記住密碼(_R)"
-
-#~ msgid "_Save passwords in keyring"
-#~ msgstr "在密碼匙圈中儲存密碼(_S)"

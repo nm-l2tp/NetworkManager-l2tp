@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-ppp_vpn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-19 22:07+1000\n"
+"POT-Creation-Date: 2017-06-19 22:46+1000\n"
 "PO-Revision-Date: 2007-01-30 12:01+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <l10n@opentle.org>\n"
@@ -45,14 +45,13 @@ msgstr ""
 #. * that the password should never be saved.
 #.
 #: ../auth-dialog/main.c:146
-#, fuzzy, c-format
+#, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
-msgstr "คุณจะต้องยืนยันตัวบุคคลเพื่อเข้าใช้ '%s'"
+msgstr "คุณจะต้องยืนยันตัวบุคคลเพื่อเข้าใช้ Virtual Private Network '%s'"
 
 #: ../auth-dialog/main.c:155 ../auth-dialog/main.c:175
-#, fuzzy
 msgid "Authenticate VPN"
-msgstr "ยืนยันเอกลักษณ์ของอีกฝ่าย"
+msgstr "ยืนยันตัวบุคคลกับ VPN"
 
 #: ../auth-dialog/main.c:157 ../properties/nm-l2tp-dialog.ui.h:25
 #, fuzzy
@@ -395,9 +394,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
-#, fuzzy
 msgid "Optional"
-msgstr "<b>ตัวเลือกเกี่ยวกับ IP</b>"
+msgstr "ข้อมูลเสริม"
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid ""
@@ -450,9 +448,8 @@ msgid "L2TP PPP Options"
 msgstr "ตัวเลือก PPP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
-#, fuzzy
 msgid "Authentication"
-msgstr "รูปแบบการยืนยันตัวบุคคล:"
+msgstr "การยืนยันตัวบุคคล"
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
 msgid "Allow the following authentication methods:"
@@ -582,387 +579,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "_Password:"
-#~ msgstr "_รหัสผ่าน:"
-
-#~ msgid "_Secondary Password:"
-#~ msgstr "รหัสผ่านที่_สอง:"
-
-#, fuzzy
-#~ msgid "Sh_ow passwords"
-#~ msgstr "_รหัสผ่าน:"
-
-#, fuzzy
-#~ msgid "L2TP VPN Connection Manager"
-#~ msgstr "การเชื่อมต่อ VPN ล้มเหลว"
-
-#, fuzzy
-#~ msgid "Add, Remove, and Edit L2TP VPN Connections"
-#~ msgstr "เพิ่ม, ลบ และแก้ไข การเชื่อมต่อ VPN"
-
-#, fuzzy
-#~ msgid "<b>Authentication</b>"
-#~ msgstr "การยืนยันตัวบุคคล"
-
-#, fuzzy
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>การเข้ารหัสลับ</b>"
-
-#~ msgid "_Remember for this session"
-#~ msgstr "_จำไว้สำหรับใช้ในวาระนี้"
-
-#~ msgid "_Save in keyring"
-#~ msgstr "_บันทึกลงในพวงกุญแจ"
-
-#~ msgid "Authenticate Connection"
-#~ msgstr "ยืนยันตัวบุคคลสำหรับการเชื่อมต่อ"
-
-#~ msgid ""
-#~ "<span weight=\"bold\" size=\"larger\">Authentication Information</span>\n"
-#~ "\n"
-#~ "The connection '%s' may need some form of authentication.\n"
-#~ "\n"
-#~ "Please select an appropriate authentication type and provide the "
-#~ "necessary credentials below:\n"
-#~ msgstr ""
-#~ "<span weight=\"bold\" size=\"larger\">ข้อมูลการยืนยันตัวบุคคล</span>\n"
-#~ "\n"
-#~ "การเชื่อมต่อ '%s' อาจต้องการการยืนยันตัวบุคคลรูปแบบใดรูปแบบหนึ่ง\n"
-#~ "\n"
-#~ "กรุณาเลือกรูปแบบการยืนยันตัวบุคคลที่เหมาะสม และป้อนข้อมูลรหัสลับที่จำเป็นด้านล่างนี้:\n"
-
-#~ msgid "Authentication Required"
-#~ msgstr "จำเป็นต้องยืนยันตัวบุคคล"
-
-#~ msgid "_Authentication Type:"
-#~ msgstr "รูปแ_บบการยืนยันตัวบุคคล:"
-
-#~ msgid "_Remote name:"
-#~ msgstr "ชื่อที่ฝั่งโ_น้น:"
-
-#~ msgid "auth-chap-window"
-#~ msgstr "auth-chap-window"
-
-#~ msgid "auth-mschapv2-window"
-#~ msgstr "auth-mschapv2-window"
-
-#~ msgid "auth-none-window"
-#~ msgstr "auth-none-window"
-
-#~ msgid "Connect _anonymously"
-#~ msgstr "เชื่อมต่อแบบ_นิรนาม"
-
-#~ msgid "Connect as _user:"
-#~ msgstr "เชื่อมต่อในนาม_ผู้ใช้:"
-
-#~ msgid "_Remember password for this session"
-#~ msgstr "_จำรหัสผ่านสำหรับใช้ในวาระนี้"
-
-#~ msgid "_Save password in keyring"
-#~ msgstr "_บันทึกรหัสผ่านลงในพวงกุญแจ"
-
-#~ msgid "VPN Connection Manager (PPP generic)"
-#~ msgstr "เครื่องมือจัดการการเชื่อมต่อ VPN (ทั่วไป)"
-
-#~ msgid "00:00:00:00"
-#~ msgstr "00:00:00:00"
-
-#~ msgid "<b>Connection Name</b>"
-#~ msgstr "<b>ชื่อการเชื่อมต่อ</b>"
-
-#~ msgid "<b>Delays and TImeouts</b>"
-#~ msgstr "<b>การหน่วงเวลาและกำหนดเวลาคอย</b>"
-
-#~ msgid "<b>Packet Parameters</b>"
-#~ msgstr "<b>พารามิเตอร์ของแพ็กเก็ต</b>"
-
-#~ msgid "<i>example: 172.16.0.0/16 10.11.12.0/24</i>"
-#~ msgstr "<i>ตัวอย่าง: 172.16.0.0/16 10.11.12.0/24</i>"
-
-#~ msgid ""
-#~ "A list of extra options to pppd as would be typed on the command line"
-#~ msgstr "รายการตัวเลือกเพิ่มเติมสำหรับ pppd ตามที่จะส่งในบรรทัดคำสั่ง"
-
-#~ msgid "Compression & Encryption"
-#~ msgstr "การบีบอัด & การเข้ารหัสลับ"
-
-#~ msgid "Connection"
-#~ msgstr "การเชื่อมต่อ"
-
-#~ msgid "Debug Output"
-#~ msgstr "เขียนข้อมูลดีบั๊ก"
-
-#~ msgid "Disconnect after this many LCP echo requests fail"
-#~ msgstr "ตัดการเชื่อมต่อหลังจากที่การร้องขอ LCP echo ล้มเหลวเป็นจำนวนครั้งเท่านี้"
-
-#~ msgid "Enable stateful MPPE"
-#~ msgstr "เปิดใช้ MPPE แบบ stateful"
-
-#~ msgid "Exclusive device access (UUCP-style lock)"
-#~ msgstr "เข้าใช้อุปกรณ์แบบเอกสิทธิ์ (ล็อคในแบบ UUCP)"
-
-#~ msgid "Find Device"
-#~ msgstr "ตรวจหาอุปกรณ์"
-
-#~ msgid ""
-#~ "For security reasons, options entered in the box above are checked "
-#~ "against a list of allowed options before a connection is established.  "
-#~ "Currently there are no options on the list."
-#~ msgstr ""
-#~ "ด้วยเหตุผลด้านความปลอดภัย ตัวเลือกที่ป้อนในกล่องด้านบนนี้ "
-#~ "จะถูกตรวจสอบกับรายการตัวเลือกที่อนุญาต ก่อนจะเริ่มเชื่อมต่อ "
-#~ "ขณะนี้ยังไม่มีตัวเลือกในรายการดังกล่าว"
-
-#~ msgid "GPRS Options"
-#~ msgstr "ตัวเลือก GPRS"
-
-#~ msgid "Hardware RTS/CTS"
-#~ msgstr "RTS/CTS แบบฮาร์ดแวร์"
-
-#~ msgid "Host name or IP address of the L2TP server"
-#~ msgstr "ชื่อโฮสต์หรือที่อยู่ IP ของเซิร์ฟเวอร์ L2TP"
-
-#~ msgid ""
-#~ "If BSD compression is not allowed the 'nobsdcomp' option is passed to pppd"
-#~ msgstr "ถ้าไม่เลือกเปิดใช้การบีบอัดแบบ BSD จะส่งตัวเลือก 'nobsdcomp' ให้กับ pppd"
-
-#~ msgid ""
-#~ "If Deflate compression is not allowed the 'nodefate' option is passed to "
-#~ "pppd"
-#~ msgstr "ถ้าไม่เลือกเปิดใช้การบีบอัดแบบ Deflate จะส่งตัวเลือก 'nodeflate' ให้กับ pppd"
-
-#~ msgid "Maximum Receive Unit"
-#~ msgstr "หน่วยของการรับข้อมูลสูงสุด (Maximum Receive Unit)"
-
-#~ msgid "Maximum Transmit Unit"
-#~ msgstr "หน่วยของการส่งข้อมูลสูงสุด (Maximum Transmit Unit)"
-
-#~ msgid "Modem Connection"
-#~ msgstr "เชื่อมต่อด้วยโมเด็ม"
-
-#~ msgid "Peer DNS through tunnel"
-#~ msgstr "ใช้ DNS จากอีกฝั่งผ่าน tunnel"
-
-#~ msgid "Refuse CHAP"
-#~ msgstr "ปฏิเสธ CHAP"
-
-#~ msgid "Refuse EAP"
-#~ msgstr "ปฏิเสธ EAP"
-
-#~ msgid "Refuse MS CHAP"
-#~ msgstr "ปฏิเสธ MS CHAP"
-
-#~ msgid "Require 128 bit MPPE encryption"
-#~ msgstr "ต้องใช้การเข้ารหัสลับ MPPE 128 บิต"
-
-#~ msgid "Require Explicit IP Addr"
-#~ msgstr "ต้องการที่อยู่ IP แบบชัดแจ้ง"
-
-#~ msgid "Require MPPC Compression"
-#~ msgstr "ต้องใช้การบีบอัด MPPC"
-
-#~ msgid "Require MPPE encryption"
-#~ msgstr "ต้องใช้การเข้ารหัสลับ MPPE"
-
-#~ msgid "Requires existing network connection"
-#~ msgstr "ต้องมีการเชื่อมต่อเครือข่ายอยู่ก่อนแล้ว"
-
-#~ msgid "Routing"
-#~ msgstr "การกำหนดเส้นทาง"
-
-#~ msgid "Serial Options"
-#~ msgstr "ตัวเลือกพอร์ตอนุกรม"
-
-#~ msgid "Service providers GPRS access point from device config"
-#~ msgstr "access point สำหรับ GPRS ของผู้ให้บริการ ตามค่าตั้งของอุปกรณ์"
-
-#~ msgid "Service providers IP address"
-#~ msgstr "ที่อยู่ IP ของผู้ให้บริการ"
-
-#~ msgid "Telephone number to dial"
-#~ msgstr "หมายเลขโทรศัพท์ที่จะหมุน"
-
-#~ msgid ""
-#~ "This is the friendly name that will be used to identify this network "
-#~ "connection, \n"
-#~ "e.g. \"Campus VPN\" or \"Corporate Network\""
-#~ msgstr ""
-#~ "นี่คือชื่อที่จำง่ายซึ่งจะใช้เรียกการเชื่อมต่อไปยังเครือข่ายนี้\n"
-#~ "เช่น \"VPN มหาวิทยาลัย\" หรือ \"เครือข่ายบริษัท\""
-
-#~ msgid "Time in seconds between echo requests"
-#~ msgstr "ช่วงเวลาเป็นวินาทีระหว่างการร้องขอ echo แต่ละครั้ง"
-
-#~ msgid "Type:"
-#~ msgstr "ชนิด:"
-
-#~ msgid "Use Peer DNS"
-#~ msgstr "ใช้ข้อมูล DNS จากอีกฝั่ง"
-
-#~ msgid "When checked the \"refuse-chap\" option is passed to pppd."
-#~ msgstr "เมื่อกาเลือก จะส่งตัวเลือก \"refuse-chap\" ให้กับ pppd"
-
-#~ msgid "When checked the \"refuse-eap\" option is passed to pppd."
-#~ msgstr "เมื่อกาเลือก จะส่งตัวเลือก \"refuse-eap\" ให้กับ pppd"
-
-#~ msgid "When checked the \"refuse-mschap\" option is passed to pppd."
-#~ msgstr "เมื่อกาเลือก จะส่งตัวเลือก \"refuse-mschap\" ให้กับ pppd"
-
-#~ msgid "When checked the 'lock' option is passed to pppd"
-#~ msgstr "เมื่อกาเลือก จะส่งตัวเลือก 'lock' ให้กับ pppd"
-
-#~ msgid "When checked the 'require-mppc' option is passed to pppd"
-#~ msgstr "เมื่อกาเลือก จะส่งตัวเลือก 'require-mppc' ให้กับ pppd"
-
-#~ msgid ""
-#~ "When checked this sets the pppd 'debug' option and adds some extra "
-#~ "information from the NetworkManager plugin"
-#~ msgstr ""
-#~ "เมื่อกาเลือก จะกำหนดตัวเลือก 'debug' ให้กับ pppd และเพิ่มเติมข้อมูลจากปลั๊กอินของ "
-#~ "NetworkManager"
-
-#~ msgid "When checked this sets the pppd 'noipdefault' option"
-#~ msgstr "เมื่อกาเลือก จะกำหนดตัวเลือก 'noipdefault' ให้กับ pppd"
-
-#~ msgid "When checked this sets the pppd 'usepeerdns' option"
-#~ msgstr "เมื่อกาเลือก จะกำหนดตัวเลือก 'usepeerdns' ให้กับ pppd"
-
-#~ msgid ""
-#~ "When this check box is cleared the \"noauth\" option is passed to pppd."
-#~ msgstr "เมื่อไม่กาเลือก จะส่งตัวเลือก \"noauth\" ให้กับ pppd"
-
-#~ msgid "_Access Point Name:"
-#~ msgstr "ชื่อ _Access Point:"
-
-#~ msgid "_Channel:"
-#~ msgstr "_ช่องสัญญาณ:"
-
-#~ msgid "_Context Num"
-#~ msgstr "หมายเลข _Context"
-
-#~ msgid "_Custom PPP options:"
-#~ msgstr "ตัวเลือก PPP _กำหนดเอง:"
-
-#~ msgid "_Device Address:"
-#~ msgstr "ที่อยู่_อุปกรณ์:"
-
-#~ msgid "_IP Address:"
-#~ msgstr "ที่อยู่ _IP:"
-
-#~ msgid "_Import Saved Configuration..."
-#~ msgstr "_นำเข้าค่าตั้งที่บันทึกไว้..."
-
-#~ msgid "_Only use VPN connection for these addresses"
-#~ msgstr "ใ_ช้การเชื่อมต่อ VPN กับที่อยู่เหล่านี้เท่านั้น"
-
-#~ msgid "_Packet Type"
-#~ msgstr "ชนิดแ_พ็กเก็ต"
-
-#~ msgid "_Telephone Number:"
-#~ msgstr "หมายเลขโ_ทรศัพท์:"
-
-#~ msgid "connect-delay"
-#~ msgstr "connect-delay"
-
-#~ msgid "pppd tunnel (L2TP, BTGPRS, Dialup)"
-#~ msgstr "pppd tunnel (L2TP, BTGPRS, Dialup)"
-
-#~ msgid "Name"
-#~ msgstr "ชื่อ"
-
-#~ msgid "L2TP Server"
-#~ msgstr "เซิร์ฟเวอร์ L2TP"
-
-#~ msgid "Telephone Number"
-#~ msgstr "หมายเลขโทรศัพท์"
-
-#~ msgid "Bluetooth Address"
-#~ msgstr "ที่อยู่บลูทูธ"
-
-#~ msgid "Bluetooth Channel"
-#~ msgstr "ช่องสัญญาณบลูทูธ"
-
-#~ msgid "GPRS APN"
-#~ msgstr "APN ของ GPRS"
-
-#~ msgid "GPRS IP"
-#~ msgstr "IP ของ GPRS"
-
-#~ msgid "GPRS Context No."
-#~ msgstr "หมายเลข Context ของ GPRS"
-
-#~ msgid "GPRS Packet Type"
-#~ msgstr "ชนิดแพ็กเก็ต GPRS"
-
-#~ msgid "Use CTS/RTS flow control"
-#~ msgstr "ใช้การควบคุมกระแสด้วย CTS/RTS"
-
-#~ msgid "Connect via a modem"
-#~ msgstr "เชื่อมต่อผ่านโมเด็ม"
-
-#~ msgid "Require IP to be provided"
-#~ msgstr "ต้องมีการกำหนด IP มาให้"
-
-#~ msgid "Use 128 bit MPPE encryption"
-#~ msgstr "ใช้การเข้ารหัสลับ MPPE 128 บิต"
-
-#~ msgid "Do not use deflate compression"
-#~ msgstr "ไม่ใช้การบีบอัดแบบ deflate"
-
-#~ msgid "Do not use BSD compression"
-#~ msgstr "ไม่ใช้การบีบอัดแบบ BSD"
-
-#~ msgid "Exclusive device access by pppd"
-#~ msgstr "ให้ pppd เข้าใช้อุปกรณ์แบบเอกสิทธิ์"
-
-#~ msgid "Authenticate remote peer"
-#~ msgstr "ยืนยันเอกลักษณ์ของเครื่องอีกฝั่ง"
-
-#~ msgid "Maximum transmit unit (in bytes)"
-#~ msgstr "หน่วยของการส่งข้อมูลสูงสุด (เป็นไบต์)"
-
-#~ msgid "Maximum receive unit (in bytes)"
-#~ msgstr "หน่วยของการรับข้อมูลสูงสุด (เป็นไบต์)"
-
-#~ msgid "Number of failed LCP echos to cause disconnect"
-#~ msgstr "จำนวนครั้งของ LCP echo ที่ล้มเหลว ก่อนจะตัดการเชื่อมต่อ"
-
-#~ msgid "Interval (in seconds) at which to issue LCP echos"
-#~ msgstr "ช่วงเวลา (เป็นวินาที) ระหว่างการส่ง LCP echo แต่ละครั้ง"
-
-#~ msgid "Interval (in milliseconds) to wait before connecting."
-#~ msgstr "ช่วงเวลา (เป็นมิลลิวินาที) ที่จะคอยก่อนเชื่อมต่อ"
-
-#~ msgid "Custom PPP options"
-#~ msgstr "ตัวเลือก PPP กำหนดเอง"
-
-#~ msgid "Use Peer DNS over the Tunnel"
-#~ msgstr "ใช้ DNS จากอีกฝั่งผ่าน tunnel"
-
-#~ msgid "Specific networks available"
-#~ msgstr "เครือข่ายจำเพาะที่มี"
-
-#~ msgid "Limit to specific networks"
-#~ msgstr "จำกัดการใช้งานที่เครือข่ายจำเพาะเท่านั้น"
-
-#~ msgid "The following '%s' connection will be created:"
-#~ msgstr "จะสร้างการเชื่อมต่อ '%s' ต่อไปนี้:"
-
-#~ msgid "\t%s:  %s\n"
-#~ msgstr "\t%s:  %s\n"
-
-#~ msgid "The connection details can be changed using the \"Back\" button."
-#~ msgstr "สามารถเปลี่ยนแปลงรายละเอียดการเชื่อมต่อได้ โด้ใช้ปุ่ม \"ย้อนกลับ\""
-
-#~ msgid "Select file to import"
-#~ msgstr "เลือกแฟ้มที่จะนำเข้า"
-
-#~ msgid "Save as..."
-#~ msgstr "บันทึกเป็น..."
-
-#~ msgid "A file named \"%s\" already exists."
-#~ msgstr "มีแฟ้มชื่อ \"%s\" อยู่ก่อนแล้ว"
-
-#~ msgid "Do you want to replace it with the one you are saving?"
-#~ msgstr "คุณต้องการเขียนทับแฟ้มนี้ด้วยข้อมูลที่กำลังจะบันทึกหรือไม่?"

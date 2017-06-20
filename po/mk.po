@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-19 22:07+1000\n"
+"POT-Creation-Date: 2017-06-19 22:46+1000\n"
 "PO-Revision-Date: 2007-01-12 20:55+0100\n"
 "Last-Translator: Jovan Naumovski <jovan@lugola.net>\n"
 "Language-Team: Macedonian <ossm-members@hedona.on.net.mk>\n"
@@ -46,14 +46,15 @@ msgstr ""
 #. * that the password should never be saved.
 #.
 #: ../auth-dialog/main.c:146
-#, fuzzy, c-format
+#, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
-msgstr "Треба да се автентицирате за да пристапите кон „%s“"
+msgstr ""
+"Треба да ја потврдите автентичноста за да пристапите кон виртуелната "
+"приватна мрежа „%s“."
 
 #: ../auth-dialog/main.c:155 ../auth-dialog/main.c:175
-#, fuzzy
 msgid "Authenticate VPN"
-msgstr "Автентицирај го серверот"
+msgstr "Потврди автентичност на VPN"
 
 #: ../auth-dialog/main.c:157 ../properties/nm-l2tp-dialog.ui.h:25
 #, fuzzy
@@ -424,9 +425,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:24
-#, fuzzy
 msgid "User name:"
-msgstr "_Корисничко име:"
+msgstr "Корисничко име:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
 #, fuzzy
@@ -451,9 +451,8 @@ msgid "L2TP PPP Options"
 msgstr "PPP опции"
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
-#, fuzzy
 msgid "Authentication"
-msgstr "Тип на автентикација"
+msgstr "Автентикација"
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
 msgid "Allow the following authentication methods:"
@@ -583,395 +582,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "_Password:"
-#~ msgstr "_Лозинка:"
-
-#~ msgid "_Secondary Password:"
-#~ msgstr "_Втора лозинка:"
-
-#, fuzzy
-#~ msgid "Sh_ow passwords"
-#~ msgstr "_Лозинка:"
-
-#, fuzzy
-#~ msgid "L2TP VPN Connection Manager"
-#~ msgstr "ВПМ врската не успеа"
-
-#, fuzzy
-#~ msgid "Add, Remove, and Edit L2TP VPN Connections"
-#~ msgstr "Додавајте, отстранувајте и уредувајте ВПМ врски"
-
-#, fuzzy
-#~ msgid "<b>Authentication</b>"
-#~ msgstr "Автентикација"
-
-#, fuzzy
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>Енкрипција</b>"
-
-#~ msgid "_Remember for this session"
-#~ msgstr "_Запомни за оваа сесија"
-
-#~ msgid "_Save in keyring"
-#~ msgstr "_Зачувај во приврзок"
-
-#~ msgid "Authenticate Connection"
-#~ msgstr "Автентицирај врска"
-
-#~ msgid ""
-#~ "<span weight=\"bold\" size=\"larger\">Authentication Information</span>\n"
-#~ "\n"
-#~ "The connection '%s' may need some form of authentication.\n"
-#~ "\n"
-#~ "Please select an appropriate authentication type and provide the "
-#~ "necessary credentials below:\n"
-#~ msgstr ""
-#~ "<span weight=\"bold\" size=\"larger\">Информации за автентикација</span>\n"
-#~ "\n"
-#~ "Врската „%s“ може да бара некаков вид на автентикација.\n"
-#~ "\n"
-#~ "Ве молам, одберете го соодветниот вид на автентикација и обезбедете "
-#~ "потребните детали подолу:\n"
-
-#~ msgid "Authentication Required"
-#~ msgstr "Потребна е автентикација"
-
-#~ msgid "_Authentication Type:"
-#~ msgstr "_Тип на автентикација:"
-
-#~ msgid "_Remote name:"
-#~ msgstr "Име на _оддалечен хост:"
-
-#~ msgid "auth-chap-window"
-#~ msgstr "auth-chap-прозорец"
-
-#~ msgid "auth-mschapv2-window"
-#~ msgstr "auth-mschapv2-прозорец"
-
-#~ msgid "auth-none-window"
-#~ msgstr "auth-none-прозорец"
-
-#~ msgid "Connect _anonymously"
-#~ msgstr "Поврзи се _анонимно"
-
-#~ msgid "Connect as _user:"
-#~ msgstr "Поврзи се како _корисник:"
-
-#~ msgid "_Remember password for this session"
-#~ msgstr "_Запомни ја лозинката за оваа сесија"
-
-#~ msgid "_Save password in keyring"
-#~ msgstr "_Зачувај ја лозинката во приврзок"
-
-#~ msgid "VPN Connection Manager (PPP generic)"
-#~ msgstr "Менаџер на ВМП врски (PPP Generic)"
-
-#~ msgid "00:00:00:00"
-#~ msgstr "00:00:00:00"
-
-#~ msgid "<b>Connection Name</b>"
-#~ msgstr "<b>Име на врска</b>"
-
-#~ msgid "<b>Delays and TImeouts</b>"
-#~ msgstr "<b>Задоцнувања и паузи</b>"
-
-#~ msgid "<b>Packet Parameters</b>"
-#~ msgstr "<b>Параметри на пакетите</b>"
-
-#~ msgid "<i>example: 172.16.0.0/16 10.11.12.0/24</i>"
-#~ msgstr "<i>пример: 172.16.0.0/16 10.11.12.0/24</i>"
-
-#~ msgid ""
-#~ "A list of extra options to pppd as would be typed on the command line"
-#~ msgstr "Листа со додатни опции ако pppd е внесен преку командната линија"
-
-#~ msgid "Compression & Encryption"
-#~ msgstr "Компресија и енкрипција"
-
-#~ msgid "Connection"
-#~ msgstr "Врска"
-
-#~ msgid "Debug Output"
-#~ msgstr "Излезни податоци за дебагирање"
-
-#~ msgid "Disconnect after this many LCP echo requests fail"
-#~ msgstr "Исклучи се ако толку многу LCP ехо побарувања не успеат"
-
-#~ msgid "Enable stateful MPPE"
-#~ msgstr "Овозможи „stateful“ MPPE"
-
-#~ msgid "Exclusive device access (UUCP-style lock)"
-#~ msgstr "Ексклузивен пристап до уредот (заклучување од стилот на UUCP)"
-
-#~ msgid "Find Device"
-#~ msgstr "Најди уред"
-
-#~ msgid ""
-#~ "For security reasons, options entered in the box above are checked "
-#~ "against a list of allowed options before a connection is established.  "
-#~ "Currently there are no options on the list."
-#~ msgstr ""
-#~ "Поради безбедносни причини, опциите внесени во полето погоре се чекирани "
-#~ "во листа со дозволени опции пред да се воспостави врската. Тековнонема "
-#~ "опции во листата."
-
-#~ msgid "GPRS Options"
-#~ msgstr "GPRS опции"
-
-#~ msgid "Hardware RTS/CTS"
-#~ msgstr "Хардверски RTS/CTS"
-
-#~ msgid "Host name or IP address of the L2TP server"
-#~ msgstr "Име на хост или IP адреса на L2TP серверот"
-
-#~ msgid ""
-#~ "If BSD compression is not allowed the 'nobsdcomp' option is passed to pppd"
-#~ msgstr ""
-#~ "Ако BSD компресијата не е дозволена, „nobsdcom“ опцијата е дадена на pppd"
-
-#~ msgid ""
-#~ "If Deflate compression is not allowed the 'nodefate' option is passed to "
-#~ "pppd"
-#~ msgstr ""
-#~ "Ако „Deflate“ опцијата не е дозволена, „nodefate“ опцијата е дадена на "
-#~ "pppd"
-
-#~ msgid "Maximum Receive Unit"
-#~ msgstr "Максимална примачка единица"
-
-#~ msgid "Maximum Transmit Unit"
-#~ msgstr "Максимална трансмисиона единица"
-
-#~ msgid "Modem Connection"
-#~ msgstr "Модемска врска"
-
-#~ msgid "Peer DNS through tunnel"
-#~ msgstr "DNS на peer преку тунел"
-
-#~ msgid "Refuse CHAP"
-#~ msgstr "Одбиј CHAP"
-
-#~ msgid "Refuse EAP"
-#~ msgstr "Одбиј EAP"
-
-#~ msgid "Refuse MS CHAP"
-#~ msgstr "Одбиј MS CHAP"
-
-#~ msgid "Require 128 bit MPPE encryption"
-#~ msgstr "Барај 128 bit MPPE енкрипција"
-
-#~ msgid "Require Explicit IP Addr"
-#~ msgstr "Барај експлицитна IP адреса"
-
-#~ msgid "Require MPPC Compression"
-#~ msgstr "Барај MPPC компресија"
-
-#~ msgid "Require MPPE encryption"
-#~ msgstr "Барај MPPE енкрипција"
-
-#~ msgid "Requires existing network connection"
-#~ msgstr "Бара постоечка мрежна врска"
-
-#~ msgid "Routing"
-#~ msgstr "Рутирање"
-
-#~ msgid "Serial Options"
-#~ msgstr "Опции за сериски порти"
-
-#~ msgid "Service providers GPRS access point from device config"
-#~ msgstr ""
-#~ "Сервис провајдери на GPRS пристапни точки од конфигурацијата на уредот"
-
-#~ msgid "Service providers IP address"
-#~ msgstr "IP адреса на сервис провајдерот"
-
-#~ msgid "Telephone number to dial"
-#~ msgstr "Телефонски број за бирање"
-
-#~ msgid ""
-#~ "This is the friendly name that will be used to identify this network "
-#~ "connection, \n"
-#~ "e.g. \"Campus VPN\" or \"Corporate Network\""
-#~ msgstr ""
-#~ "Ова е пријателското име кое ќе биде користено за идентификација на оваа "
-#~ "мрежна врска, \n"
-#~ "пр. \"ВПМ на универзитетот\" или \"Корпорациска мрежа\""
-
-#~ msgid "Time in seconds between echo requests"
-#~ msgstr "Време во секунти помеѓу echo барањата"
-
-#~ msgid "Type:"
-#~ msgstr "Тип:"
-
-#~ msgid "Use Peer DNS"
-#~ msgstr "Користи DNS на peer"
-
-#~ msgid "When checked the \"refuse-chap\" option is passed to pppd."
-#~ msgstr "Кога е чекирано \"refuse-chap\" опцијата е дадена на pppd."
-
-#~ msgid "When checked the \"refuse-eap\" option is passed to pppd."
-#~ msgstr "Кога е чекирано \"refuse-eap\" опцијата е дадена на pppd."
-
-#~ msgid "When checked the \"refuse-mschap\" option is passed to pppd."
-#~ msgstr "Кога е чекирано \"refuse-mschap\" опцијата е дадена на pppd."
-
-#~ msgid "When checked the 'lock' option is passed to pppd"
-#~ msgstr "Кога е чекирано 'lock' опцијата е дадена на pppd."
-
-#~ msgid "When checked the 'require-mppc' option is passed to pppd"
-#~ msgstr "Кога е чекирано 'require-mppc' опцијата е дадена на pppd."
-
-#~ msgid ""
-#~ "When checked this sets the pppd 'debug' option and adds some extra "
-#~ "information from the NetworkManager plugin"
-#~ msgstr ""
-#~ "Кога е чекирано, ова ја поставува опцијата за дебагирање и додавадодатни "
-#~ "информации од приклучокот „NetworkManager“"
-
-#~ msgid "When checked this sets the pppd 'noipdefault' option"
-#~ msgstr "Кога е чекирано, ова ја поставува опцијата 'noipdefault' на pppd"
-
-#~ msgid "When checked this sets the pppd 'usepeerdns' option"
-#~ msgstr "Кога е чекирано, ова ја поставува опцијата 'usepeerdns' на pppd"
-
-#~ msgid ""
-#~ "When this check box is cleared the \"noauth\" option is passed to pppd."
-#~ msgstr "Кога не е чекирано ова поле, \"noauth\" опцијата е дадена на pppd."
-
-#~ msgid "_Access Point Name:"
-#~ msgstr "Име на _пристапна точка:"
-
-#~ msgid "_Channel:"
-#~ msgstr "_Канал:"
-
-#~ msgid "_Context Num"
-#~ msgstr "Број на _содржина"
-
-#~ msgid "_Custom PPP options:"
-#~ msgstr "_Прилагодени PPP опции:"
-
-#~ msgid "_Device Address:"
-#~ msgstr "Адреса на _уред:"
-
-#~ msgid "_IP Address:"
-#~ msgstr "_IP адреса:"
-
-#~ msgid "_Import Saved Configuration..."
-#~ msgstr "_Увези зачувана конфигурација..."
-
-#~ msgid "_Only use VPN connection for these addresses"
-#~ msgstr "_Користи само VPN врска за овие адреси"
-
-#~ msgid "_Packet Type"
-#~ msgstr "Тип на _пакет"
-
-#~ msgid "_Telephone Number:"
-#~ msgstr "_Телефонски број:"
-
-#~ msgid "connect-delay"
-#~ msgstr "задоцнување-на-врска"
-
-#~ msgid "pppd tunnel (L2TP, BTGPRS, Dialup)"
-#~ msgstr "pppd тунел (L2TP, BTGPRS, Dialup)"
-
-#~ msgid "Name"
-#~ msgstr "Име"
-
-#~ msgid "L2TP Server"
-#~ msgstr "L2TP сервер"
-
-#~ msgid "Telephone Number"
-#~ msgstr "Телефонски број"
-
-#~ msgid "Bluetooth Address"
-#~ msgstr "Bluetooth адреса"
-
-#~ msgid "Bluetooth Channel"
-#~ msgstr "Bluetooth канал"
-
-#~ msgid "GPRS APN"
-#~ msgstr "GPRS APN"
-
-#~ msgid "GPRS IP"
-#~ msgstr "GPRS IP"
-
-#~ msgid "GPRS Context No."
-#~ msgstr "Број на содржина на GPRS "
-
-#~ msgid "GPRS Packet Type"
-#~ msgstr "Тип на GPRS пакети"
-
-#~ msgid "Use CTS/RTS flow control"
-#~ msgstr "Користи CTS/RTS контрола на текот"
-
-#~ msgid "Connect via a modem"
-#~ msgstr "Поврзи се преку модем"
-
-#~ msgid "Require IP to be provided"
-#~ msgstr "Барај IP адреса"
-
-#~ msgid "Use 128 bit MPPE encryption"
-#~ msgstr "Користи 128-битна MPPE енкрипција"
-
-#~ msgid "Do not use deflate compression"
-#~ msgstr "Не користи deflate компресија"
-
-#~ msgid "Do not use BSD compression"
-#~ msgstr "Не користи BSD компресија"
-
-#~ msgid "Exclusive device access by pppd"
-#~ msgstr "Привилегиран пристап на уредот од pppd"
-
-#~ msgid "Authenticate remote peer"
-#~ msgstr "Автентицирај го оддалечениот компјутер"
-
-#~ msgid "Maximum transmit unit (in bytes)"
-#~ msgstr "Максимална трансмисиона единица (во бајти)"
-
-#~ msgid "Maximum receive unit (in bytes)"
-#~ msgstr "Максимална примачка единица (во бајти)"
-
-#~ msgid "Number of failed LCP echos to cause disconnect"
-#~ msgstr "Бројот на неуспешни LCP echo-a кои ќе предизвикаат исклучување"
-
-#~ msgid "Interval (in seconds) at which to issue LCP echos"
-#~ msgstr "Интервал (во секунди) во кој ќе се прават LCP echo-а"
-
-#~ msgid "Interval (in milliseconds) to wait before connecting."
-#~ msgstr "Интервал (во милисекунди) за чекање пред исклучување"
-
-#~ msgid "Custom PPP options"
-#~ msgstr "Прилагодени PPP опции"
-
-#~ msgid "Use Peer DNS over the Tunnel"
-#~ msgstr "Користи DNS за peer преку тунелот"
-
-#~ msgid "Specific networks available"
-#~ msgstr "Достапни се одредени мрежи"
-
-#~ msgid "Limit to specific networks"
-#~ msgstr "Ограничи се на одредени мрежи"
-
-#~ msgid "The following '%s' connection will be created:"
-#~ msgstr "Следната „%s“ врска ќе биде креирана:"
-
-#~ msgid "\t%s:  %s\n"
-#~ msgstr "\t%s:  %s\n"
-
-#~ msgid "The connection details can be changed using the \"Back\" button."
-#~ msgstr ""
-#~ "Деталите за врската можат да бидат променети со користење на копчето "
-#~ "\"Back\""
-
-#~ msgid "Select file to import"
-#~ msgstr "Одберете датотека за увезување"
-
-#~ msgid "Save as..."
-#~ msgstr "Зачувај како..."
-
-#~ msgid "A file named \"%s\" already exists."
-#~ msgstr "Датотеката со името \"%s\" веќе постои."
-
-#~ msgid "Do you want to replace it with the one you are saving?"
-#~ msgstr "Дали сакате да го замените со она кое го зачувувате?"
