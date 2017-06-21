@@ -576,33 +576,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "_Secondary Password:"
-#~ msgstr "ئىككىنچى ئىم(_S):"
-
-#~ msgid "_Username:"
-#~ msgstr "ئىشلەتكۈچى ئاتى(_U):"
-
-#~ msgid "_Domain:"
-#~ msgstr "دائىرە(_D):"
-
-#~ msgid "_Password:"
-#~ msgstr "ئىم(_P):"
-
-#~ msgid "Connect _anonymously"
-#~ msgstr "ئاتسىز باغلىنىش(_A)"
-
-#~ msgid "Connect as _user:"
-#~ msgstr "باغلىنىش سالاھىيىتى(_U):"
-
-#~ msgid "_Remember passwords for this session"
-#~ msgstr "بۇ ئەڭگىمەدە ئىمنى ئەستە تۇت(_R)"
-
-#~ msgid "_Save passwords in keyring"
-#~ msgstr "ئىمنى keyring دا ساقلا(_S)"
-
-#~ msgid "Add, Remove, and Edit L2TP VPN Connections"
-#~ msgstr "L2TP VPN باغلىنىشىنى قوشىدۇ، چىقىرىۋېتىدۇ ۋە تەھرىرلەيدۇ"
-
-#~ msgid "L2TP VPN Connection Manager"
-#~ msgstr "L2TP VPN باغلىنىشىنى باشقۇرغۇ"

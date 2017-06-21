@@ -569,21 +569,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "_Password:"
-#~ msgstr "_Pasvorto:"
-
-#~ msgid "_Secondary Password:"
-#~ msgstr "_Duaranga pasvorto:"
-
-#~ msgid "Sh_ow passwords"
-#~ msgstr "M_ontri pasvortojn"
-
-#~ msgid "Saved"
-#~ msgstr "Konservite"
-
-#~ msgid "Always Ask"
-#~ msgstr "Demandi ĉiam"
-
-#~ msgid "Not Required"
-#~ msgstr "Nebezonate"

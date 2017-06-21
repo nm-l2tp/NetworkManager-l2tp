@@ -1,10 +1,10 @@
 # Basque translation of network-manager-l2tp.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2008, 2009, 2010, 2014, 2015.
 # Edurne Labaka <elabaka@uzei.com>, 2015.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-l2tp master\n"

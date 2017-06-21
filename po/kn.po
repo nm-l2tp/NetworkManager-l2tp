@@ -555,7 +555,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:59
 msgid "Echo"
-msgstr ""
+msgstr "ಪ್ರತಿಧ್ವನಿ"
 
 #: ../properties/nm-l2tp-dialog.ui.h:60
 msgid "Send PPP _echo packets"
@@ -578,36 +578,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "_Secondary Password:"
-#~ msgstr "ಸೆಕೆಂಡರಿ ಗುಪ್ತಪದ(_S):"
-
-#~ msgid "_Username:"
-#~ msgstr "ಬಳಕೆದಾರಹೆಸರು(_U):"
-
-#~ msgid "_Domain:"
-#~ msgstr "ಡೊಮೈನ್(_D):"
-
-#~ msgid "_Password:"
-#~ msgstr "ಗುಪ್ತಪದ(_P):"
-
-#~ msgid "Connect _anonymously"
-#~ msgstr "ಅನಾಮಧೇಯವಾಗಿ ಸಂಪರ್ಕಹೊಂದು(_a)"
-
-#~ msgid "Connect as _user:"
-#~ msgstr "ಈ ಬಳಕೆದಾರರಾಗಿ ಸಂಪರ್ಕಹೊಂದು(_u):"
-
-#~ msgid "_Remember passwords for this session"
-#~ msgstr "ಈ ಅಧಿವೇಶನಕ್ಕಾಗಿ ಗುಪ್ತಪದಗಳನ್ನು ನೆನಪಿಟ್ಟುಕೊ(_R)"
-
-#~ msgid "_Save passwords in keyring"
-#~ msgstr "ಗುಪ್ತಪದಗಳನ್ನು ಕೀಲಿ ಸುರುಳಿಯಲ್ಲಿ ಉಳಿಸು(_S)"
-
-#~ msgid "Add, Remove, and Edit L2TP VPN Connections"
-#~ msgstr "L2TP VPN ಸಂಪರ್ಕಗಳನ್ನು ಸೇರಿಸಿ, ತೆಗೆದುಹಾಕಿ ಹಾಗು ಸಂಪಾದಿಸಿ"
-
-#~ msgid "L2TP VPN Connection Manager"
-#~ msgstr "L2TP VPN ಸಂಪರ್ಕ ನಿರ್ವಾಹಕ"
-
-#~ msgid "Echo"
-#~ msgstr "ಪ್ರತಿಧ್ವನಿ"

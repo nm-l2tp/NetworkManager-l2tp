@@ -582,36 +582,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "_Secondary Password:"
-#~ msgstr "Parolă _secundară:"
-
-#~ msgid "_Username:"
-#~ msgstr "Nume _utilizator:"
-
-#~ msgid "_Domain:"
-#~ msgstr "_Domeniu:"
-
-#~ msgid "_Password:"
-#~ msgstr "_Parolă:"
-
-#~ msgid "Connect _anonymously"
-#~ msgstr "Conectare _anonimă"
-
-#~ msgid "Connect as _user:"
-#~ msgstr "Conectare ca _utilizator:"
-
-#~ msgid "_Remember passwords for this session"
-#~ msgstr "_Reține parolele pentru această sesiune"
-
-#~ msgid "_Save passwords in keyring"
-#~ msgstr "_Salvează parolele în inelul de chei"
-
-#~ msgid "Add, Remove, and Edit L2TP VPN Connections"
-#~ msgstr "Adaugă, șterge sau modifică conexiunile L2TP VPN"
-
-#~ msgid "L2TP VPN Connection Manager"
-#~ msgstr "Manager conexiuni L2TP VPN"
-
-#~ msgid "Echo"
-#~ msgstr "Echo"

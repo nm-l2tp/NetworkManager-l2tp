@@ -578,36 +578,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "_Secondary Password:"
-#~ msgstr "_دومین گذرواژه"
-
-#~ msgid "_Username:"
-#~ msgstr "_نام کاربری"
-
-#~ msgid "_Domain:"
-#~ msgstr "_دامنه"
-
-#~ msgid "_Password:"
-#~ msgstr "_گذرواژه:"
-
-#~ msgid "Connect _anonymously"
-#~ msgstr "اتصال _ناشناس"
-
-#~ msgid "Connect as _user:"
-#~ msgstr "اتصال با عنوان _کاربر:"
-
-#~ msgid "_Remember passwords for this session"
-#~ msgstr "_به خاطر سپردن گذرواژه برای این نشست"
-
-#~ msgid "_Save passwords in keyring"
-#~ msgstr "_ذخیره گذرواژه در دسته‌کلید"
-
-#~ msgid "Add, Remove, and Edit L2TP VPN Connections"
-#~ msgstr "اضافه، حذف و ویرایش اتصال‌های وی‌پی‌ان L2TP"
-
-#~ msgid "L2TP VPN Connection Manager"
-#~ msgstr "مدریت اتصال وی‌پی‌ان L2TP"
-
-#~ msgid "Echo"
-#~ msgstr "Echo"

@@ -573,33 +573,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "_Secondary Password:"
-#~ msgstr "_Druhi parol:"
-
-#~ msgid "_Username:"
-#~ msgstr "_Nazva karystalnika:"
-
-#~ msgid "_Domain:"
-#~ msgstr "_Domen:"
-
-#~ msgid "_Password:"
-#~ msgstr "_Parol:"
-
-#~ msgid "Connect _anonymously"
-#~ msgstr "Spałučysia _ananimna"
-
-#~ msgid "Connect as _user:"
-#~ msgstr "Spałučysia jak _karystalnik:"
-
-#~ msgid "_Remember passwords for this session"
-#~ msgstr "_Zapaminaj paroli dla hetaj sesii"
-
-#~ msgid "_Save passwords in keyring"
-#~ msgstr "_Zachavaj paroli ŭ klučnika"
-
-#~ msgid "Add, Remove, and Edit L2TP VPN Connections"
-#~ msgstr "Dadavaj, vydalaj i redahuj spałučeńni L2TP VPN"
-
-#~ msgid "L2TP VPN Connection Manager"
-#~ msgstr "Kiraŭnik spałučeńniaŭ L2TP VPN"

@@ -577,33 +577,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "_Secondary Password:"
-#~ msgstr "দ্বিতীয় পাসওয়ার্ড: (_S)"
-
-#~ msgid "_Username:"
-#~ msgstr "ব্যবহারকারীর নাম: (_U)"
-
-#~ msgid "_Domain:"
-#~ msgstr "ডোমেইন: (_D)"
-
-#~ msgid "_Password:"
-#~ msgstr "পাসওয়ার্ড: (_P"
-
-#~ msgid "Connect _anonymously"
-#~ msgstr "অ্যানোনিমাস (নামবিহীন) অবস্থায় সংযোগ করুন (_a)"
-
-#~ msgid "Connect as _user:"
-#~ msgstr "উল্লিখিত ব্যবহারকারী রূপে সংযোগ স্থাপন করুন: (_u)"
-
-#~ msgid "_Remember passwords for this session"
-#~ msgstr "বর্তমান সেশানের জন্য পাসওয়ার্ড মনে রাখা হবে (_R)"
-
-#~ msgid "_Save passwords in keyring"
-#~ msgstr "কি-রিংয়ের মধ্যে পাসওয়ার্ড সংরক্ষণ করা হবে (_S)"
-
-#~ msgid "Add, Remove, and Edit L2TP VPN Connections"
-#~ msgstr "L2TP VPN সংযোগ যোগ, অপসারণ অথবা পরিবর্তন করুন"
-
-#~ msgid "L2TP VPN Connection Manager"
-#~ msgstr "L2TP VPN সংযোগ পরিচালনব্যবস্থা"
