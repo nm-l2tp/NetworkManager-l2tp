@@ -352,7 +352,7 @@ msgstr "_Enable IPsec tunnel to L2TP host"
 #: ../properties/nm-l2tp-dialog.ui.h:3
 #, fuzzy
 msgid "General"
-msgstr "<b>General</b>"
+msgstr "General"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
 msgid "Gateway ID:"
@@ -474,7 +474,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:35
 #, fuzzy
 msgid "Security and Compression"
-msgstr "<b>Security and Compression</b>"
+msgstr "Security and Compression"
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid "Use _Point-to-Point encryption (MPPE)"

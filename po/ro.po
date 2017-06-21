@@ -352,7 +352,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:3
 #, fuzzy
 msgid "General"
-msgstr "<b>Generale</b>"
+msgstr "Generale"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
 #, fuzzy
@@ -401,7 +401,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:17
 #, fuzzy
 msgid "Optional"
-msgstr "<b>Opționale</b>"
+msgstr "Opționale"
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid ""
@@ -453,7 +453,7 @@ msgstr "Opțiuni avansate L2TP"
 #: ../properties/nm-l2tp-dialog.ui.h:31
 #, fuzzy
 msgid "Authentication"
-msgstr "<b>Autentificare</b>"
+msgstr "Autentificare"
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
 msgid "Allow the following authentication methods:"
@@ -468,7 +468,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:35
 #, fuzzy
 msgid "Security and Compression"
-msgstr "<b>Securitate și compresie</b>"
+msgstr "Securitate și compresie"
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid "Use _Point-to-Point encryption (MPPE)"
@@ -613,5 +613,5 @@ msgstr ""
 #~ msgid "L2TP VPN Connection Manager"
 #~ msgstr "Manager conexiuni L2TP VPN"
 
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>Echo</b>"
+#~ msgid "Echo"
+#~ msgstr "Echo"

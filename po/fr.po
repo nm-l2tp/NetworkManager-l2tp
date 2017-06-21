@@ -356,7 +356,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:3
 #, fuzzy
 msgid "General"
-msgstr "<b>Général</b>"
+msgstr "Général"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
 #, fuzzy
@@ -405,7 +405,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:17
 #, fuzzy
 msgid "Optional"
-msgstr "<b>Facultatif</b>"
+msgstr "Facultatif"
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid ""
@@ -460,7 +460,7 @@ msgstr "Options avancée L2TP"
 #: ../properties/nm-l2tp-dialog.ui.h:31
 #, fuzzy
 msgid "Authentication"
-msgstr "<b>Authentification</b>"
+msgstr "Authentification"
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
 msgid "Allow the following authentication methods:"
@@ -478,7 +478,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:35
 #, fuzzy
 msgid "Security and Compression"
-msgstr "<b>Sécurité et compression</b>"
+msgstr "Sécurité et compression"
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid "Use _Point-to-Point encryption (MPPE)"

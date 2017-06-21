@@ -598,7 +598,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:59
 msgid "Echo"
-msgstr ""
+msgstr "Jeka"
 
 #: ../properties/nm-l2tp-dialog.ui.h:60
 msgid "Send PPP _echo packets"
@@ -658,8 +658,7 @@ msgstr ""
 #~ "Omogući prilagođeni sadržaj za ppp<n> naziv uređaja.\n"
 #~ "podešavanje: jedinica <n>"
 
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>Jeka</b>"
+#~ msgid "Echo"
 
-#~ msgid "<b>Misc</b>"
-#~ msgstr "<b>Ostalo</b>"
+#~ msgid "Misc"
+#~ msgstr "Ostalo"

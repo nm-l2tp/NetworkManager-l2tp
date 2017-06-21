@@ -361,7 +361,7 @@ msgstr "Включить IPsec туннель к L2TP хосту"
 #: ../properties/nm-l2tp-dialog.ui.h:3
 #, fuzzy
 msgid "General"
-msgstr "<b>Общие</b>"
+msgstr "Общие"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
 #, fuzzy
@@ -412,7 +412,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:17
 #, fuzzy
 msgid "Optional"
-msgstr "<b>Дополнительные</b>"
+msgstr "Дополнительные"
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid ""
@@ -467,7 +467,7 @@ msgstr "Параметры PPP"
 #: ../properties/nm-l2tp-dialog.ui.h:31
 #, fuzzy
 msgid "Authentication"
-msgstr "<b>Аутентификация</b>"
+msgstr "Аутентификация"
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
 msgid "Allow the following authentication methods:"
@@ -484,7 +484,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:35
 #, fuzzy
 msgid "Security and Compression"
-msgstr "<b>Шифрование и сжатие</b>"
+msgstr "Шифрование и сжатие"
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid "Use _Point-to-Point encryption (MPPE)"

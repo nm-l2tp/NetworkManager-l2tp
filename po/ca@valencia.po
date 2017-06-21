@@ -353,7 +353,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:3
 #, fuzzy
 msgid "General"
-msgstr "<b>General</b>"
+msgstr "General"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
 #, fuzzy
@@ -402,7 +402,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:17
 #, fuzzy
 msgid "Optional"
-msgstr "<b>Opcional</b>"
+msgstr "Opcional"
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid ""
@@ -469,7 +469,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:35
 #, fuzzy
 msgid "Security and Compression"
-msgstr "<b>Seguretat i compressió</b>"
+msgstr "Seguretat i compressió"
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid "Use _Point-to-Point encryption (MPPE)"
@@ -557,7 +557,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:59
 msgid "Echo"
-msgstr ""
+msgstr "Eco"
 
 #: ../properties/nm-l2tp-dialog.ui.h:60
 msgid "Send PPP _echo packets"
@@ -611,11 +611,8 @@ msgstr ""
 #~ msgid "L2TP VPN Connection Manager"
 #~ msgstr "Gestor de connexions VPN L2TP"
 
-#~ msgid "<b>Authentication</b>"
-#~ msgstr "<b>Autenticació</b>"
-
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>Eco</b>"
+#~ msgid "Authentication"
+#~ msgstr "Autenticació"
 
 #~ msgid "_Remember for this session"
 #~ msgstr "_Recorda-la per aquesta sessió"
@@ -656,11 +653,11 @@ msgstr ""
 #~ msgid "00:00:00:00"
 #~ msgstr "00:00:00:00"
 
-#~ msgid "<b>Delays &amp; Timeouts</b>"
-#~ msgstr "<b>Retards i temps d'espera</b>"
+#~ msgid "Delays &amp; Timeouts"
+#~ msgstr "Retards i temps d'espera"
 
-#~ msgid "<b>Packet Parameters</b>"
-#~ msgstr "<b>Paràmetres dels paquets</b>"
+#~ msgid "Packet Parameters"
+#~ msgstr "Paràmetres dels paquets"
 
 #~ msgid "<i>Example: 172.16.0.0/16 10.11.12.0/24</i>"
 #~ msgstr "<i>Exemple: 172.16.0.0/16 10.11.12.0/24</i>"
@@ -1003,11 +1000,11 @@ msgstr ""
 #~ msgid "The VPN settings file '%s' does not contain valid data."
 #~ msgstr "Les dades del fitxer dels paràmetres VPN «%s» no són vàlides."
 
-#~ msgid "<b>Connection Name</b>"
-#~ msgstr "<b>Nom de la connexió</b>"
+#~ msgid "Connection Name"
+#~ msgstr "Nom de la connexió"
 
-#~ msgid "<b>Required Information</b>"
-#~ msgstr "<b>Informació requerida</b>"
+#~ msgid "Required Information"
+#~ msgstr "Informació requerida"
 
 #~ msgid ""
 #~ "Please enter the information provided by your system administrator below. "

@@ -355,7 +355,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:3
 #, fuzzy
 msgid "General"
-msgstr "<b>Splošno</b>"
+msgstr "Splošno"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
 #, fuzzy
@@ -404,7 +404,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:17
 #, fuzzy
 msgid "Optional"
-msgstr "<b>Izbirno</b>"
+msgstr "Izbirno"
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid ""
@@ -458,7 +458,7 @@ msgstr "Napredne možnosti L2TP"
 #: ../properties/nm-l2tp-dialog.ui.h:31
 #, fuzzy
 msgid "Authentication"
-msgstr "<b>Overitev</b>"
+msgstr "Overitev"
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
 msgid "Allow the following authentication methods:"
@@ -476,7 +476,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:35
 #, fuzzy
 msgid "Security and Compression"
-msgstr "<b>Varnost in stiskanje</b>"
+msgstr "Varnost in stiskanje"
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid "Use _Point-to-Point encryption (MPPE)"

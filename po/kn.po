@@ -351,7 +351,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:3
 #, fuzzy
 msgid "General"
-msgstr "<b>ಸಾಮಾನ್ಯ</b>"
+msgstr "ಸಾಮಾನ್ಯ"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
 #, fuzzy
@@ -400,7 +400,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:17
 #, fuzzy
 msgid "Optional"
-msgstr "<b>ಐಚ್ಛಿಕ</b>"
+msgstr "ಐಚ್ಛಿಕ"
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid ""
@@ -452,7 +452,7 @@ msgstr "L2TP ಸುಧಾರಿತ ಆಯ್ಕೆಗಳು"
 #: ../properties/nm-l2tp-dialog.ui.h:31
 #, fuzzy
 msgid "Authentication"
-msgstr "<b>ದೃಢೀಕರಣ</b>"
+msgstr "ದೃಢೀಕರಣ"
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
 msgid "Allow the following authentication methods:"
@@ -467,7 +467,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:35
 #, fuzzy
 msgid "Security and Compression"
-msgstr "<b>ಸುರಕ್ಷತೆ ಹಾಗು ಸಂಕುಚನೆ</b>"
+msgstr "ಸುರಕ್ಷತೆ ಹಾಗು ಸಂಕುಚನೆ"
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid "Use _Point-to-Point encryption (MPPE)"
@@ -609,5 +609,5 @@ msgstr ""
 #~ msgid "L2TP VPN Connection Manager"
 #~ msgstr "L2TP VPN ಸಂಪರ್ಕ ನಿರ್ವಾಹಕ"
 
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>ಪ್ರತಿಧ್ವನಿ</b>"
+#~ msgid "Echo"
+#~ msgstr "ಪ್ರತಿಧ್ವನಿ"

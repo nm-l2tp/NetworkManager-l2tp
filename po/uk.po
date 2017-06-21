@@ -352,7 +352,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:3
 #, fuzzy
 msgid "General"
-msgstr "<b>Загальне</b>"
+msgstr "Загальне"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
 #, fuzzy
@@ -401,7 +401,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:17
 #, fuzzy
 msgid "Optional"
-msgstr "<b>Додатвокі</b>"
+msgstr "Додатвокі"
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid ""
@@ -453,7 +453,7 @@ msgstr "Додаткові параметри L2TP"
 #: ../properties/nm-l2tp-dialog.ui.h:31
 #, fuzzy
 msgid "Authentication"
-msgstr "<b>Автентифікація</b>"
+msgstr "Автентифікація"
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
 msgid "Allow the following authentication methods:"
@@ -468,7 +468,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:35
 #, fuzzy
 msgid "Security and Compression"
-msgstr "<b>Шифрування та стиснення</b>"
+msgstr "Шифрування та стиснення"
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid "Use _Point-to-Point encryption (MPPE)"

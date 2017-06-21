@@ -348,7 +348,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:3
 #, fuzzy
 msgid "General"
-msgstr "<b>عمومی</b>"
+msgstr "عمومی"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
 #, fuzzy
@@ -397,7 +397,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:17
 #, fuzzy
 msgid "Optional"
-msgstr "<b>اختیاری</b>"
+msgstr "اختیاری"
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid ""
@@ -449,7 +449,7 @@ msgstr "گزینه‌های پیشرفته L2TP:"
 #: ../properties/nm-l2tp-dialog.ui.h:31
 #, fuzzy
 msgid "Authentication"
-msgstr "<b>تایید هویت</b>"
+msgstr "تایید هویت"
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
 msgid "Allow the following authentication methods:"
@@ -464,7 +464,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:35
 #, fuzzy
 msgid "Security and Compression"
-msgstr "<b>امنیت و فشرده‌سازی</b>"
+msgstr "امنیت و فشرده‌سازی"
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid "Use _Point-to-Point encryption (MPPE)"
@@ -609,5 +609,5 @@ msgstr ""
 #~ msgid "L2TP VPN Connection Manager"
 #~ msgstr "مدریت اتصال وی‌پی‌ان L2TP"
 
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>Echo</b>"
+#~ msgid "Echo"
+#~ msgstr "Echo"

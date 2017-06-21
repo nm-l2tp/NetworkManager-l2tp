@@ -366,7 +366,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:3
 #, fuzzy
 msgid "General"
-msgstr "<b>General</b>"
+msgstr "General"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
 #, fuzzy
@@ -414,7 +414,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:17
 #, fuzzy
 msgid "Optional"
-msgstr "<b>Opcional</b>"
+msgstr "Opcional"
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid ""
@@ -486,7 +486,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:35
 #, fuzzy
 msgid "Security and Compression"
-msgstr "<b>Seguretat i compressió</b>"
+msgstr "Seguretat i compressió"
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid "Use _Point-to-Point encryption (MPPE)"

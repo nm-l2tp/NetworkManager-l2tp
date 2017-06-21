@@ -346,7 +346,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:3
 #, fuzzy
 msgid "General"
-msgstr "<b>Ĝenerale</b>"
+msgstr "Ĝenerale"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
 msgid "Gateway ID:"
@@ -444,7 +444,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:31
 #, fuzzy
 msgid "Authentication"
-msgstr "<b>Aŭtentokontrolo</b>"
+msgstr "Aŭtentokontrolo"
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
 msgid "Allow the following authentication methods:"

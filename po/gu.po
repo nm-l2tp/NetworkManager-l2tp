@@ -352,7 +352,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:3
 #, fuzzy
 msgid "General"
-msgstr "<b>સામાન્ય</b>"
+msgstr "સામાન્ય"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
 #, fuzzy
@@ -401,7 +401,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:17
 #, fuzzy
 msgid "Optional"
-msgstr "<b>વૈકલ્પિક</b>"
+msgstr "વૈકલ્પિક"
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid ""
@@ -453,7 +453,7 @@ msgstr "L2TP ઉન્નત વિકલ્પો"
 #: ../properties/nm-l2tp-dialog.ui.h:31
 #, fuzzy
 msgid "Authentication"
-msgstr "<b>સત્તાધિકરણ</b>"
+msgstr "સત્તાધિકરણ"
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
 msgid "Allow the following authentication methods:"
@@ -468,7 +468,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:35
 #, fuzzy
 msgid "Security and Compression"
-msgstr "<b>સુરક્ષા અને દબાણ</b>"
+msgstr "સુરક્ષા અને દબાણ"
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid "Use _Point-to-Point encryption (MPPE)"

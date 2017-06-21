@@ -349,7 +349,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:3
 #, fuzzy
 msgid "General"
-msgstr "<b>כללי</b>"
+msgstr "כללי"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
 #, fuzzy
@@ -398,7 +398,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:17
 #, fuzzy
 msgid "Optional"
-msgstr "<b>לא מחייב</b>"
+msgstr "לא מחייב"
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid ""
@@ -465,7 +465,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:35
 #, fuzzy
 msgid "Security and Compression"
-msgstr "<b>אבטחה וכיווץ</b>"
+msgstr "אבטחה וכיווץ"
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid "Use _Point-to-Point encryption (MPPE)"
@@ -555,7 +555,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:59
 msgid "Echo"
-msgstr ""
+msgstr "הד"
 
 #: ../properties/nm-l2tp-dialog.ui.h:60
 msgid "Send PPP _echo packets"
@@ -609,11 +609,8 @@ msgstr ""
 #~ msgid "L2TP VPN Connection Manager"
 #~ msgstr "מנהל חיבורי ה־VPN באמצעות L2TP"
 
-#~ msgid "<b>Authentication</b>"
-#~ msgstr "<b>אימות</b>"
-
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>הד</b>"
+#~ msgid "Authentication"
+#~ msgstr "אימות"
 
 #~ msgid "_Remember for this session"
 #~ msgstr "_שמירה עבור הפעלה זו"
@@ -639,8 +636,8 @@ msgstr ""
 #~ msgid "00:00:00:00"
 #~ msgstr "00:00:00:00"
 
-#~ msgid "<b>Packet Parameters</b>"
-#~ msgstr "<b>אפשרויות חבילה</b>"
+#~ msgid "Packet Parameters"
+#~ msgstr "אפשרויות חבילה"
 
 #~ msgid "<i>Example: 172.16.0.0/16 10.11.12.0/24</i>"
 #~ msgstr "<i>דוגמה: 172.16.0.0/16 10.11.12.0/24</i>"

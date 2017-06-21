@@ -351,7 +351,7 @@ msgstr "启用到 L2TP 主机的 IPsec 隧道(_E)"
 #: ../properties/nm-l2tp-dialog.ui.h:3
 #, fuzzy
 msgid "General"
-msgstr "<b>常规</b>"
+msgstr "常规"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
 #, fuzzy
@@ -402,7 +402,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:17
 #, fuzzy
 msgid "Optional"
-msgstr "<b>可选项</b>"
+msgstr "可选项"
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid ""
@@ -474,7 +474,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:35
 #, fuzzy
 msgid "Security and Compression"
-msgstr "<b>安全性及压缩</b>"
+msgstr "安全性及压缩"
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid "Use _Point-to-Point encryption (MPPE)"

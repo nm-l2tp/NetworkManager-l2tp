@@ -351,7 +351,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:3
 #, fuzzy
 msgid "General"
-msgstr "<b>সাধারণ</b>"
+msgstr "সাধারণ"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
 #, fuzzy
@@ -400,7 +400,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:17
 #, fuzzy
 msgid "Optional"
-msgstr "<b>ঐচ্ছিক</b>"
+msgstr "ঐচ্ছিক"
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid ""
@@ -451,7 +451,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:31
 #, fuzzy
 msgid "Authentication"
-msgstr "<b>অনুমোদন</b>"
+msgstr "অনুমোদন"
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
 msgid "Allow the following authentication methods:"
@@ -466,7 +466,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:35
 #, fuzzy
 msgid "Security and Compression"
-msgstr "<b>নিরাপত্তা ও কম্প্রেশন</b>"
+msgstr "নিরাপত্তা ও কম্প্রেশন"
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid "Use _Point-to-Point encryption (MPPE)"
@@ -554,7 +554,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:59
 msgid "Echo"
-msgstr ""
+msgstr "একো"
 
 #: ../properties/nm-l2tp-dialog.ui.h:60
 msgid "Send PPP _echo packets"
@@ -607,6 +607,3 @@ msgstr ""
 
 #~ msgid "L2TP VPN Connection Manager"
 #~ msgstr "L2TP VPN সংযোগ পরিচালনব্যবস্থা"
-
-#~ msgid "<b>Echo</b>"
-#~ msgstr "<b>একো</b>"

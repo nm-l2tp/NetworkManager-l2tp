@@ -352,7 +352,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:3
 #, fuzzy
 msgid "General"
-msgstr "<b>Общи</b>"
+msgstr "Общи"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
 #, fuzzy
@@ -401,7 +401,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:17
 #, fuzzy
 msgid "Optional"
-msgstr "<b>Допълнителни</b>"
+msgstr "Допълнителни"
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid ""
@@ -453,7 +453,7 @@ msgstr "Допълнителни настройки на PPP"
 #: ../properties/nm-l2tp-dialog.ui.h:31
 #, fuzzy
 msgid "Authentication"
-msgstr "<b>Идентификация</b>"
+msgstr "Идентификация"
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
 msgid "Allow the following authentication methods:"
@@ -468,7 +468,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:35
 #, fuzzy
 msgid "Security and Compression"
-msgstr "<b>Сигурност и компресия</b>"
+msgstr "Сигурност и компресия"
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid "Use _Point-to-Point encryption (MPPE)"

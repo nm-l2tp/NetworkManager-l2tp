@@ -353,7 +353,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:3
 #, fuzzy
 msgid "General"
-msgstr "<b>Vispārējs</b>"
+msgstr "Vispārējs"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
 #, fuzzy
@@ -402,7 +402,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:17
 #, fuzzy
 msgid "Optional"
-msgstr "<b>Neobligāts</b>"
+msgstr "Neobligāts"
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid ""
@@ -457,7 +457,7 @@ msgstr "L2TP paplašinātas opcijas"
 #: ../properties/nm-l2tp-dialog.ui.h:31
 #, fuzzy
 msgid "Authentication"
-msgstr "<b>Autentifikācija</b>"
+msgstr "Autentifikācija"
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
 msgid "Allow the following authentication methods:"
@@ -474,7 +474,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:35
 #, fuzzy
 msgid "Security and Compression"
-msgstr "<b>Drošība un kompresija</b>"
+msgstr "Drošība un kompresija"
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid "Use _Point-to-Point encryption (MPPE)"

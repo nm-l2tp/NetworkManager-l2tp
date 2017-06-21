@@ -399,7 +399,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:17
 #, fuzzy
 msgid "Optional"
-msgstr "<b>IP опции</b>"
+msgstr "IP опции"
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid ""
@@ -467,7 +467,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:35
 #, fuzzy
 msgid "Security and Compression"
-msgstr "<b>Компресија</b>"
+msgstr "Компресија"
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 #, fuzzy

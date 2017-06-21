@@ -465,7 +465,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:35
 #, fuzzy
 msgid "Security and Compression"
-msgstr "<b>Nén</b>"
+msgstr "Nén"
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 #, fuzzy
