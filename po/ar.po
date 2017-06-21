@@ -60,9 +60,8 @@ msgid "Authenticate VPN"
 msgstr "وثِّق VPN"
 
 #: ../auth-dialog/main.c:157 ../properties/nm-l2tp-dialog.ui.h:25
-#, fuzzy
 msgid "Password:"
-msgstr "_كلمة السر:"
+msgstr "كلمة المرور:"
 
 #: ../properties/advanced-dialog.c:172
 msgid "All Available (Default)"
@@ -344,9 +343,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
-#, fuzzy
 msgid "L2TP IPsec Options"
-msgstr "خيارات PPP"
+msgstr "خيارات L2TP IPsec"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -355,12 +353,11 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:3
 #, fuzzy
 msgid "General"
-msgstr "<b>خيارات IP</b>"
+msgstr "خيارات IP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
-#, fuzzy
 msgid "Gateway ID:"
-msgstr "ال_بوّابة:"
+msgstr "معرّف البوّابة:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
@@ -403,7 +400,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:17
 #, fuzzy
 msgid "Optional"
-msgstr "<b>خيارات IP</b>"
+msgstr "خيارات IP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid ""
@@ -413,9 +410,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
-#, fuzzy
 msgid "Show password"
-msgstr "_كلمة السر:"
+msgstr "أظهر كلمة المرور"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Password passed to PPPD when prompted for it."
@@ -429,14 +425,12 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:24
-#, fuzzy
 msgid "User name:"
-msgstr "ا_سم المستخدم:"
+msgstr "اسم المستخدِم:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
-#, fuzzy
 msgid "NT Domain:"
-msgstr "ال_نطاق:"
+msgstr "مجال NT:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:27
 msgid "_IPsec Settings..."
@@ -451,14 +445,12 @@ msgid "Default"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
-#, fuzzy
 msgid "L2TP PPP Options"
-msgstr "خيارات PPP"
+msgstr "خيارات L2TP PPP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
-#, fuzzy
 msgid "Authentication"
-msgstr "نوع التوثق:"
+msgstr "الاستيثاق"
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
 msgid "Allow the following authentication methods:"
@@ -473,7 +465,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:35
 #, fuzzy
 msgid "Security and Compression"
-msgstr "<b>الضغط</b>"
+msgstr "الضغط"
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 #, fuzzy
@@ -583,8 +575,8 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:64
 msgid "MTU :"
-msgstr ""
+msgstr "اقصى وحدة نقل (بالبايت)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "MRU :"
-msgstr ""
+msgstr "اقصى وحدو استلام (بالبايت)"
