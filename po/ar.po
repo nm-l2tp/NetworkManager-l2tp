@@ -353,7 +353,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:3
 #, fuzzy
 msgid "General"
-msgstr "خيارات IP"
+msgstr "شامل"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
 msgid "Gateway ID:"
@@ -400,7 +400,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:17
 #, fuzzy
 msgid "Optional"
-msgstr "خيارات IP"
+msgstr "اختياري"
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid ""
