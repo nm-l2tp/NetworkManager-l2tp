@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-01 21:31+0400\n"
+"POT-Creation-Date: 2017-06-23 17:24+1000\n"
 "PO-Revision-Date: 2008-06-06 14:48+0930\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
@@ -20,1010 +20,602 @@ msgstr ""
 #. Otherwise, we have no saved password, or the password flags indicated
 #. * that the password should never be saved.
 #.
-#: ../auth-dialog/main.c:141
-#, fuzzy, c-format
+#: ../auth-dialog/main.c:155
+#, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
-msgstr "Bạn cần phải xác thực để truy cập đến « %s »."
+msgstr "Bạn cần phải xác thực để truy cập đến Mạng Riêng Ảo (VPN) « %s »."
 
-#: ../auth-dialog/main.c:150 ../auth-dialog/main.c:170
-#, fuzzy
+#: ../auth-dialog/main.c:164 ../auth-dialog/main.c:184
 msgid "Authenticate VPN"
-msgstr "Xác thực ng_ang hàng"
+msgstr "Xác thực VPN"
 
-#: ../auth-dialog/main.c:152 ../properties/nm-l2tp-dialog.ui.h:49
+#: ../auth-dialog/main.c:166 ../properties/nm-l2tp-dialog.ui.h:25
 #, fuzzy
 msgid "Password:"
 msgstr "_Mật khẩu :"
 
-#: ../auth-dialog/vpn-password-dialog.c:95
-msgid "_Password:"
-msgstr "_Mật khẩu :"
-
-#: ../auth-dialog/vpn-password-dialog.c:97
-msgid "_Secondary Password:"
-msgstr "Mật khẩu _phụ :"
-
-#: ../auth-dialog/vpn-password-dialog.c:236
-#, fuzzy
-msgid "Sh_ow passwords"
-msgstr "_Mật khẩu :"
-
-#: ../nm-l2tp.desktop.in.h:1
-#, fuzzy
-msgid "L2TP VPN Connection Manager"
-msgstr "Lỗi kết nối VPN"
-
-#: ../nm-l2tp.desktop.in.h:2
-#, fuzzy
-msgid "Add, Remove, and Edit L2TP VPN Connections"
-msgstr "Thêm, Bỏ và Sửa kết nối VPN"
-
-#: ../properties/advanced-dialog.c:186
+#: ../properties/advanced-dialog.c:188
 msgid "All Available (Default)"
 msgstr ""
 
-#: ../properties/advanced-dialog.c:190
+#: ../properties/advanced-dialog.c:192
 msgid "128-bit (most secure)"
 msgstr ""
 
-#: ../properties/advanced-dialog.c:199
+#: ../properties/advanced-dialog.c:201
 msgid "40-bit (less secure)"
 msgstr ""
 
-#: ../properties/advanced-dialog.c:303
+#: ../properties/advanced-dialog.c:305
 msgid "PAP"
 msgstr ""
 
-#: ../properties/advanced-dialog.c:316
+#: ../properties/advanced-dialog.c:318
 msgid "CHAP"
 msgstr ""
 
-#: ../properties/advanced-dialog.c:328
+#: ../properties/advanced-dialog.c:330
 #, fuzzy
 msgid "MSCHAP"
 msgstr "Từ chối MSCHAP"
 
-#: ../properties/advanced-dialog.c:340
+#: ../properties/advanced-dialog.c:342
 msgid "MSCHAPv2"
 msgstr ""
 
-#: ../properties/advanced-dialog.c:353
+#: ../properties/advanced-dialog.c:355
 msgid "EAP"
 msgstr ""
 
-#: ../properties/import-export.c:166 ../properties/import-export.c:417
+#: ../properties/import-export.c:172 ../properties/import-export.c:420
 #, c-format
 msgid "Required property %s missing"
 msgstr ""
 
-#: ../properties/import-export.c:187
+#: ../properties/import-export.c:193
 #, c-format
 msgid "Property %s value '%s' can't be parsed as boolean."
 msgstr ""
 
-#: ../properties/import-export.c:210 ../properties/import-export.c:267
+#: ../properties/import-export.c:216 ../properties/import-export.c:271
 #: ../properties/import-export.c:309
 #, c-format
 msgid "Property '%s' value '%s' can't be parsed as IP address."
 msgstr ""
 
-#: ../properties/import-export.c:256
+#: ../properties/import-export.c:261
 #, c-format
 msgid "Property '%s' value '%s' couldn't find netmask."
 msgstr ""
 
-#: ../properties/import-export.c:286
+#: ../properties/import-export.c:288
 #, c-format
 msgid "Property '%s' value '%s' can't be parsed as ip netmask."
 msgstr ""
 
-#: ../properties/import-export.c:335
+#: ../properties/import-export.c:333
 #, c-format
 msgid "Property '%s' value '%s' can't be parsed as route metric."
 msgstr ""
 
-#: ../properties/import-export.c:347
+#: ../properties/import-export.c:343
 #, c-format
 msgid "Error parsing property '%s' value '%s'."
 msgstr ""
 
-#: ../properties/import-export.c:382
+#: ../properties/import-export.c:385
 #, c-format
 msgid "does not look like a L2TP VPN connection (parse failed)"
 msgstr ""
 
-#: ../properties/import-export.c:435
+#: ../properties/import-export.c:438
 #, c-format
 msgid "Property %s can't be parsed as integer."
 msgstr ""
 
-#: ../properties/import-export.c:452
+#: ../properties/import-export.c:455
 #, c-format
 msgid ""
 "Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."
 msgstr ""
 
-#: ../properties/import-export.c:624
+#: ../properties/import-export.c:627
 #, c-format
 msgid "Missing required property '%s'"
 msgstr ""
 
-#: ../properties/import-export.c:654
+#: ../properties/import-export.c:657
 #, c-format
 msgid "Couldn't open file for writing."
 msgstr ""
 
-#: ../properties/nm-l2tp.c:50
+#: ../properties/nm-l2tp.c:57
 msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr ""
 
-#: ../properties/nm-l2tp.c:51
+#: ../properties/nm-l2tp.c:58
 msgid "Compatible with L2TP VPN servers."
 msgstr ""
 
-#: ../properties/nm-l2tp.c:220
+#: ../properties/nm-l2tp.c:214
 #, c-format
 msgid "%s: error reading advanced settings: %s"
 msgstr ""
 
-#: ../properties/nm-l2tp.c:244
+#: ../properties/nm-l2tp.c:238
 #, c-format
 msgid "%s: error reading ipsec settings: %s"
 msgstr ""
 
-#: ../properties/nm-l2tp.c:264
+#: ../properties/nm-l2tp.c:258
 #, c-format
 msgid "%s: failed to create the Advanced dialog!"
 msgstr ""
 
-#: ../properties/nm-l2tp.c:293
+#: ../properties/nm-l2tp.c:287
 #, c-format
 msgid "%s: failed to create the IPsec dialog!"
 msgstr ""
 
-#: ../properties/nm-l2tp.c:412
-msgid "Saved"
-msgstr ""
-
-#: ../properties/nm-l2tp.c:420
-msgid "Always Ask"
-msgstr ""
-
-#: ../properties/nm-l2tp.c:425
-msgid "Not Required"
-msgstr ""
-
-#: ../properties/nm-l2tp.c:649
+#: ../properties/nm-l2tp.c:586
 #, c-format
 msgid "could not create l2tp object"
 msgstr ""
 
-#: ../properties/nm-l2tp.c:661
+#: ../properties/nm-l2tp.c:598
 #, c-format
 msgid "Couldn't load builder file: %s"
 msgstr ""
 
-#: ../properties/nm-l2tp.c:665
+#: ../properties/nm-l2tp.c:602
 #, c-format
 msgid "could not load required resources at %s"
 msgstr ""
 
-#: ../properties/nm-l2tp.c:675
+#: ../properties/nm-l2tp.c:612
 #, c-format
 msgid "could not load UI widget"
 msgstr ""
 
-#: ../properties/nm-l2tp.c:768
+#: ../properties/nm-l2tp.c:711
 #, c-format
 msgid "unknown L2TP file extension"
 msgstr ""
 
-#: ../properties/nm-l2tp.c:776
+#: ../properties/nm-l2tp.c:719
 #, c-format
 msgid "unknown L2TP file extension. Allowed .conf or .cnf"
 msgstr ""
 
-#: ../properties/nm-l2tp.c:784
+#: ../properties/nm-l2tp.c:727
 #, c-format
 msgid "Filename doesn't contains 'l2tp' substring."
 msgstr ""
 
-#: ../properties/nm-l2tp.c:791
+#: ../properties/nm-l2tp.c:734
 #, c-format
 msgid "Can't import file as L2TP config: %s"
 msgstr ""
 
+#: ../properties/nm-l2tp.c:869
+msgid "Store the password only for this user"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:870
+msgid "Store the password for all users"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:871
+msgid "Ask for this password every time"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:872
+msgid "The password is not required"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:1
-#, fuzzy
-msgid "L2TP PPP Options"
-msgstr "Tùy chọn PPP"
-
-#: ../properties/nm-l2tp-dialog.ui.h:2
-#, fuzzy
-msgid "<b>Authentication</b>"
-msgstr "Xác thực"
-
-#: ../properties/nm-l2tp-dialog.ui.h:3
-msgid "Allow the following authentication methods:"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:4
-msgid ""
-"Allow/disable authentication methods.\n"
-"config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:6
-#, fuzzy
-msgid "<b>Security and Compression</b>"
-msgstr "<b>Nén</b>"
-
-#: ../properties/nm-l2tp-dialog.ui.h:7
-#, fuzzy
-msgid "Use _Point-to-Point encryption (MPPE)"
-msgstr "Dùng mật mã MPPE"
-
-#: ../properties/nm-l2tp-dialog.ui.h:8
-msgid ""
-"Note: MPPE encryption is only available with MSCHAP authentication methods. "
-"To enable this checkbox, select one or more of the MSCHAP authentication "
-"methods: MSCHAP or MSCHAPv2."
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:9
-msgid "_Security:"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:10
-msgid ""
-"Require the use of MPPE, with 40/128-bit encryption or all.\n"
-"config: require-mppe, require-mppe-128 or require-mppe-40"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:12
-#, fuzzy
-msgid "Allow st_ateful encryption"
-msgstr "Cho phép nén kiểu _Deflate"
-
-#: ../properties/nm-l2tp-dialog.ui.h:13
-msgid ""
-"Allow MPPE to use stateful mode. Stateless mode is still attempted first.\n"
-"config: mppe-stateful (when checked)"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:15
-#, fuzzy
-msgid "Allow _BSD data compression"
-msgstr "Cho phép nén kiểu _Deflate"
-
-#: ../properties/nm-l2tp-dialog.ui.h:16
-msgid ""
-"Allow/disable BSD-Compress compression.\n"
-"config: nobsdcomp (when unchecked)"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:18
-#, fuzzy
-msgid "Allow _Deflate data compression"
-msgstr "Cho phép nén kiểu _Deflate"
-
-#: ../properties/nm-l2tp-dialog.ui.h:19
-msgid ""
-"Allow/disable Deflate compression.\n"
-"config: nodeflate (when unchecked)"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:21
-#, fuzzy
-msgid "Use TCP _header compression"
-msgstr "Nén bằng MPPC"
-
-#: ../properties/nm-l2tp-dialog.ui.h:22
-msgid ""
-"Allow/disable Van Jacobson style TCP/IP header compression in both the "
-"transmit and the receive directions.\n"
-"config: novj (when unchecked)"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:24
-msgid "Use protocol _field compression negotiation"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:25
-msgid ""
-"Allow protocol field compression negotiation in both the receive and the "
-"transmit direction.\n"
-"config: nopcomp (when unchecked)"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:27
-#, fuzzy
-msgid "Use _Address/Control compression"
-msgstr "Nén bằng MPPC"
-
-#: ../properties/nm-l2tp-dialog.ui.h:28
-msgid ""
-"Use Address/Control compression in both directions (send and receive).\n"
-"config: noaccomp (when unchecked)"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:30
-#, fuzzy
-msgid "<b>Echo</b>"
-msgstr "<b>Mật mã</b>"
-
-#: ../properties/nm-l2tp-dialog.ui.h:31
-msgid "Send PPP _echo packets"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:32
-msgid ""
-"Send LCP echo-requests to find out whether peer is alive.\n"
-"config: lcp-echo-failure and lcp-echo-interval"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:34
 #, fuzzy
 msgid "L2TP IPsec Options"
 msgstr "Tùy chọn PPP"
 
-#: ../properties/nm-l2tp-dialog.ui.h:35
+#: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:36
-msgid "Group Name:"
+#: ../properties/nm-l2tp-dialog.ui.h:3
+msgid "General"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:37
+#: ../properties/nm-l2tp-dialog.ui.h:4
 #, fuzzy
 msgid "Gateway ID:"
 msgstr "Cổn_g ra:"
 
-#: ../properties/nm-l2tp-dialog.ui.h:38
+#: ../properties/nm-l2tp-dialog.ui.h:5
+msgid ""
+"IP address.\n"
+"Optional, how the IPsec server should be identified for authentication.\n"
+"config: ipsec rightid\n"
+"ipsec.secrets: ID"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:9
 msgid "Pre-shared key:"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:39
-msgid "<b>General</b>"
+#: ../properties/nm-l2tp-dialog.ui.h:10
+msgid "Phase2 Algorithms:"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:40
+#: ../properties/nm-l2tp-dialog.ui.h:11
+msgid "Phase1 Algorithms:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:12
+msgid "_Enforce UDP encapsulation"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:13
+msgid "Ad_vanced"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:14
 msgid "_Gateway:"
 msgstr "Cổn_g ra:"
 
-#: ../properties/nm-l2tp-dialog.ui.h:41
+#: ../properties/nm-l2tp-dialog.ui.h:15
 msgid ""
 "L2TP server IP or name.\n"
 "config: xl2tpd lns parameter"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:43
-#, fuzzy
-msgid "<b>Optional</b>"
-msgstr "<b>Tùy chọn IP</b>"
+#: ../properties/nm-l2tp-dialog.ui.h:17
+msgid "Optional"
+msgstr "Tùy chọn"
 
-#: ../properties/nm-l2tp-dialog.ui.h:44
+#: ../properties/nm-l2tp-dialog.ui.h:18
 msgid ""
 "Append the domain name <domain> to the local host name for authentication "
 "purposes.\n"
 "config: domain <domain>"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:46
-#, fuzzy
-msgid "NT Domain:"
-msgstr "_Miền:"
-
-#: ../properties/nm-l2tp-dialog.ui.h:47
+#: ../properties/nm-l2tp-dialog.ui.h:20
 #, fuzzy
 msgid "Show password"
 msgstr "_Mật khẩu :"
 
-#: ../properties/nm-l2tp-dialog.ui.h:48
+#: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Password passed to PPPD when prompted for it."
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:50
+#: ../properties/nm-l2tp-dialog.ui.h:22
 msgid ""
 "Set the name used for authenticating the local system to the peer to "
 "<name>.\n"
 "config: xl2tpd name parameter"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:52
+#: ../properties/nm-l2tp-dialog.ui.h:24
 #, fuzzy
 msgid "User name:"
 msgstr "_Tên người dùng:"
 
-#: ../properties/nm-l2tp-dialog.ui.h:53
+#: ../properties/nm-l2tp-dialog.ui.h:26
+#, fuzzy
+msgid "NT Domain:"
+msgstr "_Miền:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:27
 msgid "_IPsec Settings..."
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:54
+#: ../properties/nm-l2tp-dialog.ui.h:28
 msgid "PPP Se_ttings..."
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:55
+#: ../properties/nm-l2tp-dialog.ui.h:29
 msgid "Default"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:149
-msgid "Could not find secrets (connection invalid, no vpn setting)."
+#: ../properties/nm-l2tp-dialog.ui.h:30
+#, fuzzy
+msgid "L2TP PPP Options"
+msgstr "Tùy chọn PPP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:31
+msgid "Authentication"
+msgstr "Xác thực"
+
+#: ../properties/nm-l2tp-dialog.ui.h:32
+msgid "Allow the following authentication methods:"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:161
-msgid "Invalid VPN username."
+#: ../properties/nm-l2tp-dialog.ui.h:33
+msgid ""
+"Allow/disable authentication methods.\n"
+"config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:170
-msgid "Missing VPN username."
+#: ../properties/nm-l2tp-dialog.ui.h:35
+#, fuzzy
+msgid "Security and Compression"
+msgstr "Nén"
+
+#: ../properties/nm-l2tp-dialog.ui.h:36
+#, fuzzy
+msgid "Use _Point-to-Point encryption (MPPE)"
+msgstr "Dùng mật mã MPPE"
+
+#: ../properties/nm-l2tp-dialog.ui.h:37
+msgid ""
+"Note: MPPE encryption is only available with MSCHAP authentication methods. "
+"To enable this checkbox, select one or more of the MSCHAP authentication "
+"methods: MSCHAP or MSCHAPv2."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:180
-msgid "Missing or invalid VPN password."
+#: ../properties/nm-l2tp-dialog.ui.h:38
+msgid "_Security:"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:224
+#: ../properties/nm-l2tp-dialog.ui.h:39
+msgid ""
+"Require the use of MPPE, with 40/128-bit encryption or all.\n"
+"config: require-mppe, require-mppe-128 or require-mppe-40"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:41
+#, fuzzy
+msgid "Allow st_ateful encryption"
+msgstr "Cho phép nén kiểu _Deflate"
+
+#: ../properties/nm-l2tp-dialog.ui.h:42
+msgid ""
+"Allow MPPE to use stateful mode. Stateless mode is still attempted first.\n"
+"config: mppe-stateful (when checked)"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:44
+#, fuzzy
+msgid "Allow _BSD data compression"
+msgstr "Cho phép nén kiểu _Deflate"
+
+#: ../properties/nm-l2tp-dialog.ui.h:45
+msgid ""
+"Allow/disable BSD-Compress compression.\n"
+"config: nobsdcomp (when unchecked)"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:47
+#, fuzzy
+msgid "Allow _Deflate data compression"
+msgstr "Cho phép nén kiểu _Deflate"
+
+#: ../properties/nm-l2tp-dialog.ui.h:48
+msgid ""
+"Allow/disable Deflate compression.\n"
+"config: nodeflate (when unchecked)"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:50
+#, fuzzy
+msgid "Use TCP _header compression"
+msgstr "Nén bằng MPPC"
+
+#: ../properties/nm-l2tp-dialog.ui.h:51
+msgid ""
+"Allow/disable Van Jacobson style TCP/IP header compression in both the "
+"transmit and the receive directions.\n"
+"config: novj (when unchecked)"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:53
+msgid "Use protocol _field compression negotiation"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:54
+msgid ""
+"Allow protocol field compression negotiation in both the receive and the "
+"transmit direction.\n"
+"config: nopcomp (when unchecked)"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:56
+#, fuzzy
+msgid "Use _Address/Control compression"
+msgstr "Nén bằng MPPC"
+
+#: ../properties/nm-l2tp-dialog.ui.h:57
+msgid ""
+"Use Address/Control compression in both directions (send and receive).\n"
+"config: noaccomp (when unchecked)"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:59
+msgid "Echo"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:60
+msgid "Send PPP _echo packets"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:61
+msgid ""
+"Send LCP echo-requests to find out whether peer is alive.\n"
+"config: lcp-echo-failure and lcp-echo-interval"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:63
+msgid "Misc"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:64
+msgid "MTU :"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:65
+msgid "MRU :"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:270
 #, c-format
 msgid "Could not register D-Bus service name.  Message: %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:307
-msgid "No cached credentials."
-msgstr ""
-
-#: ../src/nm-l2tp-service.c:338
+#: ../src/nm-l2tp-service.c:377
 msgid "L2TP service (IP Config Get) reply received."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:485
+#: ../src/nm-l2tp-service.c:538
 #, c-format
 msgid "invalid gateway '%s'"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:494
-#, c-format
-msgid "invalid ipsec-group-name '%s'"
-msgstr ""
-
-#: ../src/nm-l2tp-service.c:503
+#: ../src/nm-l2tp-service.c:547
 #, c-format
 msgid "invalid ipsec-gateway-id '%s'"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:516
+#: ../src/nm-l2tp-service.c:560
 #, c-format
 msgid "invalid integer property '%s'"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:526
+#: ../src/nm-l2tp-service.c:570
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:533
+#: ../src/nm-l2tp-service.c:577
 #, c-format
 msgid "unhandled property '%s' type %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:544
+#: ../src/nm-l2tp-service.c:588
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:562
-msgid "No VPN configuration options."
-msgstr ""
-
-#: ../src/nm-l2tp-service.c:582
+#: ../src/nm-l2tp-service.c:619
 #, c-format
 msgid "Missing required option '%s'."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:602
-msgid "No VPN secrets!"
-msgstr ""
-
-#: ../src/nm-l2tp-service.c:624
+#: ../src/nm-l2tp-service.c:655
 #, c-format
 msgid "xl2tpd exited with error code %d"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:627
+#: ../src/nm-l2tp-service.c:658
 #, c-format
 msgid "xl2tpd stopped unexpectedly with signal %d"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:629
+#: ../src/nm-l2tp-service.c:660
 #, c-format
 msgid "xl2tpd died with signal %d"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:631
+#: ../src/nm-l2tp-service.c:662
 msgid "xl2tpd died from an unknown cause"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:733
+#: ../src/nm-l2tp-service.c:775
 msgid "pppd timeout. Looks like pppd didn't initialize our dbus module"
-msgstr ""
-
-#: ../src/nm-l2tp-service.c:770
-#, c-format
-msgid "couldn't convert L2TP VPN gateway IP address '%s' (%d)"
-msgstr ""
-
-#: ../src/nm-l2tp-service.c:788
-#, c-format
-msgid "couldn't look up L2TP VPN gateway IP address '%s' (%d)"
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:812
 #, c-format
+msgid "couldn't convert L2TP VPN gateway IP address '%s' (%d)"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:830
+#, c-format
+msgid "couldn't look up L2TP VPN gateway IP address '%s' (%d)"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:854
+#, c-format
 msgid "no usable addresses returned for L2TP VPN gateway '%s'"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:823
+#: ../src/nm-l2tp-service.c:865
 #, c-format
 msgid "no usable addresses returned for L2TP VPN gateway '%s' (%d)"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:828
+#: ../src/nm-l2tp-service.c:870
 #, c-format
 msgid "Use '%s' as a gateway"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:897
-msgid "Could not find the ipsec binary."
+#: ../src/nm-l2tp-service.c:1043
+msgid "IPsec service is not ready."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:934
-msgid "Cannot save /etc/ipsec.secrets"
+#: ../src/nm-l2tp-service.c:1056
+msgid "Timeout trying to establish IPsec connection"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:944
-msgid "Cannot open /etc/ipsec.secrets for writing"
+#: ../src/nm-l2tp-service.c:1066
+msgid "Libreswan IPsec tunnel is up."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:968
-msgid "ipsec ready for action"
+#: ../src/nm-l2tp-service.c:1076
+msgid "strongSwan IPsec tunnel is up."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:989
-msgid "Could not find the xl2tpd binary."
+#: ../src/nm-l2tp-service.c:1089
+msgid "Could not establish IPsec tunnel."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1011
+#: ../src/nm-l2tp-service.c:1128
 #, c-format
 msgid "xl2tpd started with pid %d"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1071
+#: ../src/nm-l2tp-service.c:1188
 msgid "Can-not create new test socket"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1134
-msgid "Could not write ipsec config."
-msgstr ""
-
-#: ../src/nm-l2tp-service.c:1178
-msgid "Could not write xl2tpd config."
-msgstr ""
-
-#: ../src/nm-l2tp-service.c:1193
-msgid "Could not write ppp options."
-msgstr ""
-
-#: ../src/nm-l2tp-service.c:1275
+#: ../src/nm-l2tp-service.c:1269
 #, c-format
-msgid "failed to convert lcp-echo-failure value '%s'"
+msgid "# Following line was added by NetworkManager-l2tp"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1293
+#: ../src/nm-l2tp-service.c:1280
 #, c-format
-msgid "failed to convert lcp-echo-interval value '%s'"
+msgid "Could not write %s/nm-l2tp-ipsec-%s.secrets"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1431
-msgid "Could not start pppd plugin helper service."
-msgstr ""
-
-#: ../src/nm-l2tp-service.c:1454
+#: ../src/nm-l2tp-service.c:1609
 #, c-format
 msgid "ipsec enable flag: %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1456
+#: ../src/nm-l2tp-service.c:1670
 msgid "starting ipsec"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1521
+#: ../src/nm-l2tp-service.c:1736
 #, c-format
 msgid "Terminated l2tp daemon with PID %d."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1637
+#: ../src/nm-l2tp-service.c:1852
 msgid "Don't quit when VPN connection terminates"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1638
+#: ../src/nm-l2tp-service.c:1853
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1661
+#: ../src/nm-l2tp-service.c:1876
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
 msgstr ""
 
-#~ msgid "Authentication Type:"
-#~ msgstr "Kiểu xác thực:"
-
-#~ msgid "_Remember for this session"
-#~ msgstr "Nhớ cho _buổi hợp này"
-
-#~ msgid "_Save in keyring"
-#~ msgstr "_Lưu vào vòng khoá"
-
-#~ msgid "Authenticate Connection"
-#~ msgstr "Xác thực kết nối"
-
-#~ msgid ""
-#~ "<span weight=\"bold\" size=\"larger\">Authentication Information</span>\n"
-#~ "\n"
-#~ "The connection '%s' may need some form of authentication.\n"
-#~ "\n"
-#~ "Please select an appropriate authentication type and provide the "
-#~ "necessary credentials below:\n"
-#~ msgstr ""
-#~ "<span weight=\"bold\" size=\"larger\">Thông tin xác thực</span>\n"
-#~ "\n"
-#~ "Kết nối « %s » có thể yêu cầu xác thực kiểu nào.\n"
-#~ "\n"
-#~ "Hãy chọn một kiểu xác thực thích hợp và cung cấp thông tin đòi hỏi bên "
-#~ "dưới:\n"
-
-#~ msgid "Authentication Required"
-#~ msgstr "Đòi hỏi xác thực"
-
-#~ msgid "_Authentication Type:"
-#~ msgstr "Kiểu _xác thực:"
-
-#~ msgid "_Remote name:"
-#~ msgstr "Tê_n ở xa:"
-
-#~ msgid "Connect _anonymously"
-#~ msgstr "Kết nối nặc d_anh"
-
-#~ msgid "Connect as _user:"
-#~ msgstr "Kết nối _với tư cách người dùng:"
-
-#~ msgid "_Remember password for this session"
-#~ msgstr "Nhớ mật khẩu cho _buổi hợp này"
-
-#~ msgid "_Save password in keyring"
-#~ msgstr "_Lưu mật khẩu vào vòng khoá"
-
-#~ msgid "VPN Connection Manager (PPP generic)"
-#~ msgstr "Bộ Quản Lý Kết Nối VPN (PPP giống loài)"
-
-#~ msgid "00:00:00:00"
-#~ msgstr "00:00:00:00"
-
-#~ msgid "<b>Delays &amp; Timeouts</b>"
-#~ msgstr "<b>Khoảng đợi và Thời hạn</b>"
-
-#~ msgid "<b>Packet Parameters</b>"
-#~ msgstr "<b>Tham số Gói tin</b>"
-
-#~ msgid "<i>Example: 172.16.0.0/16 10.11.12.0/24</i>"
-#~ msgstr "<i>v.d.: 172.16.0.0/16 10.11.12.0/24</i>"
-
-#~ msgid ""
-#~ "A list of extra options to pppd as would be typed on the command line"
-#~ msgstr "Danh sách các tùy chọn bổ sung tới pppd, như được gõ vào dòng lệnh"
-
-#~ msgid "Allow B_SD Compression"
-#~ msgstr "Cho phép nén kiểu B_SD"
-
-#~ msgid "C_hannel:"
-#~ msgstr "Kên_h:"
-
-#~ msgid "Co_nnect delay:"
-#~ msgstr "Khoả_ng đợi kết nối:"
-
-#~ msgid "Compression & Encryption"
-#~ msgstr "Nén và Mật mã"
-
-#~ msgid "Connection"
-#~ msgstr "Kết nối"
-
-#~ msgid "Connection na_me:"
-#~ msgstr "Tên _kết nối:"
-
-#~ msgid "Context _number:"
-#~ msgstr "Số _ngữ cảnh:"
-
-#~ msgid "Custom _PPP options:"
-#~ msgstr "Tùy chọn _PPP tự chọn:"
-
-#~ msgid "Debug _output"
-#~ msgstr "Kết _xuất gỡ lỗi:"
-
-#~ msgid "Disconnect after this many LCP echo requests fail"
-#~ msgstr "Ngắt kết nối sau số này các yêu cầu vọng LCP không thành công"
-
-#~ msgid "E_xclusive device access (UUCP-style lock)"
-#~ msgstr "Truy cập đến thiết bị dành riêng (khoá kiểu _UUCP)"
-
-#~ msgid "Enable stateful _MPPE"
-#~ msgstr "Bật _MPPE có tình trạng"
-
-#~ msgid "Find Device"
-#~ msgstr "Tìm thiết bị"
-
-#~ msgid ""
-#~ "For security reasons, options entered in the box above are checked "
-#~ "against a list of allowed options before a connection is established.  "
-#~ "Currently there are no options on the list."
-#~ msgstr ""
-#~ "Vì ly do bảo mật, các tùy chọn được nhập vào hộp bên trên được kiểm tra "
-#~ "so với danh sách các tùy chọn được phép, trước khi thiết lập kết nối. "
-#~ "Hiện thời không có tùy chọn nằm trong danh sách đó."
-
-#~ msgid "GPRS Options"
-#~ msgstr "Tùy chọn GPRS"
-
-#~ msgid "Host name or IP address of the L2TP server"
-#~ msgstr "Tên máy hay địa chỉ IP của máy phục vụ L2TP"
-
-#~ msgid "IP a_ddress:"
-#~ msgstr "Địa chỉ _IP:"
-
-#~ msgid ""
-#~ "If BSD compression is not allowed the 'nobsdcomp' option is passed to pppd"
-#~ msgstr ""
-#~ "Nếu không cho phép nén kiểu BSD, tùy chọn « nobsdcomp » được gửi qua cho "
-#~ "pppd"
-
-#~ msgid ""
-#~ "If Deflate compression is not allowed the 'nodefate' option is passed to "
-#~ "pppd"
-#~ msgstr ""
-#~ "Nếu không cho phép nén kiểu Deflate, tùy chọn « nodefate » được gửi qua "
-#~ "cho pppd"
-
-#~ msgid "Maximum Receive Unit"
-#~ msgstr "Đơn vị nhận tối đa"
-
-#~ msgid "Maximum Transmit Unit"
-#~ msgstr "Đơn vị truyền tối đa"
-
-#~ msgid "Refuse C_HAP"
-#~ msgstr "Từ chối C_HAP"
-
-#~ msgid "Refuse _EAP"
-#~ msgstr "Từ chối _EAP"
-
-#~ msgid "Refuse _MS CHAP"
-#~ msgstr "Từ chối _MS CHAP"
-
-#~ msgid "Require 128 bit M_PPE encryption"
-#~ msgstr "Đòi hỏi mật mã M_PPE 128 bit"
-
-#~ msgid "Require MPPE _encryption"
-#~ msgstr "Đòi hỏi _mật mã MPPE"
-
-#~ msgid "Require explicit IP _address"
-#~ msgstr "Đòi hỏi đị_a chỉ IP xác định"
-
-#~ msgid "Requires existing network connection"
-#~ msgstr "Đòi hỏi kết nối mạng đang chạy"
-
-#~ msgid "Routing"
-#~ msgstr "Định tuyến"
-
-#~ msgid "Serial Options"
-#~ msgstr "Tùy chọn Nối tiếp"
-
-#~ msgid "Service providers GPRS access point from device config"
-#~ msgstr "Điểm truy cập GPRS của nhà cung cấp dịch vụ, từ cấu hình thiết bị"
-
-#~ msgid "Service providers IP address"
-#~ msgstr "Địa chỉ IP của nhà cung cấp dịch vụ"
-
-#~ msgid "Telep_hone number:"
-#~ msgstr "Số điện t_hoại:"
-
-#~ msgid ""
-#~ "This is the friendly name that will be used to identify this network "
-#~ "connection, \n"
-#~ "e.g. \"Campus VPN\" or \"Corporate Network\""
-#~ msgstr ""
-#~ "Đân là tên dễ nhớ sẽ được dùng để nhận diện kết nối mạng này\n"
-#~ " v.d. « VPN đại học » hay « Mạng công ty »."
-
-#~ msgid "Time in seconds between echo requests"
-#~ msgstr "Thời gian theo giây giữa hai yêu cầu vọng"
-
-#~ msgid "Typ_e:"
-#~ msgstr "Kiể_u :"
-
-#~ msgid "Use peer _DNS"
-#~ msgstr "_Dùng DNS ngang hàng"
-
-#~ msgid "When checked the \"refuse-chap\" option is passed to pppd."
-#~ msgstr "Khi bật, tùy chọn « refuse-chap » được gửi qua cho pppd."
-
-#~ msgid "When checked the \"refuse-eap\" option is passed to pppd."
-#~ msgstr "Khi bật, tùy chọn « refuse-eap » được gửi qua cho pppd."
-
-#~ msgid "When checked the \"refuse-mschap\" option is passed to pppd."
-#~ msgstr "Khi bật, tùy chọn « refuse-mschap » được gửi qua cho pppd."
-
-#~ msgid "When checked the 'lock' option is passed to pppd"
-#~ msgstr "Khi bật, tùy chọn « lock » được gửi qua cho pppd."
-
-#~ msgid "When checked the 'require-mppc' option is passed to pppd"
-#~ msgstr "Khi bật, tùy chọn « require-mppc » được gửi qua cho pppd."
-
-#~ msgid ""
-#~ "When checked this sets the pppd 'debug' option and adds some extra "
-#~ "information from the NetworkManager plugin"
-#~ msgstr ""
-#~ "Khi bật, có đặt tùy chọn « debug » (gỡ lỗi) của pppd, cũng thêm thông tin "
-#~ "từ phần bổ sung NetworkManager"
-
-#~ msgid "When checked this sets the pppd 'noipdefault' option"
-#~ msgstr ""
-#~ "Khi bật, có đặt tùy chọn « noipdefault » (không có mặc định IP) của pppd"
-
-#~ msgid "When checked this sets the pppd 'usepeerdns' option"
-#~ msgstr ""
-#~ "Khi bật, có đặt tùy chọn « usepeerdns » (dùng DNS ngang hàng) của pppd"
-
-#~ msgid ""
-#~ "When this check box is cleared the \"noauth\" option is passed to pppd."
-#~ msgstr ""
-#~ "Khi tắt, tùy chọn « noauth » (không xác thực) được gửi qua cho pppd."
-
-#~ msgid "_Access point name:"
-#~ msgstr "Tên điểm t_ruy cập:"
-
-#~ msgid "_Device address:"
-#~ msgstr "Địa chỉ thiết _bị:"
-
-#~ msgid "_Hardware RTS/CTS"
-#~ msgstr "RTS/CTS p_hần cứng"
-
-#~ msgid "_Import Saved Configuration..."
-#~ msgstr "_Nhập cấu hình đã lưu..."
-
-#~ msgid "_Modem connection"
-#~ msgstr "Kết nối bộ điều giả_i"
-
-#~ msgid "_Only use VPN connection for these addresses:"
-#~ msgstr "Chỉ dùng kết nối VPN ch_o những địa chỉ này:"
-
-#~ msgid "_Packet type:"
-#~ msgstr "K_iểu gói tin:"
-
-#~ msgid "_Peer DNS through tunnel"
-#~ msgstr "DNS ngang hàng _qua đường hầm"
-
-#~ msgid "_Require MPPC compression"
-#~ msgstr "Đòi hỏi nén _MPPC"
-
-#~ msgid "pppd tunnel (L2TP, BTGPRS, Dialup)"
-#~ msgstr "Đường hầm pppd (L2TP, BTGPRS, Quay số)"
-
-#~ msgid "Name"
-#~ msgstr "Tên"
-
-#~ msgid "L2TP Server"
-#~ msgstr "Máy phục vụ L2TP"
-
-#~ msgid "Telephone Number"
-#~ msgstr "Số điện thoại"
-
-#~ msgid "Bluetooth Address"
-#~ msgstr "Địa chỉ Bluetooth"
-
-#~ msgid "Bluetooth Channel"
-#~ msgstr "Kênh Bluetooth"
-
-#~ msgid "GPRS APN"
-#~ msgstr "APN GPRS"
-
-#~ msgid "GPRS IP"
-#~ msgstr "IP GPRS"
-
-#~ msgid "GPRS Context No."
-#~ msgstr "Số ngữ cảnh GPRS"
-
-#~ msgid "GPRS Packet Type"
-#~ msgstr "Kiểu gói tin GPRS"
-
-#~ msgid "Use CTS/RTS flow control"
-#~ msgstr "Dùng điều khiển luồng CTS/RTS"
-
-#~ msgid "Connect via a modem"
-#~ msgstr "Kết nối bằng bộ điều giải"
-
-#~ msgid "Require IP to be provided"
-#~ msgstr "Đòi hỏi cung cấp địa chỉ IP"
-
-#~ msgid "Use Peer DNS"
-#~ msgstr "Dùng DNS ngang hàng"
-
-#~ msgid "Use 128 bit MPPE encryption"
-#~ msgstr "Dùng mật mã MPPE 128 bit"
-
-#~ msgid "Enable stateful MPPE"
-#~ msgstr "Bật MPPE có tình trạng"
-
-#~ msgid "Do not use deflate compression"
-#~ msgstr "Không nén kiểu Deflate"
-
-#~ msgid "Do not use BSD compression"
-#~ msgstr "Không nén kiểu BSD"
-
-#~ msgid "Exclusive device access by pppd"
-#~ msgstr "Chỉ pppd truy cập đến thiết bị"
-
-#~ msgid "Authenticate remote peer"
-#~ msgstr "Xác thực ngang hàng từ xa"
-
-#~ msgid "Refuse EAP"
-#~ msgstr "Từ chối EAP"
-
-#~ msgid "Refuse CHAP"
-#~ msgstr "Từ chối CHAP"
-
-#~ msgid "Maximum transmit unit (in bytes)"
-#~ msgstr "Đơn vị truyền tối đa (theo byte)"
-
-#~ msgid "Maximum receive unit (in bytes)"
-#~ msgstr "Đơn vị nhận tối đa (theo byte)"
-
-#~ msgid "Number of failed LCP echos to cause disconnect"
-#~ msgstr "Số các lần vọng LCP không thành công để gây ra ngắt kết nối"
-
-#~ msgid "Interval (in seconds) at which to issue LCP echos"
-#~ msgstr "Khoảng thời gian (theo giây) giữa hai lần làm vọng LCP"
-
-#~ msgid "Interval (in milliseconds) to wait before connecting."
-#~ msgstr "Khoảng thời gian (theo mili-giây) cần đợi trước khi kết nối."
-
-#~ msgid "Custom PPP options"
-#~ msgstr "Tùy chọn ppp tự chọn"
-
-#~ msgid "Use Peer DNS over the Tunnel"
-#~ msgstr "Dùng DNS ngang hàng qua Đường hầm"
-
-#~ msgid "Specific networks available"
-#~ msgstr "Các mạng xác định sẵn sàng"
-
-#~ msgid "Limit to specific networks"
-#~ msgstr "Hạn chế các mạng xác định"
-
-#~ msgid "The following '%s' connection will be created:"
-#~ msgstr "Kết nối « %s » theo đây sẽ được tạo :"
-
-#~ msgid "\t%s:  %s\n"
-#~ msgstr "\t%s:  %s\n"
-
-#~ msgid "The connection details can be changed using the \"Back\" button."
-#~ msgstr "Chi tiết kết nối có thể được sửa đổi bằng nút « Lùi »."
-
-#~ msgid "Select file to import"
-#~ msgstr "Chọn tập tin cần nhập vào"
-
-#~ msgid "Save as..."
-#~ msgstr "Lưu dạng..."
-
-#~ msgid "A file named \"%s\" already exists."
-#~ msgstr "Một tập tin tên « %s » đã có."
-
-#~ msgid "Do you want to replace it with the one you are saving?"
-#~ msgstr "Bạn có muốn thay thế nó bằng tập tin đang lưu không?"
+#, fuzzy
+#~ msgid "The PPP options dialog"
+#~ msgstr "Tùy chọn PPP"

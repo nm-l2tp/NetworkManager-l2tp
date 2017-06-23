@@ -1,27 +1,22 @@
-# translation of network-manager-l2tp.master.ta.po to Tamil
-# Tamil translation of network-manager-l2tp.
-# Copyright (C) 2009 network-manager-l2tp's COPYRIGHT HOLDER
+# Occitan (post 1500) translation for network-manager-l2tp
+# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
 # This file is distributed under the same license as the network-manager-l2tp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
 #
-# ifelix <ifelix25@gmail.com>, 2009.
-# I. Felix <ifelix@redhat.com>, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-l2tp.master.ta\n"
+"Project-Id-Version: network-manager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-23 17:24+1000\n"
-"PO-Revision-Date: 2009-10-29 15:36+0530\n"
-"Last-Translator: I. Felix <ifelix@redhat.com>\n"
-"Language-Team: Tamil <fedora-trans-ta@redhat.com>\n"
-"Language: ta\n"
+"PO-Revision-Date: 2012-09-14 05:46+0000\n"
+"Last-Translator: Cédric VALMARY (Tot en òc) <cvalmary@yahoo.fr>\n"
+"Language-Team: Occitan (post 1500) <oc@li.org>\n"
+"Language: oc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\\n\n"
-"\n"
-"\n"
-"\n"
+"X-Launchpad-Export-Date: 2015-05-20 17:00+0000\n"
+"X-Generator: Launchpad (build 17508)\n"
 
 #. Otherwise, we have no saved password, or the password flags indicated
 #. * that the password should never be saved.
@@ -29,27 +24,28 @@ msgstr ""
 #: ../auth-dialog/main.c:155
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
-msgstr "மெய்நிகர் தனிப்பட்ட பிணைய '%s'ஐ அணுக உங்களுக்கு அங்கீகாரம் தேவைப்படுகிறது."
+msgstr ""
+"Vos cal vos autentificar per accedir a la ret privada virtuala (VPN) « %s »."
 
 #: ../auth-dialog/main.c:164 ../auth-dialog/main.c:184
 msgid "Authenticate VPN"
-msgstr "அங்கீகரிக்கப்பட்ட VPN"
+msgstr "Autentificar lo VPN"
 
 #: ../auth-dialog/main.c:166 ../properties/nm-l2tp-dialog.ui.h:25
 msgid "Password:"
-msgstr "கடவுச்சொல்:"
+msgstr "Senhal :"
 
 #: ../properties/advanced-dialog.c:188
 msgid "All Available (Default)"
-msgstr "அனைத்தும் கிடைக்கும் (முன்னிருப்பு)"
+msgstr "Segon la disponibilitat (per defaut)"
 
 #: ../properties/advanced-dialog.c:192
 msgid "128-bit (most secure)"
-msgstr "128-பைட் (மேலும் பாதுகாகப்பட்ட)"
+msgstr "128-bit (lo mai securizat)"
 
 #: ../properties/advanced-dialog.c:201
 msgid "40-bit (less secure)"
-msgstr "40-பைட் (குறைந்த பாதுகாப்பு)"
+msgstr "40-bit (lo mens securizat)"
 
 #: ../properties/advanced-dialog.c:305
 msgid "PAP"
@@ -103,9 +99,9 @@ msgid "Property '%s' value '%s' can't be parsed as route metric."
 msgstr ""
 
 #: ../properties/import-export.c:343
-#, c-format
+#, fuzzy, c-format
 msgid "Error parsing property '%s' value '%s'."
-msgstr ""
+msgstr "proprietat « %s » de tipe « %s » pas gerida"
 
 #: ../properties/import-export.c:385
 #, c-format
@@ -124,9 +120,9 @@ msgid ""
 msgstr ""
 
 #: ../properties/import-export.c:627
-#, c-format
+#, fuzzy, c-format
 msgid "Missing required property '%s'"
-msgstr ""
+msgstr "Opcion obligatòria « %s » mancanta."
 
 #: ../properties/import-export.c:657
 #, c-format
@@ -136,12 +132,12 @@ msgstr ""
 #: ../properties/nm-l2tp.c:57
 #, fuzzy
 msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr "Layer 2 Tunneling Protocol (L2TP)"
+msgstr "Protocòl de tunèl Point-to-Point (L2TP)"
 
 #: ../properties/nm-l2tp.c:58
 #, fuzzy
 msgid "Compatible with L2TP VPN servers."
-msgstr "Microsoft மற்றும் மற்ற L2TP VPN சேவையகங்களுடன் குறுக்கவும்."
+msgstr "Compatible amb Microsoft e d'autres servidors VPN L2TP."
 
 #: ../properties/nm-l2tp.c:214
 #, c-format
@@ -222,7 +218,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:1
 #, fuzzy
 msgid "L2TP IPsec Options"
-msgstr "L2TP கூடுதல் விருப்பங்கள்"
+msgstr "Opcions avançada L2TP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -231,12 +227,12 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:3
 #, fuzzy
 msgid "General"
-msgstr "பொதுவான"
+msgstr "General"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
 #, fuzzy
 msgid "Gateway ID:"
-msgstr "கேட்வே (_G):"
+msgstr "_Palanca :"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
@@ -263,24 +259,26 @@ msgid "_Enforce UDP encapsulation"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
-#, fuzzy
 msgid "Ad_vanced"
-msgstr "கூடுதல் (_v)..."
+msgstr "A_vançat"
 
 #: ../properties/nm-l2tp-dialog.ui.h:14
 msgid "_Gateway:"
-msgstr "கேட்வே (_G):"
+msgstr "_Palanca :"
 
 #: ../properties/nm-l2tp-dialog.ui.h:15
+#, fuzzy
 msgid ""
 "L2TP server IP or name.\n"
 "config: xl2tpd lns parameter"
 msgstr ""
+"Nom o adreça IP del servidor L2TP.\n"
+"configuracion : lo primièr paramètre de l2tp"
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 #, fuzzy
 msgid "Optional"
-msgstr "விருப்பத்திற்குரிய"
+msgstr "Opcional"
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid ""
@@ -288,29 +286,37 @@ msgid ""
 "purposes.\n"
 "config: domain <domain>"
 msgstr ""
+"Apond lo nom de domeni <domeni> al nom d'òste local per se poder "
+"autentificar.\n"
+"configuracion : domain <domeni>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "Show password"
-msgstr "கடவுச்சொல்லைக் காட்டு"
+msgstr "Afichar lo senhal"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
+#, fuzzy
 msgid "Password passed to PPPD when prompted for it."
-msgstr ""
+msgstr "Senhal transmés a L2TP quand aqueste es demandat."
 
 #: ../properties/nm-l2tp-dialog.ui.h:22
+#, fuzzy
 msgid ""
 "Set the name used for authenticating the local system to the peer to "
 "<name>.\n"
 "config: xl2tpd name parameter"
 msgstr ""
+"Definís lo nom utilizat per autentificar lo sistèma local per la "
+"comunicacion amb <nom>.\n"
+"configuracion : user <nom>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "User name:"
-msgstr "பயனர் பெயர்:"
+msgstr "Nom d'utilizaire :"
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid "NT Domain:"
-msgstr "NT செயற்களம்:"
+msgstr "Domeni NT :"
 
 #: ../properties/nm-l2tp-dialog.ui.h:27
 msgid "_IPsec Settings..."
@@ -322,36 +328,38 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:29
 msgid "Default"
-msgstr "முன்னிருப்பு"
+msgstr "Per defaut"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
-#, fuzzy
 msgid "L2TP PPP Options"
-msgstr "L2TP கூடுதல் விருப்பங்கள்"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
 #, fuzzy
 msgid "Authentication"
-msgstr "உறுதிப்படுத்து"
+msgstr "Autentificacion"
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
 msgid "Allow the following authentication methods:"
-msgstr "பின்வரும் அங்கீகார முறைகளை அனுமதிக்கவும்:"
+msgstr "Permetre los metòdes d'autentificacion seguentas :"
 
 #: ../properties/nm-l2tp-dialog.ui.h:33
 msgid ""
 "Allow/disable authentication methods.\n"
 "config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 msgstr ""
+"Autoriza/desactiva los metòdes d'autentificacion.\n"
+"configuracion : refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, "
+"refuse-eap"
 
 #: ../properties/nm-l2tp-dialog.ui.h:35
 #, fuzzy
 msgid "Security and Compression"
-msgstr "பாதுகாப்பு மற்றும் குறுக்கு"
+msgstr "Seguretat e compression"
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid "Use _Point-to-Point encryption (MPPE)"
-msgstr "புள்ளியிலிருந்து புள்ளி குறிமறையாக்கத்தை பயன்படுத்து (MPPE) (_P)"
+msgstr "Utilizar lo chiframent _Point-to-Point (MPPE)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:37
 msgid ""
@@ -359,53 +367,63 @@ msgid ""
 "To enable this checkbox, select one or more of the MSCHAP authentication "
 "methods: MSCHAP or MSCHAPv2."
 msgstr ""
-"குறிப்பு: MPPE குறிமறையாக்கம் MSCHAP அங்கீகரிக்கப்பட்ட முறைகளில் மட்டுமே இருக்கும். "
-"சரிபார்க்கும் பெட்டியை செயல்படுத்த, ஒன்று அல்லது அதிக MSCHAP அங்கீகரிக்கப்பட்ட  முறைகளைத் "
-"தேர்ந்தெடுக்கலாம்: MSCHAP அல்லது MSCHAPv2."
+"Nòta : lo chiframent MPPE es pas disponible qu'amb los metòdes "
+"d'autentificacion MSCHAP. Per activar aquesta casa de marcar, seleccionatz "
+"al mens un dels metòdes d'autentificacion MSCHAP : MSCHAP o MSCHAPv2."
 
 #: ../properties/nm-l2tp-dialog.ui.h:38
 msgid "_Security:"
-msgstr "பாதுகாப்பு (_S):"
+msgstr "_Seguretat :"
 
 #: ../properties/nm-l2tp-dialog.ui.h:39
 msgid ""
 "Require the use of MPPE, with 40/128-bit encryption or all.\n"
 "config: require-mppe, require-mppe-128 or require-mppe-40"
 msgstr ""
+"Necessita l'utilizacion de MPPE, amb lo chiframent sus 40 o 128 bits o los "
+"dos.\n"
+"configuracion : require-mppe, require-mppe-128 o require-mppe-40"
 
 #: ../properties/nm-l2tp-dialog.ui.h:41
 msgid "Allow st_ateful encryption"
-msgstr "நிலை குறிமறையாக்கத்தை அனுமதிக்கவும் (_a)"
+msgstr "Permetre lo _chiframent amb estat"
 
 #: ../properties/nm-l2tp-dialog.ui.h:42
 msgid ""
 "Allow MPPE to use stateful mode. Stateless mode is still attempted first.\n"
 "config: mppe-stateful (when checked)"
 msgstr ""
+"Permet a MPPE d'utilizar lo mòde amb estat. Lo mòde sens estat es totjorn "
+"temptat en primièr.\n"
+"configuracion : mppe-stateful (se marcat)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:44
 msgid "Allow _BSD data compression"
-msgstr "_BSD தரவு குறுக்கை அனுமதிக்கவும் (_B)"
+msgstr "Permetre la compression de donadas _BSD"
 
 #: ../properties/nm-l2tp-dialog.ui.h:45
 msgid ""
 "Allow/disable BSD-Compress compression.\n"
 "config: nobsdcomp (when unchecked)"
 msgstr ""
+"Autoriza/desactiva la compression BSD-Compress.\n"
+"configuracion : nobsdcomp (se desmarcat)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:47
 msgid "Allow _Deflate data compression"
-msgstr "டீப்ளைட் தரவு குறுக்கை அனுமதிக்கவும் (_D)"
+msgstr "Permetre la compression de donadas « _Deflate »"
 
 #: ../properties/nm-l2tp-dialog.ui.h:48
 msgid ""
 "Allow/disable Deflate compression.\n"
 "config: nodeflate (when unchecked)"
 msgstr ""
+"Autoriza/desactiva la compression Deflate.\n"
+"configuracion : nodeflate (se desmarcat)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:50
 msgid "Use TCP _header compression"
-msgstr "TCP தலைப்பு குறுக்கை பயன்படுத்து (_h)"
+msgstr "Utilizar la compression de las _entèstas TCP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:51
 msgid ""
@@ -413,28 +431,39 @@ msgid ""
 "transmit and the receive directions.\n"
 "config: novj (when unchecked)"
 msgstr ""
+"Autoriza/desactiva la compression d'entèsta TCP/IP d'estil Van Jacobson a "
+"l'encòp en transmission e en recepcion.\n"
+"configuracion : novj (se desmarcat)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:53
 msgid "Use protocol _field compression negotiation"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:54
+#, fuzzy
 msgid ""
 "Allow protocol field compression negotiation in both the receive and the "
 "transmit direction.\n"
 "config: nopcomp (when unchecked)"
 msgstr ""
+"Autoriza/desactiva la compression d'entèsta TCP/IP d'estil Van Jacobson a "
+"l'encòp en transmission e en recepcion.\n"
+"configuracion : novj (se desmarcat)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:56
 #, fuzzy
 msgid "Use _Address/Control compression"
-msgstr "TCP தலைப்பு குறுக்கை பயன்படுத்து (_h)"
+msgstr "Utilizar la compression de las _entèstas TCP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:57
+#, fuzzy
 msgid ""
 "Use Address/Control compression in both directions (send and receive).\n"
 "config: noaccomp (when unchecked)"
 msgstr ""
+"Autoriza/desactiva la compression d'entèsta TCP/IP d'estil Van Jacobson a "
+"l'encòp en transmission e en recepcion.\n"
+"configuracion : novj (se desmarcat)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:59
 msgid "Echo"
@@ -442,13 +471,15 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:60
 msgid "Send PPP _echo packets"
-msgstr "PPP எதிரொலி பாக்கெட்டுகளை அனுப்பு (_e)"
+msgstr "Mandar los pa_quets de resson PPP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:61
 msgid ""
 "Send LCP echo-requests to find out whether peer is alive.\n"
 "config: lcp-echo-failure and lcp-echo-interval"
 msgstr ""
+"Manda las requèstas-resson LCP per tal de saber se lo client es actiu.\n"
+"configuracion : lcp-echo-failure e lcp-echo-interval"
 
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid "Misc"
@@ -474,37 +505,37 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:538
 #, c-format
 msgid "invalid gateway '%s'"
-msgstr ""
+msgstr "palanca « %s » invalida"
 
 #: ../src/nm-l2tp-service.c:547
-#, c-format
+#, fuzzy, c-format
 msgid "invalid ipsec-gateway-id '%s'"
-msgstr ""
+msgstr "palanca « %s » invalida"
 
 #: ../src/nm-l2tp-service.c:560
 #, c-format
 msgid "invalid integer property '%s'"
-msgstr ""
+msgstr "proprietat nombre entièr « %s » invalida"
 
 #: ../src/nm-l2tp-service.c:570
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
-msgstr ""
+msgstr "proprietat booleana « %s » invalida (ni òc, ni non)"
 
 #: ../src/nm-l2tp-service.c:577
 #, c-format
 msgid "unhandled property '%s' type %s"
-msgstr ""
+msgstr "proprietat « %s » de tipe « %s » pas gerida"
 
 #: ../src/nm-l2tp-service.c:588
 #, c-format
 msgid "property '%s' invalid or not supported"
-msgstr ""
+msgstr "proprietat « %s » invalida o pas presa en carga"
 
 #: ../src/nm-l2tp-service.c:619
 #, c-format
 msgid "Missing required option '%s'."
-msgstr ""
+msgstr "Opcion obligatòria « %s » mancanta."
 
 #: ../src/nm-l2tp-service.c:655
 #, c-format
@@ -609,22 +640,37 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1852
 msgid "Don't quit when VPN connection terminates"
-msgstr ""
+msgstr "Quitar pas quend la connexion VPN s'acaba"
 
 #: ../src/nm-l2tp-service.c:1853
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr ""
+msgstr "Activar lo desbugatge verbós (de senhals pòdon aparéisser)"
 
 #: ../src/nm-l2tp-service.c:1876
+#, fuzzy
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
 msgstr ""
+"nm-l2tp-service ofrís de foncions de VPN L2TP integradas a NetworkManager "
+"(compatible amb Microsoft e d'autras implementacions)."
 
 #, fuzzy
 #~ msgid "Compatible with L2TP and L2TP over IPsec services."
-#~ msgstr "Microsoft மற்றும் மற்ற L2TP VPN சேவையகங்களுடன் குறுக்கவும்."
+#~ msgstr "Compatible amb Microsoft e d'autres servidors VPN L2TP."
 
 #, fuzzy
-#~ msgid "The PPP options dialog"
-#~ msgstr "L2TP கூடுதல் விருப்பங்கள்"
+#~ msgid "Error parsing property '%s': %s."
+#~ msgstr "proprietat « %s » de tipe « %s » pas gerida"
+
+#~ msgid "No VPN configuration options."
+#~ msgstr "Pas d'opcions de configuracion VPN."
+
+#~ msgid "No VPN secrets!"
+#~ msgstr "Pas d'infos secretas VPN !"
+
+#~ msgid "Missing VPN username."
+#~ msgstr "Nom d'utilizaire VPN mancant."
+
+#~ msgid "Missing or invalid VPN password."
+#~ msgstr "Senhal VPN mancant o invalid."

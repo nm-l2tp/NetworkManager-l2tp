@@ -1,27 +1,17 @@
-# translation of network-manager-l2tp.master.ta.po to Tamil
-# Tamil translation of network-manager-l2tp.
-# Copyright (C) 2009 network-manager-l2tp's COPYRIGHT HOLDER
-# This file is distributed under the same license as the network-manager-l2tp package.
-#
-# ifelix <ifelix25@gmail.com>, 2009.
-# I. Felix <ifelix@redhat.com>, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-l2tp.master.ta\n"
+"Project-Id-Version: network-manager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-23 17:24+1000\n"
-"PO-Revision-Date: 2009-10-29 15:36+0530\n"
-"Last-Translator: I. Felix <ifelix@redhat.com>\n"
-"Language-Team: Tamil <fedora-trans-ta@redhat.com>\n"
-"Language: ta\n"
+"PO-Revision-Date: 2015-02-04 16:06+0000\n"
+"Last-Translator: Samir Ribić <Unknown>\n"
+"Language-Team: Bosnian <bs@li.org>\n"
+"Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\\n\n"
-"\n"
-"\n"
-"\n"
+"X-Launchpad-Export-Date: 2015-02-05 06:50+0000\n"
+"X-Generator: Launchpad (build 17331)\n"
 
 #. Otherwise, we have no saved password, or the password flags indicated
 #. * that the password should never be saved.
@@ -29,27 +19,28 @@ msgstr ""
 #: ../auth-dialog/main.c:155
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
-msgstr "மெய்நிகர் தனிப்பட்ட பிணைய '%s'ஐ அணுக உங்களுக்கு அங்கீகாரம் தேவைப்படுகிறது."
+msgstr ""
+"Trebate provjeriti atutentičnost za pristup virtuelnoj privatnoj mreži '%s'."
 
 #: ../auth-dialog/main.c:164 ../auth-dialog/main.c:184
 msgid "Authenticate VPN"
-msgstr "அங்கீகரிக்கப்பட்ட VPN"
+msgstr "Autentificiraj VPN"
 
 #: ../auth-dialog/main.c:166 ../properties/nm-l2tp-dialog.ui.h:25
 msgid "Password:"
-msgstr "கடவுச்சொல்:"
+msgstr "Lozinka:"
 
 #: ../properties/advanced-dialog.c:188
 msgid "All Available (Default)"
-msgstr "அனைத்தும் கிடைக்கும் (முன்னிருப்பு)"
+msgstr "Sve dostupne (Podrazumijevano)"
 
 #: ../properties/advanced-dialog.c:192
 msgid "128-bit (most secure)"
-msgstr "128-பைட் (மேலும் பாதுகாகப்பட்ட)"
+msgstr "128-bit (najsigurnija)"
 
 #: ../properties/advanced-dialog.c:201
 msgid "40-bit (less secure)"
-msgstr "40-பைட் (குறைந்த பாதுகாப்பு)"
+msgstr "40-bit (manje sigurno)"
 
 #: ../properties/advanced-dialog.c:305
 msgid "PAP"
@@ -103,9 +94,9 @@ msgid "Property '%s' value '%s' can't be parsed as route metric."
 msgstr ""
 
 #: ../properties/import-export.c:343
-#, c-format
+#, fuzzy, c-format
 msgid "Error parsing property '%s' value '%s'."
-msgstr ""
+msgstr "neobrađeno svojstvo '%s' tipa %s"
 
 #: ../properties/import-export.c:385
 #, c-format
@@ -124,9 +115,9 @@ msgid ""
 msgstr ""
 
 #: ../properties/import-export.c:627
-#, c-format
+#, fuzzy, c-format
 msgid "Missing required property '%s'"
-msgstr ""
+msgstr "Nedostaje potebna opcija '%s'."
 
 #: ../properties/import-export.c:657
 #, c-format
@@ -136,12 +127,12 @@ msgstr ""
 #: ../properties/nm-l2tp.c:57
 #, fuzzy
 msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr "Layer 2 Tunneling Protocol (L2TP)"
+msgstr "Point-to-Point tunelski protokol (L2TP)"
 
 #: ../properties/nm-l2tp.c:58
 #, fuzzy
 msgid "Compatible with L2TP VPN servers."
-msgstr "Microsoft மற்றும் மற்ற L2TP VPN சேவையகங்களுடன் குறுக்கவும்."
+msgstr "Kompatibilno ss Microsoft i drugim L2TP VPN serverima."
 
 #: ../properties/nm-l2tp.c:214
 #, c-format
@@ -222,7 +213,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:1
 #, fuzzy
 msgid "L2TP IPsec Options"
-msgstr "L2TP கூடுதல் விருப்பங்கள்"
+msgstr "L2TP napredne opcije"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -231,12 +222,12 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:3
 #, fuzzy
 msgid "General"
-msgstr "பொதுவான"
+msgstr "Opšte"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
 #, fuzzy
 msgid "Gateway ID:"
-msgstr "கேட்வே (_G):"
+msgstr "_Mrežni izlaz:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
@@ -252,11 +243,11 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:10
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "Faza2Algoritmi;:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:11
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "Faza1Algoritmi;:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
 msgid "_Enforce UDP encapsulation"
@@ -265,22 +256,25 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:13
 #, fuzzy
 msgid "Ad_vanced"
-msgstr "கூடுதல் (_v)..."
+msgstr "Na_predno..."
 
 #: ../properties/nm-l2tp-dialog.ui.h:14
 msgid "_Gateway:"
-msgstr "கேட்வே (_G):"
+msgstr "_Mrežni izlaz:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:15
+#, fuzzy
 msgid ""
 "L2TP server IP or name.\n"
 "config: xl2tpd lns parameter"
 msgstr ""
+"L2TP server IP ili ime.\n"
+"config: prvi parametar za l2tp"
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 #, fuzzy
 msgid "Optional"
-msgstr "விருப்பத்திற்குரிய"
+msgstr "Opciono"
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid ""
@@ -288,29 +282,36 @@ msgid ""
 "purposes.\n"
 "config: domain <domain>"
 msgstr ""
+"Dodaj ime domene <domain> na lokalni ime hosta za svrhu autentifikacije.\n"
+"config: domain <domain>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "Show password"
-msgstr "கடவுச்சொல்லைக் காட்டு"
+msgstr "Prikaži lozinku"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
+#, fuzzy
 msgid "Password passed to PPPD when prompted for it."
-msgstr ""
+msgstr "Lozinka proslijeđena na L2TP kada je upitano za nju."
 
 #: ../properties/nm-l2tp-dialog.ui.h:22
+#, fuzzy
 msgid ""
 "Set the name used for authenticating the local system to the peer to "
 "<name>.\n"
 "config: xl2tpd name parameter"
 msgstr ""
+"Postavi ime korišteno za autentificiranje lokalnog sistema korisniku s "
+"imenom <name>.\n"
+"config: user <name>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "User name:"
-msgstr "பயனர் பெயர்:"
+msgstr "Korisničko ime:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid "NT Domain:"
-msgstr "NT செயற்களம்:"
+msgstr "NT Domena:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:27
 msgid "_IPsec Settings..."
@@ -322,36 +323,37 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:29
 msgid "Default"
-msgstr "முன்னிருப்பு"
+msgstr "Podrazumijevano"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
-#, fuzzy
 msgid "L2TP PPP Options"
-msgstr "L2TP கூடுதல் விருப்பங்கள்"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
 #, fuzzy
 msgid "Authentication"
-msgstr "உறுதிப்படுத்து"
+msgstr "Autentifikacija"
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
 msgid "Allow the following authentication methods:"
-msgstr "பின்வரும் அங்கீகார முறைகளை அனுமதிக்கவும்:"
+msgstr "DOpusti sljedeće metode provjere autentičnosti:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:33
 msgid ""
 "Allow/disable authentication methods.\n"
 "config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 msgstr ""
+"Dopusti/onemogući metode autentifikacije.\n"
+"config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 
 #: ../properties/nm-l2tp-dialog.ui.h:35
 #, fuzzy
 msgid "Security and Compression"
-msgstr "பாதுகாப்பு மற்றும் குறுக்கு"
+msgstr "Sigurnost i kompresija"
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid "Use _Point-to-Point encryption (MPPE)"
-msgstr "புள்ளியிலிருந்து புள்ளி குறிமறையாக்கத்தை பயன்படுத்து (MPPE) (_P)"
+msgstr "Koriti _Point-to-Point šifrovanje (MPPE)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:37
 msgid ""
@@ -359,53 +361,62 @@ msgid ""
 "To enable this checkbox, select one or more of the MSCHAP authentication "
 "methods: MSCHAP or MSCHAPv2."
 msgstr ""
-"குறிப்பு: MPPE குறிமறையாக்கம் MSCHAP அங்கீகரிக்கப்பட்ட முறைகளில் மட்டுமே இருக்கும். "
-"சரிபார்க்கும் பெட்டியை செயல்படுத்த, ஒன்று அல்லது அதிக MSCHAP அங்கீகரிக்கப்பட்ட  முறைகளைத் "
-"தேர்ந்தெடுக்கலாம்: MSCHAP அல்லது MSCHAPv2."
+"Napomena: MPPE šifrovanje je dostupno samo sa MSCHAP autentifikacijskim "
+"metodama. Da biste omogućili ovu kućicu, izaberite jednu ili više MSCHAP "
+"metoda potvrde identiteta: MSCHAP ili MSCHAPv2."
 
 #: ../properties/nm-l2tp-dialog.ui.h:38
 msgid "_Security:"
-msgstr "பாதுகாப்பு (_S):"
+msgstr "_Bezbijednost:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:39
 msgid ""
 "Require the use of MPPE, with 40/128-bit encryption or all.\n"
 "config: require-mppe, require-mppe-128 or require-mppe-40"
 msgstr ""
+"Zahtijevaj upotrebu MPPE, sa 40/128-bit enkripcijom ili sve.\n"
+"config: require-mppe, require-mppe-128 or require-mppe-40"
 
 #: ../properties/nm-l2tp-dialog.ui.h:41
 msgid "Allow st_ateful encryption"
-msgstr "நிலை குறிமறையாக்கத்தை அனுமதிக்கவும் (_a)"
+msgstr "Dopusti šifrovanje s s_tanjima"
 
 #: ../properties/nm-l2tp-dialog.ui.h:42
 msgid ""
 "Allow MPPE to use stateful mode. Stateless mode is still attempted first.\n"
 "config: mppe-stateful (when checked)"
 msgstr ""
+"Dopusti da MPPE koristi režim s stanjima. Režim bez stanja se i dalje proba "
+"prvi.\n"
+"config: mppe-stateful (kada je izabrano)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:44
 msgid "Allow _BSD data compression"
-msgstr "_BSD தரவு குறுக்கை அனுமதிக்கவும் (_B)"
+msgstr "Dozvoli _BSD pakovanje podataka"
 
 #: ../properties/nm-l2tp-dialog.ui.h:45
 msgid ""
 "Allow/disable BSD-Compress compression.\n"
 "config: nobsdcomp (when unchecked)"
 msgstr ""
+"Dopusti/onemogući BSD-Compress kompresiju.\n"
+"config: nobsdcomp (kada nije izabrano)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:47
 msgid "Allow _Deflate data compression"
-msgstr "டீப்ளைட் தரவு குறுக்கை அனுமதிக்கவும் (_D)"
+msgstr "Dozvoli _Deflate pakovanje podataka"
 
 #: ../properties/nm-l2tp-dialog.ui.h:48
 msgid ""
 "Allow/disable Deflate compression.\n"
 "config: nodeflate (when unchecked)"
 msgstr ""
+"Dopusti/onemogući Deflate kompresiju.\n"
+"config: nodeflate (kada nije izabrano)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:50
 msgid "Use TCP _header compression"
-msgstr "TCP தலைப்பு குறுக்கை பயன்படுத்து (_h)"
+msgstr "Koristi _komprimovanje TCP zaglavlja"
 
 #: ../properties/nm-l2tp-dialog.ui.h:51
 msgid ""
@@ -413,28 +424,39 @@ msgid ""
 "transmit and the receive directions.\n"
 "config: novj (when unchecked)"
 msgstr ""
+"Dopusti/onemogući Van Jacobson TCP/IP kompresiju zaglavlja u pravcima slanja "
+"i prijema.\n"
+"config: novj (kada nije izabrano)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:53
 msgid "Use protocol _field compression negotiation"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:54
+#, fuzzy
 msgid ""
 "Allow protocol field compression negotiation in both the receive and the "
 "transmit direction.\n"
 "config: nopcomp (when unchecked)"
 msgstr ""
+"Dopusti/onemogući Van Jacobson TCP/IP kompresiju zaglavlja u pravcima slanja "
+"i prijema.\n"
+"config: novj (kada nije izabrano)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:56
 #, fuzzy
 msgid "Use _Address/Control compression"
-msgstr "TCP தலைப்பு குறுக்கை பயன்படுத்து (_h)"
+msgstr "Koristi _komprimovanje TCP zaglavlja"
 
 #: ../properties/nm-l2tp-dialog.ui.h:57
+#, fuzzy
 msgid ""
 "Use Address/Control compression in both directions (send and receive).\n"
 "config: noaccomp (when unchecked)"
 msgstr ""
+"Dopusti/onemogući Van Jacobson TCP/IP kompresiju zaglavlja u pravcima slanja "
+"i prijema.\n"
+"config: novj (kada nije izabrano)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:59
 msgid "Echo"
@@ -442,13 +464,15 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:60
 msgid "Send PPP _echo packets"
-msgstr "PPP எதிரொலி பாக்கெட்டுகளை அனுப்பு (_e)"
+msgstr "Šalji PPP _eho pakete"
 
 #: ../properties/nm-l2tp-dialog.ui.h:61
 msgid ""
 "Send LCP echo-requests to find out whether peer is alive.\n"
 "config: lcp-echo-failure and lcp-echo-interval"
 msgstr ""
+"Pošalji LCP echo-requests da se vidi da li je saradnik aktivan.\n"
+"config: lcp-echo-failure i lcp-echo-interval"
 
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid "Misc"
@@ -474,37 +498,37 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:538
 #, c-format
 msgid "invalid gateway '%s'"
-msgstr ""
+msgstr "nevažeći mrežni izlaz '%s'"
 
 #: ../src/nm-l2tp-service.c:547
-#, c-format
+#, fuzzy, c-format
 msgid "invalid ipsec-gateway-id '%s'"
-msgstr ""
+msgstr "nevažeći mrežni izlaz '%s'"
 
 #: ../src/nm-l2tp-service.c:560
 #, c-format
 msgid "invalid integer property '%s'"
-msgstr ""
+msgstr "nevažeće cjelobrojno svojstvo'%s'"
 
 #: ../src/nm-l2tp-service.c:570
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
-msgstr ""
+msgstr "nevažeće bulovo svojstvo '%s' (nije da ili ne)"
 
 #: ../src/nm-l2tp-service.c:577
 #, c-format
 msgid "unhandled property '%s' type %s"
-msgstr ""
+msgstr "neobrađeno svojstvo '%s' tipa %s"
 
 #: ../src/nm-l2tp-service.c:588
 #, c-format
 msgid "property '%s' invalid or not supported"
-msgstr ""
+msgstr "svojstvo '%s' nevažeće ili nije podržano"
 
 #: ../src/nm-l2tp-service.c:619
 #, c-format
 msgid "Missing required option '%s'."
-msgstr ""
+msgstr "Nedostaje potebna opcija '%s'."
 
 #: ../src/nm-l2tp-service.c:655
 #, c-format
@@ -609,22 +633,37 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1852
 msgid "Don't quit when VPN connection terminates"
-msgstr ""
+msgstr "Ne izlazi kada se VPN konekcija prekida"
 
 #: ../src/nm-l2tp-service.c:1853
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr ""
+msgstr "Omogući detaljno praćenje grešaka (može otkriti lozinke)"
 
 #: ../src/nm-l2tp-service.c:1876
+#, fuzzy
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
 msgstr ""
+"nM-L2TP-servis pruža integrisane L2TP VPN mogućnosti (kompatibilan sa "
+"Microsoft i drugim implementacijama) za NetvorkManager."
 
 #, fuzzy
 #~ msgid "Compatible with L2TP and L2TP over IPsec services."
-#~ msgstr "Microsoft மற்றும் மற்ற L2TP VPN சேவையகங்களுடன் குறுக்கவும்."
+#~ msgstr "Kompatibilno ss Microsoft i drugim L2TP VPN serverima."
 
 #, fuzzy
-#~ msgid "The PPP options dialog"
-#~ msgstr "L2TP கூடுதல் விருப்பங்கள்"
+#~ msgid "Error parsing property '%s': %s."
+#~ msgstr "neobrađeno svojstvo '%s' tipa %s"
+
+#~ msgid "No VPN configuration options."
+#~ msgstr "Nema VPN konfiguracijskih opcija."
+
+#~ msgid "No VPN secrets!"
+#~ msgstr "Nema VPN tajni!"
+
+#~ msgid "Missing VPN username."
+#~ msgstr "Nedostaje VPN korisničko ime."
+
+#~ msgid "Missing or invalid VPN password."
+#~ msgstr "Neodstaje ili ne važi VPN lozinka."
