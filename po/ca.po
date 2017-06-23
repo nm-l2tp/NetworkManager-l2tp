@@ -357,7 +357,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:1
 #, fuzzy
 msgid "L2TP IPsec Options"
-msgstr "Opcions PPP"
+msgstr "Opcions IPsec"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
