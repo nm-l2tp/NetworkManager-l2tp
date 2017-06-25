@@ -141,7 +141,7 @@ nm_l2tp_ipsec_error(GError **error, const char *msg) {
 	g_set_error_literal (error,
 			NM_VPN_PLUGIN_ERROR,
 			NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
-			_(msg));
+			msg);
 	return FALSE;
 }
 
@@ -211,7 +211,7 @@ _service_cache_credentials (NML2tpPppService *self,
 
 	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
 	if (!s_vpn) {
-		return nm_l2tp_ipsec_error(error, "Could not load NetworkManager connection settings.");
+		return nm_l2tp_ipsec_error(error, _("Could not load NetworkManager connection settings."));
 	}
 
 	/* Username; try L2TP specific username first, then generic username */
@@ -219,13 +219,13 @@ _service_cache_credentials (NML2tpPppService *self,
 	if (!username || !*username) {
 		username = nm_setting_vpn_get_user_name (s_vpn);
 		if (!username || !*username) {
-			return nm_l2tp_ipsec_error(error, "Missing VPN username.");
+			return nm_l2tp_ipsec_error(error, _("Missing VPN username."));
 		}
 	}
 
 	password = nm_setting_vpn_get_secret (s_vpn, NM_L2TP_KEY_PASSWORD);
 	if (!password || !*password) {
-		return nm_l2tp_ipsec_error(error, "Missing or invalid VPN password.");
+		return nm_l2tp_ipsec_error(error, _("Missing or invalid VPN password."));
 	}
 
 	domain = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_DOMAIN);
@@ -346,7 +346,7 @@ impl_l2tp_service_need_secrets (NML2tpPppService *self,
 	g_signal_emit (G_OBJECT (self), signals[PLUGIN_ALIVE], 0);
 
 	if (!*priv->username || !*priv->password) {
-		return nm_l2tp_ipsec_error(error, "No cached credentials.");
+		return nm_l2tp_ipsec_error(error, _("No cached credentials."));
 	}
 
 	/* Success */
@@ -599,7 +599,7 @@ nm_l2tp_properties_validate (NMSettingVPN *s_vpn,
 
 	nm_setting_vpn_foreach_data_item (s_vpn, validate_one_property, &info);
 	if (!info.have_items) {
-		return nm_l2tp_ipsec_error(error, "No VPN configuration options.");
+		return nm_l2tp_ipsec_error(error, _("No VPN configuration options."));
 	}
 
 	if (*error) return FALSE;
@@ -632,7 +632,7 @@ nm_l2tp_secrets_validate (NMSettingVPN *s_vpn, GError **error)
 
 	nm_setting_vpn_foreach_secret (s_vpn, validate_one_property, &info);
 	if (!info.have_items) {
-		return nm_l2tp_ipsec_error(error, "No VPN secrets!");
+		return nm_l2tp_ipsec_error(error, _("No VPN secrets!"));
 	}
 
 	return *error ? FALSE : TRUE;
@@ -957,13 +957,13 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 			snprintf (cmdbuf, sizeof(cmdbuf), "%s start", priv->ipsec_binary_path);
 			sys = system (cmdbuf);
 			if (sys) {
-				return nm_l2tp_ipsec_error (error, "Could not start the ipsec service.");
+				return nm_l2tp_ipsec_error (error, _("Could not start the ipsec service."));
 			}
 		} else {
 			snprintf (cmdbuf, sizeof(cmdbuf), "%s restart", priv->ipsec_binary_path);
 			sys = system (cmdbuf);
 			if (sys) {
-				return nm_l2tp_ipsec_error (error, "Could not restart the ipsec service.");
+				return nm_l2tp_ipsec_error (error, _("Could not restart the ipsec service."));
 			}
 		}
 		/* wait for Libreswan to get ready before performing an up operation */
@@ -982,7 +982,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 				             priv->ipsec_binary_path, priv->uuid);
 			sys = system (cmdbuf);
 			if (sys) {
-				return nm_l2tp_ipsec_error(error, "Could not start the ipsec service.");
+				return nm_l2tp_ipsec_error(error, _("Could not start the ipsec service."));
 			}
 		} else {
 			snprintf (cmdbuf, sizeof(cmdbuf), "%s restart "
@@ -990,7 +990,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 				             priv->ipsec_binary_path, priv->uuid);
 			sys = system (cmdbuf);
 			if (sys) {
-				return nm_l2tp_ipsec_error(error, "Could not restart the ipsec service.");
+				return nm_l2tp_ipsec_error(error, _("Could not restart the ipsec service."));
 			}
 		}
 		/* wait for strongSwan to get ready before performing an up operation  */
@@ -1104,7 +1104,7 @@ nm_l2tp_start_l2tpd_binary (NML2tpPlugin *plugin,
 
 	l2tpd_binary = nm_find_l2tpd ();
 	if (!l2tpd_binary) {
-		return nm_l2tp_ipsec_error(error, "Could not find the xl2tpd binary.");
+		return nm_l2tp_ipsec_error(error, _("Could not find the xl2tpd binary."));
 	}
 
 	l2tpd_argv = g_ptr_array_new ();
@@ -1307,7 +1307,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR);
 		g_free (filename);
 		if (fd == -1) {
-			return nm_l2tp_ipsec_error(error, "Could not write ipsec config.");
+			return nm_l2tp_ipsec_error(error, _("Could not write ipsec config."));
 		}
 
 		write_config_option (fd, 		"conn %s\n", priv->uuid);
@@ -1359,7 +1359,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	g_free (filename);
 
 	if (fd == -1) {
-		return nm_l2tp_ipsec_error(error, "Could not write xl2tpd config.");
+		return nm_l2tp_ipsec_error(error, _("Could not write xl2tpd config."));
 	}
 
 	write_config_option (fd, "[global]\n");
@@ -1409,7 +1409,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	g_free (filename);
 
 	if (fd == -1) {
-		return nm_l2tp_ipsec_error(error, "Could not write ppp options.");
+		return nm_l2tp_ipsec_error(error, _("Could not write ppp options."));
 	}
 
 	if (debug)
@@ -1610,13 +1610,13 @@ real_connect (NMVPNPlugin   *plugin,
 	priv->is_libreswan = TRUE;
 	if(value && !strcmp(value,"yes")) {
 		if (!(value=nm_find_ipsec ())) {
-			return nm_l2tp_ipsec_error (error, "Could not find the ipsec binary. Is Libreswan or strongSwan installed?");
+			return nm_l2tp_ipsec_error (error, _("Could not find the ipsec binary. Is Libreswan or strongSwan installed?"));
 		}
 
 		strncpy (priv->ipsec_binary_path, value, sizeof(priv->ipsec_binary_path));
 		priv->is_libreswan = check_is_libreswan (priv->ipsec_binary_path);
 		if (!priv->is_libreswan && !check_is_strongswan (priv->ipsec_binary_path)) {
-			return nm_l2tp_ipsec_error (error, "Neither Libreswan nor strongSwan were found.");
+			return nm_l2tp_ipsec_error (error, _("Neither Libreswan nor strongSwan were found."));
 		}
 	}
 
@@ -1636,14 +1636,14 @@ real_connect (NMVPNPlugin   *plugin,
 	/* Start our pppd plugin helper service */
 	priv->service = nm_l2tp_ppp_service_new (connection, error);
 	if (!priv->service) {
-		return nm_l2tp_ipsec_error(error, "Could not start pppd plugin helper service.");
+		return nm_l2tp_ipsec_error(error, _("Could not start pppd plugin helper service."));
 	}
 
 	priv->connection = g_object_ref (connection);
 
 	uuid = nm_connection_get_uuid (priv->connection);
 	if (!(uuid && *uuid)) {
-		return nm_l2tp_ipsec_error(error, "could not retrieve connection UUID");
+		return nm_l2tp_ipsec_error(error, _("could not retrieve connection UUID"));
 	}
 
 	g_free (priv->uuid);
