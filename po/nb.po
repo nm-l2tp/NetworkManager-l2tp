@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-23 17:24+1000\n"
+"POT-Creation-Date: 2017-06-25 22:36+1000\n"
 "PO-Revision-Date: 2012-11-06 07:32+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
@@ -451,9 +451,25 @@ msgstr ""
 msgid "MRU :"
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:214
+msgid "Could not load NetworkManager connection settings."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:222
+msgid "Missing VPN username."
+msgstr "Mangler brukernavn for VPN."
+
+#: ../src/nm-l2tp-service.c:228
+msgid "Missing or invalid VPN password."
+msgstr "Passord for VPN mangler eller er ugyldig."
+
 #: ../src/nm-l2tp-service.c:270
 #, c-format
 msgid "Could not register D-Bus service name.  Message: %s"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:349
+msgid "No cached credentials."
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:377
@@ -490,10 +506,18 @@ msgstr ""
 msgid "property '%s' invalid or not supported"
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:602
+msgid "No VPN configuration options."
+msgstr "Ingen konfigurasjonsvalg for VPN."
+
 #: ../src/nm-l2tp-service.c:619
 #, c-format
 msgid "Missing required option '%s'."
 msgstr "Mangler obligatorisk valg «%s»."
+
+#: ../src/nm-l2tp-service.c:635
+msgid "No VPN secrets!"
+msgstr "Ingen hemmeligheter for VPN!"
 
 #: ../src/nm-l2tp-service.c:655
 #, c-format
@@ -543,6 +567,14 @@ msgstr ""
 msgid "Use '%s' as a gateway"
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:960 ../src/nm-l2tp-service.c:985
+msgid "Could not start the ipsec service."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:966 ../src/nm-l2tp-service.c:993
+msgid "Could not restart the ipsec service."
+msgstr ""
+
 #: ../src/nm-l2tp-service.c:1043
 msgid "IPsec service is not ready."
 msgstr ""
@@ -561,6 +593,10 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1089
 msgid "Could not establish IPsec tunnel."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1107
+msgid "Could not find the xl2tpd binary."
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:1128
@@ -582,9 +618,37 @@ msgstr ""
 msgid "Could not write %s/nm-l2tp-ipsec-%s.secrets"
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:1310
+msgid "Could not write ipsec config."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1362
+msgid "Could not write xl2tpd config."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1412
+msgid "Could not write ppp options."
+msgstr ""
+
 #: ../src/nm-l2tp-service.c:1609
 #, c-format
 msgid "ipsec enable flag: %s"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1613
+msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1619
+msgid "Neither Libreswan nor strongSwan were found."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1639
+msgid "Could not start pppd plugin helper service."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1646
+msgid "could not retrieve connection UUID"
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:1670
@@ -613,15 +677,3 @@ msgstr ""
 #, fuzzy
 #~ msgid "The PPP options dialog"
 #~ msgstr "PPP-alternativer"
-
-#~ msgid "No VPN configuration options."
-#~ msgstr "Ingen konfigurasjonsvalg for VPN."
-
-#~ msgid "No VPN secrets!"
-#~ msgstr "Ingen hemmeligheter for VPN!"
-
-#~ msgid "Missing VPN username."
-#~ msgstr "Mangler brukernavn for VPN."
-
-#~ msgid "Missing or invalid VPN password."
-#~ msgstr "Passord for VPN mangler eller er ugyldig."
