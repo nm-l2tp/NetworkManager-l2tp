@@ -175,7 +175,7 @@ nm_l2tp_ipsec_error(GError **error, const char *msg) {
 	g_set_error_literal (error,
 			NM_VPN_PLUGIN_ERROR,
 			NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
-			_(msg));
+			msg);
 	return FALSE;
 }
 
@@ -712,7 +712,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		if (!has_include) {
 			fd = open (secrets, O_CREAT|O_WRONLY, S_IRUSR|S_IWUSR);
 			if (fd == -1) {
-				snprintf (errorbuf, sizeof(errorbuf), "Could not open %s", secrets);
+				snprintf (errorbuf, sizeof(errorbuf), _("Could not open %s"), secrets);
 				return nm_l2tp_ipsec_error(error, errorbuf);
 			}
 			fp = fdopen(fd, "a");
@@ -758,7 +758,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR);
 		g_free (filename);
 		if (fd == -1) {
-			return nm_l2tp_ipsec_error(error, "Could not write ipsec config.");
+			return nm_l2tp_ipsec_error(error, _("Could not write ipsec config."));
 		}
 
 		write_config_option (fd, 		"conn %s\n", priv->uuid);
@@ -810,7 +810,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	g_free (filename);
 
 	if (fd == -1) {
-		return nm_l2tp_ipsec_error(error, "Could not write xl2tpd config.");
+		return nm_l2tp_ipsec_error(error, _("Could not write xl2tpd config."));
 	}
 
 	write_config_option (fd, "[global]\n");
@@ -860,7 +860,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	g_free (filename);
 
 	if (fd == -1) {
-		return nm_l2tp_ipsec_error(error, "Could not write ppp options.");
+		return nm_l2tp_ipsec_error(error, _("Could not write ppp options."));
 	}
 
 	if (_LOGD_enabled ())
@@ -1008,13 +1008,13 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 			snprintf (cmdbuf, sizeof(cmdbuf), "%s start", priv->ipsec_binary_path);
 			sys = system (cmdbuf);
 			if (sys) {
-				return nm_l2tp_ipsec_error (error, "Could not start the ipsec service.");
+				return nm_l2tp_ipsec_error (error, _("Could not start the ipsec service."));
 			}
 		} else {
 			snprintf (cmdbuf, sizeof(cmdbuf), "%s restart", priv->ipsec_binary_path);
 			sys = system (cmdbuf);
 			if (sys) {
-				return nm_l2tp_ipsec_error (error, "Could not restart the ipsec service.");
+				return nm_l2tp_ipsec_error (error, _("Could not restart the ipsec service."));
 			}
 		}
 		/* wait for Libreswan to get ready before performing an up operation */
@@ -1033,7 +1033,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 				             priv->ipsec_binary_path, priv->uuid);
 			sys = system (cmdbuf);
 			if (sys) {
-				return nm_l2tp_ipsec_error(error, "Could not start the ipsec service.");
+				return nm_l2tp_ipsec_error(error, _("Could not start the ipsec service."));
 			}
 		} else {
 			snprintf (cmdbuf, sizeof(cmdbuf), "%s restart "
@@ -1041,7 +1041,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 				             priv->ipsec_binary_path, priv->uuid);
 			sys = system (cmdbuf);
 			if (sys) {
-				return nm_l2tp_ipsec_error(error, "Could not restart the ipsec service.");
+				return nm_l2tp_ipsec_error(error, _("Could not restart the ipsec service."));
 			}
 		}
 		/* wait for strongSwan to get ready before performing an up operation  */
@@ -1155,7 +1155,7 @@ nm_l2tp_start_l2tpd_binary (NML2tpPlugin *plugin,
 
 	l2tpd_binary = nm_find_l2tpd ();
 	if (!l2tpd_binary) {
-		return nm_l2tp_ipsec_error(error, "Could not find the xl2tpd binary.");
+		return nm_l2tp_ipsec_error(error, _("Could not find the xl2tpd binary."));
 	}
 
 	l2tpd_argv = g_ptr_array_new ();
@@ -1333,7 +1333,7 @@ lookup_gateway (NML2tpPlugin *self,
 	if (is_name == FALSE) {
 		errno = 0;
 		if (inet_pton (AF_INET, src, &naddr) <= 0) {
-			return nm_l2tp_ipsec_error(error, "couldn't convert L2TP VPN gateway IP address.");
+			return nm_l2tp_ipsec_error(error, _("couldn't convert L2TP VPN gateway IP address."));
 		}
 		priv->naddr = naddr.s_addr;
 		priv->saddr = g_strdup (src);
@@ -1346,7 +1346,7 @@ lookup_gateway (NML2tpPlugin *self,
 	hints.ai_flags = AI_ADDRCONFIG;
 	err = getaddrinfo (src, NULL, &hints, &result);
 	if (err != 0) {
-		return nm_l2tp_ipsec_error(error, "couldn't look up L2TP VPN gateway IP address ");
+		return nm_l2tp_ipsec_error(error, _("couldn't look up L2TP VPN gateway IP address "));
 	}
 
 	/* If the hostname resolves to multiple IP addresses, use the first one.
@@ -1365,7 +1365,7 @@ lookup_gateway (NML2tpPlugin *self,
 	freeaddrinfo (result);
 
 	if (naddr.s_addr == 0) {
-		return nm_l2tp_ipsec_error(error, "no usable addresses returned for L2TP VPN gateway ");
+		return nm_l2tp_ipsec_error(error, _("no usable addresses returned for L2TP VPN gateway "));
 	}
 
 	priv->naddr = naddr.s_addr;
@@ -1394,13 +1394,13 @@ real_connect (NMVpnServicePlugin *plugin,
 	priv->is_libreswan = TRUE;
 	if(value && !strcmp(value,"yes")) {
 		if (!(value=nm_find_ipsec ())) {
-			return nm_l2tp_ipsec_error(error, "Could not find the ipsec binary. Is Libreswan or strongSwan installed?");
+			return nm_l2tp_ipsec_error(error, _("Could not find the ipsec binary. Is Libreswan or strongSwan installed?"));
 		}
 		strncpy (priv->ipsec_binary_path, value, sizeof(priv->ipsec_binary_path));
 
 		priv->is_libreswan = check_is_libreswan (priv->ipsec_binary_path);
 		if (!priv->is_libreswan && !check_is_strongswan (priv->ipsec_binary_path)) {
-			return nm_l2tp_ipsec_error (error, "Neither Libreswan nor strongSwan were found.");
+			return nm_l2tp_ipsec_error (error, _("Neither Libreswan nor strongSwan were found."));
 		}
 	}
 
@@ -1409,7 +1409,7 @@ real_connect (NMVpnServicePlugin *plugin,
 
 	uuid = nm_connection_get_uuid (priv->connection);
 	if (!(uuid && *uuid)) {
-		return nm_l2tp_ipsec_error(error, "could not retrieve connection UUID");
+		return nm_l2tp_ipsec_error(error, _("could not retrieve connection UUID"));
 	}
 
 	g_free (priv->uuid);
@@ -1417,7 +1417,7 @@ real_connect (NMVpnServicePlugin *plugin,
 
 	gwaddr = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_GATEWAY);
 	if (!gwaddr || !strlen (gwaddr)) {
-		return nm_l2tp_ipsec_error(error, "Invalid or missing L2TP gateway.");
+		return nm_l2tp_ipsec_error(error, _("Invalid or missing L2TP gateway."));
 	}
 
 	/* Look up the IP address of the L2TP server; if the server has multiple
