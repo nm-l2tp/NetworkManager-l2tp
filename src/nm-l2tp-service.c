@@ -1261,7 +1261,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		if (!has_include) {
 			fd = open (secrets, O_CREAT|O_WRONLY, S_IRUSR|S_IWUSR);
 			if (fd == -1) {
-				snprintf (errorbuf, sizeof(errorbuf), "Could not open %s", secrets);
+				snprintf (errorbuf, sizeof(errorbuf), _("Could not open %s"), secrets);
 				return nm_l2tp_ipsec_error(error, errorbuf);
 			}
 			fp = fdopen(fd, "a");
