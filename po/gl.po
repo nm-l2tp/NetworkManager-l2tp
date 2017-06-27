@@ -43,7 +43,7 @@ msgstr "Compatíbel con Microsoft e outros servidores VPN L2TP."
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:5
 #, fuzzy
 msgid "The PPP options dialog"
-msgstr "Opcións avanzadas de L2TP"
+msgstr "Opcións avanzadas de PPP"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:6
 msgid "The NetworkManager-L2TP Developers"
@@ -349,7 +349,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:1
 #, fuzzy
 msgid "L2TP IPsec Options"
-msgstr "Opcións avanzadas de L2TP"
+msgstr "Opcións de IPsec"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -392,7 +392,7 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:13
 #, fuzzy
 msgid "Ad_vanced"
-msgstr "Opcións a_vanzadas..."
+msgstr "A_vanzado"
 
 #: ../properties/nm-l2tp-dialog.ui.h:14
 msgid "_Gateway:"
@@ -457,7 +457,7 @@ msgstr "Predeterminado"
 #: ../properties/nm-l2tp-dialog.ui.h:30
 #, fuzzy
 msgid "L2TP PPP Options"
-msgstr "Opcións avanzadas de L2TP"
+msgstr "Opcións PPP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
 #, fuzzy
