@@ -314,24 +314,21 @@ msgid "# Following line was added by NetworkManager-l2tp"
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:731
-#, fuzzy, c-format
+#, c-format
 msgid "Could not write %s/nm-l2tp-ipsec-%s.secrets"
-msgstr "无法写入 ipsec 配置。"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:761
-#, fuzzy
 msgid "Could not write ipsec config."
-msgstr "无法写入 ipsec 配置。"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:813
-#, fuzzy
 msgid "Could not write xl2tpd config."
-msgstr "无法找到 l2tp 客户端二进制文件。"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:863
-#, fuzzy
 msgid "Could not write ppp options."
-msgstr "无法找到 xl2tpd 二进制文件。"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1011 ../src/nm-l2tp-service.c:1036
 msgid "Could not start the ipsec service."

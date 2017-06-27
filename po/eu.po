@@ -321,19 +321,16 @@ msgid "Could not write %s/nm-l2tp-ipsec-%s.secrets"
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:761
-#, fuzzy
 msgid "Could not write ipsec config."
-msgstr "Ezin izan da xl2tpd-ren bitarrik aurkitu."
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:813
-#, fuzzy
 msgid "Could not write xl2tpd config."
-msgstr "Ezin izan da l2tp-ren bezeroaren bitarrik aurkitu."
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:863
-#, fuzzy
 msgid "Could not write ppp options."
-msgstr "Ezin izan da xl2tpd-ren bitarrik aurkitu."
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1011 ../src/nm-l2tp-service.c:1036
 msgid "Could not start the ipsec service."
