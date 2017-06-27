@@ -316,7 +316,7 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:761
 #, fuzzy
 msgid "Could not write ipsec config."
-msgstr "Ne mogu naći pppd program."
+msgstr "Ne mogu naći xl2tpd program."
 
 #: ../src/nm-l2tp-service.c:813
 #, fuzzy
@@ -326,7 +326,7 @@ msgstr "Ne mogu naći l2tp klijentski program."
 #: ../src/nm-l2tp-service.c:863
 #, fuzzy
 msgid "Could not write ppp options."
-msgstr "Ne mogu naći pppd program."
+msgstr "Ne mogu naći xl2tpd program."
 
 #: ../src/nm-l2tp-service.c:1011 ../src/nm-l2tp-service.c:1036
 msgid "Could not start the ipsec service."
@@ -339,7 +339,7 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:1158
 #, fuzzy
 msgid "Could not find the xl2tpd binary."
-msgstr "Ne mogu naći pppd program."
+msgstr "Ne mogu naći xl2tpd program."
 
 #: ../src/nm-l2tp-service.c:1224
 msgid "Missing VPN username."

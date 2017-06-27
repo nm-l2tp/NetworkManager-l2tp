@@ -331,7 +331,7 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:761
 #, fuzzy
 msgid "Could not write ipsec config."
-msgstr "Impossibile trovare il binario pppd."
+msgstr "Impossibile trovare il binario xl2tpd."
 
 #: ../src/nm-l2tp-service.c:813
 #, fuzzy
@@ -341,7 +341,7 @@ msgstr "Impossibile trovare il binario del client l2tp."
 #: ../src/nm-l2tp-service.c:863
 #, fuzzy
 msgid "Could not write ppp options."
-msgstr "Impossibile trovare il binario pppd."
+msgstr "Impossibile trovare il binario xl2tpd."
 
 #: ../src/nm-l2tp-service.c:1011 ../src/nm-l2tp-service.c:1036
 msgid "Could not start the ipsec service."
@@ -354,7 +354,7 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:1158
 #, fuzzy
 msgid "Could not find the xl2tpd binary."
-msgstr "Impossibile trovare il binario pppd."
+msgstr "Impossibile trovare il binario xl2tpd."
 
 #: ../src/nm-l2tp-service.c:1224
 msgid "Missing VPN username."

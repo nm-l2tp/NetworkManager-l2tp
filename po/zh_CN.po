@@ -331,7 +331,7 @@ msgstr "无法找到 l2tp 客户端二进制文件。"
 #: ../src/nm-l2tp-service.c:863
 #, fuzzy
 msgid "Could not write ppp options."
-msgstr "无法找到 pppd 二进制文件。"
+msgstr "无法找到 xl2tpd 二进制文件。"
 
 #: ../src/nm-l2tp-service.c:1011 ../src/nm-l2tp-service.c:1036
 msgid "Could not start the ipsec service."
@@ -344,7 +344,7 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:1158
 #, fuzzy
 msgid "Could not find the xl2tpd binary."
-msgstr "无法找到 pppd 二进制文件。"
+msgstr "无法找到 xl2tpd 二进制文件。"
 
 #: ../src/nm-l2tp-service.c:1224
 msgid "Missing VPN username."
