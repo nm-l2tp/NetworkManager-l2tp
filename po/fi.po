@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-19 22:46+1000\n"
+"POT-Creation-Date: 2017-06-27 20:29+1000\n"
 "PO-Revision-Date: 2013-09-22 19:48+0300\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <gnome-fi-laatu@lists.sourceforge.net>\n"
@@ -306,6 +306,11 @@ msgstr ""
 msgid "No VPN secrets!"
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:715
+#, c-format
+msgid "Could not open %s"
+msgstr ""
+
 #: ../src/nm-l2tp-service.c:720
 #, c-format
 msgid "# Following line was added by NetworkManager-l2tp"
@@ -316,6 +321,34 @@ msgstr ""
 msgid "Could not write %s/nm-l2tp-ipsec-%s.secrets"
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:761
+#, fuzzy
+msgid "Could not write ipsec config."
+msgstr "pppd-binääri ei löytynyt."
+
+#: ../src/nm-l2tp-service.c:813
+#, fuzzy
+msgid "Could not write xl2tpd config."
+msgstr "l2tp-asiakasohjelmiston binääriä ei löytynyt."
+
+#: ../src/nm-l2tp-service.c:863
+#, fuzzy
+msgid "Could not write ppp options."
+msgstr "pppd-binääri ei löytynyt."
+
+#: ../src/nm-l2tp-service.c:1011 ../src/nm-l2tp-service.c:1036
+msgid "Could not start the ipsec service."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1017 ../src/nm-l2tp-service.c:1044
+msgid "Could not restart the ipsec service."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1158
+#, fuzzy
+msgid "Could not find the xl2tpd binary."
+msgstr "pppd-binääri ei löytynyt."
+
 #: ../src/nm-l2tp-service.c:1224
 msgid "Missing VPN username."
 msgstr "Puuttuva VPN-käyttäjätunnus."
@@ -323,6 +356,34 @@ msgstr "Puuttuva VPN-käyttäjätunnus."
 #: ../src/nm-l2tp-service.c:1233
 msgid "Missing or invalid VPN password."
 msgstr "Virheellinen tai puuttuva VPN-salasana."
+
+#: ../src/nm-l2tp-service.c:1336
+msgid "couldn't convert L2TP VPN gateway IP address."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1349
+msgid "couldn't look up L2TP VPN gateway IP address "
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1368
+msgid "no usable addresses returned for L2TP VPN gateway "
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1397
+msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1403
+msgid "Neither Libreswan nor strongSwan were found."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1412
+msgid "could not retrieve connection UUID"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1420
+msgid "Invalid or missing L2TP gateway."
+msgstr "Virheellinen tai puuttuva L2TP-yhdyskäytävä."
 
 #: ../src/nm-l2tp-service.c:1678
 msgid "Don't quit when VPN connection terminates"
@@ -352,7 +413,6 @@ msgid "_Enable IPsec tunnel to L2TP host"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:3
-#, fuzzy
 msgid "General"
 msgstr "Yleisasetukset"
 
@@ -402,7 +462,6 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
-#, fuzzy
 msgid "Optional"
 msgstr "Lisävalinnat"
 
@@ -454,9 +513,8 @@ msgid "L2TP PPP Options"
 msgstr "PPP-valinnat"
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
-#, fuzzy
 msgid "Authentication"
-msgstr "Todentamistapa:"
+msgstr "Todentaminen"
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
 msgid "Allow the following authentication methods:"
@@ -469,7 +527,6 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:35
-#, fuzzy
 msgid "Security and Compression"
 msgstr "Salaus ja pakkaus"
 
@@ -559,7 +616,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:59
 msgid "Echo"
-msgstr ""
+msgstr "Kaiutus"
 
 #: ../properties/nm-l2tp-dialog.ui.h:60
 msgid "Send PPP _echo packets"

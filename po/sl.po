@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-l2tp master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-19 22:46+1000\n"
+"POT-Creation-Date: 2017-06-27 20:29+1000\n"
 "PO-Revision-Date: 2012-02-29 14:27+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
@@ -307,6 +307,11 @@ msgstr "Manjka zahtevana možnost '%s'."
 msgid "No VPN secrets!"
 msgstr "Ni skrivnih podatkov VPN!"
 
+#: ../src/nm-l2tp-service.c:715
+#, c-format
+msgid "Could not open %s"
+msgstr ""
+
 #: ../src/nm-l2tp-service.c:720
 #, c-format
 msgid "# Following line was added by NetworkManager-l2tp"
@@ -317,6 +322,34 @@ msgstr ""
 msgid "Could not write %s/nm-l2tp-ipsec-%s.secrets"
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:761
+#, fuzzy
+msgid "Could not write ipsec config."
+msgstr "Programa pppd ni mogoče najti."
+
+#: ../src/nm-l2tp-service.c:813
+#, fuzzy
+msgid "Could not write xl2tpd config."
+msgstr "Programa odjemalca l2tp ni mogoče najti."
+
+#: ../src/nm-l2tp-service.c:863
+#, fuzzy
+msgid "Could not write ppp options."
+msgstr "Programa pppd ni mogoče najti."
+
+#: ../src/nm-l2tp-service.c:1011 ../src/nm-l2tp-service.c:1036
+msgid "Could not start the ipsec service."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1017 ../src/nm-l2tp-service.c:1044
+msgid "Could not restart the ipsec service."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1158
+#, fuzzy
+msgid "Could not find the xl2tpd binary."
+msgstr "Programa pppd ni mogoče najti."
+
 #: ../src/nm-l2tp-service.c:1224
 msgid "Missing VPN username."
 msgstr "Manjka uporabniško ime VPN."
@@ -324,6 +357,37 @@ msgstr "Manjka uporabniško ime VPN."
 #: ../src/nm-l2tp-service.c:1233
 msgid "Missing or invalid VPN password."
 msgstr "Geslo VPN manjka ali pa ni veljavno."
+
+#: ../src/nm-l2tp-service.c:1336
+#, fuzzy
+msgid "couldn't convert L2TP VPN gateway IP address."
+msgstr "ni mogoče pretvoriti prehoda L2TP VPN naslova IP '%s' (%d)"
+
+#: ../src/nm-l2tp-service.c:1349
+#, fuzzy
+msgid "couldn't look up L2TP VPN gateway IP address "
+msgstr "ni mogoče poiskati prehoda L2TP VPN naslova IP '%s' (%d)"
+
+#: ../src/nm-l2tp-service.c:1368
+#, fuzzy
+msgid "no usable addresses returned for L2TP VPN gateway "
+msgstr "ni vrnjenega uporabnega naslova za prehod L2TP VPN '%s'"
+
+#: ../src/nm-l2tp-service.c:1397
+msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1403
+msgid "Neither Libreswan nor strongSwan were found."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1412
+msgid "could not retrieve connection UUID"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1420
+msgid "Invalid or missing L2TP gateway."
+msgstr "Prehod L2TP manjka ali pa ni veljaven."
 
 #: ../src/nm-l2tp-service.c:1678
 msgid "Don't quit when VPN connection terminates"
@@ -353,7 +417,6 @@ msgid "_Enable IPsec tunnel to L2TP host"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:3
-#, fuzzy
 msgid "General"
 msgstr "Splošno"
 
@@ -402,7 +465,6 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
-#, fuzzy
 msgid "Optional"
 msgstr "Izbirno"
 
@@ -456,7 +518,6 @@ msgid "L2TP PPP Options"
 msgstr "Napredne možnosti L2TP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
-#, fuzzy
 msgid "Authentication"
 msgstr "Overitev"
 
@@ -474,7 +535,6 @@ msgstr ""
 "eap"
 
 #: ../properties/nm-l2tp-dialog.ui.h:35
-#, fuzzy
 msgid "Security and Compression"
 msgstr "Varnost in stiskanje"
 
@@ -579,7 +639,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:59
 msgid "Echo"
-msgstr ""
+msgstr "Odmev"
 
 #: ../properties/nm-l2tp-dialog.ui.h:60
 msgid "Send PPP _echo packets"

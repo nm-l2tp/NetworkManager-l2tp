@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Network Manager-l2tp 0.8.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-19 22:46+1000\n"
+"POT-Creation-Date: 2017-06-27 20:29+1000\n"
 "PO-Revision-Date: 2011-01-25 19:41+0800\n"
 "Last-Translator: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>\n"
 "Language-Team: Chinese (Hong Kong) <community@linuxhall.org>\n"
@@ -300,6 +300,11 @@ msgstr ""
 msgid "No VPN secrets!"
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:715
+#, c-format
+msgid "Could not open %s"
+msgstr ""
+
 #: ../src/nm-l2tp-service.c:720
 #, c-format
 msgid "# Following line was added by NetworkManager-l2tp"
@@ -310,12 +315,64 @@ msgstr ""
 msgid "Could not write %s/nm-l2tp-ipsec-%s.secrets"
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:761
+msgid "Could not write ipsec config."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:813
+msgid "Could not write xl2tpd config."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:863
+msgid "Could not write ppp options."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1011 ../src/nm-l2tp-service.c:1036
+msgid "Could not start the ipsec service."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1017 ../src/nm-l2tp-service.c:1044
+msgid "Could not restart the ipsec service."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1158
+msgid "Could not find the xl2tpd binary."
+msgstr ""
+
 #: ../src/nm-l2tp-service.c:1224
 msgid "Missing VPN username."
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:1233
 msgid "Missing or invalid VPN password."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1336
+msgid "couldn't convert L2TP VPN gateway IP address."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1349
+msgid "couldn't look up L2TP VPN gateway IP address "
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1368
+msgid "no usable addresses returned for L2TP VPN gateway "
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1397
+msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1403
+msgid "Neither Libreswan nor strongSwan were found."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1412
+msgid "could not retrieve connection UUID"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1420
+msgid "Invalid or missing L2TP gateway."
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:1678
@@ -345,7 +402,6 @@ msgid "_Enable IPsec tunnel to L2TP host"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:3
-#, fuzzy
 msgid "General"
 msgstr "一般"
 
@@ -394,7 +450,6 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
-#, fuzzy
 msgid "Optional"
 msgstr "選擇性"
 
@@ -445,7 +500,6 @@ msgid "L2TP PPP Options"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
-#, fuzzy
 msgid "Authentication"
 msgstr "驗證"
 
@@ -460,7 +514,6 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:35
-#, fuzzy
 msgid "Security and Compression"
 msgstr "安全性與壓縮"
 
@@ -552,7 +605,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:59
 msgid "Echo"
-msgstr ""
+msgstr "回應"
 
 #: ../properties/nm-l2tp-dialog.ui.h:60
 msgid "Send PPP _echo packets"
