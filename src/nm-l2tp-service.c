@@ -1118,6 +1118,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 				} else {
 					/* Do not trust exit status of strongSwan 'ipsec up' command.
 					   explictly check if connection is established.
+					   strongSwan bug #1449.
 					*/
 					snprintf (cmdbuf, sizeof(cmdbuf), "%s status '%s'", priv->ipsec_binary_path, priv->uuid);
 					if (g_spawn_command_line_sync(cmdbuf, &output, NULL, NULL, NULL)) {
