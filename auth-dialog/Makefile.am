@@ -14,8 +14,11 @@ nm_l2tp_auth_dialog_CPPFLAGS =			\
 	-DG_DISABLE_DEPRECATED			\
 	-DVERSION=\"$(VERSION)\"
 
-nm_l2tp_auth_dialog_SOURCES =			\
-	main.c
+if HAVE_NM_VPN_PASSWORD_DIALOG_H
+nm_l2tp_auth_dialog_SOURCES = main.c
+else
+nm_l2tp_auth_dialog_SOURCES = main.c vpn-password-dialog.c vpn-password-dialog.h
+endif
 
 nm_l2tp_auth_dialog_LDADD =			\
 	$(NM_LIBS) \

@@ -36,7 +36,11 @@
 
 #include <nm-setting-vpn.h>
 #include <nm-vpn-plugin-utils.h>
+#ifdef HAVE_NM_VPN_PASSWORD_DIALOG_H
 #include <nm-vpn-password-dialog.h>
+#else
+#include "vpn-password-dialog.h"
+#endif
 
 #include "src/nm-l2tp-service-defines.h"
 

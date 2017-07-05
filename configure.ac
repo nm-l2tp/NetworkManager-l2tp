@@ -28,6 +28,9 @@ AC_CHECK_HEADERS(fcntl.h paths.h sys/ioctl.h sys/time.h syslog.h unistd.h)
 AC_CHECK_HEADERS(pppd/pppd.h,,
   AC_MSG_ERROR(couldn't find pppd.h. pppd development headers are required.))
 
+AC_CHECK_HEADERS(nm-vpn-password-dialog.h)
+AM_CONDITIONAL([HAVE_NM_VPN_PASSWORD_DIALOG_H], [test "x$ac_cv_header_nm_vpn_password_dialog_h" = xyes])
+
 AC_ARG_WITH([pppd-plugin-dir], AS_HELP_STRING([--with-pppd-plugin-dir=DIR], [path to the pppd plugins directory]))
 
 if test -n "$with_pppd_plugin_dir" ; then
