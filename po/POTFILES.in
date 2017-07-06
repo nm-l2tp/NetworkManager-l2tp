@@ -1,6 +1,7 @@
 # List of source files containing translatable strings.
 # Please keep this file sorted alphabetically.
 auth-dialog/main.c
+auth-dialog/vpn-password-dialog.c
 properties/advanced-dialog.c
 properties/import-export.c
 properties/ipsec-dialog.c
