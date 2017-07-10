@@ -53,7 +53,8 @@ directory that exists.
 ## Debugging mode
 
 Issue the following on the command line which will increase xl2tpd and pppd
-debugging :
+debugging, also the run-time generated config files will not be cleaned up
+after a VPN disconnection :
 
 #### Debian and Ubuntu
     sudo killall -TERM nm-l2tp-service
@@ -98,28 +99,6 @@ supplied to the configure script at build time.
 
 ## User specified IPsec IKEv1 cipher suites
 
-User specified phase 1 (ike) and phase 2 (esp) cipher suites that supplement
-the default strongSwan or Libreswan cipher suites can be specified in the
-IPsec configuration dialog box under Advanced options.
-
-For example if you have no control of the cipher suites the VPN server uses
-and you need to use the same cipher (which is now considered broken) that older versions of this VPN plugin used, enter the following in the corresponding IPsec
-configuration dialog text boxes:
-
-* Phase1 Algorithms : 3des-sha1-modp1024
-* Phase2 Algorithms : 3des-sha1
-
-Please see the following for more details on the `ike` (phase 1) and
-`esp` (phase2alg) directives, including the syntax:
-
-* https://wiki.strongswan.org/projects/strongswan/wiki/ConnSection
-* https://libreswan.org/man/ipsec.conf.5.html
-
-The following has recommendations on algorithms that are considered broken in
-regards to security and advises against using them:
-* https://wiki.strongswan.org/projects/strongswan/wiki/SecurityRecommendations
-
-The current list of broken algorithms and Diffie Hellman groups can be found
-here :
-* https://wiki.strongswan.org/projects/strongswan/wiki/IKEv1CipherSuites
+User specified phase 1 (ike) and phase 2 (esp) cipher suites can be specified
+in the IPsec configuration dialog box under Advanced options.
 
