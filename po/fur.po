@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-l2tp master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-25 22:36+1000\n"
+"POT-Creation-Date: 2017-07-11 21:07+1000\n"
 "PO-Revision-Date: 2017-04-09 19:02+0200\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <fur@li.org>\n"
@@ -20,18 +20,38 @@ msgstr ""
 #. Otherwise, we have no saved password, or the password flags indicated
 #. * that the password should never be saved.
 #.
-#: ../auth-dialog/main.c:155
+#: ../auth-dialog/main.c:159
 #, fuzzy, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr "Al covente autenticâsi par acedi ae rêt privade virtuâl “%s”."
 
-#: ../auth-dialog/main.c:164 ../auth-dialog/main.c:184
+#: ../auth-dialog/main.c:168 ../auth-dialog/main.c:188
 msgid "Authenticate VPN"
 msgstr "Autentiche VPN"
 
-#: ../auth-dialog/main.c:166 ../properties/nm-l2tp-dialog.ui.h:25
+#: ../auth-dialog/main.c:170 ../properties/nm-l2tp-dialog.ui.h:25
 msgid "Password:"
 msgstr "Password:"
+
+#: ../auth-dialog/vpn-password-dialog.c:102
+#, fuzzy
+msgid "_Password:"
+msgstr "Password:"
+
+#: ../auth-dialog/vpn-password-dialog.c:104
+#, fuzzy
+msgid "_Secondary Password:"
+msgstr "Password:"
+
+#: ../auth-dialog/vpn-password-dialog.c:107
+#, fuzzy
+msgid "_Tertiary Password:"
+msgstr "Password:"
+
+#: ../auth-dialog/vpn-password-dialog.c:252
+#, fuzzy
+msgid "Sh_ow passwords"
+msgstr "Mostre password"
 
 #: ../properties/advanced-dialog.c:188
 msgid "All Available (Default)"
@@ -88,7 +108,7 @@ msgstr ""
 
 #: ../properties/import-export.c:288
 #, c-format
-msgid "Property '%s' value '%s' can't be parsed as ip netmask."
+msgid "Property '%s' value '%s' can't be parsed as IP netmask."
 msgstr ""
 
 #: ../properties/import-export.c:333
@@ -483,71 +503,71 @@ msgstr ""
 msgid "MRU :"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:214
+#: ../src/nm-l2tp-service.c:215
 msgid "Could not load NetworkManager connection settings."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:222
+#: ../src/nm-l2tp-service.c:223
 msgid "Missing VPN username."
 msgstr "Al mancje il non utent VPN."
 
-#: ../src/nm-l2tp-service.c:228
+#: ../src/nm-l2tp-service.c:229
 msgid "Missing or invalid VPN password."
 msgstr "E mancje o no je valide la password VPN."
 
-#: ../src/nm-l2tp-service.c:270
+#: ../src/nm-l2tp-service.c:271
 #, c-format
 msgid "Could not register D-Bus service name.  Message: %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:349
+#: ../src/nm-l2tp-service.c:350
 msgid "No cached credentials."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:377
+#: ../src/nm-l2tp-service.c:378
 msgid "L2TP service (IP Config Get) reply received."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:538
+#: ../src/nm-l2tp-service.c:539
 #, fuzzy, c-format
 msgid "invalid gateway '%s'"
 msgstr "gateway “%s” no valit"
 
-#: ../src/nm-l2tp-service.c:547
+#: ../src/nm-l2tp-service.c:548
 #, fuzzy, c-format
 msgid "invalid ipsec-gateway-id '%s'"
 msgstr "gateway “%s” no valit"
 
-#: ../src/nm-l2tp-service.c:560
+#: ../src/nm-l2tp-service.c:561
 #, fuzzy, c-format
 msgid "invalid integer property '%s'"
 msgstr "proprietât interie “%s” no valide"
 
-#: ../src/nm-l2tp-service.c:570
+#: ../src/nm-l2tp-service.c:571
 #, fuzzy, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr "proprietât booleane “%s” no valide  (no je sì o no)"
 
-#: ../src/nm-l2tp-service.c:577
+#: ../src/nm-l2tp-service.c:578
 #, fuzzy, c-format
 msgid "unhandled property '%s' type %s"
 msgstr "proprietât “%s” gjenar %s no tratade"
 
-#: ../src/nm-l2tp-service.c:588
+#: ../src/nm-l2tp-service.c:589
 #, fuzzy, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "proprietât “%s” no valide o no supuartade"
 
-#: ../src/nm-l2tp-service.c:602
+#: ../src/nm-l2tp-service.c:603
 msgid "No VPN configuration options."
 msgstr "Nissune opzion di configurazion VPN."
 
-#: ../src/nm-l2tp-service.c:619
+#: ../src/nm-l2tp-service.c:620
 #, fuzzy, c-format
 msgid "Missing required option '%s'."
 msgstr "E mancje la opzion necessarie “%s”."
 
-#: ../src/nm-l2tp-service.c:635
+#: ../src/nm-l2tp-service.c:636
 msgid "No VPN secrets!"
 msgstr "Nissun segret VPN!"
 
@@ -570,138 +590,143 @@ msgstr ""
 msgid "xl2tpd died from an unknown cause"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:775
+#: ../src/nm-l2tp-service.c:746
 msgid "pppd timeout. Looks like pppd didn't initialize our dbus module"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:812
+#: ../src/nm-l2tp-service.c:783
 #, c-format
 msgid "couldn't convert L2TP VPN gateway IP address '%s' (%d)"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:830
+#: ../src/nm-l2tp-service.c:801
 #, c-format
 msgid "couldn't look up L2TP VPN gateway IP address '%s' (%d)"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:854
+#: ../src/nm-l2tp-service.c:825
 #, c-format
 msgid "no usable addresses returned for L2TP VPN gateway '%s'"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:865
+#: ../src/nm-l2tp-service.c:836
 #, c-format
 msgid "no usable addresses returned for L2TP VPN gateway '%s' (%d)"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:870
+#: ../src/nm-l2tp-service.c:841
 #, c-format
 msgid "Use '%s' as a gateway"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:960 ../src/nm-l2tp-service.c:985
+#: ../src/nm-l2tp-service.c:931 ../src/nm-l2tp-service.c:956
 msgid "Could not start the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:966 ../src/nm-l2tp-service.c:993
+#: ../src/nm-l2tp-service.c:937 ../src/nm-l2tp-service.c:964
 msgid "Could not restart the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1043
+#: ../src/nm-l2tp-service.c:1014
 msgid "IPsec service is not ready."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1056
+#: ../src/nm-l2tp-service.c:1027
 msgid "Timeout trying to establish IPsec connection"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1066
+#: ../src/nm-l2tp-service.c:1037
 msgid "Libreswan IPsec tunnel is up."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1076
+#: ../src/nm-l2tp-service.c:1048
 msgid "strongSwan IPsec tunnel is up."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1089
+#: ../src/nm-l2tp-service.c:1061
 msgid "Could not establish IPsec tunnel."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1107
+#: ../src/nm-l2tp-service.c:1079
 msgid "Could not find the xl2tpd binary."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1128
+#: ../src/nm-l2tp-service.c:1100
 #, c-format
 msgid "xl2tpd started with pid %d"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1188
+#: ../src/nm-l2tp-service.c:1160
 msgid "Can-not create new test socket"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1269
+#: ../src/nm-l2tp-service.c:1236
+#, c-format
+msgid "Could not open %s"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1241
 #, c-format
 msgid "# Following line was added by NetworkManager-l2tp"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1280
+#: ../src/nm-l2tp-service.c:1252
 #, c-format
 msgid "Could not write %s/nm-l2tp-ipsec-%s.secrets"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1310
+#: ../src/nm-l2tp-service.c:1282
 msgid "Could not write ipsec config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1362
+#: ../src/nm-l2tp-service.c:1342
 msgid "Could not write xl2tpd config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1412
+#: ../src/nm-l2tp-service.c:1392
 msgid "Could not write ppp options."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1609
+#: ../src/nm-l2tp-service.c:1589
 #, c-format
 msgid "ipsec enable flag: %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1613
+#: ../src/nm-l2tp-service.c:1593
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1619
+#: ../src/nm-l2tp-service.c:1599
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1639
+#: ../src/nm-l2tp-service.c:1619
 msgid "Could not start pppd plugin helper service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1646
+#: ../src/nm-l2tp-service.c:1626
 msgid "could not retrieve connection UUID"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1670
+#: ../src/nm-l2tp-service.c:1650
 msgid "starting ipsec"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1736
+#: ../src/nm-l2tp-service.c:1718
 #, c-format
 msgid "Terminated l2tp daemon with PID %d."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1852
+#: ../src/nm-l2tp-service.c:1865
 #, fuzzy
 msgid "Don't quit when VPN connection terminates"
 msgstr "No stâ jessî cuant che e termine la conession VPN"
 
-#: ../src/nm-l2tp-service.c:1853
+#: ../src/nm-l2tp-service.c:1866
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Abilite regjistris di debug prolìs (al podarès esponi lis password)"
 
-#: ../src/nm-l2tp-service.c:1876
+#: ../src/nm-l2tp-service.c:1889
 #, fuzzy
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
@@ -709,68 +734,3 @@ msgid ""
 msgstr ""
 "nm-l2tp-service al furnìs a NetworkManager lis capacitâts VPN L2TP "
 "integradis (compatibil cun Microsoft e altris implementazions)."
-
-#, fuzzy
-#~ msgid "L2TP VPN Client"
-#~ msgstr "Client VPN L2TP"
-
-#, fuzzy
-#~ msgid "Client for L2TP based virtual private networks"
-#~ msgstr "Client pes rêts privadis virtuâls L2TP"
-
-#, fuzzy
-#~ msgid ""
-#~ "Support for configuring L2TP based virtual private network connections."
-#~ msgstr "Supuart par configurâ conessions a rêt privadis virtuâls L2TP."
-
-#, fuzzy
-#~ msgid "Compatible with L2TP and L2TP over IPsec services."
-#~ msgstr "Compatibil cun Microsoft e altris servidôrs VPN L2TP."
-
-#, fuzzy
-#~ msgid "The NetworkManager-L2TP Developers"
-#~ msgstr "I svilupadôrs di NetworkManager"
-
-#~ msgid "object class '%s' has no property named '%s'"
-#~ msgstr "la classe dal ogjet '%s' no à proprietâts clamadis '%s'"
-
-#~ msgid "property '%s' of object class '%s' is not writable"
-#~ msgstr "proprietât '%s' de classe dal ogjet '%s' no je scrivibile"
-
-#~ msgid ""
-#~ "construct property \"%s\" for object '%s' can't be set after construction"
-#~ msgstr ""
-#~ "impussibil stabilî la proprietât \"%s\" dal costrutôr pal ogjet '%s' dopo "
-#~ "de costruzion"
-
-#~ msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
-#~ msgstr ""
-#~ "'%s::%s' nol è un non di proprietât valit; '%s' nol è un sot-gjenar "
-#~ "GObject"
-
-#~ msgid "unable to set property '%s' of type '%s' from value of type '%s'"
-#~ msgstr ""
-#~ "impussibil stabilî la proprietât '%s' di gjenar '%s' dal valôr di gjenar "
-#~ "'%s'"
-
-#~ msgid ""
-#~ "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
-#~ "type '%s'"
-#~ msgstr ""
-#~ "il valôr \"%s\" di gjenar '%s' nol è valit o fûr dal interval pe "
-#~ "proprietât '%s' di gjenar '%s'"
-
-#~ msgid "missing plugin file \"%s\""
-#~ msgstr "al mancje il file plugin \"%s\""
-
-#~ msgid "cannot load editor plugin: %s"
-#~ msgstr "impussibil cjariâ il plugin editôr: %s"
-
-#~ msgid "cannot load factory %s from plugin: %s"
-#~ msgstr "impussibil cjariâ la fabriche %s dal plugin: %s"
-
-#~ msgid "unknown error creating editor instance"
-#~ msgstr "erôr no cognossût tal creâ la istance dal editôr"
-
-#~ msgid "D-Bus name to use for this instance"
-#~ msgstr "Non D-Bus di doprâ par cheste istance"
