@@ -104,6 +104,7 @@ msgid "Property '%s' value '%s' couldn't find netmask."
 msgstr "Property '%s' value '%s' couldn't find netmask."
 
 #: ../properties/import-export.c:288
+#, c-format
 msgid "Property '%s' value '%s' can't be parsed as IP netmask."
 msgstr "Property '%s' value '%s' can't be parsed as IP netmask."
 
@@ -541,6 +542,7 @@ msgid "unhandled property '%s' type %s"
 msgstr "unhandled property '%s' type %s"
 
 #: ../src/nm-l2tp-service.c:589
+#, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "property '%s' invalid or not supported"
 
@@ -647,6 +649,7 @@ msgid "Can-not create new test socket"
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:1236
+#, c-format
 msgid "Could not open %s"
 msgstr ""
 
@@ -656,6 +659,7 @@ msgid "# Following line was added by NetworkManager-l2tp"
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:1252
+#, c-format
 msgid "Could not write %s/nm-l2tp-ipsec-%s.secrets"
 msgstr "Could not write %s/nm-l2tp-ipsec-%s.secrets"
 

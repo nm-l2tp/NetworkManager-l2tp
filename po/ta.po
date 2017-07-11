@@ -637,6 +637,7 @@ msgid "Can-not create new test socket"
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:1236
+#, c-format
 msgid "Could not open %s"
 msgstr ""
 
