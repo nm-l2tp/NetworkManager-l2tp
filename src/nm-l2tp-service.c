@@ -762,13 +762,13 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 			return nm_l2tp_ipsec_error(error, _("Could not write ipsec config."));
 		}
 
-		write_config_option (fd, 		"conn %s\n", priv->uuid);
-		write_config_option (fd, 		"  auto=add\n"
-							"  type=transport\n");
+		write_config_option (fd, "conn %s\n", priv->uuid);
+		write_config_option (fd, "  auto=add\n");
+		write_config_option (fd, "  type=transport\n");
 
-		write_config_option (fd, 		"  authby=secret\n"
-							"  keyingtries=0\n"
-							"  left=%%defaultroute\n");
+		write_config_option (fd, "  authby=secret\n");
+		write_config_option (fd, "  keyingtries=0\n");
+		write_config_option (fd, "  left=%%defaultroute\n");
 		if (l2tp_port_is_free) {
 			write_config_option (fd, "  leftprotoport=udp/l2tp\n");
 		}
