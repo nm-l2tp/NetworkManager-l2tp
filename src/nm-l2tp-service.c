@@ -24,6 +24,7 @@
  * (C) Copyright 2011 Geo Carncross <geocar@gmail.com>
  * (C) Copyright 2012 Sergey Prokhorov <me@seriyps.ru>
  * (C) Copyright 2014 Nathan Dorfman <ndorf@rtfm.net>
+ * (C) Copyright 2016 - 2017 Douglas Kosovic <doug@uq.edu.au>
  */
 
 #include "nm-default.h"
