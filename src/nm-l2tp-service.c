@@ -660,6 +660,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
                       GError **error)
 {
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
+	NMSettingIPConfig *s_ip4;
 	const char *secrets;
 	const char *ipsec_d;
 	const char *value;
@@ -873,7 +874,12 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	   but with xl2tpd-1.3.6, pppd wasn't creating a lock file under /var/run/lock/ anyway.
 	write_config_option (fd, "lock\n");
 	*/
-	write_config_option (fd, "usepeerdns\n");
+
+	s_ip4 = nm_connection_get_setting_ip4_config (priv->connection);
+	if (!nm_setting_ip_config_get_ignore_auto_dns (s_ip4)) {
+		write_config_option (fd, "usepeerdns\n");
+	}
+
 	write_config_option (fd, "noipdefault\n");
 	write_config_option (fd, "nodefaultroute\n");
 
