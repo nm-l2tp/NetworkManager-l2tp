@@ -69,4 +69,4 @@
 #define NM_L2TP_KEY_IPSEC_ESP         "ipsec-esp"
 #define NM_L2TP_KEY_IPSEC_FORCEENCAPS "ipsec-forceencaps"
 
-#endif /* __NM_SERVICE_DEFINES_H__ */
+#endif /* NM_L2TP_SERVICE_DEFINES_H */
