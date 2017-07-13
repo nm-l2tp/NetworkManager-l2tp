@@ -427,7 +427,6 @@ l2tpd_watch_cb (GPid pid, gint status, gpointer user_data)
 	NML2tpPlugin *plugin = NM_L2TP_PLUGIN (user_data);
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
 	guint error = 0;
-	char *filename;
 
 	if (WIFEXITED (status)) {
 		error = WEXITSTATUS (status);
@@ -448,35 +447,6 @@ l2tpd_watch_cb (GPid pid, gint status, gpointer user_data)
 	if(priv->ipsec_up) {
 		nm_l2tp_stop_ipsec (priv);
 	}
-
-	/* Cleaning up config files */
-	filename = g_strdup_printf (RUNDIR"/nm-l2tp-xl2tpd-%s.conf", priv->uuid);
-	unlink(filename);
-	g_free(filename);
-
-	filename = g_strdup_printf (RUNDIR"/nm-l2tp-ppp-options-%s", priv->uuid);
-	unlink(filename);
-	g_free(filename);
-
-	filename = g_strdup_printf (RUNDIR"/nm-l2tp-xl2tpd-control-%s", priv->uuid);
-	unlink(filename);
-	g_free(filename);
-
-	filename = g_strdup_printf (RUNDIR"/nm-l2tp-xl2tpd-%s.pid", priv->uuid);
-	unlink(filename);
-	g_free(filename);
-
-	filename = g_strdup_printf (RUNDIR"/nm-l2tp-ipsec-%s.conf", priv->uuid);
-	unlink(filename);
-	g_free(filename);
-
-	filename = g_strdup_printf ("/etc/ipsec.d/nm-l2tp-ipsec-%s.secrets", priv->uuid);
-	unlink(filename);
-	g_free(filename);
-
-	filename = g_strdup_printf ("/etc/strongswan/ipsec.d/nm-l2tp-ipsec-%s.secrets", priv->uuid);
-	unlink(filename);
-	g_free(filename);
 
 	/* Must be after data->state is set since signals use data->state */
 	switch (error) {
@@ -1505,6 +1475,7 @@ ensure_killed (gpointer data)
 static gboolean
 real_disconnect (NMVpnServicePlugin *plugin, GError **err)
 {
+	char *filename;
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
 
 	if (priv->pid_l2tpd) {
@@ -1525,6 +1496,37 @@ real_disconnect (NMVpnServicePlugin *plugin, GError **err)
 	if (priv->saddr) {
 		g_free (priv->saddr);
 		priv->saddr = NULL;
+	}
+
+	if (!gl.debug) {
+		/* Cleaning up config files */
+		filename = g_strdup_printf (RUNDIR"/nm-l2tp-xl2tpd-%s.conf", priv->uuid);
+		unlink(filename);
+		g_free(filename);
+
+		filename = g_strdup_printf (RUNDIR"/nm-l2tp-ppp-options-%s", priv->uuid);
+		unlink(filename);
+		g_free(filename);
+
+		filename = g_strdup_printf (RUNDIR"/nm-l2tp-xl2tpd-control-%s", priv->uuid);
+		unlink(filename);
+		g_free(filename);
+
+		filename = g_strdup_printf (RUNDIR"/nm-l2tp-xl2tpd-%s.pid", priv->uuid);
+		unlink(filename);
+		g_free(filename);
+
+		filename = g_strdup_printf (RUNDIR"/nm-l2tp-ipsec-%s.conf", priv->uuid);
+		unlink(filename);
+		g_free(filename);
+
+		filename = g_strdup_printf ("/etc/ipsec.d/nm-l2tp-ipsec-%s.secrets", priv->uuid);
+		unlink(filename);
+		g_free(filename);
+
+		filename = g_strdup_printf ("/etc/strongswan/ipsec.d/nm-l2tp-ipsec-%s.secrets", priv->uuid);
+		unlink(filename);
+		g_free(filename);
 	}
 
 	return TRUE;
