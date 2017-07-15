@@ -235,9 +235,8 @@ msgid "The password is not required"
 msgstr "Hasło nie jest wymagane"
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
-#, fuzzy
 msgid "L2TP IPsec Options"
-msgstr "Zaawansowane opcje L2TP"
+msgstr "Opcje IPsec L2TP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -248,9 +247,8 @@ msgid "General"
 msgstr "Ogólne"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
-#, fuzzy
 msgid "Gateway ID:"
-msgstr "_Brama:"
+msgstr "ID bramy:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
@@ -310,7 +308,7 @@ msgstr "Wyświetlanie hasła"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Password passed to PPPD when prompted for it."
-msgstr ""
+msgstr "Hasło podawane PPPD przy pytaniu o nie."
 
 #: ../properties/nm-l2tp-dialog.ui.h:22
 msgid ""
@@ -340,9 +338,8 @@ msgid "Default"
 msgstr "Domyślne"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
-#, fuzzy
 msgid "L2TP PPP Options"
-msgstr "Zaawansowane opcje L2TP"
+msgstr "Opcje PPP L2TP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
 msgid "Authentication"

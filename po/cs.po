@@ -234,9 +234,8 @@ msgid "The password is not required"
 msgstr "Heslo není vyžadováno"
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
-#, fuzzy
 msgid "L2TP IPsec Options"
-msgstr "Rozšířené volby L2TP"
+msgstr "Možnosti L2TP IPsec"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -247,9 +246,8 @@ msgid "General"
 msgstr "Obecné"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
-#, fuzzy
 msgid "Gateway ID:"
-msgstr "_Brána:"
+msgstr "ID brány:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
@@ -338,9 +336,8 @@ msgid "Default"
 msgstr "Výchozí"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
-#, fuzzy
 msgid "L2TP PPP Options"
-msgstr "Rozšířené volby L2TP"
+msgstr "Možnosti L2TP PPP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
 msgid "Authentication"

@@ -235,9 +235,8 @@ msgid "The password is not required"
 msgstr "Parola gerekli değil"
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
-#, fuzzy
 msgid "L2TP IPsec Options"
-msgstr "L2TP Gelişmiş Seçenekleri"
+msgstr "L2TP IPsec Seçenekleri"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -248,9 +247,8 @@ msgid "General"
 msgstr "Genel"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
-#, fuzzy
 msgid "Gateway ID:"
-msgstr "_Ağ geçidi:"
+msgstr "Ağ Geçidi Kimliği:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
@@ -314,9 +312,8 @@ msgid "Show password"
 msgstr "Parolayı göster"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
-#, fuzzy
 msgid "Password passed to PPPD when prompted for it."
-msgstr "Parola sorulduğunda L2TP'ye geçildi."
+msgstr "İstendiğinde parola PPPD ile iletildi."
 
 #: ../properties/nm-l2tp-dialog.ui.h:22
 #, fuzzy
@@ -351,7 +348,7 @@ msgstr "Varsayılan"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid "L2TP PPP Options"
-msgstr ""
+msgstr "L2TP PPP Seçenekleri"
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
 msgid "Authentication"

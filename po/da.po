@@ -238,9 +238,8 @@ msgid "The password is not required"
 msgstr "Adgangskode er ikke påkrævet"
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
-#, fuzzy
 msgid "L2TP IPsec Options"
-msgstr "PPP-indstillinger"
+msgstr "L2TP IPsec-tilvalg"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -251,9 +250,8 @@ msgid "General"
 msgstr "Generelt"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
-#, fuzzy
 msgid "Gateway ID:"
-msgstr "Ad_gangspunkt:"
+msgstr "Gateway-id:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
@@ -313,7 +311,7 @@ msgstr "Vis adgangskode"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Password passed to PPPD when prompted for it."
-msgstr ""
+msgstr "Adgangskode sendt til PPPD når der spørges efter det."
 
 #: ../properties/nm-l2tp-dialog.ui.h:22
 msgid ""
@@ -343,9 +341,8 @@ msgid "Default"
 msgstr "Standard"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
-#, fuzzy
 msgid "L2TP PPP Options"
-msgstr "PPP-indstillinger"
+msgstr "L2TP PPP-indstillinger"
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
 msgid "Authentication"

@@ -235,9 +235,8 @@ msgid "The password is not required"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
-#, fuzzy
 msgid "L2TP IPsec Options"
-msgstr "Προχωρημένες επιλογές L2TP "
+msgstr "Επιλογές L2TP IPsec"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -248,9 +247,8 @@ msgid "General"
 msgstr "Γενικά"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
-#, fuzzy
 msgid "Gateway ID:"
-msgstr "Πύ_λη:"
+msgstr "ID δικτυακής πύλης:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
@@ -311,7 +309,7 @@ msgstr "Εμφάνιση κωδικού πρόσβασης"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Password passed to PPPD when prompted for it."
-msgstr ""
+msgstr "Ο κωδικός χρήστη να περνά στο PPPD όταν ζητείται."
 
 #: ../properties/nm-l2tp-dialog.ui.h:22
 msgid ""
@@ -341,9 +339,8 @@ msgid "Default"
 msgstr "Προεπιλεγμένη"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
-#, fuzzy
 msgid "L2TP PPP Options"
-msgstr "Προχωρημένες επιλογές L2TP "
+msgstr "Επιλογές L2TP PPP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
 msgid "Authentication"

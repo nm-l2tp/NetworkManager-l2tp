@@ -234,9 +234,8 @@ msgid "The password is not required"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
-#, fuzzy
 msgid "L2TP IPsec Options"
-msgstr "L2TP täpsemad valikud"
+msgstr "L2TP IPSeci valikud"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -247,9 +246,8 @@ msgid "General"
 msgstr "Üldine"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
-#, fuzzy
 msgid "Gateway ID:"
-msgstr "_Lüüs (gateway):"
+msgstr "Lüüsi ID:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
@@ -308,7 +306,7 @@ msgstr "Parooli näidatakse"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Password passed to PPPD when prompted for it."
-msgstr ""
+msgstr "Parool, mis edastatakse nõudmise peale PPPD-le"
 
 #: ../properties/nm-l2tp-dialog.ui.h:22
 msgid ""
@@ -338,9 +336,8 @@ msgid "Default"
 msgstr "Vaikimisi"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
-#, fuzzy
 msgid "L2TP PPP Options"
-msgstr "L2TP täpsemad valikud"
+msgstr "L2TP PPP valikud"
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
 msgid "Authentication"

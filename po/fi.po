@@ -234,9 +234,8 @@ msgid "The password is not required"
 msgstr "Salasanaa ei vaadita"
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
-#, fuzzy
 msgid "L2TP IPsec Options"
-msgstr "PPP-valinnat"
+msgstr "L2TP:n IPsec-valinnat"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -247,9 +246,8 @@ msgid "General"
 msgstr "Yleiset"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
-#, fuzzy
 msgid "Gateway ID:"
-msgstr "_Yhdyskäytävä:"
+msgstr "Yhdyskäytävän tunniste:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
@@ -309,7 +307,7 @@ msgstr "Näytä salasana"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Password passed to PPPD when prompted for it."
-msgstr ""
+msgstr "PPPD:lle välitettävä salasana, kun sitä kysytään."
 
 #: ../properties/nm-l2tp-dialog.ui.h:22
 msgid ""
@@ -339,9 +337,8 @@ msgid "Default"
 msgstr "Oletus"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
-#, fuzzy
 msgid "L2TP PPP Options"
-msgstr "PPP-valinnat"
+msgstr "L2TP:n PPP-valinnat"
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
 msgid "Authentication"

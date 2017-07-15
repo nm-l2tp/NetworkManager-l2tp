@@ -233,9 +233,8 @@ msgid "The password is not required"
 msgstr "Лозинка није потребна"
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
-#, fuzzy
 msgid "L2TP IPsec Options"
-msgstr "Напредне опције за ППТП"
+msgstr "Опције Л2ТП‑а/ИПсека"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -246,9 +245,8 @@ msgid "General"
 msgstr "Опште"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
-#, fuzzy
 msgid "Gateway ID:"
-msgstr "_Мрежни пролаз:"
+msgstr "ИД мрежног излаза:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
@@ -310,9 +308,8 @@ msgid "Show password"
 msgstr "Прикажи лозинку"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
-#, fuzzy
 msgid "Password passed to PPPD when prompted for it."
-msgstr "Лозинка дата ППТП-у када је затражена."
+msgstr "Лозинка за прослеђивање pppd‑у када је затражи."
 
 #: ../properties/nm-l2tp-dialog.ui.h:22
 #, fuzzy
@@ -346,7 +343,7 @@ msgstr "Основно"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid "L2TP PPP Options"
-msgstr ""
+msgstr "Опције Л2ТП‑а/ППП‑а"
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
 msgid "Authentication"

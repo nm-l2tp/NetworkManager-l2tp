@@ -235,9 +235,8 @@ msgid "The password is not required"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
-#, fuzzy
 msgid "L2TP IPsec Options"
-msgstr "Додаткові параметри L2TP"
+msgstr "Параметри IPsec L2TP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -248,9 +247,8 @@ msgid "General"
 msgstr "Загальне"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
-#, fuzzy
 msgid "Gateway ID:"
-msgstr "_Шлюз:"
+msgstr "Ід. шлюзу:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
@@ -309,7 +307,7 @@ msgstr "Показати пароль"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Password passed to PPPD when prompted for it."
-msgstr ""
+msgstr "Пароль, який буде передано PPPD у відповідь на запит щодо пароля."
 
 #: ../properties/nm-l2tp-dialog.ui.h:22
 msgid ""
@@ -339,9 +337,8 @@ msgid "Default"
 msgstr "Типово"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
-#, fuzzy
 msgid "L2TP PPP Options"
-msgstr "Додаткові параметри L2TP"
+msgstr "Параметри PPP L2TP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
 msgid "Authentication"

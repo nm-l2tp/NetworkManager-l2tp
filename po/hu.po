@@ -233,9 +233,8 @@ msgid "The password is not required"
 msgstr "A jelszó nem szükséges"
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
-#, fuzzy
 msgid "L2TP IPsec Options"
-msgstr "L2TP speciális beállításai"
+msgstr "L2TP IPsec beállítások"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -246,9 +245,8 @@ msgid "General"
 msgstr "Általános"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
-#, fuzzy
 msgid "Gateway ID:"
-msgstr "Á_tjáró:"
+msgstr "Átjáró azonosító:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
@@ -338,9 +336,8 @@ msgid "Default"
 msgstr "Alapértelmezett"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
-#, fuzzy
 msgid "L2TP PPP Options"
-msgstr "L2TP speciális beállításai"
+msgstr "L2TP PPP beállítások"
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
 msgid "Authentication"

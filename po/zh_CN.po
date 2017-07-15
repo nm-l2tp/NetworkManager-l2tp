@@ -243,9 +243,8 @@ msgid "General"
 msgstr "常规"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
-#, fuzzy
 msgid "Gateway ID:"
-msgstr "网关ID："
+msgstr "网关 ID："
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""

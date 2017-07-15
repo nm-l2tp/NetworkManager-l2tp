@@ -231,7 +231,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
 msgid "L2TP IPsec Options"
-msgstr ""
+msgstr "L2TP IPsec 選項"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -242,9 +242,8 @@ msgid "General"
 msgstr "一般"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
-#, fuzzy
 msgid "Gateway ID:"
-msgstr "通訊閘(_G):"
+msgstr "閘道 ID："
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
@@ -303,7 +302,7 @@ msgstr "顯示密碼"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Password passed to PPPD when prompted for it."
-msgstr ""
+msgstr "需要時傳送給 PPPD 的密碼。"
 
 #: ../properties/nm-l2tp-dialog.ui.h:22
 msgid ""
@@ -334,7 +333,7 @@ msgstr "預設值"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid "L2TP PPP Options"
-msgstr ""
+msgstr "L2TP PPP Options"
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
 msgid "Authentication"

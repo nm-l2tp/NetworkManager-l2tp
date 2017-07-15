@@ -231,9 +231,8 @@ msgid "The password is not required"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
-#, fuzzy
 msgid "L2TP IPsec Options"
-msgstr "PPP 옵션"
+msgstr "L2TP IPsec 옵션"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -244,9 +243,8 @@ msgid "General"
 msgstr "일반"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
-#, fuzzy
 msgid "Gateway ID:"
-msgstr "게이트웨이(_G):"
+msgstr "게이트웨이 ID:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
@@ -303,7 +301,7 @@ msgstr "암호 표시"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Password passed to PPPD when prompted for it."
-msgstr ""
+msgstr "PPPD 암호를 요청했을 때 사용할 암호입니다."
 
 #: ../properties/nm-l2tp-dialog.ui.h:22
 msgid ""
@@ -333,9 +331,8 @@ msgid "Default"
 msgstr "기본값"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
-#, fuzzy
 msgid "L2TP PPP Options"
-msgstr "PPP 옵션"
+msgstr "L2TP PPP 옵션"
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
 msgid "Authentication"

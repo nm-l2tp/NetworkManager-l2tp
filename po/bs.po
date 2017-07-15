@@ -227,9 +227,8 @@ msgid "The password is not required"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
-#, fuzzy
 msgid "L2TP IPsec Options"
-msgstr "L2TP napredne opcije"
+msgstr "L2TP IPsec Opcije"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -240,9 +239,8 @@ msgid "General"
 msgstr "Opšte"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
-#, fuzzy
 msgid "Gateway ID:"
-msgstr "_Mrežni izlaz:"
+msgstr "ID mrežnog izlaza:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
@@ -342,7 +340,7 @@ msgstr "Podrazumijevano"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid "L2TP PPP Options"
-msgstr ""
+msgstr "Opcije provjere pošte"
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
 msgid "Authentication"

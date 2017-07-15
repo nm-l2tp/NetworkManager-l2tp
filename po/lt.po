@@ -235,9 +235,8 @@ msgid "The password is not required"
 msgstr "Slaptažodis nereikalingas"
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
-#, fuzzy
 msgid "L2TP IPsec Options"
-msgstr "L2TP sudėtingesni nustatymai"
+msgstr "L2TP IPsec parinktys"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -248,9 +247,8 @@ msgid "General"
 msgstr "Bendra"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
-#, fuzzy
 msgid "Gateway ID:"
-msgstr "Š_liuzas:"
+msgstr "Šliuzo ID:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
@@ -340,9 +338,8 @@ msgid "Default"
 msgstr "Numatytasis"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
-#, fuzzy
 msgid "L2TP PPP Options"
-msgstr "L2TP sudėtingesni nustatymai"
+msgstr "L2TP PPP parinktys"
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
 msgid "Authentication"

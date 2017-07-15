@@ -252,9 +252,8 @@ msgid "General"
 msgstr "Основное"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
-#, fuzzy
 msgid "Gateway ID:"
-msgstr "_Шлюз:"
+msgstr "Идентификатор шлюза:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
