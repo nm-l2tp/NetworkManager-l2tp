@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager l2tp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-27 20:29+1000\n"
+"POT-Creation-Date: 2017-07-15 22:33+1000\n"
 "PO-Revision-Date: 2010-04-02 03:32+0200\n"
 "Last-Translator: Maxim Dziumanenko <dziumanenko@gmail.com>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -261,146 +261,145 @@ msgstr ""
 msgid "unknown error creating editor instance"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:306
+#: ../src/nm-l2tp-service.c:307
 #, c-format
 msgid "invalid gateway '%s'"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:315
+#: ../src/nm-l2tp-service.c:316
 #, c-format
 msgid "invalid ipsec-gateway-id '%s'"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:328
+#: ../src/nm-l2tp-service.c:329
 #, c-format
 msgid "invalid integer property '%s'"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:338
+#: ../src/nm-l2tp-service.c:339
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:345
+#: ../src/nm-l2tp-service.c:346
 #, c-format
 msgid "unhandled property '%s' type %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:356
+#: ../src/nm-l2tp-service.c:357
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:374
+#: ../src/nm-l2tp-service.c:375
 msgid "No VPN configuration options."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:394
+#: ../src/nm-l2tp-service.c:395
 #, c-format
 msgid "Missing required option '%s'."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:414
+#: ../src/nm-l2tp-service.c:415
 msgid "No VPN secrets!"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:715
+#: ../src/nm-l2tp-service.c:687
 #, c-format
 msgid "Could not open %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:720
+#: ../src/nm-l2tp-service.c:692
 #, c-format
 msgid "# Following line was added by NetworkManager-l2tp"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:731
+#: ../src/nm-l2tp-service.c:703
 #, c-format
 msgid "Could not write %s/nm-l2tp-ipsec-%s.secrets"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:761
+#: ../src/nm-l2tp-service.c:733
 msgid "Could not write ipsec config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:813
+#: ../src/nm-l2tp-service.c:785
 msgid "Could not write xl2tpd config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:863
+#: ../src/nm-l2tp-service.c:835
 msgid "Could not write ppp options."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1011 ../src/nm-l2tp-service.c:1036
+#: ../src/nm-l2tp-service.c:988 ../src/nm-l2tp-service.c:1013
 msgid "Could not start the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1017 ../src/nm-l2tp-service.c:1044
+#: ../src/nm-l2tp-service.c:994 ../src/nm-l2tp-service.c:1021
 msgid "Could not restart the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1158
+#: ../src/nm-l2tp-service.c:1136
 msgid "Could not find the xl2tpd binary."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1224
+#: ../src/nm-l2tp-service.c:1202
 msgid "Missing VPN username."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1233
+#: ../src/nm-l2tp-service.c:1211
 msgid "Missing or invalid VPN password."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1336
+#: ../src/nm-l2tp-service.c:1314
 msgid "couldn't convert L2TP VPN gateway IP address."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1349
+#: ../src/nm-l2tp-service.c:1327
 msgid "couldn't look up L2TP VPN gateway IP address "
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1368
+#: ../src/nm-l2tp-service.c:1346
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1397
+#: ../src/nm-l2tp-service.c:1375
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1403
+#: ../src/nm-l2tp-service.c:1381
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1412
+#: ../src/nm-l2tp-service.c:1390
 msgid "could not retrieve connection UUID"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1420
+#: ../src/nm-l2tp-service.c:1398
 msgid "Invalid or missing L2TP gateway."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1678
+#: ../src/nm-l2tp-service.c:1688
 msgid "Don't quit when VPN connection terminates"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1679
+#: ../src/nm-l2tp-service.c:1689
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1680
+#: ../src/nm-l2tp-service.c:1690
 msgid "D-Bus name to use for this instance"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1701
+#: ../src/nm-l2tp-service.c:1711
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
-#, fuzzy
 msgid "L2TP IPsec Options"
-msgstr "Додаткові параметри L2TP"
+msgstr "Параметри IPsec L2TP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -411,9 +410,8 @@ msgid "General"
 msgstr "Загальне"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
-#, fuzzy
 msgid "Gateway ID:"
-msgstr "_Шлюз:"
+msgstr "Ід. шлюзу:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
@@ -471,7 +469,7 @@ msgstr "Показати пароль"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Password passed to PPPD when prompted for it."
-msgstr ""
+msgstr "Пароль, який буде передано PPPD у відповідь на запит щодо пароля."
 
 #: ../properties/nm-l2tp-dialog.ui.h:22
 msgid ""
@@ -501,9 +499,8 @@ msgid "Default"
 msgstr "Типово"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
-#, fuzzy
 msgid "L2TP PPP Options"
-msgstr "Додаткові параметри L2TP"
+msgstr "Параметри PPP L2TP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
 msgid "Authentication"
