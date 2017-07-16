@@ -12,6 +12,13 @@ AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_HEADERS([config.h])
 
 dnl
+dnl AC_SUBST runstatedir is for autoconf < 2.70 compatibilty
+dnl
+if test "x$runstatedir" = x; then
+	AC_SUBST([runstatedir], ['${localstatedir}/run'])
+fi
+
+dnl
 dnl Require programs
 dnl
 AC_PROG_CC
