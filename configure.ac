@@ -14,6 +14,13 @@ AC_CONFIG_HEADERS([config.h])
 
 AC_USE_SYSTEM_EXTENSIONS
 
+dnl
+dnl AC_SUBST runstatedir is for autoconf < 2.70 compatibilty
+dnl
+if test "x$runstatedir" = x; then
+	AC_SUBST([runstatedir], ['${localstatedir}/run'])
+fi
+
 dnl Prefer gcc-* variants; the ones libtool would choose don't work with LTO
 AC_CHECK_TOOLS(AR, [gcc-ar ar], false)
 AC_CHECK_TOOLS(RANLIB, [gcc-ranlib ranlib], :)
