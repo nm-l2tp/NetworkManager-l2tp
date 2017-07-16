@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-27 20:29+1000\n"
+"POT-Creation-Date: 2017-07-15 22:33+1000\n"
 "PO-Revision-Date: 2017-02-12 18:45+0200\n"
 "Last-Translator: Miroslav Nikolić <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <(nothing)>\n"
@@ -268,147 +268,147 @@ msgstr "ne mogu da učitam pogon „%s“ iz priključka: %s"
 msgid "unknown error creating editor instance"
 msgstr "nepoznata greška prilikom stvaranja primerka uređivača"
 
-#: ../src/nm-l2tp-service.c:306
+#: ../src/nm-l2tp-service.c:307
 #, fuzzy, c-format
 msgid "invalid gateway '%s'"
 msgstr "neispravan mrežni prolaz „%s“"
 
-#: ../src/nm-l2tp-service.c:315
+#: ../src/nm-l2tp-service.c:316
 #, fuzzy, c-format
 msgid "invalid ipsec-gateway-id '%s'"
 msgstr "neispravan mrežni prolaz „%s“"
 
-#: ../src/nm-l2tp-service.c:328
+#: ../src/nm-l2tp-service.c:329
 #, fuzzy, c-format
 msgid "invalid integer property '%s'"
 msgstr "neispravno svojstvo celog broja „%s“"
 
-#: ../src/nm-l2tp-service.c:338
+#: ../src/nm-l2tp-service.c:339
 #, fuzzy, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr "neispravno logičko svojstvo „%s“ (nije „da“ ili „ne“)"
 
-#: ../src/nm-l2tp-service.c:345
+#: ../src/nm-l2tp-service.c:346
 #, fuzzy, c-format
 msgid "unhandled property '%s' type %s"
 msgstr "nerukovano svojstvo „%s“ vrste %s"
 
-#: ../src/nm-l2tp-service.c:356
+#: ../src/nm-l2tp-service.c:357
 #, fuzzy, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "svojstvo „%s“ je neispravno ili nije podržano"
 
-#: ../src/nm-l2tp-service.c:374
+#: ../src/nm-l2tp-service.c:375
 msgid "No VPN configuration options."
 msgstr "Nema opcija za VPN podešavanje."
 
-#: ../src/nm-l2tp-service.c:394
+#: ../src/nm-l2tp-service.c:395
 #, fuzzy, c-format
 msgid "Missing required option '%s'."
 msgstr "Nedostaje zatražena opcija „%s“."
 
-#: ../src/nm-l2tp-service.c:414
+#: ../src/nm-l2tp-service.c:415
 msgid "No VPN secrets!"
 msgstr "Nema VPN tajni!"
 
-#: ../src/nm-l2tp-service.c:715
+#: ../src/nm-l2tp-service.c:687
 #, c-format
 msgid "Could not open %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:720
+#: ../src/nm-l2tp-service.c:692
 #, c-format
 msgid "# Following line was added by NetworkManager-l2tp"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:731
+#: ../src/nm-l2tp-service.c:703
 #, c-format
 msgid "Could not write %s/nm-l2tp-ipsec-%s.secrets"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:761
+#: ../src/nm-l2tp-service.c:733
 #, fuzzy
 msgid "Could not write ipsec config."
 msgstr "Ne mogu da pronađem l2tp izvršni."
 
-#: ../src/nm-l2tp-service.c:813
+#: ../src/nm-l2tp-service.c:785
 #, fuzzy
 msgid "Could not write xl2tpd config."
 msgstr "Ne mogu da pronađem izvršni l2tp klijenta."
 
-#: ../src/nm-l2tp-service.c:863
+#: ../src/nm-l2tp-service.c:835
 #, fuzzy
 msgid "Could not write ppp options."
 msgstr "Ne mogu da pronađem l2tp izvršni."
 
-#: ../src/nm-l2tp-service.c:1011 ../src/nm-l2tp-service.c:1036
+#: ../src/nm-l2tp-service.c:988 ../src/nm-l2tp-service.c:1013
 msgid "Could not start the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1017 ../src/nm-l2tp-service.c:1044
+#: ../src/nm-l2tp-service.c:994 ../src/nm-l2tp-service.c:1021
 msgid "Could not restart the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1158
+#: ../src/nm-l2tp-service.c:1136
 #, fuzzy
 msgid "Could not find the xl2tpd binary."
 msgstr "Ne mogu da pronađem l2tp izvršni."
 
-#: ../src/nm-l2tp-service.c:1224
+#: ../src/nm-l2tp-service.c:1202
 msgid "Missing VPN username."
 msgstr "Nedostaje VPN korisničko ime."
 
-#: ../src/nm-l2tp-service.c:1233
+#: ../src/nm-l2tp-service.c:1211
 msgid "Missing or invalid VPN password."
 msgstr "Nedostaje ili je neispravna VPN lozinka."
 
-#: ../src/nm-l2tp-service.c:1336
+#: ../src/nm-l2tp-service.c:1314
 #, fuzzy
 msgid "couldn't convert L2TP VPN gateway IP address."
 msgstr "ne mogu da pretvorim IP adresu L2TP VPN mrežnog prolaza „%s“ (%d)"
 
-#: ../src/nm-l2tp-service.c:1349
+#: ../src/nm-l2tp-service.c:1327
 #, fuzzy
 msgid "couldn't look up L2TP VPN gateway IP address "
 msgstr "ne mogu da potražim IP adresu L2TP VPN mrežnog prolaza „%s“ (%d)"
 
-#: ../src/nm-l2tp-service.c:1368
+#: ../src/nm-l2tp-service.c:1346
 #, fuzzy
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr "nisu vraćene upotrebljive adrese za L2TP VPN mrežni prolaz „%s“"
 
-#: ../src/nm-l2tp-service.c:1397
+#: ../src/nm-l2tp-service.c:1375
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1403
+#: ../src/nm-l2tp-service.c:1381
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1412
+#: ../src/nm-l2tp-service.c:1390
 msgid "could not retrieve connection UUID"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1420
+#: ../src/nm-l2tp-service.c:1398
 msgid "Invalid or missing L2TP gateway."
 msgstr "Neispravan ili nedostaje L2TP mrežni prolaz."
 
-#: ../src/nm-l2tp-service.c:1678
+#: ../src/nm-l2tp-service.c:1688
 #, fuzzy
 msgid "Don't quit when VPN connection terminates"
 msgstr "Ne prekida kada se završava VPN veza"
 
-#: ../src/nm-l2tp-service.c:1679
+#: ../src/nm-l2tp-service.c:1689
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr ""
 "Uključuje opširno zapisivanje zarad ispravljanja grešaka (može da izloži "
 "lozinke)"
 
-#: ../src/nm-l2tp-service.c:1680
+#: ../src/nm-l2tp-service.c:1690
 msgid "D-Bus name to use for this instance"
 msgstr "Naziv D-sabirnice koja će se koristiti za ovaj primerak"
 
-#: ../src/nm-l2tp-service.c:1701
+#: ../src/nm-l2tp-service.c:1711
 #, fuzzy
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
