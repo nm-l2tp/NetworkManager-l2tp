@@ -11,9 +11,10 @@ This is a new stable release of NetworkManager-l2tp.  Notable changes include:
 * Enforce UDP encapsulation toggle button fix.
 * Stop strongSwan service when a connection cannot be established.
 * fix entries in Debian Lintian spelling-error-in-binary report.
-* Autoconf < 2.70 compatibility fix for runstatedir.
+* configure --runstatedir support if using Autoconf >= 2.7.0.
 * If "Automatic (VPN) Addresses Only" mode is enabled in the the IPv4
   config settings, do not use the pppd usepeerdns option.
+  i.e. do not overide /etc/resolv.conf.
 
 =======================================================
 NetworkManager-l2tp-1.2.6
