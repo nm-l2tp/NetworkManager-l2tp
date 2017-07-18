@@ -5,8 +5,8 @@ Overview of changes since network-manager-l2tp-1.2.6
 
 This is a new stable release of NetworkManager-l2tp.  Notable changes include:
 
-* Updated translations, merged from NetworkMananager-applet,
-  NetworkMananager-libreswan, NetworkMananager-pptp and
+* Updated translations, merged from NetworkManager-applet,
+  NetworkManager-libreswan, NetworkManager-pptp and
   KDE Plasma NetworkManagement L2TP. Removed obsolete translations.
 * Enforce UDP encapsulation toggle button fix.
 * Stop strongSwan service when a connection cannot be established.
