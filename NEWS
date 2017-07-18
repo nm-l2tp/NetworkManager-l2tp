@@ -5,12 +5,16 @@ Overview of changes since network-manager-l2tp-1.0.6
 
 This is a new stable release of NetworkManager-l2tp.  Notable changes include:
 
-* Updated translations, merged from NetworkMananager-applet,
-  NetworkMananager-libreswan, NetworkMananager-pptp and
+* Updated translations, merged from NetworkManager-applet,
+  NetworkManager-libreswan, NetworkManager-pptp and
   KDE Plasma NetworkManagement L2TP. Removed obsolete translations.
 * Stop strongSwan service when a connection cannot be established.
 * fix entries in Debian Lintian spelling-error-in-binary report.
 * runstatedir support if using Autoconf >= 2.7.0.
+* Sets phase 1 (ike) and phase 2 (esp) to the following if no user
+  supplied values are provided:
+    ike=aes128-sha1-modp2048,3des-sha1-modp1536,3des-sha1-modp1024
+    esp=aes128-sha1,3des-sha1
 * If "Automatic (VPN) Addresses Only" mode is enabled in the the IPv4
   config settings, do not use the pppd usepeerdns option.
   i.e. do not overide /etc/resolv.conf.
