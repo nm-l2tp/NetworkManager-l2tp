@@ -317,6 +317,7 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 				             key);
 				return; /* valid */
 			}
+			break;
 		case G_TYPE_UINT:
 			errno = 0;
 			tmp = strtol (value, NULL, 10);
