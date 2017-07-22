@@ -306,7 +306,7 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 				             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
 				             _("invalid gateway '%s'"),
 				             key);
-				return; /* valid */
+				return;
 			}
 			if (   !strcmp (prop.name, NM_L2TP_KEY_IPSEC_GATEWAY_ID)
 			    && !validate_gateway_id (value)) {
@@ -315,9 +315,8 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 				             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
 				             _("invalid ipsec-gateway-id '%s'"),
 				             key);
-				return; /* valid */
+				return;
 			}
-			break;
 		case G_TYPE_UINT:
 			errno = 0;
 			tmp = strtol (value, NULL, 10);
