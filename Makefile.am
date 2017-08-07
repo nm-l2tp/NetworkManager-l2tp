@@ -26,6 +26,9 @@ dbusservice_DATA = nm-l2tp-service.conf
 nmvpnservicedir = $(NM_VPN_SERVICE_DIR)
 nmvpnservice_DATA = nm-l2tp-service.name
 
+uidir = $(datadir)/gnome-vpn-properties/l2tp
+ui_DATA =
+
 BUILT_SOURCES =
 
 ###############################################################################
@@ -116,6 +119,8 @@ src_nm_l2tp_pppd_plugin_la_LIBADD = \
 	$(LIBNM_LIBS)
 
 ###############################################################################
+
+ui_DATA += properties/nm-l2tp-dialog.ui
 
 plugin_sources = \
 	shared/nm-utils/nm-vpn-plugin-macros.h \
