@@ -129,30 +129,27 @@ ipsec_dialog_new (GHashTable *hash)
 {
 	GtkBuilder *builder;
 	GtkWidget *dialog = NULL;
-	char *ui_file = NULL;
 	GtkWidget *widget;
 	const char *value;
 	GError *error = NULL;
 
 	g_return_val_if_fail (hash != NULL, NULL);
 
-	ui_file = g_strdup_printf ("%s/%s", UIDIR, "nm-l2tp-dialog.ui");
 	builder = gtk_builder_new ();
 
-	if (!gtk_builder_add_from_file(builder, ui_file, &error)) {
-		g_warning("Couldn't load builder file: %s", error ? error->message
-				: "(unknown)");
-		g_clear_error(&error);
+	if (!gtk_builder_add_from_resource (builder, "/org/freedesktop/network-manager-l2tp/nm-l2tp-dialog.ui", &error)) {
+		g_warning ("Couldn't load builder file: %s", error ? error->message
+		           : "(unknown)");
+		g_clear_error (&error);
 		g_object_unref(G_OBJECT(builder));
-		goto out;
+		return NULL;
 	}
 	gtk_builder_set_translation_domain(builder, GETTEXT_PACKAGE);
-
 
 	dialog = GTK_WIDGET (gtk_builder_get_object (builder, "l2tp-ipsec-dialog"));
 	if (!dialog) {
 		g_object_unref (G_OBJECT (builder));
-		goto out;
+		return NULL;
 	}
 	gtk_window_set_modal (GTK_WINDOW (dialog), TRUE);
 
@@ -196,8 +193,6 @@ ipsec_dialog_new (GHashTable *hash)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), FALSE);
 	}
 
-out:
-	g_free (ui_file);
 	return dialog;
 }
 

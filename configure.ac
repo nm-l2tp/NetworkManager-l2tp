@@ -34,6 +34,7 @@ AC_PROG_CC
 AM_PROG_CC_C_O
 AC_PROG_INSTALL
 AC_PROG_LIBTOOL
+AC_PATH_PROG(GLIB_COMPILE_RESOURCES, glib-compile-resources)
 
 dnl
 dnl Required headers
