@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+	<gresource prefix="/org/freedesktop/network-manager-l2tp">
+		<file preprocess="xml-stripblanks">nm-l2tp-dialog.ui</file>
+	</gresource>
+</gresources>
