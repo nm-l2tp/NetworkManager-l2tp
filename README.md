@@ -119,27 +119,56 @@ by issuing the following which will show the logs since the last boot:
 For non-Systemd based Linux distributions, view the appropriate system log
 file which is most likely located under `/var/log/`.
 
-## User specified IPsec IKEv1 cipher suites
+## VPN servers using IPsec IKEv1 broken algorithms
 
-Legacy ciphers that are considered broken are regularly removed from the
-default ciphers for strongSwan and Libreswan. This means VPN servers that are
-using only legacy ciphers that strongSwan or Libreswan now consider broken will
-result in a failed connection, unless user specified ciphers to supplement or
-override the default ciphers are used.
+There is a general consensus that the following algorithms are now considered
+broken in regards to security and should no longer be used.
 
-User specified phase 1 (ike) and phase 2 (esp) cipher suites can be specified
-in the IPsec configuration dialog box under Advanced options.
+Encryption Algorithms :
+* 3DES
+* Blowfish
 
-For example if you are using strongSwan with this VPN plugin and you need to
-use the same ciphers that older versions of strongSwan and this VPN plugin
-used, enter the following in the corresponding IPsec configuration dialog text
-boxes:
+Integrity Algorithms :
+* MD5
+* SHA1
 
-* Phase1 Algorithms : aes128-sha1-modp2048,3des-sha1-modp1536,3des-sha1-modp1024
-* Phase2 Algorithms : aes128-sha1,3des-sha1
+Diffie Hellman Groups :
+* MODP768
+* MODP1024
 
-Please see the IPsec IKEv1 ciphers section in the Wiki for more details
-including how to query the VPN server for the ciphers it supports :
+Legacy algorithms that are considered broken are regularly removed from the
+default set of allowed algorithms with newer releases of strongSwan and
+Libreswan. As of Libreswan 3.2.20 and strongSwan 5.4.0, the above algorithms
+have been or in some cases already been dropped from the default set of allowed
+algorithms.
+
+Please see the IPsec IKEv1 algorithms section in the Wiki for more details
+including how to query the VPN server for the algorithms it supports :
 * https://github.com/nm-l2tp/network-manager-l2tp/wiki/Known-Issues
+
+If the VPN server is using broken algorithms, it is recommended that it be
+reconfigured to use stronger algorithms. If for some reason the VPN server
+cannot be reconfigured and you are not too concerned about security, user
+specified phase 1 (ike) and phase 2 (esp) algorithms can be specified in the
+IPsec configuration dialog box under the `Advanced` options for a workaround.
+
+### Example workaround for 3DES, SHA1 and MODP1024 broken algorithms
+
+Unfortunately there are many L2TP/IPsec VPN servers still offering only 3DES,
+SHA1 and MODP1024. One of the main reasons for this is because it is the default
+Microsoft offered with their L2TP/IPsec VPN servers since the days Windows XP
+was the main client.
+
+If you are using strongSwan for IPsec client support, enter the following in the
+corresponding IPsec configuration dialog text boxes:
+
+* Phase1 Algorithms : 3des-sha1-modp1024
+* Phase2 Algorithms : 3des-sha1
+
+If you are using Libreswan >= 3.2.20 for IPsec client support, enter the
+following in the corresponding IPsec configuration dialog text boxes:
+
+* Phase1 Algorithms : 3des-sha1;modp1024
+* Phase2 Algorithms : 3des-sha1
 
 
