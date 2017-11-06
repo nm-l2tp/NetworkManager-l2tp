@@ -146,27 +146,27 @@ Please see the IPsec IKEv1 algorithms section in the Wiki for more details
 including how to query the VPN server for the algorithms it supports :
 * https://github.com/nm-l2tp/network-manager-l2tp/wiki/Known-Issues
 
-If the VPN server is using broken algorithms, it is recommended that it be
-reconfigured to use stronger algorithms. If for some reason the VPN server
-cannot be reconfigured and you are not too concerned about security, user
-specified phase 1 (ike) and phase 2 (esp) algorithms can be specified in the
-IPsec configuration dialog box under the `Advanced` options for a workaround.
+If the VPN server is only offering broken algorithms, it is recommended that it
+be reconfigured to use stronger algorithms. If for some reason the VPN server
+cannot be reconfigured and you are not too concerned about security, for a
+workaround, user specified phase 1 (ike) and phase 2 (esp) algorithms can be
+specified in the IPsec Options dialog box in the `Advanced` section.
 
 ### Example workaround for 3DES, SHA1 and MODP1024 broken algorithms
 
 Unfortunately there are many L2TP/IPsec VPN servers still offering only 3DES,
-SHA1 and MODP1024. One of the main reasons for this is because it is the default
-Microsoft offered with their L2TP/IPsec VPN servers since the days Windows XP
-was the main client.
+SHA1 and MODP1024. One of the main reasons possibly for this is because it is
+the default Microsoft has offered with their L2TP/IPsec VPN servers since the
+days Windows XP was the main client.
 
 If you are using strongSwan for IPsec client support, enter the following in the
-corresponding IPsec configuration dialog text boxes:
+corresponding IPsec Options dialog box advanced section:
 
 * Phase1 Algorithms : 3des-sha1-modp1024
 * Phase2 Algorithms : 3des-sha1
 
 If you are using Libreswan >= 3.2.20 for IPsec client support, enter the
-following in the corresponding IPsec configuration dialog text boxes:
+following in the IPsec Options dialog box advanced section:
 
 * Phase1 Algorithms : 3des-sha1;modp1024
 * Phase2 Algorithms : 3des-sha1
