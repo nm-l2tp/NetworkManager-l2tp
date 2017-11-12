@@ -665,8 +665,8 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		/*
 		 * IPsec secrets
 		 */
-		secrets = "/etc/ipsec.secrets";
-		ipsec_d = "/etc/ipsec.d";
+		secrets = NM_IPSEC_SECRETS;     /* typically /etc/ipsec.secrets */
+		ipsec_d = NM_IPSEC_SECRETS_DIR; /* typically /etc/ipsec.d */
 		if (!priv->is_libreswan) {
 			if (g_file_test ("/etc/strongswan", G_FILE_TEST_IS_DIR)) {
 				secrets = "/etc/strongswan/ipsec.secrets";

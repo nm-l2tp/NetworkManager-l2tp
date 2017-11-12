@@ -54,6 +54,20 @@ else
 fi
 AC_SUBST(PPPD_PLUGIN_DIR)
 
+AC_ARG_WITH(nm-ipsec-secrets, AS_HELP_STRING([--with-nm-ipsec-secrets=path], [The main IPSec secrets file, defaults to /etc/ipsec.secrets]), [], [with_nm_ipsec_secrets=])
+AS_IF([test -z "$with_nm_ipsec_secrets"], with_nm_ipsec_secrets="/etc/ipsec.secrets")
+if (printf '%s' "$with_nm_ipsec_secrets" | grep -v -q '^/'); then
+	AC_MSG_ERROR([--with-nm-ipsec-secrets must be an absolute path, instead it is '$with_nm_ipsec_secrets'])
+fi
+AC_DEFINE_UNQUOTED(NM_IPSEC_SECRETS, "$with_nm_ipsec_secrets", [IPSec secrets file])
+
+AC_ARG_WITH(nm-ipsec-secrets-dir, AS_HELP_STRING([--with-nm-ipsec-secrets-dir=path], [The directory where to put IPSec secrets, defaults to /etc/ipsec.d/]), [], [with_nm_ipsec_secrets_dir=])
+AS_IF([test -z "$with_nm_ipsec_secrets_dir"], with_nm_ipsec_secrets_dir="/etc/ipsec.d")
+if (printf '%s' "$with_nm_ipsec_secrets_dir" | grep -v -q '^/'); then
+	AC_MSG_ERROR([--with-nm-ipsec-secrets-dir must be an absolute path, instead it is '$with_nm_ipsec_secrets_dir'])
+fi
+AC_DEFINE_UNQUOTED(NM_IPSEC_SECRETS_DIR, "$with_nm_ipsec_secrets_dir", [IPSec secret dir])
+
 dnl
 dnl Checks for typedefs, structures, and compiler characteristics.
 dnl
