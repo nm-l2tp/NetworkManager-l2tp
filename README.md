@@ -122,7 +122,8 @@ disable the xl2tpd service from starting at boot time with :
 ## Issue with VPN servers only proposing IPsec IKEv1 weak legacy algorithms
 
 There is a general consensus that the following legacy algorithms are now
-considered weak or broken in regards to security and should phased out and replaced with stronger algorithms.
+considered weak or broken in regards to security and should be phased out and
+replaced with stronger algorithms.
 
 Encryption Algorithms :
 * 3DES
@@ -153,7 +154,10 @@ If the VPN server is only proposing weak or broken algorithms, it is
 recommended that it be reconfigured to propose stronger algorithms, e.g.
 AES, SHA2 and MODP2048.
 
-If for some reason the VPN server cannot be reconfigured and you are not too concerned about security, for a workaround, user specified phase 1 (ike) and phase 2 (esp) algorithms can be specified in the IPsec Options dialog box in the `Advanced` section. See the following example and the IPsec IKEv1 algorithms section of the Wiki for more details :
+If for some reason the VPN server cannot be reconfigured and you are not too
+concerned about security, for a workaround, user specified phase 1 (ike) and
+phase 2 (esp) algorithms can be specified in the IPsec Options dialog box in
+the `Advanced` section. See the following example and the IPsec IKEv1 algorithms section of the Wiki for more details :
 * https://github.com/nm-l2tp/network-manager-l2tp/wiki/Known-Issues
 
 ### Example workaround for 3DES, SHA1 and MODP1024 broken algorithms
@@ -163,8 +167,8 @@ SHA1 and MODP1024. One of the main reasons possibly for this is because it is
 the default Microsoft has offered with their L2TP/IPsec VPN servers since the
 days Windows XP was the main client.
 
-If you are using strongSwan for IPsec client support, enter the following in the
-corresponding IPsec Options dialog box advanced section:
+If you are using strongSwan for IPsec client support, enter the following in
+the corresponding IPsec Options dialog box advanced section:
 
 * Phase1 Algorithms : 3des-sha1-modp1024
 * Phase2 Algorithms : 3des-sha1
