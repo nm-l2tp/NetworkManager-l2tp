@@ -290,33 +290,27 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 
 		switch (prop.type) {
 		case G_TYPE_STRING:
-			if (!strcmp (prop.name, NM_L2TP_KEY_IPSEC_PSK) ||
-			    !strcmp (prop.name, NM_L2TP_KEY_CERT_PUB)  ||
-			    !strcmp (prop.name, NM_L2TP_KEY_CERT_CA)  ||
-			    !strcmp (prop.name, NM_L2TP_KEY_CERT_KEY) ||
-			    !strcmp (prop.name, NM_L2TP_KEY_IPSEC_IKE) ||
-			    !strcmp (prop.name, NM_L2TP_KEY_IPSEC_ESP) ||
-				!strcmp (prop.name, NM_L2TP_KEY_IPSEC_GROUP_NAME))
-				return; /* valid */
+			if (   !strcmp (prop.name, NM_L2TP_KEY_GATEWAY)) {
+				if ( validate_gateway (value) )
+					return; /* valid */
 
-			if (   !strcmp (prop.name, NM_L2TP_KEY_GATEWAY)
-			    && !validate_gateway (value)) {
 				g_set_error (info->error,
 				             NM_VPN_PLUGIN_ERROR,
 				             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
 				             _("invalid gateway '%s'"),
 				             key);
-				return;
-			}
-			if (   !strcmp (prop.name, NM_L2TP_KEY_IPSEC_GATEWAY_ID)
-			    && !validate_gateway_id (value)) {
+
+			} else if (   !strcmp (prop.name, NM_L2TP_KEY_IPSEC_GATEWAY_ID) ) {
+				if ( validate_gateway_id (value) )
+					return; /* valid */
+
 				g_set_error (info->error,
 				             NM_VPN_PLUGIN_ERROR,
 				             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
 				             _("invalid ipsec-gateway-id '%s'"),
 				             key);
-				return;
 			}
+			return;
 		case G_TYPE_UINT:
 			errno = 0;
 			tmp = strtol (value, NULL, 10);
