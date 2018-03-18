@@ -8,8 +8,6 @@ nm_l2tp_auth_dialog_CPPFLAGS = \
     $(LIBSECRET_CFLAGS) \
     -I"${top_srcdir}/shared/" \
     -I"${top_srcdir}/src/" \
-    -DICONDIR=\""$(datadir)/pixmaps"\" \
-    -DUIDIR=\""$(uidir)"\" \
     -DBINDIR=\""$(bindir)"\"
 
 nm_l2tp_auth_dialog_SOURCES = \
