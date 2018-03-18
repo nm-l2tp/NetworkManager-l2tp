@@ -1,4 +1,17 @@
 =======================================================
+NetworkManager-l2tp-1.2.10
+Overview of changes since network-manager-l2tp-1.2.8
+=======================================================
+
+This is a new stable release of NetworkManager-l2tp.  Notable changes include:
+
+* Point version 1.2.10 appdata image URIs to nm-1-2 github branch:
+  https://raw.githubusercontent.com/nm-l2tp/network-manager-l2tp/nm-1-2/appdata
+* Corrected force UDP encapsulation toggle button behavior.
+* Workaround for libreswan `ipsec status` issue with short (< 8 char) PSKs.
+* fix gcc -Wimplicit-fallthrough warning.
+
+=======================================================
 NetworkManager-l2tp-1.2.8
 Overview of changes since network-manager-l2tp-1.2.6
 =======================================================
