@@ -1,7 +1,7 @@
 AC_PREREQ(2.60)
 
 AC_INIT(NetworkManager-l2tp,
-        1.2.10,
+        1.7.0,
         https://github.com/nm-l2tp/network-manager-l2tp/issues,
         NetworkManager-l2tp)
 AM_INIT_AUTOMAKE([1.9 foreign no-dist-gzip dist-xz])
@@ -126,25 +126,25 @@ if test x"$with_gnome" != xno; then
 	PKG_CHECK_MODULES(GTK, gtk+-3.0 >= 3.4)
 	GTK_CFLAGS="$GTK_CFLAGS -DGDK_VERSION_MIN_REQUIRED=GDK_VERSION_3_4"
 
-	PKG_CHECK_MODULES(LIBNMA, libnma >= 1.2.0)
+	PKG_CHECK_MODULES(LIBNMA, libnma >= 1.8.0)
 	PKG_CHECK_MODULES(LIBSECRET, libsecret-1 >= 0.18)
 
 	if test x"$with_libnm_glib" != xno; then
-		PKG_CHECK_MODULES(LIBNM_GTK, libnm-gtk >= 1.2.0)
+		PKG_CHECK_MODULES(LIBNM_GTK, libnm-gtk >= 1.8.0)
 		PKG_CHECK_MODULES(LIBNM_GLIB,
-			NetworkManager >= 1.2.0
-			libnm-util >= 1.2.0
-			libnm-glib >= 1.2.0
-			libnm-glib-vpn >= 1.2.0);
+			NetworkManager >= 1.8.0
+			libnm-util >= 1.8.0
+			libnm-glib >= 1.8.0
+			libnm-glib-vpn >= 1.8.0);
 
-		LIBNM_GLIB_CFLAGS="$LIBNM_GLIB_CFLAGS -DNM_VERSION_MIN_REQUIRED=NM_VERSION_1_2"
-		LIBNM_GLIB_CFLAGS="$LIBNM_GLIB_CFLAGS -DNM_VERSION_MAX_ALLOWED=NM_VERSION_1_2"
+		LIBNM_GLIB_CFLAGS="$LIBNM_GLIB_CFLAGS -DNM_VERSION_MIN_REQUIRED=NM_VERSION_1_8"
+		LIBNM_GLIB_CFLAGS="$LIBNM_GLIB_CFLAGS -DNM_VERSION_MAX_ALLOWED=NM_VERSION_1_8"
 	fi
 fi
 
-PKG_CHECK_MODULES(LIBNM, libnm >= 1.2.0)
-LIBNM_CFLAGS="$LIBNM_CFLAGS -DNM_VERSION_MIN_REQUIRED=NM_VERSION_1_2"
-LIBNM_CFLAGS="$LIBNM_CFLAGS -DNM_VERSION_MAX_ALLOWED=NM_VERSION_1_2"
+PKG_CHECK_MODULES(LIBNM, libnm >= 1.8.0)
+LIBNM_CFLAGS="$LIBNM_CFLAGS -DNM_VERSION_MIN_REQUIRED=NM_VERSION_1_8"
+LIBNM_CFLAGS="$LIBNM_CFLAGS -DNM_VERSION_MAX_ALLOWED=NM_VERSION_1_8"
 
 NM_VPN_SERVICE_DIR=`$PKG_CONFIG --define-variable prefix='\${prefix}' --variable vpnservicedir libnm`
 AC_SUBST(NM_VPN_SERVICE_DIR)
