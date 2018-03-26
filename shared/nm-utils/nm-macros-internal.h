@@ -35,6 +35,12 @@
 #define _nm_alignof(type)    __alignof (type)
 #define _nm_alignas(type)    _nm_align (_nm_alignof (type))
 
+#if __GNUC__ >= 7
+#define _nm_fallthrough      __attribute__ ((fallthrough))
+#else
+#define _nm_fallthrough
+#endif
+
 /*****************************************************************************/
 
 #ifdef thread_local
@@ -68,6 +74,30 @@ static inline int nm_close (int fd);
  */
 #define nm_auto_free nm_auto(_nm_auto_free_impl)
 GS_DEFINE_CLEANUP_FUNCTION(void*, _nm_auto_free_impl, free)
+
+static inline void
+nm_free_secret (char *secret)
+{
+	if (secret) {
+		memset (secret, 0, strlen (secret));
+		g_free (secret);
+	}
+}
+
+static inline void
+_nm_auto_free_secret_impl (char **v)
+{
+	nm_free_secret (*v);
+}
+
+/**
+ * nm_auto_free_secret:
+ *
+ * Call g_free() on a variable location when it goes out of scope.
+ * Also, previously, calls memset(loc, 0, strlen(loc)) to clear out
+ * the secret.
+ */
+#define nm_auto_free_secret nm_auto(_nm_auto_free_secret_impl)
 
 static inline void
 _nm_auto_unset_gvalue_impl (GValue *v)
@@ -241,7 +271,8 @@ NM_G_ERROR_MSG (GError *error)
 		gsize _n = 0; \
 		\
 		if (_array) { \
-			_nm_unused typeof (*(_array[0])) *_array_check = _array[0]; \
+			_nm_unused gconstpointer _type_check_is_pointer = _array[0]; \
+			\
 			while (_array[_n]) \
 				_n++; \
 		} \
@@ -358,6 +389,28 @@ NM_G_ERROR_MSG (GError *error)
 
 #define NM_CONSTCAST(type, obj, ...) \
 	NM_CONSTCAST_FULL(type, (obj), (obj), ##__VA_ARGS__)
+
+#if _NM_CC_SUPPORT_GENERIC
+#define NM_UNCONST_PTR(type, arg) \
+	_Generic ((arg), \
+	          const type *: ((type *) (arg)), \
+	                type *: ((type *) (arg)))
+#else
+#define NM_UNCONST_PTR(type, arg) \
+	((type *) (arg))
+#endif
+
+#if _NM_CC_SUPPORT_GENERIC
+#define NM_UNCONST_PPTR(type, arg) \
+	_Generic ((arg), \
+	          const type *     *: ((type **) (arg)), \
+	                type *     *: ((type **) (arg)), \
+	          const type *const*: ((type **) (arg)), \
+	                type *const*: ((type **) (arg)))
+#else
+#define NM_UNCONST_PPTR(type, arg) \
+	((type **) (arg))
+#endif
 
 #define NM_GOBJECT_CAST(type, obj, is_check, ...) \
 	({ \
@@ -741,6 +794,32 @@ nm_g_object_unref (gpointer obj)
 		_changed; \
 	})
 
+#define nm_clear_pointer(pp, destroy) \
+	({ \
+		typeof (*(pp)) *_pp = (pp); \
+		typeof (*_pp) _p; \
+		gboolean _changed = FALSE; \
+		\
+		if (   _pp \
+		    && (_p = *_pp)) { \
+			_nm_unused gconstpointer _p_check_is_pointer = _p; \
+			\
+			*_pp = NULL; \
+			/* g_clear_pointer() assigns @destroy first to a local variable, so that
+			 * you can call "g_clear_pointer (pp, (GDestroyNotify) destroy);" without
+			 * gcc emitting a warning. We don't do that, hence, you cannot cast
+			 * "destroy" first.
+			 *
+			 * On the upside: you are not supposed to cast fcn, because the pointer
+			 * types are preserved. If you really need a cast, you should cast @pp.
+			 * But that is hardly ever necessary. */ \
+			(destroy) (_p); \
+			\
+			_changed = TRUE; \
+		} \
+		_changed; \
+	})
+
 /* basically, replaces
  *   g_clear_pointer (&location, g_free)
  * with
@@ -751,42 +830,20 @@ nm_g_object_unref (gpointer obj)
  * pointer or points to a const-pointer.
  */
 #define nm_clear_g_free(pp) \
-	({  \
-		typeof (*(pp)) *_pp = (pp); \
-		typeof (**_pp) *_p; \
-		gboolean _changed = FALSE; \
-		\
-		if (  _pp \
-		    && (_p = *_pp)) { \
-			*_pp = NULL; \
-			g_free (_p); \
-			_changed = TRUE; \
-		} \
-		_changed; \
-	})
+	nm_clear_pointer (pp, g_free)
 
 #define nm_clear_g_object(pp) \
-	({ \
-		typeof (*(pp)) *_pp = (pp); \
-		typeof (**_pp) *_p; \
-		gboolean _changed = FALSE; \
-		\
-		if (   _pp \
-		    && (_p = *_pp)) { \
-			nm_assert (G_IS_OBJECT (_p)); \
-			*_pp = NULL; \
-			g_object_unref (_p); \
-			_changed = TRUE; \
-		} \
-		_changed; \
-	})
+	nm_clear_pointer (pp, g_object_unref)
 
 static inline gboolean
 nm_clear_g_source (guint *id)
 {
-	if (id && *id) {
-		g_source_remove (*id);
+	guint v;
+
+	if (   id
+	    && (v = *id)) {
 		*id = 0;
+		g_source_remove (v);
 		return TRUE;
 	}
 	return FALSE;
@@ -795,9 +852,12 @@ nm_clear_g_source (guint *id)
 static inline gboolean
 nm_clear_g_signal_handler (gpointer self, gulong *id)
 {
-	if (id && *id) {
-		g_signal_handler_disconnect (self, *id);
+	gulong v;
+
+	if (   id
+	    && (v = *id)) {
 		*id = 0;
+		g_signal_handler_disconnect (self, v);
 		return TRUE;
 	}
 	return FALSE;
@@ -806,9 +866,12 @@ nm_clear_g_signal_handler (gpointer self, gulong *id)
 static inline gboolean
 nm_clear_g_variant (GVariant **variant)
 {
-	if (variant && *variant) {
-		g_variant_unref (*variant);
+	GVariant *v;
+
+	if (   variant
+	    && (v = *variant)) {
 		*variant = NULL;
+		g_variant_unref (v);
 		return TRUE;
 	}
 	return FALSE;
@@ -817,10 +880,13 @@ nm_clear_g_variant (GVariant **variant)
 static inline gboolean
 nm_clear_g_cancellable (GCancellable **cancellable)
 {
-	if (cancellable && *cancellable) {
-		g_cancellable_cancel (*cancellable);
-		g_object_unref (*cancellable);
+	GCancellable *v;
+
+	if (   cancellable
+	    && (v = *cancellable)) {
 		*cancellable = NULL;
+		g_cancellable_cancel (v);
+		g_object_unref (v);
 		return TRUE;
 	}
 	return FALSE;
@@ -1020,6 +1086,25 @@ nm_cmp_uint32_p_with_data (gconstpointer p_a, gconstpointer p_b, gpointer user_d
 	return 0;
 }
 
+static inline int
+nm_cmp_int2ptr_p_with_data (gconstpointer p_a, gconstpointer p_b, gpointer user_data)
+{
+	/* p_a and p_b are two pointers to a pointer, where the pointer is
+	 * interpreted as a integer using GPOINTER_TO_INT().
+	 *
+	 * That is the case of a hash-table that uses GINT_TO_POINTER() to
+	 * convert integers as pointers, and the resulting keys-as-array
+	 * array. */
+	const int a = GPOINTER_TO_INT (*((gconstpointer *) p_a));
+	const int b = GPOINTER_TO_INT (*((gconstpointer *) p_b));
+
+	if (a < b)
+		return -1;
+	if (a > b)
+		return 1;
+	return 0;
+}
+
 /*****************************************************************************/
 
 /* Taken from systemd's UNIQ_T and UNIQ macros. */
@@ -1150,6 +1235,28 @@ nm_decode_version (guint version, guint *major, guint *minor, guint *micro)
 		_buf; \
 	})
 
+/* aims to alloca() a buffer and fill it with printf(format, name).
+ * Note that format must not contain any format specifier except
+ * "%s".
+ * If the resulting string would be too large for stack allocation,
+ * it allocates a buffer with g_malloc() and assigns it to *p_val_to_free. */
+#define nm_construct_name_a(format, name, p_val_to_free) \
+	({ \
+		const char *const _name = (name); \
+		char **const _p_val_to_free = (p_val_to_free); \
+		const gsize _name_len = strlen (_name); \
+		char *_buf2; \
+		\
+		nm_assert (_p_val_to_free && !*_p_val_to_free); \
+		if (NM_STRLEN (format) + _name_len < 200) \
+			_buf2 = nm_sprintf_bufa (NM_STRLEN (format) + _name_len, format, _name); \
+		else { \
+			_buf2 = g_strdup_printf (format, _name); \
+			*_p_val_to_free = _buf2; \
+		} \
+		(const char *) _buf2; \
+	})
+
 /*****************************************************************************/
 
 /**
@@ -1224,6 +1331,25 @@ nm_decode_version (guint version, guint *major, guint *minor, guint *micro)
 #endif
 
 /*****************************************************************************/
+
+/**
+ * nm_steal_int:
+ * @p_val: pointer to an int type.
+ *
+ * Returns: *p_val and sets *p_val to zero the same time.
+ *   Accepts %NULL, in which case also numeric 0 will be returned.
+ */
+#define nm_steal_int(p_val) \
+	({ \
+		typeof (p_val) const _p_val = (p_val); \
+		typeof (*_p_val) _val = 0; \
+		\
+		if (   _p_val \
+		    && (_val = *_p_val)) { \
+			*_p_val = 0; \
+		} \
+		_val; \
+	})
 
 static inline int
 nm_steal_fd (int *p_fd)
