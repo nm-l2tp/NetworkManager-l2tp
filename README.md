@@ -9,6 +9,12 @@ For IPsec support, it uses either of the following :
 * Libreswan ( https://libreswan.org )
 * strongSwan ( https://www.strongswan.org )
 
+To be able to authenticate users with X.509 certificates, the ppp package has
+to have the EAP-TLS patch for pppd applied to the source code (which most Linux
+Linux distributions have already done) :
+
+* https://www.nikhef.nl/~janjust/ppp/documentation.html
+
 For details on pre-built packages, known issues and build dependencies,
 please visit the Wiki :
 * https://github.com/nm-l2tp/network-manager-l2tp/wiki
