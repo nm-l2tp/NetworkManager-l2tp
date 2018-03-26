@@ -114,7 +114,7 @@ src_nm_l2tp_pppd_plugin_la_CPPFLAGS = $(src_cppflags)
 src_nm_l2tp_pppd_plugin_la_LDFLAGS = \
 	-module -avoid-version
 src_nm_l2tp_pppd_plugin_la_LIBADD = \
-	$(GLIB_LIBS)
+	$(GLIB_LIBS) \
 	$(LIBNM_LIBS)
 
 ###############################################################################
