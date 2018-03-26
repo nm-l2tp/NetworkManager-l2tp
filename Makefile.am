@@ -32,6 +32,8 @@ BUILT_SOURCES =
 
 shared_sources = \
 	shared/nm-default.h \
+	shared/utils.c \
+	shared/utils.h \
 	shared/nm-utils/gsystem-local-alloc.h \
 	shared/nm-utils/nm-macros-internal.h \
 	shared/nm-utils/nm-shared-utils.c \
