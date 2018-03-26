@@ -34,15 +34,16 @@
 #define NM_DBUS_PATH_L2TP_PPP       "/org/freedesktop/NetworkManager/l2tp/ppp"
 
 #define NM_L2TP_KEY_GATEWAY           "gateway"
+#define NM_L2TP_KEY_AUTH_TYPE         "auth-type"
 #define NM_L2TP_KEY_USER              "user"
 #define NM_L2TP_KEY_PASSWORD          "password"
-#define NM_L2TP_KEY_USE_CERT          "use-cert"
-#define NM_L2TP_KEY_CERT_PUB          "cert-pub"
-#define NM_L2TP_KEY_CERT_CA           "cert-ca"
-#define NM_L2TP_KEY_CERT_KEY          "cert-key"
+#define NM_L2TP_KEY_DOMAIN            "domain"
+#define NM_L2TP_KEY_CA                "ca"
+#define NM_L2TP_KEY_CERT              "cert"
+#define NM_L2TP_KEY_KEY               "key"
+#define NM_L2TP_KEY_CERTPASS          "certpass"
 #define NM_L2TP_KEY_MTU               "mtu"
 #define NM_L2TP_KEY_MRU               "mru"
-#define NM_L2TP_KEY_DOMAIN            "domain"
 #define NM_L2TP_KEY_REFUSE_EAP        "refuse-eap"
 #define NM_L2TP_KEY_REFUSE_PAP        "refuse-pap"
 #define NM_L2TP_KEY_REFUSE_CHAP       "refuse-chap"
@@ -64,9 +65,22 @@
 #define NM_L2TP_KEY_IPSEC_ENABLE      "ipsec-enabled"
 #define NM_L2TP_KEY_IPSEC_GATEWAY_ID  "ipsec-gateway-id"
 #define NM_L2TP_KEY_IPSEC_GROUP_NAME  "ipsec-group-name"
+#define NM_L2TP_KEY_IPSEC_AUTH_TYPE   "ipsec-auth-type"
 #define NM_L2TP_KEY_IPSEC_PSK         "ipsec-psk"
+#define NM_L2TP_KEY_IPSEC_CA          "ipsec-ca"
+#define NM_L2TP_KEY_IPSEC_CERT        "ipsec-cert"
+#define NM_L2TP_KEY_IPSEC_KEY         "ipsec-key"
+#define NM_L2TP_KEY_IPSEC_CERTPASS    "ipsec-certpass"
 #define NM_L2TP_KEY_IPSEC_IKE         "ipsec-ike"
 #define NM_L2TP_KEY_IPSEC_ESP         "ipsec-esp"
 #define NM_L2TP_KEY_IPSEC_FORCEENCAPS "ipsec-forceencaps"
 
+/* Internal auth-dialog -> service token indicating that no secrets are required
+ * for the connection if X.509 private keys are used with no password protection.
+ */
+#define NM_L2TP_KEY_NOSECRET          "no-secret"
+
+#define NM_L2TP_AUTHTYPE_PASSWORD     "password"
+#define NM_L2TP_AUTHTYPE_TLS          "tls"
+#define NM_L2TP_AUTHTYPE_PSK          "psk"
 #endif /* NM_L2TP_SERVICE_DEFINES_H */
