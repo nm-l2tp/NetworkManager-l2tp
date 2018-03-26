@@ -78,7 +78,6 @@ G_DEFINE_TYPE_WITH_CODE (NML2tpPlugin, nm_l2tp_plugin, NM_TYPE_VPN_SERVICE_PLUGI
 typedef struct {
 	GPid pid_l2tpd;
 	gboolean ipsec_up;
-	gboolean use_cert;
 	guint32 ppp_timeout_handler;
 	NMConnection *connection;
 	NMDBusL2tpPpp *dbus_skeleton;
@@ -129,45 +128,55 @@ typedef struct {
 } ValidProperty;
 
 static const ValidProperty valid_properties[] = {
-	{ NM_L2TP_KEY_GATEWAY,           G_TYPE_STRING, TRUE },
-	{ NM_L2TP_KEY_USER,              G_TYPE_STRING, FALSE },
-	{ NM_L2TP_KEY_USE_CERT,          G_TYPE_BOOLEAN, FALSE },
-	{ NM_L2TP_KEY_CERT_PUB,          G_TYPE_STRING, FALSE },
-	{ NM_L2TP_KEY_CERT_CA,           G_TYPE_STRING, FALSE },
-	{ NM_L2TP_KEY_CERT_KEY,          G_TYPE_STRING, FALSE },
-	{ NM_L2TP_KEY_DOMAIN,            G_TYPE_STRING, FALSE },
-	{ NM_L2TP_KEY_MRU,               G_TYPE_UINT, FALSE },
-	{ NM_L2TP_KEY_MTU,               G_TYPE_UINT, FALSE },
-	{ NM_L2TP_KEY_REFUSE_EAP,        G_TYPE_BOOLEAN, FALSE },
-	{ NM_L2TP_KEY_REFUSE_PAP,        G_TYPE_BOOLEAN, FALSE },
-	{ NM_L2TP_KEY_REFUSE_CHAP,       G_TYPE_BOOLEAN, FALSE },
-	{ NM_L2TP_KEY_REFUSE_MSCHAP,     G_TYPE_BOOLEAN, FALSE },
-	{ NM_L2TP_KEY_REFUSE_MSCHAPV2,   G_TYPE_BOOLEAN, FALSE },
-	{ NM_L2TP_KEY_REQUIRE_MPPE,      G_TYPE_BOOLEAN, FALSE },
-	{ NM_L2TP_KEY_REQUIRE_MPPE_40,   G_TYPE_BOOLEAN, FALSE },
-	{ NM_L2TP_KEY_REQUIRE_MPPE_128,  G_TYPE_BOOLEAN, FALSE },
-	{ NM_L2TP_KEY_MPPE_STATEFUL,     G_TYPE_BOOLEAN, FALSE },
-	{ NM_L2TP_KEY_NOBSDCOMP,         G_TYPE_BOOLEAN, FALSE },
-	{ NM_L2TP_KEY_NODEFLATE,         G_TYPE_BOOLEAN, FALSE },
-	{ NM_L2TP_KEY_NO_VJ_COMP,        G_TYPE_BOOLEAN, FALSE },
-	{ NM_L2TP_KEY_NO_PCOMP,          G_TYPE_BOOLEAN, FALSE },
-	{ NM_L2TP_KEY_NO_ACCOMP,         G_TYPE_BOOLEAN, FALSE },
-	{ NM_L2TP_KEY_LCP_ECHO_FAILURE,  G_TYPE_UINT, FALSE },
-	{ NM_L2TP_KEY_LCP_ECHO_INTERVAL, G_TYPE_UINT, FALSE },
-	{ NM_L2TP_KEY_UNIT_NUM,          G_TYPE_UINT, FALSE },
-	{ NM_L2TP_KEY_PASSWORD"-flags",  G_TYPE_UINT, FALSE },
-	{ NM_L2TP_KEY_IPSEC_ENABLE,      G_TYPE_BOOLEAN, FALSE },
-	{ NM_L2TP_KEY_IPSEC_GATEWAY_ID,  G_TYPE_STRING, FALSE },
-	{ NM_L2TP_KEY_IPSEC_GROUP_NAME,  G_TYPE_STRING, FALSE },
-	{ NM_L2TP_KEY_IPSEC_PSK,         G_TYPE_STRING, FALSE },
-	{ NM_L2TP_KEY_IPSEC_IKE,         G_TYPE_STRING, FALSE },
-	{ NM_L2TP_KEY_IPSEC_ESP,         G_TYPE_STRING, FALSE },
-	{ NM_L2TP_KEY_IPSEC_FORCEENCAPS, G_TYPE_BOOLEAN, FALSE },
+	{ NM_L2TP_KEY_GATEWAY,                  G_TYPE_STRING, TRUE },
+	{ NM_L2TP_KEY_AUTH_TYPE,                G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_USER,                     G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_DOMAIN,                   G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_CA,                       G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_CERT,                     G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_KEY,                      G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_MTU,                      G_TYPE_UINT, FALSE },
+	{ NM_L2TP_KEY_MRU,                      G_TYPE_UINT, FALSE },
+	{ NM_L2TP_KEY_REFUSE_EAP,               G_TYPE_BOOLEAN, FALSE },
+	{ NM_L2TP_KEY_REFUSE_PAP,               G_TYPE_BOOLEAN, FALSE },
+	{ NM_L2TP_KEY_REFUSE_CHAP,              G_TYPE_BOOLEAN, FALSE },
+	{ NM_L2TP_KEY_REFUSE_MSCHAP,            G_TYPE_BOOLEAN, FALSE },
+	{ NM_L2TP_KEY_REFUSE_MSCHAPV2,          G_TYPE_BOOLEAN, FALSE },
+	{ NM_L2TP_KEY_REQUIRE_MPPE,             G_TYPE_BOOLEAN, FALSE },
+	{ NM_L2TP_KEY_REQUIRE_MPPE_40,          G_TYPE_BOOLEAN, FALSE },
+	{ NM_L2TP_KEY_REQUIRE_MPPE_128,         G_TYPE_BOOLEAN, FALSE },
+	{ NM_L2TP_KEY_MPPE_STATEFUL,            G_TYPE_BOOLEAN, FALSE },
+	{ NM_L2TP_KEY_NOBSDCOMP,                G_TYPE_BOOLEAN, FALSE },
+	{ NM_L2TP_KEY_NODEFLATE,                G_TYPE_BOOLEAN, FALSE },
+	{ NM_L2TP_KEY_NO_VJ_COMP,               G_TYPE_BOOLEAN, FALSE },
+	{ NM_L2TP_KEY_NO_PCOMP,                 G_TYPE_BOOLEAN, FALSE },
+	{ NM_L2TP_KEY_NO_ACCOMP,                G_TYPE_BOOLEAN, FALSE },
+	{ NM_L2TP_KEY_LCP_ECHO_FAILURE,         G_TYPE_UINT, FALSE },
+	{ NM_L2TP_KEY_LCP_ECHO_INTERVAL,        G_TYPE_UINT, FALSE },
+	{ NM_L2TP_KEY_UNIT_NUM,                 G_TYPE_UINT, FALSE },
+	{ NM_L2TP_KEY_IPSEC_ENABLE,             G_TYPE_BOOLEAN, FALSE },
+	{ NM_L2TP_KEY_IPSEC_GATEWAY_ID,         G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_IPSEC_GROUP_NAME,         G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_IPSEC_AUTH_TYPE,          G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_IPSEC_CA,                 G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_IPSEC_CERT,               G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_IPSEC_KEY,                G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_IPSEC_PSK,                G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_IPSEC_IKE,                G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_IPSEC_ESP,                G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_IPSEC_FORCEENCAPS,        G_TYPE_BOOLEAN, FALSE },
+	{ NM_L2TP_KEY_PASSWORD"-flags",         G_TYPE_UINT, FALSE },
+	{ NM_L2TP_KEY_CERTPASS"-flags",         G_TYPE_UINT, FALSE },
+	{ NM_L2TP_KEY_IPSEC_CERTPASS"-flags",   G_TYPE_UINT, FALSE },
+	{ NM_L2TP_KEY_NOSECRET,                 G_TYPE_UINT, FALSE },
 	{ NULL }
 };
 
 static ValidProperty valid_secrets[] = {
-	{ NM_L2TP_KEY_PASSWORD,          G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_PASSWORD,                 G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_CERTPASS,                 G_TYPE_STRING, FALSE },
+ 	{ NM_L2TP_KEY_NOSECRET,                 G_TYPE_STRING, FALSE },
+ 	{ NM_L2TP_KEY_IPSEC_CERTPASS,           G_TYPE_STRING, FALSE },
 	{ NULL }
 };
 
@@ -287,7 +296,6 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 
 		if (strcmp (prop.name, key))
 			continue;
-
 		switch (prop.type) {
 		case G_TYPE_STRING:
 			if (   !strcmp (prop.name, NM_L2TP_KEY_GATEWAY)) {
@@ -912,14 +920,6 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		/* Default MTU to 1400, which is also what Microsoft Windows uses */
 		write_config_option (fd, "mtu 1400\n");
 	}
-
-	/*
-	if (priv && priv->use_cert) {
-		write_config_option (fd, "cert \"%s\"\n", nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_CERT_PUB));
-		write_config_option (fd, "ca \"%s\"\n", nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_CERT_CA));
-		write_config_option (fd, "key \"%s\"\n", nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_CERT_KEY));
-	}
-	*/
 
 	close(fd);
 
