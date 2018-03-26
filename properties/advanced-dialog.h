@@ -24,7 +24,7 @@
 
 #include <gtk/gtk.h>
 
-GtkWidget *advanced_dialog_new (GHashTable *hash);
+GtkWidget *advanced_dialog_new (GHashTable *hash, const char *authtype);
 
 GHashTable *advanced_dialog_new_hash_from_connection (NMConnection *connection, GError **error);
 
