@@ -11,7 +11,7 @@ For IPsec support, it uses either of the following :
 
 To be able to authenticate users with X.509 certificates, the ppp package has
 to have the EAP-TLS patch for pppd applied to the source code (which most Linux
-Linux distributions have already done) :
+distributions have already done) :
 
 * https://www.nikhef.nl/~janjust/ppp/documentation.html
 
