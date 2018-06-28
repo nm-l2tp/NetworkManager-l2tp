@@ -265,6 +265,9 @@ validate_gateway_id (const char *id)
 	if (!id || !id[0])
 		return FALSE;
 
+	if ('@' == id[0])
+		return TRUE;
+
 	/* Ensure it's a valid IP address */
 	return inet_aton (id, &addr);
 }
@@ -306,7 +309,7 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 				             NM_VPN_PLUGIN_ERROR,
 				             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
 				             _("invalid gateway '%s'"),
-				             key);
+				             value);
 
 			} else if (   !strcmp (prop.name, NM_L2TP_KEY_IPSEC_GATEWAY_ID) ) {
 				if ( validate_gateway_id (value) )
@@ -316,7 +319,7 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 				             NM_VPN_PLUGIN_ERROR,
 				             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
 				             _("invalid ipsec-gateway-id '%s'"),
-				             key);
+				             value);
 			}
 			return;
 		case G_TYPE_UINT:
