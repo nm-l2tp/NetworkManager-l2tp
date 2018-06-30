@@ -36,6 +36,11 @@ AC_PROG_INSTALL
 AC_PROG_LIBTOOL
 AC_PATH_PROG(GLIB_COMPILE_RESOURCES, glib-compile-resources)
 
+AC_CHECK_PROG([has_file], file, yes, no)
+if test x$has_file = xno ; then
+	AC_MSG_ERROR(["file" utility not found.])
+fi
+
 dnl
 dnl Required headers
 dnl
