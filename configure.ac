@@ -4,7 +4,7 @@ AC_INIT(NetworkManager-l2tp,
         1.7.0,
         https://github.com/nm-l2tp/network-manager-l2tp/issues,
         NetworkManager-l2tp)
-AM_INIT_AUTOMAKE([1.9 foreign no-dist-gzip dist-xz])
+AM_INIT_AUTOMAKE([1.9 foreign no-dist-gzip dist-xz -Wno-portability])
 AM_MAINTAINER_MODE
 AM_SILENT_RULES([yes])
 
