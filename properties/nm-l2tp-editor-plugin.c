@@ -80,9 +80,6 @@ import (NMVpnEditorPlugin *iface, const char *path, GError **error)
 
 	connection = do_import (path, error);
 
-	if ((connection == NULL) && (*error != NULL))
-		g_warning("Can't import file as L2TP config: %s", (*error)->message);
-
 	return connection;
 }
 
