@@ -161,9 +161,7 @@ EXTRA_DIST += \
 
 ###############################################################################
 
-if WITH_GNOME
 plugin_LTLIBRARIES += properties/libnm-vpn-plugin-l2tp.la
-endif
 
 properties_libnm_vpn_plugin_l2tp_la_SOURCES = \
 	shared/nm-utils/nm-vpn-plugin-utils.c \
