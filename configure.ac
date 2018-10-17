@@ -101,7 +101,7 @@ dnl
 dnl GNOME support
 dnl
 AC_ARG_WITH(gnome, AS_HELP_STRING([--without-gnome], [Build NetworkManager-l2tp without GNOME support, e.g. vpn service only]), [], [with_gnome_specified=no])
-AC_ARG_WITH(libnm-glib, AS_HELP_STRING([--without-libnm-glib], [Build NetworkManager-l2tp without libnm-glib comatibility]), [], [with_libnm_glib_specified=no])
+AC_ARG_WITH(libnm-glib, AS_HELP_STRING([--with-libnm-glib], [Build NetworkManager-l2tp with libnm-glib comatibility (depreacted)]), [], [with_libnm_glib_specified=no])
 if test "$with_libnm_glib_specified" != no -a "$with_libnm_glib" != no; then
 	if test "$with_gnome_specified" != no -a "$with_gnome" == no; then
 		AC_MSG_ERROR(Building --with-libnm-glib conflicts with --without-gnome)
@@ -111,10 +111,10 @@ if test "$with_gnome" != no; then
 	with_gnome=yes
 fi
 if test "$with_libnm_glib_specified" == no; then
-	with_libnm_glib="$with_gnome"
+	with_libnm_glib=no
 fi
-if test "$with_libnm_glib" != no; then
-	with_libnm_glib=yes
+if test "$with_libnm_glib" != yes; then
+	with_libnm_glib=no
 fi
 AM_CONDITIONAL(WITH_GNOME, test "$with_gnome" != no)
 AM_CONDITIONAL(WITH_LIBNM_GLIB, test "$with_libnm_glib" != no)
