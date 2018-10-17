@@ -1,3 +1,13 @@
+==========================================================
+NetworkManager-l2tp-1.8.0 (not released yet)
+Overview of changes since network-manager-l2tp-1.2.10
+==========================================================
+
+* libnm-glib compatibility (NetworkManager < 1.0) is disabled by default.
+  It can be enabled by passing --with-libnm-glib to configure script.
+  Nobody should need it by now. Users that still use this are encouraged
+  to let us know before the libnm-glib support is removed for good.
+
 =======================================================
 NetworkManager-l2tp-1.2.10
 Overview of changes since network-manager-l2tp-1.2.8
