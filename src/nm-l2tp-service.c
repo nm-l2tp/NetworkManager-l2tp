@@ -1367,7 +1367,7 @@ real_connect (NMVpnServicePlugin *plugin,
 		if (!(value=nm_find_ipsec ())) {
 			return nm_l2tp_ipsec_error(error, _("Could not find the ipsec binary. Is Libreswan or strongSwan installed?"));
 		}
-		strncpy (priv->ipsec_binary_path, value, sizeof(priv->ipsec_binary_path));
+		strncpy (priv->ipsec_binary_path, value, sizeof(priv->ipsec_binary_path) - 1);
 
 		priv->is_libreswan = check_is_libreswan (priv->ipsec_binary_path);
 		if (!priv->is_libreswan && !check_is_strongswan (priv->ipsec_binary_path)) {
