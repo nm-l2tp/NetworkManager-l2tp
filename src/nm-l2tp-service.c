@@ -650,6 +650,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	int errsv;
 	gboolean has_include;
 	gboolean l2tp_port_is_free;
+	gs_free char *psk_base64 = NULL;
 
 	/* Setup runtime directory */
 	if (g_mkdir_with_parents (RUNDIR, 0755) != 0) {
@@ -725,7 +726,8 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_PSK);
 		if (!value) value="";
-		write_config_option (fd, ": PSK \"%s\"\n", value);
+		psk_base64 = g_base64_encode ((const unsigned char *) value, strlen (value));
+		write_config_option (fd, ": PSK 0s%s\n", psk_base64);
 		close(fd);
 
 		/*
