@@ -32,7 +32,7 @@
 
 #include <nma-vpn-password-dialog.h>
 
-#include "utils.h"
+#include "nm-l2tp-crypto-openssl.h"
 
 #define KEYRING_UUID_TAG "connection-uuid"
 #define KEYRING_SN_TAG "setting-name"
@@ -385,10 +385,10 @@ get_passwords_required (GHashTable *data,
 	g_return_val_if_fail (ctype != NULL, NULL);
 
 	if (!strcmp (ctype, NM_L2TP_AUTHTYPE_TLS)) {
-		/* Encrypted private key password */
+		/* Encrypted PKCS#12 certificate or private key password */
 		val = g_hash_table_lookup (data, NM_L2TP_KEY_KEY);
 		if (val)
-			*out_need_certpass = is_encrypted (val);
+			crypto_file_format (val, out_need_certpass, NULL);
 
 	} else if (!strcmp (ctype, NM_L2TP_AUTHTYPE_PASSWORD)) {
 		flags = NM_SETTING_SECRET_FLAG_NONE;
@@ -401,10 +401,10 @@ get_passwords_required (GHashTable *data,
 	g_return_val_if_fail (ctype != NULL, NULL);
 
 	if (!strcmp (ctype, NM_L2TP_AUTHTYPE_TLS)) {
-		/* Encrypted private key password */
+		/* Encrypted PKCS#12 certificate or private key password */
 		val = g_hash_table_lookup (data, NM_L2TP_KEY_IPSEC_KEY);
 		if (val)
-			*out_need_certpass = is_encrypted (val);
+			crypto_file_format (val, out_need_ipsec_certpass, NULL);
 	}
 
 	return NULL;

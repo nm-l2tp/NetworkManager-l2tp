@@ -74,7 +74,6 @@
 #include <nm-setting-8021x.h>
 #include <nm-setting-ip4-config.h>
 #include <nm-setting-vpn.h>
-#include <nm-utils.h>
 #include <nm-vpn-plugin-ui-interface.h>
 
 #define nm_simple_connection_new nm_connection_new

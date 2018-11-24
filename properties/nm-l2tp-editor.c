@@ -30,6 +30,8 @@
 #include "advanced-dialog.h"
 #include "ipsec-dialog.h"
 
+#include "shared/nm-l2tp-crypto-openssl.h"
+
 /*****************************************************************************/
 
 static void l2tp_plugin_ui_widget_interface_init (NMVpnEditorInterface *iface_class);
@@ -95,7 +97,8 @@ tls_cert_changed_cb (NMACertChooser *this, gpointer user_data)
 	other_cert = nma_cert_chooser_get_cert (other, &scheme);
 	this_cert = nma_cert_chooser_get_cert (this, &scheme);
 	if (   scheme == NM_SETTING_802_1X_CK_SCHEME_PATH
-	    && nm_utils_file_is_pkcs12(this_cert)) {
+	  && crypto_file_format (this_cert, NULL, NULL) == NM_L2TP_CRYPTO_FILE_FORMAT_PKCS12)
+	{
 		if (!this_key)
 			nma_cert_chooser_set_key (this, this_cert, NM_SETTING_802_1X_CK_SCHEME_PATH);
 		if (!other_cert) {

@@ -98,6 +98,25 @@ AC_SEARCH_LIBS([dlopen], [dl dld], [], [ac_cv_search_dlopen=])
 AC_SUBST([DL_LIBS], "$ac_cv_search_dlopen")
 
 dnl
+dnl Checks for NSS and OpenSSL.
+dnl
+PKG_CHECK_MODULES(OPENSSL, [libcrypto >= 1.1.0], [have_crypto_openssl=yes], [have_crypto_openssl=no])
+if test "x${have_crypto_openssl}" = "xno"; then
+	AC_MSG_ERROR($OPENSSL_PKG_ERRORS)
+fi
+PKG_CHECK_MODULES(NSS, [nss], [have_crypto_nss=yes], [have_crypto_nss=yes])
+if test "${have_crypto_nss}" = "yes"; then
+	# Work around a pkg-config bug (fdo #29801) where exists != usable
+	FOO=`$PKG_CONFIG --cflags --libs nss`
+	if test x"$?" != "x0"; then
+		 have_crypto_nss=no
+	fi
+fi
+if test "x${have_crypto_nss}" = "xno"; then
+	AC_MSG_ERROR($NSS_PKG_ERRORS)
+fi
+
+dnl
 dnl GNOME support
 dnl
 AC_ARG_WITH(gnome, AS_HELP_STRING([--without-gnome], [Build NetworkManager-l2tp without GNOME support, e.g. vpn service only]), [], [with_gnome_specified=no])

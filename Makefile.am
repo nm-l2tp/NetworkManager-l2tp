@@ -32,8 +32,6 @@ BUILT_SOURCES =
 
 shared_sources = \
 	shared/nm-default.h \
-	shared/utils.c \
-	shared/utils.h \
 	shared/nm-utils/gsystem-local-alloc.h \
 	shared/nm-utils/nm-macros-internal.h \
 	shared/nm-utils/nm-shared-utils.c \
@@ -92,14 +90,20 @@ libexec_PROGRAMS += src/nm-l2tp-service
 src_nm_l2tp_service_SOURCES = \
 	$(shared_sources) \
 	shared/nm-service-defines.h \
+	shared/nm-l2tp-crypto-openssl.h \
+	shared/nm-l2tp-crypto-openssl.c \
+	shared/nm-l2tp-crypto-nss.h \
+	shared/nm-l2tp-crypto-nss.c \
 	src/nm-ppp-status.h \
 	src/nm-l2tp-service.h \
 	src/nm-l2tp-service.c
-src_nm_l2tp_service_CPPFLAGS = $(src_cppflags)
+src_nm_l2tp_service_CPPFLAGS = $(src_cppflags) $(NSS_CFLAGS) $(OPENSSL_CFLAGS)
 src_nm_l2tp_service_LDADD = \
 	src/libnm-l2tp-pppd-service-dbus.la \
 	$(GLIB_LIBS) \
-	$(LIBNM_LIBS)
+	$(LIBNM_LIBS) \
+	$(OPENSSL_LIBS) \
+	$(NSS_LIBS)
 
 ###############################################################################
 
@@ -127,6 +131,8 @@ properties/resources.c: properties/gresource.xml $(shell $(GLIB_COMPILE_RESOURCE
 
 plugin_sources = \
 	shared/nm-utils/nm-vpn-plugin-macros.h \
+	shared/nm-l2tp-crypto-openssl.c \
+	shared/nm-l2tp-crypto-openssl.h \
 	properties/nm-l2tp-editor-plugin.c \
 	properties/nm-l2tp-editor-plugin.h \
 	properties/import-export.c \
@@ -135,6 +141,8 @@ plugin_sources = \
 editor_sources = \
 	$(shared_sources) \
 	shared/nm-utils/nm-vpn-plugin-utils.h \
+	shared/nm-l2tp-crypto-openssl.c \
+	shared/nm-l2tp-crypto-openssl.h \
 	properties/resources.c \
 	properties/resources.h \
 	properties/advanced-dialog.c \
@@ -146,7 +154,8 @@ editor_sources = \
 
 properties_cppflags = \
 	-DLOCALEDIR=\"$(datadir)/locale\" \
-	-I$(top_srcdir)/shared
+	-I$(top_srcdir)/shared \
+	$(OPENSSL_CFLAGS)
 
 CLEANFILES += \
 	properties/resources.c \
@@ -168,14 +177,16 @@ properties_libnm_vpn_plugin_l2tp_la_SOURCES = \
 	$(plugin_sources)
 properties_libnm_vpn_plugin_l2tp_la_CFLAGS = \
 	$(GLIB_CFLAGS) \
-	$(LIBNM_CFLAGS)
+	$(LIBNM_CFLAGS) \
+	$(OPENSSL_CFLAGS)
 properties_libnm_vpn_plugin_l2tp_la_CPPFLAGS = \
 	-DNETWORKMANAGER_COMPILATION=NM_NETWORKMANAGER_COMPILATION_LIB_BASE \
 	-DNM_PLUGIN_DIR=\"$(NM_PLUGIN_DIR)\" \
 	$(properties_cppflags)
 properties_libnm_vpn_plugin_l2tp_la_LIBADD = \
 	$(GLIB_LIBS) \
-	$(LIBNM_LIBS)
+	$(LIBNM_LIBS) \
+	$(OPENSSL_LIBS)
 properties_libnm_vpn_plugin_l2tp_la_LDFLAGS = \
 	-avoid-version \
 	-Wl,--version-script="$(srcdir)/properties/libnm-vpn-plugin-l2tp.ver"
@@ -192,7 +203,8 @@ properties_libnm_vpn_plugin_l2tp_editor_la_CFLAGS = \
 	$(GLIB_CFLAGS) \
 	$(GTK_CFLAGS) \
 	$(LIBNM_CFLAGS) \
-	$(LIBNMA_CFLAGS)
+	$(LIBNMA_CFLAGS) \
+	$(OPENSSL_CFLAGS)
 properties_libnm_vpn_plugin_l2tp_editor_la_CPPFLAGS = \
 	-DNETWORKMANAGER_COMPILATION=NM_NETWORKMANAGER_COMPILATION_LIB_EDITOR \
 	$(properties_cppflags)
@@ -200,7 +212,8 @@ properties_libnm_vpn_plugin_l2tp_editor_la_LIBADD = \
 	$(GLIB_LIBS) \
 	$(GTK_LIBS) \
 	$(LIBNM_LIBS) \
-	$(LIBNMA_LIBS)
+	$(LIBNMA_LIBS) \
+	$(OPENSSL_LIBS)
 properties_libnm_vpn_plugin_l2tp_editor_la_LDFLAGS = \
 	-avoid-version \
 	-Wl,--version-script="$(srcdir)/properties/libnm-vpn-plugin-l2tp-editor.ver"
@@ -241,6 +254,8 @@ endif
 
 auth_dialog_nm_l2tp_auth_dialog_SOURCES = \
 	$(shared_sources) \
+	shared/nm-l2tp-crypto-openssl.c \
+	shared/nm-l2tp-crypto-openssl.h \
 	properties/resources.c \
 	properties/resources.h \
 	auth-dialog/main.c
@@ -249,7 +264,8 @@ auth_dialog_nm_l2tp_auth_dialog_CFLAGS = \
 	$(GTK_CFLAGS) \
 	$(LIBNM_CFLAGS) \
 	$(LIBNMA_CFLAGS) \
-	$(LIBSECRET_CFLAGS)
+	$(LIBSECRET_CFLAGS) \
+	$(OPENSSL_CFLAGS)
 auth_dialog_nm_l2tp_auth_dialog_CPPFLAGS = \
 	-I$(top_srcdir)/shared
 auth_dialog_nm_l2tp_auth_dialog_LDADD = \
@@ -257,7 +273,8 @@ auth_dialog_nm_l2tp_auth_dialog_LDADD = \
 	$(GTK_LIBS) \
 	$(LIBNM_LIBS) \
 	$(LIBNMA_LIBS) \
-	$(LIBSECRET_LIBS)
+	$(LIBSECRET_LIBS) \
+	$(OPENSSL_LIBS)
 
 ###############################################################################
 
