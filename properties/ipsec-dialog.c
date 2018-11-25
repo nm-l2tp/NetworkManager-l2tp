@@ -128,10 +128,10 @@ ipsec_auth_combo_changed_cb (GtkWidget *combo, gpointer user_data)
         gtk_notebook_set_current_page (GTK_NOTEBOOK (widget), new_page);
 
 		if (new_page == 0) {
-			widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_tls_cert"));
+			widget = GTK_WIDGET (gtk_builder_get_object (builder, "tls_machine_cert"));
 			gtk_widget_hide (widget);
 		} else {
-			widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_tls_cert"));
+			widget = GTK_WIDGET (gtk_builder_get_object (builder, "tls_machine_cert"));
 			gtk_widget_show (widget);
 		}
 }
@@ -176,7 +176,7 @@ enable_toggled_cb (GtkWidget *check, gpointer user_data)
 }
 
 static void
-ipsec_tls_cert_changed_cb (NMACertChooser *this, gpointer user_data)
+tls_machine_cert_changed_cb (NMACertChooser *this, gpointer user_data)
 {
 	NMACertChooser *other = user_data;
 	NMSetting8021xCKScheme scheme;
@@ -210,8 +210,8 @@ ipsec_tls_setup (GtkBuilder *builder, GHashTable *hash)
 	NMSettingSecretFlags pw_flags;
 	const char *value;
 
-	ca_cert = NMA_CERT_CHOOSER (gtk_builder_get_object (builder, "ipsec_tls_ca_cert"));
-	cert = NMA_CERT_CHOOSER (gtk_builder_get_object (builder, "ipsec_tls_cert"));
+	ca_cert = NMA_CERT_CHOOSER (gtk_builder_get_object (builder, "tls_machine_ca_cert"));
+	cert = NMA_CERT_CHOOSER (gtk_builder_get_object (builder, "tls_machine_cert"));
 
 	nma_cert_chooser_add_to_size_group (ca_cert, GTK_SIZE_GROUP (gtk_builder_get_object (builder, "ipsec_labels")));
 	nma_cert_chooser_add_to_size_group (cert, GTK_SIZE_GROUP (gtk_builder_get_object (builder, "ipsec_labels")));
@@ -243,8 +243,8 @@ ipsec_tls_setup (GtkBuilder *builder, GHashTable *hash)
 	                                             NM_L2TP_KEY_IPSEC_CERTPASS, TRUE, FALSE);
 
 	/* Link to the PKCS#12 changer callback */
-	g_signal_connect_object (ca_cert, "changed", G_CALLBACK (ipsec_tls_cert_changed_cb), cert, 0);
-	g_signal_connect_object (cert, "changed", G_CALLBACK (ipsec_tls_cert_changed_cb), ca_cert, 0);
+	g_signal_connect_object (ca_cert, "changed", G_CALLBACK (tls_machine_cert_changed_cb), cert, 0);
+	g_signal_connect_object (cert, "changed", G_CALLBACK (tls_machine_cert_changed_cb), ca_cert, 0);
 }
 
 static void
@@ -440,7 +440,7 @@ ipsec_dialog_new_hash_from_dialog (GtkWidget *dialog, GError **error)
 		                     g_strdup (value));
 	}
 
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_tls_ca_cert"));
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "tls_machine_ca_cert"));
 	value = nma_cert_chooser_get_cert (NMA_CERT_CHOOSER (widget), &scheme);
 	if (value && *value) {
 		g_hash_table_insert (hash,
@@ -448,7 +448,7 @@ ipsec_dialog_new_hash_from_dialog (GtkWidget *dialog, GError **error)
 		                     g_strdup (value));
 	}
 
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_tls_cert"));
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "tls_machine_cert"));
 	value = nma_cert_chooser_get_cert (NMA_CERT_CHOOSER (widget), &scheme);
 	if (value && *value) {
 		g_hash_table_insert (hash,

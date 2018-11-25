@@ -119,7 +119,7 @@ tls_setup (GtkBuilder *builder,
 	NMACertChooser *cert;
 	const char *value;
 
-	ca_cert = NMA_CERT_CHOOSER (gtk_builder_get_object (builder, "tls_ca_cert"));
+	ca_cert = NMA_CERT_CHOOSER (gtk_builder_get_object (builder, "tls_user_ca_cert"));
 	cert = NMA_CERT_CHOOSER (gtk_builder_get_object (builder, "tls_user_cert"));
 
 	nma_cert_chooser_add_to_size_group (ca_cert, GTK_SIZE_GROUP (gtk_builder_get_object (builder, "labels")));
@@ -258,7 +258,7 @@ update_tls (GtkBuilder *builder, NMSettingVpn *s_vpn)
 	                          NM_L2TP_KEY_CA,
 	                          NULL,
 	                          NULL,
-	                          "tls_ca_cert", s_vpn);
+	                          "tls_user_ca_cert", s_vpn);
 
 	update_from_cert_chooser (builder,
 	                          NM_L2TP_KEY_CERT,
@@ -497,7 +497,7 @@ ipsec_button_clicked_cb (GtkWidget *button, gpointer user_data)
 	if (authtype) {
 		if (strcmp (authtype, NM_L2TP_AUTHTYPE_TLS) != 0) {
 			builder = g_object_get_data (G_OBJECT (dialog), "gtkbuilder-xml");
-			widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_tls_cert"));
+			widget = GTK_WIDGET (gtk_builder_get_object (builder, "tls_machine_cert"));
 			gtk_widget_hide (widget);
 		}
 	}

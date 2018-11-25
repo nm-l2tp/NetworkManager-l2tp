@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.20.2 -->
+<!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.4"/>
   <object class="GtkDialog" id="l2tp-ipsec-dialog">
@@ -10,6 +10,9 @@
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
     <property name="skip_pager_hint">True</property>
+    <child>
+      <placeholder/>
+    </child>
     <child internal-child="vbox">
       <object class="GtkBox" id="dialog-vbox1">
         <property name="visible">True</property>
@@ -271,7 +274,7 @@ ipsec.secrets: ID</property>
                             <property name="orientation">vertical</property>
                             <property name="spacing">6</property>
                             <child>
-                              <object class="NMACertChooser" id="ipsec_tls_ca_cert">
+                              <object class="NMACertChooser" id="tls_machine_ca_cert">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="title" translatable="yes">CA</property>
@@ -284,10 +287,10 @@ ipsec.secrets: ID</property>
                               </packing>
                             </child>
                             <child>
-                              <object class="NMACertChooser" id="ipsec_tls_cert">
+                              <object class="NMACertChooser" id="tls_machine_cert">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="title" translatable="yes">IPsec</property>
+                            <property name="title" translatable="yes">Machine</property>
                             <property name="flags">4</property>
                           </object>
                               <packing>
@@ -483,9 +486,6 @@ ipsec.secrets: ID</property>
       <action-widget response="-6">ipsec_cancel_button</action-widget>
       <action-widget response="-5">ipsec_ok_button</action-widget>
     </action-widgets>
-    <child>
-      <placeholder/>
-    </child>
   </object>
   <object class="GtkSizeGroup" id="ipsec_labels">
     <property name="ignore_hidden">True</property>
@@ -770,7 +770,7 @@ config: xl2tpd name parameter</property>
                         <property name="orientation">vertical</property>
                         <property name="spacing">6</property>
                         <child>
-                          <object class="NMACertChooser" id="tls_ca_cert">
+                          <object class="NMACertChooser" id="tls_user_ca_cert">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="title" translatable="yes">CA</property>
@@ -1021,6 +1021,9 @@ config: xl2tpd name parameter</property>
     <property name="icon_name">stock-preferences</property>
     <property name="type_hint">dialog</property>
     <property name="skip_pager_hint">True</property>
+    <child>
+      <placeholder/>
+    </child>
     <child internal-child="vbox">
       <object class="GtkBox" id="dialog-vbox2">
         <property name="visible">True</property>
@@ -1607,8 +1610,5 @@ config: lcp-echo-failure and lcp-echo-interval</property>
       <action-widget response="-6">cancel_button1</action-widget>
       <action-widget response="-5">ok_button1</action-widget>
     </action-widgets>
-    <child>
-      <placeholder/>
-    </child>
   </object>
 </interface>
