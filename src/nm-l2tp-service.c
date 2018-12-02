@@ -716,8 +716,11 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 			if (priv->is_libreswan) {
 				write_config_option (fd, "%%any ");
 			}
-			/* With PSK, only IP addresses are allowed as IDs */
-			if (inet_pton(AF_INET, value, &naddr)) {
+			/* Only literal strings starting with @ and IP addresses
+			   are allowed as IDs with IKEv1 PSK */
+			if (value[0] == '@') {
+				write_config_option (fd, "%s ", value);
+			} else if (inet_pton(AF_INET, value, &naddr)) {
 				write_config_option (fd, "%s ", value);
 			} else {
 				write_config_option (fd, "%%any ");
