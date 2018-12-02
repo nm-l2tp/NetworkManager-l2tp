@@ -58,11 +58,14 @@ directory that exists.
 
 ## Run-time generated files
 
-* /var/run/nm-l2tp-xl2tpd-_UUID_.conf
-* /var/run/nm-l2tp-ppp-options-_UUID_
-* /var/run/nm-l2tp-xl2tpd-control-_UUID_
-* /var/run/nm-l2tp-xl2tpd-_UUID_.pid
-* /var/run/nm-l2tp-ipsec-_UUID_.conf
+The following files located under `/var/run` assume `--localstatedir=/var` or
+`--runstatedir=/var/run` were supplied to the configure script at build time.
+
+* /var/run/nm-l2tp-_UUID_/xl2tpd.conf
+* /var/run/nm-l2tp-_UUID_/xl2tpd-control
+* /var/run/nm-l2tp-_UUID_/xl2tpd-.pid
+* /var/run/nm-l2tp-_UUID_/ppp-options
+* /var/run/nm-l2tp-_UUID_/ipsec.conf
 * /etc/ipsec.d/nm-l2tp-ipsec-_UUID_.secrets
 
 where _UUID_ is the NetworkManager UUID for the VPN connection.
@@ -71,9 +74,6 @@ NetworkManager-l2tp will append the following line to `/etc/ipsec.secrets` at
 run-time if the line is missing:
 
     include /etc/ipsec.d/*.secrets
-
-The above files located under `/var/run` assume `--localstatedir=/var` or
-`--runstatedir=/var/run` were supplied to the configure script at build time.
 
 ## Debugging
 

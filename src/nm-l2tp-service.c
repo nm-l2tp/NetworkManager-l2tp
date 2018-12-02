@@ -59,10 +59,8 @@
 # define DIST_VERSION VERSION
 #endif
 
-#ifdef RUNSTATEDIR
-# define RUNDIR RUNSTATEDIR
-#else
-# define RUNDIR "/var/run"
+#ifndef RUNSTATEDIR
+# define RUNSTATEDIR "/run"
 #endif
 
 static struct {
@@ -641,6 +639,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	const char *ipsec_d;
 	const char *value;
 	char *filename;
+	char *rundir;
 	char errorbuf[128];
 	gint fd = -1;
 	FILE *fp;
@@ -652,16 +651,19 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	gboolean l2tp_port_is_free;
 	gs_free char *psk_base64 = NULL;
 
+	rundir = g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s", priv->uuid);
 	/* Setup runtime directory */
-	if (g_mkdir_with_parents (RUNDIR, 0755) != 0) {
+	if (mkdir (rundir, 0700) != 0) {
 		errsv = errno;
 		g_set_error (error,
 			NM_VPN_PLUGIN_ERROR,
 			NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
 			"Cannot create run-dir %s (%s)",
-			RUNDIR, g_strerror (errsv));
+			rundir, g_strerror (errsv));
+		g_free (rundir);
 		return FALSE;
 	}
+	g_free (rundir);
 
 	/* Check that xl2tpd's default port 1701 is free */
 	l2tp_port_is_free = is_port_free (1701);
@@ -736,7 +738,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		/*
 		 * IPsec config
 		 */
-		filename = g_strdup_printf (RUNDIR"/nm-l2tp-ipsec-%s.conf", priv->uuid);
+		filename = g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s/ipsec.conf", priv->uuid);
 		fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR);
 		g_free (filename);
 		if (fd == -1) {
@@ -788,7 +790,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	 */
 
 	/* xl2tpd config */
-	filename = g_strdup_printf (RUNDIR"/nm-l2tp-xl2tpd-%s.conf", priv->uuid);
+	filename = g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s/xl2tpd.conf", priv->uuid);
 	fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR|S_IRGRP|S_IROTH);
 	g_free (filename);
 
@@ -828,7 +830,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 
 	if (_LOGD_enabled ())
 		write_config_option (fd, "ppp debug = yes\n");
-	write_config_option (fd, "pppoptfile = "RUNDIR"/nm-l2tp-ppp-options-%s\n", priv->uuid);
+	write_config_option (fd, "pppoptfile = "RUNSTATEDIR"/nm-l2tp-%s/ppp-options\n", priv->uuid);
 	write_config_option (fd, "autodial = yes\n");
 	write_config_option (fd, "tunnel rws = 8\n");
 	write_config_option (fd, "tx bps = 100000000\n");
@@ -838,7 +840,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 
 	/* PPP options */
 
-	filename = g_strdup_printf (RUNDIR"/nm-l2tp-ppp-options-%s", priv->uuid);
+	filename = g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s/ppp-options", priv->uuid);
 	fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR|S_IRGRP|S_IROTH);
 	g_free (filename);
 
@@ -1009,7 +1011,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 		sys = system (cmdbuf);
 		if (sys == 3) {
 			snprintf (cmdbuf, sizeof(cmdbuf), "%s start "
-				             " --conf "RUNDIR"/nm-l2tp-ipsec-%s.conf --debug",
+				             " --conf "RUNSTATEDIR"/nm-l2tp-%s/ipsec.conf --debug",
 				             priv->ipsec_binary_path, priv->uuid);
 			sys = system (cmdbuf);
 			if (sys) {
@@ -1017,7 +1019,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 			}
 		} else {
 			snprintf (cmdbuf, sizeof(cmdbuf), "%s restart "
-				             " --conf "RUNDIR"/nm-l2tp-ipsec-%s.conf --debug",
+				             " --conf "RUNSTATEDIR"/nm-l2tp-%s/ipsec.conf --debug",
 				             priv->ipsec_binary_path, priv->uuid);
 			sys = system (cmdbuf);
 			if (sys) {
@@ -1037,7 +1039,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	pid_ipsec_up = 0;
 	if (priv->is_libreswan) {
 		snprintf (cmdbuf, sizeof(cmdbuf), "%s auto "
-				 " --config "RUNDIR"/nm-l2tp-ipsec-%s.conf --verbose"
+				 " --config "RUNSTATEDIR"/nm-l2tp-%s/ipsec.conf --verbose"
 				 " --add '%s'", priv->ipsec_binary_path, priv->uuid, priv->uuid);
 		sys = system(cmdbuf);
 		if (!sys) {
@@ -1139,11 +1141,11 @@ nm_l2tp_start_l2tpd_binary (NML2tpPlugin *plugin,
 	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup (l2tpd_binary));
 	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup ("-D"));
 	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup ("-c"));
-	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup_printf (RUNDIR"/nm-l2tp-xl2tpd-%s.conf", priv->uuid));
+	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s/xl2tpd.conf", priv->uuid));
 	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup ("-C"));
-	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup_printf (RUNDIR"/nm-l2tp-xl2tpd-control-%s", priv->uuid));
+	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s/xl2tpd-control", priv->uuid));
 	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup ("-p"));
-	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup_printf (RUNDIR"/nm-l2tp-xl2tpd-%s.pid", priv->uuid));
+	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s/xl2tpd.pid", priv->uuid));
 	g_ptr_array_add (l2tpd_argv, NULL);
 
 	if (!g_spawn_async (NULL, (char **) l2tpd_argv->pdata, NULL,
@@ -1500,33 +1502,37 @@ real_disconnect (NMVpnServicePlugin *plugin, GError **err)
 
 	if (!gl.debug) {
 		/* Cleaning up config files */
-		filename = g_strdup_printf (RUNDIR"/nm-l2tp-xl2tpd-%s.conf", priv->uuid);
-		unlink(filename);
-		g_free(filename);
-
-		filename = g_strdup_printf (RUNDIR"/nm-l2tp-ppp-options-%s", priv->uuid);
-		unlink(filename);
-		g_free(filename);
-
-		filename = g_strdup_printf (RUNDIR"/nm-l2tp-xl2tpd-control-%s", priv->uuid);
-		unlink(filename);
-		g_free(filename);
-
-		filename = g_strdup_printf (RUNDIR"/nm-l2tp-xl2tpd-%s.pid", priv->uuid);
-		unlink(filename);
-		g_free(filename);
-
-		filename = g_strdup_printf (RUNDIR"/nm-l2tp-ipsec-%s.conf", priv->uuid);
-		unlink(filename);
-		g_free(filename);
-
-		filename = g_strdup_printf ("/etc/ipsec.d/nm-l2tp-ipsec-%s.secrets", priv->uuid);
-		unlink(filename);
-		g_free(filename);
+		filename = g_strdup_printf (NM_IPSEC_SECRETS_DIR"/nm-l2tp-ipsec-%s.secrets", priv->uuid);
+		unlink (filename);
+		g_free (filename);
 
 		filename = g_strdup_printf ("/etc/strongswan/ipsec.d/nm-l2tp-ipsec-%s.secrets", priv->uuid);
-		unlink(filename);
-		g_free(filename);
+		unlink (filename);
+		g_free (filename);
+
+		filename = g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s/xl2tpd.conf", priv->uuid);
+		unlink (filename);
+		g_free (filename);
+
+		filename = g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s/ppp-options", priv->uuid);
+		unlink (filename);
+		g_free (filename);
+
+		filename = g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s/xl2tpd-control", priv->uuid);
+		unlink (filename);
+		g_free (filename);
+
+		filename = g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s/xl2tpd.pid", priv->uuid);
+		unlink (filename);
+		g_free (filename);
+
+		filename = g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s/ipsec.conf", priv->uuid);
+		unlink (filename);
+		g_free (filename);
+
+		filename = g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s", priv->uuid);
+		rmdir (filename);
+		g_free (filename);
 	}
 
 	return TRUE;
