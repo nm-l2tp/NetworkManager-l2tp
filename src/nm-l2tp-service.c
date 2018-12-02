@@ -745,7 +745,6 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		write_config_option (fd, "  type=transport\n");
 
 		write_config_option (fd, "  authby=secret\n");
-		write_config_option (fd, "  keyingtries=0\n");
 		write_config_option (fd, "  left=%%defaultroute\n");
 		if (l2tp_port_is_free) {
 			write_config_option (fd, "  leftprotoport=udp/l2tp\n");
@@ -759,6 +758,8 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 			write_config_option (fd, "  rightid=%%any\n");
 		}
 		write_config_option (fd, "  rightprotoport=udp/l2tp\n");
+
+		write_config_option (fd, "  keyingtries=%%forever\n");
 
 		if (priv->is_libreswan) {
 			write_config_option (fd, "  pfs=no\n");
