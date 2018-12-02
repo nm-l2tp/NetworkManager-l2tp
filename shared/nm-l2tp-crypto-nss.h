@@ -32,7 +32,6 @@ crypto_deinit_nss (GError **error);
 
 gboolean
 crypto_import_nss_pkcs12 (const GByteArray *p12_data,
-                          const char *password,
                           GError **error);
 
 #endif  /* __NM_L2TP_CRYPTO_NSS_H__ */

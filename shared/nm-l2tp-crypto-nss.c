@@ -135,7 +135,6 @@ nickname_cb (SECItem *old_nick, PRBool *cancel, void *wincx)
 
 gboolean
 crypto_import_nss_pkcs12 (const GByteArray *p12_data,
-                          const char *password,
                           GError **error)
 {
 	SEC_PKCS12DecoderContext *p12dcx = NULL;
