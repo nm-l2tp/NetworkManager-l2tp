@@ -56,11 +56,13 @@ crypto_init_nss (const char *db_dir, GError **error)
 	configdir = g_strconcat ("sql:", db_dir, NULL);
 	ret = NSS_InitReadWrite (configdir);
 	if (ret != SECSuccess) {
-		g_set_error (error, NM_CRYPTO_ERROR,
-		             NM_CRYPTO_ERROR_FAILED,
-		             _("Failed to initialize the NSS database: %d."),
-		             PR_GetError ());
-		PR_Cleanup ();
+		if (*error != NULL) {
+			g_set_error (error, NM_CRYPTO_ERROR,
+			             NM_CRYPTO_ERROR_FAILED,
+			             _("Failed to initialize the NSS database: %d."),
+			             PR_GetError ());
+			PR_Cleanup ();
+		}
 		return FALSE;
 	}
 
@@ -83,11 +85,13 @@ crypto_deinit_nss (GError **error) {
 	if (initialized) {
 		ret = NSS_Shutdown ();
 		if (ret != SECSuccess) {
-			g_set_error (error, NM_CRYPTO_ERROR,
-			             NM_CRYPTO_ERROR_FAILED,
-			             _("Failed to shutdown NSS: %d."),
-			             PR_GetError ());
-			PR_Cleanup ();
+			if (*error != NULL) {
+				g_set_error (error, NM_CRYPTO_ERROR,
+				             NM_CRYPTO_ERROR_FAILED,
+				             _("Failed to shutdown NSS: %d."),
+				             PR_GetError ());
+				PR_Cleanup ();
+			}
 			return FALSE;
 		}
 	}
