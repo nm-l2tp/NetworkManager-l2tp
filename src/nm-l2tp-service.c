@@ -55,6 +55,9 @@
 #include "nm-utils/nm-shared-utils.h"
 #include "nm-utils/nm-vpn-plugin-macros.h"
 
+#include "nm-l2tp-crypto-nss.h"
+#include "nm-l2tp-crypto-openssl.h"
+
 #ifndef DIST_VERSION
 # define DIST_VERSION VERSION
 #endif
@@ -73,6 +76,12 @@ static void nm_l2tp_plugin_initable_iface_init (GInitableIface *iface);
 G_DEFINE_TYPE_WITH_CODE (NML2tpPlugin, nm_l2tp_plugin, NM_TYPE_VPN_SERVICE_PLUGIN,
                          G_IMPLEMENT_INTERFACE (G_TYPE_INITABLE, nm_l2tp_plugin_initable_iface_init));
 
+typedef enum {
+	PASSWORD_AUTH,
+	TLS_AUTH,
+	PSK_AUTH
+} NML2tpAuthType;
+
 typedef struct {
 	GPid pid_l2tpd;
 	gboolean ipsec_up;
@@ -81,6 +90,8 @@ typedef struct {
 	NMDBusL2tpPpp *dbus_skeleton;
 	char ipsec_binary_path[256];
 	char *uuid;
+	NML2tpAuthType user_authtype;
+	NML2tpAuthType machine_authtype;
 	gboolean is_libreswan;
 
 	/* IP of L2TP gateway in numeric and string format */
@@ -189,7 +200,7 @@ nm_l2tp_ipsec_error(GError **error, const char *msg) {
 
 static gboolean
 check_include_ipsec_secrets (const char *path) {
-	gs_free char *contents = NULL;
+	g_autofree char *contents = NULL;
 	gs_strfreev char **all_lines = NULL;
 	guint i;
 
@@ -333,7 +344,7 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 			             key);
 			break;
 		case G_TYPE_BOOLEAN:
-			if (!strcmp (value, "yes") || !strcmp (value, "no"))
+			if (nm_streq (value, "yes") || nm_streq (value, "no"))
 				return; /* valid */
 
 			g_set_error (info->error,
@@ -370,6 +381,7 @@ nm_l2tp_properties_validate (NMSettingVpn *s_vpn,
 	int i;
 
 	nm_setting_vpn_foreach_data_item (s_vpn, validate_one_property, &info);
+
 	if (!info.have_items) {
 		g_set_error (error,
 		             NM_VPN_PLUGIN_ERROR,
@@ -407,19 +419,15 @@ nm_l2tp_properties_validate (NMSettingVpn *s_vpn,
 static gboolean
 nm_l2tp_secrets_validate (NMSettingVpn *s_vpn, GError **error)
 {
+	GError *validate_error = NULL;
 	ValidateInfo info = { &valid_secrets[0], error, FALSE };
 
 	nm_setting_vpn_foreach_secret (s_vpn, validate_one_property, &info);
-	if (!info.have_items) {
-		g_set_error (error,
-		             NM_VPN_PLUGIN_ERROR,
-		             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
-		             "%s",
-		             _("No VPN secrets!"));
+	if (validate_error) {
+		g_propagate_error (error, validate_error);
 		return FALSE;
 	}
-
-	return *error ? FALSE : TRUE;
+	return TRUE;
 }
 
 static void
@@ -581,12 +589,16 @@ typedef struct {
 	const char *write_to_config;
 } PPPOpt;
 
-static PPPOpt ppp_options[] = {
+static PPPOpt ppp_auth_options[] = {
 	{NM_L2TP_KEY_REFUSE_EAP, G_TYPE_BOOLEAN, "refuse-eap\n"},
 	{NM_L2TP_KEY_REFUSE_PAP, G_TYPE_BOOLEAN, "refuse-pap\n"},
 	{NM_L2TP_KEY_REFUSE_CHAP, G_TYPE_BOOLEAN, "refuse-chap\n"},
 	{NM_L2TP_KEY_REFUSE_MSCHAP, G_TYPE_BOOLEAN, "refuse-mschap\n"},
 	{NM_L2TP_KEY_REFUSE_MSCHAPV2, G_TYPE_BOOLEAN, "refuse-mschap-v2\n"},
+	{NULL, G_TYPE_NONE, NULL}
+};
+
+static PPPOpt ppp_options[] = {
 	{NM_L2TP_KEY_REQUIRE_MPPE, G_TYPE_BOOLEAN, "require-mppe\n"},
 	{NM_L2TP_KEY_REQUIRE_MPPE_40, G_TYPE_BOOLEAN, "require-mppe-40\n"},
 	{NM_L2TP_KEY_REQUIRE_MPPE_128, G_TYPE_BOOLEAN, "require-mppe-128\n"},
@@ -633,128 +645,344 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
                       NMSettingVpn *s_vpn,
                       GError **error)
 {
+	GError *config_error = NULL;
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
 	NMSettingIPConfig *s_ip4;
 	const char *secrets;
 	const char *ipsec_d;
 	const char *value;
 	char *filename;
-	char *rundir;
+	g_autofree char *friendly_name = NULL;
+	g_autofree char *rundir;
 	char errorbuf[128];
 	gint fd = -1;
 	FILE *fp;
 	struct in_addr naddr;
 	int port;
-	int i;
 	int errsv;
 	gboolean has_include;
 	gboolean l2tp_port_is_free;
-	gs_free char *psk_base64 = NULL;
+	gboolean tls_need_password;
+	g_autofree char *pwd_base64 = NULL;
+	const char *tls_key_filename  = NULL;
+	const char *tls_cert_filename = NULL;
+	const char *tls_ca_filename   = NULL;
+	g_autofree char *tls_key_out_filename  = NULL;
+	g_autofree char *tls_cert_out_filename = NULL;
+	g_autofree char *tls_ca_out_filename   = NULL;
+	NML2tpCryptoFileFormat tls_key_fileformat  = NM_L2TP_CRYPTO_FILE_FORMAT_UNKNOWN;
+	NML2tpCryptoFileFormat tls_cert_fileformat = NM_L2TP_CRYPTO_FILE_FORMAT_UNKNOWN;
+	NML2tpCryptoFileFormat tls_ca_fileformat   = NM_L2TP_CRYPTO_FILE_FORMAT_UNKNOWN;
+	GByteArray *p12_array = NULL;
+
+	GString *subject_name_str;
+	GByteArray *subject_name_asn1;
 
 	rundir = g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s", priv->uuid);
-	/* Setup runtime directory */
-	if (mkdir (rundir, 0700) != 0) {
-		errsv = errno;
-		g_set_error (error,
-			NM_VPN_PLUGIN_ERROR,
-			NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
-			"Cannot create run-dir %s (%s)",
-			rundir, g_strerror (errsv));
-		g_free (rundir);
-		return FALSE;
+	if (!g_file_test (rundir, G_FILE_TEST_EXISTS | G_FILE_TEST_IS_DIR)) {
+		/* Setup runtime directory */
+		if (mkdir (rundir, 0700) != 0) {
+			errsv = errno;
+			g_set_error (error,
+				NM_VPN_PLUGIN_ERROR,
+				NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
+				"Cannot create run-dir %s (%s)",
+				rundir, g_strerror (errsv));
+			return FALSE;
+		}
 	}
-	g_free (rundir);
 
 	/* Check that xl2tpd's default port 1701 is free */
 	l2tp_port_is_free = is_port_free (1701);
 
+	priv->user_authtype = PASSWORD_AUTH;
+	priv->machine_authtype = PSK_AUTH;
+
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER_AUTH_TYPE);
+	if (nm_streq0 (value, NM_L2TP_AUTHTYPE_TLS)) {
+		priv->user_authtype = TLS_AUTH;
+		crypto_init_openssl();
+	}
+
+	/*
+	 * IPsec
+	 */
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_ENABLE);
-	if (value && !strcmp(value,"yes")) {
-		/*
-		 * IPsec secrets
-		 */
-		secrets = NM_IPSEC_SECRETS;     /* typically /etc/ipsec.secrets */
-		ipsec_d = NM_IPSEC_SECRETS_DIR; /* typically /etc/ipsec.d */
-		if (!priv->is_libreswan) {
-			if (g_file_test ("/etc/strongswan", G_FILE_TEST_IS_DIR)) {
-				secrets = "/etc/strongswan/ipsec.secrets";
-				ipsec_d = "/etc/strongswan/ipsec.d";
-			}
+	if (nm_streq0 (value, "yes")) {
+
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_MACHINE_AUTH_TYPE);
+		if (nm_streq0 (value, NM_L2TP_AUTHTYPE_TLS)) {
+			priv->machine_authtype = TLS_AUTH;
+
+			tls_key_filename = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_MACHINE_KEY);
+			tls_cert_filename = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_MACHINE_CERT);
+			tls_ca_filename = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_MACHINE_CA);
+			crypto_init_openssl();
 		}
 
-		// check, if not add "include /etc/ipsec.d/*.secrets" to /etc/ipsec.secrets
-		has_include = FALSE;
-		if (g_file_test (secrets, G_FILE_TEST_EXISTS)) {
-			if (check_include_ipsec_secrets(secrets)) {
-				has_include = TRUE;
+		if (!priv->is_libreswan || priv->machine_authtype == PSK_AUTH) {
+			/*
+			 * IPsec secrets
+			 */
+			secrets = NM_IPSEC_SECRETS;     /* typically /etc/ipsec.secrets */
+			ipsec_d = NM_IPSEC_SECRETS_DIR; /* typically /etc/ipsec.d */
+			if (!priv->is_libreswan) {
+				if (g_file_test ("/etc/strongswan", G_FILE_TEST_IS_DIR)) {
+					secrets = "/etc/strongswan/ipsec.secrets";
+					ipsec_d = "/etc/strongswan/ipsec.d";
+				}
 			}
-		}
-		if (!has_include) {
-			fd = open (secrets, O_CREAT|O_WRONLY, S_IRUSR|S_IWUSR);
+
+			// if does not have "include /etc/ipsec.d/*.secrets", add it to /etc/ipsec.secrets
+			has_include = FALSE;
+			if (g_file_test (secrets, G_FILE_TEST_EXISTS)) {
+				if (check_include_ipsec_secrets(secrets)) {
+					has_include = TRUE;
+				}
+			}
+			if (!has_include) {
+				fd = open (secrets, O_CREAT|O_WRONLY, S_IRUSR|S_IWUSR);
+				if (fd == -1) {
+					snprintf (errorbuf, sizeof(errorbuf), _("Could not open %s"), secrets);
+					crypto_deinit_openssl();
+					return nm_l2tp_ipsec_error(error, errorbuf);
+				}
+				fp = fdopen(fd, "a");
+				fprintf(fp, "\n");
+				fprintf(fp, _("# Following line was added by NetworkManager-l2tp"));
+				fprintf(fp, "\ninclude %s/*.secrets\n",ipsec_d);
+				fclose(fp);
+				close(fd);
+			}
+
+			filename = g_strdup_printf ("%s/nm-l2tp-ipsec-%s.secrets", ipsec_d, priv->uuid);
+			fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR);
+			g_free (filename);
 			if (fd == -1) {
-				snprintf (errorbuf, sizeof(errorbuf), _("Could not open %s"), secrets);
+				snprintf (errorbuf, sizeof(errorbuf),
+						  _("Could not write %s/nm-l2tp-ipsec-%s.secrets"),
+						  ipsec_d, priv->uuid);
+				crypto_deinit_openssl();
 				return nm_l2tp_ipsec_error(error, errorbuf);
 			}
-			fp = fdopen(fd, "a");
-			fprintf(fp, "\n");
-			fprintf(fp, _("# Following line was added by NetworkManager-l2tp"));
-			fprintf(fp, "\ninclude %s/*.secrets\n",ipsec_d);
-			fclose(fp);
+
+			if (priv->machine_authtype == PSK_AUTH) {
+				value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GATEWAY_ID);
+				if (value) {
+					if (priv->is_libreswan) {
+						write_config_option (fd, "%%any ");
+					}
+					/* Only literal strings starting with @ and IP addresses
+					   are allowed as IDs with IKEv1 PSK */
+					if (value[0] == '@') {
+						write_config_option (fd, "%s ", value);
+					} else if (inet_pton(AF_INET, value, &naddr)) {
+						write_config_option (fd, "%s ", value);
+					} else {
+						write_config_option (fd, "%%any ");
+					}
+				}
+
+				value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_PSK);
+				if (!value) value="";
+				pwd_base64 = g_base64_encode ((const unsigned char *) value, strlen (value));
+				write_config_option (fd, ": PSK 0s%s\n", pwd_base64);
+
+			} else { /* TLS_AUTH */
+				if (!tls_key_filename) {
+					close(fd);
+					crypto_deinit_openssl();
+					return nm_l2tp_ipsec_error (error, _("Machine private key file not supplied"));
+				}
+				tls_key_fileformat = crypto_file_format (tls_key_filename, &tls_need_password, &config_error);
+				if (config_error) {
+					close(fd);
+					crypto_deinit_openssl();
+					g_propagate_error (error, config_error);
+					return FALSE;
+				}
+
+				switch (tls_key_fileformat) {
+				case NM_L2TP_CRYPTO_FILE_FORMAT_PKCS12 :
+					write_config_option (fd, ": P12");
+				break;
+
+				case NM_L2TP_CRYPTO_FILE_FORMAT_PKCS8_DER :
+				case NM_L2TP_CRYPTO_FILE_FORMAT_PKCS8_PEM :
+					write_config_option (fd, ": PKCS8");
+				break;
+
+				case NM_L2TP_CRYPTO_FILE_FORMAT_RSA_PKEY_DER :
+				case NM_L2TP_CRYPTO_FILE_FORMAT_RSA_PKEY_PEM :
+					write_config_option (fd, ": RSA");
+				break;
+
+				case NM_L2TP_CRYPTO_FILE_FORMAT_DSA_PKEY_DER :
+				case NM_L2TP_CRYPTO_FILE_FORMAT_DSA_PKEY_PEM :
+					/* strongSwan no longer supports DSA,
+					   we let strongSwan produce an error message */
+					write_config_option (fd, ": DSA");
+				break;
+
+				case NM_L2TP_CRYPTO_FILE_FORMAT_ECDSA_PKEY_DER :
+				case NM_L2TP_CRYPTO_FILE_FORMAT_ECDSA_PKEY_PEM :
+					write_config_option (fd, ": ECDSA");
+				break;
+
+				default :
+					write_config_option (fd, ": RSA");
+				}
+				write_config_option (fd, " \"%s\"", tls_key_filename);
+
+				if (tls_need_password) {
+					/* password for PKC#12 certificate or private key */
+					value = nm_setting_vpn_get_secret (s_vpn, NM_L2TP_KEY_MACHINE_CERTPASS);
+					if (value) {
+						pwd_base64 = g_base64_encode ((const unsigned char *) value, strlen (value));
+						write_config_option (fd, " 0s%s", pwd_base64);
+					}
+				}
+				write_config_option (fd, "\n");
+			}
 			close(fd);
 		}
 
-		filename = g_strdup_printf ("%s/nm-l2tp-ipsec-%s.secrets", ipsec_d, priv->uuid);
-		fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR);
-		g_free (filename);
-		if (fd == -1) {
-			snprintf (errorbuf, sizeof(errorbuf),
-					  _("Could not write %s/nm-l2tp-ipsec-%s.secrets"),
-					  ipsec_d, priv->uuid);
-			return nm_l2tp_ipsec_error(error, errorbuf);
-		}
-
-		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GATEWAY_ID);
-		if (value) {
-			if (priv->is_libreswan) {
-				write_config_option (fd, "%%any ");
+		/*
+		 * Libreswan NSS database
+		 */
+		if (priv->is_libreswan && priv->machine_authtype == TLS_AUTH) {
+			crypto_init_nss (rundir, &config_error);
+			if (config_error) {
+				close(fd);
+				crypto_deinit_openssl();
+				g_propagate_error (error, config_error);
+				return FALSE;
 			}
-			/* Only literal strings starting with @ and IP addresses
-			   are allowed as IDs with IKEv1 PSK */
-			if (value[0] == '@') {
-				write_config_option (fd, "%s ", value);
-			} else if (inet_pton(AF_INET, value, &naddr)) {
-				write_config_option (fd, "%s ", value);
+			tls_key_fileformat = crypto_file_format (tls_key_filename, NULL, &config_error);
+			if (config_error) {
+				close(fd);
+				crypto_deinit_nss (NULL);
+				crypto_deinit_openssl();
+				g_propagate_error (error, config_error);
+				return FALSE;
+			}
+			friendly_name = g_strdup_printf ("nm-l2tp-%s", priv->uuid);
+			if (tls_key_fileformat == NM_L2TP_CRYPTO_FILE_FORMAT_PKCS12) {
+				p12_array = crypto_decrypt_pkcs12_data (tls_key_filename,
+				                                        nm_setting_vpn_get_secret (s_vpn, NM_L2TP_KEY_MACHINE_CERTPASS),
+				                                        friendly_name, &config_error);
 			} else {
-				write_config_option (fd, "%%any ");
+				p12_array = crypto_create_pkcs12_data (tls_key_filename, tls_cert_filename, tls_ca_filename,
+				                                       nm_setting_vpn_get_secret (s_vpn, NM_L2TP_KEY_MACHINE_CERTPASS),
+				                                       friendly_name, &config_error);
 			}
+			if (config_error) {
+				crypto_deinit_nss (NULL);
+				crypto_deinit_openssl();
+				g_propagate_error (error, config_error);
+				return FALSE;
+			}
+			crypto_import_nss_pkcs12 (p12_array, &config_error);
+			g_byte_array_free (p12_array, TRUE);
+			if (config_error) {
+				crypto_deinit_nss (NULL);
+				crypto_deinit_openssl();
+				g_propagate_error (error, config_error);
+				return FALSE;
+			}
+			crypto_deinit_nss (NULL);
 		}
-
-		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_PSK);
-		if (!value) value="";
-		psk_base64 = g_base64_encode ((const unsigned char *) value, strlen (value));
-		write_config_option (fd, ": PSK 0s%s\n", psk_base64);
-		close(fd);
 
 		/*
 		 * IPsec config
 		 */
-		filename = g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s/ipsec.conf", priv->uuid);
+		filename = g_strdup_printf ("%s/ipsec.conf", rundir);
 		fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR);
 		g_free (filename);
 		if (fd == -1) {
+			crypto_deinit_openssl();
 			return nm_l2tp_ipsec_error(error, _("Could not write ipsec config."));
 		}
 
+		/* strongSwan CA section */
+		if (!priv->is_libreswan && priv->machine_authtype == TLS_AUTH) {
+			if (tls_ca_filename) {
+				tls_ca_fileformat = crypto_file_format (tls_ca_filename, NULL, &config_error);
+				if (config_error) {
+					close(fd);
+					crypto_deinit_openssl();
+					g_propagate_error (error, config_error);
+					return FALSE;
+				}
+				if (tls_ca_fileformat == NM_L2TP_CRYPTO_FILE_FORMAT_X509_DER
+				  || tls_ca_fileformat == NM_L2TP_CRYPTO_FILE_FORMAT_X509_PEM)
+				{
+					write_config_option (fd, "ca %s-ca\n", priv->uuid);
+					write_config_option (fd, "  cacert=\"%s\"\n", tls_ca_filename);
+					write_config_option (fd, "  auto=add\n\n", tls_ca_filename);
+				}
+			}
+		}
+
+		/* Libreswan config section */
+		if (priv->is_libreswan && priv->machine_authtype == TLS_AUTH) {
+			write_config_option (fd, "config setup\n");
+			if (priv->machine_authtype == TLS_AUTH)
+				write_config_option (fd, "  nssdir=\"sql:%s\"\n\n", rundir);
+		}
+
+		/* IPsec connection section */
 		write_config_option (fd, "conn %s\n", priv->uuid);
 		write_config_option (fd, "  auto=add\n");
 		write_config_option (fd, "  type=transport\n");
 
-		write_config_option (fd, "  authby=secret\n");
+		if (priv->is_libreswan && priv->machine_authtype == TLS_AUTH) {
+			write_config_option (fd, "  authby=rsasig\n");
+
+		} else if (!priv->is_libreswan && priv->machine_authtype == TLS_AUTH) {
+			write_config_option (fd, "  authby=pubkey\n");
+		} else {
+			write_config_option (fd, "  authby=secret\n");
+		}
+
 		write_config_option (fd, "  left=%%defaultroute\n");
 		if (l2tp_port_is_free) {
 			write_config_option (fd, "  leftprotoport=udp/l2tp\n");
 		}
+		if (priv->is_libreswan && priv->machine_authtype == TLS_AUTH) {
+			write_config_option (fd, "  leftcert=%s\n", friendly_name);
+			write_config_option (fd, "  leftrsasigkey=%%cert\n");
+		} else if (!priv->is_libreswan && priv->machine_authtype == TLS_AUTH) {
+			if (tls_key_fileformat == NM_L2TP_CRYPTO_FILE_FORMAT_PKCS12) {
+				crypto_pkcs12_get_subject_name (tls_key_filename,
+				                                (const char *)nm_setting_vpn_get_secret (s_vpn, NM_L2TP_KEY_MACHINE_CERTPASS),
+				                                &subject_name_str,
+				                                &subject_name_asn1,
+				                                &config_error);
+				if (config_error) {
+					close(fd);
+					crypto_deinit_openssl();
+					g_propagate_error (error, config_error);
+					return FALSE;
+				}
+				write_config_option (fd, "  #leftid=\"%s\"\n", subject_name_str->str);
+				write_config_option (fd, "  leftid=\"asn1dn:#");
+				for (size_t i = 0; i < subject_name_asn1->len; i++)
+					write_config_option (fd, "%02x", subject_name_asn1->data[i]);
+				write_config_option (fd, "\"\n");
+				g_string_free (subject_name_str, TRUE);
+				g_byte_array_free (subject_name_asn1, TRUE);
+			} else {
+				if (!tls_key_filename) {
+					close(fd);
+					crypto_deinit_openssl();
+					return nm_l2tp_ipsec_error(error, _("Machine certificate file not supplied"));
+				}
+				write_config_option (fd, "  leftcert=\"%s\"\n", tls_cert_filename);
+			}
+		}
 
+		write_config_option (fd, "  rightprotoport=udp/l2tp\n");
 		write_config_option (fd, "  right=%s\n", priv->saddr);
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GATEWAY_ID);
 		if (value) {
@@ -762,7 +990,9 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		} else {
 			write_config_option (fd, "  rightid=%%any\n");
 		}
-		write_config_option (fd, "  rightprotoport=udp/l2tp\n");
+		if (priv->is_libreswan && priv->machine_authtype == TLS_AUTH) {
+			write_config_option (fd, "  rightrsasigkey=%%cert\n");
+		}
 
 		write_config_option (fd, "  keyingtries=%%forever\n");
 
@@ -790,11 +1020,12 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	 */
 
 	/* xl2tpd config */
-	filename = g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s/xl2tpd.conf", priv->uuid);
+	filename = g_strdup_printf ("%s/xl2tpd.conf", rundir);
 	fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR|S_IRGRP|S_IROTH);
 	g_free (filename);
 
 	if (fd == -1) {
+		crypto_deinit_openssl();
 		return nm_l2tp_ipsec_error(error, _("Could not write xl2tpd config."));
 	}
 
@@ -820,17 +1051,9 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	/* value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_GATEWAY); */
 	write_config_option (fd, "lns = %s\n", priv->saddr);
 
-	/* Username; try L2TP specific username first, then generic username */
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER);
-	if (!value || !*value)
-		value = nm_setting_vpn_get_user_name (s_vpn);
-	if (!value || !*value) {
-		write_config_option (fd, "name = %s\n", value);
-	}
-
 	if (_LOGD_enabled ())
 		write_config_option (fd, "ppp debug = yes\n");
-	write_config_option (fd, "pppoptfile = "RUNSTATEDIR"/nm-l2tp-%s/ppp-options\n", priv->uuid);
+	write_config_option (fd, "pppoptfile = %s/ppp-options\n", rundir);
 	write_config_option (fd, "autodial = yes\n");
 	write_config_option (fd, "tunnel rws = 8\n");
 	write_config_option (fd, "tx bps = 100000000\n");
@@ -840,11 +1063,12 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 
 	/* PPP options */
 
-	filename = g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s/ppp-options", priv->uuid);
+	filename = g_strdup_printf ("%s/ppp-options", rundir);
 	fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR|S_IRGRP|S_IROTH);
 	g_free (filename);
 
 	if (fd == -1) {
+		crypto_deinit_openssl();
 		return nm_l2tp_ipsec_error(error, _("Could not write ppp options."));
 	}
 
@@ -874,16 +1098,133 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	   and pppd on Linux clients won't work without the same option */
 	write_config_option (fd, "noccp\n");
 
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER);
-	if (!value || !*value)
-		value = nm_setting_vpn_get_user_name (s_vpn);
-	if (!value || !*value) {
-		write_config_option (fd, "name %s\n", value);
-	}
+	if (priv->user_authtype == TLS_AUTH) {
+		/* EAP-TLS patch for pppd only supports PEM keys & certs, so do conversion if necessary */
 
-	for(i=0; ppp_options[i].name; i++){
+		tls_key_filename = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER_KEY);
+		tls_cert_filename = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER_CERT);
+		tls_ca_filename = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER_CA);
+
+		tls_key_fileformat = crypto_file_format (tls_key_filename, &tls_need_password, error);
+		if (*error) {
+			close(fd);
+			crypto_deinit_openssl();
+			return FALSE;
+		}
+		if (tls_need_password)
+			value = nm_setting_vpn_get_secret (s_vpn, NM_L2TP_KEY_MACHINE_CERTPASS);
+		else
+			value = NULL;
+
+		tls_key_out_filename = g_strdup_printf ("%s/key.pem", rundir);
+		tls_cert_out_filename = g_strdup_printf ("%s/cert.pem", rundir);
+		tls_ca_out_filename = g_strdup_printf ("%s/ca.pem", rundir);;
+		if (tls_key_fileformat == NM_L2TP_CRYPTO_FILE_FORMAT_PKCS12) {
+			crypto_pkcs12_to_pem_files (tls_cert_filename,
+			                            value,
+			                            tls_key_out_filename,
+			                            tls_cert_out_filename,
+			                            tls_ca_out_filename,
+			                            error);
+			if (*error) {
+				close(fd);
+				crypto_deinit_openssl();
+				return FALSE;
+			}
+		} else {
+			switch (tls_key_fileformat) {
+			case NM_L2TP_CRYPTO_FILE_FORMAT_PKCS8_DER :
+			case NM_L2TP_CRYPTO_FILE_FORMAT_RSA_PKEY_DER :
+			case NM_L2TP_CRYPTO_FILE_FORMAT_DSA_PKEY_DER :
+			case NM_L2TP_CRYPTO_FILE_FORMAT_ECDSA_PKEY_DER :
+			case NM_L2TP_CRYPTO_FILE_FORMAT_ECDSA_PKEY_PEM :
+				crypto_pkey_der_to_pem_file (tls_key_filename, value, tls_key_out_filename, error);
+				if (*error) {
+					close(fd);
+					crypto_deinit_openssl();
+					return FALSE;
+				}
+			break;
+
+			default :
+				g_free (tls_key_out_filename);
+				tls_key_out_filename = NULL;
+			}
+
+			tls_cert_fileformat = crypto_file_format (tls_cert_filename, NULL, error);
+			if (*error) {
+				close(fd);
+				crypto_deinit_openssl();
+				return FALSE;
+			}
+			if (tls_cert_fileformat == NM_L2TP_CRYPTO_FILE_FORMAT_X509_DER) {
+				crypto_x509_der_to_pem_file (tls_cert_filename, tls_cert_out_filename, error);
+				if (*error) {
+					close(fd);
+					crypto_deinit_openssl();
+					return FALSE;
+				}
+			} else {
+				g_free (tls_cert_out_filename);
+				tls_cert_out_filename = NULL;
+			}
+
+			if (tls_ca_filename) {
+				tls_ca_fileformat = crypto_file_format (tls_ca_filename, NULL, error);
+				if (*error) {
+					close(fd);
+					crypto_deinit_openssl();
+					return FALSE;
+				}
+				if (tls_ca_fileformat == NM_L2TP_CRYPTO_FILE_FORMAT_X509_DER) {
+					crypto_x509_der_to_pem_file (tls_ca_filename, tls_ca_out_filename, error);
+					if (*error) {
+						close(fd);
+						crypto_deinit_openssl();
+						return FALSE;
+					}
+				} else {
+					g_free (tls_ca_out_filename);
+					tls_ca_out_filename = NULL;
+				}
+			} else {
+				g_free (tls_ca_out_filename);
+				tls_ca_out_filename = NULL;
+			}
+		}
+
+		write_config_option (fd, "need-peer-eap\n");
+		if (tls_key_out_filename)
+			write_config_option (fd, "key \"%s\"\n", tls_key_out_filename);
+		else
+			write_config_option (fd, "key \"%s\"\n", tls_key_filename);
+
+		if (tls_cert_out_filename)
+			write_config_option (fd, "cert \"%s\"\n", tls_cert_out_filename);
+		else
+			write_config_option (fd, "cert \"%s\"\n", tls_cert_filename);
+
+		if (tls_ca_out_filename)
+			write_config_option (fd, "ca \"%s\"\n", tls_ca_filename);
+		else if (tls_ca_filename)
+			write_config_option (fd, "ca \"%s\"\n", tls_ca_filename);
+	} else {
+		/* Username; try L2TP specific username first, then generic username */
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER);
+		if (!value || !*value)
+			value = nm_setting_vpn_get_user_name (s_vpn);
+		if (!value || !*value) {
+			write_config_option (fd, "name %s\n", value);
+		}
+		for (int i=0; ppp_auth_options[i].name; i++){
+			value = nm_setting_vpn_get_data_item (s_vpn, ppp_auth_options[i].name);
+			if (nm_streq0 (value, "yes"))
+				write_config_option (fd, ppp_auth_options[i].write_to_config);
+		}
+	}
+	for (int i=0; ppp_options[i].name; i++){
 		value = nm_setting_vpn_get_data_item (s_vpn, ppp_options[i].name);
-		if (value && !strcmp (value, "yes"))
+		if (nm_streq0 (value, "yes"))
 			write_config_option (fd, ppp_options[i].write_to_config);
 	}
 
@@ -933,7 +1274,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	}
 
 	close(fd);
-
+	crypto_deinit_openssl();
 	return TRUE;
 }
 
@@ -1184,46 +1525,67 @@ handle_need_secrets (NMDBusL2tpPpp *object,
 	NML2tpPlugin *self = NM_L2TP_PLUGIN (user_data);
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (self);
 	NMSettingVpn *s_vpn;
-	const char *user, *password, *domain;
+	const char *user, *password, *domain, *auth_type, *tls_key_filename;
 	gchar *username;
+	gboolean tls_need_password = FALSE;
 
 	remove_timeout_handler (NM_L2TP_PLUGIN (user_data));
 
 	s_vpn = nm_connection_get_setting_vpn (priv->connection);
 	g_assert (s_vpn);
 
-	/* Username; try L2TP specific username first, then generic username */
-	user = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER);
-	if (!user || !strlen (user))
-		user = nm_setting_vpn_get_user_name (s_vpn);
-	if (!user || !strlen (user)) {
-		g_dbus_method_invocation_return_error_literal (invocation,
-		                                               NM_VPN_PLUGIN_ERROR,
-		                                               NM_VPN_PLUGIN_ERROR_INVALID_CONNECTION,
-		                                               _("Missing VPN username."));
-		return FALSE;
+	auth_type = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER_AUTH_TYPE);
+	if (nm_streq0 (auth_type, NM_L2TP_AUTHTYPE_TLS)) {
+		tls_key_filename = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER_KEY);
+		crypto_file_format (tls_key_filename, &tls_need_password, NULL);
+
+		if (!tls_need_password)
+			return FALSE;
+
+		password = nm_setting_vpn_get_secret (s_vpn, NM_L2TP_KEY_USER_CERTPASS);
+		if (!password || !strlen (password)) {
+			g_dbus_method_invocation_return_error_literal (invocation,
+			                                               NM_VPN_PLUGIN_ERROR,
+			                                               NM_VPN_PLUGIN_ERROR_INVALID_CONNECTION,
+			                                               _("Missing or invalid VPN user certificate password."));
+			return FALSE;;
+		}
+		nmdbus_l2tp_ppp_complete_need_secrets (object, invocation, tls_key_filename, password);
+
+	} else {
+		/* Username; try L2TP specific username first, then generic username */
+		user = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER);
+		if (!user || !strlen (user))
+			user = nm_setting_vpn_get_user_name (s_vpn);
+		if (!user || !strlen (user)) {
+			g_dbus_method_invocation_return_error_literal (invocation,
+			                                               NM_VPN_PLUGIN_ERROR,
+			                                               NM_VPN_PLUGIN_ERROR_INVALID_CONNECTION,
+			                                               _("Missing VPN username."));
+			return FALSE;
+		}
+
+		password = nm_setting_vpn_get_secret (s_vpn, NM_L2TP_KEY_PASSWORD);
+		if (!password || !strlen (password)) {
+			g_dbus_method_invocation_return_error_literal (invocation,
+			                                               NM_VPN_PLUGIN_ERROR,
+			                                               NM_VPN_PLUGIN_ERROR_INVALID_CONNECTION,
+			                                               _("Missing or invalid VPN password."));
+			return FALSE;;
+		}
+
+		/* Domain is optional */
+		domain = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_DOMAIN);
+
+		/* Success */
+		if (domain && strlen (domain))
+			username = g_strdup_printf ("%s\\%s", domain, user);
+		else
+			username = g_strdup (user);
+
+		nmdbus_l2tp_ppp_complete_need_secrets (object, invocation, username, password);
+		g_free (username);
 	}
-
-	password = nm_setting_vpn_get_secret (s_vpn, NM_L2TP_KEY_PASSWORD);
-	if (!password || !strlen (password)) {
-		g_dbus_method_invocation_return_error_literal (invocation,
-		                                               NM_VPN_PLUGIN_ERROR,
-		                                               NM_VPN_PLUGIN_ERROR_INVALID_CONNECTION,
-		                                               _("Missing or invalid VPN password."));
-		return FALSE;;
-	}
-
-	/* Domain is optional */
-	domain = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_DOMAIN);
-
-	/* Success */
-	if (domain && strlen (domain))
-		username = g_strdup_printf ("%s\\%s", domain, user);
-	else
-		username = g_strdup (user);
-
-	nmdbus_l2tp_ppp_complete_need_secrets (object, invocation, username, password);
-	g_free (username);
 
 	return TRUE;
 }
@@ -1371,7 +1733,7 @@ real_connect (NMVpnServicePlugin *plugin,
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_ENABLE);
 	_LOGI ("ipsec enable flag: %s", value ? value : "(null)");
 	priv->is_libreswan = TRUE;
-	if(value && !strcmp(value,"yes")) {
+	if(nm_streq0 (value, "yes")) {
 		if (!(value=nm_find_ipsec ())) {
 			return nm_l2tp_ipsec_error(error, _("Could not find the ipsec binary. Is Libreswan or strongSwan installed?"));
 		}
@@ -1417,12 +1779,11 @@ real_connect (NMVpnServicePlugin *plugin,
 	if (!nm_l2tp_config_write (NM_L2TP_PLUGIN (plugin), s_vpn, error))
 		return FALSE;
 
-
 	if (getenv ("NM_L2TP_DUMP_CONNECTION") || _LOGD_enabled ())
 		nm_connection_dump (connection);
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_ENABLE);
-	if(value && !strcmp(value,"yes")) {
+	if(nm_streq0 (value, "yes")) {
 		_LOGI ("starting ipsec");
 		if (!nm_l2tp_start_ipsec(NM_L2TP_PLUGIN (plugin), s_vpn, error))
 			return FALSE;
@@ -1442,25 +1803,54 @@ real_need_secrets (NMVpnServicePlugin *plugin,
 {
 	NMSettingVpn *s_vpn;
 	NMSettingSecretFlags flags = NM_SETTING_SECRET_FLAG_NONE;
+	const char *value;
+	gboolean need_secrets = FALSE;
 
 	g_return_val_if_fail (NM_IS_VPN_SERVICE_PLUGIN (plugin), FALSE);
 	g_return_val_if_fail (NM_IS_CONNECTION (connection), FALSE);
 
 	s_vpn = nm_connection_get_setting_vpn (connection);
 
-	nm_setting_get_secret_flags (NM_SETTING (s_vpn), NM_L2TP_KEY_PASSWORD, &flags, NULL);
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER_AUTH_TYPE);
+	if (nm_streq0 (value, NM_L2TP_AUTHTYPE_TLS)) {
+		/*  Check if user certificate or private key needs password */
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER_KEY);
+		crypto_file_format (value, &need_secrets, NULL);
 
-	/* Don't need the password if it's not required */
-	if (flags & NM_SETTING_SECRET_FLAG_NOT_REQUIRED)
-		return FALSE;
+		/* Don't need the password if we already have one */
+		if (need_secrets && nm_setting_vpn_get_secret (NM_SETTING_VPN (s_vpn), NM_L2TP_KEY_USER_CERTPASS)) {
+				need_secrets = FALSE;
+		}
 
-	/* Don't need the password if we already have one */
-	if (nm_setting_vpn_get_secret (NM_SETTING_VPN (s_vpn), NM_L2TP_KEY_PASSWORD))
-		return FALSE;
+	} else {
+		/*  Check if need password for user credentials */
+		nm_setting_get_secret_flags (NM_SETTING (s_vpn), NM_L2TP_KEY_PASSWORD, &flags, NULL);
 
-	/* Otherwise we need a password */
-	*setting_name = NM_SETTING_VPN_SETTING_NAME;
-	return TRUE;
+		/* Need the password if user specified it is required */
+		if (!(flags & NM_SETTING_SECRET_FLAG_NOT_REQUIRED))
+			need_secrets = TRUE;
+
+		/* Don't need the password if we already have one */
+		if (need_secrets && nm_setting_vpn_get_secret (NM_SETTING_VPN (s_vpn), NM_L2TP_KEY_PASSWORD))
+			need_secrets = FALSE;
+	}
+
+	/* Check if machine certificate or machine private key need a password */
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_MACHINE_AUTH_TYPE);
+	if (!need_secrets && nm_streq0 (value, NM_L2TP_AUTHTYPE_TLS)) {
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_MACHINE_KEY);
+		crypto_file_format (value, &need_secrets, NULL);
+
+		/* Don't need the password if we already have one */
+		if (need_secrets && nm_setting_vpn_get_secret (NM_SETTING_VPN (s_vpn), NM_L2TP_KEY_MACHINE_CERTPASS)) {
+				need_secrets = FALSE;
+		}
+	}
+
+	if (need_secrets)
+		*setting_name = NM_SETTING_VPN_SETTING_NAME;
+
+	return need_secrets;
 }
 
 static gboolean
@@ -1685,7 +2075,7 @@ main (int argc, char *argv[])
 	gboolean persist = FALSE;
 	GOptionContext *opt_ctx = NULL;
 	GError *error = NULL;
-	gs_free char *bus_name_free = NULL;
+	g_autofree char *bus_name_free = NULL;
 	const char *bus_name;
 	char sbuf[30];
 
