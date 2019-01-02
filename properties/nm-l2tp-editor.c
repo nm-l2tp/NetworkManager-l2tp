@@ -133,25 +133,25 @@ tls_setup (GtkBuilder *builder,
 	g_signal_connect_object (cert, "changed", G_CALLBACK (tls_cert_changed_cb), ca_cert, 0);
 
 	if (s_vpn) {
-		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_CA);
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER_CA);
 		if (value && value[0])
 			nma_cert_chooser_set_cert (ca_cert, value, NM_SETTING_802_1X_CK_SCHEME_PATH);
 
-		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_CERT);
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER_CERT);
 		if (value && value[0])
 			nma_cert_chooser_set_cert (cert, value, NM_SETTING_802_1X_CK_SCHEME_PATH);
 
-		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_KEY);
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER_KEY);
 		if (value && value[0])
 			nma_cert_chooser_set_key (cert, value, NM_SETTING_802_1X_CK_SCHEME_PATH);
 
-		value = nm_setting_vpn_get_secret (s_vpn, NM_L2TP_KEY_CERTPASS);
+		value = nm_setting_vpn_get_secret (s_vpn, NM_L2TP_KEY_USER_CERTPASS);
 		if (value)
 			nma_cert_chooser_set_key_password (cert, value);
 	}
 
 	nma_cert_chooser_setup_key_password_storage (cert, 0, (NMSetting *) s_vpn,
-	                                             NM_L2TP_KEY_CERTPASS, TRUE, FALSE);
+	                                             NM_L2TP_KEY_USER_CERTPASS, TRUE, FALSE);
 }
 
 static void
@@ -255,15 +255,15 @@ static void
 update_tls (GtkBuilder *builder, NMSettingVpn *s_vpn)
 {
 	update_from_cert_chooser (builder,
-	                          NM_L2TP_KEY_CA,
+	                          NM_L2TP_KEY_USER_CA,
 	                          NULL,
 	                          NULL,
 	                          "tls_user_ca_cert", s_vpn);
 
 	update_from_cert_chooser (builder,
-	                          NM_L2TP_KEY_CERT,
-	                          NM_L2TP_KEY_KEY,
-	                          NM_L2TP_KEY_CERTPASS,
+	                          NM_L2TP_KEY_USER_CERT,
+	                          NM_L2TP_KEY_USER_KEY,
+	                          NM_L2TP_KEY_USER_CERTPASS,
 	                          "tls_user_cert", s_vpn);
 }
 
@@ -596,7 +596,7 @@ copy_hash_pair (gpointer key, gpointer data, gpointer user_data)
 	g_return_if_fail (value && value[0]);
 
 	/* IPsec certificate password is a secret, not a data item */
-	if (!strcmp (key, NM_L2TP_KEY_IPSEC_CERTPASS))
+	if (!strcmp (key, NM_L2TP_KEY_MACHINE_CERTPASS))
 		nm_setting_vpn_add_secret (s_vpn, (const char *) key, value);
 	else
 		nm_setting_vpn_add_data_item (s_vpn, (const char *) key, value);
@@ -671,9 +671,9 @@ update_connection (NMVpnEditor *iface,
 			                             NULL);
 		}
 
-		if (nm_setting_vpn_get_secret (s_vpn, NM_L2TP_KEY_CERTPASS)) {
+		if (nm_setting_vpn_get_secret (s_vpn, NM_L2TP_KEY_USER_CERTPASS)) {
 			nm_setting_set_secret_flags (NM_SETTING (s_vpn),
-			                             NM_L2TP_KEY_CERTPASS,
+			                             NM_L2TP_KEY_USER_CERTPASS,
 			                             NM_SETTING_SECRET_FLAG_AGENT_OWNED,
 			                             NULL);
 		}

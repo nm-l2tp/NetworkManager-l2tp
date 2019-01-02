@@ -58,10 +58,10 @@ static const char *ipsec_keys[] = {
 	NM_L2TP_KEY_IPSEC_GROUP_NAME,
 	NM_L2TP_KEY_IPSEC_AUTH_TYPE,
 	NM_L2TP_KEY_IPSEC_PSK,
-	NM_L2TP_KEY_IPSEC_CA,
-	NM_L2TP_KEY_IPSEC_CERT,
-	NM_L2TP_KEY_IPSEC_KEY,
-	NM_L2TP_KEY_IPSEC_CERTPASS,
+	NM_L2TP_KEY_MACHINE_CA,
+	NM_L2TP_KEY_MACHINE_CERT,
+	NM_L2TP_KEY_MACHINE_KEY,
+	NM_L2TP_KEY_MACHINE_CERTPASS,
 	NM_L2TP_KEY_IPSEC_IKE,
 	NM_L2TP_KEY_IPSEC_ESP,
 	NM_L2TP_KEY_IPSEC_FORCEENCAPS,
@@ -95,17 +95,17 @@ ipsec_dialog_new_hash_from_connection (NMConnection *connection,
 	nm_setting_vpn_foreach_data_item (s_vpn, hash_copy_value, hash);
 
 	/* IPsec certificate password is special */
-	secret = nm_setting_vpn_get_secret (s_vpn, NM_L2TP_KEY_IPSEC_CERTPASS);
+	secret = nm_setting_vpn_get_secret (s_vpn, NM_L2TP_KEY_MACHINE_CERTPASS);
 	if (secret) {
 		g_hash_table_insert (hash,
-		                     g_strdup (NM_L2TP_KEY_IPSEC_CERTPASS),
+		                     g_strdup (NM_L2TP_KEY_MACHINE_CERTPASS),
 		                     g_strdup (secret));
 	}
 
-	flags = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_CERTPASS"-flags");
+	flags = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_MACHINE_CERTPASS"-flags");
 	if (flags)
 		g_hash_table_insert (hash,
-		                     g_strdup (NM_L2TP_KEY_IPSEC_CERTPASS"-flags"),
+		                     g_strdup (NM_L2TP_KEY_MACHINE_CERTPASS"-flags"),
 		                     g_strdup (flags));
 
 	return hash;
@@ -216,23 +216,23 @@ ipsec_tls_setup (GtkBuilder *builder, GHashTable *hash)
 	nma_cert_chooser_add_to_size_group (ca_cert, GTK_SIZE_GROUP (gtk_builder_get_object (builder, "ipsec_labels")));
 	nma_cert_chooser_add_to_size_group (cert, GTK_SIZE_GROUP (gtk_builder_get_object (builder, "ipsec_labels")));
 
-	value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_CA);
+	value = g_hash_table_lookup (hash, NM_L2TP_KEY_MACHINE_CA);
 	if (value && value[0])
 		nma_cert_chooser_set_cert (ca_cert, value, NM_SETTING_802_1X_CK_SCHEME_PATH);
 
-	value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_CERT);
+	value = g_hash_table_lookup (hash, NM_L2TP_KEY_MACHINE_CERT);
 	if (value && value[0])
 		nma_cert_chooser_set_cert (cert, value, NM_SETTING_802_1X_CK_SCHEME_PATH);
 
-	value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_KEY);
+	value = g_hash_table_lookup (hash, NM_L2TP_KEY_MACHINE_KEY);
 	if (value && value[0])
 		nma_cert_chooser_set_key (cert, value, NM_SETTING_802_1X_CK_SCHEME_PATH);
 
-	value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_CERTPASS);
+	value = g_hash_table_lookup (hash, NM_L2TP_KEY_MACHINE_CERTPASS);
 	if (value && value[0])
 		nma_cert_chooser_set_key_password (cert, value);
 
-	value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_CERTPASS"-flags");
+	value = g_hash_table_lookup (hash, NM_L2TP_KEY_MACHINE_CERTPASS"-flags");
 	if (value) {
 		G_STATIC_ASSERT_EXPR (((guint) (NMSettingSecretFlags) 0xFFFFu) == 0xFFFFu);
 		pw_flags = _nm_utils_ascii_str_to_int64 (value, 10, 0, 0xFFFF, NM_SETTING_SECRET_FLAG_NONE);
@@ -240,7 +240,7 @@ ipsec_tls_setup (GtkBuilder *builder, GHashTable *hash)
 		pw_flags = NM_SETTING_SECRET_FLAG_NONE;
 	}
 	nma_cert_chooser_setup_key_password_storage (cert, pw_flags, NULL,
-	                                             NM_L2TP_KEY_IPSEC_CERTPASS, TRUE, FALSE);
+	                                             NM_L2TP_KEY_MACHINE_CERTPASS, TRUE, FALSE);
 
 	/* Link to the PKCS#12 changer callback */
 	g_signal_connect_object (ca_cert, "changed", G_CALLBACK (tls_machine_cert_changed_cb), cert, 0);
@@ -444,7 +444,7 @@ ipsec_dialog_new_hash_from_dialog (GtkWidget *dialog, GError **error)
 	value = nma_cert_chooser_get_cert (NMA_CERT_CHOOSER (widget), &scheme);
 	if (value && *value) {
 		g_hash_table_insert (hash,
-		                     g_strdup (NM_L2TP_KEY_IPSEC_CA),
+		                     g_strdup (NM_L2TP_KEY_MACHINE_CA),
 		                     g_strdup (value));
 	}
 
@@ -452,28 +452,28 @@ ipsec_dialog_new_hash_from_dialog (GtkWidget *dialog, GError **error)
 	value = nma_cert_chooser_get_cert (NMA_CERT_CHOOSER (widget), &scheme);
 	if (value && *value) {
 		g_hash_table_insert (hash,
-		                     g_strdup (NM_L2TP_KEY_IPSEC_CERT),
+		                     g_strdup (NM_L2TP_KEY_MACHINE_CERT),
 		                     g_strdup (value));
 	}
 
 	value = nma_cert_chooser_get_key (NMA_CERT_CHOOSER (widget), &scheme);
 	if (value && *value) {
 		g_hash_table_insert (hash,
-		                     g_strdup (NM_L2TP_KEY_IPSEC_KEY),
+		                     g_strdup (NM_L2TP_KEY_MACHINE_KEY),
 		                     g_strdup (value));
 	}
 
 	value = nma_cert_chooser_get_key_password (NMA_CERT_CHOOSER (widget));
 	if (value && *value) {
 		g_hash_table_insert (hash,
-		                     g_strdup (NM_L2TP_KEY_IPSEC_CERTPASS),
+		                     g_strdup (NM_L2TP_KEY_MACHINE_CERTPASS),
 		                     g_strdup (value));
 	}
 
 	pw_flags = nma_cert_chooser_get_key_password_flags (NMA_CERT_CHOOSER (widget));
 	if (pw_flags != NM_SETTING_SECRET_FLAG_NONE) {
 		g_hash_table_insert (hash,
-		                     g_strdup (NM_L2TP_KEY_IPSEC_CERTPASS"-flags"),
+		                     g_strdup (NM_L2TP_KEY_MACHINE_CERTPASS"-flags"),
 		                     g_strdup_printf ("%d", pw_flags));
 	}
 

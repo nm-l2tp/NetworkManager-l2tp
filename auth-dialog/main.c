@@ -92,22 +92,22 @@ typedef gboolean (*AskUserFunc) (const char *vpn_name,
                                  gboolean need_password,
                                  const char *existing_password,
                                  char **out_new_password,
-                                 gboolean need_certpass,
-                                 const char *existing_certpass,
-                                 char **out_new_certpass,
-                                 gboolean need_ipsec_certpass,
-                                 const char *existing_ipsec_certpass,
-                                 char **out_new_ipsec_certpass);
+                                 gboolean need_user_certpass,
+                                 const char *existing_user_certpass,
+                                 char **out_new_user_certpass,
+                                 gboolean need_machine_certpass,
+                                 const char *existing_machine_certpass,
+                                 char **out_new_machine_certpass);
 
 typedef void (*FinishFunc) (const char *vpn_name,
                             const char *prompt,
                             gboolean allow_interaction,
                             gboolean need_password,
                             const char *password,
-                            gboolean need_certpass,
-                            const char *certpass,
-                            gboolean need_ipsec_certpass,
-                            const char *ipsec_certpass);
+                            gboolean need_user_certpass,
+                            const char *user_certpass,
+                            gboolean need_machine_certpass,
+                            const char *machine_certpass);
 
 /*****************************************************************/
 /* External UI mode stuff */
@@ -158,10 +158,10 @@ eui_finish (const char *vpn_name,
             gboolean allow_interaction,
             gboolean need_password,
             const char *existing_password,
-            gboolean need_certpass,
-            const char *existing_certpass,
-            gboolean need_ipsec_certpass,
-            const char *existing_ipsec_certpass)
+            gboolean need_user_certpass,
+            const char *existing_user_certpass,
+            gboolean need_machine_certpass,
+            const char *existing_machine_certpass)
 {
 	GKeyFile *keyfile;
 	char *title;
@@ -183,18 +183,18 @@ eui_finish (const char *vpn_name,
 	                        need_password && allow_interaction);
 
 	keyfile_add_entry_info (keyfile,
-	                        NM_L2TP_KEY_CERTPASS,
-	                        existing_certpass ? existing_certpass : "",
+	                        NM_L2TP_KEY_USER_CERTPASS,
+	                        existing_user_certpass ? existing_user_certpass : "",
 	                        _("User Certificate password:"),
 	                        TRUE,
-	                        need_certpass && allow_interaction);
+	                        need_user_certpass && allow_interaction);
 
 	keyfile_add_entry_info (keyfile,
-	                        NM_L2TP_KEY_IPSEC_CERTPASS,
-	                        existing_ipsec_certpass ? existing_ipsec_certpass : "",
-	                        _("IPsec Certificate password:"),
+	                        NM_L2TP_KEY_MACHINE_CERTPASS,
+	                        existing_machine_certpass ? existing_machine_certpass : "",
+	                        _("Machine Certificate password:"),
 	                        TRUE,
-	                        need_ipsec_certpass && allow_interaction);
+	                        need_machine_certpass && allow_interaction);
 
 	keyfile_print_stdout (keyfile);
 	g_key_file_unref (keyfile);
@@ -214,12 +214,12 @@ std_ask_user (const char *vpn_name,
               gboolean need_password,
               const char *existing_password,
               char **out_new_password,
-              gboolean need_certpass,
-              const char *existing_certpass,
-              char **out_new_certpass,
-              gboolean need_ipsec_certpass,
-              const char *existing_ipsec_certpass,
-              char **out_new_ipsec_certpass)
+              gboolean need_user_certpass,
+              const char *existing_user_certpass,
+              char **out_new_user_certpass,
+              gboolean need_machine_certpass,
+              const char *existing_machine_certpass,
+              char **out_new_machine_certpass)
 {
 	NMAVpnPasswordDialog *dialog;
 	gboolean success = FALSE;
@@ -227,8 +227,8 @@ std_ask_user (const char *vpn_name,
 	g_return_val_if_fail (vpn_name != NULL, FALSE);
 	g_return_val_if_fail (prompt != NULL, FALSE);
 	g_return_val_if_fail (out_new_password != NULL, FALSE);
-	g_return_val_if_fail (out_new_certpass != NULL, FALSE);
-	g_return_val_if_fail (out_new_ipsec_certpass != NULL, FALSE);
+	g_return_val_if_fail (out_new_user_certpass != NULL, FALSE);
+	g_return_val_if_fail (out_new_machine_certpass != NULL, FALSE);
 
 	gtk_init (NULL, NULL);
 
@@ -239,26 +239,26 @@ std_ask_user (const char *vpn_name,
 	if (need_password)
 		nma_vpn_password_dialog_set_password (dialog, existing_password);
 
-	nma_vpn_password_dialog_set_show_password_secondary (dialog, need_certpass);
-	if (need_certpass) {
-		nma_vpn_password_dialog_set_password_secondary_label (dialog, _("User Certificate pass_word:") );
-		nma_vpn_password_dialog_set_password_secondary (dialog, existing_certpass);
+	nma_vpn_password_dialog_set_show_password_secondary (dialog, need_user_certpass);
+	if (need_user_certpass) {
+		nma_vpn_password_dialog_set_password_secondary_label (dialog, _("_User Certificate password:") );
+		nma_vpn_password_dialog_set_password_secondary (dialog, existing_user_certpass);
 	}
 
-	nma_vpn_password_dialog_set_show_password_ternary (dialog, need_ipsec_certpass);
-	if (need_ipsec_certpass) {
-		nma_vpn_password_dialog_set_password_ternary_label (dialog, _("IPsec Certificate pass_word:"));
-		nma_vpn_password_dialog_set_password_ternary (dialog, existing_ipsec_certpass);
+	nma_vpn_password_dialog_set_show_password_ternary (dialog, need_machine_certpass);
+	if (need_machine_certpass) {
+		nma_vpn_password_dialog_set_password_ternary_label (dialog, _("_Machine Certificate password:"));
+		nma_vpn_password_dialog_set_password_ternary (dialog, existing_machine_certpass);
 	}
 
 	gtk_widget_show (GTK_WIDGET (dialog));
 	if (nma_vpn_password_dialog_run_and_block (dialog)) {
 		if (need_password)
 			*out_new_password = g_strdup (nma_vpn_password_dialog_get_password (dialog));
-		if (need_certpass)
-			*out_new_certpass = g_strdup (nma_vpn_password_dialog_get_password_secondary (dialog));
-		if (need_ipsec_certpass)
-			*out_new_ipsec_certpass = g_strdup (nma_vpn_password_dialog_get_password_ternary (dialog));
+		if (need_user_certpass)
+			*out_new_user_certpass = g_strdup (nma_vpn_password_dialog_get_password_secondary (dialog));
+		if (need_machine_certpass)
+			*out_new_machine_certpass = g_strdup (nma_vpn_password_dialog_get_password_ternary (dialog));
 
 		success = TRUE;
 	}
@@ -298,18 +298,18 @@ std_finish (const char *vpn_name,
             gboolean allow_interaction,
             gboolean need_password,
             const char *password,
-            gboolean need_certpass,
-            const char *certpass,
-            gboolean need_ipsec_certpass,
-            const char *ipsec_certpass)
+            gboolean need_user_certpass,
+            const char *user_certpass,
+            gboolean need_machine_certpass,
+            const char *machine_certpass)
 {
 	/* Send the passwords back to our parent */
 	if (password)
 		printf ("%s\n%s\n", NM_L2TP_KEY_PASSWORD, password);
-	if (certpass)
-		printf ("%s\n%s\n", NM_L2TP_KEY_CERTPASS, certpass);
-	if (ipsec_certpass)
-		printf ("%s\n%s\n", NM_L2TP_KEY_IPSEC_CERTPASS, ipsec_certpass);
+	if (user_certpass)
+		printf ("%s\n%s\n", NM_L2TP_KEY_USER_CERTPASS, user_certpass);
+	if (machine_certpass)
+		printf ("%s\n%s\n", NM_L2TP_KEY_MACHINE_CERTPASS, machine_certpass);
 	printf ("\n\n");
 
 	/* for good measure, flush stdout since Kansas is going Bye-Bye */
@@ -326,19 +326,19 @@ get_existing_passwords (GHashTable *vpn_data,
                         GHashTable *existing_secrets,
                         const char *vpn_uuid,
                         gboolean need_password,
-                        gboolean need_certpass,
-                        gboolean need_ipsec_certpass,
+                        gboolean need_user_certpass,
+                        gboolean need_machine_certpass,
                         char **out_password,
-                        char **out_certpass,
-                        char **out_ipsec_certpass)
+                        char **out_user_certpass,
+                        char **out_machine_certpass)
 {
 	NMSettingSecretFlags pw_flags = NM_SETTING_SECRET_FLAG_NONE;
-	NMSettingSecretFlags cp_flags = NM_SETTING_SECRET_FLAG_NONE;
-	NMSettingSecretFlags ipsec_cp_flags = NM_SETTING_SECRET_FLAG_NONE;
+	NMSettingSecretFlags user_cp_flags = NM_SETTING_SECRET_FLAG_NONE;
+	NMSettingSecretFlags machine_cp_flags = NM_SETTING_SECRET_FLAG_NONE;
 
 	g_return_if_fail (out_password != NULL);
-	g_return_if_fail (out_certpass != NULL);
-	g_return_if_fail (out_ipsec_certpass != NULL);
+	g_return_if_fail (out_user_certpass != NULL);
+	g_return_if_fail (out_machine_certpass != NULL);
 
 	nm_vpn_service_plugin_get_secret_flags (vpn_data, NM_L2TP_KEY_PASSWORD, &pw_flags);
 	if (need_password) {
@@ -349,21 +349,21 @@ get_existing_passwords (GHashTable *vpn_data,
 		}
 	}
 
-	nm_vpn_service_plugin_get_secret_flags (vpn_data, NM_L2TP_KEY_CERTPASS, &cp_flags);
-	if (need_certpass) {
-		if (!(cp_flags & NM_SETTING_SECRET_FLAG_NOT_SAVED)) {
-			*out_certpass = g_strdup (g_hash_table_lookup (existing_secrets, NM_L2TP_KEY_CERTPASS));
-			if (!*out_certpass)
-				*out_certpass = keyring_lookup_secret (vpn_uuid, NM_L2TP_KEY_CERTPASS);
+	nm_vpn_service_plugin_get_secret_flags (vpn_data, NM_L2TP_KEY_USER_CERTPASS, &user_cp_flags);
+	if (need_user_certpass) {
+		if (!(user_cp_flags & NM_SETTING_SECRET_FLAG_NOT_SAVED)) {
+			*out_user_certpass = g_strdup (g_hash_table_lookup (existing_secrets, NM_L2TP_KEY_USER_CERTPASS));
+			if (!*out_user_certpass)
+				*out_user_certpass = keyring_lookup_secret (vpn_uuid, NM_L2TP_KEY_USER_CERTPASS);
 		}
 	}
 
-	nm_vpn_service_plugin_get_secret_flags (vpn_data, NM_L2TP_KEY_IPSEC_CERTPASS, &ipsec_cp_flags);
-	if (need_ipsec_certpass) {
-		if (!(ipsec_cp_flags & NM_SETTING_SECRET_FLAG_NOT_SAVED)) {
-			*out_ipsec_certpass = g_strdup (g_hash_table_lookup (existing_secrets, NM_L2TP_KEY_IPSEC_CERTPASS));
-			if (!*out_ipsec_certpass)
-				*out_ipsec_certpass = keyring_lookup_secret (vpn_uuid, NM_L2TP_KEY_IPSEC_CERTPASS);
+	nm_vpn_service_plugin_get_secret_flags (vpn_data, NM_L2TP_KEY_MACHINE_CERTPASS, &machine_cp_flags);
+	if (need_machine_certpass) {
+		if (!(machine_cp_flags & NM_SETTING_SECRET_FLAG_NOT_SAVED)) {
+			*out_machine_certpass = g_strdup (g_hash_table_lookup (existing_secrets, NM_L2TP_KEY_MACHINE_CERTPASS));
+			if (!*out_machine_certpass)
+				*out_machine_certpass = keyring_lookup_secret (vpn_uuid, NM_L2TP_KEY_MACHINE_CERTPASS);
 		}
 	}
 }
@@ -371,26 +371,26 @@ get_existing_passwords (GHashTable *vpn_data,
 static char *
 get_passwords_required (GHashTable *data,
                         gboolean *out_need_password,
-                        gboolean *out_need_certpass,
-                        gboolean *out_need_ipsec_certpass)
+                        gboolean *out_need_user_certpass,
+                        gboolean *out_need_machine_certpass)
 {
 	const char *ctype, *val;
 	NMSettingSecretFlags flags;
 
 	*out_need_password = FALSE;
-	*out_need_certpass = FALSE;
-	*out_need_ipsec_certpass = FALSE;
+	*out_need_user_certpass = FALSE;
+	*out_need_machine_certpass = FALSE;
 
 	ctype = g_hash_table_lookup (data, NM_L2TP_KEY_AUTH_TYPE);
 	g_return_val_if_fail (ctype != NULL, NULL);
 
-	if (!strcmp (ctype, NM_L2TP_AUTHTYPE_TLS)) {
+	if (nm_streq0 (ctype, NM_L2TP_AUTHTYPE_TLS)) {
 		/* Encrypted PKCS#12 certificate or private key password */
-		val = g_hash_table_lookup (data, NM_L2TP_KEY_KEY);
+		val = g_hash_table_lookup (data, NM_L2TP_KEY_USER_KEY);
 		if (val)
-			crypto_file_format (val, out_need_certpass, NULL);
+			crypto_file_format (val, out_need_user_certpass, NULL);
 
-	} else if (!strcmp (ctype, NM_L2TP_AUTHTYPE_PASSWORD)) {
+	} else if (nm_streq0 (ctype, NM_L2TP_AUTHTYPE_PASSWORD)) {
 		flags = NM_SETTING_SECRET_FLAG_NONE;
 		nm_vpn_service_plugin_get_secret_flags (data, NM_L2TP_KEY_PASSWORD, &flags);
 		if (!(flags & NM_SETTING_SECRET_FLAG_NOT_REQUIRED))
@@ -400,11 +400,11 @@ get_passwords_required (GHashTable *data,
 	ctype = g_hash_table_lookup (data, NM_L2TP_KEY_IPSEC_AUTH_TYPE);
 	g_return_val_if_fail (ctype != NULL, NULL);
 
-	if (!strcmp (ctype, NM_L2TP_AUTHTYPE_TLS)) {
+	if (nm_streq0 (ctype, NM_L2TP_AUTHTYPE_TLS)) {
 		/* Encrypted PKCS#12 certificate or private key password */
-		val = g_hash_table_lookup (data, NM_L2TP_KEY_IPSEC_KEY);
+		val = g_hash_table_lookup (data, NM_L2TP_KEY_MACHINE_KEY);
 		if (val)
-			crypto_file_format (val, out_need_ipsec_certpass, NULL);
+			crypto_file_format (val, out_need_machine_certpass, NULL);
 	}
 
 	return NULL;
@@ -420,15 +420,15 @@ main (int argc, char *argv[])
 	gs_unref_hashtable GHashTable *data = NULL;
 	gs_unref_hashtable GHashTable *secrets = NULL;
 	gboolean need_password = FALSE;
-	gboolean need_certpass = FALSE;
-	gboolean need_ipsec_certpass = FALSE;
+	gboolean need_user_certpass = FALSE;
+	gboolean need_machine_certpass = FALSE;
 	gs_free char *prompt = NULL;
 	nm_auto_free_secret char *new_password = NULL;
-	nm_auto_free_secret char *new_certpass = NULL;
-	nm_auto_free_secret char *new_ipsec_certpass = NULL;
+	nm_auto_free_secret char *new_user_certpass = NULL;
+	nm_auto_free_secret char *new_machine_certpass = NULL;
 	nm_auto_free_secret char *existing_password = NULL;
-	nm_auto_free_secret char *existing_certpass = NULL;
-	nm_auto_free_secret char *existing_ipsec_certpass = NULL;
+	nm_auto_free_secret char *existing_user_certpass = NULL;
+	nm_auto_free_secret char *existing_machine_certpass = NULL;
 	gboolean external_ui_mode = FALSE;
 	gboolean ask_user;
 	NoSecretsRequiredFunc no_secrets_required_func;
@@ -485,12 +485,12 @@ main (int argc, char *argv[])
 	/* Determine which passwords are actually required,
 	 * from looking at the VPN configuration.
 	 */
-	prompt = get_passwords_required (data, &need_password, &need_certpass, &need_ipsec_certpass);
+	prompt = get_passwords_required (data, &need_password, &need_user_certpass, &need_machine_certpass);
 	if (!prompt)
 		prompt = g_strdup_printf (_("You need to authenticate to access the Virtual Private Network “%s”."), vpn_name);
 
 	/* Exit early if we don't need any passwords */
-	if (!need_password && !need_certpass && !need_ipsec_certpass) {
+	if (!need_password && !need_user_certpass && !need_machine_certpass) {
 		no_secrets_required_func ();
 		return EXIT_SUCCESS;
 	}
@@ -499,16 +499,16 @@ main (int argc, char *argv[])
 	                        secrets,
 	                        vpn_uuid,
 	                        need_password,
-	                        need_certpass,
-	                        need_ipsec_certpass,
+	                        need_user_certpass,
+	                        need_machine_certpass,
 	                        &existing_password,
-	                        &existing_certpass,
-	                        &existing_ipsec_certpass);
+	                        &existing_user_certpass,
+	                        &existing_machine_certpass);
 	if (need_password && !existing_password)
 		ask_user = TRUE;
-	else if (need_certpass && !existing_certpass)
+	else if (need_user_certpass && !existing_user_certpass)
 		ask_user = TRUE;
-	else if (need_ipsec_certpass && !existing_ipsec_certpass)
+	else if (need_machine_certpass && !existing_machine_certpass)
 		ask_user = TRUE;
 	else
 		ask_user = FALSE;
@@ -524,12 +524,12 @@ main (int argc, char *argv[])
 		                    need_password,
 		                    existing_password,
 		                    &new_password,
-		                    need_certpass,
-		                    existing_certpass,
-		                    &new_certpass,
-		                    need_ipsec_certpass,
-		                    existing_ipsec_certpass,
-		                    &new_ipsec_certpass))
+		                    need_user_certpass,
+		                    existing_user_certpass,
+		                    &new_user_certpass,
+		                    need_machine_certpass,
+		                    existing_machine_certpass,
+		                    &new_machine_certpass))
 			return EXIT_FAILURE;
 	}
 
@@ -538,9 +538,9 @@ main (int argc, char *argv[])
 	             allow_interaction,
 	             need_password,
 	             new_password ? new_password : existing_password,
-	             need_certpass,
-	             new_certpass ? new_certpass : existing_certpass,
-	             need_ipsec_certpass,
-	             new_ipsec_certpass ? new_ipsec_certpass : existing_ipsec_certpass);
+	             need_user_certpass,
+	             new_user_certpass ? new_user_certpass : existing_user_certpass,
+	             need_machine_certpass,
+	             new_machine_certpass ? new_machine_certpass : existing_machine_certpass);
 	return EXIT_SUCCESS;
 }

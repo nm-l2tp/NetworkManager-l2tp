@@ -130,9 +130,9 @@ static const ValidProperty valid_properties[] = {
 	{ NM_L2TP_KEY_AUTH_TYPE,                G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_USER,                     G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_DOMAIN,                   G_TYPE_STRING, FALSE },
-	{ NM_L2TP_KEY_CA,                       G_TYPE_STRING, FALSE },
-	{ NM_L2TP_KEY_CERT,                     G_TYPE_STRING, FALSE },
-	{ NM_L2TP_KEY_KEY,                      G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_USER_CA,                  G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_USER_CERT,                G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_USER_KEY,                 G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_MTU,                      G_TYPE_UINT, FALSE },
 	{ NM_L2TP_KEY_MRU,                      G_TYPE_UINT, FALSE },
 	{ NM_L2TP_KEY_REFUSE_EAP,               G_TYPE_BOOLEAN, FALSE },
@@ -156,25 +156,25 @@ static const ValidProperty valid_properties[] = {
 	{ NM_L2TP_KEY_IPSEC_GATEWAY_ID,         G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_GROUP_NAME,         G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_AUTH_TYPE,          G_TYPE_STRING, FALSE },
-	{ NM_L2TP_KEY_IPSEC_CA,                 G_TYPE_STRING, FALSE },
-	{ NM_L2TP_KEY_IPSEC_CERT,               G_TYPE_STRING, FALSE },
-	{ NM_L2TP_KEY_IPSEC_KEY,                G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_MACHINE_CA,               G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_MACHINE_CERT,             G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_MACHINE_KEY,              G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_PSK,                G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_IKE,                G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_ESP,                G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_FORCEENCAPS,        G_TYPE_BOOLEAN, FALSE },
 	{ NM_L2TP_KEY_PASSWORD"-flags",         G_TYPE_UINT, FALSE },
-	{ NM_L2TP_KEY_CERTPASS"-flags",         G_TYPE_UINT, FALSE },
-	{ NM_L2TP_KEY_IPSEC_CERTPASS"-flags",   G_TYPE_UINT, FALSE },
+	{ NM_L2TP_KEY_USER_CERTPASS"-flags",    G_TYPE_UINT, FALSE },
+	{ NM_L2TP_KEY_MACHINE_CERTPASS"-flags", G_TYPE_UINT, FALSE },
 	{ NM_L2TP_KEY_NOSECRET,                 G_TYPE_UINT, FALSE },
 	{ NULL }
 };
 
 static ValidProperty valid_secrets[] = {
 	{ NM_L2TP_KEY_PASSWORD,                 G_TYPE_STRING, FALSE },
-	{ NM_L2TP_KEY_CERTPASS,                 G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_USER_CERTPASS,            G_TYPE_STRING, FALSE },
+ 	{ NM_L2TP_KEY_MACHINE_CERTPASS,         G_TYPE_STRING, FALSE },
  	{ NM_L2TP_KEY_NOSECRET,                 G_TYPE_STRING, FALSE },
- 	{ NM_L2TP_KEY_IPSEC_CERTPASS,           G_TYPE_STRING, FALSE },
 	{ NULL }
 };
 
