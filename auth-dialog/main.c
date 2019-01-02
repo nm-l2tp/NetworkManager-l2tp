@@ -381,7 +381,7 @@ get_passwords_required (GHashTable *data,
 	*out_need_user_certpass = FALSE;
 	*out_need_machine_certpass = FALSE;
 
-	authtype = g_hash_table_lookup (data, NM_L2TP_KEY_AUTH_TYPE);
+	authtype = g_hash_table_lookup (data, NM_L2TP_KEY_USER_AUTH_TYPE);
 	if (nm_streq0 (authtype, NM_L2TP_AUTHTYPE_TLS)) {
 		/* Encrypted PKCS#12 certificate or private key password */
 		val = g_hash_table_lookup (data, NM_L2TP_KEY_USER_KEY);
@@ -395,7 +395,7 @@ get_passwords_required (GHashTable *data,
 			*out_need_password = TRUE;
 	}
 
-	authtype = g_hash_table_lookup (data, NM_L2TP_KEY_IPSEC_AUTH_TYPE);
+	authtype = g_hash_table_lookup (data, NM_L2TP_KEY_MACHINE_AUTH_TYPE);
 	if (nm_streq0 (authtype, NM_L2TP_AUTHTYPE_TLS)) {
 		/* Encrypted PKCS#12 certificate or private key password */
 		val = g_hash_table_lookup (data, NM_L2TP_KEY_MACHINE_KEY);

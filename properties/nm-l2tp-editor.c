@@ -530,7 +530,7 @@ init_plugin_ui (L2tpPluginUiWidget *self, NMConnection *connection, GError **err
 	g_return_val_if_fail (widget != NULL, FALSE);
 
 	if (s_vpn) {
-		authtype = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_AUTH_TYPE);
+		authtype = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER_AUTH_TYPE);
 		if (authtype) {
 			if (   strcmp (authtype, NM_L2TP_AUTHTYPE_TLS)
 			    && strcmp (authtype, NM_L2TP_AUTHTYPE_PASSWORD))
@@ -647,7 +647,7 @@ update_connection (NMVpnEditor *iface,
 
 	auth_type = get_auth_type (priv->builder);
 	if (auth_type) {
-		nm_setting_vpn_add_data_item (s_vpn, NM_L2TP_KEY_AUTH_TYPE, auth_type);
+		nm_setting_vpn_add_data_item (s_vpn, NM_L2TP_KEY_USER_AUTH_TYPE, auth_type);
 		if (!strcmp (auth_type, NM_L2TP_AUTHTYPE_TLS)) {
 			update_tls (priv->builder, s_vpn);
 		} else if (!strcmp (auth_type, NM_L2TP_AUTHTYPE_PASSWORD)) {

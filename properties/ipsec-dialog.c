@@ -56,7 +56,7 @@ static const char *ipsec_keys[] = {
 	NM_L2TP_KEY_IPSEC_ENABLE,
 	NM_L2TP_KEY_IPSEC_GATEWAY_ID,
 	NM_L2TP_KEY_IPSEC_GROUP_NAME,
-	NM_L2TP_KEY_IPSEC_AUTH_TYPE,
+	NM_L2TP_KEY_MACHINE_AUTH_TYPE,
 	NM_L2TP_KEY_IPSEC_PSK,
 	NM_L2TP_KEY_MACHINE_CA,
 	NM_L2TP_KEY_MACHINE_CERT,
@@ -313,7 +313,7 @@ ipsec_dialog_new (GHashTable *hash)
 	if((value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_GATEWAY_ID)))
 		gtk_entry_set_text (GTK_ENTRY(widget), value);
 
-	authtype = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_AUTH_TYPE);
+	authtype = g_hash_table_lookup (hash, NM_L2TP_KEY_MACHINE_AUTH_TYPE);
 	if (authtype) {
 		if (   strcmp (authtype, NM_L2TP_AUTHTYPE_TLS)
 		    && strcmp (authtype, NM_L2TP_AUTHTYPE_PSK))
@@ -429,7 +429,7 @@ ipsec_dialog_new_hash_from_dialog (GtkWidget *dialog, GError **error)
 		gtk_tree_model_get (model, &iter, COL_AUTH_TYPE, &value, -1);
 	}
 	if (value) {
-		g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_AUTH_TYPE), g_strdup(value));
+		g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_MACHINE_AUTH_TYPE), g_strdup(value));
 	}
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_psk_entry"));
