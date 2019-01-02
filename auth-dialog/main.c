@@ -374,33 +374,29 @@ get_passwords_required (GHashTable *data,
                         gboolean *out_need_user_certpass,
                         gboolean *out_need_machine_certpass)
 {
-	const char *ctype, *val;
+	const char *authtype, *val;
 	NMSettingSecretFlags flags;
 
 	*out_need_password = FALSE;
 	*out_need_user_certpass = FALSE;
 	*out_need_machine_certpass = FALSE;
 
-	ctype = g_hash_table_lookup (data, NM_L2TP_KEY_AUTH_TYPE);
-	g_return_val_if_fail (ctype != NULL, NULL);
-
-	if (nm_streq0 (ctype, NM_L2TP_AUTHTYPE_TLS)) {
+	authtype = g_hash_table_lookup (data, NM_L2TP_KEY_AUTH_TYPE);
+	if (nm_streq0 (authtype, NM_L2TP_AUTHTYPE_TLS)) {
 		/* Encrypted PKCS#12 certificate or private key password */
 		val = g_hash_table_lookup (data, NM_L2TP_KEY_USER_KEY);
 		if (val)
 			crypto_file_format (val, out_need_user_certpass, NULL);
 
-	} else if (nm_streq0 (ctype, NM_L2TP_AUTHTYPE_PASSWORD)) {
+	} else { /* NM_L2TP_AUTHTYPE_PASSWORD */
 		flags = NM_SETTING_SECRET_FLAG_NONE;
 		nm_vpn_service_plugin_get_secret_flags (data, NM_L2TP_KEY_PASSWORD, &flags);
 		if (!(flags & NM_SETTING_SECRET_FLAG_NOT_REQUIRED))
 			*out_need_password = TRUE;
 	}
 
-	ctype = g_hash_table_lookup (data, NM_L2TP_KEY_IPSEC_AUTH_TYPE);
-	g_return_val_if_fail (ctype != NULL, NULL);
-
-	if (nm_streq0 (ctype, NM_L2TP_AUTHTYPE_TLS)) {
+	authtype = g_hash_table_lookup (data, NM_L2TP_KEY_IPSEC_AUTH_TYPE);
+	if (nm_streq0 (authtype, NM_L2TP_AUTHTYPE_TLS)) {
 		/* Encrypted PKCS#12 certificate or private key password */
 		val = g_hash_table_lookup (data, NM_L2TP_KEY_MACHINE_KEY);
 		if (val)
