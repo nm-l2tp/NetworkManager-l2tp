@@ -349,6 +349,9 @@ plugin_init (void)
 	chap_check_hook = get_chap_check;
 	pap_passwd_hook = get_credentials;
 	pap_check_hook = get_pap_check;
+#ifdef USE_EAPTLS
+	eaptls_passwd_hook = get_credentials;
+#endif
 
 	add_notifier (&phasechange, nm_phasechange, NULL);
 	add_notifier (&ip_up_notifier, nm_ip_up, NULL);

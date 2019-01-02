@@ -114,7 +114,7 @@ src_nm_l2tp_pppd_plugin_la_SOURCES = \
 	$(shared_sources) \
 	src/nm-l2tp-pppd-plugin.c \
 	src/nm-ppp-status.h
-src_nm_l2tp_pppd_plugin_la_CPPFLAGS = $(src_cppflags)
+src_nm_l2tp_pppd_plugin_la_CPPFLAGS = $(src_cppflags) -DUSE_EAPTLS
 src_nm_l2tp_pppd_plugin_la_LDFLAGS = \
 	-module -avoid-version
 src_nm_l2tp_pppd_plugin_la_LIBADD = \
