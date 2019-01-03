@@ -853,11 +853,9 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		 */
 		if (priv->is_libreswan && priv->machine_authtype == TLS_AUTH) {
 			nssdir = NM_IPSEC_SECRETS_DIR; /* typically /etc/ipsec.d */
-			if (priv->is_libreswan) {
+			if (g_file_test ("/var/lib/ipsec/nss", G_FILE_TEST_IS_DIR)) {
 				/* Debian and Ubuntu use /var/lib/ipsec/nss for NSS DB */
-				if (g_file_test ("/var/lib/ipsec/nss", G_FILE_TEST_IS_DIR)) {
-					nssdir = "/var/lib/ipsec/nss";
-				}
+				nssdir = "/var/lib/ipsec/nss";
 			}
 			crypto_init_nss (nssdir, &config_error);
 			if (config_error) {
