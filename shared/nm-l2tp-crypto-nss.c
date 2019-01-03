@@ -39,7 +39,11 @@
 #include "nm-l2tp-crypto-nss.h"
 #include "nm-errors.h"
 
+static char *
+crypto_get_password_libreswan_nss (PK11SlotInfo *slot, PRBool retry, void *arg);
+
 static gboolean initialized = FALSE;
+static char *nsspassword_file = NULL;
 
 gboolean
 crypto_init_nss (const char *db_dir, GError **error)
@@ -47,6 +51,7 @@ crypto_init_nss (const char *db_dir, GError **error)
 	SECStatus ret;
 	PK11SlotInfo *slot = NULL;
 	gs_free char *configdir = NULL;
+	const char *token;
 
 	if (initialized)
 		return TRUE;
@@ -56,21 +61,49 @@ crypto_init_nss (const char *db_dir, GError **error)
 	configdir = g_strconcat ("sql:", db_dir, NULL);
 	ret = NSS_InitReadWrite (configdir);
 	if (ret != SECSuccess) {
-		if (*error != NULL) {
+		if (error != NULL) {
 			g_set_error (error, NM_CRYPTO_ERROR,
 			             NM_CRYPTO_ERROR_FAILED,
-			             _("Failed to initialize the NSS database: %d."),
+			             _("Unable to initialize the NSS database for read/write: %d."),
 			             PR_GetError ());
 			PR_Cleanup ();
 		}
 		return FALSE;
 	}
 
-	/* If creating new NSS database, initialize empty string password. */
 	slot = PK11_GetInternalKeySlot ();
 	if (slot) {
-		if (PK11_NeedUserInit (slot))
-			PK11_InitPin (slot, NULL, NULL);
+		if (PK11_NeedUserInit (slot)) {
+			g_set_error (error, NM_CRYPTO_ERROR,
+			             NM_CRYPTO_ERROR_FAILED,
+			             _("Libreswan NSS database \"%s\" is not initialized."),
+			             configdir);
+			PK11_FreeSlot (slot);
+			return FALSE;
+		} else if (PK11_IsFIPS () || PK11_NeedLogin (slot)) {
+			nsspassword_file = g_strconcat (db_dir, "/nsspassword", NULL);
+			if (!g_file_test (nsspassword_file, G_FILE_TEST_EXISTS)) {
+				g_set_error (error, NM_CRYPTO_ERROR,
+				             NM_CRYPTO_ERROR_FAILED,
+				             _("Libreswan NSS password file \"%s\" does not exist."),
+				             nsspassword_file);
+				PK11_FreeSlot (slot);
+				return FALSE;
+			}
+			PK11_SetPasswordFunc (crypto_get_password_libreswan_nss);
+			ret = PK11_Authenticate (slot, PR_FALSE, NULL);
+			if (ret != SECSuccess) {
+				token = PK11_GetTokenName (slot);
+				g_set_error (error, NM_CRYPTO_ERROR,
+				             NM_CRYPTO_ERROR_FAILED,
+				             _("Password for token \"%s\" is incorrect or not found : %d"),
+				             token,
+				             PR_GetError ());
+				PR_Cleanup ();
+				PK11_FreeSlot (slot);
+				return FALSE;
+			}
+		}
 		PK11_FreeSlot (slot);
 	}
 
@@ -79,13 +112,16 @@ crypto_init_nss (const char *db_dir, GError **error)
 }
 
 gboolean
-crypto_deinit_nss (GError **error) {
+crypto_deinit_nss (GError **error)
+{
 	SECStatus ret;
 
 	if (initialized) {
+		g_free (nsspassword_file);
+		nsspassword_file = NULL;
 		ret = NSS_Shutdown ();
 		if (ret != SECSuccess) {
-			if (*error != NULL) {
+			if (error != NULL) {
 				g_set_error (error, NM_CRYPTO_ERROR,
 				             NM_CRYPTO_ERROR_FAILED,
 				             _("Failed to shutdown NSS: %d."),
@@ -98,6 +134,60 @@ crypto_deinit_nss (GError **error) {
 	PR_Cleanup ();
 	return TRUE;
 }
+
+/*
+ * Return corresponding password for slot's token from Libreswan NSS password file.
+ *
+ * The Libreswan NSS password file is typically one of the following :
+ *    /etc/ipsec.d/nsspassword
+ *    /var/lib/ipsec/nss/nsspassword  (Debian and Ubuntu)
+ *
+ * The syntax of the "nsspassword" file is :
+ * token_1_name:password1
+ * token_2_name:password2
+ *
+ *    ...
+ */
+static char *
+crypto_get_password_libreswan_nss (PK11SlotInfo *slot, PRBool retry, void *arg)
+{
+	g_autofree char *contents = NULL;
+	g_autofree char *token_prefix = NULL;
+	g_auto(GStrv) all_lines = NULL;
+	const char *token;
+
+	if (retry)
+		return NULL;
+
+	if (slot == NULL)
+		return NULL;
+
+	if (nsspassword_file == NULL)
+		return NULL;
+
+	token = PK11_GetTokenName(slot);
+	if (token == NULL)
+		return NULL;
+
+	if (PK11_ProtectedAuthenticationPath(slot))
+		return NULL;
+
+	if (!g_file_get_contents (nsspassword_file, &contents, NULL, NULL))
+		return NULL;
+
+	token_prefix = g_strconcat (token, ":", NULL);
+	all_lines = g_strsplit (contents, "\n", 0);
+	for (int i = 0; all_lines[i]; i++) {
+		g_strstrip (all_lines[i]);
+		if (all_lines[i][0] == '\0')
+			continue;
+		if (g_str_has_prefix (all_lines[i], token_prefix)) {
+			return PORT_Strdup(all_lines[i] + strlen(token_prefix));
+		}
+	}
+	return FALSE;
+}
+
 
 /*
  * This callback is called by SEC_PKCS12DecoderValidateBags() each time

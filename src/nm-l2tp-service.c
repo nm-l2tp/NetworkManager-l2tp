@@ -650,6 +650,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	NMSettingIPConfig *s_ip4;
 	const char *secrets;
 	const char *ipsec_d;
+	const char *nssdir;
 	const char *value;
 	char *filename;
 	g_autofree char *friendly_name = NULL;
@@ -851,7 +852,14 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		 * Libreswan NSS database
 		 */
 		if (priv->is_libreswan && priv->machine_authtype == TLS_AUTH) {
-			crypto_init_nss (rundir, &config_error);
+			nssdir = NM_IPSEC_SECRETS_DIR; /* typically /etc/ipsec.d */
+			if (priv->is_libreswan) {
+				/* Debian and Ubuntu use /var/lib/ipsec/nss for NSS DB */
+				if (g_file_test ("/var/lib/ipsec/nss", G_FILE_TEST_IS_DIR)) {
+					nssdir = "/var/lib/ipsec/nss";
+				}
+			}
+			crypto_init_nss (nssdir, &config_error);
 			if (config_error) {
 				close(fd);
 				crypto_deinit_openssl();
@@ -922,13 +930,6 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 					write_config_option (fd, "  auto=add\n\n", tls_ca_filename);
 				}
 			}
-		}
-
-		/* Libreswan config section */
-		if (priv->is_libreswan && priv->machine_authtype == TLS_AUTH) {
-			write_config_option (fd, "config setup\n");
-			if (priv->machine_authtype == TLS_AUTH)
-				write_config_option (fd, "  nssdir=\"sql:%s\"\n\n", rundir);
 		}
 
 		/* IPsec connection section */
