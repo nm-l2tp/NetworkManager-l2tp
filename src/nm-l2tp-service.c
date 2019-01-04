@@ -626,7 +626,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	const char *ipsec_conf_dir;
 	const char *value;
 	char *filename;
-	char *rundir;
+	g_autofree char *rundir;
 	char errorbuf[128];
 	gint fd = -1;
 	FILE *fp;
@@ -635,21 +635,21 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	int i;
 	int errsv;
 	gboolean l2tp_port_is_free;
-	gs_free char *psk_base64 = NULL;
+	g_autofree char *psk_base64 = NULL;
 
 	rundir = g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s", priv->uuid);
-	/* Setup runtime directory */
-	if (mkdir (rundir, 0700) != 0) {
-		errsv = errno;
-		g_set_error (error,
-			NM_VPN_PLUGIN_ERROR,
-			NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
-			"Cannot create run-dir %s (%s)",
-			rundir, g_strerror (errsv));
-		g_free (rundir);
-		return FALSE;
+	if (!g_file_test (rundir, G_FILE_TEST_IS_DIR)) {
+		/* Setup runtime directory */
+		if (mkdir (rundir, 0700) != 0) {
+			errsv = errno;
+			g_set_error (error,
+				NM_VPN_PLUGIN_ERROR,
+				NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
+				"Cannot create run-dir %s (%s)",
+				rundir, g_strerror (errsv));
+			return FALSE;
+		}
 	}
-	g_free (rundir);
 
 	/* Check that xl2tpd's default port 1701 is free */
 	l2tp_port_is_free = is_port_free (1701);
@@ -720,7 +720,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		/*
 		 * IPsec config
 		 */
-		filename = g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s/ipsec.conf", priv->uuid);
+		filename = g_strdup_printf ("%s/ipsec.conf", rundir);
 		fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR);
 		g_free (filename);
 		if (fd == -1) {
@@ -772,7 +772,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	 */
 
 	/* xl2tpd config */
-	filename = g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s/xl2tpd.conf", priv->uuid);
+	filename = g_strdup_printf ("%s/xl2tpd.conf", rundir);
 	fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR|S_IRGRP|S_IROTH);
 	g_free (filename);
 
@@ -812,7 +812,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 
 	if (_LOGD_enabled ())
 		write_config_option (fd, "ppp debug = yes\n");
-	write_config_option (fd, "pppoptfile = "RUNSTATEDIR"/nm-l2tp-%s/ppp-options\n", priv->uuid);
+	write_config_option (fd, "pppoptfile = %s/ppp-options\n", rundir);
 	write_config_option (fd, "autodial = yes\n");
 	write_config_option (fd, "tunnel rws = 8\n");
 	write_config_option (fd, "tx bps = 100000000\n");
@@ -822,7 +822,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 
 	/* PPP options */
 
-	filename = g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s/ppp-options", priv->uuid);
+	filename = g_strdup_printf ("%s/ppp-options", rundir);
 	fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR|S_IRGRP|S_IROTH);
 	g_free (filename);
 
