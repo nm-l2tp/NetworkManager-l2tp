@@ -199,22 +199,17 @@ nm_l2tp_ipsec_error(GError **error, const char *msg) {
 }
 
 static gboolean
-check_include_ipsec_secrets (const char *path) {
+has_include_ipsec_secrets (const char *ipsec_secrets_file) {
 	g_autofree char *contents = NULL;
-	gs_strfreev char **all_lines = NULL;
-	guint i;
+	g_auto(GStrv) all_lines = NULL;
 
-	if (!g_file_get_contents (path, &contents, NULL, NULL))
+	if (!g_file_get_contents (ipsec_secrets_file, &contents, NULL, NULL))
 		return FALSE;
 
 	all_lines = g_strsplit (contents, "\n", 0);
-	for (i = 0; all_lines[i]; i++) {
-		g_strstrip (all_lines[i]);
-		if (all_lines[i][0] == '#' || all_lines[i][0] == '\0')
-			continue;
-		if (g_str_has_prefix (all_lines[i], "include ")) {
-			if (strstr (all_lines[i], "ipsec.d/*.secrets"))
-				return TRUE;
+	for (int i = 0; all_lines[i]; i++) {
+		if (g_str_has_prefix (all_lines[i], "include ipsec.d/ipsec.nm-l2tp.secrets")) {
+			return TRUE;
 		}
 	}
 	return FALSE;
@@ -648,8 +643,8 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	GError *config_error = NULL;
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
 	NMSettingIPConfig *s_ip4;
-	const char *secrets;
-	const char *ipsec_d;
+	const char *ipsec_secrets_file;
+	const char *ipsec_conf_dir;
 	const char *nssdir;
 	const char *value;
 	char *filename;
@@ -661,7 +656,6 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	struct in_addr naddr;
 	int port;
 	int errsv;
-	gboolean has_include;
 	gboolean l2tp_port_is_free;
 	gboolean tls_need_password;
 	g_autofree char *pwd_base64 = NULL;
@@ -725,44 +719,40 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 			/*
 			 * IPsec secrets
 			 */
-			secrets = NM_IPSEC_SECRETS;     /* typically /etc/ipsec.secrets */
-			ipsec_d = NM_IPSEC_SECRETS_DIR; /* typically /etc/ipsec.d */
+			ipsec_secrets_file = NM_IPSEC_SECRETS;     /* typically /etc/ipsec.secrets */
+			ipsec_conf_dir     = NM_IPSEC_SECRETS_DIR; /* typically /etc/ipsec.d */
 			if (!priv->is_libreswan) {
 				if (g_file_test ("/etc/strongswan", G_FILE_TEST_IS_DIR)) {
-					secrets = "/etc/strongswan/ipsec.secrets";
-					ipsec_d = "/etc/strongswan/ipsec.d";
+					/* Fedora uses /etc/strongswan/ instead of /etc/ipsec/ */
+					ipsec_secrets_file = "/etc/strongswan/ipsec.secrets";
+					ipsec_conf_dir = "/etc/strongswan/ipsec.d";
+				}
+
+				/* if /etc/ipsec.secrets does not have "include ipsec.d/ipsec.nm-l2tp.secrets", add it */
+				if (g_file_test (ipsec_secrets_file, G_FILE_TEST_EXISTS)) {
+					if (!has_include_ipsec_secrets (ipsec_secrets_file)) {
+						fd = open (ipsec_secrets_file, O_CREAT|O_WRONLY, S_IRUSR|S_IWUSR);
+						if (fd == -1) {
+							snprintf (errorbuf, sizeof(errorbuf), _("Could not open %s"),
+							          ipsec_secrets_file);
+							crypto_deinit_openssl();
+							return nm_l2tp_ipsec_error(error, errorbuf);
+						}
+						fp = fdopen(fd, "a");
+						fprintf(fp, "\n\ninclude ipsec.d/ipsec.nm-l2tp.secrets\n");
+						fclose(fp);
+						close(fd);
+					}
 				}
 			}
 
-			// if does not have "include /etc/ipsec.d/*.secrets", add it to /etc/ipsec.secrets
-			has_include = FALSE;
-			if (g_file_test (secrets, G_FILE_TEST_EXISTS)) {
-				if (check_include_ipsec_secrets(secrets)) {
-					has_include = TRUE;
-				}
-			}
-			if (!has_include) {
-				fd = open (secrets, O_CREAT|O_WRONLY, S_IRUSR|S_IWUSR);
-				if (fd == -1) {
-					snprintf (errorbuf, sizeof(errorbuf), _("Could not open %s"), secrets);
-					crypto_deinit_openssl();
-					return nm_l2tp_ipsec_error(error, errorbuf);
-				}
-				fp = fdopen(fd, "a");
-				fprintf(fp, "\n");
-				fprintf(fp, _("# Following line was added by NetworkManager-l2tp"));
-				fprintf(fp, "\ninclude %s/*.secrets\n",ipsec_d);
-				fclose(fp);
-				close(fd);
-			}
-
-			filename = g_strdup_printf ("%s/nm-l2tp-ipsec-%s.secrets", ipsec_d, priv->uuid);
+			filename = g_strdup_printf ("%s/ipsec.nm-l2tp.secrets", ipsec_conf_dir);
 			fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR);
 			g_free (filename);
 			if (fd == -1) {
 				snprintf (errorbuf, sizeof(errorbuf),
-						  _("Could not write %s/nm-l2tp-ipsec-%s.secrets"),
-						  ipsec_d, priv->uuid);
+						  _("Could not write %s/ipsec.nm-l2tp.secrets"),
+						  ipsec_conf_dir);
 				crypto_deinit_openssl();
 				return nm_l2tp_ipsec_error(error, errorbuf);
 			}
@@ -907,7 +897,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		g_free (filename);
 		if (fd == -1) {
 			crypto_deinit_openssl();
-			return nm_l2tp_ipsec_error(error, _("Could not write ipsec config."));
+			return nm_l2tp_ipsec_error(error, _("Could not write ipsec.conf"));
 		}
 
 		/* strongSwan CA section */
@@ -1136,7 +1126,6 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 			case NM_L2TP_CRYPTO_FILE_FORMAT_RSA_PKEY_DER :
 			case NM_L2TP_CRYPTO_FILE_FORMAT_DSA_PKEY_DER :
 			case NM_L2TP_CRYPTO_FILE_FORMAT_ECDSA_PKEY_DER :
-			case NM_L2TP_CRYPTO_FILE_FORMAT_ECDSA_PKEY_PEM :
 				crypto_pkey_der_to_pem_file (tls_key_filename, value, tls_key_out_filename, error);
 				if (*error) {
 					close(fd);
@@ -1890,12 +1879,12 @@ real_disconnect (NMVpnServicePlugin *plugin, GError **err)
 	}
 
 	if (!gl.debug) {
-		/* Cleaning up config files */
-		filename = g_strdup_printf (NM_IPSEC_SECRETS_DIR"/nm-l2tp-ipsec-%s.secrets", priv->uuid);
+		/* Clean up config files */
+		filename = g_strdup_printf (NM_IPSEC_SECRETS_DIR"/ipsec.nm-l2tp.secrets");
 		unlink (filename);
 		g_free (filename);
 
-		filename = g_strdup_printf ("/etc/strongswan/ipsec.d/nm-l2tp-ipsec-%s.secrets", priv->uuid);
+		filename = g_strdup_printf ("/etc/strongswan/ipsec.d/ipsec.nm-l2tp.secrets");
 		unlink (filename);
 		g_free (filename);
 
