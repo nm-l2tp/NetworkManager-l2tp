@@ -674,7 +674,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	GByteArray *subject_name_asn1;
 
 	rundir = g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s", priv->uuid);
-	if (!g_file_test (rundir, G_FILE_TEST_EXISTS | G_FILE_TEST_IS_DIR)) {
+	if (!g_file_test (rundir, G_FILE_TEST_IS_DIR)) {
 		/* Setup runtime directory */
 		if (mkdir (rundir, 0700) != 0) {
 			errsv = errno;
@@ -897,7 +897,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		g_free (filename);
 		if (fd == -1) {
 			crypto_deinit_openssl();
-			return nm_l2tp_ipsec_error(error, _("Could not write ipsec.conf"));
+			return nm_l2tp_ipsec_error(error, _("Could not write ipsec config"));
 		}
 
 		/* strongSwan CA section */
@@ -986,7 +986,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		write_config_option (fd, "  keyingtries=%%forever\n");
 
 		if (priv->is_libreswan) {
-			write_config_option (fd, "  pfs=no\n");
+			write_config_option (fd, "  ikev2=never\n");
 		} else {
 			write_config_option (fd, "  keyexchange=ikev1\n");
 		}
@@ -999,6 +999,10 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_FORCEENCAPS);
 		if(value)write_config_option (fd, "  forceencaps=%s\n", value);
+
+		if (priv->is_libreswan) {
+			write_config_option (fd, "  pfs=no\n");
+		}
 
 		close(fd);
 
