@@ -749,7 +749,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		write_config_option (fd, "  keyingtries=%%forever\n");
 
 		if (priv->is_libreswan) {
-			write_config_option (fd, "  pfs=no\n");
+			write_config_option (fd, "  ikev2=never\n");
 		} else {
 			write_config_option (fd, "  keyexchange=ikev1\n");
 		}
@@ -762,6 +762,10 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_FORCEENCAPS);
 		if(value)write_config_option (fd, "  forceencaps=%s\n", value);
+
+		if (priv->is_libreswan) {
+			write_config_option (fd, "  pfs=no\n");
+		}
 
 		close(fd);
 
