@@ -130,6 +130,12 @@ _LOGD_enabled (void)
 
 /*****************************************************************************/
 
+/* Legacy KDE Plasma-nm L2TP keys */
+#define KDE_PLASMA_L2TP_KEY_USE_CERT          "use-cert"
+#define KDE_PLASMA_L2TP_KEY_CERT_PUB          "cert-pub"
+#define KDE_PLASMA_L2TP_KEY_CERT_CA           "cert-ca"
+#define KDE_PLASMA_L2TP_KEY_CERT_KEY          "cert-key"
+
 typedef struct {
 	const char *name;
 	GType type;
@@ -178,6 +184,10 @@ static const ValidProperty valid_properties[] = {
 	{ NM_L2TP_KEY_USER_CERTPASS"-flags",    G_TYPE_UINT, FALSE },
 	{ NM_L2TP_KEY_MACHINE_CERTPASS"-flags", G_TYPE_UINT, FALSE },
 	{ NM_L2TP_KEY_NOSECRET,                 G_TYPE_UINT, FALSE },
+	{ KDE_PLASMA_L2TP_KEY_USE_CERT,         G_TYPE_UINT, FALSE },
+	{ KDE_PLASMA_L2TP_KEY_CERT_CA,          G_TYPE_STRING, FALSE },
+	{ KDE_PLASMA_L2TP_KEY_CERT_PUB,         G_TYPE_STRING, FALSE },
+	{ KDE_PLASMA_L2TP_KEY_CERT_KEY,         G_TYPE_STRING, FALSE },
 	{ NULL }
 };
 
@@ -689,6 +699,18 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 
 	/* Check that xl2tpd's default port 1701 is free */
 	l2tp_port_is_free = is_port_free (1701);
+
+	/* Map legacy KDE Plasma-nm keys to equivalent new keys */
+	value = nm_setting_vpn_get_data_item (s_vpn, KDE_PLASMA_L2TP_KEY_USE_CERT);
+	if (nm_streq0 (value, "yes")) {
+		nm_setting_vpn_add_data_item (s_vpn, NM_L2TP_KEY_USER_AUTH_TYPE, NM_L2TP_AUTHTYPE_TLS);
+		value = nm_setting_vpn_get_data_item (s_vpn, KDE_PLASMA_L2TP_KEY_CERT_CA);
+		nm_setting_vpn_add_data_item (s_vpn, NM_L2TP_KEY_USER_CA, value);
+		value = nm_setting_vpn_get_data_item (s_vpn, KDE_PLASMA_L2TP_KEY_CERT_PUB);
+		nm_setting_vpn_add_data_item (s_vpn, NM_L2TP_KEY_USER_CERT, value);
+		value = nm_setting_vpn_get_data_item (s_vpn, KDE_PLASMA_L2TP_KEY_CERT_KEY);
+		nm_setting_vpn_add_data_item (s_vpn, NM_L2TP_KEY_USER_KEY, value);
+	}
 
 	priv->user_authtype = PASSWORD_AUTH;
 	priv->machine_authtype = PSK_AUTH;
@@ -1802,6 +1824,12 @@ real_need_secrets (NMVpnServicePlugin *plugin,
 	g_return_val_if_fail (NM_IS_CONNECTION (connection), FALSE);
 
 	s_vpn = nm_connection_get_setting_vpn (connection);
+
+	/* Legacy KDE Plasma-nm certificate support does not handle password protected private keys */
+	value = nm_setting_vpn_get_data_item (s_vpn, KDE_PLASMA_L2TP_KEY_USE_CERT);
+	if (nm_streq0 (value, "yes")) {
+		return FALSE;
+	}
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER_AUTH_TYPE);
 	if (nm_streq0 (value, NM_L2TP_AUTHTYPE_TLS)) {
