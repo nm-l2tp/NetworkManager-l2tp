@@ -134,9 +134,7 @@ plugin_sources = \
 	shared/nm-l2tp-crypto-openssl.c \
 	shared/nm-l2tp-crypto-openssl.h \
 	properties/nm-l2tp-editor-plugin.c \
-	properties/nm-l2tp-editor-plugin.h \
-	properties/import-export.c \
-	properties/import-export.h
+	properties/nm-l2tp-editor-plugin.h
 
 editor_sources = \
 	$(shared_sources) \
