@@ -127,9 +127,7 @@ properties/resources.c: properties/gresource.xml $(shell $(GLIB_COMPILE_RESOURCE
 plugin_sources = \
 	shared/nm-utils/nm-vpn-plugin-macros.h \
 	properties/nm-l2tp-editor-plugin.c \
-	properties/nm-l2tp-editor-plugin.h \
-	properties/import-export.c \
-	properties/import-export.h
+	properties/nm-l2tp-editor-plugin.h
 
 editor_sources = \
 	$(shared_sources) \
