@@ -123,8 +123,7 @@
                     <property name="visible">True</property>
                     <property name="sensitive">False</property>
                     <property name="can_focus">True</property>
-                    <property name="tooltip_text" translatable="yes">IP address.
-Optional, how the IPsec server should be identified for authentication.
+                    <property name="tooltip_text" translatable="yes">Optional, how the IPsec server should be identified for authentication.
 config: ipsec rightid
 ipsec.secrets: ID</property>
                     <property name="margin_top">1</property>
