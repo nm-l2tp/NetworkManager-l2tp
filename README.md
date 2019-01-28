@@ -11,7 +11,7 @@ For IPsec support, it uses either of the following :
 
 For details on pre-built packages, known issues and build dependencies,
 please visit the Wiki :
-* https://github.com/nm-l2tp/network-manager-l2tp/wiki
+* https://github.com/nm-l2tp/NetworkManager-l2tp/wiki
 
 ## Building
 
@@ -24,7 +24,7 @@ overridden with ./configure arguments. In the configure examples below, you
 may need to change the `--with-pppd-plugin-dir` value to an appropriate
 directory that exists.
 
-#### Debian and Ubuntu (AMD64, i.e. x86-64)
+#### Debian 8 - Jessie (AMD64, i.e. x86-64)
 
     ./configure \
       --disable-static --prefix=/usr \
@@ -33,20 +33,20 @@ directory that exists.
       --localstatedir=/var \
       --with-pppd-plugin-dir=/usr/lib/pppd/2.4.6
 
-#### Fedora and Red Hat Enterprise Linux (x86-64)
+#### Ubuntu 14.04 - Trusty Tahr
 
     ./configure \
       --disable-static --prefix=/usr \
-      --sysconfdir=/etc --libdir=/usr/lib64 \
+      --sysconfdir=/etc \
+      --libexecdir=/usr/lib/NetworkManager \
       --localstatedir=/var \
-      --with-pppd-plugin-dir=/usr/lib64/pppd/2.4.7
+      --with-pppd-plugin-dir=/usr/lib/pppd/2.4.5
 
-#### openSUSE (x86-64)
+#### Fedora 23 (x86-64)
 
     ./configure \
       --disable-static --prefix=/usr \
       --sysconfdir=/etc --libdir=/usr/lib64 \
-      --libexecdir=/usr/lib \
       --localstatedir=/var \
       --with-pppd-plugin-dir=/usr/lib64/pppd/2.4.7
 
@@ -74,22 +74,22 @@ disable the xl2tpd service from starting at boot time with :
 
 ## Run-time generated files
 
+The below files located under `/var/run` assume `--localstatedir=/var` or
+`--runstatedir=/var/run` were supplied to the configure script at build time.
+
 * /var/run/nm-l2tp-xl2tpd-_UUID_.conf
 * /var/run/nm-l2tp-ppp-options-_UUID_
 * /var/run/nm-l2tp-xl2tpd-control-_UUID_
 * /var/run/nm-l2tp-xl2tpd-_UUID_.pid
 * /var/run/nm-l2tp-ipsec-_UUID_.conf
-* /etc/ipsec.d/nm-l2tp-ipsec-_UUID_.secrets
+* /etc/ipsec.d/ipsec.nm-l2tp.secrets
 
 where _UUID_ is the NetworkManager UUID for the VPN connection.
 
 NetworkManager-l2tp will append the following line to `/etc/ipsec.secrets` at
 run-time if the line is missing:
 
-    include /etc/ipsec.d/*.secrets
-
-The above files located under `/var/run` assume `--localstatedir=/var` or
-`--runstatedir=/var/run` were supplied to the configure script at build time.
+    include ipsec.nm-l2tp.secrets
 
 ## Debugging mode
 
@@ -101,13 +101,9 @@ after a VPN disconnection :
     sudo killall -TERM nm-l2tp-service
     sudo /usr/lib/NetworkManager/nm-l2tp-service --debug
 
-#### Fedora and Red Hat Enterprise Linux
+#### Fedora
     sudo killall -TERM nm-l2tp-service
     sudo /usr/libexec/nm-l2tp-service --debug
-
-#### openSUSE
-    sudo killall -TERM nm-l2tp-service
-    sudo /usr/lib/nm-l2tp-service --debug
 
 then start your VPN connection and reproduce the problem.
 
