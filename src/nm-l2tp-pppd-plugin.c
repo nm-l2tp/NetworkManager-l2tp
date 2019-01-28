@@ -243,7 +243,6 @@ get_credentials (char *username, char *password)
 {
 	char *my_username = NULL;
 	char *my_password = NULL;
-	size_t len;
 	GError *err = NULL;
 
 	if (username && !password) {
@@ -272,25 +271,11 @@ get_credentials (char *username, char *password)
 
 	g_message ("nm-l2tp-ppp-plugin: (%s): got credentials from NetworkManager-l2tp", __func__);
 
-	if (my_username) {
-		len = strlen (my_username) + 1;
-		len = len < MAXNAMELEN ? len : MAXNAMELEN;
+	if (my_username)
+		g_strlcpy (username, my_username, MAXNAMELEN);
 
-		strncpy (username, my_username, len);
-		username[len - 1] = '\0';
-
-		g_free (my_username);
-	}
-
-	if (my_password) {
-		len = strlen (my_password) + 1;
-		len = len < MAXSECRETLEN ? len : MAXSECRETLEN;
-
-		strncpy (password, my_password, len);
-		password[len - 1] = '\0';
-
-		g_free (my_password);
-	}
+	if (my_password)
+		g_strlcpy (password, my_password, MAXSECRETLEN);
 
 	return 1;
 }
