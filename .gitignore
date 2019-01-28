@@ -15,6 +15,7 @@ ltmain.sh
 missing
 mkinstalldirs
 POTFILES
+*.pot
 stamp-*
 .deps
 .libs

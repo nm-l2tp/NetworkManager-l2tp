@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-l2tp nm-0-9-10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-11 21:07+1000\n"
+"POT-Creation-Date: 2019-01-28 19:06+1000\n"
 "PO-Revision-Date: 2016-03-19 16:18+0200\n"
 "Last-Translator: Muhammet Kara <muhammetk@gmail.com>\n"
 "Language-Team: Turkish <gnome-turk@gnome.org>\n"
@@ -34,7 +34,7 @@ msgstr ""
 msgid "Authenticate VPN"
 msgstr "VPN Kimlik Doğrulaması"
 
-#: ../auth-dialog/main.c:170 ../properties/nm-l2tp-dialog.ui.h:25
+#: ../auth-dialog/main.c:170 ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Password:"
 msgstr "Parola:"
 
@@ -252,38 +252,37 @@ msgstr "Ağ Geçidi Kimliği:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
-"IP address.\n"
 "Optional, how the IPsec server should be identified for authentication.\n"
 "config: ipsec rightid\n"
 "ipsec.secrets: ID"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:9
+#: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Pre-shared key:"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:10
+#: ../properties/nm-l2tp-dialog.ui.h:9
 msgid "Phase2 Algorithms:"
 msgstr "Faz2 Algoritması:"
 
-#: ../properties/nm-l2tp-dialog.ui.h:11
+#: ../properties/nm-l2tp-dialog.ui.h:10
 msgid "Phase1 Algorithms:"
 msgstr "Faz1 Algoritması:"
 
-#: ../properties/nm-l2tp-dialog.ui.h:12
+#: ../properties/nm-l2tp-dialog.ui.h:11
 msgid "_Enforce UDP encapsulation"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:13
+#: ../properties/nm-l2tp-dialog.ui.h:12
 #, fuzzy
 msgid "Ad_vanced"
 msgstr "Ge_lişmiş..."
 
-#: ../properties/nm-l2tp-dialog.ui.h:14
+#: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "_Gateway:"
 msgstr "_Ağ geçidi:"
 
-#: ../properties/nm-l2tp-dialog.ui.h:15
+#: ../properties/nm-l2tp-dialog.ui.h:14
 #, fuzzy
 msgid ""
 "L2TP server IP or name.\n"
@@ -292,12 +291,12 @@ msgstr ""
 "L2TP sunucu IP adresi veya adı.\n"
 "yapılandırma: l2tp'nin ilk parametresi"
 
-#: ../properties/nm-l2tp-dialog.ui.h:17
+#: ../properties/nm-l2tp-dialog.ui.h:16
 #, fuzzy
 msgid "Optional"
 msgstr "İsteğe Bağlı"
 
-#: ../properties/nm-l2tp-dialog.ui.h:18
+#: ../properties/nm-l2tp-dialog.ui.h:17
 msgid ""
 "Append the domain name <domain> to the local host name for authentication "
 "purposes.\n"
@@ -307,15 +306,15 @@ msgstr ""
 "ekleyin.\n"
 "yapılandırma: domain <alanadı>"
 
-#: ../properties/nm-l2tp-dialog.ui.h:20
+#: ../properties/nm-l2tp-dialog.ui.h:19
 msgid "Show password"
 msgstr "Parolayı göster"
 
-#: ../properties/nm-l2tp-dialog.ui.h:21
+#: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "Password passed to PPPD when prompted for it."
 msgstr "İstendiğinde parola PPPD ile iletildi."
 
-#: ../properties/nm-l2tp-dialog.ui.h:22
+#: ../properties/nm-l2tp-dialog.ui.h:21
 #, fuzzy
 msgid ""
 "Set the name used for authenticating the local system to the peer to "
@@ -326,39 +325,39 @@ msgstr ""
 "ayarla.\n"
 "yapılandırma: user <isim>"
 
-#: ../properties/nm-l2tp-dialog.ui.h:24
+#: ../properties/nm-l2tp-dialog.ui.h:23
 msgid "User name:"
 msgstr "Kullanıcı adı:"
 
-#: ../properties/nm-l2tp-dialog.ui.h:26
+#: ../properties/nm-l2tp-dialog.ui.h:25
 msgid "NT Domain:"
 msgstr "NT Alanı:"
 
-#: ../properties/nm-l2tp-dialog.ui.h:27
+#: ../properties/nm-l2tp-dialog.ui.h:26
 msgid "_IPsec Settings..."
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:28
+#: ../properties/nm-l2tp-dialog.ui.h:27
 msgid "PPP Se_ttings..."
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:29
+#: ../properties/nm-l2tp-dialog.ui.h:28
 msgid "Default"
 msgstr "Varsayılan"
 
-#: ../properties/nm-l2tp-dialog.ui.h:30
+#: ../properties/nm-l2tp-dialog.ui.h:29
 msgid "L2TP PPP Options"
 msgstr "L2TP PPP Seçenekleri"
 
-#: ../properties/nm-l2tp-dialog.ui.h:31
+#: ../properties/nm-l2tp-dialog.ui.h:30
 msgid "Authentication"
 msgstr "Kimlik Doğrulama"
 
-#: ../properties/nm-l2tp-dialog.ui.h:32
+#: ../properties/nm-l2tp-dialog.ui.h:31
 msgid "Allow the following authentication methods:"
 msgstr "Aşağıdaki kimlik denetleme yöntemlerine izin ver:"
 
-#: ../properties/nm-l2tp-dialog.ui.h:33
+#: ../properties/nm-l2tp-dialog.ui.h:32
 msgid ""
 "Allow/disable authentication methods.\n"
 "config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
@@ -367,16 +366,16 @@ msgstr ""
 "yapılandırma: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, "
 "refuse-eap"
 
-#: ../properties/nm-l2tp-dialog.ui.h:35
+#: ../properties/nm-l2tp-dialog.ui.h:34
 #, fuzzy
 msgid "Security and Compression"
 msgstr "Güvenlik ve Sıkıştırma"
 
-#: ../properties/nm-l2tp-dialog.ui.h:36
+#: ../properties/nm-l2tp-dialog.ui.h:35
 msgid "Use _Point-to-Point encryption (MPPE)"
 msgstr "Noktadan _Noktaya Şifreleme (MPPE) Kullan"
 
-#: ../properties/nm-l2tp-dialog.ui.h:37
+#: ../properties/nm-l2tp-dialog.ui.h:36
 msgid ""
 "Note: MPPE encryption is only available with MSCHAP authentication methods. "
 "To enable this checkbox, select one or more of the MSCHAP authentication "
@@ -386,11 +385,11 @@ msgstr ""
 "kullanılabilir. Bu onay kutusunu etkinleştirmek için bir veya daha fazla "
 "MSCHAP yöntemini seçin: MSCHAP veya MSCHAPv2."
 
-#: ../properties/nm-l2tp-dialog.ui.h:38
+#: ../properties/nm-l2tp-dialog.ui.h:37
 msgid "_Security:"
 msgstr "_Güvenlik:"
 
-#: ../properties/nm-l2tp-dialog.ui.h:39
+#: ../properties/nm-l2tp-dialog.ui.h:38
 msgid ""
 "Require the use of MPPE, with 40/128-bit encryption or all.\n"
 "config: require-mppe, require-mppe-128 or require-mppe-40"
@@ -398,11 +397,11 @@ msgstr ""
 "MPPE'nin 40/128-bit şifreleme ile kullanılmasını gerektirir.\n"
 "yapılandırma: require-mppe, require-mppe-128 or require-mppe-40"
 
-#: ../properties/nm-l2tp-dialog.ui.h:41
+#: ../properties/nm-l2tp-dialog.ui.h:40
 msgid "Allow st_ateful encryption"
 msgstr "Durum t_emelli şifrelemeye izin ver"
 
-#: ../properties/nm-l2tp-dialog.ui.h:42
+#: ../properties/nm-l2tp-dialog.ui.h:41
 msgid ""
 "Allow MPPE to use stateful mode. Stateless mode is still attempted first.\n"
 "config: mppe-stateful (when checked)"
@@ -411,11 +410,11 @@ msgstr ""
 "hala ilk olarak denenir.\n"
 "yapılandırma: mppe-stateful (onaylandığında)"
 
-#: ../properties/nm-l2tp-dialog.ui.h:44
+#: ../properties/nm-l2tp-dialog.ui.h:43
 msgid "Allow _BSD data compression"
 msgstr "_BSD veri sıkıştırmasına izin ver"
 
-#: ../properties/nm-l2tp-dialog.ui.h:45
+#: ../properties/nm-l2tp-dialog.ui.h:44
 msgid ""
 "Allow/disable BSD-Compress compression.\n"
 "config: nobsdcomp (when unchecked)"
@@ -423,11 +422,11 @@ msgstr ""
 "BSD sıkıştırmasına izin ver/kapat.\n"
 "yapılandırma: nobsdcomp (onay kaldırıldığında)"
 
-#: ../properties/nm-l2tp-dialog.ui.h:47
+#: ../properties/nm-l2tp-dialog.ui.h:46
 msgid "Allow _Deflate data compression"
 msgstr "_Deflate veri sıkıştırmasına izin ver"
 
-#: ../properties/nm-l2tp-dialog.ui.h:48
+#: ../properties/nm-l2tp-dialog.ui.h:47
 msgid ""
 "Allow/disable Deflate compression.\n"
 "config: nodeflate (when unchecked)"
@@ -435,11 +434,11 @@ msgstr ""
 "Deflate sıkıştırmasına izin ver/kapat.\n"
 "yapılandırma: nodeflate (onay kaldırıldığında)"
 
-#: ../properties/nm-l2tp-dialog.ui.h:50
+#: ../properties/nm-l2tp-dialog.ui.h:49
 msgid "Use TCP _header compression"
 msgstr "TCP _başlık sıkıştırması kullan"
 
-#: ../properties/nm-l2tp-dialog.ui.h:51
+#: ../properties/nm-l2tp-dialog.ui.h:50
 msgid ""
 "Allow/disable Van Jacobson style TCP/IP header compression in both the "
 "transmit and the receive directions.\n"
@@ -449,11 +448,11 @@ msgstr ""
 "yönlerinde izin ver/kapat.\n"
 "yapılandırma: novj (onaylandığında)"
 
-#: ../properties/nm-l2tp-dialog.ui.h:53
+#: ../properties/nm-l2tp-dialog.ui.h:52
 msgid "Use protocol _field compression negotiation"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:54
+#: ../properties/nm-l2tp-dialog.ui.h:53
 #, fuzzy
 msgid ""
 "Allow protocol field compression negotiation in both the receive and the "
@@ -464,12 +463,12 @@ msgstr ""
 "yönlerinde izin ver/kapat.\n"
 "yapılandırma: novj (onaylandığında)"
 
-#: ../properties/nm-l2tp-dialog.ui.h:56
+#: ../properties/nm-l2tp-dialog.ui.h:55
 #, fuzzy
 msgid "Use _Address/Control compression"
 msgstr "TCP _başlık sıkıştırması kullan"
 
-#: ../properties/nm-l2tp-dialog.ui.h:57
+#: ../properties/nm-l2tp-dialog.ui.h:56
 #, fuzzy
 msgid ""
 "Use Address/Control compression in both directions (send and receive).\n"
@@ -479,15 +478,15 @@ msgstr ""
 "yönlerinde izin ver/kapat.\n"
 "yapılandırma: novj (onaylandığında)"
 
-#: ../properties/nm-l2tp-dialog.ui.h:59
+#: ../properties/nm-l2tp-dialog.ui.h:58
 msgid "Echo"
 msgstr "Yankı"
 
-#: ../properties/nm-l2tp-dialog.ui.h:60
+#: ../properties/nm-l2tp-dialog.ui.h:59
 msgid "Send PPP _echo packets"
 msgstr "PPP _echo paketleri gönder"
 
-#: ../properties/nm-l2tp-dialog.ui.h:61
+#: ../properties/nm-l2tp-dialog.ui.h:60
 msgid ""
 "Send LCP echo-requests to find out whether peer is alive.\n"
 "config: lcp-echo-failure and lcp-echo-interval"
@@ -495,243 +494,238 @@ msgstr ""
 "Eşin ayakta olup olmadığını bulmak için LCP echo-requests gönder.\n"
 "yapılandırma: lcp-echo-failure ve lcp-echo-interval"
 
-#: ../properties/nm-l2tp-dialog.ui.h:63
+#: ../properties/nm-l2tp-dialog.ui.h:62
 msgid "Misc"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:64
+#: ../properties/nm-l2tp-dialog.ui.h:63
 msgid "MTU :"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:65
+#: ../properties/nm-l2tp-dialog.ui.h:64
 msgid "MRU :"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:215
+#: ../src/nm-l2tp-service.c:217
 msgid "Could not load NetworkManager connection settings."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:223
+#: ../src/nm-l2tp-service.c:225
 msgid "Missing VPN username."
 msgstr "Eksik VPN kullanıcı adı."
 
-#: ../src/nm-l2tp-service.c:229
+#: ../src/nm-l2tp-service.c:231
 msgid "Missing or invalid VPN password."
 msgstr "Eksik veya geçersiz VPN kullanıcı adı."
 
-#: ../src/nm-l2tp-service.c:271
+#: ../src/nm-l2tp-service.c:273
 #, c-format
 msgid "Could not register D-Bus service name.  Message: %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:350
+#: ../src/nm-l2tp-service.c:352
 msgid "No cached credentials."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:378
+#: ../src/nm-l2tp-service.c:380
 msgid "L2TP service (IP Config Get) reply received."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:539
+#: ../src/nm-l2tp-service.c:544
 #, c-format
 msgid "invalid gateway '%s'"
 msgstr "geçersiz ağ geçidi '%s'"
 
-#: ../src/nm-l2tp-service.c:548
+#: ../src/nm-l2tp-service.c:553
 #, fuzzy, c-format
 msgid "invalid ipsec-gateway-id '%s'"
 msgstr "geçersiz ağ geçidi '%s'"
 
-#: ../src/nm-l2tp-service.c:561
+#: ../src/nm-l2tp-service.c:566
 #, c-format
 msgid "invalid integer property '%s'"
 msgstr "geçersiz tamsayı özelliği '%s'"
 
-#: ../src/nm-l2tp-service.c:571
+#: ../src/nm-l2tp-service.c:576
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr "'%s' geçersiz bir mantıksal özellik (evet veya hayır değil)"
 
-#: ../src/nm-l2tp-service.c:578
+#: ../src/nm-l2tp-service.c:583
 #, c-format
 msgid "unhandled property '%s' type %s"
 msgstr "tanınmayan özellik '%s' tür %s"
 
-#: ../src/nm-l2tp-service.c:589
+#: ../src/nm-l2tp-service.c:594
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "'%s' özelliği geçersiz veya desteklenmiyor"
 
-#: ../src/nm-l2tp-service.c:603
+#: ../src/nm-l2tp-service.c:608
 msgid "No VPN configuration options."
 msgstr "VPN yapılandırma seçeneği bulunamadı."
 
-#: ../src/nm-l2tp-service.c:620
+#: ../src/nm-l2tp-service.c:625
 #, c-format
 msgid "Missing required option '%s'."
 msgstr "Gerekli '%s' seçeneği eksik."
 
-#: ../src/nm-l2tp-service.c:636
+#: ../src/nm-l2tp-service.c:641
 msgid "No VPN secrets!"
 msgstr "VPN sırrı yok!"
 
-#: ../src/nm-l2tp-service.c:655
+#: ../src/nm-l2tp-service.c:660
 #, c-format
 msgid "xl2tpd exited with error code %d"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:658
+#: ../src/nm-l2tp-service.c:663
 #, c-format
 msgid "xl2tpd stopped unexpectedly with signal %d"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:660
+#: ../src/nm-l2tp-service.c:665
 #, c-format
 msgid "xl2tpd died with signal %d"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:662
+#: ../src/nm-l2tp-service.c:667
 msgid "xl2tpd died from an unknown cause"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:746
+#: ../src/nm-l2tp-service.c:751
 msgid "pppd timeout. Looks like pppd didn't initialize our dbus module"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:783
+#: ../src/nm-l2tp-service.c:788
 #, c-format
 msgid "couldn't convert L2TP VPN gateway IP address '%s' (%d)"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:801
+#: ../src/nm-l2tp-service.c:806
 #, c-format
 msgid "couldn't look up L2TP VPN gateway IP address '%s' (%d)"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:825
+#: ../src/nm-l2tp-service.c:830
 #, c-format
 msgid "no usable addresses returned for L2TP VPN gateway '%s'"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:836
+#: ../src/nm-l2tp-service.c:841
 #, c-format
 msgid "no usable addresses returned for L2TP VPN gateway '%s' (%d)"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:841
+#: ../src/nm-l2tp-service.c:846
 #, c-format
 msgid "Use '%s' as a gateway"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:931 ../src/nm-l2tp-service.c:956
+#: ../src/nm-l2tp-service.c:936 ../src/nm-l2tp-service.c:961
 msgid "Could not start the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:937 ../src/nm-l2tp-service.c:964
+#: ../src/nm-l2tp-service.c:942 ../src/nm-l2tp-service.c:969
 msgid "Could not restart the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1014
+#: ../src/nm-l2tp-service.c:1019
 msgid "IPsec service is not ready."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1027
+#: ../src/nm-l2tp-service.c:1032
 msgid "Timeout trying to establish IPsec connection"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1037
+#: ../src/nm-l2tp-service.c:1042
 msgid "Libreswan IPsec tunnel is up."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1048
+#: ../src/nm-l2tp-service.c:1053
 msgid "strongSwan IPsec tunnel is up."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1061
+#: ../src/nm-l2tp-service.c:1066
 msgid "Could not establish IPsec tunnel."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1079
+#: ../src/nm-l2tp-service.c:1084
 msgid "Could not find the xl2tpd binary."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1100
+#: ../src/nm-l2tp-service.c:1105
 #, c-format
 msgid "xl2tpd started with pid %d"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1160
+#: ../src/nm-l2tp-service.c:1165
 msgid "Can-not create new test socket"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1236
+#: ../src/nm-l2tp-service.c:1237
 #, c-format
 msgid "Could not open %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1241
+#: ../src/nm-l2tp-service.c:1253
 #, c-format
-msgid "# Following line was added by NetworkManager-l2tp"
+msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1252
-#, c-format
-msgid "Could not write %s/nm-l2tp-ipsec-%s.secrets"
-msgstr ""
-
-#: ../src/nm-l2tp-service.c:1282
+#: ../src/nm-l2tp-service.c:1288
 msgid "Could not write ipsec config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1342
+#: ../src/nm-l2tp-service.c:1352
 msgid "Could not write xl2tpd config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1392
+#: ../src/nm-l2tp-service.c:1402
 msgid "Could not write ppp options."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1589
+#: ../src/nm-l2tp-service.c:1604
 #, c-format
 msgid "ipsec enable flag: %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1593
+#: ../src/nm-l2tp-service.c:1608
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1599
+#: ../src/nm-l2tp-service.c:1614
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1619
+#: ../src/nm-l2tp-service.c:1634
 msgid "Could not start pppd plugin helper service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1626
+#: ../src/nm-l2tp-service.c:1641
 msgid "could not retrieve connection UUID"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1650
+#: ../src/nm-l2tp-service.c:1665
 msgid "starting ipsec"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1718
+#: ../src/nm-l2tp-service.c:1733
 #, c-format
 msgid "Terminated l2tp daemon with PID %d."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1865
+#: ../src/nm-l2tp-service.c:1880
 msgid "Don't quit when VPN connection terminates"
 msgstr "VPN bağlantısı sonlandığında çıkma"
 
-#: ../src/nm-l2tp-service.c:1866
+#: ../src/nm-l2tp-service.c:1881
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr ""
 "Ayrıntılı hata ayıklama günlüklemesini etkinleştir (parolaları görünür "
 "yapabilir)"
 
-#: ../src/nm-l2tp-service.c:1889
+#: ../src/nm-l2tp-service.c:1904
 #, fuzzy
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
