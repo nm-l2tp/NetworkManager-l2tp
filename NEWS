@@ -1,4 +1,22 @@
 =======================================================
+NetworkManager-l2tp-1.0.10
+Overview of changes since network-manager-l2tp-1.0.8
+=======================================================
+
+This is a new stable release of NetworkManager-l2tp.  Notable changes include:
+
+* /etc/ipsec.d/ipsec.nm-l2tp.secrets is now used instead of
+  /etc/ipsec.d/nm-l2tp-ipsec-_UUID_.secrets.
+* For strongSwan, 'include ipsec.d/ipsec.nm-l2tp.secrets' is now added to
+  /etc/ipsec.secrets instead of 'include /etc/ipsec.d/*.secrets'.
+* Allow IPsec ID selectors commencing with with '@' or '%'.
+* Replaced older syntax IPsec 'keyingtries=0' with 'keyingtries=%forever'
+* Write PSK as Base64 encoded value.
+* Force ikev2=never for Libreswan.
+* Add nm-l2tp-service- prefix for PPP ipparam argument which is used by Debian's
+  resolvconf package.
+
+=======================================================
 NetworkManager-l2tp-1.0.8
 Overview of changes since network-manager-l2tp-1.0.6
 =======================================================
