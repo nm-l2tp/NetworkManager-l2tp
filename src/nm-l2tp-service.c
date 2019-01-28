@@ -24,7 +24,7 @@
  * (C) Copyright 2011 Geo Carncross <geocar@gmail.com>
  * (C) Copyright 2012 Sergey Prokhorov <me@seriyps.ru>
  * (C) Copyright 2014 Nathan Dorfman <ndorf@rtfm.net>
- * (C) Copyright 2016 - 2017 Douglas Kosovic <doug@uq.edu.au>
+ * (C) Copyright 2016 - 2019 Douglas Kosovic <doug@uq.edu.au>
  */
 
 #ifdef HAVE_CONFIG_H
@@ -147,20 +147,22 @@ nm_l2tp_ipsec_error(GError **error, const char *msg) {
 }
 
 static gboolean
-check_include_ipsec_secrets (const char *path) {
+has_include_ipsec_secrets (const char *ipsec_secrets_file) {
 	GIOChannel *channel;
 	char *line = NULL;
 	gboolean found = FALSE;
 
-	channel = g_io_channel_new_file (path, "r", NULL);
+	channel = g_io_channel_new_file (ipsec_secrets_file, "r", NULL);
 	if (!channel)
 		return FALSE;
 
 	while (!found && g_io_channel_read_line (channel, &line, NULL, NULL, NULL) != G_IO_STATUS_EOF) {
 		if (line) {
 			g_strstrip (line);
-			if (g_str_has_prefix (line, "include "))
-				found = strstr (line, "ipsec.d/*.secrets") != NULL;
+			if (g_str_has_prefix (line, "include ipsec.d/ipsec.nm-l2tp.secrets")) {
+				found = TRUE;
+				break;
+			}
 			g_free (line);
 		}
 	}
@@ -485,6 +487,9 @@ validate_gateway_id (const char *id)
 
 	if (!id || !id[0])
 		return FALSE;
+
+	if (id[0] == '@' || id[0] == '%')
+		return TRUE;
 
 	/* Ensure it's a valid IP address */
 	return inet_aton (id, &addr);
@@ -1182,10 +1187,11 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 {
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
 	NMSettingIP4Config *s_ip4;
-	const char *secrets;
-	const char *ipsec_d;
+	const char *ipsec_secrets_file;
+	const char *ipsec_conf_dir;
 	const char *value;
 	char *filename;
+	char *psk_base64 = NULL;
 	char errorbuf[128];
 	gint fd = -1;
 	FILE *fp;
@@ -1193,7 +1199,6 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	int port;
 	int i;
 	int errsv;
-	gboolean has_include;
 	gboolean l2tp_port_is_free;
 
 	/* Setup runtime directory */
@@ -1215,43 +1220,38 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		/*
 		 * IPsec secrets
 		 */
-		secrets = "/etc/ipsec.secrets";
-		ipsec_d = "/etc/ipsec.d";
+		ipsec_secrets_file = "/etc/ipsec.secrets";
+		ipsec_conf_dir = "/etc/ipsec.d";
 		if (!priv->is_libreswan) {
 			if (g_file_test ("/etc/strongswan", G_FILE_TEST_IS_DIR)) {
-				secrets = "/etc/strongswan/ipsec.secrets";
-				ipsec_d = "/etc/strongswan/ipsec.d";
+				/* Fedora uses /etc/strongswan/ instead of /etc/ipsec/ */
+				ipsec_secrets_file = "/etc/strongswan/ipsec.secrets";
+				ipsec_conf_dir = "/etc/strongswan/ipsec.d";
+			}
+
+			/* if /etc/ipsec.secrets does not have "include ipsec.d/ipsec.nm-l2tp.secrets", add it */
+			if (g_file_test (ipsec_secrets_file, G_FILE_TEST_EXISTS)) {
+				if (!has_include_ipsec_secrets (ipsec_secrets_file)) {
+					fd = open (ipsec_secrets_file, O_CREAT|O_WRONLY, S_IRUSR|S_IWUSR);
+					if (fd == -1) {
+						snprintf (errorbuf, sizeof(errorbuf), _("Could not open %s"), ipsec_secrets_file);
+						return nm_l2tp_ipsec_error(error, errorbuf);
+					}
+					fp = fdopen(fd, "a");
+					fprintf(fp, "\n\ninclude ipsec.d/ipsec.nm-l2tp.secrets\n");
+					fclose(fp);
+					close(fd);
+				}
 			}
 		}
 
-		// check, if not add "include /etc/ipsec.d/*.secrets" to /etc/ipsec.secrets
-		has_include = FALSE;
-		if (g_file_test (secrets, G_FILE_TEST_EXISTS)) {
-			if (check_include_ipsec_secrets(secrets)) {
-				has_include = TRUE;
-			}
-		}
-		if (!has_include) {
-			fd = open (secrets, O_CREAT|O_WRONLY, S_IRUSR|S_IWUSR);
-			if (fd == -1) {
-				snprintf (errorbuf, sizeof(errorbuf), _("Could not open %s"), secrets);
-				return nm_l2tp_ipsec_error(error, errorbuf);
-			}
-			fp = fdopen(fd, "a");
-			fprintf(fp, "\n");
-			fprintf(fp, _("# Following line was added by NetworkManager-l2tp"));
-			fprintf(fp, "\ninclude %s/*.secrets\n",ipsec_d);
-			fclose(fp);
-			close(fd);
-		}
-
-		filename = g_strdup_printf ("%s/nm-l2tp-ipsec-%s.secrets", ipsec_d, priv->uuid);
+		filename = g_strdup_printf ("%s/ipsec.nm-l2tp.secrets", ipsec_conf_dir);
 		fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR);
 		g_free (filename);
 		if (fd == -1) {
 			snprintf (errorbuf, sizeof(errorbuf),
-					  _("Could not write %s/nm-l2tp-ipsec-%s.secrets"),
-					  ipsec_d, priv->uuid);
+					  _("Could not write %s/ipsec.nm-l2tp.secrets"),
+					  ipsec_conf_dir);
 			return nm_l2tp_ipsec_error(error, errorbuf);
 		}
 
@@ -1260,8 +1260,11 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 			if (priv->is_libreswan) {
 				write_config_option (fd, "%%any ");
 			}
-			/* With PSK, only IP addresses are allowed as IDs */
-			if (inet_pton(AF_INET, value, &naddr)) {
+			/* Only IP addresses and literal strings starting with 
+			   @ or % are allowed as IDs with IKEv1 PSK */
+			if (value[0] == '@' || value[0] == '%') {
+				write_config_option (fd, "%s ", value);
+			} else if (inet_pton(AF_INET, value, &naddr)) {
 				write_config_option (fd, "%s ", value);
 			} else {
 				write_config_option (fd, "%%any ");
@@ -1270,8 +1273,10 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_PSK);
 		if (!value) value="";
-		write_config_option (fd, ": PSK \"%s\"\n", value);
+		psk_base64 = g_base64_encode ((const unsigned char *) value, strlen (value));
+		write_config_option (fd, ": PSK 0s%s\n", psk_base64);
 		close(fd);
+		g_free (psk_base64);
 
 		/*
 		 * IPsec config
@@ -1288,7 +1293,6 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		write_config_option (fd, "  type=transport\n");
 
 		write_config_option (fd, "  authby=secret\n");
-		write_config_option (fd, "  keyingtries=0\n");
 		write_config_option (fd, "  left=%%defaultroute\n");
 		if (l2tp_port_is_free) {
 			write_config_option (fd, "  leftprotoport=udp/l2tp\n");
@@ -1304,7 +1308,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		write_config_option (fd, "  rightprotoport=udp/l2tp\n");
 
 		if (priv->is_libreswan) {
-			write_config_option (fd, "  pfs=no\n");
+			write_config_option (fd, "  ikev2=never\n");
 		} else {
 			write_config_option (fd, "  keyexchange=ikev1\n");
 		}
@@ -1321,6 +1325,11 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 			write_config_option (fd, "  esp=%s\n", value);
 		} else if (!priv->is_libreswan) {
 			write_config_option (fd, "  esp=aes128-sha1,3des-sha1\n");
+		}
+
+		write_config_option (fd, "  keyingtries=%%forever\n");
+		if (priv->is_libreswan) {
+			write_config_option (fd, "  pfs=no\n");
 		}
 
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_FORCEENCAPS);
@@ -1396,7 +1405,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	if (debug)
 		write_config_option (fd, "debug\n");
 
-	write_config_option (fd, "ipparam %s\n", priv->uuid);
+	write_config_option (fd, "ipparam nm-l2tp-service-%s\n", priv->uuid);
 
 	write_config_option (fd, "nodetach\n");
 	/* revisit - xl2tpd-1.3.7 generates an unrecognized option 'lock' error.
@@ -1599,7 +1608,7 @@ real_connect (NMVPNPlugin   *plugin,
 			return nm_l2tp_ipsec_error (error, _("Could not find the ipsec binary. Is Libreswan or strongSwan installed?"));
 		}
 
-		strncpy (priv->ipsec_binary_path, value, sizeof(priv->ipsec_binary_path));
+		strncpy (priv->ipsec_binary_path, value, sizeof(priv->ipsec_binary_path) - 1);
 		priv->is_libreswan = check_is_libreswan (priv->ipsec_binary_path);
 		if (!priv->is_libreswan && !check_is_strongswan (priv->ipsec_binary_path)) {
 			return nm_l2tp_ipsec_error (error, _("Neither Libreswan nor strongSwan were found."));
@@ -1761,11 +1770,11 @@ real_disconnect (NMVPNPlugin   *plugin,
 		unlink(filename);
 		g_free(filename);
 
-		filename = g_strdup_printf ("/etc/ipsec.d/nm-l2tp-ipsec-%s.secrets", priv->uuid);
+		filename = g_strdup_printf ("/etc/ipsec.d/ipsec.nm-l2tp.secrets");
 		unlink(filename);
 		g_free(filename);
 
-		filename = g_strdup_printf ("/etc/strongswan/ipsec.d/nm-l2tp-ipsec-%s.secrets", priv->uuid);
+		filename = g_strdup_printf ("/etc/strongswan/ipsec.d/ipsec.nm-l2tp.secrets");
 		unlink(filename);
 		g_free(filename);
 	}
