@@ -7,7 +7,7 @@ libexec_PROGRAMS =
 
 noinst_LTLIBRARIES =
 
-EXTRA_DIST =
+EXTRA_DIST = README.md
 
 CLEANFILES =
 
