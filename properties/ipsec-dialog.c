@@ -19,35 +19,10 @@
  *
  **************************************************************************/
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
-
-#include <string.h>
-#include <sys/types.h>
-#include <stdlib.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <errno.h>
-
-#include <glib.h>
-#include <glib/gi18n-lib.h>
-
-#ifdef NM_VPN_OLD
-#define NM_VPN_LIBNM_COMPAT
-#include <nm-connection.h>
-#include <nm-setting-vpn.h>
-
-#else /* !NM_VPN_OLD */
-
-#include <NetworkManager.h>
-#endif
+#include "nm-default.h"
 
 #include "ipsec-dialog.h"
-#include "nm-default.h"
 #include "nm-l2tp-editor.h"
-#include "nm-service-defines.h"
 
 #include "nm-utils/nm-shared-utils.h"
 #include "shared/nm-l2tp-crypto-openssl.h"

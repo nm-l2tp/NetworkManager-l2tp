@@ -806,7 +806,7 @@ l2tp_plugin_ui_widget_interface_init (NMVpnEditorInterface *iface_class)
 
 /*****************************************************************************/
 
-#ifndef NM_VPN_OLD
+#if !(NETWORKMANAGER_COMPILATION & NM_NETWORKMANAGER_COMPILATION_WITH_LIBNM_UTIL)
 
 #include "nm-l2tp-editor-plugin.h"
 

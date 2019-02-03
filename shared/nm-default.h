@@ -29,12 +29,9 @@
 #define NM_NETWORKMANAGER_COMPILATION_LIB_EDITOR          0x0004
 #define NM_NETWORKMANAGER_COMPILATION_LIB                 (0x0002 | 0x0004)
 
-#ifndef NETWORKMANAGER_COMPILATION
-/* For convenience, we don't require our Makefile.am to define
- * -DNETWORKMANAGER_COMPILATION. As we now include this internal header,
- *  we know we do a NETWORKMANAGER_COMPILATION. */
-#define NETWORKMANAGER_COMPILATION NM_NETWORKMANAGER_COMPILATION_DEFAULT
-#endif
+/* special flag, to indicate that we build a legacy library. That is, we link against
+ * deprecated libnm-util/libnm-glib instead against libnm. */
+#define NM_NETWORKMANAGER_COMPILATION_WITH_LIBNM_UTIL     0x0010
 
 /*****************************************************************************/
 
@@ -64,7 +61,7 @@
 
 /*****************************************************************************/
 
-#ifdef NM_VPN_OLD
+#if ((NETWORKMANAGER_COMPILATION) & NM_NETWORKMANAGER_COMPILATION_WITH_LIBNM_UTIL)
 
 #define NM_VPN_LIBNM_COMPAT
 #include <nm-connection.h>
@@ -95,7 +92,7 @@
 #define NMV_EDITOR_PLUGIN_ERROR_FILE_NOT_VPN        NM_SETTING_VPN_ERROR_UNKNOWN
 #define NMV_EDITOR_PLUGIN_ERROR_FILE_NOT_READABLE   NM_SETTING_VPN_ERROR_UNKNOWN
 
-#else /* !NM_VPN_OLD */
+#else /* !NM_NETWORKMANAGER_COMPILATION_WITH_LIBNM_UTIL */
 
 #include <NetworkManager.h>
 
@@ -106,7 +103,7 @@
 #define NMV_EDITOR_PLUGIN_ERROR_FILE_NOT_VPN        NM_CONNECTION_ERROR_FAILED
 #define NMV_EDITOR_PLUGIN_ERROR_FILE_NOT_READABLE   NM_CONNECTION_ERROR_FAILED
 
-#endif /* NM_VPN_OLD */
+#endif /* NM_NETWORKMANAGER_COMPILATION_WITH_LIBNM_UTIL */
 
 /*****************************************************************************/
 
