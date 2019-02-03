@@ -45,8 +45,6 @@
 
 /* always include these headers for our internal source files. */
 
-#include "nm-utils/nm-glib.h"
-#include "nm-utils/gsystem-local-alloc.h"
 #include "nm-utils/nm-macros-internal.h"
 
 #include "nm-version.h"
