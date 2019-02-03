@@ -3,10 +3,11 @@
 appdata/network-manager-l2tp.metainfo.xml.in
 auth-dialog/main.c
 properties/advanced-dialog.c
-properties/import-export.c
 properties/ipsec-dialog.c
-properties/nm-l2tp-editor-plugin.c
 properties/nm-l2tp-editor.c
+properties/nm-l2tp-editor-plugin.c
+shared/nm-l2tp-crypto-nss.c
+shared/nm-l2tp-crypto-openssl.c
 shared/nm-utils/nm-shared-utils.c
 shared/nm-utils/nm-vpn-plugin-utils.c
 src/nm-l2tp-service.c
