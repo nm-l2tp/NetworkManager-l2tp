@@ -25,7 +25,7 @@
 
 #include "nm-l2tp-editor-plugin.h"
 
-#ifdef NM_VPN_OLD
+#if (NETWORKMANAGER_COMPILATION & NM_NETWORKMANAGER_COMPILATION_WITH_LIBNM_UTIL)
 #include "nm-l2tp-editor.h"
 #else
 #include "nm-utils/nm-vpn-plugin-utils.h"
@@ -116,7 +116,7 @@ get_capabilities (NMVpnEditorPlugin *iface)
 	        NM_VPN_EDITOR_PLUGIN_CAPABILITY_EXPORT);
 }
 
-#ifndef NM_VPN_OLD
+#if !(NETWORKMANAGER_COMPILATION & NM_NETWORKMANAGER_COMPILATION_WITH_LIBNM_UTIL)
 static NMVpnEditor *
 _call_editor_factory (gpointer factory,
                       NMVpnEditorPlugin *editor_plugin,
@@ -138,7 +138,7 @@ get_editor (NMVpnEditorPlugin *iface, NMConnection *connection, GError **error)
 	g_return_val_if_fail (!error || !*error, NULL);
 
 	{
-#ifdef NM_VPN_OLD
+#if (NETWORKMANAGER_COMPILATION & NM_NETWORKMANAGER_COMPILATION_WITH_LIBNM_UTIL)
 		return nm_vpn_plugin_ui_widget_interface_new (connection, error);
 #else
 		return nm_vpn_plugin_utils_load_editor (NM_PLUGIN_DIR"/libnm-vpn-plugin-l2tp-editor.so",

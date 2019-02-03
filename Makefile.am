@@ -48,7 +48,8 @@ src_cppflags = \
 	-DNM_L2TP_LOCALEDIR=\"$(datadir)/locale\" \
 	-DNM_L2TP_STATEDIR=\"$(l2tp_statedir)\" \
 	-DPLUGINDIR=\"$(PPPD_PLUGIN_DIR)\" \
-	-DRUNSTATEDIR=\"$(runstatedir)\"
+	-DRUNSTATEDIR=\"$(runstatedir)\" \
+	-DNETWORKMANAGER_COMPILATION=NM_NETWORKMANAGER_COMPILATION_DEFAULT
 
 ###############################################################################
 
@@ -219,8 +220,7 @@ properties_libnm_l2tp_properties_la_CFLAGS = \
 	$(LIBNM_GLIB_CFLAGS) \
 	$(LIBNM_GTK_CFLAGS)
 properties_libnm_l2tp_properties_la_CPPFLAGS = \
-	-DNETWORKMANAGER_COMPILATION=NM_NETWORKMANAGER_COMPILATION_LIB \
-	-DNM_VPN_OLD \
+	-DNETWORKMANAGER_COMPILATION='NM_NETWORKMANAGER_COMPILATION_LIB|NM_NETWORKMANAGER_COMPILATION_WITH_LIBNM_UTIL' \
 	$(properties_cppflags)
 properties_libnm_l2tp_properties_la_LIBADD = \
 	$(GLIB_LIBS) \
@@ -249,6 +249,7 @@ auth_dialog_nm_l2tp_auth_dialog_CFLAGS = \
 	$(LIBNMA_CFLAGS) \
 	$(LIBSECRET_CFLAGS)
 auth_dialog_nm_l2tp_auth_dialog_CPPFLAGS = \
+	-DNETWORKMANAGER_COMPILATION=NM_NETWORKMANAGER_COMPILATION_DEFAULT \
 	-I$(top_srcdir)/shared
 auth_dialog_nm_l2tp_auth_dialog_LDADD = \
 	$(GLIB_LIBS) \
