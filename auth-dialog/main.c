@@ -33,6 +33,7 @@
 #include <nma-vpn-password-dialog.h>
 
 #include "nm-l2tp-crypto-openssl.h"
+#include "nm-utils/nm-secret-utils.h"
 
 #define KEYRING_UUID_TAG "connection-uuid"
 #define KEYRING_SN_TAG "setting-name"
