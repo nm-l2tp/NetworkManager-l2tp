@@ -22,7 +22,7 @@
 
 #include "nm-default.h"
 
-#include "advanced-dialog.h"
+#include "ppp-dialog.h"
 
 #include <errno.h>
 
@@ -37,7 +37,7 @@
 #define TAG_MSCHAPV2 3
 #define TAG_EAP      4
 
-static const char *advanced_keys[] = {
+static const char *ppp_keys[] = {
 	NM_L2TP_KEY_REFUSE_EAP,
 	NM_L2TP_KEY_REFUSE_PAP,
 	NM_L2TP_KEY_REFUSE_CHAP,
@@ -65,7 +65,7 @@ copy_values (const char *key, const char *value, gpointer user_data)
 	GHashTable *hash = (GHashTable *) user_data;
 	const char **i;
 
-	for (i = &advanced_keys[0]; *i; i++) {
+	for (i = &ppp_keys[0]; *i; i++) {
 		if (strcmp (key, *i))
 			continue;
 		g_hash_table_insert (hash, g_strdup (key), g_strdup (value));
@@ -73,7 +73,7 @@ copy_values (const char *key, const char *value, gpointer user_data)
 }
 
 GHashTable *
-advanced_dialog_new_hash_from_connection (NMConnection *connection,
+ppp_dialog_new_hash_from_connection (NMConnection *connection,
                                           GError **error)
 {
 	GHashTable *hash;
@@ -379,7 +379,7 @@ auth_methods_setup (GtkBuilder *builder, GHashTable *hash)
 }
 
 GtkWidget *
-advanced_dialog_new (GHashTable *hash, const char *authtype)
+ppp_dialog_new (GHashTable *hash, const char *authtype)
 {
 	GtkBuilder *builder;
 	GtkWidget *dialog = NULL;
@@ -400,7 +400,7 @@ advanced_dialog_new (GHashTable *hash, const char *authtype)
 		return NULL;
 	}
 
-	dialog = GTK_WIDGET (gtk_builder_get_object (builder, "l2tp-advanced-dialog"));
+	dialog = GTK_WIDGET (gtk_builder_get_object (builder, "l2tp-ppp-dialog"));
 	if (!dialog) {
 		g_object_unref (G_OBJECT (builder));
 		return NULL;
@@ -514,7 +514,7 @@ advanced_dialog_new (GHashTable *hash, const char *authtype)
 }
 
 GHashTable *
-advanced_dialog_new_hash_from_dialog (GtkWidget *dialog, GError **error)
+ppp_dialog_new_hash_from_dialog (GtkWidget *dialog, GError **error)
 {
 	GHashTable *hash;
 	GtkWidget *widget;

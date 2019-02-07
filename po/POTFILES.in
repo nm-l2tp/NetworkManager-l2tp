@@ -2,7 +2,7 @@
 # Please keep this file sorted alphabetically.
 appdata/network-manager-l2tp.metainfo.xml.in
 auth-dialog/main.c
-properties/advanced-dialog.c
+properties/ppp-dialog.c
 properties/ipsec-dialog.c
 properties/nm-l2tp-editor.c
 properties/nm-l2tp-editor-plugin.c

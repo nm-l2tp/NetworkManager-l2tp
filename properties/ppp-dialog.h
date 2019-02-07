@@ -19,15 +19,15 @@
  *
  **************************************************************************/
 
-#ifndef _AUTH_HELPERS_H_
-#define _AUTH_HELPERS_H_
+#ifndef _PPP_DIALOG_H_
+#define _PPP_DIALOG_H_
 
 #include <gtk/gtk.h>
 
-GtkWidget *advanced_dialog_new (GHashTable *hash, const char *authtype);
+GtkWidget *ppp_dialog_new (GHashTable *hash, const char *authtype);
 
-GHashTable *advanced_dialog_new_hash_from_connection (NMConnection *connection, GError **error);
+GHashTable *ppp_dialog_new_hash_from_connection (NMConnection *connection, GError **error);
 
-GHashTable *advanced_dialog_new_hash_from_dialog (GtkWidget *dialog, GError **error);
+GHashTable *ppp_dialog_new_hash_from_dialog (GtkWidget *dialog, GError **error);
 
 #endif

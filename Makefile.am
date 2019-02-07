@@ -144,8 +144,8 @@ editor_sources = \
 	shared/nm-l2tp-crypto-openssl.h \
 	properties/resources.c \
 	properties/resources.h \
-	properties/advanced-dialog.c \
-	properties/advanced-dialog.h \
+	properties/ppp-dialog.c \
+	properties/ppp-dialog.h \
 	properties/ipsec-dialog.c \
 	properties/ipsec-dialog.h \
 	properties/nm-l2tp-editor.c \

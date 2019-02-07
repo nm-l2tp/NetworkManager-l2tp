@@ -167,7 +167,7 @@ msgstr "سازگار با مایکروسافت و سایر کارگزارهای 
 
 #: ../properties/nm-l2tp-editor.c:146
 #, c-format
-msgid "%s: error reading advanced settings: %s"
+msgid "%s: error reading ppp settings: %s"
 msgstr ""
 
 #: ../properties/nm-l2tp-editor.c:170
@@ -177,7 +177,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-editor.c:190
 #, c-format
-msgid "%s: failed to create the Advanced dialog!"
+msgid "%s: failed to create the PPP dialog!"
 msgstr ""
 
 #: ../properties/nm-l2tp-editor.c:219

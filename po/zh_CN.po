@@ -170,7 +170,7 @@ msgstr "与微软及其他的 L2TP VPN 服务器兼容。"
 
 #: ../properties/nm-l2tp-editor.c:146
 #, c-format
-msgid "%s: error reading advanced settings: %s"
+msgid "%s: error reading ppp settings: %s"
 msgstr "%s：读取高级设置时出错：%s"
 
 #: ../properties/nm-l2tp-editor.c:170
@@ -180,7 +180,7 @@ msgstr "%s：读取 ipsec 设置时出错：%s"
 
 #: ../properties/nm-l2tp-editor.c:190
 #, c-format
-msgid "%s: failed to create the Advanced dialog!"
+msgid "%s: failed to create the PPP dialog!"
 msgstr "%s：创建高级对话失败！"
 
 #: ../properties/nm-l2tp-editor.c:219

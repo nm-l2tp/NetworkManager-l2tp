@@ -921,7 +921,7 @@ config: xl2tpd name parameter</property>
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="advanced_button">
+              <object class="GtkButton" id="ppp_button">
                 <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -1012,7 +1012,7 @@ config: xl2tpd name parameter</property>
     <property name="step_increment">1</property>
     <property name="page_increment">10</property>
   </object>
-  <object class="GtkDialog" id="l2tp-advanced-dialog">
+  <object class="GtkDialog" id="l2tp-ppp-dialog">
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
     <property name="title" translatable="yes">L2TP PPP Options</property>
