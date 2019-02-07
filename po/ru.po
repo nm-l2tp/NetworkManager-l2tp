@@ -179,7 +179,7 @@ msgstr "Совместим с серверами Microsoft и другими с�
 
 #: ../properties/nm-l2tp-editor.c:146
 #, c-format
-msgid "%s: error reading advanced settings: %s"
+msgid "%s: error reading ppp settings: %s"
 msgstr "%s: при чтении дополнительных настроек произошла ошибка: %s"
 
 #: ../properties/nm-l2tp-editor.c:170
@@ -189,7 +189,7 @@ msgstr "%s: при чтении настроек ipsec произошла оши
 
 #: ../properties/nm-l2tp-editor.c:190
 #, c-format
-msgid "%s: failed to create the Advanced dialog!"
+msgid "%s: failed to create the PPP dialog!"
 msgstr "%s: не удалось создать диалог Дополнительных настроек!"
 
 #: ../properties/nm-l2tp-editor.c:219

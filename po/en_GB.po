@@ -170,8 +170,8 @@ msgstr "Compatible with Microsoft and other L2TP VPN servers."
 
 #: ../properties/nm-l2tp-editor.c:146
 #, c-format
-msgid "%s: error reading advanced settings: %s"
-msgstr "%s: error reading advanced settings: %s"
+msgid "%s: error reading ppp settings: %s"
+msgstr "%s: error reading ppp settings: %s"
 
 #: ../properties/nm-l2tp-editor.c:170
 #, c-format
@@ -180,8 +180,8 @@ msgstr "%s: error reading ipsec settings: %s"
 
 #: ../properties/nm-l2tp-editor.c:190
 #, c-format
-msgid "%s: failed to create the Advanced dialog!"
-msgstr "%s: failed to create the Advanced dialog!"
+msgid "%s: failed to create the PPP dialog!"
+msgstr "%s: failed to create the PPP dialog!"
 
 #: ../properties/nm-l2tp-editor.c:219
 #, c-format

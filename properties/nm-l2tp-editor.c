@@ -27,7 +27,7 @@
 #include <ctype.h>
 #include <gtk/gtk.h>
 
-#include "advanced-dialog.h"
+#include "ppp-dialog.h"
 #include "ipsec-dialog.h"
 
 /*****************************************************************************/
@@ -46,7 +46,7 @@ typedef struct {
 	GtkSizeGroup *group;
 	GtkWindowGroup *window_group;
 	gboolean window_added;
-	GHashTable *advanced;
+	GHashTable *ppp;
 	GHashTable *ipsec;
 	gboolean new_connection;
 } L2tpPluginUiWidgetPrivate;
@@ -112,7 +112,7 @@ stuff_changed_cb (GtkWidget *widget, gpointer user_data)
 }
 
 static void
-advanced_dialog_close_cb (GtkWidget *dialog, gpointer user_data)
+ppp_dialog_close_cb (GtkWidget *dialog, gpointer user_data)
 {
 	gtk_widget_hide (dialog);
 	/* gtk_widget_destroy() will remove the window from the window group */
@@ -128,25 +128,25 @@ ipsec_dialog_close_cb (GtkWidget *dialog, gpointer user_data)
 }
 
 static void
-advanced_dialog_response_cb (GtkWidget *dialog, gint response, gpointer user_data)
+ppp_dialog_response_cb (GtkWidget *dialog, gint response, gpointer user_data)
 {
 	L2tpPluginUiWidget *self = L2TP_PLUGIN_UI_WIDGET (user_data);
 	L2tpPluginUiWidgetPrivate *priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
 	GError *error = NULL;
 
 	if (response != GTK_RESPONSE_OK) {
-		advanced_dialog_close_cb (dialog, self);
+		ppp_dialog_close_cb (dialog, self);
 		return;
 	}
 
-	if (priv->advanced)
-		g_hash_table_destroy (priv->advanced);
-	priv->advanced = advanced_dialog_new_hash_from_dialog (dialog, &error);
-	if (!priv->advanced) {
-		g_message (_("%s: error reading advanced settings: %s"), __func__, error->message);
+	if (priv->ppp)
+		g_hash_table_destroy (priv->ppp);
+	priv->ppp = ppp_dialog_new_hash_from_dialog (dialog, &error);
+	if (!priv->ppp) {
+		g_message (_("%s: error reading ppp settings: %s"), __func__, error->message);
 		g_error_free (error);
 	}
-	advanced_dialog_close_cb (dialog, self);
+	ppp_dialog_close_cb (dialog, self);
 
 	stuff_changed_cb (NULL, self);
 }
@@ -176,7 +176,7 @@ ipsec_dialog_response_cb (GtkWidget *dialog, gint response, gpointer user_data)
 }
 
 static void
-advanced_button_clicked_cb (GtkWidget *button, gpointer user_data)
+ppp_button_clicked_cb (GtkWidget *button, gpointer user_data)
 {
 	L2tpPluginUiWidget *self = L2TP_PLUGIN_UI_WIDGET (user_data);
 	L2tpPluginUiWidgetPrivate *priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
@@ -185,9 +185,9 @@ advanced_button_clicked_cb (GtkWidget *button, gpointer user_data)
 	toplevel = gtk_widget_get_toplevel (priv->widget);
 	g_return_if_fail (gtk_widget_is_toplevel (toplevel));
 
-	dialog = advanced_dialog_new (priv->advanced);
+	dialog = ppp_dialog_new (priv->ppp);
 	if (!dialog) {
-		g_warning (_("%s: failed to create the Advanced dialog!"), __func__);
+		g_warning (_("%s: failed to create the PPP dialog!"), __func__);
 		return;
 	}
 
@@ -198,8 +198,8 @@ advanced_button_clicked_cb (GtkWidget *button, gpointer user_data)
 	}
 
 	gtk_window_set_transient_for (GTK_WINDOW (dialog), GTK_WINDOW (toplevel));
-	g_signal_connect (G_OBJECT (dialog), "response", G_CALLBACK (advanced_dialog_response_cb), self);
-	g_signal_connect (G_OBJECT (dialog), "close", G_CALLBACK (advanced_dialog_close_cb), self);
+	g_signal_connect (G_OBJECT (dialog), "response", G_CALLBACK (ppp_dialog_response_cb), self);
+	g_signal_connect (G_OBJECT (dialog), "close", G_CALLBACK (ppp_dialog_close_cb), self);
 
 	gtk_widget_show_all (dialog);
 }
@@ -359,8 +359,8 @@ init_plugin_ui (L2tpPluginUiWidget *self, NMConnection *connection, GError **err
 	}
 	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
 
-	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "advanced_button"));
-	g_signal_connect (G_OBJECT (widget), "clicked", G_CALLBACK (advanced_button_clicked_cb), self);
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "ppp_button"));
+	g_signal_connect (G_OBJECT (widget), "clicked", G_CALLBACK (ppp_button_clicked_cb), self);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "ipsec_button"));
 	g_signal_connect (G_OBJECT (widget), "clicked", G_CALLBACK (ipsec_button_clicked_cb), self);
@@ -481,8 +481,8 @@ update_connection (NMVpnEditor *iface,
 	if (str && strlen (str))
 		nm_setting_vpn_add_data_item (s_vpn, NM_L2TP_KEY_DOMAIN, str);
 
-	if (priv->advanced)
-		g_hash_table_foreach (priv->advanced, hash_copy_pair, s_vpn);
+	if (priv->ppp)
+		g_hash_table_foreach (priv->ppp, hash_copy_pair, s_vpn);
 	if (priv->ipsec)
 		g_hash_table_foreach (priv->ipsec, hash_copy_pair, s_vpn);
 
@@ -556,8 +556,8 @@ nm_vpn_plugin_ui_widget_interface_new (NMConnection *connection, GError **error)
 		return NULL;
 	}
 
-	priv->advanced = advanced_dialog_new_hash_from_connection (connection, error);
-	if (!priv->advanced) {
+	priv->ppp = ppp_dialog_new_hash_from_connection (connection, error);
+	if (!priv->ppp) {
 		g_object_unref (object);
 		return NULL;
 	}
@@ -594,8 +594,8 @@ dispose (GObject *object)
 	if (priv->builder)
 		g_object_unref (priv->builder);
 
-	if (priv->advanced)
-		g_hash_table_destroy (priv->advanced);
+	if (priv->ppp)
+		g_hash_table_destroy (priv->ppp);
 
 	if (priv->ipsec)
 		g_hash_table_destroy (priv->ipsec);
