@@ -1016,7 +1016,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	if (_LOGD_enabled ())
 		write_config_option (fd, "debug\n");
 
-	write_config_option (fd, "ipparam %s\n", priv->uuid);
+	write_config_option (fd, "ipparam nm-l2tp-service-%s\n", priv->uuid);
 
 	write_config_option (fd, "nodetach\n");
 	/* revisit - xl2tpd-1.3.7 generates an unrecognized option 'lock' error.
