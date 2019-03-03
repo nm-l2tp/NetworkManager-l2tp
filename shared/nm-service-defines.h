@@ -68,11 +68,14 @@
 #define NM_L2TP_KEY_MACHINE_CERTPASS  "machine-certpass"
 #define NM_L2TP_KEY_IPSEC_ENABLE      "ipsec-enabled"
 #define NM_L2TP_KEY_IPSEC_GATEWAY_ID  "ipsec-gateway-id"
-#define NM_L2TP_KEY_IPSEC_GROUP_NAME  "ipsec-group-name"
 #define NM_L2TP_KEY_IPSEC_PSK         "ipsec-psk"
 #define NM_L2TP_KEY_IPSEC_IKE         "ipsec-ike"
 #define NM_L2TP_KEY_IPSEC_ESP         "ipsec-esp"
+#define NM_L2TP_KEY_IPSEC_IKELIFETIME "ipsec-ikelifetime"
+#define NM_L2TP_KEY_IPSEC_SALIFETIME  "ipsec-salifetime"
 #define NM_L2TP_KEY_IPSEC_FORCEENCAPS "ipsec-forceencaps"
+#define NM_L2TP_KEY_IPSEC_IPCOMP      "ipsec-ipcomp"
+#define NM_L2TP_KEY_IPSEC_PFS         "ipsec-pfs"
 
 /* Internal auth-dialog -> service token indicating that no secrets are required
  * for the connection if X.509 private keys are used with no password protection.

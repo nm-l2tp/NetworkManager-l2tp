@@ -54,7 +54,7 @@
 #include "nm-l2tp-pppd-service-dbus.h"
 #include "nm-utils/nm-shared-utils.h"
 #include "nm-utils/nm-vpn-plugin-macros.h"
-#include "utils.h"
+#include "shared/utils.h"
 #include "nm-l2tp-crypto-nss.h"
 #include "nm-l2tp-crypto-openssl.h"
 
@@ -175,11 +175,14 @@ static const ValidProperty valid_properties[] = {
 	{ NM_L2TP_KEY_MACHINE_KEY,              G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_ENABLE,             G_TYPE_BOOLEAN, FALSE },
 	{ NM_L2TP_KEY_IPSEC_GATEWAY_ID,         G_TYPE_STRING, FALSE },
-	{ NM_L2TP_KEY_IPSEC_GROUP_NAME,         G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_PSK,                G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_IKE,                G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_ESP,                G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_IPSEC_IKELIFETIME,        G_TYPE_UINT, FALSE },
+	{ NM_L2TP_KEY_IPSEC_SALIFETIME,         G_TYPE_UINT, FALSE },
 	{ NM_L2TP_KEY_IPSEC_FORCEENCAPS,        G_TYPE_BOOLEAN, FALSE },
+	{ NM_L2TP_KEY_IPSEC_IPCOMP,             G_TYPE_BOOLEAN, FALSE },
+	{ NM_L2TP_KEY_IPSEC_PFS,                G_TYPE_BOOLEAN, FALSE },
 	{ NM_L2TP_KEY_PASSWORD"-flags",         G_TYPE_UINT, FALSE },
 	{ NM_L2TP_KEY_USER_CERTPASS"-flags",    G_TYPE_UINT, FALSE },
 	{ NM_L2TP_KEY_MACHINE_CERTPASS"-flags", G_TYPE_UINT, FALSE },
@@ -945,8 +948,27 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_ESP);
 		if(value)write_config_option (fd, "  esp=%s\n", value);
 
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_IKELIFETIME);
+		if(value)write_config_option (fd, "  ikelifetime=%s\n", value);
+
+		if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
+			value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_SALIFETIME);
+			if(value)write_config_option (fd, "  salifetime=%s\n", value);
+		} else {
+			value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_SALIFETIME);
+			if(value)write_config_option (fd, "  lifetime=%s\n", value);
+		}
+
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_FORCEENCAPS);
 		if(value)write_config_option (fd, "  forceencaps=%s\n", value);
+
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_IPCOMP);
+		if(value)write_config_option (fd, "  compress=%s\n", value);
+
+		if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
+			value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_PFS);
+			if(value)write_config_option (fd, "  pfs=%s\n", value);
+		}
 
 		if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
 			write_config_option (fd, "  pfs=no\n");
