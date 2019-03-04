@@ -24,7 +24,7 @@
  * (C) Copyright 2011 Geo Carncross <geocar@gmail.com>
  * (C) Copyright 2012 Sergey Prokhorov <me@seriyps.ru>
  * (C) Copyright 2014 Nathan Dorfman <ndorf@rtfm.net>
- * (C) Copyright 2016 - 2017 Douglas Kosovic <doug@uq.edu.au>
+ * (C) Copyright 2016 - 2019 Douglas Kosovic <doug@uq.edu.au>
  */
 
 #include "nm-default.h"
@@ -120,6 +120,12 @@ _LOGD_enabled (void)
 
 /*****************************************************************************/
 
+/* Legacy KDE Plasma-nm L2TP keys */
+#define KDE_PLASMA_L2TP_KEY_USE_CERT          "use-cert"
+#define KDE_PLASMA_L2TP_KEY_CERT_PUB          "cert-pub"
+#define KDE_PLASMA_L2TP_KEY_CERT_CA           "cert-ca"
+#define KDE_PLASMA_L2TP_KEY_CERT_KEY          "cert-key"
+
 typedef struct {
 	const char *name;
 	GType type;
@@ -129,11 +135,10 @@ typedef struct {
 static const ValidProperty valid_properties[] = {
 	{ NM_L2TP_KEY_GATEWAY,           G_TYPE_STRING, TRUE },
 	{ NM_L2TP_KEY_USER,              G_TYPE_STRING, FALSE },
-	{ NM_L2TP_KEY_USE_CERT,          G_TYPE_BOOLEAN, FALSE },
-	{ NM_L2TP_KEY_CERT_PUB,          G_TYPE_STRING, FALSE },
-	{ NM_L2TP_KEY_CERT_CA,           G_TYPE_STRING, FALSE },
-	{ NM_L2TP_KEY_CERT_KEY,          G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_DOMAIN,            G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_USER_CA,           G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_USER_CERT,         G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_USER_KEY,          G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_MRU,               G_TYPE_UINT, FALSE },
 	{ NM_L2TP_KEY_MTU,               G_TYPE_UINT, FALSE },
 	{ NM_L2TP_KEY_REFUSE_EAP,        G_TYPE_BOOLEAN, FALSE },
@@ -156,11 +161,14 @@ static const ValidProperty valid_properties[] = {
 	{ NM_L2TP_KEY_PASSWORD"-flags",  G_TYPE_UINT, FALSE },
 	{ NM_L2TP_KEY_IPSEC_ENABLE,      G_TYPE_BOOLEAN, FALSE },
 	{ NM_L2TP_KEY_IPSEC_GATEWAY_ID,  G_TYPE_STRING, FALSE },
-	{ NM_L2TP_KEY_IPSEC_GROUP_NAME,  G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_PSK,         G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_IKE,         G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_ESP,         G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_FORCEENCAPS, G_TYPE_BOOLEAN, FALSE },
+	{ KDE_PLASMA_L2TP_KEY_USE_CERT,  G_TYPE_UINT, FALSE },
+	{ KDE_PLASMA_L2TP_KEY_CERT_CA,   G_TYPE_STRING, FALSE },
+	{ KDE_PLASMA_L2TP_KEY_CERT_PUB,  G_TYPE_STRING, FALSE },
+	{ KDE_PLASMA_L2TP_KEY_CERT_KEY,  G_TYPE_STRING, FALSE },
 	{ NULL }
 };
 
@@ -568,12 +576,16 @@ typedef struct {
 	const char *write_to_config;
 } PPPOpt;
 
-static PPPOpt ppp_options[] = {
+static PPPOpt ppp_auth_options[] = {
 	{NM_L2TP_KEY_REFUSE_EAP, G_TYPE_BOOLEAN, "refuse-eap\n"},
 	{NM_L2TP_KEY_REFUSE_PAP, G_TYPE_BOOLEAN, "refuse-pap\n"},
 	{NM_L2TP_KEY_REFUSE_CHAP, G_TYPE_BOOLEAN, "refuse-chap\n"},
 	{NM_L2TP_KEY_REFUSE_MSCHAP, G_TYPE_BOOLEAN, "refuse-mschap\n"},
 	{NM_L2TP_KEY_REFUSE_MSCHAPV2, G_TYPE_BOOLEAN, "refuse-mschap-v2\n"},
+	{NULL, G_TYPE_NONE, NULL}
+};
+
+static PPPOpt ppp_options[] = {
 	{NM_L2TP_KEY_REQUIRE_MPPE, G_TYPE_BOOLEAN, "require-mppe\n"},
 	{NM_L2TP_KEY_REQUIRE_MPPE_40, G_TYPE_BOOLEAN, "require-mppe-40\n"},
 	{NM_L2TP_KEY_REQUIRE_MPPE_128, G_TYPE_BOOLEAN, "require-mppe-128\n"},
@@ -653,6 +665,18 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 
 	/* Check that xl2tpd's default port 1701 is free */
 	l2tp_port_is_free = is_port_free (1701);
+
+	/* Map legacy KDE Plasma-nm keys to equivalent new keys */
+	value = nm_setting_vpn_get_data_item (s_vpn, KDE_PLASMA_L2TP_KEY_USE_CERT);
+	if (nm_streq0 (value, "yes")) {
+		nm_setting_vpn_add_data_item (s_vpn, NM_L2TP_KEY_USER_AUTH_TYPE, NM_L2TP_AUTHTYPE_TLS);
+		value = nm_setting_vpn_get_data_item (s_vpn, KDE_PLASMA_L2TP_KEY_CERT_CA);
+		nm_setting_vpn_add_data_item (s_vpn, NM_L2TP_KEY_USER_CA, value);
+		value = nm_setting_vpn_get_data_item (s_vpn, KDE_PLASMA_L2TP_KEY_CERT_PUB);
+		nm_setting_vpn_add_data_item (s_vpn, NM_L2TP_KEY_USER_CERT, value);
+		value = nm_setting_vpn_get_data_item (s_vpn, KDE_PLASMA_L2TP_KEY_CERT_KEY);
+		nm_setting_vpn_add_data_item (s_vpn, NM_L2TP_KEY_USER_KEY, value);
+	}
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_ENABLE);
 	if (value && !strcmp(value,"yes")) {
@@ -806,14 +830,6 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	/* value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_GATEWAY); */
 	write_config_option (fd, "lns = %s\n", priv->saddr);
 
-	/* Username; try L2TP specific username first, then generic username */
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER);
-	if (!value || !*value)
-		value = nm_setting_vpn_get_user_name (s_vpn);
-	if (!value || !*value) {
-		write_config_option (fd, "name = %s\n", value);
-	}
-
 	if (_LOGD_enabled ())
 		write_config_option (fd, "ppp debug = yes\n");
 	write_config_option (fd, "pppoptfile = %s/ppp-options\n", rundir);
@@ -860,11 +876,24 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	   and pppd on Linux clients won't work without the same option */
 	write_config_option (fd, "noccp\n");
 
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER);
-	if (!value || !*value)
-		value = nm_setting_vpn_get_user_name (s_vpn);
-	if (!value || !*value) {
-		write_config_option (fd, "name %s\n", value);
+	value = nm_setting_vpn_get_data_item (s_vpn, KDE_PLASMA_L2TP_KEY_USE_CERT);
+	if (nm_streq0 (value, "yes")) {
+		write_config_option (fd, "ca \"%s\"\n", nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER_CA));
+		write_config_option (fd, "cert \"%s\"\n", nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER_CERT));
+		write_config_option (fd, "key \"%s\"\n", nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER_KEY));
+	} else {
+		/* Username; try L2TP specific username first, then generic username */
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER);
+		if (!value || !*value)
+			value = nm_setting_vpn_get_user_name (s_vpn);
+		if (!value || !*value) {
+			write_config_option (fd, "name %s\n", value);
+		}
+		for (i=0; ppp_auth_options[i].name; i++){
+			value = nm_setting_vpn_get_data_item (s_vpn, ppp_auth_options[i].name);
+			if (nm_streq0 (value, "yes"))
+				write_config_option (fd, ppp_auth_options[i].write_to_config);
+		}
 	}
 
 	for(i=0; ppp_options[i].name; i++){
@@ -917,14 +946,6 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		/* Default MTU to 1400, which is also what Microsoft Windows uses */
 		write_config_option (fd, "mtu 1400\n");
 	}
-
-	/*
-	if (priv && priv->use_cert) {
-		write_config_option (fd, "cert \"%s\"\n", nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_CERT_PUB));
-		write_config_option (fd, "ca \"%s\"\n", nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_CERT_CA));
-		write_config_option (fd, "key \"%s\"\n", nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_CERT_KEY));
-	}
-	*/
 
 	close(fd);
 
@@ -1361,6 +1382,12 @@ real_connect (NMVpnServicePlugin *plugin,
 
 	s_vpn = nm_connection_get_setting_vpn (connection);
 	g_assert (s_vpn);
+
+	/* Legacy KDE Plasma-nm certificate support does not handle password protected private keys */
+	value = nm_setting_vpn_get_data_item (s_vpn, KDE_PLASMA_L2TP_KEY_USE_CERT);
+	if (nm_streq0 (value, "yes")) {
+		return FALSE;
+	}
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_ENABLE);
 	_LOGI ("ipsec enable flag: %s", value ? value : "(null)");
