@@ -23,6 +23,13 @@
 
 #include "ipsec-dialog.h"
 #include "nm-l2tp-editor.h"
+#include "shared/utils.h"
+
+#define DEFAULT_IPSEC_STRONGSWAN_IKELIFETIME 10800 /* 3h */
+#define DEFAULT_IPSEC_STRONGSWAN_LIFETIME     3600 /* 1h */
+
+#define DEFAULT_IPSEC_LIBRESWAN_IKELIFETIME   3600 /* 1h */
+#define DEFAULT_IPSEC_LIBRESWAN_SALIFETIME   28800 /* 8h */
 
 static const char *ipsec_keys[] = {
 	NM_L2TP_KEY_IPSEC_ENABLE,
@@ -30,7 +37,11 @@ static const char *ipsec_keys[] = {
 	NM_L2TP_KEY_IPSEC_PSK,
 	NM_L2TP_KEY_IPSEC_IKE,
 	NM_L2TP_KEY_IPSEC_ESP,
+	NM_L2TP_KEY_IPSEC_IKELIFETIME,
+	NM_L2TP_KEY_IPSEC_SALIFETIME,
 	NM_L2TP_KEY_IPSEC_FORCEENCAPS,
+	NM_L2TP_KEY_IPSEC_IPCOMP,
+	NM_L2TP_KEY_IPSEC_PFS,
 	NULL
 };
 
@@ -64,39 +75,134 @@ ipsec_dialog_new_hash_from_connection (NMConnection *connection,
 static void
 handle_enable_changed (GtkWidget *check, gboolean is_init, GtkBuilder *builder)
 {
+	gboolean sensitive;
 	GtkWidget *widget;
-	gboolean enabledp;
+	guint32 i = 0;
+	const char *widgets[] = {
+		"general_label", "ipsec_gateway_id_label", "ipsec_gateway_id",
+		"machine_auth_label", "show_psk_check", "psk_label",
+		"ipsec_psk_entry", "advanced_label",
+		NULL
+	};
 
-	enabledp = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (check));
+	sensitive = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (check));
 
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "general_label"));
-	gtk_widget_set_sensitive (widget, enabledp);
+	while (widgets[i]) {
+		widget = GTK_WIDGET (gtk_builder_get_object (builder, widgets[i++]));
+		gtk_widget_set_sensitive (widget, sensitive);
+	}
 
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "label_psk"));
-	gtk_widget_set_sensitive (widget, enabledp);
+	if (!sensitive) {
+		widget = GTK_WIDGET (gtk_builder_get_object (builder, "show_psk_check"));
+		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), FALSE);
 
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_psk"));
-	gtk_widget_set_sensitive (widget, enabledp);
-
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "label_gateway_id"));
-	gtk_widget_set_sensitive (widget, enabledp);
-
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_gateway_id"));
-	gtk_widget_set_sensitive (widget, enabledp);
-
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "label_advanced"));
-	gtk_widget_set_sensitive (widget, enabledp);
+		widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_psk_entry"));
+		gtk_entry_set_visibility (GTK_ENTRY (widget), FALSE);
+	}
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "advanced_expander"));
-	if (!enabledp)
+	if (!sensitive)
 		gtk_expander_set_expanded (GTK_EXPANDER (widget), FALSE);
-	gtk_widget_set_sensitive (widget, enabledp);
+	gtk_widget_set_sensitive (widget, sensitive);
 }
 
 static void
-enable_toggled_cb (GtkWidget *check, gpointer user_data)
+ipsec_toggled_cb (GtkWidget *check, gpointer user_data)
 {
 	handle_enable_changed (check, FALSE, (GtkBuilder *) user_data);
+}
+
+static gint
+lifetime_spin_input (GtkSpinButton *spin_button,
+                     gdouble       *new_val)
+{
+	GtkAdjustment *adjustment;
+	const gchar *text;
+	int hours;
+	int minutes;
+
+	adjustment = gtk_spin_button_get_adjustment (spin_button);
+	*new_val = gtk_adjustment_get_value (adjustment);
+	text = gtk_entry_get_text (GTK_ENTRY (spin_button));
+	if (sscanf( text, "%d:%d", &hours, &minutes ) != 2) {
+		return GTK_INPUT_ERROR;
+	}
+
+	if (0 <= hours && hours <= 24 && 0 <= minutes && minutes < 60) {
+		*new_val = hours * 3600 + minutes * 60;
+		return TRUE;
+	}
+
+	return GTK_INPUT_ERROR;
+}
+
+static gint
+lifetime_spin_output (GtkSpinButton *spin_button)
+{
+	GtkAdjustment *adjustment;
+	gchar *buf;
+	int hours;
+	int minutes;
+	int seconds;
+
+	adjustment = gtk_spin_button_get_adjustment (spin_button);
+	seconds = (int)gtk_adjustment_get_value (adjustment);
+	hours = seconds / 3600;
+	minutes = (seconds % 3600) / 60;
+	buf = g_strdup_printf ("%d:%02d", hours,  minutes);
+	if (strcmp (buf, gtk_entry_get_text (GTK_ENTRY (spin_button))))
+		gtk_entry_set_text (GTK_ENTRY (spin_button), buf);
+	g_free (buf);
+
+	return TRUE;
+}
+
+static void
+lifetime1_toggled_cb (GtkCheckButton *button, gpointer user_data)
+{
+	GtkBuilder *builder = GTK_BUILDER (user_data);
+	GtkWidget *widget;
+	gboolean sensitive;
+	NML2tpIpsecDaemon ipsec_daemon;
+
+	sensitive = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button));
+
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_phase1_lifetime"));
+	gtk_widget_set_sensitive (widget, sensitive);
+	if (!sensitive) {
+		ipsec_daemon = GPOINTER_TO_INT(g_object_get_data(G_OBJECT(button), "ipsec-daemon"));
+		if (ipsec_daemon == NM_L2TP_IPSEC_DAEMON_STRONGSWAN)
+			gtk_spin_button_set_value (GTK_SPIN_BUTTON (widget), DEFAULT_IPSEC_STRONGSWAN_IKELIFETIME);
+		else
+			gtk_spin_button_set_value (GTK_SPIN_BUTTON (widget), DEFAULT_IPSEC_LIBRESWAN_IKELIFETIME);
+	}
+
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "phase1_lifetime_label"));
+	gtk_widget_set_sensitive (widget, sensitive);
+}
+
+static void
+lifetime2_toggled_cb (GtkCheckButton *button, gpointer user_data)
+{
+	GtkBuilder *builder = GTK_BUILDER (user_data);
+	GtkWidget *widget;
+	gboolean sensitive;
+	NML2tpIpsecDaemon ipsec_daemon;
+
+	sensitive = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button));
+
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_phase2_lifetime"));
+	gtk_widget_set_sensitive (widget, sensitive);
+	if (!sensitive) {
+		ipsec_daemon = GPOINTER_TO_INT(g_object_get_data(G_OBJECT(button), "ipsec-daemon"));
+		if (ipsec_daemon == NM_L2TP_IPSEC_DAEMON_STRONGSWAN)
+			gtk_spin_button_set_value (GTK_SPIN_BUTTON (widget), DEFAULT_IPSEC_STRONGSWAN_LIFETIME);
+		else
+			gtk_spin_button_set_value (GTK_SPIN_BUTTON (widget), DEFAULT_IPSEC_LIBRESWAN_SALIFETIME);
+	}
+
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "phase2_lifetime_label"));
+	gtk_widget_set_sensitive (widget, sensitive);
 }
 
 GtkWidget *
@@ -106,7 +212,10 @@ ipsec_dialog_new (GHashTable *hash)
 	GtkWidget *dialog = NULL;
 	GtkWidget *widget;
 	const char *value;
+	gboolean sensitive;
 	GError *error = NULL;
+	char *tooltip_text;
+	NML2tpIpsecDaemon ipsec_daemon;
 
 	g_return_val_if_fail (hash != NULL, NULL);
 
@@ -131,26 +240,21 @@ ipsec_dialog_new (GHashTable *hash)
 	g_object_set_data_full (G_OBJECT (dialog), "gtkbuilder-xml",
 			builder, (GDestroyNotify) g_object_unref);
 
-	value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_ENABLE);
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_enable"));
-	if (value && !strcmp (value, "yes")) {
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), TRUE);
-	}
-	handle_enable_changed (widget, TRUE, builder);
-	g_signal_connect (G_OBJECT (widget), "toggled", G_CALLBACK (enable_toggled_cb), builder);
+	ipsec_daemon = check_ipsec_daemon (nm_find_ipsec ());
+	g_object_set_data (G_OBJECT(dialog), "ipsec-daemon", GINT_TO_POINTER(ipsec_daemon));
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_gateway_id"));
 	if((value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_GATEWAY_ID)))
-		gtk_entry_set_text(GTK_ENTRY(widget), value);
+		gtk_entry_set_text (GTK_ENTRY(widget), value);
 
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_psk"));
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_psk_entry"));
 	if((value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_PSK)))
 		gtk_entry_set_text(GTK_ENTRY(widget), value);
 
 	/* Phase 1 Algorithms: IKE */
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_phase1"));
 	if((value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_IKE))) {
-		gtk_entry_set_text(GTK_ENTRY(widget), value);
+		gtk_entry_set_text (GTK_ENTRY(widget), value);
 		widget = GTK_WIDGET (gtk_builder_get_object (builder, "advanced_expander"));
 		gtk_expander_set_expanded (GTK_EXPANDER (widget), TRUE);
 	}
@@ -158,15 +262,110 @@ ipsec_dialog_new (GHashTable *hash)
 	/* Phase 2 Algorithms: ESP */
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_phase2"));
 	if((value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_ESP)))
-		gtk_entry_set_text(GTK_ENTRY(widget), value);
+		gtk_entry_set_text (GTK_ENTRY(widget), value);
+
+	/* Phase 1 Lifetime */
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_phase1_lifetime"));
+	value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_IKELIFETIME);
+	sensitive = FALSE;
+	if (value && *value) {
+		long int tmp_int;
+		errno = 0;
+		tmp_int = strtol (value, NULL, 10);
+		if (errno == 0 && tmp_int >= 0 && tmp_int <= 24 * 60 * 60) {
+			sensitive = TRUE;
+			gtk_spin_button_set_value (GTK_SPIN_BUTTON (widget), (gdouble) tmp_int);
+		}
+	} else {
+		if (ipsec_daemon == NM_L2TP_IPSEC_DAEMON_STRONGSWAN)
+			gtk_spin_button_set_value (GTK_SPIN_BUTTON (widget), DEFAULT_IPSEC_STRONGSWAN_IKELIFETIME);
+		else
+			gtk_spin_button_set_value (GTK_SPIN_BUTTON (widget), DEFAULT_IPSEC_LIBRESWAN_IKELIFETIME);
+	}
+	gtk_widget_set_sensitive (widget, sensitive);
+	lifetime_spin_output (GTK_SPIN_BUTTON (widget));
+	g_signal_connect (G_OBJECT (widget), "input", G_CALLBACK (lifetime_spin_input), builder);
+	g_signal_connect (G_OBJECT (widget), "output", G_CALLBACK (lifetime_spin_output), builder);
+	tooltip_text = gtk_widget_get_tooltip_text (widget);
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "phase1_lifetime_check"));
+	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), sensitive);
+	gtk_widget_set_tooltip_text (widget, tooltip_text);
+	g_object_set_data (G_OBJECT(widget), "ipsec-daemon", GINT_TO_POINTER(ipsec_daemon));
+	lifetime1_toggled_cb (GTK_CHECK_BUTTON (widget), builder);
+	g_signal_connect (G_OBJECT (widget), "toggled", G_CALLBACK (lifetime1_toggled_cb), builder);
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "phase1_lifetime_label"));
+	gtk_widget_set_sensitive (widget, sensitive);
+
+	/* Phase 2 Lifetime */
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_phase2_lifetime"));
+	value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_SALIFETIME);
+	sensitive = FALSE;
+	if (value && *value) {
+		long int tmp_int;
+		errno = 0;
+		tmp_int = strtol (value, NULL, 10);
+		if (errno == 0 && tmp_int >= 0 && tmp_int <= 24 * 60 * 60) {
+			sensitive = TRUE;
+			gtk_spin_button_set_value (GTK_SPIN_BUTTON (widget), (gdouble) tmp_int);
+		}
+	} else {
+		if (ipsec_daemon == NM_L2TP_IPSEC_DAEMON_STRONGSWAN)
+			gtk_spin_button_set_value (GTK_SPIN_BUTTON (widget), DEFAULT_IPSEC_STRONGSWAN_LIFETIME);
+		else
+			gtk_spin_button_set_value (GTK_SPIN_BUTTON (widget), DEFAULT_IPSEC_LIBRESWAN_SALIFETIME);
+	}
+	gtk_widget_set_sensitive (widget, sensitive);
+	lifetime_spin_output (GTK_SPIN_BUTTON (widget));
+	g_signal_connect (G_OBJECT (widget), "input", G_CALLBACK (lifetime_spin_input), builder);
+	g_signal_connect (G_OBJECT (widget), "output", G_CALLBACK (lifetime_spin_output), builder);
+	tooltip_text = gtk_widget_get_tooltip_text (widget);
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "phase2_lifetime_check"));
+	gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), sensitive);
+	gtk_widget_set_tooltip_text (widget, tooltip_text);
+	g_object_set_data (G_OBJECT(widget), "ipsec-daemon", GINT_TO_POINTER(ipsec_daemon));
+	lifetime2_toggled_cb (GTK_CHECK_BUTTON (widget), builder);
+	g_signal_connect (G_OBJECT (widget), "toggled", G_CALLBACK (lifetime2_toggled_cb), builder);
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "phase2_lifetime_label"));
+	gtk_widget_set_sensitive (widget, sensitive);
 
 	value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_FORCEENCAPS);
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "forceencaps_enable"));
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "encap_check"));
 	if (value && !strcmp (value, "yes")) {
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), TRUE);
 	} else {
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), FALSE);
 	}
+
+	value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_IPCOMP);
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipcomp_check"));
+	if (value && !strcmp (value, "yes")) {
+		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), TRUE);
+	} else {
+		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), FALSE);
+	}
+
+	/* PFS check button is not sensitive with strongSwan as the PFS option is ignored */
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "pfs_check"));
+	if (ipsec_daemon == NM_L2TP_IPSEC_DAEMON_STRONGSWAN) {
+		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), FALSE);
+		gtk_widget_set_sensitive (widget, sensitive);
+		gtk_widget_set_tooltip_text (widget, NULL);
+	} else {
+		value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_PFS);
+		if (value && !strcmp (value, "no")) {
+			gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), TRUE);
+		} else {
+			gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), FALSE);
+		}
+	}
+
+	value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_ENABLE);
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_check"));
+	if (value && !strcmp (value, "yes")) {
+		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), TRUE);
+	}
+	ipsec_toggled_cb (widget, builder);
+	g_signal_connect (G_OBJECT (widget), "toggled", G_CALLBACK (ipsec_toggled_cb), builder);
 
 	return dialog;
 }
@@ -177,6 +376,8 @@ ipsec_dialog_new_hash_from_dialog (GtkWidget *dialog, GError **error)
 	GHashTable *hash;
 	GtkWidget *widget;
 	GtkBuilder *builder;
+	const gchar *value;
+	int lifetime;
 
 	g_return_val_if_fail (dialog != NULL, NULL);
 	if (error)
@@ -187,30 +388,70 @@ ipsec_dialog_new_hash_from_dialog (GtkWidget *dialog, GError **error)
 
 	hash = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, g_free);
 
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_enable"));
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_check"));
 	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
 		g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_ENABLE), g_strdup("yes"));
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_gateway_id"));
-	g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_GATEWAY_ID),
-			g_strdup(gtk_entry_get_text(GTK_ENTRY(widget))));
+	value = gtk_entry_get_text(GTK_ENTRY(widget));
+	if (value && *value) {
+		g_hash_table_insert (hash,
+		                     g_strdup (NM_L2TP_KEY_IPSEC_GATEWAY_ID),
+		                     g_strdup (value));
+	}
 
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_psk"));
-	g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_PSK),
-			g_strdup(gtk_entry_get_text(GTK_ENTRY(widget))));
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_psk_entry"));
+	value = gtk_entry_get_text(GTK_ENTRY(widget));
+	if (value && *value) {
+		g_hash_table_insert (hash,
+		                     g_strdup (NM_L2TP_KEY_IPSEC_PSK),
+		                     g_strdup (value));
+	}
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_phase1"));
-	g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_IKE),
-			g_strdup(gtk_entry_get_text(GTK_ENTRY(widget))));
+	value = gtk_entry_get_text(GTK_ENTRY(widget));
+	if (value && *value) {
+		g_hash_table_insert (hash,
+		                     g_strdup (NM_L2TP_KEY_IPSEC_IKE),
+		                     g_strdup (value));
+	}
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_phase2"));
-	g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_ESP),
-			g_strdup(gtk_entry_get_text(GTK_ENTRY(widget))));
+	value = gtk_entry_get_text(GTK_ENTRY(widget));
+	if (value && *value) {
+		g_hash_table_insert (hash,
+		                     g_strdup (NM_L2TP_KEY_IPSEC_ESP),
+		                     g_strdup (value));
+	}
 
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "forceencaps_enable"));
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "phase1_lifetime_check"));
+	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget))) {
+		widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_phase1_lifetime"));
+		lifetime = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (widget));
+		g_hash_table_insert (hash, g_strdup (NM_L2TP_KEY_IPSEC_IKELIFETIME), g_strdup_printf ("%d", lifetime));
+	}
+
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "phase2_lifetime_check"));
+	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget))) {
+		widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_phase2_lifetime"));
+		lifetime = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (widget));
+		g_hash_table_insert (hash, g_strdup (NM_L2TP_KEY_IPSEC_SALIFETIME), g_strdup_printf ("%d", lifetime));
+	}
+
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "encap_check"));
 	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
-		g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_FORCEENCAPS), g_strdup("yes"));
+		g_hash_table_insert (hash, g_strdup(NM_L2TP_KEY_IPSEC_FORCEENCAPS), g_strdup("yes"));
+
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipcomp_check"));
+	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
+		g_hash_table_insert (hash, g_strdup(NM_L2TP_KEY_IPSEC_IPCOMP), g_strdup("yes"));
+
+	/* PFS check button is not sensitive with strongSwan as the PFS option is ignored */
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "pfs_check"));
+	if (gtk_widget_get_sensitive (widget)) {
+		if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
+			g_hash_table_insert (hash, g_strdup(NM_L2TP_KEY_IPSEC_PFS), g_strdup("no"));
+	}
 
 	return hash;
 }
-
