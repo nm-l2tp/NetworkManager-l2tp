@@ -7,7 +7,7 @@ libexec_PROGRAMS =
 
 noinst_LTLIBRARIES =
 
-EXTRA_DIST = README.md
+EXTRA_DIST =
 
 CLEANFILES =
 
@@ -38,6 +38,7 @@ shared_sources = \
 	shared/nm-utils/nm-shared-utils.h
 
 EXTRA_DIST += \
+	README.md \
 	shared/README
 
 src_cppflags = \
@@ -91,6 +92,8 @@ libexec_PROGRAMS += src/nm-l2tp-service
 src_nm_l2tp_service_SOURCES = \
 	$(shared_sources) \
 	shared/nm-service-defines.h \
+	shared/utils.h \
+	shared/utils.c \
 	src/nm-ppp-status.h \
 	src/nm-l2tp-service.h \
 	src/nm-l2tp-service.c
@@ -132,6 +135,8 @@ plugin_sources = \
 editor_sources = \
 	$(shared_sources) \
 	shared/nm-utils/nm-vpn-plugin-utils.h \
+	shared/utils.h \
+	shared/utils.c \
 	properties/resources.c \
 	properties/resources.h \
 	properties/ppp-dialog.c \

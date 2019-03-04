@@ -55,6 +55,8 @@
 #include "nm-utils/nm-shared-utils.h"
 #include "nm-utils/nm-vpn-plugin-macros.h"
 
+#include "shared/utils.h"
+
 #ifndef DIST_VERSION
 # define DIST_VERSION VERSION
 #endif
@@ -82,7 +84,7 @@ typedef struct {
 	NMDBusL2tpPpp *dbus_skeleton;
 	char ipsec_binary_path[256];
 	char *uuid;
-	gboolean is_libreswan;
+	NML2tpIpsecDaemon ipsec_daemon;
 
 	/* IP of L2TP gateway in numeric and string format */
 	guint32 naddr;
@@ -201,34 +203,6 @@ has_include_ipsec_secrets (const char *ipsec_secrets_file) {
 		}
 	}
 	return FALSE;
-}
-
-static gboolean
-check_is_libreswan (const char *path)
-{
-	const char *argv[] = { path, NULL };
-	gboolean libreswan = FALSE;
-	char *output = NULL;
-
-	if (g_spawn_sync (NULL, (char **) argv, NULL, 0, NULL, NULL, &output, NULL, NULL, NULL)) {
-		libreswan = output && strstr (output, " Libreswan ");
-		g_free (output);
-	}
-	return libreswan;
-}
-
-static gboolean
-check_is_strongswan (const char *path)
-{
-	const char *argv[] = { path, "--version", NULL };
-	gboolean strongswan = FALSE;
-	char *output = NULL;
-
-	if (g_spawn_sync (NULL, (char **) argv, NULL, 0, NULL, NULL, &output, NULL, NULL, NULL)) {
-		strongswan = output && strstr (output, " strongSwan ");
-		g_free (output);
-	}
-	return strongswan;
 }
 
 static gboolean
@@ -468,53 +442,6 @@ l2tpd_watch_cb (GPid pid, gint status, gpointer user_data)
 	}
 }
 
-static inline const char *
-nm_find_ipsec (void)
-{
-	static const char *ipsec_binary_paths[] =
-		{
-			"/sbin/ipsec",
-			"/usr/sbin/ipsec",
-			"/usr/local/sbin/ipsec",
-			"/sbin/strongswan",
-			"/usr/sbin/strongswan",
-			"/usr/local/sbin/strongswan",
-			NULL
-		};
-
-	const char  **ipsec_binary = ipsec_binary_paths;
-
-	while (*ipsec_binary != NULL) {
-		if (g_file_test (*ipsec_binary, G_FILE_TEST_EXISTS))
-			break;
-		ipsec_binary++;
-	}
-
-	return *ipsec_binary;
-}
-
-static inline const char *
-nm_find_l2tpd (void)
-{
-	static const char *l2tp_binary_paths[] =
-		{
-			"/sbin/xl2tpd",
-			"/usr/sbin/xl2tpd",
-			"/usr/local/sbin/xl2tpd",
-			NULL
-		};
-
-	const char  **l2tp_binary = l2tp_binary_paths;
-
-	while (*l2tp_binary != NULL) {
-		if (g_file_test (*l2tp_binary, G_FILE_TEST_EXISTS))
-			break;
-		l2tp_binary++;
-	}
-
-	return *l2tp_binary;
-}
-
 static gboolean
 pppd_timed_out (gpointer user_data)
 {
@@ -685,7 +612,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		 */
 		ipsec_secrets_file = NM_IPSEC_SECRETS;     /* typically /etc/ipsec.secrets */
 		ipsec_conf_dir     = NM_IPSEC_SECRETS_DIR; /* typically /etc/ipsec.d */
-		if (!priv->is_libreswan) {
+		if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_STRONGSWAN) {
 			if (g_file_test ("/etc/strongswan", G_FILE_TEST_IS_DIR)) {
 				/* Fedora uses /etc/strongswan/ instead of /etc/ipsec/ */
 				ipsec_secrets_file = "/etc/strongswan/ipsec.secrets";
@@ -721,7 +648,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GATEWAY_ID);
 		if (value) {
-			if (priv->is_libreswan) {
+			if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
 				write_config_option (fd, "%%any ");
 			}
 			/* Only literal strings starting with @ and IP addresses
@@ -772,7 +699,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 
 		write_config_option (fd, "  keyingtries=%%forever\n");
 
-		if (priv->is_libreswan) {
+		if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
 			write_config_option (fd, "  ikev2=never\n");
 		} else {
 			write_config_option (fd, "  keyexchange=ikev1\n");
@@ -787,7 +714,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_FORCEENCAPS);
 		if(value)write_config_option (fd, "  forceencaps=%s\n", value);
 
-		if (priv->is_libreswan) {
+		if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
 			write_config_option (fd, "  pfs=no\n");
 		}
 
@@ -959,7 +886,7 @@ nm_l2tp_stop_ipsec (NML2tpPluginPrivate *priv)
 	GPtrArray *whack_argv;
 	int sys = 0;
 
-	if (priv->is_libreswan) {
+	if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
 		whack_argv = g_ptr_array_new ();
 		g_ptr_array_add (whack_argv, (gpointer) g_strdup (priv->ipsec_binary_path));
 		g_ptr_array_add (whack_argv, (gpointer) g_strdup ("whack"));
@@ -998,7 +925,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	GPid pid_ipsec_up;
 	pid_t wpid;
 
-	if (priv->is_libreswan) {
+	if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
 		snprintf (cmdbuf, sizeof(cmdbuf), "%s auto --status > /dev/null", priv->ipsec_binary_path);
 		sys = system (cmdbuf);
 		if (sys == 1) {
@@ -1052,7 +979,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 
 	/* spawn ipsec script asynchronously as it sometimes doesn't exit */
 	pid_ipsec_up = 0;
-	if (priv->is_libreswan) {
+	if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
 		snprintf (cmdbuf, sizeof(cmdbuf), "%s auto "
 				 " --config "RUNSTATEDIR"/nm-l2tp-%s/ipsec.conf --verbose"
 				 " --add '%s'", priv->ipsec_binary_path, priv->uuid, priv->uuid);
@@ -1105,7 +1032,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 			}
 		} else if (wpid == pid_ipsec_up && WIFEXITED (status)) {
 			if (!WEXITSTATUS (status)) {
-				if (priv->is_libreswan) {
+				if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
 					rc = TRUE;
 					_LOGI ("Libreswan IPsec tunnel is up.");
 				} else {
@@ -1127,7 +1054,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	}
 
 	if (!rc) {
-		if (!priv->is_libreswan) {
+		if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_STRONGSWAN) {
 			snprintf (cmdbuf, sizeof(cmdbuf), "%s stop", priv->ipsec_binary_path);
 			sys = system (cmdbuf);
 		}
@@ -1391,15 +1318,17 @@ real_connect (NMVpnServicePlugin *plugin,
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_ENABLE);
 	_LOGI ("ipsec enable flag: %s", value ? value : "(null)");
-	priv->is_libreswan = TRUE;
+	priv->ipsec_daemon = NM_L2TP_IPSEC_DAEMON_UNKNOWN;
 	if(value && !strcmp(value,"yes")) {
 		if (!(value=nm_find_ipsec ())) {
 			return nm_l2tp_ipsec_error(error, _("Could not find the ipsec binary. Is Libreswan or strongSwan installed?"));
 		}
 		strncpy (priv->ipsec_binary_path, value, sizeof(priv->ipsec_binary_path) - 1);
 
-		priv->is_libreswan = check_is_libreswan (priv->ipsec_binary_path);
-		if (!priv->is_libreswan && !check_is_strongswan (priv->ipsec_binary_path)) {
+		priv->ipsec_daemon = check_ipsec_daemon (priv->ipsec_binary_path);
+		if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_OPENSWAN) {
+			return nm_l2tp_ipsec_error (error, _("Openswan is no longer supported, use Libreswan or strongSwan."));
+		} else if (priv->ipsec_daemon != NM_L2TP_IPSEC_DAEMON_STRONGSWAN && priv->ipsec_daemon != NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
 			return nm_l2tp_ipsec_error (error, _("Neither Libreswan nor strongSwan were found."));
 		}
 	}
