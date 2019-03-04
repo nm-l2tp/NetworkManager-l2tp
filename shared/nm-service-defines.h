@@ -34,15 +34,16 @@
 #define NM_DBUS_PATH_L2TP_PPP       "/org/freedesktop/NetworkManager/l2tp/ppp"
 
 #define NM_L2TP_KEY_GATEWAY           "gateway"
+#define NM_L2TP_KEY_USER_AUTH_TYPE    "user-auth-type"
 #define NM_L2TP_KEY_USER              "user"
 #define NM_L2TP_KEY_PASSWORD          "password"
-#define NM_L2TP_KEY_USE_CERT          "use-cert"
-#define NM_L2TP_KEY_CERT_PUB          "cert-pub"
-#define NM_L2TP_KEY_CERT_CA           "cert-ca"
-#define NM_L2TP_KEY_CERT_KEY          "cert-key"
+#define NM_L2TP_KEY_DOMAIN            "domain"
+#define NM_L2TP_KEY_USER_CA           "user-ca"
+#define NM_L2TP_KEY_USER_CERT         "user-cert"
+#define NM_L2TP_KEY_USER_KEY          "user-key"
+#define NM_L2TP_KEY_USER_CERTPASS     "user-certpass"
 #define NM_L2TP_KEY_MTU               "mtu"
 #define NM_L2TP_KEY_MRU               "mru"
-#define NM_L2TP_KEY_DOMAIN            "domain"
 #define NM_L2TP_KEY_REFUSE_EAP        "refuse-eap"
 #define NM_L2TP_KEY_REFUSE_PAP        "refuse-pap"
 #define NM_L2TP_KEY_REFUSE_CHAP       "refuse-chap"
@@ -60,13 +61,28 @@
 #define NM_L2TP_KEY_LCP_ECHO_FAILURE  "lcp-echo-failure"
 #define NM_L2TP_KEY_LCP_ECHO_INTERVAL "lcp-echo-interval"
 #define NM_L2TP_KEY_UNIT_NUM          "unit"
-
+#define NM_L2TP_KEY_MACHINE_AUTH_TYPE "machine-auth-type"
+#define NM_L2TP_KEY_MACHINE_CA        "machine-ca"
+#define NM_L2TP_KEY_MACHINE_CERT      "machine-cert"
+#define NM_L2TP_KEY_MACHINE_KEY       "machine-key"
+#define NM_L2TP_KEY_MACHINE_CERTPASS  "machine-certpass"
 #define NM_L2TP_KEY_IPSEC_ENABLE      "ipsec-enabled"
 #define NM_L2TP_KEY_IPSEC_GATEWAY_ID  "ipsec-gateway-id"
-#define NM_L2TP_KEY_IPSEC_GROUP_NAME  "ipsec-group-name"
 #define NM_L2TP_KEY_IPSEC_PSK         "ipsec-psk"
 #define NM_L2TP_KEY_IPSEC_IKE         "ipsec-ike"
 #define NM_L2TP_KEY_IPSEC_ESP         "ipsec-esp"
+#define NM_L2TP_KEY_IPSEC_IKELIFETIME "ipsec-ikelifetime"
+#define NM_L2TP_KEY_IPSEC_SALIFETIME  "ipsec-salifetime"
 #define NM_L2TP_KEY_IPSEC_FORCEENCAPS "ipsec-forceencaps"
+#define NM_L2TP_KEY_IPSEC_IPCOMP      "ipsec-ipcomp"
+#define NM_L2TP_KEY_IPSEC_PFS         "ipsec-pfs"
 
+/* Internal auth-dialog -> service token indicating that no secrets are required
+ * for the connection if X.509 private keys are used with no password protection.
+ */
+#define NM_L2TP_KEY_NOSECRET          "no-secret"
+
+#define NM_L2TP_AUTHTYPE_PASSWORD     "password"
+#define NM_L2TP_AUTHTYPE_TLS          "tls"
+#define NM_L2TP_AUTHTYPE_PSK          "psk"
 #endif /* NM_L2TP_SERVICE_DEFINES_H */
