@@ -36,7 +36,7 @@
 
 static const char *ipsec_keys[] = {
 	NM_L2TP_KEY_IPSEC_ENABLE,
-	NM_L2TP_KEY_IPSEC_GATEWAY_ID,
+	NM_L2TP_KEY_IPSEC_REMOTE_ID,
 	NM_L2TP_KEY_MACHINE_AUTH_TYPE,
 	NM_L2TP_KEY_IPSEC_PSK,
 	NM_L2TP_KEY_MACHINE_CA,
@@ -129,7 +129,7 @@ ipsec_toggled_cb (GtkWidget *check, gpointer user_data)
 	GtkWidget *widget;
 	guint32 i = 0;
 	const char *widgets[] = {
-		"general_label", "ipsec_gateway_id_label", "ipsec_gateway_id",
+		"general_label", "ipsec_remote_id_label", "ipsec_remote_id",
 		"machine_auth_label", "ipsec_auth_type_label", "ipsec_auth_combo",
 		"show_psk_check", "psk_label", "ipsec_psk_entry", "advanced_label",
 		NULL
@@ -393,8 +393,8 @@ ipsec_dialog_new (GHashTable *hash)
 	ipsec_daemon = check_ipsec_daemon (nm_find_ipsec ());
 	g_object_set_data (G_OBJECT(dialog), "ipsec-daemon", GINT_TO_POINTER(ipsec_daemon));
 
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_gateway_id"));
-	if((value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_GATEWAY_ID)))
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_remote_id"));
+	if((value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_REMOTE_ID)))
 		gtk_entry_set_text (GTK_ENTRY(widget), value);
 
 	authtype = g_hash_table_lookup (hash, NM_L2TP_KEY_MACHINE_AUTH_TYPE);
@@ -586,11 +586,11 @@ ipsec_dialog_new_hash_from_dialog (GtkWidget *dialog, GError **error)
 	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
 		g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_ENABLE), g_strdup("yes"));
 
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_gateway_id"));
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_remote_id"));
 	value = gtk_entry_get_text(GTK_ENTRY(widget));
 	if (value && *value) {
 		g_hash_table_insert (hash,
-		                     g_strdup (NM_L2TP_KEY_IPSEC_GATEWAY_ID),
+		                     g_strdup (NM_L2TP_KEY_IPSEC_REMOTE_ID),
 		                     g_strdup (value));
 	}
 

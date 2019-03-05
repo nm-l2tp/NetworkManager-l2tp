@@ -2,6 +2,9 @@
 <!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.4"/>
+  <object class="GtkSizeGroup" id="ipsec_labels">
+    <property name="ignore_hidden">True</property>
+  </object>
   <object class="GtkBox" id="l2tp-vbox">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -589,79 +592,12 @@ config: xl2tpd name parameter</property>
             <property name="orientation">vertical</property>
             <property name="spacing">2</property>
             <child>
-              <object class="GtkLabel" id="general_label">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">General</property>
-                <property name="xalign">0</property>
-                <attributes>
-                  <attribute name="weight" value="bold"/>
-                </attributes>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkAlignment">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="left_padding">12</property>
-                <child>
-                  <object class="GtkGrid" id="grid1">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="row_spacing">6</property>
-                    <property name="column_spacing">12</property>
-                    <child>
-                      <object class="GtkLabel" id="ipsec_gateway_id_label">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="label" translatable="yes">Gateway ID:</property>
-                        <property name="justify">right</property>
-                        <property name="xalign">0</property>
-                      </object>
-                      <packing>
-                        <property name="left_attach">0</property>
-                        <property name="top_attach">0</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkEntry" id="ipsec_gateway_id">
-                        <property name="visible">True</property>
-                        <property name="sensitive">False</property>
-                        <property name="can_focus">True</property>
-                        <property name="tooltip_text" translatable="yes">Optional, how the IPsec server should be identified for authentication. Sometimes referred to as IPsec ID, Remote ID, Peer ID or Gateway ID.  strongSwan, Libreswan, Openswan and  FreeS/WAN refer to it as rightid. See documentation for leftid/rightid syntax.
-config: ipsec-gateway-id &lt;rightid&gt;
-ipsec.secrets: &lt;rightid&gt;</property>
-                        <property name="margin_top">1</property>
-                        <property name="margin_bottom">1</property>
-                        <property name="hexpand">True</property>
-                        <property name="primary_icon_activatable">False</property>
-                        <property name="secondary_icon_activatable">False</property>
-                      </object>
-                      <packing>
-                        <property name="left_attach">1</property>
-                        <property name="top_attach">0</property>
-                      </packing>
-                    </child>
-                  </object>
-                </child>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="padding">2</property>
-                <property name="position">1</property>
-              </packing>
-            </child>
-            <child>
               <object class="GtkLabel" id="machine_auth_label">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="ypad">5</property>
                 <property name="label" translatable="yes">Machine Authentication</property>
+                <property name="single_line_mode">True</property>
                 <property name="xalign">0</property>
                 <attributes>
                   <attribute name="weight" value="bold"/>
@@ -891,7 +827,7 @@ config: ipsec-psk</property>
                           </object>
                           <packing>
                             <property name="left_attach">0</property>
-                            <property name="top_attach">1</property>
+                            <property name="top_attach">2</property>
                           </packing>
                         </child>
                         <child>
@@ -904,7 +840,7 @@ config: ipsec-psk &lt;proposals&gt;</property>
                           </object>
                           <packing>
                             <property name="left_attach">1</property>
-                            <property name="top_attach">0</property>
+                            <property name="top_attach">1</property>
                           </packing>
                         </child>
                         <child>
@@ -917,7 +853,7 @@ config: ipsec-esp &lt;proposals&gt;</property>
                           </object>
                           <packing>
                             <property name="left_attach">1</property>
-                            <property name="top_attach">1</property>
+                            <property name="top_attach">2</property>
                           </packing>
                         </child>
                         <child>
@@ -930,7 +866,7 @@ config: ipsec-esp &lt;proposals&gt;</property>
                           </object>
                           <packing>
                             <property name="left_attach">0</property>
-                            <property name="top_attach">0</property>
+                            <property name="top_attach">1</property>
                           </packing>
                         </child>
                         <child>
@@ -972,7 +908,7 @@ config: ipsec-ikelifetime &lt;lifetime&gt;</property>
                           </object>
                           <packing>
                             <property name="left_attach">1</property>
-                            <property name="top_attach">2</property>
+                            <property name="top_attach">3</property>
                           </packing>
                         </child>
                         <child>
@@ -1014,7 +950,7 @@ config: ipsec-salifetime &lt;lifetime&gt;</property>
                           </object>
                           <packing>
                             <property name="left_attach">1</property>
-                            <property name="top_attach">3</property>
+                            <property name="top_attach">4</property>
                           </packing>
                         </child>
                         <child>
@@ -1028,7 +964,7 @@ config: ipsec-salifetime &lt;lifetime&gt;</property>
                           </object>
                           <packing>
                             <property name="left_attach">0</property>
-                            <property name="top_attach">2</property>
+                            <property name="top_attach">3</property>
                           </packing>
                         </child>
                         <child>
@@ -1042,7 +978,36 @@ config: ipsec-salifetime &lt;lifetime&gt;</property>
                           </object>
                           <packing>
                             <property name="left_attach">0</property>
-                            <property name="top_attach">3</property>
+                            <property name="top_attach">4</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="ipsec_gateway_id_label">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="xpad">12</property>
+                            <property name="label" translatable="yes">Remote ID:</property>
+                            <property name="xalign">0</property>
+                          </object>
+                          <packing>
+                            <property name="left_attach">0</property>
+                            <property name="top_attach">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkEntry" id="ipsec_remote_id">
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="tooltip_text" translatable="yes">Optional. How the IPsec server should be identified for authentication. Sometimes referred to as IPsec identifier,  Peer ID or Gateway ID.  Also refered to as rightid by strongSwan, Libreswan, Openswan and  FreeS/WAN. See strongSwan or Libreswan documentation for leftid/rightid syntax and identity parsing.
+config: ipsec-gateway-id &lt;rightid&gt;
+ipsec.secrets: &lt;ID&gt;</property>
+                            <property name="margin_top">1</property>
+                            <property name="margin_bottom">1</property>
+                            <property name="hexpand">True</property>
+                          </object>
+                          <packing>
+                            <property name="left_attach">1</property>
+                            <property name="top_attach">0</property>
                           </packing>
                         </child>
                       </object>
@@ -1146,14 +1111,6 @@ config: ipsec-pfs &lt;no/yes&gt;</property>
       <action-widget response="-6">ipsec_cancel_button</action-widget>
       <action-widget response="-5">ipsec_ok_button</action-widget>
     </action-widgets>
-  </object>
-  <object class="GtkSizeGroup" id="ipsec_labels">
-    <property name="ignore_hidden">True</property>
-    <widgets>
-      <widget name="ipsec_gateway_id_label"/>
-      <widget name="psk_label"/>
-      <widget name="ipsec_auth_type_label"/>
-    </widgets>
   </object>
   <object class="GtkListStore" id="model1">
     <columns>
