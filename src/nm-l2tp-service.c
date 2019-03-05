@@ -162,6 +162,7 @@ static const ValidProperty valid_properties[] = {
 	{ NM_L2TP_KEY_UNIT_NUM,          G_TYPE_UINT, FALSE },
 	{ NM_L2TP_KEY_PASSWORD"-flags",  G_TYPE_UINT, FALSE },
 	{ NM_L2TP_KEY_IPSEC_ENABLE,      G_TYPE_BOOLEAN, FALSE },
+	{ NM_L2TP_KEY_IPSEC_REMOTE_ID,   G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_GATEWAY_ID,  G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_PSK,         G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_IKE,         G_TYPE_STRING, FALSE },
@@ -573,6 +574,12 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	/* Check that xl2tpd's default port 1701 is free */
 	l2tp_port_is_free = is_port_free (1701);
 
+	/* Map depricated Gateway ID to Remote ID */
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GATEWAY_ID);
+	if (nm_streq0 (value, "yes")) {
+		nm_setting_vpn_add_data_item (s_vpn, NM_L2TP_KEY_IPSEC_REMOTE_ID, value);
+	}
+
 	/* Map legacy KDE Plasma-nm keys to equivalent new keys */
 	value = nm_setting_vpn_get_data_item (s_vpn, KDE_PLASMA_L2TP_KEY_USE_CERT);
 	if (nm_streq0 (value, "yes")) {
@@ -626,7 +633,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 			return nm_l2tp_ipsec_error(error, errorbuf);
 		}
 
-		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GATEWAY_ID);
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_REMOTE_ID);
 		if (value) {
 			if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
 				write_config_option (fd, "%%any ");
@@ -669,7 +676,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		}
 
 		write_config_option (fd, "  right=%s\n", priv->saddr);
-		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GATEWAY_ID);
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_REMOTE_ID);
 		if (value) {
 			write_config_option (fd, "  rightid=%s\n", value);
 		} else {
