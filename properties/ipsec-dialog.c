@@ -112,6 +112,32 @@ ipsec_toggled_cb (GtkWidget *check, gpointer user_data)
 	handle_enable_changed (check, FALSE, (GtkBuilder *) user_data);
 }
 
+static void
+show_psk_toggled_cb (GtkCheckButton *button, GtkEntry *psk_entry)
+{
+	gboolean visible;
+
+	visible = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button));
+	gtk_entry_set_visibility (GTK_ENTRY (psk_entry), visible);
+}
+
+static void
+ipsec_psk_setup (GtkBuilder *builder, GHashTable *hash)
+{
+	GtkWidget *psk_entry_widget;
+	GtkWidget *checkbutton_widget;
+	const char *value;
+
+	checkbutton_widget = GTK_WIDGET (gtk_builder_get_object (builder,  "show_psk_check"));
+	psk_entry_widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_psk_entry"));
+
+	value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_PSK);
+	if (value && value[0])
+		gtk_entry_set_text (GTK_ENTRY (psk_entry_widget), value);
+
+	g_signal_connect (checkbutton_widget, "toggled", G_CALLBACK (show_psk_toggled_cb), psk_entry_widget);
+}
+
 static gint
 lifetime_spin_input (GtkSpinButton *spin_button,
                      gdouble       *new_val)
@@ -247,9 +273,8 @@ ipsec_dialog_new (GHashTable *hash)
 	if((value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_GATEWAY_ID)))
 		gtk_entry_set_text (GTK_ENTRY(widget), value);
 
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_psk_entry"));
-	if((value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_PSK)))
-		gtk_entry_set_text(GTK_ENTRY(widget), value);
+	/* PSK auth widget */
+	ipsec_psk_setup (builder, hash);
 
 	/* Phase 1 Algorithms: IKE */
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_phase1"));
