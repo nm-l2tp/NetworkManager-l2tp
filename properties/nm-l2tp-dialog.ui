@@ -126,8 +126,7 @@ config: xl2tpd lns parameter</property>
                   <object class="GtkEntry" id="domain_entry">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="tooltip_text" translatable="yes">Append the domain name &lt;domain&gt; to the local host name for authentication purposes.
-config: domain &lt;domain&gt;</property>
+                    <property name="tooltip_text" translatable="yes">Use down-level logon name format for user authentication purposes, for example, DOMAIN\username. Where DOMAIN is the value from this text entry box.</property>
                     <property name="hexpand">True</property>
                   </object>
                   <packing>
@@ -167,8 +166,8 @@ config: domain &lt;domain&gt;</property>
                   <object class="GtkEntry" id="user_entry">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="tooltip_text" translatable="yes">Set the name used for authenticating the local system to the peer to &lt;name&gt;.
-config: xl2tpd name parameter</property>
+                    <property name="tooltip_text" translatable="yes">Username passed to PPPD when prompted for it. If omitted, use the name of the system user that activates the connection.
+config: ppp name parameter</property>
                     <property name="hexpand">True</property>
                   </object>
                   <packing>
@@ -345,6 +344,11 @@ config: xl2tpd name parameter</property>
     </child>
   </object>
   <object class="GtkAdjustment" id="lifetime1_adjustment">
+    <property name="upper">86400</property>
+    <property name="step_increment">900</property>
+    <property name="page_increment">3600</property>
+  </object>
+  <object class="GtkAdjustment" id="lifetime2_adjustment">
     <property name="upper">86400</property>
     <property name="step_increment">900</property>
     <property name="page_increment">3600</property>
@@ -824,11 +828,6 @@ config: ipsec-pfs &lt;no/yes&gt;</property>
       <action-widget response="-6">ipsec_cancel_button</action-widget>
       <action-widget response="-5">ipsec_ok_button</action-widget>
     </action-widgets>
-  </object>
-  <object class="GtkAdjustment" id="lifetime2_adjustment">
-    <property name="upper">86400</property>
-    <property name="step_increment">900</property>
-    <property name="page_increment">3600</property>
   </object>
   <object class="GtkListStore" id="model1">
     <columns>
