@@ -112,18 +112,6 @@ config: xl2tpd lns parameter</property>
           </packing>
         </child>
         <child>
-          <object class="GtkAlignment" id="alignment1">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="left_padding">12</property>
-          </object>
-          <packing>
-            <property name="expand">True</property>
-            <property name="fill">True</property>
-            <property name="position">1</property>
-          </packing>
-        </child>
-        <child>
           <object class="GtkAlignment" id="alignment2">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
@@ -157,8 +145,8 @@ config: xl2tpd lns parameter</property>
                               <object class="GtkEntry" id="domain_entry">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
-                                <property name="tooltip_text" translatable="yes">Append the domain name &lt;domain&gt; to the local host name for authentication purposes.
-config: domain &lt;domain&gt;</property>
+                                <property name="tooltip_text" translatable="yes">Use down-level logon name format for user authentication purposes, for example, DOMAIN\username. Where DOMAIN is the value from this text entry box.
+</property>
                                 <property name="hexpand">True</property>
                               </object>
                               <packing>
@@ -199,8 +187,10 @@ config: domain &lt;domain&gt;</property>
                               <object class="GtkEntry" id="username_entry">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
-                                <property name="tooltip_text" translatable="yes">Set the name used for authenticating the local system to the peer to &lt;name&gt;.
-config: xl2tpd name parameter</property>
+                                <property name="tooltip_text" translatable="yes">Username passed to PPPD when prompted for it. If omitted, use the name of the system user that activates the connection.
+config: ppp name parameter
+
+config: auth-user-pass</property>
                                 <property name="hexpand">True</property>
                               </object>
                               <packing>
@@ -253,9 +243,6 @@ config: xl2tpd name parameter</property>
                             <property name="fill">True</property>
                             <property name="position">0</property>
                           </packing>
-                        </child>
-                        <child>
-                          <placeholder/>
                         </child>
                       </object>
                       <packing>
@@ -364,6 +351,18 @@ config: xl2tpd name parameter</property>
           <packing>
             <property name="expand">False</property>
             <property name="fill">False</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkAlignment" id="alignment1">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="left_padding">12</property>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
             <property name="position">1</property>
           </packing>
         </child>
