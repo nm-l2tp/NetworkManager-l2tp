@@ -79,7 +79,6 @@ handle_enable_changed (GtkWidget *check, gboolean is_init, GtkBuilder *builder)
 	GtkWidget *widget;
 	guint32 i = 0;
 	const char *widgets[] = {
-		"general_label", "ipsec_remote_id_label", "ipsec_remote_id",
 		"machine_auth_label", "show_psk_check", "psk_label",
 		"ipsec_psk_entry", "advanced_label",
 		NULL
@@ -127,13 +126,29 @@ ipsec_psk_setup (GtkBuilder *builder, GHashTable *hash)
 	GtkWidget *psk_entry_widget;
 	GtkWidget *checkbutton_widget;
 	const char *value;
+	guchar *decoded = NULL;
+	char *psk = NULL;
+	gsize len = 0;
 
 	checkbutton_widget = GTK_WIDGET (gtk_builder_get_object (builder,  "show_psk_check"));
 	psk_entry_widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_psk_entry"));
 
 	value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_PSK);
-	if (value && value[0])
-		gtk_entry_set_text (GTK_ENTRY (psk_entry_widget), value);
+	if (value && value[0]) {
+		if (g_str_has_prefix (value, "0s")) { /* Base64 encoded PSK */
+			decoded = g_base64_decode (value + 2, &len);
+			if (decoded && len > 0) {
+				/* ensure PSK is NULL terminated string */
+				psk = g_malloc0 (len + 1);
+				memcpy (psk, decoded, len);
+				gtk_entry_set_text (GTK_ENTRY(psk_entry_widget), psk);
+				g_free (psk);
+			}
+			g_free (decoded);
+		} else {
+			gtk_entry_set_text (GTK_ENTRY(psk_entry_widget), value);
+		}
+	}
 
 	g_signal_connect (checkbutton_widget, "toggled", G_CALLBACK (show_psk_toggled_cb), psk_entry_widget);
 }
@@ -430,9 +445,11 @@ ipsec_dialog_new_hash_from_dialog (GtkWidget *dialog, GError **error)
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_psk_entry"));
 	value = gtk_entry_get_text(GTK_ENTRY(widget));
 	if (value && *value) {
+		char *psk_base64 = g_base64_encode ((const unsigned char *) value, strlen (value));
 		g_hash_table_insert (hash,
 		                     g_strdup (NM_L2TP_KEY_IPSEC_PSK),
-		                     g_strdup (value));
+		                     g_strdup_printf("0s%s", psk_base64));
+		g_free (psk_base64);
 	}
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_phase1"));
