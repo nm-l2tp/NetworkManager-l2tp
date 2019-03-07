@@ -709,8 +709,13 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 
 				value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_PSK);
 				if (!value) value="";
-				pwd_base64 = g_base64_encode ((const unsigned char *) value, strlen (value));
-				write_config_option (fd, ": PSK 0s%s\n", pwd_base64);
+
+				if (g_str_has_prefix (value, "0s")) {
+					write_config_option (fd, ": PSK %s\n", value);
+				} else {
+					pwd_base64 = g_base64_encode ((const unsigned char *) value, strlen (value));
+					write_config_option (fd, ": PSK 0s%s\n", pwd_base64);
+				}
 
 			} else { /* TLS_AUTH */
 				if (!tls_key_filename) {
