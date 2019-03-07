@@ -112,6 +112,18 @@ config: xl2tpd lns parameter</property>
           </packing>
         </child>
         <child>
+          <object class="GtkAlignment" id="alignment1">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="left_padding">12</property>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
           <object class="GtkAlignment" id="alignment2">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
@@ -145,8 +157,7 @@ config: xl2tpd lns parameter</property>
                               <object class="GtkEntry" id="domain_entry">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
-                                <property name="tooltip_text" translatable="yes">Use down-level logon name format for user authentication purposes, for example, DOMAIN\username. Where DOMAIN is the value from this text entry box.
-</property>
+                                <property name="tooltip_text" translatable="yes">Use down-level logon name format for user authentication purposes, i.e. DOMAIN\username, where DOMAIN is the value from this text entry box.</property>
                                 <property name="hexpand">True</property>
                               </object>
                               <packing>
@@ -351,18 +362,6 @@ config: auth-user-pass</property>
           <packing>
             <property name="expand">False</property>
             <property name="fill">False</property>
-            <property name="position">1</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkAlignment" id="alignment1">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="left_padding">12</property>
-          </object>
-          <packing>
-            <property name="expand">True</property>
-            <property name="fill">True</property>
             <property name="position">1</property>
           </packing>
         </child>
@@ -833,7 +832,7 @@ config: ipsec-psk</property>
                           <object class="GtkEntry" id="ipsec_phase1">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
-                            <property name="tooltip_text" translatable="yes">A list of proposals for IKE. The format is “cipher-hash-modpgroup, cipher-hash-modpgroup, …”.
+                            <property name="tooltip_text" translatable="yes">Optional. A list of proposals for IKE. The format is “cipher-hash-modpgroup, cipher-hash-modpgroup, …”.
 config: ipsec-psk &lt;proposals&gt;</property>
                             <property name="hexpand">True</property>
                           </object>
@@ -846,7 +845,7 @@ config: ipsec-psk &lt;proposals&gt;</property>
                           <object class="GtkEntry" id="ipsec_phase2">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
-                            <property name="tooltip_text" translatable="yes">A list of proposals for ESP. The format is “cipher-hash,cipher-hash, …”.
+                            <property name="tooltip_text" translatable="yes">Optional. A list of proposals for ESP. The format is “cipher-hash,cipher-hash, …”.
 config: ipsec-esp &lt;proposals&gt;</property>
                             <property name="hexpand">True</property>
                           </object>
@@ -998,7 +997,7 @@ config: ipsec-salifetime &lt;lifetime&gt;</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="tooltip_text" translatable="yes">Optional. How the IPsec server should be identified for authentication. Sometimes referred to as IPsec identifier,  Peer ID or Gateway ID.  Also refered to as rightid by strongSwan, Libreswan, Openswan and  FreeS/WAN. See strongSwan or Libreswan documentation for leftid/rightid syntax and identity parsing.
-config: ipsec-gateway-id &lt;rightid&gt;
+config: ipsec-remote-id &lt;rightid&gt;
 ipsec.secrets: &lt;ID&gt;</property>
                             <property name="margin_top">1</property>
                             <property name="margin_bottom">1</property>
