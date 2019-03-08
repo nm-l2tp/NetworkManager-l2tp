@@ -112,18 +112,6 @@ config: xl2tpd lns parameter</property>
           </packing>
         </child>
         <child>
-          <object class="GtkAlignment" id="alignment1">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="left_padding">12</property>
-          </object>
-          <packing>
-            <property name="expand">True</property>
-            <property name="fill">True</property>
-            <property name="position">1</property>
-          </packing>
-        </child>
-        <child>
           <object class="GtkAlignment" id="alignment2">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
@@ -362,6 +350,18 @@ config: auth-user-pass</property>
           <packing>
             <property name="expand">False</property>
             <property name="fill">False</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkAlignment" id="alignment1">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="left_padding">12</property>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
             <property name="position">1</property>
           </packing>
         </child>
@@ -829,7 +829,7 @@ config: ipsec-psk</property>
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkEntry" id="ipsec_phase1">
+                          <object class="GtkEntry" id="ipsec_phase1_entry">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="tooltip_text" translatable="yes">Optional. A list of proposals for IKE. The format is “cipher-hash-modpgroup, cipher-hash-modpgroup, …”.
@@ -842,7 +842,7 @@ config: ipsec-psk &lt;proposals&gt;</property>
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkEntry" id="ipsec_phase2">
+                          <object class="GtkEntry" id="ipsec_phase2_entry">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="tooltip_text" translatable="yes">Optional. A list of proposals for ESP. The format is “cipher-hash,cipher-hash, …”.
@@ -906,7 +906,7 @@ config: ipsec-ikelifetime &lt;lifetime&gt;</property>
                           </object>
                           <packing>
                             <property name="left_attach">1</property>
-                            <property name="top_attach">3</property>
+                            <property name="top_attach">4</property>
                           </packing>
                         </child>
                         <child>
@@ -948,7 +948,7 @@ config: ipsec-salifetime &lt;lifetime&gt;</property>
                           </object>
                           <packing>
                             <property name="left_attach">1</property>
-                            <property name="top_attach">4</property>
+                            <property name="top_attach">5</property>
                           </packing>
                         </child>
                         <child>
@@ -962,7 +962,7 @@ config: ipsec-salifetime &lt;lifetime&gt;</property>
                           </object>
                           <packing>
                             <property name="left_attach">0</property>
-                            <property name="top_attach">3</property>
+                            <property name="top_attach">4</property>
                           </packing>
                         </child>
                         <child>
@@ -976,7 +976,7 @@ config: ipsec-salifetime &lt;lifetime&gt;</property>
                           </object>
                           <packing>
                             <property name="left_attach">0</property>
-                            <property name="top_attach">4</property>
+                            <property name="top_attach">5</property>
                           </packing>
                         </child>
                         <child>
@@ -993,10 +993,10 @@ config: ipsec-salifetime &lt;lifetime&gt;</property>
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkEntry" id="ipsec_remote_id">
+                          <object class="GtkEntry" id="ipsec_remote_id_entry">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
-                            <property name="tooltip_text" translatable="yes">Optional. How the IPsec server should be identified for authentication. Sometimes referred to as IPsec identifier,  Peer ID or Gateway ID.  Also refered to as rightid by strongSwan, Libreswan, Openswan and  FreeS/WAN. See strongSwan or Libreswan documentation for leftid/rightid syntax and identity parsing.
+                            <property name="tooltip_text" translatable="yes">Optional. How the IPsec server should be identified for authentication. Sometimes referred to as IPsec identifier, Peer ID and Gateway ID. Also referred to as rightid by strongSwan, Libreswan, Openswan and FreeS/WAN. See strongSwan or Libreswan documentation for leftid/rightid syntax and identity parsing.
 config: ipsec-remote-id &lt;rightid&gt;
 ipsec.secrets: &lt;ID&gt;</property>
                             <property name="margin_top">1</property>
@@ -1007,6 +1007,29 @@ ipsec.secrets: &lt;ID&gt;</property>
                             <property name="left_attach">1</property>
                             <property name="top_attach">0</property>
                           </packing>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="legacy_proposals_button">
+                            <property name="label" translatable="yes">_Legacy Proposals</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">True</property>
+                            <property name="tooltip_text" translatable="yes">Populates Phase 1 and 2 Algorithm text entry boxes with proposals offered by Windows Server 2019:
+• strong aes256-sha1-ecp384 and aes128-sha1-ecp256 proposals.
+ strongSwan recommends not using SHA-1 in its security recommendations.
+• broken 3des-sha1-modp1024 proposal.
+ Legacy Windows 2000 Server era proposal still commonly offered, especially with consumer routers.</property>
+                            <property name="halign">center</property>
+                            <property name="valign">start</property>
+                            <property name="use_underline">True</property>
+                          </object>
+                          <packing>
+                            <property name="left_attach">1</property>
+                            <property name="top_attach">3</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <placeholder/>
                         </child>
                       </object>
                       <packing>

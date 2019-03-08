@@ -34,6 +34,9 @@
 #define DEFAULT_IPSEC_LIBRESWAN_IKELIFETIME   3600 /* 1h */
 #define DEFAULT_IPSEC_LIBRESWAN_SALIFETIME   28800 /* 8h */
 
+#define LEGACY_PROPOSALS_PHASE1 "aes256-sha1-ecp384,aes128-sha1-ecp256,3des-sha1-modp1024"
+#define LEGACY_PROPOSALS_PHASE2 "aes256-sha1,aes128-sha1,3des-sha1"
+
 static const char *ipsec_keys[] = {
 	NM_L2TP_KEY_IPSEC_ENABLE,
 	NM_L2TP_KEY_IPSEC_REMOTE_ID,
@@ -273,6 +276,29 @@ ipsec_psk_setup (GtkBuilder *builder, GHashTable *hash)
 	g_signal_connect (checkbutton_widget, "toggled", G_CALLBACK (show_psk_toggled_cb), psk_entry_widget);
 }
 
+
+static void
+legacy_proposals_cb (GtkCheckButton *button, gpointer user_data)
+{
+	GtkBuilder *builder = GTK_BUILDER (user_data);
+	GtkWidget *widget;
+	NML2tpIpsecDaemon ipsec_daemon;
+
+	ipsec_daemon = GPOINTER_TO_INT(g_object_get_data(G_OBJECT(button), "ipsec-daemon"));
+
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_phase1_entry"));
+	if (ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN)
+		gtk_entry_set_text (GTK_ENTRY(widget), LEGACY_PROPOSALS_PHASE1);
+	else
+		gtk_entry_set_text (GTK_ENTRY(widget), LEGACY_PROPOSALS_PHASE1"!");
+
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_phase2_entry"));
+	if (ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN)
+		gtk_entry_set_text (GTK_ENTRY(widget), LEGACY_PROPOSALS_PHASE2);
+	else
+		gtk_entry_set_text (GTK_ENTRY(widget), LEGACY_PROPOSALS_PHASE2"!");
+}
+
 static gint
 lifetime_spin_input (GtkSpinButton *spin_button,
                      gdouble       *new_val)
@@ -408,7 +434,7 @@ ipsec_dialog_new (GHashTable *hash)
 	ipsec_daemon = check_ipsec_daemon (nm_find_ipsec ());
 	g_object_set_data (G_OBJECT(dialog), "ipsec-daemon", GINT_TO_POINTER(ipsec_daemon));
 
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_remote_id"));
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_remote_id_entry"));
 	if((value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_REMOTE_ID)))
 		gtk_entry_set_text (GTK_ENTRY(widget), value);
 
@@ -453,7 +479,7 @@ ipsec_dialog_new (GHashTable *hash)
 	gtk_combo_box_set_active (GTK_COMBO_BOX (widget), active < 0 ? 0 : active);
 
 	/* Phase 1 Algorithms: IKE */
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_phase1"));
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_phase1_entry"));
 	if((value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_IKE))) {
 		gtk_entry_set_text (GTK_ENTRY(widget), value);
 		widget = GTK_WIDGET (gtk_builder_get_object (builder, "advanced_expander"));
@@ -461,9 +487,13 @@ ipsec_dialog_new (GHashTable *hash)
 	}
 
 	/* Phase 2 Algorithms: ESP */
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_phase2"));
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_phase2_entry"));
 	if((value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_ESP)))
 		gtk_entry_set_text (GTK_ENTRY(widget), value);
+
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "legacy_proposals_button"));
+	g_object_set_data (G_OBJECT(widget), "ipsec-daemon", GINT_TO_POINTER(ipsec_daemon));
+	g_signal_connect (G_OBJECT (widget), "clicked", G_CALLBACK (legacy_proposals_cb), builder);
 
 	/* Phase 1 Lifetime */
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_phase1_lifetime"));
@@ -597,7 +627,7 @@ ipsec_dialog_new_hash_from_dialog (GtkWidget *dialog, GError **error)
 	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
 		g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_ENABLE), g_strdup("yes"));
 
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_remote_id"));
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_remote_id_entry"));
 	value = gtk_entry_get_text(GTK_ENTRY(widget));
 	if (value && *value) {
 		g_hash_table_insert (hash,
@@ -662,7 +692,7 @@ ipsec_dialog_new_hash_from_dialog (GtkWidget *dialog, GError **error)
 		                     g_strdup_printf ("%d", pw_flags));
 	}
 
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_phase1"));
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_phase1_entry"));
 	value = gtk_entry_get_text(GTK_ENTRY(widget));
 	if (value && *value) {
 		g_hash_table_insert (hash,
@@ -671,7 +701,7 @@ ipsec_dialog_new_hash_from_dialog (GtkWidget *dialog, GError **error)
 	}
 
 
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_phase2"));
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_phase2_entry"));
 	value = gtk_entry_get_text(GTK_ENTRY(widget));
 	if (value && *value) {
 		g_hash_table_insert (hash,
