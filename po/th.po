@@ -825,10 +825,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:99
 msgid "MRU :"
 msgstr ""
-
-#, fuzzy
-#~ msgid "Gateway ID:"
-#~ msgstr "เ_กตเวย์:"
-
-#~ msgid "Optional"
-#~ msgstr "ข้อมูลเสริม"

@@ -826,13 +826,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:99
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "No VPN secrets!"
-#~ msgstr "ਕੋਈ VPN ਭੇਦ ਨਹੀਂ!"
-
-#, fuzzy
-#~ msgid "Gateway ID:"
-#~ msgstr "ਗੇਟਵੇ(_G):"
-
-#~ msgid "Optional"
-#~ msgstr "ਚੋਣਵਾਂ"

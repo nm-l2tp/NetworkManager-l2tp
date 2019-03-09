@@ -821,12 +821,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:99
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "No VPN secrets!"
-#~ msgstr "Ingen hemmeligheter for VPN!"
-
-#~ msgid "Gateway ID:"
-#~ msgstr "Portner-ID:"
-
-#~ msgid "Optional"
-#~ msgstr "Valgfri"

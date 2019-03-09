@@ -870,39 +870,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:99
 msgid "MRU :"
 msgstr ""
-
-#, fuzzy
-#~ msgid "Missing required property '%s'"
-#~ msgstr "Gerekli '%s' seçeneği eksik."
-
-#, fuzzy
-#~ msgid "invalid ipsec-gateway-id '%s'"
-#~ msgstr "geçersiz ağ geçidi '%s'"
-
-#~ msgid "No VPN secrets!"
-#~ msgstr "VPN sırrı yok!"
-
-#~ msgid "Gateway ID:"
-#~ msgstr "Ağ Geçidi Kimliği:"
-
-#~ msgid "Optional"
-#~ msgstr "İsteğe Bağlı"
-
-#~ msgid ""
-#~ "Append the domain name <domain> to the local host name for authentication "
-#~ "purposes.\n"
-#~ "config: domain <domain>"
-#~ msgstr ""
-#~ "Kimlik doğrulama amacı için yerel makine adına alan adını <alanadı> "
-#~ "şeklinde ekleyin.\n"
-#~ "yapılandırma: domain <alanadı>"
-
-#, fuzzy
-#~ msgid ""
-#~ "Set the name used for authenticating the local system to the peer to "
-#~ "<name>.\n"
-#~ "config: xl2tpd name parameter"
-#~ msgstr ""
-#~ "Yerel sistemde kimlik doğrulaması için kullanılan ismi eşe <isim> olarak "
-#~ "ayarla.\n"
-#~ "yapılandırma: user <isim>"

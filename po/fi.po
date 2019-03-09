@@ -830,9 +830,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:99
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "Gateway ID:"
-#~ msgstr "Yhdyskäytävän tunniste:"
-
-#~ msgid "Optional"
-#~ msgstr "Lisävalinnat"

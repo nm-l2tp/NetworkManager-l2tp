@@ -825,9 +825,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:99
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "Gateway ID:"
-#~ msgstr "Ід. шлюзу:"
-
-#~ msgid "Optional"
-#~ msgstr "Додатвокі"

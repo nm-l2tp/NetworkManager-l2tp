@@ -861,21 +861,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:99
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "No VPN secrets!"
-#~ msgstr "Nincs VPN-titok!"
-
-#~ msgid "Gateway ID:"
-#~ msgstr "Átjáró azonosító:"
-
-#~ msgid "Optional"
-#~ msgstr "Nem kötelező"
-
-#~ msgid ""
-#~ "Append the domain name <domain> to the local host name for authentication "
-#~ "purposes.\n"
-#~ "config: domain <domain>"
-#~ msgstr ""
-#~ "A <tartomány> tartománynév hozzáfűzése a helyi gépnévhez hitelesítési "
-#~ "céllal.\n"
-#~ "config: domain <tartomány>"

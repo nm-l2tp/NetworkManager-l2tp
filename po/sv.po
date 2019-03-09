@@ -856,21 +856,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:99
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "No VPN secrets!"
-#~ msgstr "Inga VPN-hemligheter!"
-
-#~ msgid "Gateway ID:"
-#~ msgstr "Förmedlingsnod-id:"
-
-#~ msgid "Optional"
-#~ msgstr "Valfritt"
-
-#~ msgid ""
-#~ "Append the domain name <domain> to the local host name for authentication "
-#~ "purposes.\n"
-#~ "config: domain <domain>"
-#~ msgstr ""
-#~ "Lägg till domännamnet <domän> till det lokala värdnamnet för "
-#~ "autentiseringssyften.\n"
-#~ "konfiguration: domain <domän>"

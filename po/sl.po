@@ -852,20 +852,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:99
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "No VPN secrets!"
-#~ msgstr "Ni skrivnih podatkov VPN!"
-
-#~ msgid "Gateway ID:"
-#~ msgstr "ID prehoda:"
-
-#~ msgid "Optional"
-#~ msgstr "Izbirno"
-
-#~ msgid ""
-#~ "Append the domain name <domain> to the local host name for authentication "
-#~ "purposes.\n"
-#~ "config: domain <domain>"
-#~ msgstr ""
-#~ "Pripni ime <domene> k imenu krajevnega gostitelja za overitev.\n"
-#~ "Nastavitev: domena <domena>"

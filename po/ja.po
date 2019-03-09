@@ -840,13 +840,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:99
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "No VPN secrets!"
-#~ msgstr "VPN シークレットがありません。"
-
-#, fuzzy
-#~ msgid "Gateway ID:"
-#~ msgstr "ゲートウェイ(_G):"
-
-#~ msgid "Optional"
-#~ msgstr "オプション"

@@ -871,38 +871,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:99
 msgid "MRU :"
 msgstr ""
-
-#, fuzzy
-#~ msgid "Missing required property '%s'"
-#~ msgstr "E mancje la opzion necessarie “%s”."
-
-#, fuzzy
-#~ msgid "invalid ipsec-gateway-id '%s'"
-#~ msgstr "gateway “%s” no valit"
-
-#~ msgid "No VPN secrets!"
-#~ msgstr "Nissun segret VPN!"
-
-#, fuzzy
-#~ msgid "Gateway ID:"
-#~ msgstr "_Gateway:"
-
-#~ msgid "Optional"
-#~ msgstr "Opzionâl"
-
-#~ msgid ""
-#~ "Append the domain name <domain> to the local host name for authentication "
-#~ "purposes.\n"
-#~ "config: domain <domain>"
-#~ msgstr ""
-#~ "Zonte il non dal domini <domini> al non dal host locâl pe autenticazion.\n"
-#~ "config: domain <domini>"
-
-#, fuzzy
-#~ msgid ""
-#~ "Set the name used for authenticating the local system to the peer to "
-#~ "<name>.\n"
-#~ "config: xl2tpd name parameter"
-#~ msgstr ""
-#~ "Stabilìs il non doprât par autenticâ il sisteme locâl al grop a <non>.\n"
-#~ "config: user <non>"

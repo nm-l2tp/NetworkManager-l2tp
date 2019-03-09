@@ -856,21 +856,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:99
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "No VPN secrets!"
-#~ msgstr "Nėra VPN paslapčių!"
-
-#~ msgid "Gateway ID:"
-#~ msgstr "Šliuzo ID:"
-
-#~ msgid "Optional"
-#~ msgstr "Neprivaloma"
-
-#~ msgid ""
-#~ "Append the domain name <domain> to the local host name for authentication "
-#~ "purposes.\n"
-#~ "config: domain <domain>"
-#~ msgstr ""
-#~ "Pridėti srities vardą <sritis> prie vietinio serverio pavadinimo "
-#~ "tapatybės nustatymo tikslais.\n"
-#~ "konfig.: domain <sritis>"

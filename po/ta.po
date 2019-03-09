@@ -831,10 +831,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:99
 msgid "MRU :"
 msgstr ""
-
-#, fuzzy
-#~ msgid "Gateway ID:"
-#~ msgstr "கேட்வே (_G):"
-
-#~ msgid "Optional"
-#~ msgstr "விருப்பத்திற்குரிய"

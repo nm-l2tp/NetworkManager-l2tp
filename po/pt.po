@@ -850,21 +850,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:99
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "No VPN secrets!"
-#~ msgstr "Sem segredos VPN!"
-
-#~ msgid "Gateway ID:"
-#~ msgstr "ID da 'Gateway':"
-
-#~ msgid "Optional"
-#~ msgstr "Opcional"
-
-#~ msgid ""
-#~ "Append the domain name <domain> to the local host name for authentication "
-#~ "purposes.\n"
-#~ "config: domain <domain>"
-#~ msgstr ""
-#~ "Acrescenta o nome de domínio <domain> ao nome de máquina local para fins "
-#~ "de autenticação.\n"
-#~ "configuração: domínio <domain>"

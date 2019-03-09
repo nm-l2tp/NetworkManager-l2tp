@@ -853,22 +853,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:99
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "No VPN secrets!"
-#~ msgstr "Ez dago VPNaren ezkutukorik."
-
-#, fuzzy
-#~ msgid "Gateway ID:"
-#~ msgstr "_Atebidea:"
-
-#~ msgid "Optional"
-#~ msgstr "Aukerakoa"
-
-#~ msgid ""
-#~ "Append the domain name <domain> to the local host name for authentication "
-#~ "purposes.\n"
-#~ "config: domain <domain>"
-#~ msgstr ""
-#~ "Erantsi <domeinua> domeinu-izena ostalari lokalaren izenari "
-#~ "autentifikatzeko.\n"
-#~ "konfigurazioa: domain <domeinua>"

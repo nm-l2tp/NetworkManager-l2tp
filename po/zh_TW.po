@@ -820,9 +820,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:99
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "Gateway ID:"
-#~ msgstr "閘道 ID："
-
-#~ msgid "Optional"
-#~ msgstr "選擇性"

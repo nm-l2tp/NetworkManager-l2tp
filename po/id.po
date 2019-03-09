@@ -855,22 +855,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:99
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "No VPN secrets!"
-#~ msgstr "Tak ada rahasia VPN!"
-
-#, fuzzy
-#~ msgid "Gateway ID:"
-#~ msgstr "_Gateway:"
-
-#~ msgid "Optional"
-#~ msgstr "Opsional"
-
-#~ msgid ""
-#~ "Append the domain name <domain> to the local host name for authentication "
-#~ "purposes.\n"
-#~ "config: domain <domain>"
-#~ msgstr ""
-#~ "Imbuhkan nama domain <domain> ke nama host lokal bagi keperluan "
-#~ "otentikasi.\n"
-#~ "config: domain <domain>"

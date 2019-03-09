@@ -823,10 +823,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:99
 msgid "MRU :"
 msgstr ""
-
-#, fuzzy
-#~ msgid "Gateway ID:"
-#~ msgstr "_دروازه"
-
-#~ msgid "Optional"
-#~ msgstr "اختیاری"

@@ -851,22 +851,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:99
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "No VPN secrets!"
-#~ msgstr "Nav VPN noslēpumu!"
-
-#, fuzzy
-#~ msgid "Gateway ID:"
-#~ msgstr "_Vārteja:"
-
-#~ msgid "Optional"
-#~ msgstr "Neobligāts"
-
-#~ msgid ""
-#~ "Append the domain name <domain> to the local host name for authentication "
-#~ "purposes.\n"
-#~ "config: domain <domain>"
-#~ msgstr ""
-#~ "Pievienot domēna nosaukumu <domain> lokālā datora nosaukumam, lai "
-#~ "autentificētos.\n"
-#~ "config: domain <domain>"

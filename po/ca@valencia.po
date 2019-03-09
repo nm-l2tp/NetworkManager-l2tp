@@ -823,9 +823,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:99
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "Gateway ID:"
-#~ msgstr "ID de la passarel·la:"
-
-#~ msgid "Optional"
-#~ msgstr "Opcional"

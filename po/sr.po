@@ -874,39 +874,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:99
 msgid "MRU :"
 msgstr ""
-
-#, fuzzy
-#~ msgid "Missing required property '%s'"
-#~ msgstr "Недостаје затражена опција „%s“."
-
-#, fuzzy
-#~ msgid "invalid ipsec-gateway-id '%s'"
-#~ msgstr "неисправан мрежни пролаз „%s“"
-
-#~ msgid "No VPN secrets!"
-#~ msgstr "Нема ВПН тајни!"
-
-#~ msgid "Gateway ID:"
-#~ msgstr "ИД мрежног излаза:"
-
-#~ msgid "Optional"
-#~ msgstr "Изборно"
-
-#~ msgid ""
-#~ "Append the domain name <domain> to the local host name for authentication "
-#~ "purposes.\n"
-#~ "config: domain <domain>"
-#~ msgstr ""
-#~ "Качи назив домена <domain> на назив локалног рачунара за сврхе "
-#~ "пријављивања.\n"
-#~ "подешавање: домен <domain>"
-
-#, fuzzy
-#~ msgid ""
-#~ "Set the name used for authenticating the local system to the peer to "
-#~ "<name>.\n"
-#~ "config: xl2tpd name parameter"
-#~ msgstr ""
-#~ "Подесите назив коришћен за пријављивање локалног система парљаку на "
-#~ "<name>.\n"
-#~ "подешавање: корисник <name>"
