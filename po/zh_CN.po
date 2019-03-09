@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-15 22:33+1000\n"
+"POT-Creation-Date: 2019-03-09 18:00+1000\n"
 "PO-Revision-Date: 2011-11-27 18:26+0800\n"
 "Last-Translator: YunQiang Su <wzssyqa@gmail.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
@@ -45,357 +45,422 @@ msgstr "L2TP PPP 选项"
 msgid "The NetworkManager-L2TP Developers"
 msgstr ""
 
-#. Otherwise, we have no saved password, or the password flags indicated
-#. * that the password should never be saved.
-#.
-#: ../auth-dialog/main.c:146
-#, c-format
-msgid "You need to authenticate to access the Virtual Private Network '%s'."
-msgstr "您需要进行身份验证才能访问虚拟专用网络 '%s'。"
-
-#: ../auth-dialog/main.c:155 ../auth-dialog/main.c:175
-msgid "Authenticate VPN"
+#: ../auth-dialog/main.c:175
+#, fuzzy, c-format
+msgid "Authenticate VPN %s"
 msgstr "认证 VPN"
 
-#: ../auth-dialog/main.c:157 ../properties/nm-l2tp-dialog.ui.h:25
+#: ../auth-dialog/main.c:182 ../properties/nm-l2tp-dialog.ui.h:14
 msgid "Password:"
 msgstr "密码:"
 
-#: ../properties/advanced-dialog.c:172
+#: ../auth-dialog/main.c:189
+msgid "User Certificate password:"
+msgstr ""
+
+#: ../auth-dialog/main.c:196
+msgid "Machine Certificate password:"
+msgstr ""
+
+#: ../auth-dialog/main.c:236
+msgid "Authenticate VPN"
+msgstr "认证 VPN"
+
+#: ../auth-dialog/main.c:245
+msgid "_User Certificate password:"
+msgstr ""
+
+#: ../auth-dialog/main.c:251
+msgid "_Machine Certificate password:"
+msgstr ""
+
+#: ../auth-dialog/main.c:487
+#, fuzzy, c-format
+msgid "You need to authenticate to access the Virtual Private Network “%s”."
+msgstr "您需要进行身份验证才能访问虚拟专用网络 '%s'。"
+
+#: ../properties/ppp-dialog.c:172
 msgid "All Available (Default)"
 msgstr "全部可用 (默认)"
 
-#: ../properties/advanced-dialog.c:176
+#: ../properties/ppp-dialog.c:176
 msgid "128-bit (most secure)"
 msgstr "128 位 (最安全的)"
 
-#: ../properties/advanced-dialog.c:185
+#: ../properties/ppp-dialog.c:185
 msgid "40-bit (less secure)"
 msgstr "40 位 (不太安全)"
 
-#: ../properties/advanced-dialog.c:289
+#: ../properties/ppp-dialog.c:289
 msgid "PAP"
 msgstr "PAP"
 
-#: ../properties/advanced-dialog.c:302
+#: ../properties/ppp-dialog.c:302
 msgid "CHAP"
 msgstr "CHAP"
 
-#: ../properties/advanced-dialog.c:314
+#: ../properties/ppp-dialog.c:314
 msgid "MSCHAP"
 msgstr "MSCHAP"
 
-#: ../properties/advanced-dialog.c:326
+#: ../properties/ppp-dialog.c:326
 msgid "MSCHAPv2"
 msgstr "MSCHAPv2"
 
-#: ../properties/advanced-dialog.c:339
+#: ../properties/ppp-dialog.c:339
 msgid "EAP"
 msgstr "EAP"
 
-#: ../properties/import-export.c:162 ../properties/import-export.c:432
-#, c-format
-msgid "Required property %s missing"
-msgstr "需要的属性 %s 缺失"
+#: ../properties/ipsec-dialog.c:457
+#, fuzzy
+msgid "Pre-shared key (PSK)"
+msgstr "预共享密钥："
 
-#: ../properties/import-export.c:183
-#, c-format
-msgid "Property %s value '%s' can't be parsed as boolean."
-msgstr "属性 %s 的值 '%s' 无法解析成布尔值"
+#: ../properties/ipsec-dialog.c:466 ../properties/nm-l2tp-editor.c:557
+msgid "Certificates (TLS)"
+msgstr ""
 
-#: ../properties/import-export.c:207 ../properties/import-export.c:268
-#: ../properties/import-export.c:306
-#, c-format
-msgid "Property '%s' value '%s' can't be parsed as IP address."
-msgstr "属性 '%s' 的值 '%s' 无法解析成 IP 地址"
-
-#: ../properties/import-export.c:258
-#, c-format
-msgid "Property '%s' value '%s' couldn't find netmask."
-msgstr "属性 '%s' 的值 '%s' 无法找到网络掩码"
-
-#: ../properties/import-export.c:285
-#, c-format
-msgid "Property '%s' value '%s' can't be parsed as IP netmask."
-msgstr "属性 '%s' 的值 '%s' 无法解析成 IP 网络掩码"
-
-#: ../properties/import-export.c:330
-#, c-format
-msgid "Property '%s' value '%s' can't be parsed as route metric."
-msgstr "属性 '%s' 的值 '%s' 无法解析成路由跃点数"
-
-#: ../properties/import-export.c:340
-#, c-format
-msgid "Error parsing property '%s' value '%s'."
-msgstr "解析属性 '%s' 值 '%s' 时出错"
-
-#: ../properties/import-export.c:362
-#, fuzzy, c-format
-msgid "Error parsing property '%s': %s."
-msgstr "解析属性 '%s' 值 '%s' 时出错"
-
-#: ../properties/import-export.c:397
-#, c-format
-msgid "does not look like a L2TP VPN connection (parse failed)"
-msgstr "看起来不像是个 L2TP VPN 连接(解析失败)"
-
-#: ../properties/import-export.c:450
-#, c-format
-msgid "Property %s can't be parsed as integer."
-msgstr "属性 %s 无法解析成整数"
-
-#: ../properties/import-export.c:467
-#, c-format
-msgid ""
-"Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."
-msgstr "属性 %s 无法解析成布尔值。只允许 'true' 和 'false'。"
-
-#: ../properties/import-export.c:698
-#, c-format
-msgid "Missing required property '%s'"
-msgstr "缺失需要的属性 '%s'"
-
-#: ../properties/import-export.c:728
-#, c-format
-msgid "Couldn't open file for writing."
-msgstr "无法打开文件来写入"
-
-#: ../properties/nm-l2tp-editor-plugin.c:36
-msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr "第2层隧道协议 (L2TP)"
-
-#: ../properties/nm-l2tp-editor-plugin.c:37
-msgid "Compatible with Microsoft and other L2TP VPN servers."
-msgstr "与微软及其他的 L2TP VPN 服务器兼容。"
-
-#: ../properties/nm-l2tp-editor.c:146
+#: ../properties/nm-l2tp-editor.c:378
 #, c-format
 msgid "%s: error reading ppp settings: %s"
 msgstr "%s：读取高级设置时出错：%s"
 
-#: ../properties/nm-l2tp-editor.c:170
+#: ../properties/nm-l2tp-editor.c:402
 #, c-format
 msgid "%s: error reading ipsec settings: %s"
 msgstr "%s：读取 ipsec 设置时出错：%s"
 
-#: ../properties/nm-l2tp-editor.c:190
+#: ../properties/nm-l2tp-editor.c:437
 #, c-format
 msgid "%s: failed to create the PPP dialog!"
 msgstr "%s：创建高级对话失败！"
 
-#: ../properties/nm-l2tp-editor.c:219
+#: ../properties/nm-l2tp-editor.c:480
 #, c-format
 msgid "%s: failed to create the IPsec dialog!"
 msgstr "%s：创建 IPsec 对话失败！"
 
-#: ../properties/nm-l2tp-editor.c:525
+#: ../properties/nm-l2tp-editor.c:548
+#, fuzzy
+msgid "Password"
+msgstr "密码:"
+
+#: ../properties/nm-l2tp-editor.c:717
 #, c-format
 msgid "could not create l2tp object"
 msgstr "无法创建 l2tp 对象"
 
-#: ../properties/nm-l2tp-editor.c:537
-#, c-format
-msgid "Couldn't load builder file: %s"
-msgstr "无法加载构建文件：%s"
-
-#: ../properties/nm-l2tp-editor.c:541
-#, c-format
-msgid "could not load required resources at %s"
-msgstr "无法在 %s 加载需要的资源"
-
-#: ../properties/nm-l2tp-editor.c:551
+#: ../properties/nm-l2tp-editor.c:734
 #, c-format
 msgid "could not load UI widget"
 msgstr "无法加载 UI 部件"
 
-#: ../shared/nm-utils/nm-shared-utils.c:185
+#: ../properties/nm-l2tp-editor-plugin.c:34
+msgid "Layer 2 Tunneling Protocol (L2TP)"
+msgstr "第2层隧道协议 (L2TP)"
+
+#: ../properties/nm-l2tp-editor-plugin.c:35
+msgid "Compatible with Microsoft and other L2TP VPN servers."
+msgstr "与微软及其他的 L2TP VPN 服务器兼容。"
+
+#: ../shared/nm-l2tp-crypto-nss.c:67
+#, c-format
+msgid "Unable to initialize the NSS database for read/write: %d."
+msgstr ""
+
+#: ../shared/nm-l2tp-crypto-nss.c:79
+#, c-format
+msgid "Libreswan NSS database \"%s\" is not initialized."
+msgstr ""
+
+#: ../shared/nm-l2tp-crypto-nss.c:88
+#, c-format
+msgid "Libreswan NSS password file \"%s\" does not exist."
+msgstr ""
+
+#: ../shared/nm-l2tp-crypto-nss.c:99
+#, c-format
+msgid "Password for token \"%s\" is incorrect or not found : %d"
+msgstr ""
+
+#: ../shared/nm-l2tp-crypto-nss.c:127
+#, c-format
+msgid "Failed to shutdown NSS: %d."
+msgstr ""
+
+#: ../shared/nm-l2tp-crypto-nss.c:251
+#, c-format
+msgid "Couldn't initialize NSS PKCS#12 decoder: %d"
+msgstr ""
+
+#: ../shared/nm-l2tp-crypto-nss.c:260
+#, c-format
+msgid "Couldn't decode NSS PKCS#12 data: %d"
+msgstr ""
+
+#: ../shared/nm-l2tp-crypto-nss.c:269
+#, c-format
+msgid "Couldn't verify NSS PKCS#12 data: %d"
+msgstr ""
+
+#: ../shared/nm-l2tp-crypto-nss.c:278
+#, c-format
+msgid "Couldn't validate NSS PKCS#12 data: %d"
+msgstr ""
+
+#: ../shared/nm-l2tp-crypto-nss.c:287
+#, c-format
+msgid "Couldn't import NSS PKCS#12 data: %d"
+msgstr ""
+
+#: ../shared/nm-l2tp-crypto-openssl.c:304
+#: ../shared/nm-l2tp-crypto-openssl.c:550
+#: ../shared/nm-l2tp-crypto-openssl.c:628
+#, c-format
+msgid "Error loading PKCS#12 file '%s'."
+msgstr ""
+
+#: ../shared/nm-l2tp-crypto-openssl.c:321
+#: ../shared/nm-l2tp-crypto-openssl.c:567
+#: ../shared/nm-l2tp-crypto-openssl.c:645
+#, fuzzy, c-format
+msgid "Error parsing PKCS#12 file '%s'."
+msgstr "解析属性 '%s' 值 '%s' 时出错"
+
+#: ../shared/nm-l2tp-crypto-openssl.c:334
+#, c-format
+msgid "Error obtaining Subject Name for PKCS#12 file '%s'."
+msgstr ""
+
+#: ../shared/nm-l2tp-crypto-openssl.c:356
+#, c-format
+msgid "Error obtaining ASN1 Subject Name for PKCS#12 file '%s'."
+msgstr ""
+
+#: ../shared/nm-l2tp-crypto-openssl.c:434
+#: ../shared/nm-l2tp-crypto-openssl.c:773
+#, fuzzy, c-format
+msgid "Error decrypting private key file '%s'."
+msgstr "解析属性 '%s' 值 '%s' 时出错"
+
+#: ../shared/nm-l2tp-crypto-openssl.c:457
+#: ../shared/nm-l2tp-crypto-openssl.c:485
+#: ../shared/nm-l2tp-crypto-openssl.c:722
+#, c-format
+msgid "Error decrypting X.509 certificate file '%s'."
+msgstr ""
+
+#: ../shared/nm-l2tp-crypto-openssl.c:511
+#: ../shared/nm-l2tp-crypto-openssl.c:590
+#, c-format
+msgid "Error creating PKCS#12 data: %s"
+msgstr ""
+
+#: ../shared/nm-l2tp-crypto-openssl.c:656
+#: ../shared/nm-l2tp-crypto-openssl.c:673
+#: ../shared/nm-l2tp-crypto-openssl.c:685
+#: ../shared/nm-l2tp-crypto-openssl.c:734
+#: ../shared/nm-l2tp-crypto-openssl.c:786
+#, c-format
+msgid "Could not write '%s' : %s"
+msgstr ""
+
+#: ../shared/nm-utils/nm-shared-utils.c:1165
 #, c-format
 msgid "object class '%s' has no property named '%s'"
 msgstr ""
 
-#: ../shared/nm-utils/nm-shared-utils.c:192
+#: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
 msgstr ""
 
-#: ../shared/nm-utils/nm-shared-utils.c:199
+#: ../shared/nm-utils/nm-shared-utils.c:1179
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
 
-#: ../shared/nm-utils/nm-shared-utils.c:207
+#: ../shared/nm-utils/nm-shared-utils.c:1187
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
 msgstr ""
 
-#: ../shared/nm-utils/nm-shared-utils.c:216
+#: ../shared/nm-utils/nm-shared-utils.c:1196
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
 msgstr ""
 
-#: ../shared/nm-utils/nm-shared-utils.c:227
+#: ../shared/nm-utils/nm-shared-utils.c:1207
 #, c-format
 msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
 
-#: ../shared/nm-utils/nm-vpn-plugin-utils.c:80
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
+#, c-format
+msgid "unable to get editor plugin name: %s"
+msgstr ""
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
 msgid "missing plugin file \"%s\""
 msgstr ""
 
-#: ../shared/nm-utils/nm-vpn-plugin-utils.c:86
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:109
 #, c-format
 msgid "cannot load editor plugin: %s"
 msgstr ""
 
-#: ../shared/nm-utils/nm-vpn-plugin-utils.c:95
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:118
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
 msgstr ""
 
-#: ../shared/nm-utils/nm-vpn-plugin-utils.c:121
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:144
 msgid "unknown error creating editor instance"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:307
+#: ../src/nm-l2tp-service.c:286
 #, c-format
 msgid "invalid gateway '%s'"
 msgstr "无效的网关“%s”"
 
-#: ../src/nm-l2tp-service.c:316
-#, c-format
-msgid "invalid ipsec-gateway-id '%s'"
-msgstr "无效的 ipsec 网关 ID '%s'"
-
-#: ../src/nm-l2tp-service.c:329
+#: ../src/nm-l2tp-service.c:300
 #, c-format
 msgid "invalid integer property '%s'"
 msgstr "无效的整型属性“%s”"
 
-#: ../src/nm-l2tp-service.c:339
+#: ../src/nm-l2tp-service.c:310
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr "无效的布尔型属性“%s”(不是 yes 或 no)"
 
-#: ../src/nm-l2tp-service.c:346
+#: ../src/nm-l2tp-service.c:317
 #, c-format
 msgid "unhandled property '%s' type %s"
 msgstr "无法处理的属性“%s”类型 %s"
 
-#: ../src/nm-l2tp-service.c:357
+#: ../src/nm-l2tp-service.c:328
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "属性“%s”无效或不支持"
 
-#: ../src/nm-l2tp-service.c:375
+#: ../src/nm-l2tp-service.c:347
 msgid "No VPN configuration options."
 msgstr "没有 VPN 配置选项。"
 
-#: ../src/nm-l2tp-service.c:395
+#: ../src/nm-l2tp-service.c:367
 #, c-format
 msgid "Missing required option '%s'."
 msgstr "缺少需要的选项“%s”。"
 
-#: ../src/nm-l2tp-service.c:415
-msgid "No VPN secrets!"
-msgstr "没有 VPN 机密信息！"
-
-#: ../src/nm-l2tp-service.c:687
+#: ../src/nm-l2tp-service.c:669
 #, c-format
 msgid "Could not open %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:692
+#: ../src/nm-l2tp-service.c:687
 #, c-format
-msgid "# Following line was added by NetworkManager-l2tp"
+msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:703
-#, c-format
-msgid "Could not write %s/nm-l2tp-ipsec-%s.secrets"
+#: ../src/nm-l2tp-service.c:724
+msgid "Machine private key file not supplied"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:733
-msgid "Could not write ipsec config."
+#: ../src/nm-l2tp-service.c:838
+msgid "Could not write ipsec config"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:785
+#: ../src/nm-l2tp-service.c:907
+msgid "Machine certificate file not supplied"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:980
 msgid "Could not write xl2tpd config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:835
+#: ../src/nm-l2tp-service.c:1023
 msgid "Could not write ppp options."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:988 ../src/nm-l2tp-service.c:1013
+#: ../src/nm-l2tp-service.c:1284 ../src/nm-l2tp-service.c:1309
 msgid "Could not start the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:994 ../src/nm-l2tp-service.c:1021
+#: ../src/nm-l2tp-service.c:1290 ../src/nm-l2tp-service.c:1317
 msgid "Could not restart the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1136
+#: ../src/nm-l2tp-service.c:1428
 #, fuzzy
 msgid "Could not find the xl2tpd binary."
 msgstr "无法找到 xl2tpd 二进制文件。"
 
-#: ../src/nm-l2tp-service.c:1202
+#: ../src/nm-l2tp-service.c:1500
+#, fuzzy
+msgid "Missing or invalid VPN user certificate password."
+msgstr "VPN 密码缺失或无效。"
+
+#: ../src/nm-l2tp-service.c:1514
 msgid "Missing VPN username."
 msgstr "缺少 VPN 用户名。"
 
-#: ../src/nm-l2tp-service.c:1211
+#: ../src/nm-l2tp-service.c:1523
 msgid "Missing or invalid VPN password."
 msgstr "VPN 密码缺失或无效。"
 
-#: ../src/nm-l2tp-service.c:1314
+#: ../src/nm-l2tp-service.c:1627
 #, fuzzy
 msgid "couldn't convert L2TP VPN gateway IP address."
 msgstr "无法转换 L2TP VPN 网关 IP 地址“%s”(%d)"
 
-#: ../src/nm-l2tp-service.c:1327
+#: ../src/nm-l2tp-service.c:1640
 #, fuzzy
 msgid "couldn't look up L2TP VPN gateway IP address "
 msgstr "无法查找 L2TP VPN 网关 IP 地址“%s”(%d)"
 
-#: ../src/nm-l2tp-service.c:1346
+#: ../src/nm-l2tp-service.c:1659
 #, fuzzy
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr "未返回对应 L2TP VPN 网关“%s”的可用地址"
 
-#: ../src/nm-l2tp-service.c:1375
+#: ../src/nm-l2tp-service.c:1688
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1381
+#: ../src/nm-l2tp-service.c:1694
+msgid "Openswan is no longer supported, use Libreswan or strongSwan."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1696
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1390
+#: ../src/nm-l2tp-service.c:1705
 #, fuzzy
 msgid "could not retrieve connection UUID"
 msgstr "无法创建 l2tp 对象"
 
-#: ../src/nm-l2tp-service.c:1398
+#: ../src/nm-l2tp-service.c:1713
 msgid "Invalid or missing L2TP gateway."
 msgstr "L2TP 网关缺失或无效。"
 
-#: ../src/nm-l2tp-service.c:1688
+#: ../src/nm-l2tp-service.c:2041
 msgid "Don't quit when VPN connection terminates"
 msgstr "在 VPN 连接终止时不退出"
 
-#: ../src/nm-l2tp-service.c:1689
+#: ../src/nm-l2tp-service.c:2042
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "启用详细的调试记录(可能暴露密码)"
 
-#: ../src/nm-l2tp-service.c:1690
+#: ../src/nm-l2tp-service.c:2043
 msgid "D-Bus name to use for this instance"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1711
+#: ../src/nm-l2tp-service.c:2064
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
@@ -403,55 +468,14 @@ msgstr ""
 "nm-l2tp-service 为网络管理器提供了集成的带可选 IPsec 支持的 L2TP VPN 功能。"
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
-msgid "L2TP IPsec Options"
-msgstr "L2TP IPsec 选项"
-
-#: ../properties/nm-l2tp-dialog.ui.h:2
-msgid "_Enable IPsec tunnel to L2TP host"
-msgstr "启用到 L2TP 主机的 IPsec 隧道(_E)"
-
-#: ../properties/nm-l2tp-dialog.ui.h:3
 msgid "General"
 msgstr "一般"
 
-#: ../properties/nm-l2tp-dialog.ui.h:4
-msgid "Gateway ID:"
-msgstr "网关 ID："
-
-#: ../properties/nm-l2tp-dialog.ui.h:5
-msgid ""
-"IP address.\n"
-"Optional, how the IPsec server should be identified for authentication.\n"
-"config: ipsec rightid\n"
-"ipsec.secrets: ID"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:9
-msgid "Pre-shared key:"
-msgstr "预共享密钥："
-
-#: ../properties/nm-l2tp-dialog.ui.h:10
-msgid "Phase2 Algorithms:"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:11
-msgid "Phase1 Algorithms:"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:12
-msgid "_Enforce UDP encapsulation"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:13
-#, fuzzy
-msgid "Ad_vanced"
-msgstr "高级(_V)..."
-
-#: ../properties/nm-l2tp-dialog.ui.h:14
+#: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Gateway:"
 msgstr "网关(_G)："
 
-#: ../properties/nm-l2tp-dialog.ui.h:15
+#: ../properties/nm-l2tp-dialog.ui.h:3
 msgid ""
 "L2TP server IP or name.\n"
 "config: xl2tpd lns parameter"
@@ -459,69 +483,235 @@ msgstr ""
 "L2TP 服务器 IP 或名称。\n"
 "配置：xl2tpd lns parameter"
 
-#: ../properties/nm-l2tp-dialog.ui.h:17
-msgid "Optional"
-msgstr "可选项"
+#: ../properties/nm-l2tp-dialog.ui.h:5
+#, fuzzy
+msgid "User Authentication"
+msgstr "身份验证"
 
-#: ../properties/nm-l2tp-dialog.ui.h:18
+#: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
-"Append the domain name <domain> to the local host name for authentication "
-"purposes.\n"
-"config: domain <domain>"
+"Use down-level logon name format for user authentication purposes, i.e. "
+"DOMAIN\\username, where DOMAIN is the value from this text entry box."
 msgstr ""
-"以认证目的添加域名到本地主机名。\n"
-" 配置：domain <domain>"
 
-#: ../properties/nm-l2tp-dialog.ui.h:20
-msgid "Show password"
+#: ../properties/nm-l2tp-dialog.ui.h:7
+#, fuzzy
+msgid "Sho_w password"
 msgstr "显示密码"
 
-#: ../properties/nm-l2tp-dialog.ui.h:21
+#: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Password passed to PPPD when prompted for it."
 msgstr "当被提示时传递给 PPPD 的密码。"
 
-#: ../properties/nm-l2tp-dialog.ui.h:22
+#: ../properties/nm-l2tp-dialog.ui.h:9
 msgid ""
-"Set the name used for authenticating the local system to the peer to "
-"<name>.\n"
-"config: xl2tpd name parameter"
+"Username passed to PPPD when prompted for it. If omitted, use the name of "
+"the system user that activates the connection.\n"
+"config: ppp name parameter\n"
+"\n"
+"config: auth-user-pass"
 msgstr ""
-"置用于验证本地系统对等连接到的名称 <name>。\n"
-"配置：xl2tpd name parameter"
 
-#: ../properties/nm-l2tp-dialog.ui.h:24
+#: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "User name:"
 msgstr "用户名(_U)："
 
-#: ../properties/nm-l2tp-dialog.ui.h:26
+#: ../properties/nm-l2tp-dialog.ui.h:15
 msgid "NT Domain:"
 msgstr "NT 域:"
 
-#: ../properties/nm-l2tp-dialog.ui.h:27
+#: ../properties/nm-l2tp-dialog.ui.h:16
+#, fuzzy
+msgid "CA"
+msgstr "CHAP"
+
+#: ../properties/nm-l2tp-dialog.ui.h:17
+msgid "User"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:18
+msgid "Type:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:19
+#, fuzzy
+msgid "Select an authentication mode."
+msgstr "允许以下认证方法:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "_IPsec Settings..."
 msgstr "IPsec 设置(_I)…"
 
-#: ../properties/nm-l2tp-dialog.ui.h:28
+#: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "PPP Se_ttings..."
 msgstr "PPP 设置(_T)…"
 
+#: ../properties/nm-l2tp-dialog.ui.h:22
+msgid "L2TP IPsec Options"
+msgstr "L2TP IPsec 选项"
+
+#: ../properties/nm-l2tp-dialog.ui.h:23
+msgid "_Enable IPsec tunnel to L2TP host"
+msgstr "启用到 L2TP 主机的 IPsec 隧道(_E)"
+
+#: ../properties/nm-l2tp-dialog.ui.h:24
+msgid "config: ipsec-enabled"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:25
+#, fuzzy
+msgid "Machine Authentication"
+msgstr "身份验证"
+
+#: ../properties/nm-l2tp-dialog.ui.h:26
+msgid ""
+"Pre-shared key (PSK) secret.\n"
+"config: ipsec-psk"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:28
+msgid "Pre-shared key:"
+msgstr "预共享密钥："
+
 #: ../properties/nm-l2tp-dialog.ui.h:29
+msgid "Machine"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:30
+msgid "Phase2 Algorithms:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:31
+msgid ""
+"Optional. A list of proposals for IKE. The format is “cipher-hash-modpgroup, "
+"cipher-hash-modpgroup, …”.\n"
+"config: ipsec-psk <proposals>"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:33
+msgid ""
+"Optional. A list of proposals for ESP. The format is “cipher-hash,cipher-"
+"hash, …”.\n"
+"config: ipsec-esp <proposals>"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:35
+msgid "Phase1 Algorithms:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:36
+msgid ""
+"How long the keying channel of a connection should last before being "
+"renegotiated. \n"
+"config: ipsec-ikelifetime <lifetime>"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:38
+msgid "(HH:MM)"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:39
+msgid ""
+"How long a particular instance of a connection (a set of encryption/"
+"authentication keys for user packets) should last, from successful "
+"negotiation to expiry.\n"
+"config: ipsec-salifetime <lifetime>"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:41
+msgid "Phase_1 Lifetime:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:42
+msgid "Phase_2 Lifetime:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:43
+msgid "Remote ID:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:44
+msgid ""
+"Optional. How the IPsec server should be identified for authentication. "
+"Sometimes referred to as IPsec identifier, Peer ID and Gateway ID. Also "
+"referred to as rightid by strongSwan, Libreswan, Openswan and FreeS/WAN. See "
+"strongSwan or Libreswan documentation for leftid/rightid syntax and identity "
+"parsing.\n"
+"config: ipsec-remote-id <rightid>\n"
+"ipsec.secrets: <ID>"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:47
+msgid "_Legacy Proposals"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:48
+msgid ""
+"Populates Phase 1 and 2 Algorithm text entry boxes with proposals offered by "
+"Windows Server 2019:\n"
+"• strong aes256-sha1-ecp384 and aes128-sha1-ecp256 proposals.\n"
+" strongSwan recommends not using SHA-1 in its security recommendations.\n"
+"• broken 3des-sha1-modp1024 proposal.\n"
+" Legacy Windows 2000 Server era proposal still commonly offered, especially "
+"with consumer routers."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:53
+msgid "_Enforce UDP encapsulation"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:54
+msgid ""
+"Some firewalls block ESP traffic. Enforcing UDP capsulation even if no NAT "
+"situation is detected might help in such cases.\n"
+"config: ipsec-forceencaps <yes/no>"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:56
+#, fuzzy
+msgid "Use IP c_ompression"
+msgstr "使用 TCP 头压缩(_H)"
+
+#: ../properties/nm-l2tp-dialog.ui.h:57
+msgid ""
+"IPComp compresses raw IP packets before they get encrypted. This saves some "
+"bandwidth, but uses more processing power.\n"
+"config: ipsec-ipcomp <yes/no>"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:59
+msgid "Disable _PFS"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:60
+msgid ""
+"Disable perfect forward security. Enable this option only if the server "
+"doesn’t support PFS.\n"
+"config: ipsec-pfs <no/yes>"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:62
+#, fuzzy
+msgid "Ad_vanced"
+msgstr "高级(_V)..."
+
+#: ../properties/nm-l2tp-dialog.ui.h:63
 msgid "Default"
 msgstr "默认"
 
-#: ../properties/nm-l2tp-dialog.ui.h:30
+#: ../properties/nm-l2tp-dialog.ui.h:64
 msgid "L2TP PPP Options"
 msgstr "L2TP PPP 选项"
 
-#: ../properties/nm-l2tp-dialog.ui.h:31
+#: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "Authentication"
 msgstr "身份验证"
 
-#: ../properties/nm-l2tp-dialog.ui.h:32
+#: ../properties/nm-l2tp-dialog.ui.h:66
 msgid "Allow the following authentication methods:"
 msgstr "允许以下认证方法:"
 
-#: ../properties/nm-l2tp-dialog.ui.h:33
+#: ../properties/nm-l2tp-dialog.ui.h:67
 msgid ""
 "Allow/disable authentication methods.\n"
 "config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
@@ -529,15 +719,15 @@ msgstr ""
 "允许/禁用认证方式。\n"
 "配置：refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 
-#: ../properties/nm-l2tp-dialog.ui.h:35
+#: ../properties/nm-l2tp-dialog.ui.h:69
 msgid "Security and Compression"
 msgstr "安全性及压缩"
 
-#: ../properties/nm-l2tp-dialog.ui.h:36
+#: ../properties/nm-l2tp-dialog.ui.h:70
 msgid "Use _Point-to-Point encryption (MPPE)"
 msgstr "使用点到点加密(MPPE)(_P)"
 
-#: ../properties/nm-l2tp-dialog.ui.h:37
+#: ../properties/nm-l2tp-dialog.ui.h:71
 msgid ""
 "Note: MPPE encryption is only available with MSCHAP authentication methods. "
 "To enable this checkbox, select one or more of the MSCHAP authentication "
@@ -546,11 +736,11 @@ msgstr ""
 "注意：MPPE 加密仅在使用 MSCHAP 认证方式时可用。要启用此选项，请选择 MSCHAP 认"
 "证方式之中的一个或多个：MSCHAP 或 MSCHAPv2"
 
-#: ../properties/nm-l2tp-dialog.ui.h:38
+#: ../properties/nm-l2tp-dialog.ui.h:72
 msgid "_Security:"
 msgstr "安全性(_S)："
 
-#: ../properties/nm-l2tp-dialog.ui.h:39
+#: ../properties/nm-l2tp-dialog.ui.h:73
 msgid ""
 "Require the use of MPPE, with 40/128-bit encryption or all.\n"
 "config: require-mppe, require-mppe-128 or require-mppe-40"
@@ -558,11 +748,11 @@ msgstr ""
 "需要使用 40/128 位或全部加密的 MPPE 。\n"
 "配置：require-mppe， require-mppe-128 或 require-mppe-40"
 
-#: ../properties/nm-l2tp-dialog.ui.h:41
+#: ../properties/nm-l2tp-dialog.ui.h:75
 msgid "Allow st_ateful encryption"
 msgstr "允许有状态的加密(_A)"
 
-#: ../properties/nm-l2tp-dialog.ui.h:42
+#: ../properties/nm-l2tp-dialog.ui.h:76
 msgid ""
 "Allow MPPE to use stateful mode. Stateless mode is still attempted first.\n"
 "config: mppe-stateful (when checked)"
@@ -570,11 +760,11 @@ msgstr ""
 "允许 MPPE 使用有状态模式。无状态模式仍会优先尝试。\n"
 "配置：mppe-stateful (选中时)"
 
-#: ../properties/nm-l2tp-dialog.ui.h:44
+#: ../properties/nm-l2tp-dialog.ui.h:78
 msgid "Allow _BSD data compression"
 msgstr "允许 _BSD 数据压缩"
 
-#: ../properties/nm-l2tp-dialog.ui.h:45
+#: ../properties/nm-l2tp-dialog.ui.h:79
 msgid ""
 "Allow/disable BSD-Compress compression.\n"
 "config: nobsdcomp (when unchecked)"
@@ -582,11 +772,11 @@ msgstr ""
 "允许/禁用 BSD-Compress 压缩。\n"
 "配置：nobsdcomp (未选中时)"
 
-#: ../properties/nm-l2tp-dialog.ui.h:47
+#: ../properties/nm-l2tp-dialog.ui.h:81
 msgid "Allow _Deflate data compression"
 msgstr "允许 _Deflate 数据压缩"
 
-#: ../properties/nm-l2tp-dialog.ui.h:48
+#: ../properties/nm-l2tp-dialog.ui.h:82
 msgid ""
 "Allow/disable Deflate compression.\n"
 "config: nodeflate (when unchecked)"
@@ -594,11 +784,11 @@ msgstr ""
 "允许/禁用 Deflate 压缩\n"
 "配置：nodeflate (未选中时)"
 
-#: ../properties/nm-l2tp-dialog.ui.h:50
+#: ../properties/nm-l2tp-dialog.ui.h:84
 msgid "Use TCP _header compression"
 msgstr "使用 TCP 头压缩(_H)"
 
-#: ../properties/nm-l2tp-dialog.ui.h:51
+#: ../properties/nm-l2tp-dialog.ui.h:85
 msgid ""
 "Allow/disable Van Jacobson style TCP/IP header compression in both the "
 "transmit and the receive directions.\n"
@@ -607,11 +797,11 @@ msgstr ""
 "允许/禁用在发送和接收方向启用 Van Jacobson 样式的 TCP/IP 头压缩。\n"
 "配置：novj (未选中时)"
 
-#: ../properties/nm-l2tp-dialog.ui.h:53
+#: ../properties/nm-l2tp-dialog.ui.h:87
 msgid "Use protocol _field compression negotiation"
 msgstr "使用协议字段压缩协商(_F)"
 
-#: ../properties/nm-l2tp-dialog.ui.h:54
+#: ../properties/nm-l2tp-dialog.ui.h:88
 msgid ""
 "Allow protocol field compression negotiation in both the receive and the "
 "transmit direction.\n"
@@ -620,11 +810,11 @@ msgstr ""
 "允许/禁用在发送和接收方向使用协议字段压缩协商。\n"
 "配置：nopcomp (未选中时)"
 
-#: ../properties/nm-l2tp-dialog.ui.h:56
+#: ../properties/nm-l2tp-dialog.ui.h:90
 msgid "Use _Address/Control compression"
 msgstr "使用地址/控制压缩(_A)"
 
-#: ../properties/nm-l2tp-dialog.ui.h:57
+#: ../properties/nm-l2tp-dialog.ui.h:91
 msgid ""
 "Use Address/Control compression in both directions (send and receive).\n"
 "config: noaccomp (when unchecked)"
@@ -632,15 +822,15 @@ msgstr ""
 "在两个方向(发送和接收)都使用地址/控制压缩。\n"
 "配置：noaccomp (未选中时)"
 
-#: ../properties/nm-l2tp-dialog.ui.h:59
+#: ../properties/nm-l2tp-dialog.ui.h:93
 msgid "Echo"
 msgstr "回响"
 
-#: ../properties/nm-l2tp-dialog.ui.h:60
+#: ../properties/nm-l2tp-dialog.ui.h:94
 msgid "Send PPP _echo packets"
 msgstr "发送 PPP 回响包(_E)"
 
-#: ../properties/nm-l2tp-dialog.ui.h:61
+#: ../properties/nm-l2tp-dialog.ui.h:95
 msgid ""
 "Send LCP echo-requests to find out whether peer is alive.\n"
 "config: lcp-echo-failure and lcp-echo-interval"
@@ -648,14 +838,82 @@ msgstr ""
 "发送 LCP echo-requests 来检查端点是否存活。\n"
 "配置：lcp-echo-failure 和 lcp-echo-interval"
 
-#: ../properties/nm-l2tp-dialog.ui.h:63
+#: ../properties/nm-l2tp-dialog.ui.h:97
 msgid "Misc"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:64
+#: ../properties/nm-l2tp-dialog.ui.h:98
 msgid "MTU :"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:65
+#: ../properties/nm-l2tp-dialog.ui.h:99
 msgid "MRU :"
 msgstr ""
+
+#~ msgid "Required property %s missing"
+#~ msgstr "需要的属性 %s 缺失"
+
+#~ msgid "Property %s value '%s' can't be parsed as boolean."
+#~ msgstr "属性 %s 的值 '%s' 无法解析成布尔值"
+
+#~ msgid "Property '%s' value '%s' can't be parsed as IP address."
+#~ msgstr "属性 '%s' 的值 '%s' 无法解析成 IP 地址"
+
+#~ msgid "Property '%s' value '%s' couldn't find netmask."
+#~ msgstr "属性 '%s' 的值 '%s' 无法找到网络掩码"
+
+#~ msgid "Property '%s' value '%s' can't be parsed as IP netmask."
+#~ msgstr "属性 '%s' 的值 '%s' 无法解析成 IP 网络掩码"
+
+#~ msgid "Property '%s' value '%s' can't be parsed as route metric."
+#~ msgstr "属性 '%s' 的值 '%s' 无法解析成路由跃点数"
+
+#~ msgid "does not look like a L2TP VPN connection (parse failed)"
+#~ msgstr "看起来不像是个 L2TP VPN 连接(解析失败)"
+
+#~ msgid "Property %s can't be parsed as integer."
+#~ msgstr "属性 %s 无法解析成整数"
+
+#~ msgid ""
+#~ "Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."
+#~ msgstr "属性 %s 无法解析成布尔值。只允许 'true' 和 'false'。"
+
+#~ msgid "Missing required property '%s'"
+#~ msgstr "缺失需要的属性 '%s'"
+
+#~ msgid "Couldn't open file for writing."
+#~ msgstr "无法打开文件来写入"
+
+#~ msgid "Couldn't load builder file: %s"
+#~ msgstr "无法加载构建文件：%s"
+
+#~ msgid "could not load required resources at %s"
+#~ msgstr "无法在 %s 加载需要的资源"
+
+#~ msgid "invalid ipsec-gateway-id '%s'"
+#~ msgstr "无效的 ipsec 网关 ID '%s'"
+
+#~ msgid "No VPN secrets!"
+#~ msgstr "没有 VPN 机密信息！"
+
+#~ msgid "Gateway ID:"
+#~ msgstr "网关 ID："
+
+#~ msgid "Optional"
+#~ msgstr "可选项"
+
+#~ msgid ""
+#~ "Append the domain name <domain> to the local host name for authentication "
+#~ "purposes.\n"
+#~ "config: domain <domain>"
+#~ msgstr ""
+#~ "以认证目的添加域名到本地主机名。\n"
+#~ " 配置：domain <domain>"
+
+#~ msgid ""
+#~ "Set the name used for authenticating the local system to the peer to "
+#~ "<name>.\n"
+#~ "config: xl2tpd name parameter"
+#~ msgstr ""
+#~ "置用于验证本地系统对等连接到的名称 <name>。\n"
+#~ "配置：xl2tpd name parameter"
