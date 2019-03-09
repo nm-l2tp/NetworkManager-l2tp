@@ -1015,10 +1015,10 @@ ipsec.secrets: &lt;ID&gt;</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="tooltip_text" translatable="yes">Populates Phase 1 and 2 Algorithm text entry boxes with proposals offered by Windows Server 2019:
-• strong aes256-sha1-ecp384 and aes128-sha1-ecp256 proposals.
- strongSwan recommends not using SHA-1 in its security recommendations.
-• broken 3des-sha1-modp1024 proposal.
- Legacy Windows 2000 Server era proposal still commonly offered, especially with consumer routers.</property>
+• aes256-sha1-ecp384 and aes128-sha1-ecp256 strong proposals.
+strongSwan recommends not using SHA-1 in its security recommendations documentation.
+• 3des-sha1-modp1024 broken proposal.
+Legacy Windows 2000 Server era proposal still commonly offered, especially with consumer routers.</property>
                             <property name="halign">center</property>
                             <property name="valign">start</property>
                             <property name="use_underline">True</property>
