@@ -35,16 +35,6 @@ msgstr ""
 msgid "Support for configuring L2TP based virtual private network connections."
 msgstr ""
 
-#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:4
-#, fuzzy
-msgid "Compatible with L2TP and L2TP over IPsec services."
-msgstr "Совместим серверами L2TP VPN."
-
-#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:5
-#, fuzzy
-msgid "The PPP options dialog"
-msgstr "Параметры PPP"
-
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:6
 msgid "The NetworkManager-L2TP Developers"
 msgstr ""
@@ -260,11 +250,6 @@ msgstr ""
 msgid "Could not restart the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1091
-#, fuzzy
-msgid "Could not find the xl2tpd binary."
-msgstr "Не удалось найти исполняемый файл xl2tpd."
-
 #: ../src/nm-l2tp-service.c:1157
 msgid "Missing VPN username."
 msgstr "Отсутствует имя пользователя VPN."
@@ -272,21 +257,6 @@ msgstr "Отсутствует имя пользователя VPN."
 #: ../src/nm-l2tp-service.c:1166
 msgid "Missing or invalid VPN password."
 msgstr "Пароль VPN отсутствует или неверный."
-
-#: ../src/nm-l2tp-service.c:1269
-#, fuzzy
-msgid "couldn't convert L2TP VPN gateway IP address."
-msgstr "не удалось преобразовать IP-адрес шлюза L2TP VPN «%s» (%d)"
-
-#: ../src/nm-l2tp-service.c:1282
-#, fuzzy
-msgid "couldn't look up L2TP VPN gateway IP address "
-msgstr "не удалось найти IP-адрес шлюза L2TP VPN «%s» (%d)"
-
-#: ../src/nm-l2tp-service.c:1301
-#, fuzzy
-msgid "no usable addresses returned for L2TP VPN gateway "
-msgstr "не получен приемлемый IP-адрес шлюза L2TP VPN «%s»"
 
 #: ../src/nm-l2tp-service.c:1336
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
@@ -299,11 +269,6 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:1344
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
-
-#: ../src/nm-l2tp-service.c:1353
-#, fuzzy
-msgid "could not retrieve connection UUID"
-msgstr "не могу создать l2tp объект"
 
 #: ../src/nm-l2tp-service.c:1361
 msgid "Invalid or missing L2TP gateway."
@@ -344,11 +309,6 @@ msgid ""
 msgstr ""
 "IP адрес или доменное имя L2TP сервера.\n"
 "опция конфигурации: xl2tpd lns параметр"
-
-#: ../properties/nm-l2tp-dialog.ui.h:5
-#, fuzzy
-msgid "User Authentication"
-msgstr "Аутентификация"
 
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
@@ -398,16 +358,6 @@ msgstr "Включить IPsec туннель к L2TP хосту"
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "config: ipsec-enabled"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:19
-#, fuzzy
-msgid "Machine Authentication"
-msgstr "Аутентификация"
-
-#: ../properties/nm-l2tp-dialog.ui.h:20
-#, fuzzy
-msgid "Sho_w password"
-msgstr "Показать пароль"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid ""
@@ -513,11 +463,6 @@ msgid ""
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:51
-#, fuzzy
-msgid "Use IP c_ompression"
-msgstr "Использовать сжатие _заголовков TCP"
-
 #: ../properties/nm-l2tp-dialog.ui.h:52
 msgid ""
 "IPComp compresses raw IP packets before they get encrypted. This saves some "
@@ -535,11 +480,6 @@ msgid ""
 "doesn’t support PFS.\n"
 "config: ipsec-pfs <no/yes>"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:57
-#, fuzzy
-msgid "Ad_vanced"
-msgstr "_Дополнительно..."
 
 #: ../properties/nm-l2tp-dialog.ui.h:58
 msgid "Default"

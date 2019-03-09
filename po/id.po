@@ -30,16 +30,6 @@ msgstr ""
 msgid "Support for configuring L2TP based virtual private network connections."
 msgstr ""
 
-#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:4
-#, fuzzy
-msgid "Compatible with L2TP and L2TP over IPsec services."
-msgstr "Kompatibel dengan server VPN L2TP Microsoft dan lainnya."
-
-#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:5
-#, fuzzy
-msgid "The PPP options dialog"
-msgstr "Opsi Tingkat Lanjut L2TP"
-
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:6
 msgid "The NetworkManager-L2TP Developers"
 msgstr ""
@@ -122,11 +112,6 @@ msgstr ""
 msgid "could not load UI widget"
 msgstr ""
 
-#: ../properties/nm-l2tp-editor-plugin.c:34
-#, fuzzy
-msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr "Layer 2 Tunneling Protocol (L2TP)"
-
 #: ../properties/nm-l2tp-editor-plugin.c:35
 msgid "Compatible with Microsoft and other L2TP VPN servers."
 msgstr "Kompatibel dengan server VPN L2TP Microsoft dan lainnya."
@@ -168,11 +153,6 @@ msgid ""
 msgstr ""
 "nilai \"%s\" dengan tipe '%s' tidak valid atau di luar jangkauan bagi "
 "properti '%s' bertipe '%s'"
-
-#: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
-#, fuzzy, c-format
-msgid "unable to get editor plugin name: %s"
-msgstr "tidak bisa memuat pengaya penyunting: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
@@ -261,11 +241,6 @@ msgstr ""
 msgid "Could not restart the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1091
-#, fuzzy
-msgid "Could not find the xl2tpd binary."
-msgstr "Tak bisa temukan biner xl2tpd."
-
 #: ../src/nm-l2tp-service.c:1157
 msgid "Missing VPN username."
 msgstr "Nama pengguna VPN hilang."
@@ -273,23 +248,6 @@ msgstr "Nama pengguna VPN hilang."
 #: ../src/nm-l2tp-service.c:1166
 msgid "Missing or invalid VPN password."
 msgstr "Sandi VPN hilang atau tak valid."
-
-#: ../src/nm-l2tp-service.c:1269
-#, fuzzy
-msgid "couldn't convert L2TP VPN gateway IP address."
-msgstr "tak bisa mengonversi alamat IP \"%s\" gateway VPN L2TP (%d)"
-
-#: ../src/nm-l2tp-service.c:1282
-#, fuzzy
-msgid "couldn't look up L2TP VPN gateway IP address "
-msgstr "tak bisa mencari alamat IP \"%s\" gateway VPN L2TP (%d)"
-
-#: ../src/nm-l2tp-service.c:1301
-#, fuzzy
-msgid "no usable addresses returned for L2TP VPN gateway "
-msgstr ""
-"tidak ada alamat yang dapat dipakai yang diperoleh bagi gateway VPN L2TP \"%s"
-"\""
 
 #: ../src/nm-l2tp-service.c:1336
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
@@ -343,11 +301,6 @@ msgid ""
 "config: xl2tpd lns parameter"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:5
-#, fuzzy
-msgid "User Authentication"
-msgstr "Otentikasi"
-
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
@@ -385,11 +338,6 @@ msgstr ""
 msgid "PPP Se_ttings..."
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:16
-#, fuzzy
-msgid "L2TP IPsec Options"
-msgstr "Opsi Tingkat Lanjut L2TP"
-
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "_Enable IPsec tunnel to L2TP host"
 msgstr ""
@@ -397,16 +345,6 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "config: ipsec-enabled"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:19
-#, fuzzy
-msgid "Machine Authentication"
-msgstr "Otentikasi"
-
-#: ../properties/nm-l2tp-dialog.ui.h:20
-#, fuzzy
-msgid "Sho_w password"
-msgstr "Tampilkan kata sandi"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid ""
@@ -451,11 +389,6 @@ msgstr ""
 msgid "(HH:MM)"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:33
-#, fuzzy
-msgid "Phase_2 Lifetime:"
-msgstr "Algoritma Fase2:"
-
 #: ../properties/nm-l2tp-dialog.ui.h:34
 msgid ""
 "How long a particular instance of a connection (a set of encryption/"
@@ -483,11 +416,6 @@ msgid ""
 "ipsec.secrets: <ID>"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:41
-#, fuzzy
-msgid "Phase_1 Lifetime:"
-msgstr "Algoritma Fase1:"
-
 #: ../properties/nm-l2tp-dialog.ui.h:42
 msgid "_Legacy Proposals"
 msgstr ""
@@ -514,11 +442,6 @@ msgid ""
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:51
-#, fuzzy
-msgid "Use IP c_ompression"
-msgstr "Gunakan pemampatan _header TCP"
-
 #: ../properties/nm-l2tp-dialog.ui.h:52
 msgid ""
 "IPComp compresses raw IP packets before they get encrypted. This saves some "
@@ -544,11 +467,6 @@ msgstr "Tingkat la_njut"
 #: ../properties/nm-l2tp-dialog.ui.h:58
 msgid "Default"
 msgstr "Baku"
-
-#: ../properties/nm-l2tp-dialog.ui.h:59
-#, fuzzy
-msgid "L2TP PPP Options"
-msgstr "Opsi Tingkat Lanjut L2TP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:60
 msgid "Authentication"
@@ -657,11 +575,6 @@ msgid ""
 "transmit direction.\n"
 "config: nopcomp (when unchecked)"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:85
-#, fuzzy
-msgid "Use _Address/Control compression"
-msgstr "Gunakan pemampatan _header TCP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:86
 msgid ""

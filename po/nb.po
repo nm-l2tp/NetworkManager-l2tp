@@ -32,11 +32,6 @@ msgstr ""
 msgid "Compatible with L2TP and L2TP over IPsec services."
 msgstr ""
 
-#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:5
-#, fuzzy
-msgid "The PPP options dialog"
-msgstr "PPP-alternativer"
-
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:6
 msgid "The NetworkManager-L2TP Developers"
 msgstr ""
@@ -253,11 +248,6 @@ msgstr ""
 msgid "Could not restart the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1091
-#, fuzzy
-msgid "Could not find the xl2tpd binary."
-msgstr "Fant ikke xl2tpd-binærfilen."
-
 #: ../src/nm-l2tp-service.c:1157
 msgid "Missing VPN username."
 msgstr "Mangler brukernavn for VPN."
@@ -330,11 +320,6 @@ msgid ""
 "config: xl2tpd lns parameter"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:5
-#, fuzzy
-msgid "User Authentication"
-msgstr "Autentisering"
-
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
@@ -383,16 +368,6 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "config: ipsec-enabled"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:19
-#, fuzzy
-msgid "Machine Authentication"
-msgstr "Autentisering"
-
-#: ../properties/nm-l2tp-dialog.ui.h:20
-#, fuzzy
-msgid "Sho_w password"
-msgstr "Vis passord"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid ""
@@ -497,11 +472,6 @@ msgid ""
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:51
-#, fuzzy
-msgid "Use IP c_ompression"
-msgstr "Bruk komprimering av TCP-_hoder"
 
 #: ../properties/nm-l2tp-dialog.ui.h:52
 msgid ""
@@ -625,11 +595,6 @@ msgid ""
 "transmit direction.\n"
 "config: nopcomp (when unchecked)"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:85
-#, fuzzy
-msgid "Use _Address/Control compression"
-msgstr "Bruk MPPC-komprimering"
 
 #: ../properties/nm-l2tp-dialog.ui.h:86
 msgid ""

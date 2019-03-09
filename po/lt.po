@@ -32,16 +32,6 @@ msgstr ""
 msgid "Support for configuring L2TP based virtual private network connections."
 msgstr ""
 
-#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:4
-#, fuzzy
-msgid "Compatible with L2TP and L2TP over IPsec services."
-msgstr "Suderinama su Microsoft ir kitais L2TP VPN serveriais."
-
-#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:5
-#, fuzzy
-msgid "The PPP options dialog"
-msgstr "L2TP sudėtingesni nustatymai"
-
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:6
 msgid "The NetworkManager-L2TP Developers"
 msgstr ""
@@ -126,11 +116,6 @@ msgstr ""
 msgid "could not load UI widget"
 msgstr ""
 
-#: ../properties/nm-l2tp-editor-plugin.c:34
-#, fuzzy
-msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr "PPP tuneliavimo protokolas (L2TP)"
-
 #: ../properties/nm-l2tp-editor-plugin.c:35
 msgid "Compatible with Microsoft and other L2TP VPN servers."
 msgstr "Suderinama su Microsoft ir kitais L2TP VPN serveriais."
@@ -173,11 +158,6 @@ msgid ""
 msgstr ""
 "reikšmė „%s“, kuri priklauso tipui „%s“, yra netinkama arba už savybės „%s“, "
 "priklausančios tipui „%s“, ribų"
-
-#: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
-#, fuzzy, c-format
-msgid "unable to get editor plugin name: %s"
-msgstr "nepavyksta įkelti redaktoriaus įskiepio: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
@@ -266,11 +246,6 @@ msgstr ""
 msgid "Could not restart the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1091
-#, fuzzy
-msgid "Could not find the xl2tpd binary."
-msgstr "Nepavyko rasti xl2tpd programos."
-
 #: ../src/nm-l2tp-service.c:1157
 msgid "Missing VPN username."
 msgstr "Trūksta VPN naudotojo vardo."
@@ -278,21 +253,6 @@ msgstr "Trūksta VPN naudotojo vardo."
 #: ../src/nm-l2tp-service.c:1166
 msgid "Missing or invalid VPN password."
 msgstr "Nėra arba netinkamas VPN slaptažodis."
-
-#: ../src/nm-l2tp-service.c:1269
-#, fuzzy
-msgid "couldn't convert L2TP VPN gateway IP address."
-msgstr "nepavyko pakeisti L2TP VPN tinklų sietuvo IP adreso „%s“ (%d)"
-
-#: ../src/nm-l2tp-service.c:1282
-#, fuzzy
-msgid "couldn't look up L2TP VPN gateway IP address "
-msgstr "nepavyko rasti L2TP VPN tinklų sietuvo IP adreso „%s“ (%d)"
-
-#: ../src/nm-l2tp-service.c:1301
-#, fuzzy
-msgid "no usable addresses returned for L2TP VPN gateway "
-msgstr "negrąžinta jokių tinkamų L2TP VPN tinklų sietuvo „%s“ adresų"
 
 #: ../src/nm-l2tp-service.c:1336
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
@@ -346,11 +306,6 @@ msgid ""
 "config: xl2tpd lns parameter"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:5
-#, fuzzy
-msgid "User Authentication"
-msgstr "Tapatybės nustatymas"
-
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
@@ -400,16 +355,6 @@ msgstr ""
 msgid "config: ipsec-enabled"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:19
-#, fuzzy
-msgid "Machine Authentication"
-msgstr "Tapatybės nustatymas"
-
-#: ../properties/nm-l2tp-dialog.ui.h:20
-#, fuzzy
-msgid "Sho_w password"
-msgstr "Rodyti slaptažodį"
-
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid ""
 "Pre-shared key (PSK) secret.\n"
@@ -453,11 +398,6 @@ msgstr ""
 msgid "(HH:MM)"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:33
-#, fuzzy
-msgid "Phase_2 Lifetime:"
-msgstr "Antros fazės algoritmai:"
-
 #: ../properties/nm-l2tp-dialog.ui.h:34
 msgid ""
 "How long a particular instance of a connection (a set of encryption/"
@@ -485,11 +425,6 @@ msgid ""
 "ipsec.secrets: <ID>"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:41
-#, fuzzy
-msgid "Phase_1 Lifetime:"
-msgstr "Pirmos fazės algoritmai:"
-
 #: ../properties/nm-l2tp-dialog.ui.h:42
 msgid "_Legacy Proposals"
 msgstr ""
@@ -515,11 +450,6 @@ msgid ""
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:51
-#, fuzzy
-msgid "Use IP c_ompression"
-msgstr "Naudoti TCP _antraštės glaudinimą"
 
 #: ../properties/nm-l2tp-dialog.ui.h:52
 msgid ""
@@ -658,11 +588,6 @@ msgid ""
 "transmit direction.\n"
 "config: nopcomp (when unchecked)"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:85
-#, fuzzy
-msgid "Use _Address/Control compression"
-msgstr "Naudoti TCP _antraštės glaudinimą"
 
 #: ../properties/nm-l2tp-dialog.ui.h:86
 msgid ""

@@ -33,11 +33,6 @@ msgstr ""
 msgid "Support for configuring L2TP based virtual private network connections."
 msgstr ""
 
-#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:4
-#, fuzzy
-msgid "Compatible with L2TP and L2TP over IPsec services."
-msgstr "Microsoft ve diğer L2TP VPN sunucularıyla uyumludur."
-
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:5
 msgid "The PPP options dialog"
 msgstr ""
@@ -124,11 +119,6 @@ msgstr ""
 #, c-format
 msgid "could not load UI widget"
 msgstr ""
-
-#: ../properties/nm-l2tp-editor-plugin.c:34
-#, fuzzy
-msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr "Noktadan Noktaya Tünelleme Protokolü (L2TP)"
 
 #: ../properties/nm-l2tp-editor-plugin.c:35
 msgid "Compatible with Microsoft and other L2TP VPN servers."
@@ -234,26 +224,6 @@ msgstr "VPN sırrı yok!"
 msgid "Could not open %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:631
-#, fuzzy, c-format
-msgid "Could not write %s/ipsec.nm-l2tp.secrets"
-msgstr "Pppd uygulaması bulunamadı."
-
-#: ../src/nm-l2tp-service.c:671
-#, fuzzy
-msgid "Could not write ipsec config."
-msgstr "Pppd uygulaması bulunamadı."
-
-#: ../src/nm-l2tp-service.c:747
-#, fuzzy
-msgid "Could not write xl2tpd config."
-msgstr "Pptp istemci uygulaması bulunamadı."
-
-#: ../src/nm-l2tp-service.c:789
-#, fuzzy
-msgid "Could not write ppp options."
-msgstr "Pppd uygulaması bulunamadı."
-
 #: ../src/nm-l2tp-service.c:947 ../src/nm-l2tp-service.c:972
 msgid "Could not start the ipsec service."
 msgstr ""
@@ -262,11 +232,6 @@ msgstr ""
 msgid "Could not restart the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1091
-#, fuzzy
-msgid "Could not find the xl2tpd binary."
-msgstr "Pppd uygulaması bulunamadı."
-
 #: ../src/nm-l2tp-service.c:1157
 msgid "Missing VPN username."
 msgstr "Eksik VPN kullanıcı adı."
@@ -274,21 +239,6 @@ msgstr "Eksik VPN kullanıcı adı."
 #: ../src/nm-l2tp-service.c:1166
 msgid "Missing or invalid VPN password."
 msgstr "Eksik veya geçersiz VPN kullanıcı adı."
-
-#: ../src/nm-l2tp-service.c:1269
-#, fuzzy
-msgid "couldn't convert L2TP VPN gateway IP address."
-msgstr "L2TP VPN ağ geçidi IP adresi dönüştürülemedi '%s' (%d)"
-
-#: ../src/nm-l2tp-service.c:1282
-#, fuzzy
-msgid "couldn't look up L2TP VPN gateway IP address "
-msgstr "L2TP VPN ağ geçidi IP adresine bakılamadı '%s' (%d)"
-
-#: ../src/nm-l2tp-service.c:1301
-#, fuzzy
-msgid "no usable addresses returned for L2TP VPN gateway "
-msgstr "L2TP VPN ağ geçidi '%s' için kullanılabilir bir adres dönmedi"
 
 #: ../src/nm-l2tp-service.c:1336
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
@@ -324,15 +274,6 @@ msgstr ""
 msgid "D-Bus name to use for this instance"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1678
-#, fuzzy
-msgid ""
-"nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
-"NetworkManager."
-msgstr ""
-"nm-l2tp-service, NetworkManager'a tümleşik L2TP VPN yeteneği (Microsoft ve "
-"diğer gerçekleştirmelere uyumlu) sağlar."
-
 #: ../properties/nm-l2tp-dialog.ui.h:1
 msgid "General"
 msgstr "Genel"
@@ -340,20 +281,6 @@ msgstr "Genel"
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Gateway:"
 msgstr "_Ağ geçidi:"
-
-#: ../properties/nm-l2tp-dialog.ui.h:3
-#, fuzzy
-msgid ""
-"L2TP server IP or name.\n"
-"config: xl2tpd lns parameter"
-msgstr ""
-"L2TP sunucu IP adresi veya adı.\n"
-"yapılandırma: l2tp'nin ilk parametresi"
-
-#: ../properties/nm-l2tp-dialog.ui.h:5
-#, fuzzy
-msgid "User Authentication"
-msgstr "Kimlik Doğrulama"
 
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
@@ -404,16 +331,6 @@ msgstr ""
 msgid "config: ipsec-enabled"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:19
-#, fuzzy
-msgid "Machine Authentication"
-msgstr "Kimlik Doğrulama"
-
-#: ../properties/nm-l2tp-dialog.ui.h:20
-#, fuzzy
-msgid "Sho_w password"
-msgstr "Parolayı göster"
-
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid ""
 "Pre-shared key (PSK) secret.\n"
@@ -457,11 +374,6 @@ msgstr ""
 msgid "(HH:MM)"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:33
-#, fuzzy
-msgid "Phase_2 Lifetime:"
-msgstr "Faz2 Algoritması:"
-
 #: ../properties/nm-l2tp-dialog.ui.h:34
 msgid ""
 "How long a particular instance of a connection (a set of encryption/"
@@ -489,11 +401,6 @@ msgid ""
 "ipsec.secrets: <ID>"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:41
-#, fuzzy
-msgid "Phase_1 Lifetime:"
-msgstr "Faz1 Algoritması:"
-
 #: ../properties/nm-l2tp-dialog.ui.h:42
 msgid "_Legacy Proposals"
 msgstr ""
@@ -520,11 +427,6 @@ msgid ""
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:51
-#, fuzzy
-msgid "Use IP c_ompression"
-msgstr "TCP _başlık sıkıştırması kullan"
-
 #: ../properties/nm-l2tp-dialog.ui.h:52
 msgid ""
 "IPComp compresses raw IP packets before they get encrypted. This saves some "
@@ -542,11 +444,6 @@ msgid ""
 "doesn’t support PFS.\n"
 "config: ipsec-pfs <no/yes>"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:57
-#, fuzzy
-msgid "Ad_vanced"
-msgstr "Ge_lişmiş..."
 
 #: ../properties/nm-l2tp-dialog.ui.h:58
 msgid "Default"
@@ -657,32 +554,6 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:82
 msgid "Use protocol _field compression negotiation"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:83
-#, fuzzy
-msgid ""
-"Allow protocol field compression negotiation in both the receive and the "
-"transmit direction.\n"
-"config: nopcomp (when unchecked)"
-msgstr ""
-"Van Jacobson stilinde TCP/IP başlık sıkıştırmasına alma ve gönderme "
-"yönlerinde izin ver/kapat.\n"
-"yapılandırma: novj (onaylandığında)"
-
-#: ../properties/nm-l2tp-dialog.ui.h:85
-#, fuzzy
-msgid "Use _Address/Control compression"
-msgstr "TCP _başlık sıkıştırması kullan"
-
-#: ../properties/nm-l2tp-dialog.ui.h:86
-#, fuzzy
-msgid ""
-"Use Address/Control compression in both directions (send and receive).\n"
-"config: noaccomp (when unchecked)"
-msgstr ""
-"Van Jacobson stilinde TCP/IP başlık sıkıştırmasına alma ve gönderme "
-"yönlerinde izin ver/kapat.\n"
-"yapılandırma: novj (onaylandığında)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:88
 msgid "Echo"

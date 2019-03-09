@@ -30,16 +30,6 @@ msgstr ""
 msgid "Support for configuring L2TP based virtual private network connections."
 msgstr ""
 
-#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:4
-#, fuzzy
-msgid "Compatible with L2TP and L2TP over IPsec services."
-msgstr "Compatible with L2TP VPN servers."
-
-#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:5
-#, fuzzy
-msgid "The PPP options dialog"
-msgstr "L2TP PPP Options"
-
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:6
 msgid "The NetworkManager-L2TP Developers"
 msgstr ""
@@ -207,11 +197,6 @@ msgstr "invalid boolean property '%s' (not yes or no)"
 msgid "unhandled property '%s' type %s"
 msgstr "unhandled property '%s' type %s"
 
-#: ../src/nm-l2tp-service.c:310
-#, fuzzy, c-format
-msgid "property '%s' invalid or not supported"
-msgstr "property '%s' invalid or not supportedx"
-
 #: ../src/nm-l2tp-service.c:328
 msgid "No VPN configuration options."
 msgstr "No VPN configuration options."
@@ -229,26 +214,6 @@ msgstr "No VPN secrets!"
 #, c-format
 msgid "Could not open %s"
 msgstr ""
-
-#: ../src/nm-l2tp-service.c:631
-#, fuzzy, c-format
-msgid "Could not write %s/ipsec.nm-l2tp.secrets"
-msgstr "Could not write ipsec config."
-
-#: ../src/nm-l2tp-service.c:671
-#, fuzzy
-msgid "Could not write ipsec config."
-msgstr "Could not write ipsec config."
-
-#: ../src/nm-l2tp-service.c:747
-#, fuzzy
-msgid "Could not write xl2tpd config."
-msgstr "could not create l2tp object"
-
-#: ../src/nm-l2tp-service.c:789
-#, fuzzy
-msgid "Could not write ppp options."
-msgstr "could not create l2tp object"
 
 #: ../src/nm-l2tp-service.c:947 ../src/nm-l2tp-service.c:972
 msgid "Could not start the ipsec service."
@@ -294,11 +259,6 @@ msgstr ""
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1353
-#, fuzzy
-msgid "could not retrieve connection UUID"
-msgstr "could not create l2tp object"
-
 #: ../src/nm-l2tp-service.c:1361
 msgid "Invalid or missing L2TP gateway."
 msgstr ""
@@ -338,11 +298,6 @@ msgid ""
 msgstr ""
 "L2TP server IP or name.\n"
 "config: xl2tpd lns parameter"
-
-#: ../properties/nm-l2tp-dialog.ui.h:5
-#, fuzzy
-msgid "User Authentication"
-msgstr "Authentication"
 
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
@@ -392,16 +347,6 @@ msgstr "_Enable IPsec tunnel to L2TP host"
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "config: ipsec-enabled"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:19
-#, fuzzy
-msgid "Machine Authentication"
-msgstr "Authentication"
-
-#: ../properties/nm-l2tp-dialog.ui.h:20
-#, fuzzy
-msgid "Sho_w password"
-msgstr "Show password"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid ""
@@ -506,11 +451,6 @@ msgid ""
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:51
-#, fuzzy
-msgid "Use IP c_ompression"
-msgstr "Use TCP _header compression"
 
 #: ../properties/nm-l2tp-dialog.ui.h:52
 msgid ""

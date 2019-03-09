@@ -33,11 +33,6 @@ msgstr ""
 msgid "Compatible with L2TP and L2TP over IPsec services."
 msgstr ""
 
-#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:5
-#, fuzzy
-msgid "The PPP options dialog"
-msgstr "PPP опции"
-
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:6
 msgid "The NetworkManager-L2TP Developers"
 msgstr ""
@@ -55,11 +50,6 @@ msgstr ""
 #: ../auth-dialog/main.c:155 ../auth-dialog/main.c:176
 msgid "Authenticate VPN"
 msgstr "Потврди автентичност на VPN"
-
-#: ../auth-dialog/main.c:157 ../properties/nm-l2tp-dialog.ui.h:12
-#, fuzzy
-msgid "Password:"
-msgstr "_Лозинка:"
 
 #: ../properties/ppp-dialog.c:172
 msgid "All Available (Default)"
@@ -80,11 +70,6 @@ msgstr ""
 #: ../properties/ppp-dialog.c:302
 msgid "CHAP"
 msgstr ""
-
-#: ../properties/ppp-dialog.c:314
-#, fuzzy
-msgid "MSCHAP"
-msgstr "Одбиј MSCHAP"
 
 #: ../properties/ppp-dialog.c:326
 msgid "MSCHAPv2"
@@ -333,21 +318,11 @@ msgid ""
 "config: xl2tpd lns parameter"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:5
-#, fuzzy
-msgid "User Authentication"
-msgstr "Автентикација"
-
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
 "DOMAIN\\username, where DOMAIN is the value from this text entry box."
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:7
-#, fuzzy
-msgid "Show password"
-msgstr "_Лозинка:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Password passed to PPPD when prompted for it."
@@ -364,11 +339,6 @@ msgstr ""
 msgid "User name:"
 msgstr "Корисничко име:"
 
-#: ../properties/nm-l2tp-dialog.ui.h:13
-#, fuzzy
-msgid "NT Domain:"
-msgstr "_Домен:"
-
 #: ../properties/nm-l2tp-dialog.ui.h:14
 msgid "_IPsec Settings..."
 msgstr ""
@@ -377,11 +347,6 @@ msgstr ""
 msgid "PPP Se_ttings..."
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:16
-#, fuzzy
-msgid "L2TP IPsec Options"
-msgstr "PPP опции"
-
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "_Enable IPsec tunnel to L2TP host"
 msgstr ""
@@ -389,16 +354,6 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "config: ipsec-enabled"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:19
-#, fuzzy
-msgid "Machine Authentication"
-msgstr "Автентикација"
-
-#: ../properties/nm-l2tp-dialog.ui.h:20
-#, fuzzy
-msgid "Sho_w password"
-msgstr "_Лозинка:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid ""
@@ -504,11 +459,6 @@ msgid ""
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:51
-#, fuzzy
-msgid "Use IP c_ompression"
-msgstr "Користи MPPC компресија"
-
 #: ../properties/nm-l2tp-dialog.ui.h:52
 msgid ""
 "IPComp compresses raw IP packets before they get encrypted. This saves some "
@@ -535,11 +485,6 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:59
-#, fuzzy
-msgid "L2TP PPP Options"
-msgstr "PPP опции"
-
 #: ../properties/nm-l2tp-dialog.ui.h:60
 msgid "Authentication"
 msgstr "Автентикација"
@@ -553,16 +498,6 @@ msgid ""
 "Allow/disable authentication methods.\n"
 "config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:64
-#, fuzzy
-msgid "Security and Compression"
-msgstr "Компресија"
-
-#: ../properties/nm-l2tp-dialog.ui.h:65
-#, fuzzy
-msgid "Use _Point-to-Point encryption (MPPE)"
-msgstr "Користи MPPE енкрипција"
 
 #: ../properties/nm-l2tp-dialog.ui.h:66
 msgid ""
@@ -591,32 +526,17 @@ msgid ""
 "config: mppe-stateful (when checked)"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:73
-#, fuzzy
-msgid "Allow _BSD data compression"
-msgstr "Дозволи BSD компресија"
-
 #: ../properties/nm-l2tp-dialog.ui.h:74
 msgid ""
 "Allow/disable BSD-Compress compression.\n"
 "config: nobsdcomp (when unchecked)"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:76
-#, fuzzy
-msgid "Allow _Deflate data compression"
-msgstr "Дозволи Deflate компресија"
-
 #: ../properties/nm-l2tp-dialog.ui.h:77
 msgid ""
 "Allow/disable Deflate compression.\n"
 "config: nodeflate (when unchecked)"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:79
-#, fuzzy
-msgid "Use TCP _header compression"
-msgstr "Користи MPPC компресија"
 
 #: ../properties/nm-l2tp-dialog.ui.h:80
 msgid ""
@@ -635,11 +555,6 @@ msgid ""
 "transmit direction.\n"
 "config: nopcomp (when unchecked)"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:85
-#, fuzzy
-msgid "Use _Address/Control compression"
-msgstr "Користи MPPC компресија"
 
 #: ../properties/nm-l2tp-dialog.ui.h:86
 msgid ""

@@ -32,16 +32,6 @@ msgstr ""
 msgid "Support for configuring L2TP based virtual private network connections."
 msgstr ""
 
-#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:4
-#, fuzzy
-msgid "Compatible with L2TP and L2TP over IPsec services."
-msgstr "Kompatibilis a Microsoft és más L2TP VPN kiszolgálókkal."
-
-#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:5
-#, fuzzy
-msgid "The PPP options dialog"
-msgstr "L2TP speciális beállításai"
-
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:6
 msgid "The NetworkManager-L2TP Developers"
 msgstr ""
@@ -124,11 +114,6 @@ msgstr ""
 msgid "could not load UI widget"
 msgstr ""
 
-#: ../properties/nm-l2tp-editor-plugin.c:34
-#, fuzzy
-msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr "Ponttól pontig alagutazási protokoll (L2TP)"
-
 #: ../properties/nm-l2tp-editor-plugin.c:35
 msgid "Compatible with Microsoft and other L2TP VPN servers."
 msgstr "Kompatibilis a Microsoft és más L2TP VPN-kiszolgálókkal."
@@ -172,11 +157,6 @@ msgid ""
 msgstr ""
 "a(z) „%2$s” típus „%1$s” értéke érvénytelen, vagy kívül esik a(z) „%4$s” "
 "típus „%3$s” tulajdonságának tartományán"
-
-#: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
-#, fuzzy, c-format
-msgid "unable to get editor plugin name: %s"
-msgstr "nem tölthető be a szerkesztő bővítmény: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
@@ -240,26 +220,6 @@ msgstr "Nincs VPN-titok!"
 msgid "Could not open %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:631
-#, fuzzy, c-format
-msgid "Could not write %s/ipsec.nm-l2tp.secrets"
-msgstr "Nem található a l2tp program."
-
-#: ../src/nm-l2tp-service.c:671
-#, fuzzy
-msgid "Could not write ipsec config."
-msgstr "Nem található a l2tp program."
-
-#: ../src/nm-l2tp-service.c:747
-#, fuzzy
-msgid "Could not write xl2tpd config."
-msgstr "Nem található a l2tp client program."
-
-#: ../src/nm-l2tp-service.c:789
-#, fuzzy
-msgid "Could not write ppp options."
-msgstr "Nem található a l2tp program."
-
 #: ../src/nm-l2tp-service.c:947 ../src/nm-l2tp-service.c:972
 msgid "Could not start the ipsec service."
 msgstr ""
@@ -268,11 +228,6 @@ msgstr ""
 msgid "Could not restart the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1091
-#, fuzzy
-msgid "Could not find the xl2tpd binary."
-msgstr "Nem található a l2tp program."
-
 #: ../src/nm-l2tp-service.c:1157
 msgid "Missing VPN username."
 msgstr "Hiányzó VPN-felhasználónév."
@@ -280,21 +235,6 @@ msgstr "Hiányzó VPN-felhasználónév."
 #: ../src/nm-l2tp-service.c:1166
 msgid "Missing or invalid VPN password."
 msgstr "Hiányzó vagy érvénytelen VPN-jelszó."
-
-#: ../src/nm-l2tp-service.c:1269
-#, fuzzy
-msgid "couldn't convert L2TP VPN gateway IP address."
-msgstr "a L2TP VPN-átjáró IP-címének átalakítása sikertelen: „%s” (%d)"
-
-#: ../src/nm-l2tp-service.c:1282
-#, fuzzy
-msgid "couldn't look up L2TP VPN gateway IP address "
-msgstr "nem található a L2TP VPN-átjáró IP-címe: „%s” (%d)"
-
-#: ../src/nm-l2tp-service.c:1301
-#, fuzzy
-msgid "no usable addresses returned for L2TP VPN gateway "
-msgstr "nem került használható cím visszaadása a L2TP VPN-átjáróhoz: „%s”"
 
 #: ../src/nm-l2tp-service.c:1336
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
@@ -350,11 +290,6 @@ msgid ""
 "config: xl2tpd lns parameter"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:5
-#, fuzzy
-msgid "User Authentication"
-msgstr "Hitelesítés"
-
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
@@ -404,16 +339,6 @@ msgstr ""
 msgid "config: ipsec-enabled"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:19
-#, fuzzy
-msgid "Machine Authentication"
-msgstr "Hitelesítés"
-
-#: ../properties/nm-l2tp-dialog.ui.h:20
-#, fuzzy
-msgid "Sho_w password"
-msgstr "Jelszó megjelenítése"
-
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid ""
 "Pre-shared key (PSK) secret.\n"
@@ -457,11 +382,6 @@ msgstr ""
 msgid "(HH:MM)"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:33
-#, fuzzy
-msgid "Phase_2 Lifetime:"
-msgstr "Phase2 algoritmusok:"
-
 #: ../properties/nm-l2tp-dialog.ui.h:34
 msgid ""
 "How long a particular instance of a connection (a set of encryption/"
@@ -489,11 +409,6 @@ msgid ""
 "ipsec.secrets: <ID>"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:41
-#, fuzzy
-msgid "Phase_1 Lifetime:"
-msgstr "Phase1 algoritmusok:"
-
 #: ../properties/nm-l2tp-dialog.ui.h:42
 msgid "_Legacy Proposals"
 msgstr ""
@@ -519,11 +434,6 @@ msgid ""
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:51
-#, fuzzy
-msgid "Use IP c_ompression"
-msgstr "TPC _fejléctömörítés használata"
 
 #: ../properties/nm-l2tp-dialog.ui.h:52
 msgid ""
@@ -663,11 +573,6 @@ msgid ""
 "transmit direction.\n"
 "config: nopcomp (when unchecked)"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:85
-#, fuzzy
-msgid "Use _Address/Control compression"
-msgstr "TPC _fejléctömörítés használata"
 
 #: ../properties/nm-l2tp-dialog.ui.h:86
 msgid ""
