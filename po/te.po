@@ -668,10 +668,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:94
 msgid "MRU :"
 msgstr ""
-
-#, fuzzy
-#~ msgid "Gateway ID:"
-#~ msgstr "గేట్‌వే (_G):"
-
-#~ msgid "Optional"
-#~ msgstr "ఐచ్చిక"

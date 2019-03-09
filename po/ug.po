@@ -663,10 +663,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:94
 msgid "MRU :"
 msgstr ""
-
-#, fuzzy
-#~ msgid "Gateway ID:"
-#~ msgstr "تور ئۆتكىلى(_G):"
-
-#~ msgid "Optional"
-#~ msgstr "ئىختىيار"

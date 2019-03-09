@@ -662,9 +662,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:94
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "Gateway ID:"
-#~ msgstr "게이트웨이 ID:"
-
-#~ msgid "Optional"
-#~ msgstr "추가 정보"

@@ -662,10 +662,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:94
 msgid "MRU :"
 msgstr ""
-
-#, fuzzy
-#~ msgid "Gateway ID:"
-#~ msgstr "गेटवे (_G):"
-
-#~ msgid "Optional"
-#~ msgstr "वैक्लपिक"

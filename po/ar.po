@@ -671,10 +671,3 @@ msgstr "اقصى وحدة نقل (بالبايت)"
 #: ../properties/nm-l2tp-dialog.ui.h:94
 msgid "MRU :"
 msgstr "اقصى وحدو استلام (بالبايت)"
-
-#~ msgid "Gateway ID:"
-#~ msgstr "معرّف البوّابة:"
-
-#, fuzzy
-#~ msgid "Optional"
-#~ msgstr "اختياري"

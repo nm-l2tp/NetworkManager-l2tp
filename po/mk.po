@@ -672,11 +672,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:94
 msgid "MRU :"
 msgstr ""
-
-#, fuzzy
-#~ msgid "Gateway ID:"
-#~ msgstr "_Премин:"
-
-#, fuzzy
-#~ msgid "Optional"
-#~ msgstr "IP опции"

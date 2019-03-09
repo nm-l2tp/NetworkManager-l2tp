@@ -668,9 +668,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:94
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "Gateway ID:"
-#~ msgstr "Lüüsi ID:"
-
-#~ msgid "Optional"
-#~ msgstr "Valikuline"

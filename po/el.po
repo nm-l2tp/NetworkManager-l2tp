@@ -695,18 +695,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:94
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "Gateway ID:"
-#~ msgstr "ID δικτυακής πύλης:"
-
-#~ msgid "Optional"
-#~ msgstr "Προαιρετικά"
-
-#~ msgid ""
-#~ "Append the domain name <domain> to the local host name for authentication "
-#~ "purposes.\n"
-#~ "config: domain <domain>"
-#~ msgstr ""
-#~ "Προσθέστε το όνομα τομέα <domain> στο τοπικό όνομα υπολογιστή για λόγους "
-#~ "πιστοποίησης.\n"
-#~ "config: domain <domain>"
