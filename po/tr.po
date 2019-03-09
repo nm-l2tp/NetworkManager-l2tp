@@ -33,11 +33,6 @@ msgstr ""
 msgid "Support for configuring L2TP based virtual private network connections."
 msgstr ""
 
-#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:4
-#, fuzzy
-msgid "Compatible with L2TP and L2TP over IPsec services."
-msgstr "Microsoft ve diğer L2TP VPN sunucularıyla uyumludur."
-
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:5
 msgid "The PPP options dialog"
 msgstr ""
@@ -45,11 +40,6 @@ msgstr ""
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:6
 msgid "The NetworkManager-L2TP Developers"
 msgstr ""
-
-#: ../auth-dialog/main.c:175
-#, fuzzy, c-format
-msgid "Authenticate VPN %s"
-msgstr "VPN Kimlik Doğrulaması"
 
 #: ../auth-dialog/main.c:182 ../properties/nm-l2tp-dialog.ui.h:14
 msgid "Password:"
@@ -74,12 +64,6 @@ msgstr ""
 #: ../auth-dialog/main.c:251
 msgid "_Machine Certificate password:"
 msgstr ""
-
-#: ../auth-dialog/main.c:487
-#, fuzzy, c-format
-msgid "You need to authenticate to access the Virtual Private Network “%s”."
-msgstr ""
-"'%s' Sanal Özel Ağına erişmek için kimlik doğrulaması yapmanız gerekiyor."
 
 #: ../properties/ppp-dialog.c:172
 msgid "All Available (Default)"
@@ -141,11 +125,6 @@ msgstr ""
 msgid "%s: failed to create the IPsec dialog!"
 msgstr ""
 
-#: ../properties/nm-l2tp-editor.c:548
-#, fuzzy
-msgid "Password"
-msgstr "Parola:"
-
 #: ../properties/nm-l2tp-editor.c:717
 #, c-format
 msgid "could not create l2tp object"
@@ -155,11 +134,6 @@ msgstr ""
 #, c-format
 msgid "could not load UI widget"
 msgstr ""
-
-#: ../properties/nm-l2tp-editor-plugin.c:34
-#, fuzzy
-msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr "Noktadan Noktaya Tünelleme Protokolü (L2TP)"
 
 #: ../properties/nm-l2tp-editor-plugin.c:35
 msgid "Compatible with Microsoft and other L2TP VPN servers."
@@ -222,13 +196,6 @@ msgstr ""
 msgid "Error loading PKCS#12 file '%s'."
 msgstr ""
 
-#: ../shared/nm-l2tp-crypto-openssl.c:321
-#: ../shared/nm-l2tp-crypto-openssl.c:567
-#: ../shared/nm-l2tp-crypto-openssl.c:645
-#, fuzzy, c-format
-msgid "Error parsing PKCS#12 file '%s'."
-msgstr "tanınmayan özellik '%s' tür %s"
-
 #: ../shared/nm-l2tp-crypto-openssl.c:334
 #, c-format
 msgid "Error obtaining Subject Name for PKCS#12 file '%s'."
@@ -238,12 +205,6 @@ msgstr ""
 #, c-format
 msgid "Error obtaining ASN1 Subject Name for PKCS#12 file '%s'."
 msgstr ""
-
-#: ../shared/nm-l2tp-crypto-openssl.c:434
-#: ../shared/nm-l2tp-crypto-openssl.c:773
-#, fuzzy, c-format
-msgid "Error decrypting private key file '%s'."
-msgstr "tanınmayan özellik '%s' tür %s"
 
 #: ../shared/nm-l2tp-crypto-openssl.c:457
 #: ../shared/nm-l2tp-crypto-openssl.c:485
@@ -257,15 +218,6 @@ msgstr ""
 #, c-format
 msgid "Error creating PKCS#12 data: %s"
 msgstr ""
-
-#: ../shared/nm-l2tp-crypto-openssl.c:656
-#: ../shared/nm-l2tp-crypto-openssl.c:673
-#: ../shared/nm-l2tp-crypto-openssl.c:685
-#: ../shared/nm-l2tp-crypto-openssl.c:734
-#: ../shared/nm-l2tp-crypto-openssl.c:786
-#, fuzzy, c-format
-msgid "Could not write '%s' : %s"
-msgstr "Pppd uygulaması bulunamadı."
 
 #: ../shared/nm-utils/nm-shared-utils.c:1165
 #, c-format
@@ -363,33 +315,13 @@ msgstr "Gerekli '%s' seçeneği eksik."
 msgid "Could not open %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:687
-#, fuzzy, c-format
-msgid "Could not write %s/ipsec.nm-l2tp.secrets"
-msgstr "Pppd uygulaması bulunamadı."
-
 #: ../src/nm-l2tp-service.c:724
 msgid "Machine private key file not supplied"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:838
-#, fuzzy
-msgid "Could not write ipsec config"
-msgstr "Pppd uygulaması bulunamadı."
-
 #: ../src/nm-l2tp-service.c:907
 msgid "Machine certificate file not supplied"
 msgstr ""
-
-#: ../src/nm-l2tp-service.c:980
-#, fuzzy
-msgid "Could not write xl2tpd config."
-msgstr "Pptp istemci uygulaması bulunamadı."
-
-#: ../src/nm-l2tp-service.c:1023
-#, fuzzy
-msgid "Could not write ppp options."
-msgstr "Pppd uygulaması bulunamadı."
 
 #: ../src/nm-l2tp-service.c:1284 ../src/nm-l2tp-service.c:1309
 msgid "Could not start the ipsec service."
@@ -399,16 +331,6 @@ msgstr ""
 msgid "Could not restart the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1428
-#, fuzzy
-msgid "Could not find the xl2tpd binary."
-msgstr "Pppd uygulaması bulunamadı."
-
-#: ../src/nm-l2tp-service.c:1500
-#, fuzzy
-msgid "Missing or invalid VPN user certificate password."
-msgstr "Eksik veya geçersiz VPN kullanıcı adı."
-
 #: ../src/nm-l2tp-service.c:1514
 msgid "Missing VPN username."
 msgstr "Eksik VPN kullanıcı adı."
@@ -416,21 +338,6 @@ msgstr "Eksik VPN kullanıcı adı."
 #: ../src/nm-l2tp-service.c:1523
 msgid "Missing or invalid VPN password."
 msgstr "Eksik veya geçersiz VPN kullanıcı adı."
-
-#: ../src/nm-l2tp-service.c:1627
-#, fuzzy
-msgid "couldn't convert L2TP VPN gateway IP address."
-msgstr "L2TP VPN ağ geçidi IP adresi dönüştürülemedi '%s' (%d)"
-
-#: ../src/nm-l2tp-service.c:1640
-#, fuzzy
-msgid "couldn't look up L2TP VPN gateway IP address "
-msgstr "L2TP VPN ağ geçidi IP adresine bakılamadı '%s' (%d)"
-
-#: ../src/nm-l2tp-service.c:1659
-#, fuzzy
-msgid "no usable addresses returned for L2TP VPN gateway "
-msgstr "L2TP VPN ağ geçidi '%s' için kullanılabilir bir adres dönmedi"
 
 #: ../src/nm-l2tp-service.c:1688
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
@@ -466,15 +373,6 @@ msgstr ""
 msgid "D-Bus name to use for this instance"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:2064
-#, fuzzy
-msgid ""
-"nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
-"NetworkManager."
-msgstr ""
-"nm-l2tp-service, NetworkManager'a tümleşik L2TP VPN yeteneği (Microsoft ve "
-"diğer gerçekleştirmelere uyumlu) sağlar."
-
 #: ../properties/nm-l2tp-dialog.ui.h:1
 msgid "General"
 msgstr "Genel"
@@ -483,30 +381,11 @@ msgstr "Genel"
 msgid "_Gateway:"
 msgstr "_Ağ geçidi:"
 
-#: ../properties/nm-l2tp-dialog.ui.h:3
-#, fuzzy
-msgid ""
-"L2TP server IP or name.\n"
-"config: xl2tpd lns parameter"
-msgstr ""
-"L2TP sunucu IP adresi veya adı.\n"
-"yapılandırma: l2tp'nin ilk parametresi"
-
-#: ../properties/nm-l2tp-dialog.ui.h:5
-#, fuzzy
-msgid "User Authentication"
-msgstr "Kimlik Doğrulama"
-
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
 "DOMAIN\\username, where DOMAIN is the value from this text entry box."
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:7
-#, fuzzy
-msgid "Sho_w password"
-msgstr "Parolayı göster"
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Password passed to PPPD when prompted for it."
@@ -529,11 +408,6 @@ msgstr "Kullanıcı adı:"
 msgid "NT Domain:"
 msgstr "NT Alanı:"
 
-#: ../properties/nm-l2tp-dialog.ui.h:16
-#, fuzzy
-msgid "CA"
-msgstr "CHAP"
-
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "User"
 msgstr ""
@@ -541,11 +415,6 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "Type:"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:19
-#, fuzzy
-msgid "Select an authentication mode."
-msgstr "Aşağıdaki kimlik denetleme yöntemlerine izin ver:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "_IPsec Settings..."
@@ -566,11 +435,6 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "config: ipsec-enabled"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:25
-#, fuzzy
-msgid "Machine Authentication"
-msgstr "Kimlik Doğrulama"
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid ""
@@ -627,16 +491,6 @@ msgid ""
 "config: ipsec-salifetime <lifetime>"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:41
-#, fuzzy
-msgid "Phase_1 Lifetime:"
-msgstr "Faz1 Algoritması:"
-
-#: ../properties/nm-l2tp-dialog.ui.h:42
-#, fuzzy
-msgid "Phase_2 Lifetime:"
-msgstr "Faz2 Algoritması:"
-
 #: ../properties/nm-l2tp-dialog.ui.h:43
 msgid "Remote ID:"
 msgstr ""
@@ -679,11 +533,6 @@ msgid ""
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:56
-#, fuzzy
-msgid "Use IP c_ompression"
-msgstr "TCP _başlık sıkıştırması kullan"
-
 #: ../properties/nm-l2tp-dialog.ui.h:57
 msgid ""
 "IPComp compresses raw IP packets before they get encrypted. This saves some "
@@ -701,11 +550,6 @@ msgid ""
 "doesn’t support PFS.\n"
 "config: ipsec-pfs <no/yes>"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:62
-#, fuzzy
-msgid "Ad_vanced"
-msgstr "Ge_lişmiş..."
 
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid "Default"
@@ -816,32 +660,6 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:87
 msgid "Use protocol _field compression negotiation"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:88
-#, fuzzy
-msgid ""
-"Allow protocol field compression negotiation in both the receive and the "
-"transmit direction.\n"
-"config: nopcomp (when unchecked)"
-msgstr ""
-"Van Jacobson stilinde TCP/IP başlık sıkıştırmasına alma ve gönderme "
-"yönlerinde izin ver/kapat.\n"
-"yapılandırma: novj (onaylandığında)"
-
-#: ../properties/nm-l2tp-dialog.ui.h:90
-#, fuzzy
-msgid "Use _Address/Control compression"
-msgstr "TCP _başlık sıkıştırması kullan"
-
-#: ../properties/nm-l2tp-dialog.ui.h:91
-#, fuzzy
-msgid ""
-"Use Address/Control compression in both directions (send and receive).\n"
-"config: noaccomp (when unchecked)"
-msgstr ""
-"Van Jacobson stilinde TCP/IP başlık sıkıştırmasına alma ve gönderme "
-"yönlerinde izin ver/kapat.\n"
-"yapılandırma: novj (onaylandığında)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:93
 msgid "Echo"

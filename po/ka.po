@@ -33,24 +33,9 @@ msgstr ""
 msgid "Compatible with L2TP and L2TP over IPsec services."
 msgstr ""
 
-#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:5
-#, fuzzy
-msgid "The PPP options dialog"
-msgstr "PPP პარამეტრები"
-
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:6
 msgid "The NetworkManager-L2TP Developers"
 msgstr ""
-
-#: ../auth-dialog/main.c:175
-#, fuzzy, c-format
-msgid "Authenticate VPN %s"
-msgstr "VPN-აუთენტიკაცია"
-
-#: ../auth-dialog/main.c:182 ../properties/nm-l2tp-dialog.ui.h:14
-#, fuzzy
-msgid "Password:"
-msgstr "_პაროლი:"
 
 #: ../auth-dialog/main.c:189
 msgid "User Certificate password:"
@@ -72,11 +57,6 @@ msgstr ""
 msgid "_Machine Certificate password:"
 msgstr ""
 
-#: ../auth-dialog/main.c:487
-#, fuzzy, c-format
-msgid "You need to authenticate to access the Virtual Private Network “%s”."
-msgstr "საჭიროა აუთენტიკაცია VPN ‘%s’-ში შესვლისათვის"
-
 #: ../properties/ppp-dialog.c:172
 msgid "All Available (Default)"
 msgstr ""
@@ -96,11 +76,6 @@ msgstr ""
 #: ../properties/ppp-dialog.c:302
 msgid "CHAP"
 msgstr ""
-
-#: ../properties/ppp-dialog.c:314
-#, fuzzy
-msgid "MSCHAP"
-msgstr "MSCHAP-ის უარყოფა"
 
 #: ../properties/ppp-dialog.c:326
 msgid "MSCHAPv2"
@@ -137,11 +112,6 @@ msgstr ""
 #, c-format
 msgid "%s: failed to create the IPsec dialog!"
 msgstr ""
-
-#: ../properties/nm-l2tp-editor.c:548
-#, fuzzy
-msgid "Password"
-msgstr "_პაროლი:"
 
 #: ../properties/nm-l2tp-editor.c:717
 #, c-format
@@ -472,21 +442,11 @@ msgid ""
 "config: xl2tpd lns parameter"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:5
-#, fuzzy
-msgid "User Authentication"
-msgstr "აუთენტიფიკაცია"
-
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
 "DOMAIN\\username, where DOMAIN is the value from this text entry box."
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:7
-#, fuzzy
-msgid "Sho_w password"
-msgstr "_პაროლი:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Password passed to PPPD when prompted for it."
@@ -500,16 +460,6 @@ msgid ""
 "\n"
 "config: auth-user-pass"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:13
-#, fuzzy
-msgid "User name:"
-msgstr "_მომხმარებელი:"
-
-#: ../properties/nm-l2tp-dialog.ui.h:15
-#, fuzzy
-msgid "NT Domain:"
-msgstr "_დომენი:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
 msgid "CA"
@@ -535,11 +485,6 @@ msgstr ""
 msgid "PPP Se_ttings..."
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:22
-#, fuzzy
-msgid "L2TP IPsec Options"
-msgstr "PPP პარამეტრები"
-
 #: ../properties/nm-l2tp-dialog.ui.h:23
 msgid "_Enable IPsec tunnel to L2TP host"
 msgstr ""
@@ -547,11 +492,6 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "config: ipsec-enabled"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:25
-#, fuzzy
-msgid "Machine Authentication"
-msgstr "აუთენტიფიკაცია"
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid ""
@@ -658,11 +598,6 @@ msgid ""
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:56
-#, fuzzy
-msgid "Use IP c_ompression"
-msgstr "MPPC-კუმშვის გამოყენება"
-
 #: ../properties/nm-l2tp-dialog.ui.h:57
 msgid ""
 "IPComp compresses raw IP packets before they get encrypted. This saves some "
@@ -689,11 +624,6 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:64
-#, fuzzy
-msgid "L2TP PPP Options"
-msgstr "PPP პარამეტრები"
-
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "Authentication"
 msgstr "აუთენტიფიკაცია"
@@ -707,16 +637,6 @@ msgid ""
 "Allow/disable authentication methods.\n"
 "config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:69
-#, fuzzy
-msgid "Security and Compression"
-msgstr "კუმშვა"
-
-#: ../properties/nm-l2tp-dialog.ui.h:70
-#, fuzzy
-msgid "Use _Point-to-Point encryption (MPPE)"
-msgstr "MPPE-შიფრვა"
 
 #: ../properties/nm-l2tp-dialog.ui.h:71
 msgid ""
@@ -745,32 +665,17 @@ msgid ""
 "config: mppe-stateful (when checked)"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:78
-#, fuzzy
-msgid "Allow _BSD data compression"
-msgstr "BSD კუმშვის დაშვება"
-
 #: ../properties/nm-l2tp-dialog.ui.h:79
 msgid ""
 "Allow/disable BSD-Compress compression.\n"
 "config: nobsdcomp (when unchecked)"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:81
-#, fuzzy
-msgid "Allow _Deflate data compression"
-msgstr "Deflate კუმშვის დაშვება"
-
 #: ../properties/nm-l2tp-dialog.ui.h:82
 msgid ""
 "Allow/disable Deflate compression.\n"
 "config: nodeflate (when unchecked)"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:84
-#, fuzzy
-msgid "Use TCP _header compression"
-msgstr "MPPC-კუმშვის გამოყენება"
 
 #: ../properties/nm-l2tp-dialog.ui.h:85
 msgid ""
@@ -789,11 +694,6 @@ msgid ""
 "transmit direction.\n"
 "config: nopcomp (when unchecked)"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:90
-#, fuzzy
-msgid "Use _Address/Control compression"
-msgstr "MPPC-კუმშვის გამოყენება"
 
 #: ../properties/nm-l2tp-dialog.ui.h:91
 msgid ""

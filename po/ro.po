@@ -31,11 +31,6 @@ msgstr ""
 msgid "Support for configuring L2TP based virtual private network connections."
 msgstr ""
 
-#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:4
-#, fuzzy
-msgid "Compatible with L2TP and L2TP over IPsec services."
-msgstr "Compatibil cu Microsoft și alte servere VPN L2TP."
-
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:5
 msgid "The PPP options dialog"
 msgstr ""
@@ -43,11 +38,6 @@ msgstr ""
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:6
 msgid "The NetworkManager-L2TP Developers"
 msgstr ""
-
-#: ../auth-dialog/main.c:175
-#, fuzzy, c-format
-msgid "Authenticate VPN %s"
-msgstr "Autentifică VPN"
 
 #: ../auth-dialog/main.c:182 ../properties/nm-l2tp-dialog.ui.h:14
 msgid "Password:"
@@ -72,12 +62,6 @@ msgstr ""
 #: ../auth-dialog/main.c:251
 msgid "_Machine Certificate password:"
 msgstr ""
-
-#: ../auth-dialog/main.c:487
-#, fuzzy, c-format
-msgid "You need to authenticate to access the Virtual Private Network “%s”."
-msgstr ""
-"Trebuie să vă autentificați pentru a accesa Rețeaua privată virtuală „%s”."
 
 #: ../properties/ppp-dialog.c:172
 msgid "All Available (Default)"
@@ -139,11 +123,6 @@ msgstr ""
 msgid "%s: failed to create the IPsec dialog!"
 msgstr ""
 
-#: ../properties/nm-l2tp-editor.c:548
-#, fuzzy
-msgid "Password"
-msgstr "Parolă:"
-
 #: ../properties/nm-l2tp-editor.c:717
 #, c-format
 msgid "could not create l2tp object"
@@ -153,11 +132,6 @@ msgstr ""
 #, c-format
 msgid "could not load UI widget"
 msgstr ""
-
-#: ../properties/nm-l2tp-editor-plugin.c:34
-#, fuzzy
-msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr "Protocol de tunelare Punct la punct (L2TP)"
 
 #: ../properties/nm-l2tp-editor-plugin.c:35
 msgid "Compatible with Microsoft and other L2TP VPN servers."
@@ -474,21 +448,11 @@ msgid ""
 "config: xl2tpd lns parameter"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:5
-#, fuzzy
-msgid "User Authentication"
-msgstr "Autentificare"
-
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
 "DOMAIN\\username, where DOMAIN is the value from this text entry box."
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:7
-#, fuzzy
-msgid "Sho_w password"
-msgstr "Arată parola"
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Password passed to PPPD when prompted for it."
@@ -511,11 +475,6 @@ msgstr "Nume utilizator:"
 msgid "NT Domain:"
 msgstr "Domeniu NT:"
 
-#: ../properties/nm-l2tp-dialog.ui.h:16
-#, fuzzy
-msgid "CA"
-msgstr "CHAP"
-
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "User"
 msgstr ""
@@ -523,11 +482,6 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "Type:"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:19
-#, fuzzy
-msgid "Select an authentication mode."
-msgstr "Permite următoarele metode de autentificare:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "_IPsec Settings..."
@@ -537,11 +491,6 @@ msgstr ""
 msgid "PPP Se_ttings..."
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:22
-#, fuzzy
-msgid "L2TP IPsec Options"
-msgstr "Opțiuni avansate L2TP"
-
 #: ../properties/nm-l2tp-dialog.ui.h:23
 msgid "_Enable IPsec tunnel to L2TP host"
 msgstr ""
@@ -549,11 +498,6 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "config: ipsec-enabled"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:25
-#, fuzzy
-msgid "Machine Authentication"
-msgstr "Autentificare"
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid ""
@@ -660,11 +604,6 @@ msgid ""
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:56
-#, fuzzy
-msgid "Use IP c_ompression"
-msgstr "Folosește compresia _antetelor TCP"
-
 #: ../properties/nm-l2tp-dialog.ui.h:57
 msgid ""
 "IPComp compresses raw IP packets before they get encrypted. This saves some "
@@ -683,19 +622,9 @@ msgid ""
 "config: ipsec-pfs <no/yes>"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:62
-#, fuzzy
-msgid "Ad_vanced"
-msgstr "A_vansat..."
-
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid "Default"
 msgstr "Implicit"
-
-#: ../properties/nm-l2tp-dialog.ui.h:64
-#, fuzzy
-msgid "L2TP PPP Options"
-msgstr "Opțiuni avansate L2TP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "Authentication"
@@ -790,11 +719,6 @@ msgid ""
 "transmit direction.\n"
 "config: nopcomp (when unchecked)"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:90
-#, fuzzy
-msgid "Use _Address/Control compression"
-msgstr "Folosește compresia _antetelor TCP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:91
 msgid ""

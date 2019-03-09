@@ -31,24 +31,9 @@ msgstr ""
 msgid "Support for configuring L2TP based virtual private network connections."
 msgstr ""
 
-#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:4
-#, fuzzy
-msgid "Compatible with L2TP and L2TP over IPsec services."
-msgstr "与 L2TP VPN 服务器兼容。"
-
-#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:5
-#, fuzzy
-msgid "The PPP options dialog"
-msgstr "L2TP PPP 选项"
-
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:6
 msgid "The NetworkManager-L2TP Developers"
 msgstr ""
-
-#: ../auth-dialog/main.c:175
-#, fuzzy, c-format
-msgid "Authenticate VPN %s"
-msgstr "认证 VPN"
 
 #: ../auth-dialog/main.c:182 ../properties/nm-l2tp-dialog.ui.h:14
 msgid "Password:"
@@ -73,11 +58,6 @@ msgstr ""
 #: ../auth-dialog/main.c:251
 msgid "_Machine Certificate password:"
 msgstr ""
-
-#: ../auth-dialog/main.c:487
-#, fuzzy, c-format
-msgid "You need to authenticate to access the Virtual Private Network “%s”."
-msgstr "您需要进行身份验证才能访问虚拟专用网络 '%s'。"
 
 #: ../properties/ppp-dialog.c:172
 msgid "All Available (Default)"
@@ -111,11 +91,6 @@ msgstr "MSCHAPv2"
 msgid "EAP"
 msgstr "EAP"
 
-#: ../properties/ipsec-dialog.c:457
-#, fuzzy
-msgid "Pre-shared key (PSK)"
-msgstr "预共享密钥："
-
 #: ../properties/ipsec-dialog.c:466 ../properties/nm-l2tp-editor.c:557
 msgid "Certificates (TLS)"
 msgstr ""
@@ -139,11 +114,6 @@ msgstr "%s：创建高级对话失败！"
 #, c-format
 msgid "%s: failed to create the IPsec dialog!"
 msgstr "%s：创建 IPsec 对话失败！"
-
-#: ../properties/nm-l2tp-editor.c:548
-#, fuzzy
-msgid "Password"
-msgstr "密码:"
 
 #: ../properties/nm-l2tp-editor.c:717
 #, c-format
@@ -220,13 +190,6 @@ msgstr ""
 msgid "Error loading PKCS#12 file '%s'."
 msgstr ""
 
-#: ../shared/nm-l2tp-crypto-openssl.c:321
-#: ../shared/nm-l2tp-crypto-openssl.c:567
-#: ../shared/nm-l2tp-crypto-openssl.c:645
-#, fuzzy, c-format
-msgid "Error parsing PKCS#12 file '%s'."
-msgstr "解析属性 '%s' 值 '%s' 时出错"
-
 #: ../shared/nm-l2tp-crypto-openssl.c:334
 #, c-format
 msgid "Error obtaining Subject Name for PKCS#12 file '%s'."
@@ -236,12 +199,6 @@ msgstr ""
 #, c-format
 msgid "Error obtaining ASN1 Subject Name for PKCS#12 file '%s'."
 msgstr ""
-
-#: ../shared/nm-l2tp-crypto-openssl.c:434
-#: ../shared/nm-l2tp-crypto-openssl.c:773
-#, fuzzy, c-format
-msgid "Error decrypting private key file '%s'."
-msgstr "解析属性 '%s' 值 '%s' 时出错"
 
 #: ../shared/nm-l2tp-crypto-openssl.c:457
 #: ../shared/nm-l2tp-crypto-openssl.c:485
@@ -394,16 +351,6 @@ msgstr ""
 msgid "Could not restart the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1428
-#, fuzzy
-msgid "Could not find the xl2tpd binary."
-msgstr "无法找到 xl2tpd 二进制文件。"
-
-#: ../src/nm-l2tp-service.c:1500
-#, fuzzy
-msgid "Missing or invalid VPN user certificate password."
-msgstr "VPN 密码缺失或无效。"
-
 #: ../src/nm-l2tp-service.c:1514
 msgid "Missing VPN username."
 msgstr "缺少 VPN 用户名。"
@@ -411,21 +358,6 @@ msgstr "缺少 VPN 用户名。"
 #: ../src/nm-l2tp-service.c:1523
 msgid "Missing or invalid VPN password."
 msgstr "VPN 密码缺失或无效。"
-
-#: ../src/nm-l2tp-service.c:1627
-#, fuzzy
-msgid "couldn't convert L2TP VPN gateway IP address."
-msgstr "无法转换 L2TP VPN 网关 IP 地址“%s”(%d)"
-
-#: ../src/nm-l2tp-service.c:1640
-#, fuzzy
-msgid "couldn't look up L2TP VPN gateway IP address "
-msgstr "无法查找 L2TP VPN 网关 IP 地址“%s”(%d)"
-
-#: ../src/nm-l2tp-service.c:1659
-#, fuzzy
-msgid "no usable addresses returned for L2TP VPN gateway "
-msgstr "未返回对应 L2TP VPN 网关“%s”的可用地址"
 
 #: ../src/nm-l2tp-service.c:1688
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
@@ -438,11 +370,6 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:1696
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
-
-#: ../src/nm-l2tp-service.c:1705
-#, fuzzy
-msgid "could not retrieve connection UUID"
-msgstr "无法创建 l2tp 对象"
 
 #: ../src/nm-l2tp-service.c:1713
 msgid "Invalid or missing L2TP gateway."
@@ -483,21 +410,11 @@ msgstr ""
 "L2TP 服务器 IP 或名称。\n"
 "配置：xl2tpd lns parameter"
 
-#: ../properties/nm-l2tp-dialog.ui.h:5
-#, fuzzy
-msgid "User Authentication"
-msgstr "身份验证"
-
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
 "DOMAIN\\username, where DOMAIN is the value from this text entry box."
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:7
-#, fuzzy
-msgid "Sho_w password"
-msgstr "显示密码"
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Password passed to PPPD when prompted for it."
@@ -520,11 +437,6 @@ msgstr "用户名(_U)："
 msgid "NT Domain:"
 msgstr "NT 域:"
 
-#: ../properties/nm-l2tp-dialog.ui.h:16
-#, fuzzy
-msgid "CA"
-msgstr "CHAP"
-
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "User"
 msgstr ""
@@ -532,11 +444,6 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "Type:"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:19
-#, fuzzy
-msgid "Select an authentication mode."
-msgstr "允许以下认证方法:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "_IPsec Settings..."
@@ -557,11 +464,6 @@ msgstr "启用到 L2TP 主机的 IPsec 隧道(_E)"
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "config: ipsec-enabled"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:25
-#, fuzzy
-msgid "Machine Authentication"
-msgstr "身份验证"
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid ""
@@ -668,11 +570,6 @@ msgid ""
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:56
-#, fuzzy
-msgid "Use IP c_ompression"
-msgstr "使用 TCP 头压缩(_H)"
-
 #: ../properties/nm-l2tp-dialog.ui.h:57
 msgid ""
 "IPComp compresses raw IP packets before they get encrypted. This saves some "
@@ -690,11 +587,6 @@ msgid ""
 "doesn’t support PFS.\n"
 "config: ipsec-pfs <no/yes>"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:62
-#, fuzzy
-msgid "Ad_vanced"
-msgstr "高级(_V)..."
 
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid "Default"

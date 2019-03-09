@@ -32,24 +32,9 @@ msgstr ""
 msgid "Support for configuring L2TP based virtual private network connections."
 msgstr ""
 
-#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:4
-#, fuzzy
-msgid "Compatible with L2TP and L2TP over IPsec services."
-msgstr "Microsoft eta beste L2TP VPN zerbitzariekin bateragarria."
-
-#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:5
-#, fuzzy
-msgid "The PPP options dialog"
-msgstr "L2TP-ren aukera aurreratuak"
-
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:6
 msgid "The NetworkManager-L2TP Developers"
 msgstr ""
-
-#: ../auth-dialog/main.c:175
-#, fuzzy, c-format
-msgid "Authenticate VPN %s"
-msgstr "Autentifikatu VPN"
 
 #: ../auth-dialog/main.c:182 ../properties/nm-l2tp-dialog.ui.h:14
 msgid "Password:"
@@ -74,11 +59,6 @@ msgstr ""
 #: ../auth-dialog/main.c:251
 msgid "_Machine Certificate password:"
 msgstr ""
-
-#: ../auth-dialog/main.c:487
-#, fuzzy, c-format
-msgid "You need to authenticate to access the Virtual Private Network “%s”."
-msgstr "Autentifikatu egin behar zara '%s' VPN-ra sarbidetzeko."
 
 #: ../properties/ppp-dialog.c:172
 msgid "All Available (Default)"
@@ -140,11 +120,6 @@ msgstr ""
 msgid "%s: failed to create the IPsec dialog!"
 msgstr ""
 
-#: ../properties/nm-l2tp-editor.c:548
-#, fuzzy
-msgid "Password"
-msgstr "Pasahitza:"
-
 #: ../properties/nm-l2tp-editor.c:717
 #, c-format
 msgid "could not create l2tp object"
@@ -154,11 +129,6 @@ msgstr ""
 #, c-format
 msgid "could not load UI widget"
 msgstr ""
-
-#: ../properties/nm-l2tp-editor-plugin.c:34
-#, fuzzy
-msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr "Puntutik punturako tunelaren protokoloa (L2TP)"
 
 #: ../properties/nm-l2tp-editor-plugin.c:35
 msgid "Compatible with Microsoft and other L2TP VPN servers."
@@ -395,16 +365,6 @@ msgstr ""
 msgid "Could not restart the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1428
-#, fuzzy
-msgid "Could not find the xl2tpd binary."
-msgstr "Ezin izan da xl2tpd-ren bitarrik aurkitu."
-
-#: ../src/nm-l2tp-service.c:1500
-#, fuzzy
-msgid "Missing or invalid VPN user certificate password."
-msgstr "VPN-aren pasahitza falta da, edo baliogabea da."
-
 #: ../src/nm-l2tp-service.c:1514
 msgid "Missing VPN username."
 msgstr "VPN-aren erabiltzaile-izena falta da."
@@ -412,22 +372,6 @@ msgstr "VPN-aren erabiltzaile-izena falta da."
 #: ../src/nm-l2tp-service.c:1523
 msgid "Missing or invalid VPN password."
 msgstr "VPN-aren pasahitza falta da, edo baliogabea da."
-
-#: ../src/nm-l2tp-service.c:1627
-#, fuzzy
-msgid "couldn't convert L2TP VPN gateway IP address."
-msgstr "ezin izan da  VPN L2TP-aren atebidearen '%s' IP helbidea bihurtu (%d)"
-
-#: ../src/nm-l2tp-service.c:1640
-#, fuzzy
-msgid "couldn't look up L2TP VPN gateway IP address "
-msgstr "ezin izan da VPN L2TP-aren atebidearen '%s' IP helbidea aurkitu (%d)"
-
-#: ../src/nm-l2tp-service.c:1659
-#, fuzzy
-msgid "no usable addresses returned for L2TP VPN gateway "
-msgstr ""
-"ez da helbide erabilgarririk  itzuli '%s' VPN L2TP-ren atebidearentzako"
 
 #: ../src/nm-l2tp-service.c:1688
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
@@ -481,21 +425,11 @@ msgid ""
 "config: xl2tpd lns parameter"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:5
-#, fuzzy
-msgid "User Authentication"
-msgstr "Autentifikazioa"
-
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
 "DOMAIN\\username, where DOMAIN is the value from this text entry box."
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:7
-#, fuzzy
-msgid "Sho_w password"
-msgstr "Erakutsi pasahitza"
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Password passed to PPPD when prompted for it."
@@ -518,11 +452,6 @@ msgstr "Erabiltzaile-izena:"
 msgid "NT Domain:"
 msgstr "NT domeinua:"
 
-#: ../properties/nm-l2tp-dialog.ui.h:16
-#, fuzzy
-msgid "CA"
-msgstr "CHAP"
-
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "User"
 msgstr ""
@@ -530,11 +459,6 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "Type:"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:19
-#, fuzzy
-msgid "Select an authentication mode."
-msgstr "Onartu honako autentifikazio metodoak:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "_IPsec Settings..."
@@ -544,11 +468,6 @@ msgstr ""
 msgid "PPP Se_ttings..."
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:22
-#, fuzzy
-msgid "L2TP IPsec Options"
-msgstr "L2TP-ren aukera aurreratuak"
-
 #: ../properties/nm-l2tp-dialog.ui.h:23
 msgid "_Enable IPsec tunnel to L2TP host"
 msgstr ""
@@ -556,11 +475,6 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "config: ipsec-enabled"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:25
-#, fuzzy
-msgid "Machine Authentication"
-msgstr "Autentifikazioa"
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid ""
@@ -617,16 +531,6 @@ msgid ""
 "config: ipsec-salifetime <lifetime>"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:41
-#, fuzzy
-msgid "Phase_1 Lifetime:"
-msgstr "1. faseko algoritmoak:"
-
-#: ../properties/nm-l2tp-dialog.ui.h:42
-#, fuzzy
-msgid "Phase_2 Lifetime:"
-msgstr "2. faseko algoritmoak:"
-
 #: ../properties/nm-l2tp-dialog.ui.h:43
 msgid "Remote ID:"
 msgstr ""
@@ -669,11 +573,6 @@ msgid ""
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:56
-#, fuzzy
-msgid "Use IP c_ompression"
-msgstr "Erabili TCP _goiburu-konpresioa"
-
 #: ../properties/nm-l2tp-dialog.ui.h:57
 msgid ""
 "IPComp compresses raw IP packets before they get encrypted. This saves some "
@@ -692,19 +591,9 @@ msgid ""
 "config: ipsec-pfs <no/yes>"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:62
-#, fuzzy
-msgid "Ad_vanced"
-msgstr "_Aurreratua..."
-
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid "Default"
 msgstr "Lehenetsia"
-
-#: ../properties/nm-l2tp-dialog.ui.h:64
-#, fuzzy
-msgid "L2TP PPP Options"
-msgstr "L2TP-ren aukera aurreratuak"
 
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "Authentication"
@@ -814,11 +703,6 @@ msgid ""
 "transmit direction.\n"
 "config: nopcomp (when unchecked)"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:90
-#, fuzzy
-msgid "Use _Address/Control compression"
-msgstr "Erabili TCP _goiburu-konpresioa"
 
 #: ../properties/nm-l2tp-dialog.ui.h:91
 msgid ""
