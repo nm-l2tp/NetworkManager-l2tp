@@ -34,8 +34,11 @@
 #define DEFAULT_IPSEC_LIBRESWAN_IKELIFETIME   3600 /* 1h */
 #define DEFAULT_IPSEC_LIBRESWAN_SALIFETIME   28800 /* 8h */
 
-#define LEGACY_PROPOSALS_PHASE1 "aes256-sha1-ecp384,aes128-sha1-ecp256,3des-sha1-modp1024"
-#define LEGACY_PROPOSALS_PHASE2 "aes256-sha1,aes128-sha1,3des-sha1"
+#define LEGACY_STRONGSWAN_PROPOSALS_PHASE1 "aes256-sha1-ecp384,aes128-sha1-ecp256,3des-sha1-modp1024!"
+#define LEGACY_STRONGSWAN_PROPOSALS_PHASE2 "aes256-sha1,aes128-sha1,3des-sha1!"
+
+#define LEGACY_LIBRESWAN_PROPOSALS_PHASE1 "aes256-sha1-ecp_384,aes128-sha1-ecp_256,3des-sha1-modp1024"
+#define LEGACY_LIBRESWAN_PROPOSALS_PHASE2 "aes256-sha1,aes128-sha1,3des-sha1"
 
 static const char *ipsec_keys[] = {
 	NM_L2TP_KEY_IPSEC_ENABLE,
@@ -288,15 +291,15 @@ legacy_proposals_cb (GtkCheckButton *button, gpointer user_data)
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_phase1_entry"));
 	if (ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN)
-		gtk_entry_set_text (GTK_ENTRY(widget), LEGACY_PROPOSALS_PHASE1);
+		gtk_entry_set_text (GTK_ENTRY(widget), LEGACY_LIBRESWAN_PROPOSALS_PHASE1);
 	else
-		gtk_entry_set_text (GTK_ENTRY(widget), LEGACY_PROPOSALS_PHASE1"!");
+		gtk_entry_set_text (GTK_ENTRY(widget), LEGACY_STRONGSWAN_PROPOSALS_PHASE1);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_phase2_entry"));
 	if (ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN)
-		gtk_entry_set_text (GTK_ENTRY(widget), LEGACY_PROPOSALS_PHASE2);
+		gtk_entry_set_text (GTK_ENTRY(widget), LEGACY_LIBRESWAN_PROPOSALS_PHASE2);
 	else
-		gtk_entry_set_text (GTK_ENTRY(widget), LEGACY_PROPOSALS_PHASE2"!");
+		gtk_entry_set_text (GTK_ENTRY(widget), LEGACY_STRONGSWAN_PROPOSALS_PHASE2);
 }
 
 static gint
