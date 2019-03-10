@@ -939,11 +939,10 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_IKELIFETIME);
 		if(value)write_config_option (fd, "  ikelifetime=%s\n", value);
 
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_SALIFETIME);
 		if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
-			value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_SALIFETIME);
 			if(value)write_config_option (fd, "  salifetime=%s\n", value);
 		} else {
-			value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_SALIFETIME);
 			if(value)write_config_option (fd, "  lifetime=%s\n", value);
 		}
 
