@@ -31,9 +31,18 @@ msgstr ""
 msgid "Support for configuring L2TP based virtual private network connections."
 msgstr ""
 
+#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:5
+msgid "The PPP options dialog"
+msgstr ""
+
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:6
 msgid "The NetworkManager-L2TP Developers"
 msgstr ""
+
+#: ../auth-dialog/main.c:175
+#, c-format
+msgid "Authenticate VPN %s"
+msgstr "Autentificēt VPN %s"
 
 #: ../auth-dialog/main.c:182 ../properties/nm-l2tp-dialog.ui.h:14
 msgid "Password:"
@@ -58,6 +67,12 @@ msgstr ""
 #: ../auth-dialog/main.c:251
 msgid "_Machine Certificate password:"
 msgstr ""
+
+#: ../auth-dialog/main.c:487
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network “%s”."
+msgstr ""
+"Jums vajag autentificēties, lai piekļūtu virtuālajam privātajam tīklam “%s”."
 
 #: ../properties/ppp-dialog.c:172
 msgid "All Available (Default)"
@@ -97,7 +112,7 @@ msgstr ""
 
 #: ../properties/ipsec-dialog.c:466 ../properties/nm-l2tp-editor.c:557
 msgid "Certificates (TLS)"
-msgstr ""
+msgstr "Sertifikāti (TLS)"
 
 #: ../properties/nm-l2tp-editor.c:378
 #, c-format
@@ -119,6 +134,10 @@ msgstr ""
 msgid "%s: failed to create the IPsec dialog!"
 msgstr ""
 
+#: ../properties/nm-l2tp-editor.c:548
+msgid "Password"
+msgstr "Parole"
+
 #: ../properties/nm-l2tp-editor.c:717
 #, c-format
 msgid "could not create l2tp object"
@@ -127,6 +146,10 @@ msgstr ""
 #: ../properties/nm-l2tp-editor.c:734
 #, c-format
 msgid "could not load UI widget"
+msgstr "nevarēja ielādēt UI sīkrīku"
+
+#: ../properties/nm-l2tp-editor-plugin.c:34
+msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr ""
 
 #: ../properties/nm-l2tp-editor-plugin.c:35
@@ -238,28 +261,30 @@ msgstr ""
 #: ../shared/nm-utils/nm-shared-utils.c:1165
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr ""
+msgstr "objektu klasei “%s” nav īpašības ar nosaukumu “%s”"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr ""
+msgstr "objektu klases “%2$s” īpašība “%1$s” nav rakstāma"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1179
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
+"objekta “%2$s” konstrukcijas īpašību “%1$s” nevar iestatīt pēc "
+"uzkonstruēšanas"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1187
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
-msgstr ""
+msgstr "“%s::%s” nav derīgs īpašības nosaukums; “%s” nav GObject apakštips"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1196
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
-msgstr ""
+msgstr "nevar iestatīt īpašību “%s” ar tipu “%s” no tipa “%s” vērtības"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1207
 #, c-format
@@ -267,6 +292,8 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
+"tipa “%2$s” vērtība “%1$s” nav derīga vai ir ārpus tipa “%4$s” īpašības "
+"“%3$s” apgabala"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
 #, c-format
@@ -276,21 +303,21 @@ msgstr ""
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr ""
+msgstr "datnei “%s” trūkst spraudņa"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:109
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr ""
+msgstr "nevar ielādēt redaktora spraudni: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:118
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr ""
+msgstr "nevar ielādēt ražotni %s no spraudņa: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:144
 msgid "unknown error creating editor instance"
-msgstr ""
+msgstr "nezināma kļūda, veidojot redaktora instanci"
 
 #: ../src/nm-l2tp-service.c:286
 #, c-format
@@ -364,6 +391,10 @@ msgstr ""
 msgid "Could not restart the ipsec service."
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:1428
+msgid "Could not find the xl2tpd binary."
+msgstr ""
+
 #: ../src/nm-l2tp-service.c:1514
 msgid "Missing VPN username."
 msgstr "Trūkts VPN lietotājvārda."
@@ -371,6 +402,18 @@ msgstr "Trūkts VPN lietotājvārda."
 #: ../src/nm-l2tp-service.c:1523
 msgid "Missing or invalid VPN password."
 msgstr "Trūkst vai nav derīga VPN parole."
+
+#: ../src/nm-l2tp-service.c:1627
+msgid "couldn't convert L2TP VPN gateway IP address."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1640
+msgid "couldn't look up L2TP VPN gateway IP address "
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1659
+msgid "no usable addresses returned for L2TP VPN gateway "
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1688
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
@@ -402,7 +445,7 @@ msgstr "Aktivēt detalizētu atkļūdošanas reģistrēšanu (var atklāt parole
 
 #: ../src/nm-l2tp-service.c:2043
 msgid "D-Bus name to use for this instance"
-msgstr ""
+msgstr "D-Bus nosaukums, ko izmantot šai instancei"
 
 #: ../src/nm-l2tp-service.c:2064
 msgid ""
@@ -451,13 +494,21 @@ msgstr "Lietotājvārds:"
 msgid "NT Domain:"
 msgstr "NT domēns:"
 
+#: ../properties/nm-l2tp-dialog.ui.h:16
+msgid "CA"
+msgstr "CA"
+
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "User"
-msgstr ""
+msgstr "Lietotājs"
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "Type:"
-msgstr ""
+msgstr "Tips:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Select an authentication mode."
+msgstr "Izvēlieties autentificēšanās režīmu."
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "_IPsec Settings..."
@@ -465,6 +516,10 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "PPP Se_ttings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:22
+msgid "L2TP IPsec Options"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:23
@@ -590,9 +645,17 @@ msgid ""
 "config: ipsec-pfs <no/yes>"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:62
+msgid "Ad_vanced"
+msgstr "Pap_lašināti"
+
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid "Default"
 msgstr "Noklusēts"
+
+#: ../properties/nm-l2tp-dialog.ui.h:64
+msgid "L2TP PPP Options"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "Authentication"
@@ -726,7 +789,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:97
 msgid "Misc"
-msgstr ""
+msgstr "Dažādi"
 
 #: ../properties/nm-l2tp-dialog.ui.h:98
 msgid "MTU :"

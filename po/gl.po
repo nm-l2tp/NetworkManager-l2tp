@@ -39,6 +39,11 @@ msgstr ""
 msgid "The NetworkManager-L2TP Developers"
 msgstr ""
 
+#: ../auth-dialog/main.c:175
+#, c-format
+msgid "Authenticate VPN %s"
+msgstr "Autenticar na VPN %s"
+
 #: ../auth-dialog/main.c:182 ../properties/nm-l2tp-dialog.ui.h:14
 msgid "Password:"
 msgstr "Contrasinal:"
@@ -62,6 +67,11 @@ msgstr ""
 #: ../auth-dialog/main.c:251
 msgid "_Machine Certificate password:"
 msgstr ""
+
+#: ../auth-dialog/main.c:487
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network “%s”."
+msgstr "Precisa autenticarse para acceder á rede privada virtual (VPN) «%s»."
 
 #: ../properties/ppp-dialog.c:172
 msgid "All Available (Default)"
@@ -101,7 +111,7 @@ msgstr ""
 
 #: ../properties/ipsec-dialog.c:466 ../properties/nm-l2tp-editor.c:557
 msgid "Certificates (TLS)"
-msgstr ""
+msgstr "Certificados (TLS)"
 
 #: ../properties/nm-l2tp-editor.c:378
 #, c-format
@@ -123,6 +133,10 @@ msgstr ""
 msgid "%s: failed to create the IPsec dialog!"
 msgstr ""
 
+#: ../properties/nm-l2tp-editor.c:548
+msgid "Password"
+msgstr "Contrasinal"
+
 #: ../properties/nm-l2tp-editor.c:717
 #, c-format
 msgid "could not create l2tp object"
@@ -131,6 +145,10 @@ msgstr ""
 #: ../properties/nm-l2tp-editor.c:734
 #, c-format
 msgid "could not load UI widget"
+msgstr "non foi posíbel cargar o miniaplicativo da interface de usuario"
+
+#: ../properties/nm-l2tp-editor-plugin.c:34
+msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr ""
 
 #: ../properties/nm-l2tp-editor-plugin.c:35
@@ -242,28 +260,33 @@ msgstr ""
 #: ../shared/nm-utils/nm-shared-utils.c:1165
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr ""
+msgstr "a clase do obxecto «%s» non foi nomeada axeitadamente «%s»"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr ""
+msgstr "a propiedade «%s» da clase do obxecto «%s» non é escribíbel"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1179
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
+"non é posíbel estabelecer despois da construción a propiedade da construción "
+"«%s» do obxecto «%s»"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1187
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
 msgstr ""
+"«%s::%s» non é un nome de propiedade correcto; «%s» non é un subtipo GObject"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1196
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
 msgstr ""
+"non é posíbel estabelecer a propiedade «%s» do tipo «%s» desde o valor do "
+"tipo «%s»"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1207
 #, c-format
@@ -271,6 +294,8 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
+"O valor «%s» do tipo «%s» non é válido ou está fóra do intervalo para a "
+"propiedade «%s» do tipo «%s»"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
 #, c-format
@@ -280,21 +305,21 @@ msgstr ""
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr ""
+msgstr "falta o ficheiro do engadido «%s»"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:109
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr ""
+msgstr "non foi posíbel cargar o engadido do editor: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:118
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr ""
+msgstr "non é posíbel cargar %s de fábrica desde o engadido: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:144
 msgid "unknown error creating editor instance"
-msgstr ""
+msgstr "produciuse un erro descoñecido creando a instancia do editor"
 
 #: ../src/nm-l2tp-service.c:286
 #, c-format
@@ -368,6 +393,10 @@ msgstr ""
 msgid "Could not restart the ipsec service."
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:1428
+msgid "Could not find the xl2tpd binary."
+msgstr ""
+
 #: ../src/nm-l2tp-service.c:1514
 msgid "Missing VPN username."
 msgstr "Falta o nome de usuario da VPN."
@@ -375,6 +404,18 @@ msgstr "Falta o nome de usuario da VPN."
 #: ../src/nm-l2tp-service.c:1523
 msgid "Missing or invalid VPN password."
 msgstr "Falta o contrasinal da VPN ou é inválido."
+
+#: ../src/nm-l2tp-service.c:1627
+msgid "couldn't convert L2TP VPN gateway IP address."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1640
+msgid "couldn't look up L2TP VPN gateway IP address "
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1659
+msgid "no usable addresses returned for L2TP VPN gateway "
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1688
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
@@ -408,7 +449,7 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:2043
 msgid "D-Bus name to use for this instance"
-msgstr ""
+msgstr "Nome do D-Bus para usar nesta instancia"
 
 #: ../src/nm-l2tp-service.c:2064
 msgid ""
@@ -457,13 +498,21 @@ msgstr "Nome de usuario:"
 msgid "NT Domain:"
 msgstr "Dominio NT:"
 
+#: ../properties/nm-l2tp-dialog.ui.h:16
+msgid "CA"
+msgstr "AC"
+
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "User"
-msgstr ""
+msgstr "Usuario"
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "Type:"
-msgstr ""
+msgstr "Tipo:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Select an authentication mode."
+msgstr "Seleccionar un modo de autenticación."
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "_IPsec Settings..."
@@ -573,7 +622,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:53
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "Forzar o encapsulamento UDP."
 
 #: ../properties/nm-l2tp-dialog.ui.h:54
 msgid ""
@@ -581,6 +630,10 @@ msgid ""
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:56
+msgid "Use IP c_ompression"
+msgstr "Empregar a compresión do IP."
 
 #: ../properties/nm-l2tp-dialog.ui.h:57
 msgid ""
@@ -599,6 +652,10 @@ msgid ""
 "doesn’t support PFS.\n"
 "config: ipsec-pfs <no/yes>"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:62
+msgid "Ad_vanced"
+msgstr "Avanzado"
 
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid "Default"
@@ -740,7 +797,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:97
 msgid "Misc"
-msgstr ""
+msgstr "Varios"
 
 #: ../properties/nm-l2tp-dialog.ui.h:98
 msgid "MTU :"

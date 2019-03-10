@@ -59,6 +59,11 @@ msgstr ""
 msgid "_Machine Certificate password:"
 msgstr ""
 
+#: ../auth-dialog/main.c:487
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network “%s”."
+msgstr ""
+
 #: ../properties/ppp-dialog.c:172
 msgid "All Available (Default)"
 msgstr "Usio mahčymaje (zmoŭčana)"
@@ -86,6 +91,10 @@ msgstr "MSCHAP"
 #: ../properties/ppp-dialog.c:326
 msgid "MSCHAPv2"
 msgstr "MSCHAPv2"
+
+#: ../properties/ppp-dialog.c:339
+msgid "EAP"
+msgstr ""
 
 #: ../properties/ipsec-dialog.c:457
 msgid "Pre-shared key (PSK)"
@@ -115,6 +124,10 @@ msgstr ""
 msgid "%s: failed to create the IPsec dialog!"
 msgstr ""
 
+#: ../properties/nm-l2tp-editor.c:548
+msgid "Password"
+msgstr ""
+
 #: ../properties/nm-l2tp-editor.c:717
 #, c-format
 msgid "could not create l2tp object"
@@ -123,6 +136,10 @@ msgstr ""
 #: ../properties/nm-l2tp-editor.c:734
 #, c-format
 msgid "could not load UI widget"
+msgstr ""
+
+#: ../properties/nm-l2tp-editor-plugin.c:34
+msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr ""
 
 #: ../properties/nm-l2tp-editor-plugin.c:35
@@ -616,6 +633,10 @@ msgid ""
 "Disable perfect forward security. Enable this option only if the server "
 "doesn’t support PFS.\n"
 "config: ipsec-pfs <no/yes>"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:62
+msgid "Ad_vanced"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:63

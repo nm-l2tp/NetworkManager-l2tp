@@ -60,6 +60,11 @@ msgstr ""
 msgid "_Machine Certificate password:"
 msgstr ""
 
+#: ../auth-dialog/main.c:487
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network “%s”."
+msgstr ""
+
 #: ../properties/ppp-dialog.c:172
 msgid "All Available (Default)"
 msgstr "هرچه موجود است (پیش‌فرض)"
@@ -98,7 +103,7 @@ msgstr ""
 
 #: ../properties/ipsec-dialog.c:466 ../properties/nm-l2tp-editor.c:557
 msgid "Certificates (TLS)"
-msgstr ""
+msgstr "تاییدیه (TLS)"
 
 #: ../properties/nm-l2tp-editor.c:378
 #, c-format
@@ -120,6 +125,10 @@ msgstr ""
 msgid "%s: failed to create the IPsec dialog!"
 msgstr ""
 
+#: ../properties/nm-l2tp-editor.c:548
+msgid "Password"
+msgstr "گذرواژه"
+
 #: ../properties/nm-l2tp-editor.c:717
 #, c-format
 msgid "could not create l2tp object"
@@ -128,6 +137,10 @@ msgstr ""
 #: ../properties/nm-l2tp-editor.c:734
 #, c-format
 msgid "could not load UI widget"
+msgstr ""
+
+#: ../properties/nm-l2tp-editor-plugin.c:34
+msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr ""
 
 #: ../properties/nm-l2tp-editor-plugin.c:35
@@ -478,7 +491,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "Type:"
-msgstr ""
+msgstr "نوع:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "_IPsec Settings..."
@@ -486,6 +499,10 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "PPP Se_ttings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:22
+msgid "L2TP IPsec Options"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:23
@@ -619,9 +636,17 @@ msgid ""
 "config: ipsec-pfs <no/yes>"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:62
+msgid "Ad_vanced"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid "Default"
 msgstr "پیش‌فرض"
+
+#: ../properties/nm-l2tp-dialog.ui.h:64
+msgid "L2TP PPP Options"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "Authentication"

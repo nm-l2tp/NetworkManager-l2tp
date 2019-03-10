@@ -41,6 +41,11 @@ msgstr ""
 msgid "The NetworkManager-L2TP Developers"
 msgstr ""
 
+#: ../auth-dialog/main.c:175
+#, c-format
+msgid "Authenticate VPN %s"
+msgstr ""
+
 #: ../auth-dialog/main.c:182 ../properties/nm-l2tp-dialog.ui.h:14
 msgid "Password:"
 msgstr "Pasvorto:"
@@ -129,6 +134,10 @@ msgstr ""
 #, c-format
 msgid "%s: failed to create the IPsec dialog!"
 msgstr ""
+
+#: ../properties/nm-l2tp-editor.c:548
+msgid "Password"
+msgstr "Pasvorto"
 
 #: ../properties/nm-l2tp-editor.c:717
 #, c-format
@@ -492,7 +501,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "Type:"
-msgstr ""
+msgstr "Tipo:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:19
 msgid "Select an authentication mode."
@@ -639,6 +648,10 @@ msgid ""
 "Disable perfect forward security. Enable this option only if the server "
 "doesn’t support PFS.\n"
 "config: ipsec-pfs <no/yes>"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:62
+msgid "Ad_vanced"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:63

@@ -36,6 +36,11 @@ msgstr ""
 msgid "The NetworkManager-L2TP Developers"
 msgstr ""
 
+#: ../auth-dialog/main.c:175
+#, c-format
+msgid "Authenticate VPN %s"
+msgstr "Nustatyti tapatybę VPN %s"
+
 #: ../auth-dialog/main.c:182 ../properties/nm-l2tp-dialog.ui.h:14
 msgid "Password:"
 msgstr "Slaptažodis:"
@@ -59,6 +64,13 @@ msgstr ""
 #: ../auth-dialog/main.c:251
 msgid "_Machine Certificate password:"
 msgstr ""
+
+#: ../auth-dialog/main.c:487
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network “%s”."
+msgstr ""
+"Norint gauti prieigą prie Virtualiojo Privačiojo Tinklo „%s“, reikia "
+"nustatyti jūsų tapatybę."
 
 #: ../properties/ppp-dialog.c:172
 msgid "All Available (Default)"
@@ -98,7 +110,7 @@ msgstr ""
 
 #: ../properties/ipsec-dialog.c:466 ../properties/nm-l2tp-editor.c:557
 msgid "Certificates (TLS)"
-msgstr ""
+msgstr "Liudijimai (TLS)"
 
 #: ../properties/nm-l2tp-editor.c:378
 #, c-format
@@ -120,6 +132,10 @@ msgstr ""
 msgid "%s: failed to create the IPsec dialog!"
 msgstr ""
 
+#: ../properties/nm-l2tp-editor.c:548
+msgid "Password"
+msgstr "Slaptažodis"
+
 #: ../properties/nm-l2tp-editor.c:717
 #, c-format
 msgid "could not create l2tp object"
@@ -128,6 +144,10 @@ msgstr ""
 #: ../properties/nm-l2tp-editor.c:734
 #, c-format
 msgid "could not load UI widget"
+msgstr "nepavyko įkelti elemento UI"
+
+#: ../properties/nm-l2tp-editor-plugin.c:34
+msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr ""
 
 #: ../properties/nm-l2tp-editor-plugin.c:35
@@ -275,6 +295,11 @@ msgstr ""
 "reikšmė „%s“, kuri priklauso tipui „%s“, yra netinkama arba už savybės „%s“, "
 "priklausančios tipui „%s“, ribų"
 
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
+#, c-format
+msgid "unable to get editor plugin name: %s"
+msgstr "nepavyksta gauti redaktoriaus įskiepio pavadinimo: %s"
+
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
 msgid "missing plugin file \"%s\""
@@ -297,27 +322,27 @@ msgstr "nežinoma klaida kuriant redaktoriaus vienetą"
 #: ../src/nm-l2tp-service.c:286
 #, c-format
 msgid "invalid gateway '%s'"
-msgstr ""
+msgstr "netinkamas kelvedys „%s“"
 
 #: ../src/nm-l2tp-service.c:300
 #, c-format
 msgid "invalid integer property '%s'"
-msgstr ""
+msgstr "netinkama skaitinė savybė „%s“"
 
 #: ../src/nm-l2tp-service.c:310
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
-msgstr ""
+msgstr "netinkama loginė savybė „%s“ (ne taip arba ne)"
 
 #: ../src/nm-l2tp-service.c:317
 #, c-format
 msgid "unhandled property '%s' type %s"
-msgstr ""
+msgstr "neapdorotas savybės „%s“ tipas %s"
 
 #: ../src/nm-l2tp-service.c:328
 #, c-format
 msgid "property '%s' invalid or not supported"
-msgstr ""
+msgstr "savybė „%s“ netinkama arba nepalaikoma"
 
 #: ../src/nm-l2tp-service.c:347
 msgid "No VPN configuration options."
@@ -326,7 +351,7 @@ msgstr "Nėra VPN konfigūracijos parametrų."
 #: ../src/nm-l2tp-service.c:367
 #, c-format
 msgid "Missing required option '%s'."
-msgstr ""
+msgstr "Trūksta būtino parametro „%s“."
 
 #: ../src/nm-l2tp-service.c:669
 #, c-format
@@ -366,6 +391,10 @@ msgstr ""
 msgid "Could not restart the ipsec service."
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:1428
+msgid "Could not find the xl2tpd binary."
+msgstr ""
+
 #: ../src/nm-l2tp-service.c:1514
 msgid "Missing VPN username."
 msgstr "Trūksta VPN naudotojo vardo."
@@ -373,6 +402,18 @@ msgstr "Trūksta VPN naudotojo vardo."
 #: ../src/nm-l2tp-service.c:1523
 msgid "Missing or invalid VPN password."
 msgstr "Nėra arba netinkamas VPN slaptažodis."
+
+#: ../src/nm-l2tp-service.c:1627
+msgid "couldn't convert L2TP VPN gateway IP address."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1640
+msgid "couldn't look up L2TP VPN gateway IP address "
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1659
+msgid "no usable addresses returned for L2TP VPN gateway "
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1688
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
@@ -396,7 +437,7 @@ msgstr "Netinkamas arba trūkstamas L2TP tinklų sietuvas."
 
 #: ../src/nm-l2tp-service.c:2041
 msgid "Don't quit when VPN connection terminates"
-msgstr ""
+msgstr "Neužverti kai VPN ryšys baigiasi"
 
 #: ../src/nm-l2tp-service.c:2042
 msgid "Enable verbose debug logging (may expose passwords)"
@@ -453,13 +494,21 @@ msgstr "Naudotojo vardas:"
 msgid "NT Domain:"
 msgstr "NT sritis:"
 
+#: ../properties/nm-l2tp-dialog.ui.h:16
+msgid "CA"
+msgstr "CA"
+
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "User"
-msgstr ""
+msgstr "Naudotojas"
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "Type:"
-msgstr ""
+msgstr "Tipas:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Select an authentication mode."
+msgstr "Pasirinkite tapatybės nustatymo veikseną."
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "_IPsec Settings..."
@@ -569,7 +618,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:53
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "Versti UDP įkapsuliaciją"
 
 #: ../properties/nm-l2tp-dialog.ui.h:54
 msgid ""
@@ -577,6 +626,10 @@ msgid ""
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:56
+msgid "Use IP c_ompression"
+msgstr "Naudoti IP glaudinimą"
 
 #: ../properties/nm-l2tp-dialog.ui.h:57
 msgid ""

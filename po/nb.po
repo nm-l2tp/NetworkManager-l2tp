@@ -60,6 +60,11 @@ msgstr ""
 msgid "_Machine Certificate password:"
 msgstr ""
 
+#: ../auth-dialog/main.c:487
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network “%s”."
+msgstr ""
+
 #: ../properties/ppp-dialog.c:172
 msgid "All Available (Default)"
 msgstr "Alle tilgjengelige (forvalg)"
@@ -98,7 +103,7 @@ msgstr ""
 
 #: ../properties/ipsec-dialog.c:466 ../properties/nm-l2tp-editor.c:557
 msgid "Certificates (TLS)"
-msgstr ""
+msgstr "Sertifikater (TLS)"
 
 #: ../properties/nm-l2tp-editor.c:378
 #, c-format
@@ -119,6 +124,10 @@ msgstr ""
 #, c-format
 msgid "%s: failed to create the IPsec dialog!"
 msgstr ""
+
+#: ../properties/nm-l2tp-editor.c:548
+msgid "Password"
+msgstr "Passord:"
 
 #: ../properties/nm-l2tp-editor.c:717
 #, c-format
@@ -369,6 +378,10 @@ msgstr ""
 msgid "Could not restart the ipsec service."
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:1428
+msgid "Could not find the xl2tpd binary."
+msgstr ""
+
 #: ../src/nm-l2tp-service.c:1514
 msgid "Missing VPN username."
 msgstr "Mangler brukernavn for VPN."
@@ -474,7 +487,11 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "Type:"
-msgstr ""
+msgstr "Type:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Select an authentication mode."
+msgstr "Velg en autentiseringmetode."
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "_IPsec Settings..."
@@ -512,7 +529,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "Fase 2 algoritmer:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
 msgid ""
@@ -530,7 +547,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:35
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "Fase 1 algoritmer:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid ""
@@ -592,7 +609,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:53
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "Tving UDP-innkapsling"
 
 #: ../properties/nm-l2tp-dialog.ui.h:54
 msgid ""
@@ -600,6 +617,10 @@ msgid ""
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:56
+msgid "Use IP c_ompression"
+msgstr "Bruk IP-komprimering"
 
 #: ../properties/nm-l2tp-dialog.ui.h:57
 msgid ""

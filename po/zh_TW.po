@@ -60,6 +60,11 @@ msgstr ""
 msgid "_Machine Certificate password:"
 msgstr ""
 
+#: ../auth-dialog/main.c:487
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network “%s”."
+msgstr ""
+
 #: ../properties/ppp-dialog.c:172
 msgid "All Available (Default)"
 msgstr "所有可用的（預設值）"
@@ -98,7 +103,7 @@ msgstr ""
 
 #: ../properties/ipsec-dialog.c:466 ../properties/nm-l2tp-editor.c:557
 msgid "Certificates (TLS)"
-msgstr ""
+msgstr "憑證 (TLS)"
 
 #: ../properties/nm-l2tp-editor.c:378
 #, c-format
@@ -120,6 +125,10 @@ msgstr ""
 msgid "%s: failed to create the IPsec dialog!"
 msgstr ""
 
+#: ../properties/nm-l2tp-editor.c:548
+msgid "Password"
+msgstr "密碼"
+
 #: ../properties/nm-l2tp-editor.c:717
 #, c-format
 msgid "could not create l2tp object"
@@ -128,6 +137,10 @@ msgstr ""
 #: ../properties/nm-l2tp-editor.c:734
 #, c-format
 msgid "could not load UI widget"
+msgstr ""
+
+#: ../properties/nm-l2tp-editor-plugin.c:34
+msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr ""
 
 #: ../properties/nm-l2tp-editor-plugin.c:35
@@ -239,35 +252,35 @@ msgstr ""
 #: ../shared/nm-utils/nm-shared-utils.c:1165
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr ""
+msgstr "對像類'%s' 沒有名為'的財產%s'"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr ""
+msgstr "物業'%s' 對像類'%s' 是不可寫的"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1179
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
-msgstr ""
+msgstr "建築物“%s\" 對象'%s' 施工後無法設置"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1187
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
-msgstr ""
+msgstr "“%s::%s' 不是有效的屬性名稱; “%s' 不是GObject子類型"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1196
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
-msgstr ""
+msgstr "無法設置屬性'%s' 類型'%s' 從類型的價值'%s'"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1207
 #, c-format
 msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
-msgstr ""
+msgstr "價值“%s\" 類型'%s' 屬於無效或超出範圍的財產'%s' 類型'%s'"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
 #, c-format
@@ -445,6 +458,10 @@ msgid ""
 "config: xl2tpd lns parameter"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:5
+msgid "User Authentication"
+msgstr "使用者認證"
+
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
@@ -480,6 +497,10 @@ msgstr ""
 msgid "Type:"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Select an authentication mode."
+msgstr "使用驗證模式。"
+
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "_IPsec Settings..."
 msgstr ""
@@ -500,6 +521,10 @@ msgstr ""
 msgid "config: ipsec-enabled"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:25
+msgid "Machine Authentication"
+msgstr "機器認證"
+
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid ""
 "Pre-shared key (PSK) secret.\n"
@@ -516,7 +541,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "Phase2 演算法："
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
 msgid ""
@@ -534,7 +559,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:35
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "Phase1 演算法："
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid ""
@@ -565,7 +590,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:43
 msgid "Remote ID:"
-msgstr ""
+msgstr "遠端識別碼："
 
 #: ../properties/nm-l2tp-dialog.ui.h:44
 msgid ""
@@ -596,7 +621,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:53
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "強制使用 UDP 封裝"
 
 #: ../properties/nm-l2tp-dialog.ui.h:54
 msgid ""
@@ -604,6 +629,10 @@ msgid ""
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:56
+msgid "Use IP c_ompression"
+msgstr "使用 IP 壓縮"
 
 #: ../properties/nm-l2tp-dialog.ui.h:57
 msgid ""
@@ -622,6 +651,10 @@ msgid ""
 "doesn’t support PFS.\n"
 "config: ipsec-pfs <no/yes>"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:62
+msgid "Ad_vanced"
+msgstr "進階"
 
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid "Default"

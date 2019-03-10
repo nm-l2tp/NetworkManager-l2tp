@@ -35,9 +35,18 @@ msgstr ""
 msgid "Compatible with L2TP and L2TP over IPsec services."
 msgstr ""
 
+#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:5
+msgid "The PPP options dialog"
+msgstr ""
+
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:6
 msgid "The NetworkManager-L2TP Developers"
 msgstr ""
+
+#: ../auth-dialog/main.c:175
+#, c-format
+msgid "Authenticate VPN %s"
+msgstr "VPN %s の認証"
 
 #: ../auth-dialog/main.c:182 ../properties/nm-l2tp-dialog.ui.h:14
 msgid "Password:"
@@ -61,6 +70,11 @@ msgstr ""
 
 #: ../auth-dialog/main.c:251
 msgid "_Machine Certificate password:"
+msgstr ""
+
+#: ../auth-dialog/main.c:487
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr ""
 
 #: ../properties/ppp-dialog.c:172
@@ -101,7 +115,7 @@ msgstr ""
 
 #: ../properties/ipsec-dialog.c:466 ../properties/nm-l2tp-editor.c:557
 msgid "Certificates (TLS)"
-msgstr ""
+msgstr "証明書 (TLS):"
 
 #: ../properties/nm-l2tp-editor.c:378
 #, c-format
@@ -122,6 +136,10 @@ msgstr ""
 #, c-format
 msgid "%s: failed to create the IPsec dialog!"
 msgstr ""
+
+#: ../properties/nm-l2tp-editor.c:548
+msgid "Password"
+msgstr "パスワード"
 
 #: ../properties/nm-l2tp-editor.c:717
 #, c-format
@@ -375,6 +393,10 @@ msgstr ""
 msgid "Could not restart the ipsec service."
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:1428
+msgid "Could not find the xl2tpd binary."
+msgstr ""
+
 #: ../src/nm-l2tp-service.c:1514
 msgid "Missing VPN username."
 msgstr "VPN ユーザー名がありません。"
@@ -382,6 +404,18 @@ msgstr "VPN ユーザー名がありません。"
 #: ../src/nm-l2tp-service.c:1523
 msgid "Missing or invalid VPN password."
 msgstr "VPN パスワードが不足しているか、無効です。"
+
+#: ../src/nm-l2tp-service.c:1627
+msgid "couldn't convert L2TP VPN gateway IP address."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1640
+msgid "couldn't look up L2TP VPN gateway IP address "
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1659
+msgid "no usable addresses returned for L2TP VPN gateway "
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1688
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
@@ -435,6 +469,10 @@ msgid ""
 "config: xl2tpd lns parameter"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:5
+msgid "User Authentication"
+msgstr "ユーザ認証"
+
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
@@ -468,7 +506,11 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "Type:"
-msgstr ""
+msgstr "タイプ:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Select an authentication mode."
+msgstr "認証モードを選択肢てください。"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "_IPsec Settings..."
@@ -478,6 +520,10 @@ msgstr ""
 msgid "PPP Se_ttings..."
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:22
+msgid "L2TP IPsec Options"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:23
 msgid "_Enable IPsec tunnel to L2TP host"
 msgstr ""
@@ -485,6 +531,10 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "config: ipsec-enabled"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:25
+msgid "Machine Authentication"
+msgstr "コンピュータ認証"
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid ""
@@ -543,7 +593,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:43
 msgid "Remote ID:"
-msgstr ""
+msgstr "リモート ID："
 
 #: ../properties/nm-l2tp-dialog.ui.h:44
 msgid ""
@@ -583,6 +633,10 @@ msgid ""
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:56
+msgid "Use IP c_ompression"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:57
 msgid ""
 "IPComp compresses raw IP packets before they get encrypted. This saves some "
@@ -608,6 +662,10 @@ msgstr "高度な(_V)"
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid "Default"
 msgstr "デフォルト"
+
+#: ../properties/nm-l2tp-dialog.ui.h:64
+msgid "L2TP PPP Options"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "Authentication"

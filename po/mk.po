@@ -33,8 +33,16 @@ msgstr ""
 msgid "Compatible with L2TP and L2TP over IPsec services."
 msgstr ""
 
+#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:5
+msgid "The PPP options dialog"
+msgstr ""
+
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:6
 msgid "The NetworkManager-L2TP Developers"
+msgstr ""
+
+#: ../auth-dialog/main.c:182 ../properties/nm-l2tp-dialog.ui.h:14
+msgid "Password:"
 msgstr ""
 
 #: ../auth-dialog/main.c:189
@@ -57,6 +65,11 @@ msgstr ""
 msgid "_Machine Certificate password:"
 msgstr ""
 
+#: ../auth-dialog/main.c:487
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network “%s”."
+msgstr ""
+
 #: ../properties/ppp-dialog.c:172
 msgid "All Available (Default)"
 msgstr ""
@@ -75,6 +88,10 @@ msgstr ""
 
 #: ../properties/ppp-dialog.c:302
 msgid "CHAP"
+msgstr ""
+
+#: ../properties/ppp-dialog.c:314
+msgid "MSCHAP"
 msgstr ""
 
 #: ../properties/ppp-dialog.c:326
@@ -111,6 +128,10 @@ msgstr ""
 #: ../properties/nm-l2tp-editor.c:480
 #, c-format
 msgid "%s: failed to create the IPsec dialog!"
+msgstr ""
+
+#: ../properties/nm-l2tp-editor.c:548
+msgid "Password"
 msgstr ""
 
 #: ../properties/nm-l2tp-editor.c:717
@@ -448,6 +469,10 @@ msgid ""
 "DOMAIN\\username, where DOMAIN is the value from this text entry box."
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:7
+msgid "Sho_w password"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Password passed to PPPD when prompted for it."
 msgstr ""
@@ -465,6 +490,10 @@ msgstr ""
 msgid "User name:"
 msgstr "Корисничко име:"
 
+#: ../properties/nm-l2tp-dialog.ui.h:15
+msgid "NT Domain:"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:16
 msgid "CA"
 msgstr ""
@@ -475,7 +504,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "Type:"
-msgstr ""
+msgstr "Тип:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:19
 msgid "Select an authentication mode."
@@ -487,6 +516,10 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "PPP Se_ttings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:22
+msgid "L2TP IPsec Options"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:23
@@ -602,6 +635,10 @@ msgid ""
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:56
+msgid "Use IP c_ompression"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:57
 msgid ""
 "IPComp compresses raw IP packets before they get encrypted. This saves some "
@@ -628,6 +665,10 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:64
+msgid "L2TP PPP Options"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "Authentication"
 msgstr "Автентикација"
@@ -640,6 +681,14 @@ msgstr ""
 msgid ""
 "Allow/disable authentication methods.\n"
 "config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:69
+msgid "Security and Compression"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:70
+msgid "Use _Point-to-Point encryption (MPPE)"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:71
@@ -669,16 +718,28 @@ msgid ""
 "config: mppe-stateful (when checked)"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:78
+msgid "Allow _BSD data compression"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:79
 msgid ""
 "Allow/disable BSD-Compress compression.\n"
 "config: nobsdcomp (when unchecked)"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:81
+msgid "Allow _Deflate data compression"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:82
 msgid ""
 "Allow/disable Deflate compression.\n"
 "config: nodeflate (when unchecked)"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:84
+msgid "Use TCP _header compression"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:85
@@ -697,6 +758,10 @@ msgid ""
 "Allow protocol field compression negotiation in both the receive and the "
 "transmit direction.\n"
 "config: nopcomp (when unchecked)"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:90
+msgid "Use _Address/Control compression"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:91

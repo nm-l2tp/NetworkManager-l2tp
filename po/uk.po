@@ -58,6 +58,11 @@ msgstr ""
 msgid "_Machine Certificate password:"
 msgstr ""
 
+#: ../auth-dialog/main.c:487
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network “%s”."
+msgstr ""
+
 #: ../properties/ppp-dialog.c:172
 msgid "All Available (Default)"
 msgstr "Усі доступні (типово)"
@@ -96,7 +101,7 @@ msgstr ""
 
 #: ../properties/ipsec-dialog.c:466 ../properties/nm-l2tp-editor.c:557
 msgid "Certificates (TLS)"
-msgstr ""
+msgstr "Сертифікати (TLS)"
 
 #: ../properties/nm-l2tp-editor.c:378
 #, c-format
@@ -118,6 +123,10 @@ msgstr ""
 msgid "%s: failed to create the IPsec dialog!"
 msgstr ""
 
+#: ../properties/nm-l2tp-editor.c:548
+msgid "Password"
+msgstr "Пароль"
+
 #: ../properties/nm-l2tp-editor.c:717
 #, c-format
 msgid "could not create l2tp object"
@@ -126,6 +135,10 @@ msgstr ""
 #: ../properties/nm-l2tp-editor.c:734
 #, c-format
 msgid "could not load UI widget"
+msgstr ""
+
+#: ../properties/nm-l2tp-editor-plugin.c:34
+msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr ""
 
 #: ../properties/nm-l2tp-editor-plugin.c:35
@@ -237,28 +250,31 @@ msgstr ""
 #: ../shared/nm-utils/nm-shared-utils.c:1165
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr ""
+msgstr "у класі об’єктів «%s» немає властивості із назвою «%s»"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr ""
+msgstr "властивість «%s» класу об’єктів «%s» є непридатною до запису"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1179
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
+"властивість construct «%s» об’єкта «%s» не можна встановлювати після побудови"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1187
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
-msgstr ""
+msgstr "«%s::%s» не є коректною назвою властивості; «%s» не є підтипом GObject"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1196
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
 msgstr ""
+"не вдалося встановити значення властивості «%s» типу «%s» на основі значення "
+"типу «%s»"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1207
 #, c-format
@@ -266,6 +282,8 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
+"значення «%s» типу «%s» є некоректним для властивості «%s» типу «%s» або не "
+"належить до припустимого діапазону значень"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
 #, c-format
@@ -443,6 +461,10 @@ msgid ""
 "config: xl2tpd lns parameter"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:5
+msgid "User Authentication"
+msgstr "Аутентифікація користувача"
+
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
@@ -476,7 +498,11 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "Type:"
-msgstr ""
+msgstr "Тип:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Select an authentication mode."
+msgstr "Вибрати режим розпізнавання."
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "_IPsec Settings..."
@@ -498,6 +524,10 @@ msgstr ""
 msgid "config: ipsec-enabled"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:25
+msgid "Machine Authentication"
+msgstr "Аутентифікація комп’ютера"
+
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid ""
 "Pre-shared key (PSK) secret.\n"
@@ -514,7 +544,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "Алгоритми фази 2:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
 msgid ""
@@ -532,7 +562,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:35
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "Алгоритми фази 1:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid ""
@@ -563,7 +593,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:43
 msgid "Remote ID:"
-msgstr ""
+msgstr "Віддалений ID:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:44
 msgid ""
@@ -594,7 +624,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:53
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "Примусова інкапсуляція UDP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:54
 msgid ""
@@ -602,6 +632,10 @@ msgid ""
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:56
+msgid "Use IP c_ompression"
+msgstr "Використовувати стискання IP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:57
 msgid ""
@@ -620,6 +654,10 @@ msgid ""
 "doesn’t support PFS.\n"
 "config: ipsec-pfs <no/yes>"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:62
+msgid "Ad_vanced"
+msgstr "Додатково"
 
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid "Default"

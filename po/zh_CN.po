@@ -59,6 +59,11 @@ msgstr ""
 msgid "_Machine Certificate password:"
 msgstr ""
 
+#: ../auth-dialog/main.c:487
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network “%s”."
+msgstr ""
+
 #: ../properties/ppp-dialog.c:172
 msgid "All Available (Default)"
 msgstr "全部可用 (默认)"
@@ -93,7 +98,7 @@ msgstr "EAP"
 
 #: ../properties/ipsec-dialog.c:466 ../properties/nm-l2tp-editor.c:557
 msgid "Certificates (TLS)"
-msgstr ""
+msgstr "证书(TLS)"
 
 #: ../properties/nm-l2tp-editor.c:378
 #, c-format
@@ -114,6 +119,10 @@ msgstr "%s：创建高级对话失败！"
 #, c-format
 msgid "%s: failed to create the IPsec dialog!"
 msgstr "%s：创建 IPsec 对话失败！"
+
+#: ../properties/nm-l2tp-editor.c:548
+msgid "Password"
+msgstr "密码"
 
 #: ../properties/nm-l2tp-editor.c:717
 #, c-format
@@ -190,6 +199,13 @@ msgstr ""
 msgid "Error loading PKCS#12 file '%s'."
 msgstr ""
 
+#: ../shared/nm-l2tp-crypto-openssl.c:321
+#: ../shared/nm-l2tp-crypto-openssl.c:567
+#: ../shared/nm-l2tp-crypto-openssl.c:645
+#, c-format
+msgid "Error parsing PKCS#12 file '%s'."
+msgstr ""
+
 #: ../shared/nm-l2tp-crypto-openssl.c:334
 #, c-format
 msgid "Error obtaining Subject Name for PKCS#12 file '%s'."
@@ -198,6 +214,12 @@ msgstr ""
 #: ../shared/nm-l2tp-crypto-openssl.c:356
 #, c-format
 msgid "Error obtaining ASN1 Subject Name for PKCS#12 file '%s'."
+msgstr ""
+
+#: ../shared/nm-l2tp-crypto-openssl.c:434
+#: ../shared/nm-l2tp-crypto-openssl.c:773
+#, c-format
+msgid "Error decrypting private key file '%s'."
 msgstr ""
 
 #: ../shared/nm-l2tp-crypto-openssl.c:457
@@ -225,28 +247,28 @@ msgstr ""
 #: ../shared/nm-utils/nm-shared-utils.c:1165
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr ""
+msgstr "对象类 \"%s\" 没有名为 \"%s\" 的属性"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr ""
+msgstr "对象类 \"%2$s\" 的 \"%1$s\" 属性是不可写的"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1179
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
-msgstr ""
+msgstr "对象 \"%2$s\" 的构造属性 \"%1$s\" 在构造后不能被设定"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1187
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
-msgstr ""
+msgstr "\"%s::%s\" 不是有效的属性名；\"%s\" 不是 GObject 子类型"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1196
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
-msgstr ""
+msgstr "无法从类型 \"%3$s\" 的值设定类型为 \"%2$s\" 的属性 \"%1$s\""
 
 #: ../shared/nm-utils/nm-shared-utils.c:1207
 #, c-format
@@ -254,6 +276,7 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
+"类型 \"%2$s\" 的值 \"%1$s\" 无效或超出类型为 \"%4$s\" 的属性 \"%3$s\" 范围"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
 #, c-format
@@ -351,6 +374,10 @@ msgstr ""
 msgid "Could not restart the ipsec service."
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:1428
+msgid "Could not find the xl2tpd binary."
+msgstr ""
+
 #: ../src/nm-l2tp-service.c:1514
 msgid "Missing VPN username."
 msgstr "缺少 VPN 用户名。"
@@ -358,6 +385,18 @@ msgstr "缺少 VPN 用户名。"
 #: ../src/nm-l2tp-service.c:1523
 msgid "Missing or invalid VPN password."
 msgstr "VPN 密码缺失或无效。"
+
+#: ../src/nm-l2tp-service.c:1627
+msgid "couldn't convert L2TP VPN gateway IP address."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1640
+msgid "couldn't look up L2TP VPN gateway IP address "
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1659
+msgid "no usable addresses returned for L2TP VPN gateway "
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1688
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
@@ -410,6 +449,10 @@ msgstr ""
 "L2TP 服务器 IP 或名称。\n"
 "配置：xl2tpd lns parameter"
 
+#: ../properties/nm-l2tp-dialog.ui.h:5
+msgid "User Authentication"
+msgstr "用户鉴定"
+
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
@@ -443,7 +486,11 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "Type:"
-msgstr ""
+msgstr "类型："
+
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Select an authentication mode."
+msgstr "选择认证模式。"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "_IPsec Settings..."
@@ -465,6 +512,10 @@ msgstr "启用到 L2TP 主机的 IPsec 隧道(_E)"
 msgid "config: ipsec-enabled"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:25
+msgid "Machine Authentication"
+msgstr "机器鉴定"
+
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid ""
 "Pre-shared key (PSK) secret.\n"
@@ -481,7 +532,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "Phase 2 算法："
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
 msgid ""
@@ -499,7 +550,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:35
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "Phase1 算法"
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid ""
@@ -530,7 +581,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:43
 msgid "Remote ID:"
-msgstr ""
+msgstr "远程 ID："
 
 #: ../properties/nm-l2tp-dialog.ui.h:44
 msgid ""
@@ -561,7 +612,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:53
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "强制 UDP 封装"
 
 #: ../properties/nm-l2tp-dialog.ui.h:54
 msgid ""
@@ -569,6 +620,10 @@ msgid ""
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:56
+msgid "Use IP c_ompression"
+msgstr "使用 IP 压缩"
 
 #: ../properties/nm-l2tp-dialog.ui.h:57
 msgid ""
@@ -587,6 +642,10 @@ msgid ""
 "doesn’t support PFS.\n"
 "config: ipsec-pfs <no/yes>"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:62
+msgid "Ad_vanced"
+msgstr "高级"
 
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid "Default"

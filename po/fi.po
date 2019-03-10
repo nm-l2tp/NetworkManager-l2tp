@@ -20,6 +20,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Gtranslator 2.91.6\n"
 
+#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
+msgid "L2TP VPN Client"
+msgstr ""
+
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:2
 msgid "Client for L2TP based virtual private networks"
 msgstr ""
@@ -31,6 +35,11 @@ msgstr ""
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:6
 msgid "The NetworkManager-L2TP Developers"
 msgstr ""
+
+#: ../auth-dialog/main.c:175
+#, c-format
+msgid "Authenticate VPN %s"
+msgstr "Todenna VPN-yhteyden %s avaus"
 
 #: ../auth-dialog/main.c:182 ../properties/nm-l2tp-dialog.ui.h:14
 msgid "Password:"
@@ -55,6 +64,11 @@ msgstr ""
 #: ../auth-dialog/main.c:251
 msgid "_Machine Certificate password:"
 msgstr ""
+
+#: ../auth-dialog/main.c:487
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network “%s”."
+msgstr "Yhteydenotto VPN-verkkoon “%s” vaatii tunnistautumisen."
 
 #: ../properties/ppp-dialog.c:172
 msgid "All Available (Default)"
@@ -88,9 +102,13 @@ msgstr "MSCHAPv2"
 msgid "EAP"
 msgstr "EAP"
 
+#: ../properties/ipsec-dialog.c:457
+msgid "Pre-shared key (PSK)"
+msgstr ""
+
 #: ../properties/ipsec-dialog.c:466 ../properties/nm-l2tp-editor.c:557
 msgid "Certificates (TLS)"
-msgstr ""
+msgstr "Varmenteet (TLS)"
 
 #: ../properties/nm-l2tp-editor.c:378
 #, c-format
@@ -112,6 +130,10 @@ msgstr ""
 msgid "%s: failed to create the IPsec dialog!"
 msgstr ""
 
+#: ../properties/nm-l2tp-editor.c:548
+msgid "Password"
+msgstr "Salasana"
+
 #: ../properties/nm-l2tp-editor.c:717
 #, c-format
 msgid "could not create l2tp object"
@@ -120,6 +142,10 @@ msgstr ""
 #: ../properties/nm-l2tp-editor.c:734
 #, c-format
 msgid "could not load UI widget"
+msgstr ""
+
+#: ../properties/nm-l2tp-editor-plugin.c:34
+msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr ""
 
 #: ../properties/nm-l2tp-editor-plugin.c:35
@@ -357,6 +383,10 @@ msgstr ""
 msgid "Could not restart the ipsec service."
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:1428
+msgid "Could not find the xl2tpd binary."
+msgstr ""
+
 #: ../src/nm-l2tp-service.c:1514
 msgid "Missing VPN username."
 msgstr "Puuttuva VPN-käyttäjätunnus."
@@ -429,6 +459,10 @@ msgid ""
 "config: xl2tpd lns parameter"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:5
+msgid "User Authentication"
+msgstr "Käyttäjän todentaminen"
+
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
@@ -456,13 +490,21 @@ msgstr "Käyttäjätunnus:"
 msgid "NT Domain:"
 msgstr "NT-toimialue:"
 
+#: ../properties/nm-l2tp-dialog.ui.h:16
+msgid "CA"
+msgstr "CA"
+
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "User"
-msgstr ""
+msgstr "Käyttäjä"
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "Type:"
-msgstr ""
+msgstr "Tyyppi:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Select an authentication mode."
+msgstr "Valitse tunnistautumistapa."
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "_IPsec Settings..."
@@ -484,10 +526,18 @@ msgstr ""
 msgid "config: ipsec-enabled"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:25
+msgid "Machine Authentication"
+msgstr "Tietokoneen todentaminen"
+
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid ""
 "Pre-shared key (PSK) secret.\n"
 "config: ipsec-psk"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:28
+msgid "Pre-shared key:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:29
@@ -537,7 +587,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:43
 msgid "Remote ID:"
-msgstr ""
+msgstr "Etä-ID:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:44
 msgid ""
@@ -568,7 +618,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:53
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "Pakota UDP-kapselointi"
 
 #: ../properties/nm-l2tp-dialog.ui.h:54
 msgid ""
@@ -576,6 +626,10 @@ msgid ""
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:56
+msgid "Use IP c_ompression"
+msgstr "Käytä IP-pakkausta"
 
 #: ../properties/nm-l2tp-dialog.ui.h:57
 msgid ""
@@ -594,6 +648,10 @@ msgid ""
 "doesn’t support PFS.\n"
 "config: ipsec-pfs <no/yes>"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:62
+msgid "Ad_vanced"
+msgstr "_Lisäasetukset"
 
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid "Default"
