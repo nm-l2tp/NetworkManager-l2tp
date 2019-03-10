@@ -431,9 +431,6 @@ ipsec_dialog_new (GHashTable *hash)
 	g_object_set_data_full (G_OBJECT (dialog), "gtkbuilder-xml",
 			builder, (GDestroyNotify) g_object_unref);
 
-	ipsec_daemon = check_ipsec_daemon (nm_find_ipsec ());
-	g_object_set_data (G_OBJECT(dialog), "ipsec-daemon", GINT_TO_POINTER(ipsec_daemon));
-
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_remote_id_entry"));
 	if((value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_REMOTE_ID)))
 		gtk_entry_set_text (GTK_ENTRY(widget), value);
@@ -491,6 +488,7 @@ ipsec_dialog_new (GHashTable *hash)
 	if((value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_ESP)))
 		gtk_entry_set_text (GTK_ENTRY(widget), value);
 
+	ipsec_daemon = check_ipsec_daemon (nm_find_ipsec ());
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "legacy_proposals_button"));
 	g_object_set_data (G_OBJECT(widget), "ipsec-daemon", GINT_TO_POINTER(ipsec_daemon));
 	g_signal_connect (G_OBJECT (widget), "clicked", G_CALLBACK (legacy_proposals_cb), builder);
