@@ -948,7 +948,11 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		}
 
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_FORCEENCAPS);
-		if(value)write_config_option (fd, "  forceencaps=%s\n", value);
+		if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
+			if(value)write_config_option (fd, "  encapsulation=%s\n", value);
+		} else {
+			if(value)write_config_option (fd, "  forceencaps=%s\n", value);
+		}
 
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_IPCOMP);
 		if(value)write_config_option (fd, "  compress=%s\n", value);
@@ -956,10 +960,6 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
 			value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_PFS);
 			if(value)write_config_option (fd, "  pfs=%s\n", value);
-		}
-
-		if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
-			write_config_option (fd, "  pfs=no\n");
 		}
 
 		close(fd);
