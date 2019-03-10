@@ -532,7 +532,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid "Phase2 Algorithms:"
-msgstr "Phase 2 算法："
+msgstr "Phase2 算法："
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
 msgid ""
@@ -550,7 +550,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:35
 msgid "Phase1 Algorithms:"
-msgstr "Phase1 算法"
+msgstr "Phase1 算法："
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid ""
