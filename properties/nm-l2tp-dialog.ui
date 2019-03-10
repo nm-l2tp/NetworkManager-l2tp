@@ -728,7 +728,7 @@ ipsec.secrets: &lt;ID&gt;</property>
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkButton">
+                          <object class="GtkButton" id="legacy_proposals_button">
                             <property name="label" translatable="yes">_Legacy Proposals</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
