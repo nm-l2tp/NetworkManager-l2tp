@@ -113,6 +113,10 @@ msgstr ""
 #: ../properties/nm-l2tp-editor.c:541
 #, c-format
 msgid "could not load UI widget"
+msgstr "nelze nahrát widget uživatelského rozhraní"
+
+#: ../properties/nm-l2tp-editor-plugin.c:34
+msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr ""
 
 #: ../properties/nm-l2tp-editor-plugin.c:35
@@ -154,6 +158,11 @@ msgid ""
 msgstr ""
 "hodnota „%s“ typu „%s“ je neplatná nebo mimo rozsah vlastnosti „%s“ typu „%s“"
 
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
+#, c-format
+msgid "unable to get editor plugin name: %s"
+msgstr "nelze zjistit název zásuvného modulu editoru: %s"
+
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
 msgid "missing plugin file \"%s\""
@@ -176,27 +185,27 @@ msgstr "neznámá chyba vytváření instance editoru"
 #: ../src/nm-l2tp-service.c:268
 #, c-format
 msgid "invalid gateway '%s'"
-msgstr ""
+msgstr "neplatná brána „%s“"
 
 #: ../src/nm-l2tp-service.c:282
 #, c-format
 msgid "invalid integer property '%s'"
-msgstr ""
+msgstr "neplatná číselná vlastnost „%s“"
 
 #: ../src/nm-l2tp-service.c:292
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
-msgstr ""
+msgstr "neplatná pravdivostní vlastnost „%s“ (není ano či ne)"
 
 #: ../src/nm-l2tp-service.c:299
 #, c-format
 msgid "unhandled property '%s' type %s"
-msgstr ""
+msgstr "neošetřená vlastnost „%s“ typu %s"
 
 #: ../src/nm-l2tp-service.c:310
 #, c-format
 msgid "property '%s' invalid or not supported"
-msgstr ""
+msgstr "vlastnost „%s“ není platná nebo podporovaná"
 
 #: ../src/nm-l2tp-service.c:328
 msgid "No VPN configuration options."
@@ -205,7 +214,7 @@ msgstr "Žádné volby nastavení VPN."
 #: ../src/nm-l2tp-service.c:348
 #, c-format
 msgid "Missing required option '%s'."
-msgstr ""
+msgstr "Chybí požadovaná volba „%s“."
 
 #: ../src/nm-l2tp-service.c:368
 msgid "No VPN secrets!"
@@ -216,12 +225,33 @@ msgstr "Žádná hesla VPN!"
 msgid "Could not open %s"
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:631
+#, c-format
+msgid "Could not write %s/ipsec.nm-l2tp.secrets"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:671
+msgid "Could not write ipsec config."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:747
+msgid "Could not write xl2tpd config."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:789
+msgid "Could not write ppp options."
+msgstr ""
+
 #: ../src/nm-l2tp-service.c:947 ../src/nm-l2tp-service.c:972
 msgid "Could not start the ipsec service."
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:953 ../src/nm-l2tp-service.c:980
 msgid "Could not restart the ipsec service."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1091
+msgid "Could not find the xl2tpd binary."
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:1157
@@ -231,6 +261,18 @@ msgstr "Chybí jméno uživatele VPN."
 #: ../src/nm-l2tp-service.c:1166
 msgid "Missing or invalid VPN password."
 msgstr "Chybějící nebo neplatné heslo pro VPN."
+
+#: ../src/nm-l2tp-service.c:1269
+msgid "couldn't convert L2TP VPN gateway IP address."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1282
+msgid "couldn't look up L2TP VPN gateway IP address "
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1301
+msgid "no usable addresses returned for L2TP VPN gateway "
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1336
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
@@ -254,7 +296,7 @@ msgstr "Neplatná nebo chybějící brána L2TP."
 
 #: ../src/nm-l2tp-service.c:1655
 msgid "Don't quit when VPN connection terminates"
-msgstr ""
+msgstr "Neukončovat při uzavření spojení VPN"
 
 #: ../src/nm-l2tp-service.c:1656
 msgid "Enable verbose debug logging (may expose passwords)"
@@ -283,6 +325,10 @@ msgid ""
 "L2TP server IP or name.\n"
 "config: xl2tpd lns parameter"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:5
+msgid "User Authentication"
+msgstr "Ověření totožnosti uživatele"
 
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
@@ -332,6 +378,10 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "config: ipsec-enabled"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Machine Authentication"
+msgstr "Ověření totožnosti počítače"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid ""
@@ -390,7 +440,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:37
 msgid "Remote ID:"
-msgstr ""
+msgstr "Vzdálené ID:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:38
 msgid ""
@@ -420,7 +470,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:48
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "Vynutit zapouzdření UDP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:49
 msgid ""
@@ -428,6 +478,10 @@ msgid ""
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:51
+msgid "Use IP c_ompression"
+msgstr "Použít kompresi IP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:52
 msgid ""

@@ -20,6 +20,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Gtranslator 2.91.6\n"
 
+#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
+msgid "L2TP VPN Client"
+msgstr ""
+
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:2
 msgid "Client for L2TP based virtual private networks"
 msgstr ""
@@ -108,6 +112,10 @@ msgstr ""
 #: ../properties/nm-l2tp-editor.c:541
 #, c-format
 msgid "could not load UI widget"
+msgstr ""
+
+#: ../properties/nm-l2tp-editor-plugin.c:34
+msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr ""
 
 #: ../properties/nm-l2tp-editor-plugin.c:35
@@ -239,6 +247,10 @@ msgstr ""
 msgid "Could not restart the ipsec service."
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:1091
+msgid "Could not find the xl2tpd binary."
+msgstr ""
+
 #: ../src/nm-l2tp-service.c:1157
 msgid "Missing VPN username."
 msgstr "Puuttuva VPN-käyttäjätunnus."
@@ -311,6 +323,10 @@ msgid ""
 "config: xl2tpd lns parameter"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:5
+msgid "User Authentication"
+msgstr "Käyttäjän todentaminen"
+
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
@@ -360,10 +376,18 @@ msgstr ""
 msgid "config: ipsec-enabled"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Machine Authentication"
+msgstr "Tietokoneen todentaminen"
+
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid ""
 "Pre-shared key (PSK) secret.\n"
 "config: ipsec-psk"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:23
+msgid "Pre-shared key:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:24
@@ -413,7 +437,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:37
 msgid "Remote ID:"
-msgstr ""
+msgstr "Etä-ID:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:38
 msgid ""
@@ -443,7 +467,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:48
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "Pakota UDP-kapselointi"
 
 #: ../properties/nm-l2tp-dialog.ui.h:49
 msgid ""
@@ -451,6 +475,10 @@ msgid ""
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:51
+msgid "Use IP c_ompression"
+msgstr "Käytä IP-pakkausta"
 
 #: ../properties/nm-l2tp-dialog.ui.h:52
 msgid ""
@@ -469,6 +497,10 @@ msgid ""
 "doesn’t support PFS.\n"
 "config: ipsec-pfs <no/yes>"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:57
+msgid "Ad_vanced"
+msgstr "_Lisäasetukset"
 
 #: ../properties/nm-l2tp-dialog.ui.h:58
 msgid "Default"

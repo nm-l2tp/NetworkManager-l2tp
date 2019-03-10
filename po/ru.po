@@ -128,28 +128,32 @@ msgstr "Совместим с серверами Microsoft и другими с�
 #: ../shared/nm-utils/nm-shared-utils.c:1165
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr ""
+msgstr "класс объекта «%s» не имеет свойства с именем «%s»"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr ""
+msgstr "свойство «%s» класса объекта «%s» не доступно для записи"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1179
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
+"свойство построения «%s» для объекта «%s» не может быть установлено после "
+"построения"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1187
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
 msgstr ""
+"«%s::%s'» не является допустимым именем свойства; «%s» не является подтипом "
+"GObject"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1196
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
-msgstr ""
+msgstr "не удалось установить свойство «%s» типа «%s» из значения типа «%s»"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1207
 #, c-format
@@ -157,6 +161,8 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
+"значение «%s» типа «%s» недействительно или вне диапазона для свойства «%s» "
+"типа «%s»"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
 #, c-format
@@ -166,21 +172,21 @@ msgstr ""
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr ""
+msgstr "отсутствует файл плагина «%s»"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:109
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr ""
+msgstr "невозможно загрузить плагин редактора: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:118
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr ""
+msgstr "невозможно загрузить прошивку %s из плагина: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:144
 msgid "unknown error creating editor instance"
-msgstr ""
+msgstr "неизвестная ошибка создания экземпляра редактора"
 
 #: ../src/nm-l2tp-service.c:268
 #, c-format
@@ -250,6 +256,10 @@ msgstr ""
 msgid "Could not restart the ipsec service."
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:1091
+msgid "Could not find the xl2tpd binary."
+msgstr ""
+
 #: ../src/nm-l2tp-service.c:1157
 msgid "Missing VPN username."
 msgstr "Отсутствует имя пользователя VPN."
@@ -257,6 +267,18 @@ msgstr "Отсутствует имя пользователя VPN."
 #: ../src/nm-l2tp-service.c:1166
 msgid "Missing or invalid VPN password."
 msgstr "Пароль VPN отсутствует или неверный."
+
+#: ../src/nm-l2tp-service.c:1269
+msgid "couldn't convert L2TP VPN gateway IP address."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1282
+msgid "couldn't look up L2TP VPN gateway IP address "
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1301
+msgid "no usable addresses returned for L2TP VPN gateway "
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1336
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
@@ -284,7 +306,7 @@ msgstr "Включить подробный режим отладки (могу�
 
 #: ../src/nm-l2tp-service.c:1657
 msgid "D-Bus name to use for this instance"
-msgstr ""
+msgstr "Имя D-Bus для использования в этом экземпляре"
 
 #: ../src/nm-l2tp-service.c:1678
 msgid ""
@@ -309,6 +331,10 @@ msgid ""
 msgstr ""
 "IP адрес или доменное имя L2TP сервера.\n"
 "опция конфигурации: xl2tpd lns параметр"
+
+#: ../properties/nm-l2tp-dialog.ui.h:5
+msgid "User Authentication"
+msgstr "Аутентификация пользователя"
 
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
@@ -359,6 +385,10 @@ msgstr "Включить IPsec туннель к L2TP хосту"
 msgid "config: ipsec-enabled"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Machine Authentication"
+msgstr "Аутентификация компьютера"
+
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid ""
 "Pre-shared key (PSK) secret.\n"
@@ -371,7 +401,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "Алгоритмы фазы 2:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:25
 msgid ""
@@ -389,7 +419,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:29
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "Алгоритмы фазы 1:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid ""
@@ -420,7 +450,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:37
 msgid "Remote ID:"
-msgstr ""
+msgstr "Удаленный ID:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:38
 msgid ""
@@ -454,7 +484,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:48
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "Принудительная инкапсуляция в UDP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:49
 msgid ""
@@ -462,6 +492,10 @@ msgid ""
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:51
+msgid "Use IP c_ompression"
+msgstr "Использовать сжатие IP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:52
 msgid ""
@@ -480,6 +514,10 @@ msgid ""
 "doesn’t support PFS.\n"
 "config: ipsec-pfs <no/yes>"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:57
+msgid "Ad_vanced"
+msgstr "Дополнительно"
 
 #: ../properties/nm-l2tp-dialog.ui.h:58
 msgid "Default"

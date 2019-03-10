@@ -35,6 +35,10 @@ msgstr ""
 msgid "Compatible with L2TP and L2TP over IPsec services."
 msgstr ""
 
+#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:5
+msgid "The PPP options dialog"
+msgstr ""
+
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:6
 msgid "The NetworkManager-L2TP Developers"
 msgstr ""
@@ -253,6 +257,10 @@ msgstr ""
 msgid "Could not restart the ipsec service."
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:1091
+msgid "Could not find the xl2tpd binary."
+msgstr ""
+
 #: ../src/nm-l2tp-service.c:1157
 msgid "Missing VPN username."
 msgstr "VPN ユーザー名がありません。"
@@ -260,6 +268,18 @@ msgstr "VPN ユーザー名がありません。"
 #: ../src/nm-l2tp-service.c:1166
 msgid "Missing or invalid VPN password."
 msgstr "VPN パスワードが不足しているか、無効です。"
+
+#: ../src/nm-l2tp-service.c:1269
+msgid "couldn't convert L2TP VPN gateway IP address."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1282
+msgid "couldn't look up L2TP VPN gateway IP address "
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1301
+msgid "no usable addresses returned for L2TP VPN gateway "
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1336
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
@@ -313,6 +333,10 @@ msgid ""
 "config: xl2tpd lns parameter"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:5
+msgid "User Authentication"
+msgstr "ユーザ認証"
+
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
@@ -350,6 +374,10 @@ msgstr ""
 msgid "PPP Se_ttings..."
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:16
+msgid "L2TP IPsec Options"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "_Enable IPsec tunnel to L2TP host"
 msgstr ""
@@ -357,6 +385,10 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "config: ipsec-enabled"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Machine Authentication"
+msgstr "コンピュータ認証"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid ""
@@ -415,7 +447,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:37
 msgid "Remote ID:"
-msgstr ""
+msgstr "リモート ID："
 
 #: ../properties/nm-l2tp-dialog.ui.h:38
 msgid ""
@@ -454,6 +486,10 @@ msgid ""
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:51
+msgid "Use IP c_ompression"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:52
 msgid ""
 "IPComp compresses raw IP packets before they get encrypted. This saves some "
@@ -479,6 +515,10 @@ msgstr "高度な(_V)"
 #: ../properties/nm-l2tp-dialog.ui.h:58
 msgid "Default"
 msgstr "デフォルト"
+
+#: ../properties/nm-l2tp-dialog.ui.h:59
+msgid "L2TP PPP Options"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:60
 msgid "Authentication"

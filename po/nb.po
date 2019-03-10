@@ -248,6 +248,10 @@ msgstr ""
 msgid "Could not restart the ipsec service."
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:1091
+msgid "Could not find the xl2tpd binary."
+msgstr ""
+
 #: ../src/nm-l2tp-service.c:1157
 msgid "Missing VPN username."
 msgstr "Mangler brukernavn for VPN."
@@ -381,7 +385,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "Fase 2 algoritmer:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:25
 msgid ""
@@ -399,7 +403,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:29
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "Fase 1 algoritmer:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid ""
@@ -464,7 +468,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:48
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "Tving UDP-innkapsling"
 
 #: ../properties/nm-l2tp-dialog.ui.h:49
 msgid ""
@@ -472,6 +476,10 @@ msgid ""
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:51
+msgid "Use IP c_ompression"
+msgstr "Bruk IP-komprimering"
 
 #: ../properties/nm-l2tp-dialog.ui.h:52
 msgid ""

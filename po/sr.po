@@ -18,8 +18,24 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Project-Style: gnome\n"
 
+#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
+msgid "L2TP VPN Client"
+msgstr ""
+
+#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:2
+msgid "Client for L2TP based virtual private networks"
+msgstr ""
+
+#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:3
+msgid "Support for configuring L2TP based virtual private network connections."
+msgstr ""
+
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:5
 msgid "The PPP options dialog"
+msgstr ""
+
+#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:6
+msgid "The NetworkManager-L2TP Developers"
 msgstr ""
 
 #: ../auth-dialog/main.c:155 ../auth-dialog/main.c:176
@@ -90,6 +106,10 @@ msgstr ""
 #: ../properties/nm-l2tp-editor.c:541
 #, c-format
 msgid "could not load UI widget"
+msgstr "не могу да учитам елемент сучеља"
+
+#: ../properties/nm-l2tp-editor-plugin.c:34
+msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr ""
 
 #: ../properties/nm-l2tp-editor-plugin.c:35
@@ -151,9 +171,39 @@ msgstr "не могу да учитам погон „%s“ из прикључ�
 msgid "unknown error creating editor instance"
 msgstr "непозната грешка приликом стварања примерка уређивача"
 
+#: ../src/nm-l2tp-service.c:268
+#, c-format
+msgid "invalid gateway '%s'"
+msgstr "неисправан мрежни пролаз „%s“"
+
+#: ../src/nm-l2tp-service.c:282
+#, c-format
+msgid "invalid integer property '%s'"
+msgstr "неисправно својство целог броја „%s“"
+
+#: ../src/nm-l2tp-service.c:292
+#, c-format
+msgid "invalid boolean property '%s' (not yes or no)"
+msgstr "неисправно логичко својство „%s“ (није „да“ или „не“)"
+
+#: ../src/nm-l2tp-service.c:299
+#, c-format
+msgid "unhandled property '%s' type %s"
+msgstr "неруковано својство „%s“ врсте %s"
+
+#: ../src/nm-l2tp-service.c:310
+#, c-format
+msgid "property '%s' invalid or not supported"
+msgstr "својство „%s“ је неисправно или није подржано"
+
 #: ../src/nm-l2tp-service.c:328
 msgid "No VPN configuration options."
 msgstr "Нема опција за ВПН подешавање."
+
+#: ../src/nm-l2tp-service.c:348
+#, c-format
+msgid "Missing required option '%s'."
+msgstr "Недостаје затражена опција „%s“."
 
 #: ../src/nm-l2tp-service.c:368
 msgid "No VPN secrets!"
@@ -164,12 +214,33 @@ msgstr "Нема ВПН тајни!"
 msgid "Could not open %s"
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:631
+#, c-format
+msgid "Could not write %s/ipsec.nm-l2tp.secrets"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:671
+msgid "Could not write ipsec config."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:747
+msgid "Could not write xl2tpd config."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:789
+msgid "Could not write ppp options."
+msgstr ""
+
 #: ../src/nm-l2tp-service.c:947 ../src/nm-l2tp-service.c:972
 msgid "Could not start the ipsec service."
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:953 ../src/nm-l2tp-service.c:980
 msgid "Could not restart the ipsec service."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1091
+msgid "Could not find the xl2tpd binary."
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:1157
@@ -179,6 +250,18 @@ msgstr "Недостаје ВПН корисничко име."
 #: ../src/nm-l2tp-service.c:1166
 msgid "Missing or invalid VPN password."
 msgstr "Недостаје или је неисправна ВПН лозинка."
+
+#: ../src/nm-l2tp-service.c:1269
+msgid "couldn't convert L2TP VPN gateway IP address."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1282
+msgid "couldn't look up L2TP VPN gateway IP address "
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1301
+msgid "no usable addresses returned for L2TP VPN gateway "
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1336
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
@@ -200,6 +283,10 @@ msgstr ""
 msgid "Invalid or missing L2TP gateway."
 msgstr "Неисправан или недостаје ППТП мрежни пролаз."
 
+#: ../src/nm-l2tp-service.c:1655
+msgid "Don't quit when VPN connection terminates"
+msgstr "Не прекида када се завршава ВПН веза"
+
 #: ../src/nm-l2tp-service.c:1656
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr ""
@@ -209,6 +296,12 @@ msgstr ""
 msgid "D-Bus name to use for this instance"
 msgstr "Назив Д-сабирнице која ће се користити за овај примерак"
 
+#: ../src/nm-l2tp-service.c:1678
+msgid ""
+"nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
+"NetworkManager."
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:1
 msgid "General"
 msgstr "Опште"
@@ -216,6 +309,12 @@ msgstr "Опште"
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Gateway:"
 msgstr "_Мрежни пролаз:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:3
+msgid ""
+"L2TP server IP or name.\n"
+"config: xl2tpd lns parameter"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
@@ -353,7 +452,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:48
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "Наметни УДП енкапсулацију"
 
 #: ../properties/nm-l2tp-dialog.ui.h:49
 msgid ""
@@ -361,6 +460,10 @@ msgid ""
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:51
+msgid "Use IP c_ompression"
+msgstr "Користи ИП компресију"
 
 #: ../properties/nm-l2tp-dialog.ui.h:52
 msgid ""

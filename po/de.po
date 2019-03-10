@@ -116,6 +116,10 @@ msgstr ""
 #: ../properties/nm-l2tp-editor.c:541
 #, c-format
 msgid "could not load UI widget"
+msgstr "UI-Widget konnte nicht geladen werden"
+
+#: ../properties/nm-l2tp-editor-plugin.c:34
+msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr ""
 
 #: ../properties/nm-l2tp-editor-plugin.c:35
@@ -184,27 +188,27 @@ msgstr "Unbekannter Fehler beim Erzeugen der Editor-Instanz"
 #: ../src/nm-l2tp-service.c:268
 #, c-format
 msgid "invalid gateway '%s'"
-msgstr ""
+msgstr "Ungültiges Gateway »%s«"
 
 #: ../src/nm-l2tp-service.c:282
 #, c-format
 msgid "invalid integer property '%s'"
-msgstr ""
+msgstr "Ungültige Ganzzahl-Eigenschaft »%s«"
 
 #: ../src/nm-l2tp-service.c:292
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
-msgstr ""
+msgstr "Ungültige boolesche Eigenschaft »%s« (nicht »yes« oder »no«)"
 
 #: ../src/nm-l2tp-service.c:299
 #, c-format
 msgid "unhandled property '%s' type %s"
-msgstr ""
+msgstr "Unbehandelte Eigenschaft »%s« des Typs %s"
 
 #: ../src/nm-l2tp-service.c:310
 #, c-format
 msgid "property '%s' invalid or not supported"
-msgstr ""
+msgstr "Eigenschaft »%s« ist ungültig oder wird nicht unterstützt"
 
 #: ../src/nm-l2tp-service.c:328
 msgid "No VPN configuration options."
@@ -213,7 +217,7 @@ msgstr "Keine VPN-Konfigurationsoptionen."
 #: ../src/nm-l2tp-service.c:348
 #, c-format
 msgid "Missing required option '%s'."
-msgstr ""
+msgstr "Benötigte Option »%s« fehlt."
 
 #: ../src/nm-l2tp-service.c:368
 msgid "No VPN secrets!"
@@ -249,6 +253,10 @@ msgstr ""
 msgid "Could not restart the ipsec service."
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:1091
+msgid "Could not find the xl2tpd binary."
+msgstr ""
+
 #: ../src/nm-l2tp-service.c:1157
 msgid "Missing VPN username."
 msgstr "VPN-Benutzername fehlt."
@@ -256,6 +264,18 @@ msgstr "VPN-Benutzername fehlt."
 #: ../src/nm-l2tp-service.c:1166
 msgid "Missing or invalid VPN password."
 msgstr "Fehlendes oder ungültiges VPN-Passwort."
+
+#: ../src/nm-l2tp-service.c:1269
+msgid "couldn't convert L2TP VPN gateway IP address."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1282
+msgid "couldn't look up L2TP VPN gateway IP address "
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1301
+msgid "no usable addresses returned for L2TP VPN gateway "
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1336
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
@@ -279,7 +299,7 @@ msgstr "Das VPN-Gateway fehlt oder ist ungültig."
 
 #: ../src/nm-l2tp-service.c:1655
 msgid "Don't quit when VPN connection terminates"
-msgstr ""
+msgstr "Nicht beenden, wenn die VPN-Verbindung beendet wird"
 
 #: ../src/nm-l2tp-service.c:1656
 msgid "Enable verbose debug logging (may expose passwords)"
@@ -310,6 +330,10 @@ msgid ""
 "L2TP server IP or name.\n"
 "config: xl2tpd lns parameter"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:5
+msgid "User Authentication"
+msgstr "Benutzer-Authentifizierung"
 
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
@@ -360,6 +384,10 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "config: ipsec-enabled"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Machine Authentication"
+msgstr "Rechner-Authentifizierung"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid ""
@@ -418,7 +446,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:37
 msgid "Remote ID:"
-msgstr ""
+msgstr "Entfernte ID:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:38
 msgid ""
@@ -448,7 +476,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:48
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "UDP-Kapselung erzwingen"
 
 #: ../properties/nm-l2tp-dialog.ui.h:49
 msgid ""
@@ -456,6 +484,10 @@ msgid ""
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:51
+msgid "Use IP c_ompression"
+msgstr "IP-Pakete k_omprimieren"
 
 #: ../properties/nm-l2tp-dialog.ui.h:52
 msgid ""

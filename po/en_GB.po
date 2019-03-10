@@ -197,6 +197,11 @@ msgstr "invalid boolean property '%s' (not yes or no)"
 msgid "unhandled property '%s' type %s"
 msgstr "unhandled property '%s' type %s"
 
+#: ../src/nm-l2tp-service.c:310
+#, c-format
+msgid "property '%s' invalid or not supported"
+msgstr "property '%s' invalid or not supported"
+
 #: ../src/nm-l2tp-service.c:328
 msgid "No VPN configuration options."
 msgstr "No VPN configuration options."
@@ -213,6 +218,15 @@ msgstr "No VPN secrets!"
 #: ../src/nm-l2tp-service.c:614
 #, c-format
 msgid "Could not open %s"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:631
+#, c-format
+msgid "Could not write %s/ipsec.nm-l2tp.secrets"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:671
+msgid "Could not write ipsec config."
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:947 ../src/nm-l2tp-service.c:972
@@ -360,7 +374,7 @@ msgstr "Pre-shared key:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "Phase2 Algorithms:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:25
 msgid ""
@@ -378,7 +392,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:29
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "Phase1 Algorithms:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid ""
@@ -443,7 +457,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:48
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "_Enforce UDP encapsulation"
 
 #: ../properties/nm-l2tp-dialog.ui.h:49
 msgid ""
@@ -451,6 +465,10 @@ msgid ""
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:51
+msgid "Use IP c_ompression"
+msgstr "Use IP c_ompression"
 
 #: ../properties/nm-l2tp-dialog.ui.h:52
 msgid ""
@@ -472,7 +490,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:57
 msgid "Ad_vanced"
-msgstr ""
+msgstr "Ad_vanced"
 
 #: ../properties/nm-l2tp-dialog.ui.h:58
 msgid "Default"

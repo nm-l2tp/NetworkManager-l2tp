@@ -117,6 +117,10 @@ msgstr ""
 msgid "could not load UI widget"
 msgstr ""
 
+#: ../properties/nm-l2tp-editor-plugin.c:34
+msgid "Layer 2 Tunneling Protocol (L2TP)"
+msgstr ""
+
 #: ../properties/nm-l2tp-editor-plugin.c:35
 msgid "Compatible with Microsoft and other L2TP VPN servers."
 msgstr "Microsoft ಹಾಗು ಇತರೆ L2TP VPN ಪರಿಚಾರಗಳೊಂದಿಗೆ ಸಹವರ್ತನೀಯವಾಗಿರುತ್ತದೆ."
@@ -359,6 +363,10 @@ msgstr ""
 msgid "PPP Se_ttings..."
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:16
+msgid "L2TP IPsec Options"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "_Enable IPsec tunnel to L2TP host"
 msgstr ""
@@ -489,9 +497,17 @@ msgid ""
 "config: ipsec-pfs <no/yes>"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:57
+msgid "Ad_vanced"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:58
 msgid "Default"
 msgstr "ಪೂರ್ವನಿಯೋಜಿತ"
+
+#: ../properties/nm-l2tp-dialog.ui.h:59
+msgid "L2TP PPP Options"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:60
 msgid "Authentication"

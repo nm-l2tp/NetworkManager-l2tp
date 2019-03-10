@@ -78,6 +78,10 @@ msgstr ""
 msgid "CHAP"
 msgstr ""
 
+#: ../properties/ppp-dialog.c:314
+msgid "MSCHAP"
+msgstr ""
+
 #: ../properties/ppp-dialog.c:326
 msgid "MSCHAPv2"
 msgstr ""
@@ -311,6 +315,10 @@ msgid ""
 "NetworkManager."
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:1
+msgid "General"
+msgstr "عام"
+
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Gateway:"
 msgstr "ال_بوّابة:"
@@ -320,6 +328,10 @@ msgid ""
 "L2TP server IP or name.\n"
 "config: xl2tpd lns parameter"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:5
+msgid "User Authentication"
+msgstr "مصادقة المستخدم"
 
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
@@ -369,6 +381,10 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "config: ipsec-enabled"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Machine Authentication"
+msgstr "مصادقة الجهاز"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid ""
@@ -431,7 +447,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:37
 msgid "Remote ID:"
-msgstr ""
+msgstr "المعرّف البعيد:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:38
 msgid ""
@@ -472,6 +488,10 @@ msgid ""
 "Some firewalls block ESP traffic. Enforcing UDP capsulation even if no NAT "
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:51
+msgid "Use IP c_ompression"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:52
@@ -518,6 +538,14 @@ msgid ""
 "config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:64
+msgid "Security and Compression"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:65
+msgid "Use _Point-to-Point encryption (MPPE)"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:66
 msgid ""
 "Note: MPPE encryption is only available with MSCHAP authentication methods. "
@@ -545,16 +573,28 @@ msgid ""
 "config: mppe-stateful (when checked)"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:73
+msgid "Allow _BSD data compression"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:74
 msgid ""
 "Allow/disable BSD-Compress compression.\n"
 "config: nobsdcomp (when unchecked)"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:76
+msgid "Allow _Deflate data compression"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:77
 msgid ""
 "Allow/disable Deflate compression.\n"
 "config: nodeflate (when unchecked)"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:79
+msgid "Use TCP _header compression"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:80
@@ -573,6 +613,10 @@ msgid ""
 "Allow protocol field compression negotiation in both the receive and the "
 "transmit direction.\n"
 "config: nopcomp (when unchecked)"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:85
+msgid "Use _Address/Control compression"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:86

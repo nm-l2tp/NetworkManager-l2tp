@@ -118,6 +118,10 @@ msgstr ""
 msgid "could not load UI widget"
 msgstr ""
 
+#: ../properties/nm-l2tp-editor-plugin.c:34
+msgid "Layer 2 Tunneling Protocol (L2TP)"
+msgstr ""
+
 #: ../properties/nm-l2tp-editor-plugin.c:35
 msgid "Compatible with Microsoft and other L2TP VPN servers."
 msgstr "Compatibil cu Microsoft și alte servere VPN L2TP."
@@ -323,6 +327,10 @@ msgid ""
 "config: xl2tpd lns parameter"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:5
+msgid "User Authentication"
+msgstr "Autentificare utilizator"
+
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
@@ -360,6 +368,10 @@ msgstr ""
 msgid "PPP Se_ttings..."
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:16
+msgid "L2TP IPsec Options"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "_Enable IPsec tunnel to L2TP host"
 msgstr ""
@@ -367,6 +379,10 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "config: ipsec-enabled"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Machine Authentication"
+msgstr "Autentificare computer"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid ""
@@ -380,7 +396,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "Algoritmi pentru faza 2:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:25
 msgid ""
@@ -398,7 +414,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:29
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "Algoritmi pentru faza 1:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid ""
@@ -463,7 +479,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:48
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "Impune încapsularea UDP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:49
 msgid ""
@@ -471,6 +487,10 @@ msgid ""
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:51
+msgid "Use IP c_ompression"
+msgstr "Folosește compresie IP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:52
 msgid ""
@@ -490,9 +510,17 @@ msgid ""
 "config: ipsec-pfs <no/yes>"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:57
+msgid "Ad_vanced"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:58
 msgid "Default"
 msgstr "Implicit"
+
+#: ../properties/nm-l2tp-dialog.ui.h:59
+msgid "L2TP PPP Options"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:60
 msgid "Authentication"

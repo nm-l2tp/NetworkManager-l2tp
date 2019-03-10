@@ -32,6 +32,10 @@ msgstr ""
 msgid "Support for configuring L2TP based virtual private network connections."
 msgstr ""
 
+#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:5
+msgid "The PPP options dialog"
+msgstr ""
+
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:6
 msgid "The NetworkManager-L2TP Developers"
 msgstr ""
@@ -112,6 +116,10 @@ msgstr ""
 #: ../properties/nm-l2tp-editor.c:541
 #, c-format
 msgid "could not load UI widget"
+msgstr ""
+
+#: ../properties/nm-l2tp-editor-plugin.c:34
+msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr ""
 
 #: ../properties/nm-l2tp-editor-plugin.c:35
@@ -243,6 +251,10 @@ msgstr ""
 msgid "Could not restart the ipsec service."
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:1091
+msgid "Could not find the xl2tpd binary."
+msgstr ""
+
 #: ../src/nm-l2tp-service.c:1157
 msgid "Missing VPN username."
 msgstr "VPN-aren erabiltzaile-izena falta da."
@@ -250,6 +262,18 @@ msgstr "VPN-aren erabiltzaile-izena falta da."
 #: ../src/nm-l2tp-service.c:1166
 msgid "Missing or invalid VPN password."
 msgstr "VPN-aren pasahitza falta da, edo baliogabea da."
+
+#: ../src/nm-l2tp-service.c:1269
+msgid "couldn't convert L2TP VPN gateway IP address."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1282
+msgid "couldn't look up L2TP VPN gateway IP address "
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1301
+msgid "no usable addresses returned for L2TP VPN gateway "
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1336
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
@@ -315,7 +339,7 @@ msgstr "Erakutsi pasahitza"
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Password passed to PPPD when prompted for it."
-msgstr ""
+msgstr "Hura eskatzean PPPDri pasatuko zaion pasahitza."
 
 #: ../properties/nm-l2tp-dialog.ui.h:9
 msgid ""
@@ -339,6 +363,10 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:15
 msgid "PPP Se_ttings..."
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:16
+msgid "L2TP IPsec Options"
+msgstr "L2TP IPsec aukerak"
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -435,7 +463,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:48
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "Derrigortu UDP kapsulatzea"
 
 #: ../properties/nm-l2tp-dialog.ui.h:49
 msgid ""
@@ -443,6 +471,10 @@ msgid ""
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:51
+msgid "Use IP c_ompression"
+msgstr "Erabili IP konpresioa"
 
 #: ../properties/nm-l2tp-dialog.ui.h:52
 msgid ""
@@ -462,9 +494,17 @@ msgid ""
 "config: ipsec-pfs <no/yes>"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:57
+msgid "Ad_vanced"
+msgstr "Aurreratua"
+
 #: ../properties/nm-l2tp-dialog.ui.h:58
 msgid "Default"
 msgstr "Lehenetsia"
+
+#: ../properties/nm-l2tp-dialog.ui.h:59
+msgid "L2TP PPP Options"
+msgstr "L2TP PPP aukerak"
 
 #: ../properties/nm-l2tp-dialog.ui.h:60
 msgid "Authentication"

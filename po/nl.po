@@ -118,6 +118,10 @@ msgstr ""
 msgid "could not load UI widget"
 msgstr ""
 
+#: ../properties/nm-l2tp-editor-plugin.c:34
+msgid "Layer 2 Tunneling Protocol (L2TP)"
+msgstr ""
+
 #: ../properties/nm-l2tp-editor-plugin.c:35
 msgid "Compatible with Microsoft and other L2TP VPN servers."
 msgstr "Compatible met Microsoft en andere L2TP VPN-servers."
@@ -125,28 +129,31 @@ msgstr "Compatible met Microsoft en andere L2TP VPN-servers."
 #: ../shared/nm-utils/nm-shared-utils.c:1165
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr ""
+msgstr "objectklasse ‘%s’ heeft geen eigenschap met de naam ‘%s’"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr ""
+msgstr "eigenschap ‘%s’ van objectklasse ‘%s’ is niet schrijfbaar"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1179
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
+"constructeigenschap ‘%s’ voor object ‘%s’ kan niet ingesteld worden na "
+"constructie"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1187
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
-msgstr ""
+msgstr "‘%s::%s’ is geen geldige eigenschapsnaam; ‘%s’ is geen GObject-subtype"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1196
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
 msgstr ""
+"instellen van eigenschap ‘%s’ van type ‘%s’ van waarde van type ‘%s’ mislukt"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1207
 #, c-format
@@ -154,30 +161,32 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
+"waarde ‘%s’ van type ‘%s’ is ongeldig of buiten bereik voor eigenschap ‘%s’ "
+"van type ‘%s’"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
 #, c-format
 msgid "unable to get editor plugin name: %s"
-msgstr ""
+msgstr "verkrijgen van naam van verwerkersplug-in mislukt: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr ""
+msgstr "plug-inbestand ‘%s’ ontbreekt"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:109
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr ""
+msgstr "laden van verwerkersplug-in mislukt: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:118
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr ""
+msgstr "laden van factory %s uit plug-in %s mislukt"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:144
 msgid "unknown error creating editor instance"
-msgstr ""
+msgstr "onbekende fout bij aanmaken van verwerkersinstantie"
 
 #: ../src/nm-l2tp-service.c:268
 #, c-format
@@ -192,21 +201,21 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:292
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
-msgstr ""
+msgstr "ongeldige booleaanse waarde voor eigenschap ‘%s’ (geen ‘yes’ of ‘no’)"
 
 #: ../src/nm-l2tp-service.c:299
 #, c-format
 msgid "unhandled property '%s' type %s"
-msgstr ""
+msgstr "niet-afgehandelde eigenschap ‘%s’ type %s"
 
 #: ../src/nm-l2tp-service.c:310
 #, c-format
 msgid "property '%s' invalid or not supported"
-msgstr ""
+msgstr "eigenschap ‘%s’ is ongeldig of wordt niet ondersteund"
 
 #: ../src/nm-l2tp-service.c:328
 msgid "No VPN configuration options."
-msgstr ""
+msgstr "Geen VPN-configuratieopties."
 
 #: ../src/nm-l2tp-service.c:348
 #, c-format
@@ -253,11 +262,11 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1157
 msgid "Missing VPN username."
-msgstr ""
+msgstr "VPN-gebruikersnaam ontbreekt."
 
 #: ../src/nm-l2tp-service.c:1166
 msgid "Missing or invalid VPN password."
-msgstr ""
+msgstr "VPN-wachtwoord ontbreekt of is ongeldig."
 
 #: ../src/nm-l2tp-service.c:1269
 msgid "couldn't convert L2TP VPN gateway IP address."
@@ -289,19 +298,19 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1361
 msgid "Invalid or missing L2TP gateway."
-msgstr ""
+msgstr "L2TP-gateway ontbreekt of is ongeldig."
 
 #: ../src/nm-l2tp-service.c:1655
 msgid "Don't quit when VPN connection terminates"
-msgstr ""
+msgstr "Niet afsluiten wanneer de VPN-verbinding verbroken wordt"
 
 #: ../src/nm-l2tp-service.c:1656
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr ""
+msgstr "Uitgebreide debug-logging inschakelen (kan wachtwoorden blootstellen)"
 
 #: ../src/nm-l2tp-service.c:1657
 msgid "D-Bus name to use for this instance"
-msgstr ""
+msgstr "D-Bus-naam voor deze instantie"
 
 #: ../src/nm-l2tp-service.c:1678
 msgid ""
@@ -322,6 +331,10 @@ msgid ""
 "L2TP server IP or name.\n"
 "config: xl2tpd lns parameter"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:5
+msgid "User Authentication"
+msgstr "Gebruikercontrole"
 
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
@@ -372,6 +385,10 @@ msgstr ""
 msgid "config: ipsec-enabled"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Machine Authentication"
+msgstr "Computercontrole"
+
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid ""
 "Pre-shared key (PSK) secret.\n"
@@ -384,7 +401,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "Phase2-algoritmen:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:25
 msgid ""
@@ -402,7 +419,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:29
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "Phase1-algoritmen:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid ""
@@ -433,7 +450,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:37
 msgid "Remote ID:"
-msgstr ""
+msgstr "Externe ID:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:38
 msgid ""
@@ -467,7 +484,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:48
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "UDP-encapsulatie forceren"
 
 #: ../properties/nm-l2tp-dialog.ui.h:49
 msgid ""
@@ -475,6 +492,10 @@ msgid ""
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:51
+msgid "Use IP c_ompression"
+msgstr "IP-compressie gebruiken"
 
 #: ../properties/nm-l2tp-dialog.ui.h:52
 msgid ""
@@ -493,6 +514,10 @@ msgid ""
 "doesn’t support PFS.\n"
 "config: ipsec-pfs <no/yes>"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:57
+msgid "Ad_vanced"
+msgstr "Gea_vanceerd"
 
 #: ../properties/nm-l2tp-dialog.ui.h:58
 msgid "Default"
@@ -515,6 +540,9 @@ msgid ""
 "Allow/disable authentication methods.\n"
 "config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 msgstr ""
+"Authenticatiemethodes toestaan/uitschakelen.\n"
+"configuratie: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, "
+"refuse-eap"
 
 #: ../properties/nm-l2tp-dialog.ui.h:64
 msgid "Security and Compression"
@@ -530,6 +558,10 @@ msgid ""
 "To enable this checkbox, select one or more of the MSCHAP authentication "
 "methods: MSCHAP or MSCHAPv2."
 msgstr ""
+"Let op: MPPE-versleuteling is enkel beschikbaar voor MSCHAP-"
+"authenticatiemethodes. Selecteer een of meerdere van de MSCHAP-"
+"authenticatiemethodes om dit selectievakje in te schakelen: MSCHAP of "
+"MSCHAPv2."
 
 #: ../properties/nm-l2tp-dialog.ui.h:67
 msgid "_Security:"
@@ -540,6 +572,8 @@ msgid ""
 "Require the use of MPPE, with 40/128-bit encryption or all.\n"
 "config: require-mppe, require-mppe-128 or require-mppe-40"
 msgstr ""
+"Vereis het gebruik van MPPE, met 40/128-bits versleuteling of alles.\n"
+"configuratie: require-mppe, require-mppe-128 of require-mppe-40"
 
 #: ../properties/nm-l2tp-dialog.ui.h:70
 msgid "Allow st_ateful encryption"
@@ -550,6 +584,9 @@ msgid ""
 "Allow MPPE to use stateful mode. Stateless mode is still attempted first.\n"
 "config: mppe-stateful (when checked)"
 msgstr ""
+"Sta MPPE toe stateful-modus te gebruiken. Stateless-modus wordt nog steeds "
+"eerst geprobeerd.\n"
+"configuratie: mppe-stateful (indien aangevinkt)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:73
 msgid "Allow _BSD data compression"
@@ -560,6 +597,8 @@ msgid ""
 "Allow/disable BSD-Compress compression.\n"
 "config: nobsdcomp (when unchecked)"
 msgstr ""
+"BSD-Compress-compressie toestaan/uitschakelen.\n"
+"configuratie: nobsdcomp (indien uitgevinkt)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:76
 msgid "Allow _Deflate data compression"
@@ -570,6 +609,8 @@ msgid ""
 "Allow/disable Deflate compression.\n"
 "config: nodeflate (when unchecked)"
 msgstr ""
+"Deflate-compressie toestaan/uitschakelen.\n"
+"configuratie: nodeflate (indien uitgevinkt)"
 
 # toepassen/gebruiken
 #: ../properties/nm-l2tp-dialog.ui.h:79
@@ -582,6 +623,9 @@ msgid ""
 "transmit and the receive directions.\n"
 "config: novj (when unchecked)"
 msgstr ""
+"Van Jacobson-achtige TCP-/IP-headercompress toestaan/uitschakelen in zowel "
+"verzend- als ontvangrichting.\n"
+"configuratie: novj (indien uitgevinkt)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:82
 msgid "Use protocol _field compression negotiation"
@@ -613,10 +657,12 @@ msgid ""
 "Send LCP echo-requests to find out whether peer is alive.\n"
 "config: lcp-echo-failure and lcp-echo-interval"
 msgstr ""
+"Stuur LCP-echoverzoeken om na te gaan of de peer nog actief is.\n"
+"configuratie: lcp-echo-failure en lcp-echo-interval"
 
 #: ../properties/nm-l2tp-dialog.ui.h:92
 msgid "Misc"
-msgstr ""
+msgstr "Allerlei"
 
 #: ../properties/nm-l2tp-dialog.ui.h:93
 msgid "MTU :"

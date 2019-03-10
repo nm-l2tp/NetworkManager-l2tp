@@ -116,6 +116,10 @@ msgstr ""
 msgid "could not load UI widget"
 msgstr ""
 
+#: ../properties/nm-l2tp-editor-plugin.c:34
+msgid "Layer 2 Tunneling Protocol (L2TP)"
+msgstr ""
+
 #: ../properties/nm-l2tp-editor-plugin.c:35
 msgid "Compatible with Microsoft and other L2TP VPN servers."
 msgstr "Microsoft আৰু অন্য L2TP VPN সেৱকৰ সৈতে সুসঙ্গত ।"
@@ -490,6 +494,10 @@ msgid ""
 "Disable perfect forward security. Enable this option only if the server "
 "doesn’t support PFS.\n"
 "config: ipsec-pfs <no/yes>"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:57
+msgid "Ad_vanced"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:58

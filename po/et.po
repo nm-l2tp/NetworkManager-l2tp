@@ -114,6 +114,10 @@ msgstr ""
 msgid "could not load UI widget"
 msgstr ""
 
+#: ../properties/nm-l2tp-editor-plugin.c:34
+msgid "Layer 2 Tunneling Protocol (L2TP)"
+msgstr ""
+
 #: ../properties/nm-l2tp-editor-plugin.c:35
 msgid "Compatible with Microsoft and other L2TP VPN servers."
 msgstr "Ühildub Microsofti ja teiste L2TP VPN serveritega."
@@ -380,7 +384,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "Faas 2 algoritmid:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:25
 msgid ""
@@ -398,7 +402,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:29
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "Faas 1 algoritmid:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid ""
@@ -463,7 +467,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:48
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "UDP kapseldus jõuga"
 
 #: ../properties/nm-l2tp-dialog.ui.h:49
 msgid ""
@@ -471,6 +475,10 @@ msgid ""
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:51
+msgid "Use IP c_ompression"
+msgstr "IP tihenduse kasutamine"
 
 #: ../properties/nm-l2tp-dialog.ui.h:52
 msgid ""
@@ -488,6 +496,10 @@ msgid ""
 "Disable perfect forward security. Enable this option only if the server "
 "doesn’t support PFS.\n"
 "config: ipsec-pfs <no/yes>"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:57
+msgid "Ad_vanced"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:58

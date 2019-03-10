@@ -117,6 +117,10 @@ msgstr ""
 msgid "could not load UI widget"
 msgstr ""
 
+#: ../properties/nm-l2tp-editor-plugin.c:34
+msgid "Layer 2 Tunneling Protocol (L2TP)"
+msgstr ""
+
 #: ../properties/nm-l2tp-editor-plugin.c:35
 msgid "Compatible with Microsoft and other L2TP VPN servers."
 msgstr "Compatible avec Microsoft et d'autres serveurs VPN L2TP."
@@ -124,28 +128,34 @@ msgstr "Compatible avec Microsoft et d'autres serveurs VPN L2TP."
 #: ../shared/nm-utils/nm-shared-utils.c:1165
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr ""
+msgstr "classe d'objet « %s » n'a pas de propriété nommée « %s »"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr ""
+msgstr "propriété « %s » de la classe d'objet « %s » n'est pas en écriture"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1179
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
+"propriété de construction « %s » de l'objet « %s » ne peut pas être définie "
+"après la construction"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1187
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
 msgstr ""
+"« %s::%s » n'est pas un nom de propriété valide ; « %s » n'est pas un sous-"
+"type de GObject"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1196
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
 msgstr ""
+"impossible de définir la propriété « %s » de type « %s » à partir de valeurs "
+"de type « %s »"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1207
 #, c-format
@@ -153,6 +163,8 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
+"valeur « %s » de type « %s » est non valide ou en dehors de la plage de "
+"valeurs pour la propriété « %s » de type « %s »"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
 #, c-format
@@ -246,6 +258,10 @@ msgstr ""
 msgid "Could not restart the ipsec service."
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:1091
+msgid "Could not find the xl2tpd binary."
+msgstr ""
+
 #: ../src/nm-l2tp-service.c:1157
 msgid "Missing VPN username."
 msgstr "Nom d'utilisateur VPN manquant."
@@ -253,6 +269,18 @@ msgstr "Nom d'utilisateur VPN manquant."
 #: ../src/nm-l2tp-service.c:1166
 msgid "Missing or invalid VPN password."
 msgstr "Mot de passe VPN manquant ou non valide."
+
+#: ../src/nm-l2tp-service.c:1269
+msgid "couldn't convert L2TP VPN gateway IP address."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1282
+msgid "couldn't look up L2TP VPN gateway IP address "
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1301
+msgid "no usable addresses returned for L2TP VPN gateway "
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1336
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
@@ -306,6 +334,10 @@ msgid ""
 "config: xl2tpd lns parameter"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:5
+msgid "User Authentication"
+msgstr "Auth. des utilisateurs "
+
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
@@ -355,6 +387,10 @@ msgstr ""
 msgid "config: ipsec-enabled"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Machine Authentication"
+msgstr "Auth. des machines"
+
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid ""
 "Pre-shared key (PSK) secret.\n"
@@ -367,7 +403,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "Algorithmes de phase2 :"
 
 #: ../properties/nm-l2tp-dialog.ui.h:25
 msgid ""
@@ -385,7 +421,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:29
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "Algorithmes de phase1 :"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid ""
@@ -416,7 +452,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:37
 msgid "Remote ID:"
-msgstr ""
+msgstr "Identifiant distant:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:38
 msgid ""
@@ -450,7 +486,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:48
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "Forcer l'encapsulation UDP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:49
 msgid ""
@@ -458,6 +494,10 @@ msgid ""
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:51
+msgid "Use IP c_ompression"
+msgstr "Utiliser la compression IP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:52
 msgid ""
@@ -476,6 +516,10 @@ msgid ""
 "doesn’t support PFS.\n"
 "config: ipsec-pfs <no/yes>"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:57
+msgid "Ad_vanced"
+msgstr "Avancé"
 
 #: ../properties/nm-l2tp-dialog.ui.h:58
 msgid "Default"

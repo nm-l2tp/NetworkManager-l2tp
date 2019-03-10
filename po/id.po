@@ -30,6 +30,10 @@ msgstr ""
 msgid "Support for configuring L2TP based virtual private network connections."
 msgstr ""
 
+#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:5
+msgid "The PPP options dialog"
+msgstr ""
+
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:6
 msgid "The NetworkManager-L2TP Developers"
 msgstr ""
@@ -110,6 +114,10 @@ msgstr ""
 #: ../properties/nm-l2tp-editor.c:541
 #, c-format
 msgid "could not load UI widget"
+msgstr "tidak bisa memuat widget UI"
+
+#: ../properties/nm-l2tp-editor-plugin.c:34
+msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr ""
 
 #: ../properties/nm-l2tp-editor-plugin.c:35
@@ -176,27 +184,27 @@ msgstr "galat tidak dikenal saat membuat instansi penyunting"
 #: ../src/nm-l2tp-service.c:268
 #, c-format
 msgid "invalid gateway '%s'"
-msgstr ""
+msgstr "gateway '%s' tak valid"
 
 #: ../src/nm-l2tp-service.c:282
 #, c-format
 msgid "invalid integer property '%s'"
-msgstr ""
+msgstr "properti integer '%s' tak valid"
 
 #: ../src/nm-l2tp-service.c:292
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
-msgstr ""
+msgstr "properti bool '%s' tak valid (bukan yes atau no)"
 
 #: ../src/nm-l2tp-service.c:299
 #, c-format
 msgid "unhandled property '%s' type %s"
-msgstr ""
+msgstr "properti '%s' jenis %s tak ditangani"
 
 #: ../src/nm-l2tp-service.c:310
 #, c-format
 msgid "property '%s' invalid or not supported"
-msgstr ""
+msgstr "properti '%s' tak valid atau tak didukung"
 
 #: ../src/nm-l2tp-service.c:328
 msgid "No VPN configuration options."
@@ -205,7 +213,7 @@ msgstr "Tak ada opsi konfigurasi VPN."
 #: ../src/nm-l2tp-service.c:348
 #, c-format
 msgid "Missing required option '%s'."
-msgstr ""
+msgstr "Kehilangan opsi '%s' yang diperlukan."
 
 #: ../src/nm-l2tp-service.c:368
 msgid "No VPN secrets!"
@@ -241,6 +249,10 @@ msgstr ""
 msgid "Could not restart the ipsec service."
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:1091
+msgid "Could not find the xl2tpd binary."
+msgstr ""
+
 #: ../src/nm-l2tp-service.c:1157
 msgid "Missing VPN username."
 msgstr "Nama pengguna VPN hilang."
@@ -248,6 +260,18 @@ msgstr "Nama pengguna VPN hilang."
 #: ../src/nm-l2tp-service.c:1166
 msgid "Missing or invalid VPN password."
 msgstr "Sandi VPN hilang atau tak valid."
+
+#: ../src/nm-l2tp-service.c:1269
+msgid "couldn't convert L2TP VPN gateway IP address."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1282
+msgid "couldn't look up L2TP VPN gateway IP address "
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1301
+msgid "no usable addresses returned for L2TP VPN gateway "
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1336
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
@@ -271,7 +295,7 @@ msgstr "Gateway L2TP tak valid atau hilang."
 
 #: ../src/nm-l2tp-service.c:1655
 msgid "Don't quit when VPN connection terminates"
-msgstr ""
+msgstr "Jangan keluar ketika koneksi VPN diputus"
 
 #: ../src/nm-l2tp-service.c:1656
 msgid "Enable verbose debug logging (may expose passwords)"
@@ -301,6 +325,10 @@ msgid ""
 "config: xl2tpd lns parameter"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:5
+msgid "User Authentication"
+msgstr "Pengesahan Pengguna"
+
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
@@ -313,7 +341,7 @@ msgstr "Tampilkan kata sandi"
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Password passed to PPPD when prompted for it."
-msgstr ""
+msgstr "Sandi diluluskan untuk PPPD ketika diminta untuknya."
 
 #: ../properties/nm-l2tp-dialog.ui.h:9
 msgid ""
@@ -338,6 +366,10 @@ msgstr ""
 msgid "PPP Se_ttings..."
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:16
+msgid "L2TP IPsec Options"
+msgstr "Opsi L2TP IPsec"
+
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "_Enable IPsec tunnel to L2TP host"
 msgstr ""
@@ -345,6 +377,10 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "config: ipsec-enabled"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Machine Authentication"
+msgstr "Pengesahan Mesin"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid ""
@@ -403,7 +439,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:37
 msgid "Remote ID:"
-msgstr ""
+msgstr "ID Remote:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:38
 msgid ""
@@ -433,7 +469,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:48
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "Paksakan enkapsulasi UDP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:49
 msgid ""
@@ -441,6 +477,10 @@ msgid ""
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:51
+msgid "Use IP c_ompression"
+msgstr "Gunakan kompresi IP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:52
 msgid ""
@@ -467,6 +507,10 @@ msgstr "Tingkat la_njut"
 #: ../properties/nm-l2tp-dialog.ui.h:58
 msgid "Default"
 msgstr "Baku"
+
+#: ../properties/nm-l2tp-dialog.ui.h:59
+msgid "L2TP PPP Options"
+msgstr "Opsi L2TP PPP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:60
 msgid "Authentication"

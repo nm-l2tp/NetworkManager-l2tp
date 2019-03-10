@@ -499,6 +499,10 @@ msgid ""
 "config: ipsec-pfs <no/yes>"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:57
+msgid "Ad_vanced"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:58
 msgid "Default"
 msgstr "Defaŭlte"

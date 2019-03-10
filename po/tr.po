@@ -118,6 +118,10 @@ msgstr ""
 #: ../properties/nm-l2tp-editor.c:541
 #, c-format
 msgid "could not load UI widget"
+msgstr "UI parçacığı yüklenemedi"
+
+#: ../properties/nm-l2tp-editor-plugin.c:34
+msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr ""
 
 #: ../properties/nm-l2tp-editor-plugin.c:35
@@ -224,12 +228,33 @@ msgstr "VPN sırrı yok!"
 msgid "Could not open %s"
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:631
+#, c-format
+msgid "Could not write %s/ipsec.nm-l2tp.secrets"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:671
+msgid "Could not write ipsec config."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:747
+msgid "Could not write xl2tpd config."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:789
+msgid "Could not write ppp options."
+msgstr ""
+
 #: ../src/nm-l2tp-service.c:947 ../src/nm-l2tp-service.c:972
 msgid "Could not start the ipsec service."
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:953 ../src/nm-l2tp-service.c:980
 msgid "Could not restart the ipsec service."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1091
+msgid "Could not find the xl2tpd binary."
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:1157
@@ -239,6 +264,18 @@ msgstr "Eksik VPN kullanıcı adı."
 #: ../src/nm-l2tp-service.c:1166
 msgid "Missing or invalid VPN password."
 msgstr "Eksik veya geçersiz VPN kullanıcı adı."
+
+#: ../src/nm-l2tp-service.c:1269
+msgid "couldn't convert L2TP VPN gateway IP address."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1282
+msgid "couldn't look up L2TP VPN gateway IP address "
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1301
+msgid "no usable addresses returned for L2TP VPN gateway "
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1336
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
@@ -274,6 +311,12 @@ msgstr ""
 msgid "D-Bus name to use for this instance"
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:1678
+msgid ""
+"nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
+"NetworkManager."
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:1
 msgid "General"
 msgstr "Genel"
@@ -281,6 +324,16 @@ msgstr "Genel"
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Gateway:"
 msgstr "_Ağ geçidi:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:3
+msgid ""
+"L2TP server IP or name.\n"
+"config: xl2tpd lns parameter"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:5
+msgid "User Authentication"
+msgstr "Kullanıcı Kimliği Doğrulama"
 
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
@@ -330,6 +383,10 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "config: ipsec-enabled"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Machine Authentication"
+msgstr "Makine Kimliği Doğrulama"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid ""
@@ -388,7 +445,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:37
 msgid "Remote ID:"
-msgstr ""
+msgstr "Uzaktaki Kimlik:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:38
 msgid ""
@@ -418,7 +475,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:48
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "UDP sarmalamaya zorla"
 
 #: ../properties/nm-l2tp-dialog.ui.h:49
 msgid ""
@@ -426,6 +483,10 @@ msgid ""
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:51
+msgid "Use IP c_ompression"
+msgstr "IP sıkıştırması kullan"
 
 #: ../properties/nm-l2tp-dialog.ui.h:52
 msgid ""
@@ -444,6 +505,10 @@ msgid ""
 "doesn’t support PFS.\n"
 "config: ipsec-pfs <no/yes>"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:57
+msgid "Ad_vanced"
+msgstr "Gelişmiş"
 
 #: ../properties/nm-l2tp-dialog.ui.h:58
 msgid "Default"

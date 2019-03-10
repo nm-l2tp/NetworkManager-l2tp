@@ -30,6 +30,10 @@ msgstr ""
 msgid "Support for configuring L2TP based virtual private network connections."
 msgstr ""
 
+#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:5
+msgid "The PPP options dialog"
+msgstr ""
+
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:6
 msgid "The NetworkManager-L2TP Developers"
 msgstr ""
@@ -110,6 +114,10 @@ msgstr ""
 #: ../properties/nm-l2tp-editor.c:541
 #, c-format
 msgid "could not load UI widget"
+msgstr ""
+
+#: ../properties/nm-l2tp-editor-plugin.c:34
+msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr ""
 
 #: ../properties/nm-l2tp-editor-plugin.c:35
@@ -354,6 +362,10 @@ msgstr ""
 msgid "PPP Se_ttings..."
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:16
+msgid "L2TP IPsec Options"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "_Enable IPsec tunnel to L2TP host"
 msgstr ""
@@ -466,6 +478,10 @@ msgid ""
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:51
+msgid "Use IP c_ompression"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:52
 msgid ""
 "IPComp compresses raw IP packets before they get encrypted. This saves some "
@@ -484,9 +500,17 @@ msgid ""
 "config: ipsec-pfs <no/yes>"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:57
+msgid "Ad_vanced"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:58
 msgid "Default"
 msgstr "ਡਿਫਾਲਟ"
+
+#: ../properties/nm-l2tp-dialog.ui.h:59
+msgid "L2TP PPP Options"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:60
 msgid "Authentication"

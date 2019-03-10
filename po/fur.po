@@ -17,8 +17,24 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.8.12\n"
 
+#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
+msgid "L2TP VPN Client"
+msgstr ""
+
+#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:2
+msgid "Client for L2TP based virtual private networks"
+msgstr ""
+
+#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:3
+msgid "Support for configuring L2TP based virtual private network connections."
+msgstr ""
+
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:5
 msgid "The PPP options dialog"
+msgstr ""
+
+#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:6
+msgid "The NetworkManager-L2TP Developers"
 msgstr ""
 
 #: ../auth-dialog/main.c:155 ../auth-dialog/main.c:176
@@ -89,6 +105,10 @@ msgstr ""
 #: ../properties/nm-l2tp-editor.c:541
 #, c-format
 msgid "could not load UI widget"
+msgstr "impussibil cjariâ il widget de IU"
+
+#: ../properties/nm-l2tp-editor-plugin.c:34
+msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr ""
 
 #: ../properties/nm-l2tp-editor-plugin.c:35
@@ -134,6 +154,11 @@ msgstr ""
 "il valôr \"%s\" di gjenar '%s' nol è valit o fûr dal interval pe proprietât "
 "'%s' di gjenar '%s'"
 
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
+#, c-format
+msgid "unable to get editor plugin name: %s"
+msgstr "impussibil otignî il non dal plugin dal editôr: %s"
+
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
 msgid "missing plugin file \"%s\""
@@ -153,9 +178,39 @@ msgstr "impussibil cjariâ la fabriche %s dal plugin: %s"
 msgid "unknown error creating editor instance"
 msgstr "erôr no cognossût tal creâ la istance dal editôr"
 
+#: ../src/nm-l2tp-service.c:268
+#, c-format
+msgid "invalid gateway '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:282
+#, c-format
+msgid "invalid integer property '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:292
+#, c-format
+msgid "invalid boolean property '%s' (not yes or no)"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:299
+#, c-format
+msgid "unhandled property '%s' type %s"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:310
+#, c-format
+msgid "property '%s' invalid or not supported"
+msgstr ""
+
 #: ../src/nm-l2tp-service.c:328
 msgid "No VPN configuration options."
 msgstr "Nissune opzion di configurazion VPN."
+
+#: ../src/nm-l2tp-service.c:348
+#, c-format
+msgid "Missing required option '%s'."
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:368
 msgid "No VPN secrets!"
@@ -191,6 +246,10 @@ msgstr ""
 msgid "Could not restart the ipsec service."
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:1091
+msgid "Could not find the xl2tpd binary."
+msgstr ""
+
 #: ../src/nm-l2tp-service.c:1157
 msgid "Missing VPN username."
 msgstr "Al mancje il non utent VPN."
@@ -198,6 +257,18 @@ msgstr "Al mancje il non utent VPN."
 #: ../src/nm-l2tp-service.c:1166
 msgid "Missing or invalid VPN password."
 msgstr "E mancje o no je valide la password VPN."
+
+#: ../src/nm-l2tp-service.c:1269
+msgid "couldn't convert L2TP VPN gateway IP address."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1282
+msgid "couldn't look up L2TP VPN gateway IP address "
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1301
+msgid "no usable addresses returned for L2TP VPN gateway "
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1336
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
@@ -219,6 +290,10 @@ msgstr ""
 msgid "Invalid or missing L2TP gateway."
 msgstr "gateway L2TP mancjant o no valit."
 
+#: ../src/nm-l2tp-service.c:1655
+msgid "Don't quit when VPN connection terminates"
+msgstr ""
+
 #: ../src/nm-l2tp-service.c:1656
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Abilite regjistris di debug prolìs (al podarès esponi lis password)"
@@ -227,6 +302,12 @@ msgstr "Abilite regjistris di debug prolìs (al podarès esponi lis password)"
 msgid "D-Bus name to use for this instance"
 msgstr "Non D-Bus di doprâ par cheste istance"
 
+#: ../src/nm-l2tp-service.c:1678
+msgid ""
+"nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
+"NetworkManager."
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:1
 msgid "General"
 msgstr "Gjenerâl"
@@ -234,6 +315,12 @@ msgstr "Gjenerâl"
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Gateway:"
 msgstr "_Gateway:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:3
+msgid ""
+"L2TP server IP or name.\n"
+"config: xl2tpd lns parameter"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
@@ -244,6 +331,10 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:7
 msgid "Show password"
 msgstr "Mostre password"
+
+#: ../properties/nm-l2tp-dialog.ui.h:8
+msgid "Password passed to PPPD when prompted for it."
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:9
 msgid ""
@@ -266,6 +357,10 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:15
 msgid "PPP Se_ttings..."
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:16
+msgid "L2TP IPsec Options"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
