@@ -1,8 +1,49 @@
 ==========================================================
-NetworkManager-l2tp-1.2.12 (not released yet)
+NetworkManager-l2tp-1.2.12
 Overview of changes since network-manager-l2tp-1.2.10
 ==========================================================
 
+* Update translations by merging from various sources.
+* Added Legacy Proposal button.
+  Clicking Legacy Proposals button populates Phase 1 and 2 Algorithm text entry
+  boxes with proposals offered by Windows Server 2019:
+  - AES256, SHA-1, ECP384 and AES128, SHA-1, ECP256 strong proposals.
+    strongSwan recommends not using SHA-1 in its security recommendations
+    documentation.
+  - 3DES, SHA-1, MODP1024 broken proposal.
+    Legacy Windows 2000 Server era proposal still commonly offered, especially
+    with consumer routers
+* Added following IPsec configuration options:
+  - Phase1 Lifetime - ikelifetime.
+  - Phase2 Lifetime - salifetime (libreswan) / lifetime (strongswan).
+  - Use IP compression - compress.
+  - Disable PFS - pfs.
+* renamed Gateway ID to Remote ID and updated GUI tooltip.
+* removed restrictions that only IP addresses are allowed for the Remote ID.
+* Generated config file changes, following config files :
+  - /var/run/nm-l2tp-xl2tpd-_UUID_.conf
+  - /var/run/nm-l2tp-xl2tpd-control-_UUID_
+  - /var/run/nm-l2tp-xl2tpd-_UUID_.pid
+  - /var/run/nm-l2tp-ppp-options-_UUID_
+  are now:
+  - /var/run/nm-l2tp-_UUID_/xl2tpd.conf
+  - /var/run/nm-l2tp-_UUID_/xl2tpd-control
+  - /var/run/nm-l2tp-_UUID_/xl2tpd-.pid
+  - /var/run/nm-l2tp-_UUID_/ppp-options
+* Use same IP secrets file for all L2TP connections, 
+  /etc/ipsec.d/ipsec.nm-l2tp.secrets is now used instead of
+  /etc/ipsec.d/nm-l2tp-ipsec-_UUID_.secrets, where _UUID_ was the UUID of the
+  VPN connection.
+* Force ikev2=never for Libreswan 
+  ikev2=permit is the implicit default setting, which tries to detect
+  a "bid down" attack from IKEv2 to IKEv1 and can have an impact on
+  the default proposals.
+* Add nm-l2tp-service- prefix back to pppd ipparam argument.
+  The ipparam argument is used by a condition in the Debian resolvconf's
+  /etc/ppp/ip-up.d/000resolvconf script.
+* PSK is now Base64 encoded, allows PSK to contain double quotation mark (").
+* Fix build without GTK/Gnome.
+* Legacy KDE Plasman-nm user certificate support.
 * libnm-glib compatibility (NetworkManager < 1.0) is disabled by default.
   It can be enabled by passing --with-libnm-glib to configure script.
   Nobody should need it by now. Users that still use this are encouraged
