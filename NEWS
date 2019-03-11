@@ -1,4 +1,15 @@
 =======================================================
+NetworkManager-l2tp-1.0.12
+Overview of changes since network-manager-l2tp-1.0.10
+=======================================================
+
+This is a new stable release of NetworkManager-l2tp.  Notable changes include:
+
+* Merged translations from NetworkManager-l2tp-1.2.12.
+* Removed 'fuzzy' marked translations.
+* Corrected Makefile.am for `make dist-xz` to work.
+
+=======================================================
 NetworkManager-l2tp-1.0.10
 Overview of changes since network-manager-l2tp-1.0.8
 =======================================================
