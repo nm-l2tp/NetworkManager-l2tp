@@ -12,20 +12,6 @@ dbusservice_DATA = nm-l2tp-service.conf
 nmvpnservicedir = $(sysconfdir)/NetworkManager/VPN
 nmvpnservice_DATA = nm-l2tp-service.name
 
-desktopfile = nm-l2tp.desktop.in
-iconfile = gnome-mime-application-x-l2tp-settings.png
-
-if WITH_GNOME
-# FIXME: uncomment when nmce gets --import support
-#desktopdir = $(datadir)/applications
-#desktop_in_files = $(desktopfile)
-#desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
-#@INTLTOOL_DESKTOP_RULE@
-
-#icondir = $(datadir)/icons/hicolor/48x48/apps
-#icon_DATA = $(iconfile)
-endif
-
 nm-l2tp-service.name: $(srcdir)/nm-l2tp-service.name.in
 	sed -e 's|[@]LIBEXECDIR[@]|$(libexecdir)|g' \
 	    -e 's|[@]PLUGINDIR[@]|$(libdir)/NetworkManager|g' \
@@ -33,10 +19,9 @@ nm-l2tp-service.name: $(srcdir)/nm-l2tp-service.name.in
 
 DISTCHECK_CONFIGURE_FLAGS = --enable-more-warnings=yes
 
-EXTRA_DIST = nm-l2tp-service.name.in \
+EXTRA_DIST = README.md \
+             nm-l2tp-service.name.in  \
              $(dbusservice_DATA)  \
-             $(desktopfile) \
-             $(iconfile) \
              intltool-extract.in  \
              intltool-merge.in    \
              intltool-update.in
