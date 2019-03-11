@@ -43,21 +43,6 @@ msgstr "கடவுச்சொல்:"
 msgid "_Password:"
 msgstr "கடவுச்சொல் (_P):"
 
-#: ../auth-dialog/vpn-password-dialog.c:104
-#, fuzzy
-msgid "_Secondary Password:"
-msgstr "கடவுச்சொல் (_P):"
-
-#: ../auth-dialog/vpn-password-dialog.c:107
-#, fuzzy
-msgid "_Tertiary Password:"
-msgstr "கடவுச்சொல் (_P):"
-
-#: ../auth-dialog/vpn-password-dialog.c:252
-#, fuzzy
-msgid "Sh_ow passwords"
-msgstr "கடவுச்சொற்களைக் காட்டு (_w)"
-
 #: ../properties/advanced-dialog.c:188
 msgid "All Available (Default)"
 msgstr "அனைத்தும் கிடைக்கும் (முன்னிருப்பு)"
@@ -153,14 +138,8 @@ msgid "Couldn't open file for writing."
 msgstr ""
 
 #: ../properties/nm-l2tp.c:57
-#, fuzzy
 msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr "Layer 2 Tunneling Protocol (L2TP)"
-
-#: ../properties/nm-l2tp.c:58
-#, fuzzy
-msgid "Compatible with L2TP VPN servers."
-msgstr "Microsoft மற்றும் மற்ற L2TP VPN சேவையகங்களுடன் குறுக்கவும்."
+msgstr ""
 
 #: ../properties/nm-l2tp.c:214
 #, c-format
@@ -239,9 +218,8 @@ msgid "The password is not required"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
-#, fuzzy
 msgid "L2TP IPsec Options"
-msgstr "L2TP கூடுதல் விருப்பங்கள்"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -250,11 +228,6 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:3
 msgid "General"
 msgstr "பொதுவான"
-
-#: ../properties/nm-l2tp-dialog.ui.h:4
-#, fuzzy
-msgid "Gateway ID:"
-msgstr "கேட்வே (_G):"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
@@ -280,9 +253,8 @@ msgid "_Enforce UDP encapsulation"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
-#, fuzzy
 msgid "Ad_vanced"
-msgstr "கூடுதல் (_v)..."
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "_Gateway:"
@@ -295,9 +267,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
-#, fuzzy
 msgid "Optional"
-msgstr "விருப்பத்திற்குரிய"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid ""
@@ -342,9 +313,8 @@ msgid "Default"
 msgstr "முன்னிருப்பு"
 
 #: ../properties/nm-l2tp-dialog.ui.h:29
-#, fuzzy
 msgid "L2TP PPP Options"
-msgstr "L2TP கூடுதல் விருப்பங்கள்"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid "Authentication"
@@ -361,7 +331,6 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:34
-#, fuzzy
 msgid "Security and Compression"
 msgstr "பாதுகாப்பு மற்றும் குறுக்கு"
 
@@ -440,11 +409,6 @@ msgid ""
 "transmit direction.\n"
 "config: nopcomp (when unchecked)"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:55
-#, fuzzy
-msgid "Use _Address/Control compression"
-msgstr "TCP தலைப்பு குறுக்கை பயன்படுத்து (_h)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:56
 msgid ""

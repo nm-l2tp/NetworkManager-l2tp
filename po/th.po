@@ -36,21 +36,6 @@ msgstr "รหัสผ่าน:"
 msgid "_Password:"
 msgstr "_รหัสผ่าน:"
 
-#: ../auth-dialog/vpn-password-dialog.c:104
-#, fuzzy
-msgid "_Secondary Password:"
-msgstr "_รหัสผ่าน:"
-
-#: ../auth-dialog/vpn-password-dialog.c:107
-#, fuzzy
-msgid "_Tertiary Password:"
-msgstr "_รหัสผ่าน:"
-
-#: ../auth-dialog/vpn-password-dialog.c:252
-#, fuzzy
-msgid "Sh_ow passwords"
-msgstr "แ_สดงรหัสผ่าน"
-
 #: ../properties/advanced-dialog.c:188
 msgid "All Available (Default)"
 msgstr ""
@@ -230,9 +215,8 @@ msgid "The password is not required"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
-#, fuzzy
 msgid "L2TP IPsec Options"
-msgstr "ตัวเลือก PPP"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -241,11 +225,6 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:3
 msgid "General"
 msgstr "ทั่วไป"
-
-#: ../properties/nm-l2tp-dialog.ui.h:4
-#, fuzzy
-msgid "Gateway ID:"
-msgstr "เ_กตเวย์:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
@@ -295,11 +274,6 @@ msgid ""
 "config: domain <domain>"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:19
-#, fuzzy
-msgid "Show password"
-msgstr "_รหัสผ่าน:"
-
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "Password passed to PPPD when prompted for it."
 msgstr ""
@@ -312,14 +286,12 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:23
-#, fuzzy
 msgid "User name:"
-msgstr "_ชื่อผู้ใช้:"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:25
-#, fuzzy
 msgid "NT Domain:"
-msgstr "โ_ดเมน:"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid "_IPsec Settings..."
@@ -334,9 +306,8 @@ msgid "Default"
 msgstr "ปริยาย"
 
 #: ../properties/nm-l2tp-dialog.ui.h:29
-#, fuzzy
 msgid "L2TP PPP Options"
-msgstr "ตัวเลือก PPP"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid "Authentication"
@@ -353,14 +324,12 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:34
-#, fuzzy
 msgid "Security and Compression"
-msgstr "การบีบอัด"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:35
-#, fuzzy
 msgid "Use _Point-to-Point encryption (MPPE)"
-msgstr "ใช้การเข้ารหัสลับ MPPE"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid ""
@@ -432,9 +401,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:55
-#, fuzzy
 msgid "Use _Address/Control compression"
-msgstr "ใช้การบีบอัด MPPC"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:56
 msgid ""

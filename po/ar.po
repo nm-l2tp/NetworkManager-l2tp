@@ -42,21 +42,6 @@ msgstr "كلمة المرور:"
 msgid "_Password:"
 msgstr "_كلمة السر:"
 
-#: ../auth-dialog/vpn-password-dialog.c:104
-#, fuzzy
-msgid "_Secondary Password:"
-msgstr "_كلمة السر:"
-
-#: ../auth-dialog/vpn-password-dialog.c:107
-#, fuzzy
-msgid "_Tertiary Password:"
-msgstr "_كلمة السر:"
-
-#: ../auth-dialog/vpn-password-dialog.c:252
-#, fuzzy
-msgid "Sh_ow passwords"
-msgstr "أظهر _كلمات السر"
-
 #: ../properties/advanced-dialog.c:188
 msgid "All Available (Default)"
 msgstr ""
@@ -289,9 +274,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
-#, fuzzy
 msgid "Optional"
-msgstr "اختياري"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid ""
@@ -354,14 +338,12 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:34
-#, fuzzy
 msgid "Security and Compression"
-msgstr "الضغط"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:35
-#, fuzzy
 msgid "Use _Point-to-Point encryption (MPPE)"
-msgstr "استخدم تعمية MPPE"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid ""
@@ -391,9 +373,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:43
-#, fuzzy
 msgid "Allow _BSD data compression"
-msgstr "اسمح ب_ضغط BSD"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:44
 msgid ""
@@ -402,9 +383,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:46
-#, fuzzy
 msgid "Allow _Deflate data compression"
-msgstr "ا_سمح بتفريغ الضغط"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:47
 msgid ""
@@ -413,9 +393,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:49
-#, fuzzy
 msgid "Use TCP _header compression"
-msgstr "استخدم ضغط MPPC"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:50
 msgid ""
@@ -436,9 +415,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:55
-#, fuzzy
 msgid "Use _Address/Control compression"
-msgstr "استخدم ضغط MPPC"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:56
 msgid ""

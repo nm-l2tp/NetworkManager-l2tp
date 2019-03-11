@@ -39,21 +39,6 @@ msgstr "Пароль:"
 msgid "_Password:"
 msgstr "_Пароль:"
 
-#: ../auth-dialog/vpn-password-dialog.c:104
-#, fuzzy
-msgid "_Secondary Password:"
-msgstr "_Пароль:"
-
-#: ../auth-dialog/vpn-password-dialog.c:107
-#, fuzzy
-msgid "_Tertiary Password:"
-msgstr "_Пароль:"
-
-#: ../auth-dialog/vpn-password-dialog.c:252
-#, fuzzy
-msgid "Sh_ow passwords"
-msgstr "П_оказати паролі"
-
 #: ../properties/advanced-dialog.c:188
 msgid "All Available (Default)"
 msgstr "Усі доступні (типово)"
@@ -149,14 +134,8 @@ msgid "Couldn't open file for writing."
 msgstr ""
 
 #: ../properties/nm-l2tp.c:57
-#, fuzzy
 msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr "Layer 2 Tunneling Protocol (L2TP)"
-
-#: ../properties/nm-l2tp.c:58
-#, fuzzy
-msgid "Compatible with L2TP VPN servers."
-msgstr "Сумісний з серверами Microsoft та іншими серверами L2TP VPN."
+msgstr ""
 
 #: ../properties/nm-l2tp.c:214
 #, c-format
@@ -263,20 +242,19 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:9
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "Алгоритми фази 2:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:10
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "Алгоритми фази 1:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:11
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "Примусова інкапсуляція UDP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
-#, fuzzy
 msgid "Ad_vanced"
-msgstr "_Додатково..."
+msgstr "Додатково"
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "_Gateway:"
@@ -289,9 +267,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
-#, fuzzy
 msgid "Optional"
-msgstr "Додатвокі"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid ""
@@ -354,7 +331,6 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:34
-#, fuzzy
 msgid "Security and Compression"
 msgstr "Шифрування та стиснення"
 
@@ -433,11 +409,6 @@ msgid ""
 "transmit direction.\n"
 "config: nopcomp (when unchecked)"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:55
-#, fuzzy
-msgid "Use _Address/Control compression"
-msgstr "Використовувати стиснення _заголовків TCP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:56
 msgid ""

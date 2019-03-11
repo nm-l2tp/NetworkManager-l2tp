@@ -40,21 +40,6 @@ msgstr "Parolă:"
 msgid "_Password:"
 msgstr "_Parolă:"
 
-#: ../auth-dialog/vpn-password-dialog.c:104
-#, fuzzy
-msgid "_Secondary Password:"
-msgstr "_Parolă:"
-
-#: ../auth-dialog/vpn-password-dialog.c:107
-#, fuzzy
-msgid "_Tertiary Password:"
-msgstr "_Parolă:"
-
-#: ../auth-dialog/vpn-password-dialog.c:252
-#, fuzzy
-msgid "Sh_ow passwords"
-msgstr "Afișea_ză parolele"
-
 #: ../properties/advanced-dialog.c:188
 msgid "All Available (Default)"
 msgstr "Toate cele disponibile (implicit)"
@@ -150,14 +135,8 @@ msgid "Couldn't open file for writing."
 msgstr ""
 
 #: ../properties/nm-l2tp.c:57
-#, fuzzy
 msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr "Protocol de tunelare Punct la punct (L2TP)"
-
-#: ../properties/nm-l2tp.c:58
-#, fuzzy
-msgid "Compatible with L2TP VPN servers."
-msgstr "Compatibil cu Microsoft și alte servere VPN L2TP."
+msgstr ""
 
 #: ../properties/nm-l2tp.c:214
 #, c-format
@@ -236,9 +215,8 @@ msgid "The password is not required"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
-#, fuzzy
 msgid "L2TP IPsec Options"
-msgstr "Opțiuni avansate L2TP"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -247,11 +225,6 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:3
 msgid "General"
 msgstr "General"
-
-#: ../properties/nm-l2tp-dialog.ui.h:4
-#, fuzzy
-msgid "Gateway ID:"
-msgstr "_Gateway:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
@@ -266,20 +239,19 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:9
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "Algoritmi pentru faza 2:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:10
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "Algoritmi pentru faza 1:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:11
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "Impune încapsularea UDP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
-#, fuzzy
 msgid "Ad_vanced"
-msgstr "A_vansat..."
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "_Gateway:"
@@ -292,9 +264,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
-#, fuzzy
 msgid "Optional"
-msgstr "Opționale"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid ""
@@ -339,9 +310,8 @@ msgid "Default"
 msgstr "Implicit"
 
 #: ../properties/nm-l2tp-dialog.ui.h:29
-#, fuzzy
 msgid "L2TP PPP Options"
-msgstr "Opțiuni avansate L2TP"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid "Authentication"
@@ -358,7 +328,6 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:34
-#, fuzzy
 msgid "Security and Compression"
 msgstr "Securitate și compresie"
 
@@ -437,11 +406,6 @@ msgid ""
 "transmit direction.\n"
 "config: nopcomp (when unchecked)"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:55
-#, fuzzy
-msgid "Use _Address/Control compression"
-msgstr "Folosește compresia _antetelor TCP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:56
 msgid ""

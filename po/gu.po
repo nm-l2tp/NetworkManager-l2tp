@@ -43,11 +43,6 @@ msgstr "પાસવર્ડ (_P):"
 msgid "_Secondary Password:"
 msgstr "ગૌણ પાસવર્ડ (_S):"
 
-#: ../auth-dialog/vpn-password-dialog.c:107
-#, fuzzy
-msgid "_Tertiary Password:"
-msgstr "ગૌણ પાસવર્ડ (_S):"
-
 #: ../auth-dialog/vpn-password-dialog.c:252
 msgid "Sh_ow passwords"
 msgstr "પાસવર્ડોને બતાવો (_o)"
@@ -147,14 +142,8 @@ msgid "Couldn't open file for writing."
 msgstr ""
 
 #: ../properties/nm-l2tp.c:57
-#, fuzzy
 msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr "Layer 2 Tunneling Protocol (L2TP)"
-
-#: ../properties/nm-l2tp.c:58
-#, fuzzy
-msgid "Compatible with L2TP VPN servers."
-msgstr "Microsoft અને બીજા L2TP VPN સર્વરો સાથે સુસંગત છે."
+msgstr ""
 
 #: ../properties/nm-l2tp.c:214
 #, c-format
@@ -233,9 +222,8 @@ msgid "The password is not required"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
-#, fuzzy
 msgid "L2TP IPsec Options"
-msgstr "L2TP ઉન્નત વિકલ્પો"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -244,11 +232,6 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:3
 msgid "General"
 msgstr "સામાન્ય"
-
-#: ../properties/nm-l2tp-dialog.ui.h:4
-#, fuzzy
-msgid "Gateway ID:"
-msgstr "ગેટવે (_G):"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
@@ -274,9 +257,8 @@ msgid "_Enforce UDP encapsulation"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
-#, fuzzy
 msgid "Ad_vanced"
-msgstr "ઉન્નત (_v)..."
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "_Gateway:"
@@ -289,9 +271,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
-#, fuzzy
 msgid "Optional"
-msgstr "વૈકલ્પિક"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid ""
@@ -336,9 +317,8 @@ msgid "Default"
 msgstr "મૂળભૂત"
 
 #: ../properties/nm-l2tp-dialog.ui.h:29
-#, fuzzy
 msgid "L2TP PPP Options"
-msgstr "L2TP ઉન્નત વિકલ્પો"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid "Authentication"
@@ -355,7 +335,6 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:34
-#, fuzzy
 msgid "Security and Compression"
 msgstr "સુરક્ષા અને દબાણ"
 
@@ -434,11 +413,6 @@ msgid ""
 "transmit direction.\n"
 "config: nopcomp (when unchecked)"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:55
-#, fuzzy
-msgid "Use _Address/Control compression"
-msgstr "TCP હેડર દબાણને વાપરો (_h)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:56
 msgid ""

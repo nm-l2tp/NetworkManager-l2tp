@@ -40,11 +40,6 @@ msgstr "密碼(_P)："
 msgid "_Secondary Password:"
 msgstr "第二密碼(_S)："
 
-#: ../auth-dialog/vpn-password-dialog.c:107
-#, fuzzy
-msgid "_Tertiary Password:"
-msgstr "第二密碼(_S)："
-
 #: ../auth-dialog/vpn-password-dialog.c:252
 msgid "Sh_ow passwords"
 msgstr "顯示密碼(_O)"
@@ -144,14 +139,8 @@ msgid "Couldn't open file for writing."
 msgstr ""
 
 #: ../properties/nm-l2tp.c:57
-#, fuzzy
 msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr "點對點穿隧通訊協定 (L2TP)"
-
-#: ../properties/nm-l2tp.c:58
-#, fuzzy
-msgid "Compatible with L2TP VPN servers."
-msgstr "相容於 Microsoft 與其他 L2TP VPN 伺服器。"
+msgstr ""
 
 #: ../properties/nm-l2tp.c:214
 #, c-format
@@ -258,20 +247,19 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:9
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "Phase2 演算法："
 
 #: ../properties/nm-l2tp-dialog.ui.h:10
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "Phase1 演算法："
 
 #: ../properties/nm-l2tp-dialog.ui.h:11
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "強制使用 UDP 封裝"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
-#, fuzzy
 msgid "Ad_vanced"
-msgstr "進階(_V)..."
+msgstr "進階"
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "_Gateway:"
@@ -284,9 +272,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
-#, fuzzy
 msgid "Optional"
-msgstr "選擇性"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid ""
@@ -349,7 +336,6 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:34
-#, fuzzy
 msgid "Security and Compression"
 msgstr "安全性與壓縮"
 
@@ -427,11 +413,6 @@ msgid ""
 "transmit direction.\n"
 "config: nopcomp (when unchecked)"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:55
-#, fuzzy
-msgid "Use _Address/Control compression"
-msgstr "使用 TCP 標頭壓縮(_H)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:56
 msgid ""

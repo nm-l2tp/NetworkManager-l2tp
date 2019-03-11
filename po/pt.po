@@ -147,14 +147,8 @@ msgid "Couldn't open file for writing."
 msgstr ""
 
 #: ../properties/nm-l2tp.c:57
-#, fuzzy
 msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr "Protocolo de Tunneling Ponto-a-Ponto (L2TP)"
-
-#: ../properties/nm-l2tp.c:58
-#, fuzzy
-msgid "Compatible with L2TP VPN servers."
-msgstr "Compatível com servidores VPN L2TP da Microsoft e outros."
+msgstr ""
 
 #: ../properties/nm-l2tp.c:214
 #, c-format
@@ -194,7 +188,7 @@ msgstr ""
 #: ../properties/nm-l2tp.c:612
 #, c-format
 msgid "could not load UI widget"
-msgstr ""
+msgstr "impossível carregar widget de UI"
 
 #: ../properties/nm-l2tp.c:711
 #, c-format
@@ -269,12 +263,11 @@ msgstr "Algoritmos Phase1:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:11
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "Forçar o encapsulamento de UDP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
-#, fuzzy
 msgid "Ad_vanced"
-msgstr "A_vançado..."
+msgstr "Avançado"
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "_Gateway:"
@@ -287,9 +280,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
-#, fuzzy
 msgid "Optional"
-msgstr "Opcional"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid ""
@@ -358,9 +350,8 @@ msgstr ""
 "refuse-eap"
 
 #: ../properties/nm-l2tp-dialog.ui.h:34
-#, fuzzy
 msgid "Security and Compression"
-msgstr "Segurança e Compressão"
+msgstr "Segurança e compressão"
 
 #: ../properties/nm-l2tp-dialog.ui.h:35
 msgid "Use _Point-to-Point encryption (MPPE)"
@@ -450,11 +441,6 @@ msgid ""
 "config: nopcomp (when unchecked)"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:55
-#, fuzzy
-msgid "Use _Address/Control compression"
-msgstr "Utilizar compressão de _cabeçalho TCP"
-
 #: ../properties/nm-l2tp-dialog.ui.h:56
 msgid ""
 "Use Address/Control compression in both directions (send and receive).\n"
@@ -479,7 +465,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:62
 msgid "Misc"
-msgstr ""
+msgstr "Outros"
 
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid "MTU :"

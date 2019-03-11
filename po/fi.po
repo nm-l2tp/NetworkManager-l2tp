@@ -44,11 +44,6 @@ msgstr "_Salasana:"
 msgid "_Secondary Password:"
 msgstr "_Toissijainen salasana:"
 
-#: ../auth-dialog/vpn-password-dialog.c:107
-#, fuzzy
-msgid "_Tertiary Password:"
-msgstr "_Toissijainen salasana:"
-
 #: ../auth-dialog/vpn-password-dialog.c:252
 msgid "Sh_ow passwords"
 msgstr "Näy_tä salasanat"
@@ -148,14 +143,8 @@ msgid "Couldn't open file for writing."
 msgstr ""
 
 #: ../properties/nm-l2tp.c:57
-#, fuzzy
 msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr "Layer 2 Tunneling Protocol (L2TP)"
-
-#: ../properties/nm-l2tp.c:58
-#, fuzzy
-msgid "Compatible with L2TP VPN servers."
-msgstr "Yhteensopiva Microsoftin ja muiden L2TP VPN-palvelinten kanssa."
+msgstr ""
 
 #: ../properties/nm-l2tp.c:214
 #, c-format
@@ -257,9 +246,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
-#, fuzzy
 msgid "Pre-shared key:"
-msgstr "Jaettu avain"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:9
 msgid "Phase2 Algorithms:"
@@ -271,12 +259,11 @@ msgstr "Phase1-algoritmit:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:11
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "Pakota UDP-kapselointi"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
-#, fuzzy
 msgid "Ad_vanced"
-msgstr "_Lisäasetukset..."
+msgstr "_Lisäasetukset"
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "_Gateway:"
@@ -289,9 +276,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
-#, fuzzy
 msgid "Optional"
-msgstr "Lisävalinnat"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid ""
@@ -354,7 +340,6 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:34
-#, fuzzy
 msgid "Security and Compression"
 msgstr "Salaus ja pakkaus"
 
@@ -430,11 +415,6 @@ msgid ""
 "transmit direction.\n"
 "config: nopcomp (when unchecked)"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:55
-#, fuzzy
-msgid "Use _Address/Control compression"
-msgstr "Käytä TCP-_otsakkeiden pakkausta"
 
 #: ../properties/nm-l2tp-dialog.ui.h:56
 msgid ""

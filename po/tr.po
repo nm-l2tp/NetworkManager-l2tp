@@ -117,11 +117,6 @@ msgstr ""
 msgid "Property '%s' value '%s' can't be parsed as route metric."
 msgstr ""
 
-#: ../properties/import-export.c:343
-#, fuzzy, c-format
-msgid "Error parsing property '%s' value '%s'."
-msgstr "tanınmayan özellik '%s' tür %s"
-
 #: ../properties/import-export.c:385
 #, c-format
 msgid "does not look like a L2TP VPN connection (parse failed)"
@@ -138,25 +133,14 @@ msgid ""
 "Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."
 msgstr ""
 
-#: ../properties/import-export.c:627
-#, fuzzy, c-format
-msgid "Missing required property '%s'"
-msgstr "Gerekli '%s' seçeneği eksik."
-
 #: ../properties/import-export.c:657
 #, c-format
 msgid "Couldn't open file for writing."
 msgstr ""
 
 #: ../properties/nm-l2tp.c:57
-#, fuzzy
 msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr "Noktadan Noktaya Tünelleme Protokolü (L2TP)"
-
-#: ../properties/nm-l2tp.c:58
-#, fuzzy
-msgid "Compatible with L2TP VPN servers."
-msgstr "Microsoft ve diğer L2TP VPN sunucularıyla uyumludur."
+msgstr ""
 
 #: ../properties/nm-l2tp.c:214
 #, c-format
@@ -196,7 +180,7 @@ msgstr ""
 #: ../properties/nm-l2tp.c:612
 #, c-format
 msgid "could not load UI widget"
-msgstr ""
+msgstr "UI parçacığı yüklenemedi"
 
 #: ../properties/nm-l2tp.c:711
 #, c-format
@@ -271,30 +255,25 @@ msgstr "Faz1 Algoritması:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:11
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "UDP sarmalamaya zorla"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
-#, fuzzy
 msgid "Ad_vanced"
-msgstr "Ge_lişmiş..."
+msgstr "Gelişmiş"
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "_Gateway:"
 msgstr "_Ağ geçidi:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:14
-#, fuzzy
 msgid ""
 "L2TP server IP or name.\n"
 "config: xl2tpd lns parameter"
 msgstr ""
-"L2TP sunucu IP adresi veya adı.\n"
-"yapılandırma: l2tp'nin ilk parametresi"
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
-#, fuzzy
 msgid "Optional"
-msgstr "İsteğe Bağlı"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid ""
@@ -315,15 +294,11 @@ msgid "Password passed to PPPD when prompted for it."
 msgstr "İstendiğinde parola PPPD ile iletildi."
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
-#, fuzzy
 msgid ""
 "Set the name used for authenticating the local system to the peer to "
 "<name>.\n"
 "config: xl2tpd name parameter"
 msgstr ""
-"Yerel sistemde kimlik doğrulaması için kullanılan ismi eşe <isim> olarak "
-"ayarla.\n"
-"yapılandırma: user <isim>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:23
 msgid "User name:"
@@ -367,7 +342,6 @@ msgstr ""
 "refuse-eap"
 
 #: ../properties/nm-l2tp-dialog.ui.h:34
-#, fuzzy
 msgid "Security and Compression"
 msgstr "Güvenlik ve Sıkıştırma"
 
@@ -452,32 +426,6 @@ msgstr ""
 msgid "Use protocol _field compression negotiation"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:53
-#, fuzzy
-msgid ""
-"Allow protocol field compression negotiation in both the receive and the "
-"transmit direction.\n"
-"config: nopcomp (when unchecked)"
-msgstr ""
-"Van Jacobson stilinde TCP/IP başlık sıkıştırmasına alma ve gönderme "
-"yönlerinde izin ver/kapat.\n"
-"yapılandırma: novj (onaylandığında)"
-
-#: ../properties/nm-l2tp-dialog.ui.h:55
-#, fuzzy
-msgid "Use _Address/Control compression"
-msgstr "TCP _başlık sıkıştırması kullan"
-
-#: ../properties/nm-l2tp-dialog.ui.h:56
-#, fuzzy
-msgid ""
-"Use Address/Control compression in both directions (send and receive).\n"
-"config: noaccomp (when unchecked)"
-msgstr ""
-"Van Jacobson stilinde TCP/IP başlık sıkıştırmasına alma ve gönderme "
-"yönlerinde izin ver/kapat.\n"
-"yapılandırma: novj (onaylandığında)"
-
 #: ../properties/nm-l2tp-dialog.ui.h:58
 msgid "Echo"
 msgstr "Yankı"
@@ -496,7 +444,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:62
 msgid "Misc"
-msgstr ""
+msgstr "Çeşitli"
 
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid "MTU :"
@@ -534,11 +482,6 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:544
 #, c-format
 msgid "invalid gateway '%s'"
-msgstr "geçersiz ağ geçidi '%s'"
-
-#: ../src/nm-l2tp-service.c:553
-#, fuzzy, c-format
-msgid "invalid ipsec-gateway-id '%s'"
 msgstr "geçersiz ağ geçidi '%s'"
 
 #: ../src/nm-l2tp-service.c:566
@@ -726,10 +669,7 @@ msgstr ""
 "yapabilir)"
 
 #: ../src/nm-l2tp-service.c:1904
-#, fuzzy
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
 msgstr ""
-"nm-l2tp-service, NetworkManager'a tümleşik L2TP VPN yeteneği (Microsoft ve "
-"diğer gerçekleştirmelere uyumlu) sağlar."

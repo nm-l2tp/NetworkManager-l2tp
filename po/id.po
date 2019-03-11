@@ -145,14 +145,8 @@ msgid "Couldn't open file for writing."
 msgstr ""
 
 #: ../properties/nm-l2tp.c:57
-#, fuzzy
 msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr "Layer 2 Tunneling Protocol (L2TP)"
-
-#: ../properties/nm-l2tp.c:58
-#, fuzzy
-msgid "Compatible with L2TP VPN servers."
-msgstr "Kompatibel dengan server VPN L2TP Microsoft dan lainnya."
+msgstr ""
 
 #: ../properties/nm-l2tp.c:214
 #, c-format
@@ -192,7 +186,7 @@ msgstr ""
 #: ../properties/nm-l2tp.c:612
 #, c-format
 msgid "could not load UI widget"
-msgstr ""
+msgstr "tidak bisa memuat widget UI"
 
 #: ../properties/nm-l2tp.c:711
 #, c-format
@@ -231,9 +225,8 @@ msgid "The password is not required"
 msgstr "Sandi tidak diperlukan"
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
-#, fuzzy
 msgid "L2TP IPsec Options"
-msgstr "Opsi Tingkat Lanjut L2TP"
+msgstr "Opsi L2TP IPsec"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -242,11 +235,6 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:3
 msgid "General"
 msgstr "Umum"
-
-#: ../properties/nm-l2tp-dialog.ui.h:4
-#, fuzzy
-msgid "Gateway ID:"
-msgstr "_Gateway:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
@@ -269,7 +257,7 @@ msgstr "Algoritma Fase1:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:11
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "Paksakan enkapsulasi UDP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
 msgid "Ad_vanced"
@@ -304,7 +292,7 @@ msgstr "Tampilkan kata sandi"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "Password passed to PPPD when prompted for it."
-msgstr ""
+msgstr "Sandi diluluskan untuk PPPD ketika diminta untuknya."
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid ""
@@ -334,9 +322,8 @@ msgid "Default"
 msgstr "Baku"
 
 #: ../properties/nm-l2tp-dialog.ui.h:29
-#, fuzzy
 msgid "L2TP PPP Options"
-msgstr "Opsi Tingkat Lanjut L2TP"
+msgstr "Opsi L2TP PPP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid "Authentication"
@@ -446,11 +433,6 @@ msgid ""
 "config: nopcomp (when unchecked)"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:55
-#, fuzzy
-msgid "Use _Address/Control compression"
-msgstr "Gunakan pemampatan _header TCP"
-
 #: ../properties/nm-l2tp-dialog.ui.h:56
 msgid ""
 "Use Address/Control compression in both directions (send and receive).\n"
@@ -513,7 +495,7 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:544
 #, c-format
 msgid "invalid gateway '%s'"
-msgstr ""
+msgstr "gateway '%s' tak valid"
 
 #: ../src/nm-l2tp-service.c:553
 #, c-format
@@ -523,22 +505,22 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:566
 #, c-format
 msgid "invalid integer property '%s'"
-msgstr ""
+msgstr "properti integer '%s' tak valid"
 
 #: ../src/nm-l2tp-service.c:576
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
-msgstr ""
+msgstr "properti bool '%s' tak valid (bukan yes atau no)"
 
 #: ../src/nm-l2tp-service.c:583
 #, c-format
 msgid "unhandled property '%s' type %s"
-msgstr ""
+msgstr "properti '%s' jenis %s tak ditangani"
 
 #: ../src/nm-l2tp-service.c:594
 #, c-format
 msgid "property '%s' invalid or not supported"
-msgstr ""
+msgstr "properti '%s' tak valid atau tak didukung"
 
 #: ../src/nm-l2tp-service.c:608
 msgid "No VPN configuration options."
@@ -547,7 +529,7 @@ msgstr "Tak ada opsi konfigurasi VPN."
 #: ../src/nm-l2tp-service.c:625
 #, c-format
 msgid "Missing required option '%s'."
-msgstr ""
+msgstr "Kehilangan opsi '%s' yang diperlukan."
 
 #: ../src/nm-l2tp-service.c:641
 msgid "No VPN secrets!"
@@ -696,7 +678,7 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1880
 msgid "Don't quit when VPN connection terminates"
-msgstr ""
+msgstr "Jangan keluar ketika koneksi VPN diputus"
 
 #: ../src/nm-l2tp-service.c:1881
 msgid "Enable verbose debug logging (may expose passwords)"

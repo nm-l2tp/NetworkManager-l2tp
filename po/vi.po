@@ -41,11 +41,6 @@ msgstr "_Mật khẩu:"
 msgid "_Secondary Password:"
 msgstr "Mật khẩu _phụ:"
 
-#: ../auth-dialog/vpn-password-dialog.c:107
-#, fuzzy
-msgid "_Tertiary Password:"
-msgstr "Mật khẩu _phụ:"
-
 #: ../auth-dialog/vpn-password-dialog.c:252
 msgid "Sh_ow passwords"
 msgstr "_Hiện mật khẩu"
@@ -229,9 +224,8 @@ msgid "The password is not required"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
-#, fuzzy
 msgid "L2TP IPsec Options"
-msgstr "Tùy chọn PPP"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -240,11 +234,6 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:3
 msgid "General"
 msgstr "Chung"
-
-#: ../properties/nm-l2tp-dialog.ui.h:4
-#, fuzzy
-msgid "Gateway ID:"
-msgstr "Cổn_g ra:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
@@ -294,11 +283,6 @@ msgid ""
 "config: domain <domain>"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:19
-#, fuzzy
-msgid "Show password"
-msgstr "_Mật khẩu :"
-
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "Password passed to PPPD when prompted for it."
 msgstr ""
@@ -311,14 +295,12 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:23
-#, fuzzy
 msgid "User name:"
-msgstr "_Tên người dùng:"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:25
-#, fuzzy
 msgid "NT Domain:"
-msgstr "_Miền:"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid "_IPsec Settings..."
@@ -333,9 +315,8 @@ msgid "Default"
 msgstr "Mặc định"
 
 #: ../properties/nm-l2tp-dialog.ui.h:29
-#, fuzzy
 msgid "L2TP PPP Options"
-msgstr "Tùy chọn PPP"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid "Authentication"
@@ -352,14 +333,12 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:34
-#, fuzzy
 msgid "Security and Compression"
-msgstr "Nén"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:35
-#, fuzzy
 msgid "Use _Point-to-Point encryption (MPPE)"
-msgstr "Dùng mật mã MPPE"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid ""
@@ -379,9 +358,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:40
-#, fuzzy
 msgid "Allow st_ateful encryption"
-msgstr "Cho phép nén kiểu _Deflate"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:41
 msgid ""
@@ -432,9 +410,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:55
-#, fuzzy
 msgid "Use _Address/Control compression"
-msgstr "Nén bằng MPPC"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:56
 msgid ""

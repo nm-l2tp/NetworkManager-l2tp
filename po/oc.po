@@ -114,11 +114,6 @@ msgstr ""
 msgid "Property '%s' value '%s' can't be parsed as route metric."
 msgstr ""
 
-#: ../properties/import-export.c:343
-#, fuzzy, c-format
-msgid "Error parsing property '%s' value '%s'."
-msgstr "proprietat « %s » de tipe « %s » pas gerida"
-
 #: ../properties/import-export.c:385
 #, c-format
 msgid "does not look like a L2TP VPN connection (parse failed)"
@@ -135,25 +130,14 @@ msgid ""
 "Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."
 msgstr ""
 
-#: ../properties/import-export.c:627
-#, fuzzy, c-format
-msgid "Missing required property '%s'"
-msgstr "Opcion obligatòria « %s » mancanta."
-
 #: ../properties/import-export.c:657
 #, c-format
 msgid "Couldn't open file for writing."
 msgstr ""
 
 #: ../properties/nm-l2tp.c:57
-#, fuzzy
 msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr "Protocòl de tunèl Point-to-Point (L2TP)"
-
-#: ../properties/nm-l2tp.c:58
-#, fuzzy
-msgid "Compatible with L2TP VPN servers."
-msgstr "Compatible amb Microsoft e d'autres servidors VPN L2TP."
+msgstr ""
 
 #: ../properties/nm-l2tp.c:214
 #, c-format
@@ -232,9 +216,8 @@ msgid "The password is not required"
 msgstr "Un senhal es requesit per vos connectar a « %s »."
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
-#, fuzzy
 msgid "L2TP IPsec Options"
-msgstr "Opcions avançada L2TP"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -243,11 +226,6 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:3
 msgid "General"
 msgstr "General"
-
-#: ../properties/nm-l2tp-dialog.ui.h:4
-#, fuzzy
-msgid "Gateway ID:"
-msgstr "_Palanca :"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
@@ -281,18 +259,14 @@ msgid "_Gateway:"
 msgstr "_Palanca :"
 
 #: ../properties/nm-l2tp-dialog.ui.h:14
-#, fuzzy
 msgid ""
 "L2TP server IP or name.\n"
 "config: xl2tpd lns parameter"
 msgstr ""
-"Nom o adreça IP del servidor L2TP.\n"
-"configuracion : lo primièr paramètre de l2tp"
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
-#, fuzzy
 msgid "Optional"
-msgstr "Opcional"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid ""
@@ -309,20 +283,15 @@ msgid "Show password"
 msgstr "Afichar lo senhal"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
-#, fuzzy
 msgid "Password passed to PPPD when prompted for it."
-msgstr "Senhal transmés a L2TP quand aqueste es demandat."
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
-#, fuzzy
 msgid ""
 "Set the name used for authenticating the local system to the peer to "
 "<name>.\n"
 "config: xl2tpd name parameter"
 msgstr ""
-"Definís lo nom utilizat per autentificar lo sistèma local per la "
-"comunicacion amb <nom>.\n"
-"configuracion : user <nom>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:23
 msgid "User name:"
@@ -366,7 +335,6 @@ msgstr ""
 "refuse-eap"
 
 #: ../properties/nm-l2tp-dialog.ui.h:34
-#, fuzzy
 msgid "Security and Compression"
 msgstr "Seguretat e compression"
 
@@ -452,32 +420,6 @@ msgstr ""
 msgid "Use protocol _field compression negotiation"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:53
-#, fuzzy
-msgid ""
-"Allow protocol field compression negotiation in both the receive and the "
-"transmit direction.\n"
-"config: nopcomp (when unchecked)"
-msgstr ""
-"Autoriza/desactiva la compression d'entèsta TCP/IP d'estil Van Jacobson a "
-"l'encòp en transmission e en recepcion.\n"
-"configuracion : novj (se desmarcat)"
-
-#: ../properties/nm-l2tp-dialog.ui.h:55
-#, fuzzy
-msgid "Use _Address/Control compression"
-msgstr "Utilizar la compression de las _entèstas TCP"
-
-#: ../properties/nm-l2tp-dialog.ui.h:56
-#, fuzzy
-msgid ""
-"Use Address/Control compression in both directions (send and receive).\n"
-"config: noaccomp (when unchecked)"
-msgstr ""
-"Autoriza/desactiva la compression d'entèsta TCP/IP d'estil Van Jacobson a "
-"l'encòp en transmission e en recepcion.\n"
-"configuracion : novj (se desmarcat)"
-
 #: ../properties/nm-l2tp-dialog.ui.h:58
 msgid "Echo"
 msgstr "Resson"
@@ -534,11 +476,6 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:544
 #, c-format
 msgid "invalid gateway '%s'"
-msgstr "palanca « %s » invalida"
-
-#: ../src/nm-l2tp-service.c:553
-#, fuzzy, c-format
-msgid "invalid ipsec-gateway-id '%s'"
 msgstr "palanca « %s » invalida"
 
 #: ../src/nm-l2tp-service.c:566
@@ -724,10 +661,7 @@ msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Activar lo desbugatge verbós (de senhals pòdon aparéisser)"
 
 #: ../src/nm-l2tp-service.c:1904
-#, fuzzy
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
 msgstr ""
-"nm-l2tp-service ofrís de foncions de VPN L2TP integradas a NetworkManager "
-"(compatible amb Microsoft e d'autras implementacions)."

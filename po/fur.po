@@ -17,14 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.8.12\n"
 
-#. Otherwise, we have no saved password, or the password flags indicated
-#. * that the password should never be saved.
-#.
-#: ../auth-dialog/main.c:159
-#, fuzzy, c-format
-msgid "You need to authenticate to access the Virtual Private Network '%s'."
-msgstr "Al covente autenticâsi par acedi ae rêt privade virtuâl “%s”."
-
 #: ../auth-dialog/main.c:168 ../auth-dialog/main.c:188
 msgid "Authenticate VPN"
 msgstr "Autentiche VPN"
@@ -32,26 +24,6 @@ msgstr "Autentiche VPN"
 #: ../auth-dialog/main.c:170 ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Password:"
 msgstr "Password:"
-
-#: ../auth-dialog/vpn-password-dialog.c:102
-#, fuzzy
-msgid "_Password:"
-msgstr "Password:"
-
-#: ../auth-dialog/vpn-password-dialog.c:104
-#, fuzzy
-msgid "_Secondary Password:"
-msgstr "Password:"
-
-#: ../auth-dialog/vpn-password-dialog.c:107
-#, fuzzy
-msgid "_Tertiary Password:"
-msgstr "Password:"
-
-#: ../auth-dialog/vpn-password-dialog.c:252
-#, fuzzy
-msgid "Sh_ow passwords"
-msgstr "Mostre password"
 
 #: ../properties/advanced-dialog.c:188
 msgid "All Available (Default)"
@@ -138,9 +110,9 @@ msgid ""
 msgstr ""
 
 #: ../properties/import-export.c:627
-#, fuzzy, c-format
+#, c-format
 msgid "Missing required property '%s'"
-msgstr "E mancje la opzion necessarie “%s”."
+msgstr ""
 
 #: ../properties/import-export.c:657
 #, c-format
@@ -148,14 +120,8 @@ msgid "Couldn't open file for writing."
 msgstr ""
 
 #: ../properties/nm-l2tp.c:57
-#, fuzzy
 msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr "Protocol di tunel pont a pont (L2TP)"
-
-#: ../properties/nm-l2tp.c:58
-#, fuzzy
-msgid "Compatible with L2TP VPN servers."
-msgstr "Compatibil cun Microsoft e altris servidôrs VPN L2TP."
+msgstr ""
 
 #: ../properties/nm-l2tp.c:214
 #, c-format
@@ -195,7 +161,7 @@ msgstr ""
 #: ../properties/nm-l2tp.c:612
 #, c-format
 msgid "could not load UI widget"
-msgstr ""
+msgstr "impussibil cjariâ il widget de IU"
 
 #: ../properties/nm-l2tp.c:711
 #, c-format
@@ -234,9 +200,8 @@ msgid "The password is not required"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
-#, fuzzy
 msgid "L2TP IPsec Options"
-msgstr "Opzions avanzadis L2TP"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -245,11 +210,6 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:3
 msgid "General"
 msgstr "Gjenerâl"
-
-#: ../properties/nm-l2tp-dialog.ui.h:4
-#, fuzzy
-msgid "Gateway ID:"
-msgstr "_Gateway:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
@@ -283,13 +243,10 @@ msgid "_Gateway:"
 msgstr "_Gateway:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:14
-#, fuzzy
 msgid ""
 "L2TP server IP or name.\n"
 "config: xl2tpd lns parameter"
 msgstr ""
-"Non o IP servidôr L2TP.\n"
-"config: il prin parametri di l2tp"
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
 msgid "Optional"
@@ -309,19 +266,15 @@ msgid "Show password"
 msgstr "Mostre password"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
-#, fuzzy
 msgid "Password passed to PPPD when prompted for it."
-msgstr "Password passade a L2TP cuant che e ven domandade."
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
-#, fuzzy
 msgid ""
 "Set the name used for authenticating the local system to the peer to "
 "<name>.\n"
 "config: xl2tpd name parameter"
 msgstr ""
-"Stabilìs il non doprât par autenticâ il sisteme locâl al grop a <non>.\n"
-"config: user <non>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:23
 msgid "User name:"
@@ -448,32 +401,6 @@ msgstr ""
 msgid "Use protocol _field compression negotiation"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:53
-#, fuzzy
-msgid ""
-"Allow protocol field compression negotiation in both the receive and the "
-"transmit direction.\n"
-"config: nopcomp (when unchecked)"
-msgstr ""
-"Permet/disabilite compression intestazion TCP/IP in stîl Van Jacobson in "
-"ricezion e trasmission.\n"
-"config: novj (cuant no selezionât)"
-
-#: ../properties/nm-l2tp-dialog.ui.h:55
-#, fuzzy
-msgid "Use _Address/Control compression"
-msgstr "Dopre compression _intestazion TCP"
-
-#: ../properties/nm-l2tp-dialog.ui.h:56
-#, fuzzy
-msgid ""
-"Use Address/Control compression in both directions (send and receive).\n"
-"config: noaccomp (when unchecked)"
-msgstr ""
-"Permet/disabilite compression intestazion TCP/IP in stîl Van Jacobson in "
-"ricezion e trasmission.\n"
-"config: novj (cuant no selezionât)"
-
 #: ../properties/nm-l2tp-dialog.ui.h:58
 msgid "Echo"
 msgstr "Echo"
@@ -528,43 +455,43 @@ msgid "L2TP service (IP Config Get) reply received."
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:544
-#, fuzzy, c-format
+#, c-format
 msgid "invalid gateway '%s'"
-msgstr "gateway “%s” no valit"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:553
-#, fuzzy, c-format
+#, c-format
 msgid "invalid ipsec-gateway-id '%s'"
-msgstr "gateway “%s” no valit"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:566
-#, fuzzy, c-format
+#, c-format
 msgid "invalid integer property '%s'"
-msgstr "proprietât interie “%s” no valide"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:576
-#, fuzzy, c-format
+#, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
-msgstr "proprietât booleane “%s” no valide  (no je sì o no)"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:583
-#, fuzzy, c-format
+#, c-format
 msgid "unhandled property '%s' type %s"
-msgstr "proprietât “%s” gjenar %s no tratade"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:594
-#, fuzzy, c-format
+#, c-format
 msgid "property '%s' invalid or not supported"
-msgstr "proprietât “%s” no valide o no supuartade"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:608
 msgid "No VPN configuration options."
 msgstr "Nissune opzion di configurazion VPN."
 
 #: ../src/nm-l2tp-service.c:625
-#, fuzzy, c-format
+#, c-format
 msgid "Missing required option '%s'."
-msgstr "E mancje la opzion necessarie “%s”."
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:641
 msgid "No VPN secrets!"
@@ -712,19 +639,15 @@ msgid "Terminated l2tp daemon with PID %d."
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:1880
-#, fuzzy
 msgid "Don't quit when VPN connection terminates"
-msgstr "No stâ jessî cuant che e termine la conession VPN"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1881
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Abilite regjistris di debug prolìs (al podarès esponi lis password)"
 
 #: ../src/nm-l2tp-service.c:1904
-#, fuzzy
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
 msgstr ""
-"nm-l2tp-service al furnìs a NetworkManager lis capacitâts VPN L2TP "
-"integradis (compatibil cun Microsoft e altris implementazions)."

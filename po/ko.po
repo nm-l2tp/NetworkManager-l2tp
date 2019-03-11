@@ -42,11 +42,6 @@ msgstr "암호(_P):"
 msgid "_Secondary Password:"
 msgstr "보조 암호(_S):"
 
-#: ../auth-dialog/vpn-password-dialog.c:107
-#, fuzzy
-msgid "_Tertiary Password:"
-msgstr "보조 암호(_S):"
-
 #: ../auth-dialog/vpn-password-dialog.c:252
 msgid "Sh_ow passwords"
 msgstr "암호 보이기(_O)"
@@ -148,11 +143,6 @@ msgstr ""
 #: ../properties/nm-l2tp.c:57
 msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr ""
-
-#: ../properties/nm-l2tp.c:58
-#, fuzzy
-msgid "Compatible with L2TP VPN servers."
-msgstr "마이크로소프트 및 기타 L2TP VPN 서버와 호환됩니다."
 
 #: ../properties/nm-l2tp.c:214
 #, c-format
@@ -259,19 +249,19 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:9
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "2단계 알고리즘:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:10
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "1단계 알고리즘:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:11
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "UDP 캡슐화 강제"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
 msgid "Ad_vanced"
-msgstr ""
+msgstr "고급"
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "_Gateway:"
@@ -348,9 +338,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:34
-#, fuzzy
 msgid "Security and Compression"
-msgstr "압축"
+msgstr "보안 및 압축"
 
 #: ../properties/nm-l2tp-dialog.ui.h:35
 msgid "Use _Point-to-Point encryption (MPPE)"
@@ -426,11 +415,6 @@ msgid ""
 "transmit direction.\n"
 "config: nopcomp (when unchecked)"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:55
-#, fuzzy
-msgid "Use _Address/Control compression"
-msgstr "MPPC 압축 사용"
 
 #: ../properties/nm-l2tp-dialog.ui.h:56
 msgid ""

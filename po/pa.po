@@ -42,11 +42,6 @@ msgstr "ਪਾਸਵਰਡ(_P):"
 msgid "_Secondary Password:"
 msgstr "ਸੈਕੰਡਰੀ ਪਾਸਵਰਡ(_S):"
 
-#: ../auth-dialog/vpn-password-dialog.c:107
-#, fuzzy
-msgid "_Tertiary Password:"
-msgstr "ਸੈਕੰਡਰੀ ਪਾਸਵਰਡ(_S):"
-
 #: ../auth-dialog/vpn-password-dialog.c:252
 msgid "Sh_ow passwords"
 msgstr "ਪਾਸਵਰਡ ਵੇਖੋ(_o)"
@@ -146,14 +141,8 @@ msgid "Couldn't open file for writing."
 msgstr ""
 
 #: ../properties/nm-l2tp.c:57
-#, fuzzy
 msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr "ਪੁਆਇੰਟ-ਟੂ-ਪੁਆਇੰਟ ਟਨਲਿੰਗ ਪਰੋਟੋਕਾਲ (L2TP)"
-
-#: ../properties/nm-l2tp.c:58
-#, fuzzy
-msgid "Compatible with L2TP VPN servers."
-msgstr "ਮਾਈਕਰੋਸਾਫਟ ਅਤੇ ਹੋਰ L2TP VPN ਸਰਵਰਾਂ ਨਾਲ ਅਨੁਕੂਲ ਹੈ।"
+msgstr ""
 
 #: ../properties/nm-l2tp.c:214
 #, c-format
@@ -232,9 +221,8 @@ msgid "The password is not required"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
-#, fuzzy
 msgid "L2TP IPsec Options"
-msgstr "PPP ਮਾਹਰ ਚੋਣਾਂ"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -243,11 +231,6 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:3
 msgid "General"
 msgstr "ਸਧਾਰਨ"
-
-#: ../properties/nm-l2tp-dialog.ui.h:4
-#, fuzzy
-msgid "Gateway ID:"
-msgstr "ਗੇਟਵੇ(_G):"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
@@ -273,9 +256,8 @@ msgid "_Enforce UDP encapsulation"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
-#, fuzzy
 msgid "Ad_vanced"
-msgstr "ਮਾਹਰ(_v)..."
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "_Gateway:"
@@ -288,9 +270,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
-#, fuzzy
 msgid "Optional"
-msgstr "ਚੋਣਵਾਂ"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid ""
@@ -335,9 +316,8 @@ msgid "Default"
 msgstr "ਡਿਫਾਲਟ"
 
 #: ../properties/nm-l2tp-dialog.ui.h:29
-#, fuzzy
 msgid "L2TP PPP Options"
-msgstr "PPP ਮਾਹਰ ਚੋਣਾਂ"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid "Authentication"
@@ -354,7 +334,6 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:34
-#, fuzzy
 msgid "Security and Compression"
 msgstr "ਸੁਰੱਖਿਆ ਅਤੇ ਕੰਪਰੈੱਸ਼ਨ"
 
@@ -432,11 +411,6 @@ msgid ""
 "transmit direction.\n"
 "config: nopcomp (when unchecked)"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:55
-#, fuzzy
-msgid "Use _Address/Control compression"
-msgstr "TPC ਹੈੱਡਰ ਕੰਪਰੈਸ਼ਨ ਵਰਤੋਂ(_h)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:56
 msgid ""

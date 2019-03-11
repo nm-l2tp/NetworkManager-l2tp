@@ -108,12 +108,6 @@ msgstr "Не могу преобразовать параметр '%s' со зн
 msgid "Property '%s' value '%s' couldn't find netmask."
 msgstr "Не могу найти сетевую маску у параметра '%s' со значением '%s'."
 
-#: ../properties/import-export.c:288
-#, fuzzy, c-format
-msgid "Property '%s' value '%s' can't be parsed as IP netmask."
-msgstr ""
-"Не могу преобразовать параметр '%s' со значением '%s' как сетевую маску IP."
-
 #: ../properties/import-export.c:333
 #, c-format
 msgid "Property '%s' value '%s' can't be parsed as route metric."
@@ -157,11 +151,6 @@ msgstr "Не могу открыть файл для записи."
 #: ../properties/nm-l2tp.c:57
 msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr "Layer 2 Tunneling Protocol (L2TP)"
-
-#: ../properties/nm-l2tp.c:58
-#, fuzzy
-msgid "Compatible with L2TP VPN servers."
-msgstr "Совместим с серверами Microsoft и другими серверами L2TP VPN."
 
 #: ../properties/nm-l2tp.c:214
 #, c-format
@@ -268,20 +257,19 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:9
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "Алгоритмы фазы 2:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:10
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "Алгоритмы фазы 1:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:11
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "Принудительная инкапсуляция в UDP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
-#, fuzzy
 msgid "Ad_vanced"
-msgstr "_Дополнительно..."
+msgstr "Дополнительно"
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "_Gateway:"
@@ -296,9 +284,8 @@ msgstr ""
 "опция конфигурации: xl2tpd lns параметр"
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
-#, fuzzy
 msgid "Optional"
-msgstr "Дополнительные"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid ""
@@ -367,7 +354,6 @@ msgstr ""
 "config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 
 #: ../properties/nm-l2tp-dialog.ui.h:34
-#, fuzzy
 msgid "Security and Compression"
 msgstr "Шифрование и сжатие"
 
@@ -493,7 +479,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:62
 msgid "Misc"
-msgstr ""
+msgstr "Прочее"
 
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid "MTU :"
@@ -666,23 +652,21 @@ msgid "Could not open %s"
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:1253
-#, fuzzy, c-format
+#, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
-msgstr "не могу создать l2tp объект"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1288
 msgid "Could not write ipsec config."
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:1352
-#, fuzzy
 msgid "Could not write xl2tpd config."
-msgstr "не могу создать l2tp объект"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1402
-#, fuzzy
 msgid "Could not write ppp options."
-msgstr "не могу создать l2tp объект"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1604
 #, c-format
@@ -700,11 +684,6 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:1634
 msgid "Could not start pppd plugin helper service."
 msgstr ""
-
-#: ../src/nm-l2tp-service.c:1641
-#, fuzzy
-msgid "could not retrieve connection UUID"
-msgstr "не могу создать l2tp объект"
 
 #: ../src/nm-l2tp-service.c:1665
 msgid "starting ipsec"

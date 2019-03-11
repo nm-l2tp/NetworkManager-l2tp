@@ -147,14 +147,8 @@ msgid "Couldn't open file for writing."
 msgstr ""
 
 #: ../properties/nm-l2tp.c:57
-#, fuzzy
 msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr "Puntutik punturako tunelaren protokoloa (L2TP)"
-
-#: ../properties/nm-l2tp.c:58
-#, fuzzy
-msgid "Compatible with L2TP VPN servers."
-msgstr "Microsoft eta beste L2TP VPN zerbitzariekin bateragarria."
+msgstr ""
 
 #: ../properties/nm-l2tp.c:214
 #, c-format
@@ -233,9 +227,8 @@ msgid "The password is not required"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
-#, fuzzy
 msgid "L2TP IPsec Options"
-msgstr "L2TP-ren aukera aurreratuak"
+msgstr "L2TP IPsec aukerak"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -244,11 +237,6 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:3
 msgid "General"
 msgstr "Orokorra"
-
-#: ../properties/nm-l2tp-dialog.ui.h:4
-#, fuzzy
-msgid "Gateway ID:"
-msgstr "_Atebidea:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
@@ -271,12 +259,11 @@ msgstr "1. faseko algoritmoak:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:11
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "Derrigortu UDP kapsulatzea"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
-#, fuzzy
 msgid "Ad_vanced"
-msgstr "_Aurreratua..."
+msgstr "Aurreratua"
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "_Gateway:"
@@ -289,9 +276,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
-#, fuzzy
 msgid "Optional"
-msgstr "Aukerakoa"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid ""
@@ -309,7 +295,7 @@ msgstr "Erakutsi pasahitza"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "Password passed to PPPD when prompted for it."
-msgstr ""
+msgstr "Hura eskatzean PPPDri pasatuko zaion pasahitza."
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid ""
@@ -339,9 +325,8 @@ msgid "Default"
 msgstr "Lehenetsia"
 
 #: ../properties/nm-l2tp-dialog.ui.h:29
-#, fuzzy
 msgid "L2TP PPP Options"
-msgstr "L2TP-ren aukera aurreratuak"
+msgstr "L2TP PPP aukerak"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid "Authentication"
@@ -361,7 +346,6 @@ msgstr ""
 "refuse-eap"
 
 #: ../properties/nm-l2tp-dialog.ui.h:34
-#, fuzzy
 msgid "Security and Compression"
 msgstr "Segurtasuna eta konpresioa"
 
@@ -452,11 +436,6 @@ msgid ""
 "transmit direction.\n"
 "config: nopcomp (when unchecked)"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:55
-#, fuzzy
-msgid "Use _Address/Control compression"
-msgstr "Erabili TCP _goiburu-konpresioa"
 
 #: ../properties/nm-l2tp-dialog.ui.h:56
 msgid ""

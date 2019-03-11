@@ -40,21 +40,6 @@ msgstr "পাসওয়ার্ড:"
 msgid "_Password:"
 msgstr "পাসওয়ার্ড: (_P)"
 
-#: ../auth-dialog/vpn-password-dialog.c:104
-#, fuzzy
-msgid "_Secondary Password:"
-msgstr "পাসওয়ার্ড: (_P)"
-
-#: ../auth-dialog/vpn-password-dialog.c:107
-#, fuzzy
-msgid "_Tertiary Password:"
-msgstr "পাসওয়ার্ড: (_P)"
-
-#: ../auth-dialog/vpn-password-dialog.c:252
-#, fuzzy
-msgid "Sh_ow passwords"
-msgstr "পাসওয়ার্ড প্রদর্শন করা হবে (_w)"
-
 #: ../properties/advanced-dialog.c:188
 msgid "All Available (Default)"
 msgstr "উপলব্ধ সকল (ডিফল্ট)"
@@ -150,14 +135,8 @@ msgid "Couldn't open file for writing."
 msgstr ""
 
 #: ../properties/nm-l2tp.c:57
-#, fuzzy
 msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr "পয়েন্ট-টু-পয়েন্ট টানেলিং প্রোটোকল (L2TP)"
-
-#: ../properties/nm-l2tp.c:58
-#, fuzzy
-msgid "Compatible with L2TP VPN servers."
-msgstr "Microsoft ও অন্যান্য L2TP VPN সার্ভারের সাথে সুসংগত।"
+msgstr ""
 
 #: ../properties/nm-l2tp.c:214
 #, c-format
@@ -247,11 +226,6 @@ msgstr ""
 msgid "General"
 msgstr "সাধারণ"
 
-#: ../properties/nm-l2tp-dialog.ui.h:4
-#, fuzzy
-msgid "Gateway ID:"
-msgstr "গেটওয়ে: (_G)"
-
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
 "Optional, how the IPsec server should be identified for authentication.\n"
@@ -276,9 +250,8 @@ msgid "_Enforce UDP encapsulation"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
-#, fuzzy
 msgid "Ad_vanced"
-msgstr "উন্নত বৈশিষ্ট্য...(_v)"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "_Gateway:"
@@ -291,9 +264,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
-#, fuzzy
 msgid "Optional"
-msgstr "ঐচ্ছিক"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid ""
@@ -342,7 +314,6 @@ msgid "L2TP PPP Options"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
-#, fuzzy
 msgid "Authentication"
 msgstr "অনুমোদন"
 
@@ -357,7 +328,6 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:34
-#, fuzzy
 msgid "Security and Compression"
 msgstr "নিরাপত্তা ও কম্প্রেশন"
 
@@ -433,11 +403,6 @@ msgid ""
 "transmit direction.\n"
 "config: nopcomp (when unchecked)"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:55
-#, fuzzy
-msgid "Use _Address/Control compression"
-msgstr "TCP হেডার কম্প্রেশন ব্যবহার করা হবে (_h)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:56
 msgid ""

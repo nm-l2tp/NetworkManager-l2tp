@@ -104,11 +104,6 @@ msgstr "属性 '%s' 的值 '%s' 无法解析成 IP 地址"
 msgid "Property '%s' value '%s' couldn't find netmask."
 msgstr "属性 '%s' 的值 '%s' 无法找到网络掩码"
 
-#: ../properties/import-export.c:288
-#, fuzzy, c-format
-msgid "Property '%s' value '%s' can't be parsed as IP netmask."
-msgstr "属性 '%s' 的值 '%s' 无法解析成 IP 网络掩码"
-
 #: ../properties/import-export.c:333
 #, c-format
 msgid "Property '%s' value '%s' can't be parsed as route metric."
@@ -148,11 +143,6 @@ msgstr "无法打开文件来写入"
 #: ../properties/nm-l2tp.c:57
 msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr "第2层隧道协议 (L2TP)"
-
-#: ../properties/nm-l2tp.c:58
-#, fuzzy
-msgid "Compatible with L2TP VPN servers."
-msgstr "与微软及其他的 L2TP VPN 服务器兼容。"
 
 #: ../properties/nm-l2tp.c:214
 #, c-format
@@ -259,20 +249,19 @@ msgstr "预共享密钥："
 
 #: ../properties/nm-l2tp-dialog.ui.h:9
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "Phase2 算法："
 
 #: ../properties/nm-l2tp-dialog.ui.h:10
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "Phase1 算法："
 
 #: ../properties/nm-l2tp-dialog.ui.h:11
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "强制 UDP 封装"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
-#, fuzzy
 msgid "Ad_vanced"
-msgstr "高级(_V)..."
+msgstr "高级"
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "_Gateway:"
@@ -287,9 +276,8 @@ msgstr ""
 "配置：xl2tpd lns parameter"
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
-#, fuzzy
 msgid "Optional"
-msgstr "可选项"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid ""
@@ -358,7 +346,6 @@ msgstr ""
 "配置：refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 
 #: ../properties/nm-l2tp-dialog.ui.h:34
-#, fuzzy
 msgid "Security and Compression"
 msgstr "安全性及压缩"
 
@@ -652,24 +639,21 @@ msgid "Could not open %s"
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:1253
-#, fuzzy, c-format
+#, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
-msgstr "无法写入 ipsec 配置。"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1288
-#, fuzzy
 msgid "Could not write ipsec config."
-msgstr "无法写入 ipsec 配置。"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1352
-#, fuzzy
 msgid "Could not write xl2tpd config."
-msgstr "无法创建 l2tp 对象"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1402
-#, fuzzy
 msgid "Could not write ppp options."
-msgstr "无法创建 l2tp 对象"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1604
 #, c-format
@@ -687,11 +671,6 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:1634
 msgid "Could not start pppd plugin helper service."
 msgstr ""
-
-#: ../src/nm-l2tp-service.c:1641
-#, fuzzy
-msgid "could not retrieve connection UUID"
-msgstr "无法创建 l2tp 对象"
 
 #: ../src/nm-l2tp-service.c:1665
 msgid "starting ipsec"

@@ -47,11 +47,6 @@ msgstr "_Contrasinal:"
 msgid "_Secondary Password:"
 msgstr "Contrasinal _secundario:"
 
-#: ../auth-dialog/vpn-password-dialog.c:107
-#, fuzzy
-msgid "_Tertiary Password:"
-msgstr "Contrasinal _secundario:"
-
 #: ../auth-dialog/vpn-password-dialog.c:252
 msgid "Sh_ow passwords"
 msgstr "M_ostrar os contrasinais"
@@ -151,14 +146,8 @@ msgid "Couldn't open file for writing."
 msgstr ""
 
 #: ../properties/nm-l2tp.c:57
-#, fuzzy
 msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr "Protocolo de Túnel Punto a Punto (L2TP)"
-
-#: ../properties/nm-l2tp.c:58
-#, fuzzy
-msgid "Compatible with L2TP VPN servers."
-msgstr "Compatíbel con Microsoft e outros servidores VPN L2TP."
+msgstr ""
 
 #: ../properties/nm-l2tp.c:214
 #, c-format
@@ -198,7 +187,7 @@ msgstr ""
 #: ../properties/nm-l2tp.c:612
 #, c-format
 msgid "could not load UI widget"
-msgstr ""
+msgstr "non foi posíbel cargar o miniaplicativo da interface de usuario"
 
 #: ../properties/nm-l2tp.c:711
 #, c-format
@@ -273,12 +262,11 @@ msgstr "Algoritmos de Phase1:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:11
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "Forzar o encapsulamento UDP."
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
-#, fuzzy
 msgid "Ad_vanced"
-msgstr "A_vanzado"
+msgstr "Avanzado"
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "_Gateway:"
@@ -291,9 +279,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
-#, fuzzy
 msgid "Optional"
-msgstr "Opcional"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid ""
@@ -361,7 +348,6 @@ msgstr ""
 "opción: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 
 #: ../properties/nm-l2tp-dialog.ui.h:34
-#, fuzzy
 msgid "Security and Compression"
 msgstr "Seguridade e compresión"
 
@@ -453,11 +439,6 @@ msgid ""
 "config: nopcomp (when unchecked)"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:55
-#, fuzzy
-msgid "Use _Address/Control compression"
-msgstr "Usar a compresión de _cabeceiras TCP"
-
 #: ../properties/nm-l2tp-dialog.ui.h:56
 msgid ""
 "Use Address/Control compression in both directions (send and receive).\n"
@@ -483,7 +464,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:62
 msgid "Misc"
-msgstr ""
+msgstr "Varios"
 
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid "MTU :"

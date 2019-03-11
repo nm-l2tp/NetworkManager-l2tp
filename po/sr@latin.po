@@ -18,16 +18,6 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Project-Style: gnome\n"
 
-#. Otherwise, we have no saved password, or the password flags indicated
-#. * that the password should never be saved.
-#.
-#: ../auth-dialog/main.c:159
-#, fuzzy, c-format
-msgid "You need to authenticate to access the Virtual Private Network '%s'."
-msgstr ""
-"Morate da potvrdite identitet da biste mogli da pristupite Virtuelnoj "
-"privatnoj mreži „%s“."
-
 #: ../auth-dialog/main.c:168 ../auth-dialog/main.c:188
 msgid "Authenticate VPN"
 msgstr "Potvrdi VPN"
@@ -136,25 +126,14 @@ msgid ""
 "Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."
 msgstr ""
 
-#: ../properties/import-export.c:627
-#, fuzzy, c-format
-msgid "Missing required property '%s'"
-msgstr "Nedostaje zatražena opcija „%s“."
-
 #: ../properties/import-export.c:657
 #, c-format
 msgid "Couldn't open file for writing."
 msgstr ""
 
 #: ../properties/nm-l2tp.c:57
-#, fuzzy
 msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr "Protok tunelisanja od tačke do tačke (L2TP)"
-
-#: ../properties/nm-l2tp.c:58
-#, fuzzy
-msgid "Compatible with L2TP VPN servers."
-msgstr "Saglasno sa Majkrosoftovim i drugim L2TP VPN serverima."
+msgstr ""
 
 #: ../properties/nm-l2tp.c:214
 #, c-format
@@ -194,7 +173,7 @@ msgstr ""
 #: ../properties/nm-l2tp.c:612
 #, c-format
 msgid "could not load UI widget"
-msgstr ""
+msgstr "ne mogu da učitam element sučelja"
 
 #: ../properties/nm-l2tp.c:711
 #, c-format
@@ -233,9 +212,8 @@ msgid "The password is not required"
 msgstr "Lozinka nije potrebna"
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
-#, fuzzy
 msgid "L2TP IPsec Options"
-msgstr "Napredne opcije za L2TP"
+msgstr "Opcije L2TP‑a/IPseca"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -244,11 +222,6 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:3
 msgid "General"
 msgstr "Opšte"
-
-#: ../properties/nm-l2tp-dialog.ui.h:4
-#, fuzzy
-msgid "Gateway ID:"
-msgstr "_Mrežni prolaz:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
@@ -271,7 +244,7 @@ msgstr "Algoritmi faze 1:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:11
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "Nametni UDP enkapsulaciju"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
 msgid "Ad_vanced"
@@ -282,13 +255,10 @@ msgid "_Gateway:"
 msgstr "_Mrežni prolaz:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:14
-#, fuzzy
 msgid ""
 "L2TP server IP or name.\n"
 "config: xl2tpd lns parameter"
 msgstr ""
-"IP ili naziv L2TP servera.\n"
-"podešavanje: prvi parametar za l2tp"
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
 msgid "Optional"
@@ -309,20 +279,15 @@ msgid "Show password"
 msgstr "Prikaži lozinku"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
-#, fuzzy
 msgid "Password passed to PPPD when prompted for it."
-msgstr "Lozinka data L2TP-u kada je zatražena."
+msgstr "Lozinka za prosleđivanje pppd‑u kada je zatraži."
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
-#, fuzzy
 msgid ""
 "Set the name used for authenticating the local system to the peer to "
 "<name>.\n"
 "config: xl2tpd name parameter"
 msgstr ""
-"Podesite naziv korišćen za prijavljivanje lokalnog sistema parljaku na "
-"<name>.\n"
-"podešavanje: korisnik <name>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:23
 msgid "User name:"
@@ -346,7 +311,7 @@ msgstr "Osnovno"
 
 #: ../properties/nm-l2tp-dialog.ui.h:29
 msgid "L2TP PPP Options"
-msgstr ""
+msgstr "Opcije L2TP‑a/PPP‑a"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid "Authentication"
@@ -450,32 +415,6 @@ msgstr ""
 msgid "Use protocol _field compression negotiation"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:53
-#, fuzzy
-msgid ""
-"Allow protocol field compression negotiation in both the receive and the "
-"transmit direction.\n"
-"config: nopcomp (when unchecked)"
-msgstr ""
-"Uključuje/isključuje Van Jakobsonov stil pakovanja TCP/IP zaglavlja kako u "
-"smeru prenosa tako i u smeru prijema.\n"
-"podešavanje: novj (kada nije izabrano)"
-
-#: ../properties/nm-l2tp-dialog.ui.h:55
-#, fuzzy
-msgid "Use _Address/Control compression"
-msgstr "Koristi _pakovanje TCP zaglavlja"
-
-#: ../properties/nm-l2tp-dialog.ui.h:56
-#, fuzzy
-msgid ""
-"Use Address/Control compression in both directions (send and receive).\n"
-"config: noaccomp (when unchecked)"
-msgstr ""
-"Uključuje/isključuje Van Jakobsonov stil pakovanja TCP/IP zaglavlja kako u "
-"smeru prenosa tako i u smeru prijema.\n"
-"podešavanje: novj (kada nije izabrano)"
-
 #: ../properties/nm-l2tp-dialog.ui.h:58
 msgid "Echo"
 msgstr "Odjek"
@@ -530,32 +469,27 @@ msgid "L2TP service (IP Config Get) reply received."
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:544
-#, fuzzy, c-format
+#, c-format
 msgid "invalid gateway '%s'"
 msgstr "neispravan mrežni prolaz „%s“"
 
-#: ../src/nm-l2tp-service.c:553
-#, fuzzy, c-format
-msgid "invalid ipsec-gateway-id '%s'"
-msgstr "neispravan mrežni prolaz „%s“"
-
 #: ../src/nm-l2tp-service.c:566
-#, fuzzy, c-format
+#, c-format
 msgid "invalid integer property '%s'"
 msgstr "neispravno svojstvo celog broja „%s“"
 
 #: ../src/nm-l2tp-service.c:576
-#, fuzzy, c-format
+#, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr "neispravno logičko svojstvo „%s“ (nije „da“ ili „ne“)"
 
 #: ../src/nm-l2tp-service.c:583
-#, fuzzy, c-format
+#, c-format
 msgid "unhandled property '%s' type %s"
 msgstr "nerukovano svojstvo „%s“ vrste %s"
 
 #: ../src/nm-l2tp-service.c:594
-#, fuzzy, c-format
+#, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "svojstvo „%s“ je neispravno ili nije podržano"
 
@@ -564,7 +498,7 @@ msgid "No VPN configuration options."
 msgstr "Nema opcija za VPN podešavanje."
 
 #: ../src/nm-l2tp-service.c:625
-#, fuzzy, c-format
+#, c-format
 msgid "Missing required option '%s'."
 msgstr "Nedostaje zatražena opcija „%s“."
 
@@ -714,7 +648,6 @@ msgid "Terminated l2tp daemon with PID %d."
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:1880
-#, fuzzy
 msgid "Don't quit when VPN connection terminates"
 msgstr "Ne prekida kada se završava VPN veza"
 
@@ -725,10 +658,7 @@ msgstr ""
 "lozinke)"
 
 #: ../src/nm-l2tp-service.c:1904
-#, fuzzy
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
 msgstr ""
-"nm-l2tp-usluga obezbeđuje Upravniku mreže objedinjenu L2TP VPN mogućnost "
-"(saglasnu sa Majkrosoftom i drugim primenama)."

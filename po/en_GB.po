@@ -258,19 +258,19 @@ msgstr "Pre-shared key:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:9
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "Phase2 Algorithms:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:10
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "Phase1 Algorithms:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:11
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "_Enforce UDP encapsulation"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
 msgid "Ad_vanced"
-msgstr ""
+msgstr "Ad_vanced"
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "_Gateway:"
@@ -653,9 +653,9 @@ msgid "Could not open %s"
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:1253
-#, fuzzy, c-format
+#, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
-msgstr "Could not write %s/nm-l2tp-ipsec-%s.secrets"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1288
 msgid "Could not write ipsec config."

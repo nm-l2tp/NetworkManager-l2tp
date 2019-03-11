@@ -39,21 +39,6 @@ msgstr "ಗುಪ್ತಪದ:"
 msgid "_Password:"
 msgstr "ಗುಪ್ತಪದ(_P):"
 
-#: ../auth-dialog/vpn-password-dialog.c:104
-#, fuzzy
-msgid "_Secondary Password:"
-msgstr "ಗುಪ್ತಪದ(_P):"
-
-#: ../auth-dialog/vpn-password-dialog.c:107
-#, fuzzy
-msgid "_Tertiary Password:"
-msgstr "ಗುಪ್ತಪದ(_P):"
-
-#: ../auth-dialog/vpn-password-dialog.c:252
-#, fuzzy
-msgid "Sh_ow passwords"
-msgstr "ಗುಪ್ತಪದಗಳನ್ನು ತೋರಿಸು(_w)"
-
 #: ../properties/advanced-dialog.c:188
 msgid "All Available (Default)"
 msgstr "ಲಭ್ಯವಿರುವ ಎಲ್ಲವೂ (ಪೂರ್ವನಿಯೋಜಿತ)"
@@ -149,14 +134,8 @@ msgid "Couldn't open file for writing."
 msgstr ""
 
 #: ../properties/nm-l2tp.c:57
-#, fuzzy
 msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr "ಪಾಯಿಂಟ್-ಟು-ಪಾಯಿಂಟ್ ಟನಲಿಂಗ್ ಪ್ರೊಟೊಕಾಲ್ (L2TP)"
-
-#: ../properties/nm-l2tp.c:58
-#, fuzzy
-msgid "Compatible with L2TP VPN servers."
-msgstr "Microsoft ಹಾಗು ಇತರೆ L2TP VPN ಪರಿಚಾರಗಳೊಂದಿಗೆ ಸಹವರ್ತನೀಯವಾಗಿರುತ್ತದೆ."
+msgstr ""
 
 #: ../properties/nm-l2tp.c:214
 #, c-format
@@ -235,9 +214,8 @@ msgid "The password is not required"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
-#, fuzzy
 msgid "L2TP IPsec Options"
-msgstr "L2TP ಸುಧಾರಿತ ಆಯ್ಕೆಗಳು"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -246,11 +224,6 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:3
 msgid "General"
 msgstr "ಸಾಮಾನ್ಯ"
-
-#: ../properties/nm-l2tp-dialog.ui.h:4
-#, fuzzy
-msgid "Gateway ID:"
-msgstr "ಗೇಟ್‌ವೇ(_G):"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
@@ -276,9 +249,8 @@ msgid "_Enforce UDP encapsulation"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
-#, fuzzy
 msgid "Ad_vanced"
-msgstr "ಸುಧಾರಿತ(_v)..."
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "_Gateway:"
@@ -291,9 +263,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
-#, fuzzy
 msgid "Optional"
-msgstr "ಐಚ್ಛಿಕ"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid ""
@@ -338,12 +309,10 @@ msgid "Default"
 msgstr "ಪೂರ್ವನಿಯೋಜಿತ"
 
 #: ../properties/nm-l2tp-dialog.ui.h:29
-#, fuzzy
 msgid "L2TP PPP Options"
-msgstr "L2TP ಸುಧಾರಿತ ಆಯ್ಕೆಗಳು"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
-#, fuzzy
 msgid "Authentication"
 msgstr "ದೃಢೀಕರಣ"
 
@@ -358,7 +327,6 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:34
-#, fuzzy
 msgid "Security and Compression"
 msgstr "ಸುರಕ್ಷತೆ ಹಾಗು ಸಂಕುಚನೆ"
 
@@ -434,11 +402,6 @@ msgid ""
 "transmit direction.\n"
 "config: nopcomp (when unchecked)"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:55
-#, fuzzy
-msgid "Use _Address/Control compression"
-msgstr "TCP ಹೆಡರ್ ಸಂಕುಚನೆಯನ್ನು ಬಳಸು(_h)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:56
 msgid ""

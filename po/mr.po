@@ -38,21 +38,6 @@ msgstr "परवलीचा शब्द:"
 msgid "_Password:"
 msgstr "पासवर्ड (_P):"
 
-#: ../auth-dialog/vpn-password-dialog.c:104
-#, fuzzy
-msgid "_Secondary Password:"
-msgstr "पासवर्ड (_P):"
-
-#: ../auth-dialog/vpn-password-dialog.c:107
-#, fuzzy
-msgid "_Tertiary Password:"
-msgstr "पासवर्ड (_P):"
-
-#: ../auth-dialog/vpn-password-dialog.c:252
-#, fuzzy
-msgid "Sh_ow passwords"
-msgstr "पासवर्डस् दाखवा (_w)"
-
 #: ../properties/advanced-dialog.c:188
 msgid "All Available (Default)"
 msgstr "सर्व उपलब्ध (मुलभूत)"
@@ -148,14 +133,8 @@ msgid "Couldn't open file for writing."
 msgstr ""
 
 #: ../properties/nm-l2tp.c:57
-#, fuzzy
 msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr "Layer 2 Tunneling Protocol (L2TP)"
-
-#: ../properties/nm-l2tp.c:58
-#, fuzzy
-msgid "Compatible with L2TP VPN servers."
-msgstr "Microsoft व इतर L2TP VPN सर्वरशी सहत्व."
+msgstr ""
 
 #: ../properties/nm-l2tp.c:214
 #, c-format
@@ -245,11 +224,6 @@ msgstr ""
 msgid "General"
 msgstr "सर्वसामान्य"
 
-#: ../properties/nm-l2tp-dialog.ui.h:4
-#, fuzzy
-msgid "Gateway ID:"
-msgstr "गेटवे (_G):"
-
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
 "Optional, how the IPsec server should be identified for authentication.\n"
@@ -274,9 +248,8 @@ msgid "_Enforce UDP encapsulation"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
-#, fuzzy
 msgid "Ad_vanced"
-msgstr "प्रगत (_v)..."
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "_Gateway:"
@@ -289,9 +262,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
-#, fuzzy
 msgid "Optional"
-msgstr "वैक्लपिक"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid ""
@@ -354,7 +326,6 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:34
-#, fuzzy
 msgid "Security and Compression"
 msgstr "सुरक्षा व संकोचन"
 
@@ -430,11 +401,6 @@ msgid ""
 "transmit direction.\n"
 "config: nopcomp (when unchecked)"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:55
-#, fuzzy
-msgid "Use _Address/Control compression"
-msgstr "TCP शिर्षओळ संकोचन वापरा (_h)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:56
 msgid ""

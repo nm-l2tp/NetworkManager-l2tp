@@ -149,14 +149,8 @@ msgid "Couldn't open file for writing."
 msgstr ""
 
 #: ../properties/nm-l2tp.c:57
-#, fuzzy
 msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr "Protokół tunelowania Point-to-Point (L2TP)"
-
-#: ../properties/nm-l2tp.c:58
-#, fuzzy
-msgid "Compatible with L2TP VPN servers."
-msgstr "Zgodny z serwerami firmy Microsoft i innymi serwerami VPN L2TP."
+msgstr ""
 
 #: ../properties/nm-l2tp.c:214
 #, c-format
@@ -196,7 +190,7 @@ msgstr ""
 #: ../properties/nm-l2tp.c:612
 #, c-format
 msgid "could not load UI widget"
-msgstr ""
+msgstr "nie można wczytać widżetu interfejsu użytkownika"
 
 #: ../properties/nm-l2tp.c:711
 #, c-format
@@ -271,7 +265,7 @@ msgstr "Algorytmy fazy pierwszej:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:11
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "Wymuś enkapsulację UDP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
 msgid "Ad_vanced"
@@ -449,11 +443,6 @@ msgid ""
 "config: nopcomp (when unchecked)"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:55
-#, fuzzy
-msgid "Use _Address/Control compression"
-msgstr "Kompresja _nagłówków TCP"
-
 #: ../properties/nm-l2tp-dialog.ui.h:56
 msgid ""
 "Use Address/Control compression in both directions (send and receive).\n"
@@ -516,7 +505,7 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:544
 #, c-format
 msgid "invalid gateway '%s'"
-msgstr ""
+msgstr "nieprawidłowa brama „%s”"
 
 #: ../src/nm-l2tp-service.c:553
 #, c-format
@@ -526,22 +515,23 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:566
 #, c-format
 msgid "invalid integer property '%s'"
-msgstr ""
+msgstr "nieprawidłowa własność liczby całkowitej „%s”"
 
 #: ../src/nm-l2tp-service.c:576
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr ""
+"nieprawidłowa własność zmiennej logicznej „%s” (nie wynosi „yes” lub „no”)"
 
 #: ../src/nm-l2tp-service.c:583
 #, c-format
 msgid "unhandled property '%s' type %s"
-msgstr ""
+msgstr "nieobsługiwana własność „%s” typu „%s”"
 
 #: ../src/nm-l2tp-service.c:594
 #, c-format
 msgid "property '%s' invalid or not supported"
-msgstr ""
+msgstr "własność „%s” jest nieprawidłowa lub nieobsługiwana"
 
 #: ../src/nm-l2tp-service.c:608
 msgid "No VPN configuration options."
@@ -550,7 +540,7 @@ msgstr "Brak opcji konfiguracji VPN."
 #: ../src/nm-l2tp-service.c:625
 #, c-format
 msgid "Missing required option '%s'."
-msgstr ""
+msgstr "Brak wymaganej opcji „%s”."
 
 #: ../src/nm-l2tp-service.c:641
 msgid "No VPN secrets!"
@@ -699,7 +689,7 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1880
 msgid "Don't quit when VPN connection terminates"
-msgstr ""
+msgstr "Nie kończy działania, kiedy połączenie VPN jest kończone"
 
 #: ../src/nm-l2tp-service.c:1881
 msgid "Enable verbose debug logging (may expose passwords)"

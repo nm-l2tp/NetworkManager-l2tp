@@ -29,30 +29,13 @@ msgstr "საჭიროა აუთენტიკაცია VPN ‘%s’-
 msgid "Authenticate VPN"
 msgstr "VPN-აუთენტიკაცია"
 
-#: ../auth-dialog/main.c:170 ../properties/nm-l2tp-dialog.ui.h:24
-#, fuzzy
-msgid "Password:"
-msgstr "_პაროლი:"
-
-#: ../auth-dialog/vpn-password-dialog.c:102
-#, fuzzy
-msgid "_Password:"
-msgstr "_პაროლი:"
-
 #: ../auth-dialog/vpn-password-dialog.c:104
-#, fuzzy
 msgid "_Secondary Password:"
-msgstr "_პაროლი:"
+msgstr ""
 
 #: ../auth-dialog/vpn-password-dialog.c:107
-#, fuzzy
 msgid "_Tertiary Password:"
-msgstr "_პაროლი:"
-
-#: ../auth-dialog/vpn-password-dialog.c:252
-#, fuzzy
-msgid "Sh_ow passwords"
-msgstr "_პაროლი:"
+msgstr ""
 
 #: ../properties/advanced-dialog.c:188
 msgid "All Available (Default)"
@@ -75,9 +58,8 @@ msgid "CHAP"
 msgstr ""
 
 #: ../properties/advanced-dialog.c:330
-#, fuzzy
 msgid "MSCHAP"
-msgstr "MSCHAP-ის უარყოფა"
+msgstr ""
 
 #: ../properties/advanced-dialog.c:342
 msgid "MSCHAPv2"
@@ -234,9 +216,8 @@ msgid "The password is not required"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
-#, fuzzy
 msgid "L2TP IPsec Options"
-msgstr "PPP პარამეტრები"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -245,11 +226,6 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:3
 msgid "General"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:4
-#, fuzzy
-msgid "Gateway ID:"
-msgstr "_კარიბჭე:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
@@ -302,11 +278,6 @@ msgid ""
 "config: domain <domain>"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:19
-#, fuzzy
-msgid "Show password"
-msgstr "_პაროლი:"
-
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "Password passed to PPPD when prompted for it."
 msgstr ""
@@ -319,14 +290,12 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:23
-#, fuzzy
 msgid "User name:"
-msgstr "_მომხმარებელი:"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:25
-#, fuzzy
 msgid "NT Domain:"
-msgstr "_დომენი:"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid "_IPsec Settings..."
@@ -341,9 +310,8 @@ msgid "Default"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:29
-#, fuzzy
 msgid "L2TP PPP Options"
-msgstr "PPP პარამეტრები"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid "Authentication"
@@ -360,14 +328,12 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:34
-#, fuzzy
 msgid "Security and Compression"
-msgstr "კუმშვა"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:35
-#, fuzzy
 msgid "Use _Point-to-Point encryption (MPPE)"
-msgstr "MPPE-შიფრვა"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid ""
@@ -397,9 +363,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:43
-#, fuzzy
 msgid "Allow _BSD data compression"
-msgstr "BSD კუმშვის დაშვება"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:44
 msgid ""
@@ -408,9 +373,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:46
-#, fuzzy
 msgid "Allow _Deflate data compression"
-msgstr "Deflate კუმშვის დაშვება"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:47
 msgid ""
@@ -419,9 +383,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:49
-#, fuzzy
 msgid "Use TCP _header compression"
-msgstr "MPPC-კუმშვის გამოყენება"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:50
 msgid ""
@@ -442,9 +405,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:55
-#, fuzzy
 msgid "Use _Address/Control compression"
-msgstr "MPPC-კუმშვის გამოყენება"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:56
 msgid ""
