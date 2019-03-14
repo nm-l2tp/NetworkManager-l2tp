@@ -66,6 +66,19 @@ else
 fi
 AC_SUBST(PPPD_PLUGIN_DIR)
 
+AC_MSG_CHECKING(whether EAP-TLS patch has been applied to pppd)
+AC_EGREP_CPP(eaptls_passwd_hook, [
+#define USE_EAPTLS
+#include <pppd/pppd.h>
+], [have_eap_tls=yes] , [have_eap_tls=no])
+
+if test "x${have_eap_tls}" = "xno"; then
+	AC_MSG_RESULT(no)
+	AC_MSG_ERROR(EAP-TLS patch has not been applied to pppd)
+else
+	AC_MSG_RESULT(yes)
+fi
+
 AC_ARG_WITH(nm-ipsec-secrets, AS_HELP_STRING([--with-nm-ipsec-secrets=path], [The main IPSec secrets file, defaults to /etc/ipsec.secrets]), [], [with_nm_ipsec_secrets=])
 AS_IF([test -z "$with_nm_ipsec_secrets"], with_nm_ipsec_secrets="/etc/ipsec.secrets")
 if (printf '%s' "$with_nm_ipsec_secrets" | grep -v -q '^/'); then
