@@ -1,32 +1,105 @@
 ==========================================================
-NetworkManager-l2tp-1.8.0 (not released yet)
-Overview of changes since network-manager-l2tp-1.2.10
+NetworkManager-l2tp-1.7.0  (development) 
+Overview of changes since NetworkManager-l2tp-1.2.12
 ==========================================================
 
+DO NOT PROVIDE PRE-BUILT BINARIES of THIS RELEASE UNTIL THE INTENDED LINUX
+DISTRIBUTION SHIPS WITH OPENSSL 3.0.0 OR LATER THAT IS COMPATIBLE with the
+GPLv2 LICENSE.
+
+This is a development release of NetworkManager-l2tp for those that wish to
+try user or machine TLS certificate support with L2TP/IPsec VPN servers.
+For TLS certificate support, the code needs to be linked against libcrypto
+from OpenSSL version 1.1.0 or later.
+Note: OpenSSL versions prior to 3.0.0 are not under the GPL compatible Apache
+License v2 :
+    https://www.openssl.org/source/license.html
+
+* Update translations by merging from various sources.
+* User and machine TLS certificate support.
+* Uses NMACertChooser widget introduced with NetworkManager 1.8.0
+  for certificate support in the GUI.
+* Routines to auto detect the following TLS certificate and private key file
+  formats by looking at the file contents and not the file extension, also
+  determines if the files are encrypted with a password, which includes
+  testing if the password is the empty string on NULL :
+  - PKCS#12 certificates.
+  - X509 certificates (PEM or DER).
+  - PKCS#8 private keys (PEM or DER)
+  - traditional OpenSSL RSA, DSA and ECDSA private keys (PEM or DER).
+* Routines to import certificates and privates keys into a Libreswan NSS
+  database.
+
+==========================================================
+NetworkManager-l2tp-1.2.12
+Overview of changes since NetworkManager-l2tp-1.2.10
+==========================================================
+
+* Update translations by merging from various sources.
+* Added Legacy Proposal button.
+  Clicking Legacy Proposals button populates Phase 1 and 2 Algorithm text entry
+  boxes with proposals offered by Windows Server 2019:
+  - AES256, SHA-1, ECP384 and AES128, SHA-1, ECP256 strong proposals.
+    strongSwan recommends not using SHA-1 in its security recommendations
+    documentation.
+  - 3DES, SHA-1, MODP1024 broken proposal.
+    Legacy Windows 2000 Server era proposal still commonly offered, especially
+    with consumer routers
+* Added following IPsec configuration options:
+  - Phase1 Lifetime - ikelifetime.
+  - Phase2 Lifetime - salifetime (libreswan) / lifetime (strongswan).
+  - Use IP compression - compress.
+  - Disable PFS - pfs.
+* renamed Gateway ID to Remote ID and updated GUI tooltip.
+* removed restrictions that only IP addresses are allowed for the Remote ID.
+* Generated config file changes, following config files :
+  - /var/run/nm-l2tp-xl2tpd-_UUID_.conf
+  - /var/run/nm-l2tp-xl2tpd-control-_UUID_
+  - /var/run/nm-l2tp-xl2tpd-_UUID_.pid
+  - /var/run/nm-l2tp-ppp-options-_UUID_
+  are now:
+  - /var/run/nm-l2tp-_UUID_/xl2tpd.conf
+  - /var/run/nm-l2tp-_UUID_/xl2tpd-control
+  - /var/run/nm-l2tp-_UUID_/xl2tpd-.pid
+  - /var/run/nm-l2tp-_UUID_/ppp-options
+* Use same IP secrets file for all L2TP connections, 
+  /etc/ipsec.d/ipsec.nm-l2tp.secrets is now used instead of
+  /etc/ipsec.d/nm-l2tp-ipsec-_UUID_.secrets, where _UUID_ was the UUID of the
+  VPN connection.
+* Force ikev2=never for Libreswan 
+  ikev2=permit is the implicit default setting, which tries to detect
+  a "bid down" attack from IKEv2 to IKEv1 and can have an impact on
+  the default proposals.
+* Add nm-l2tp-service- prefix back to pppd ipparam argument.
+  The ipparam argument is used by a condition in the Debian resolvconf's
+  /etc/ppp/ip-up.d/000resolvconf script.
+* PSK is now Base64 encoded, allows PSK to contain double quotation mark (").
+* Fix build without GTK/Gnome.
+* Legacy KDE Plasman-nm user certificate support.
 * libnm-glib compatibility (NetworkManager < 1.0) is disabled by default.
   It can be enabled by passing --with-libnm-glib to configure script.
   Nobody should need it by now. Users that still use this are encouraged
   to let us know before the libnm-glib support is removed for good.
 * The auth helper in external UI mode can now be run without a display
   server. Future nmcli version will utilize this for handling the
-  secrets without a graphical desktop.
+secrets without a graphical desktop.
 
 =======================================================
 NetworkManager-l2tp-1.2.10
-Overview of changes since network-manager-l2tp-1.2.8
+Overview of changes since NetworkManager-l2tp-1.2.8
 =======================================================
 
 This is a new stable release of NetworkManager-l2tp.  Notable changes include:
 
 * Point version 1.2.10 appdata image URIs to nm-1-2 github branch:
-  https://raw.githubusercontent.com/nm-l2tp/network-manager-l2tp/nm-1-2/appdata
+  https://raw.githubusercontent.com/nm-l2tp/NetworkManager-l2tp/nm-1-2/appdata
 * Corrected force UDP encapsulation toggle button behavior.
 * Workaround for libreswan `ipsec status` issue with short (< 8 char) PSKs.
 * fix gcc -Wimplicit-fallthrough warning.
 
 =======================================================
 NetworkManager-l2tp-1.2.8
-Overview of changes since network-manager-l2tp-1.2.6
+Overview of changes since NetworkManager-l2tp-1.2.6
 =======================================================
 
 This is a new stable release of NetworkManager-l2tp.  Notable changes include:
@@ -44,7 +117,7 @@ This is a new stable release of NetworkManager-l2tp.  Notable changes include:
 
 =======================================================
 NetworkManager-l2tp-1.2.6
-Overview of changes since network-manager-l2tp-1.2.4
+Overview of changes since NetworkManager-l2tp-1.2.4
 =======================================================
 
 This is a new stable release of NetworkManager-l2tp.  Notable changes include:
@@ -66,7 +139,7 @@ This is a new stable release of NetworkManager-l2tp.  Notable changes include:
 
 =======================================================
 NetworkManager-l2tp-1.2.4
-Overview of changes since network-manager-l2tp-1.2.2
+Overview of changes since NetworkManager-l2tp-1.2.2
 =======================================================
 
 This is a new stable release of NetworkManager-l2tp.  Notable changes include:
