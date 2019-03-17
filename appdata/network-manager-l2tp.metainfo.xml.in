@@ -25,7 +25,12 @@
 
   <screenshots>
     <screenshot type="default">
-      <image width="800" height="498">https://raw.githubusercontent.com/nm-l2tp/network-manager-l2tp/master/appdata/l2tp.png</image>
+      <image width="800" height="582">https://raw.githubusercontent.com/nm-l2tp/network-manager-l2tp/master/appdata/l2tp.png</image>
+    </screenshot>
+
+    <screenshot type="default">
+      <_caption>The IPsec options dialog</_caption>
+      <image width="800" height="700">https://raw.githubusercontent.com/nm-l2tp/network-manager-l2tp/master/appdata/l2tp-ipsec.png</image>
     </screenshot>
 
     <screenshot type="default">
