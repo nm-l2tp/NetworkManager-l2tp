@@ -1,5 +1,9 @@
 # NetworkMananger-l2tp
 
+DO NOT PROVIDE PRE-BUILT BINARIES of THIS RELEASE UNTIL THE INTENDED LINUX
+DISTRIBUTION SHIPS WITH OPENSSL 3.0.0 OR LATER THAT IS COMPATIBLE with the
+GPLv2 LICENSE. But the source code will build with OpenSSL 1.1.0 and later.
+
 NetworkManager-l2tp is a VPN plugin for NetworkManager 1.8 and later which
 provides support for L2TP and L2TP/IPsec (i.e. L2TP over IPsec) connections.
 
@@ -9,15 +13,30 @@ For IPsec support, it uses either of the following :
 * Libreswan ( https://libreswan.org )
 * strongSwan ( https://www.strongswan.org )
 
-To be able to authenticate users with X.509 certificates, the ppp package has
-to have the EAP-TLS patch for pppd applied to the source code (which most Linux
-distributions have already done) :
+For user authentication it supports either:
+* username/pasword credentials.
+* TLS certificates.
 
-* https://www.nikhef.nl/~janjust/ppp/documentation.html
+For machine authentication is supports either:
+* Pre-shared key (PSK).
+* TLS certificates.
+
+This VPN plugin auto detect the following TLS certificate and private key file
+formats by looking at the file contents and not the file extension :
+* PKCS#12 certificates.
+* X509 certificates (PEM or DER).
+* PKCS#8 private keys (PEM or DER)
+* traditional OpenSSL RSA, DSA and ECDSA private keys (PEM or DER).
+
+For TLS user certificate support, the ppp package has to have the EAP-TLS patch
+for pppd applied to the ppp source code (which many Linux distributions already
+do) :
+
+* https://www.nikhef.nl/~janjust/ppp/
 
 For details on pre-built packages, known issues and build dependencies,
 please visit the Wiki :
-* https://github.com/nm-l2tp/network-manager-l2tp/wiki
+* https://github.com/nm-l2tp/NetworkManager-l2tp/wiki
 
 ## Building
 
@@ -56,6 +75,11 @@ directory that exists.
       --localstatedir=/var \
       --with-pppd-plugin-dir=/usr/lib64/pppd/2.4.7
 
+## VPN connection profile files
+
+VPN connection profile files (along with other NetworkManager profile files)
+are stored under `/etc/NetworkManager/system-connections/`
+
 ## Run-time generated files
 
 The following files located under `/var/run` assume `--localstatedir=/var` or
@@ -63,17 +87,17 @@ The following files located under `/var/run` assume `--localstatedir=/var` or
 
 * /var/run/nm-l2tp-_UUID_/xl2tpd.conf
 * /var/run/nm-l2tp-_UUID_/xl2tpd-control
-* /var/run/nm-l2tp-_UUID_/xl2tpd-.pid
+* /var/run/nm-l2tp-_UUID_/xl2tpd.pid
 * /var/run/nm-l2tp-_UUID_/ppp-options
 * /var/run/nm-l2tp-_UUID_/ipsec.conf
-* /etc/ipsec.d/nm-l2tp-ipsec-_UUID_.secrets
+* /etc/ipsec.d/ipsec.nm-l2tp.secrets
 
 where _UUID_ is the NetworkManager UUID for the VPN connection.
 
-NetworkManager-l2tp will append the following line to `/etc/ipsec.secrets` at
-run-time if the line is missing:
+If strongswan is being used, NetworkManager-l2tp will append the following line
+to `/etc/ipsec.secrets` at run-time if the line is missing:
 
-    include /etc/ipsec.d/*.secrets
+    include ipsec.d/ipsec.nm-l2tp.secrets
 
 ## Debugging
 
@@ -154,7 +178,7 @@ the default set of allowed algorithms.
 If you are not sure which IKEv1 algorithms your VPN server uses, you can query
 the VPN server with the `ike-scan.sh` script located in the IPsec IKEv1
 algorithms section of the Wiki :
-* https://github.com/nm-l2tp/network-manager-l2tp/wiki/Known-Issues
+* https://github.com/nm-l2tp/NetworkManager-l2tp/wiki/Known-Issues
 
 If the VPN server is only proposing weak or broken algorithms, it is
 recommended that it be reconfigured to propose stronger algorithms, e.g.
@@ -163,26 +187,56 @@ AES, SHA2 and MODP2048.
 If for some reason the VPN server cannot be reconfigured and you are not too
 concerned about security, for a workaround, user specified phase 1 (ike) and
 phase 2 (esp) algorithms can be specified in the IPsec Options dialog box in
-the `Advanced` section. See the following example and the IPsec IKEv1 algorithms section of the Wiki for more details :
-* https://github.com/nm-l2tp/network-manager-l2tp/wiki/Known-Issues
+the `Advanced` section. See the following example and the IPsec IKEv1
+algorithms section of the Wiki for more details :
+* https://github.com/nm-l2tp/NetworkManager-l2tp/wiki/Known-Issues
 
-### Example workaround for 3DES, SHA1 and MODP1024 broken algorithms
+### Example workaround for 3DES, SHA1 and MODP1024 broken proposal
 
-Unfortunately there are many L2TP/IPsec VPN servers still offering only 3DES,
-SHA1 and MODP1024. One of the main reasons possibly for this is because it is
-the default Microsoft has offered with their L2TP/IPsec VPN servers since the
-days Windows XP was the main client.
+Unfortunately there are many L2TP/IPsec VPN servers and consumer routers still
+offering only the 3DES, SHA1 and MODP1024 broken proposal first introduced with
+Windows 2000 Server.
 
-If you are using strongSwan for IPsec client support, enter the following in
-the corresponding IPsec Options dialog box advanced section:
+Windows Server 2019 offers the following proposals :
 
+* AES256-SHA1-ECP384 and AES128-SHA1-ECP256 strong proposals.
+strongSwan recommends not using SHA1 in its security recommendations
+documentation.
+
+* 3DES-SHA1-MODP1024 broken proposal.
+Legacy Windows 2000 Server era proposal.
+
+Pressing the "Legacy Proposals" button in the IPsec Options dialog box
+populates Phase 1 and 2 Algorithm text entry boxes with the following (note: it
+auto-detects if you are using strongswan or libreswan and populates
+appropriately):
+
+strongswan :
+* Phase1 Algorithms : aes256-sha1-ecp384,aes128-sha1-ecp256,3des-sha1-modp1024!
+* Phase2 Algorithms : aes256-sha1,aes128-sha1,3des-sha1!
+
+libreswan :
+* Phase1 Algorithms : aes256-sha1-ecp\_384,aes128-sha1-ecp\_256,3des-sha1-modp1024
+* Phase2 Algorithms : aes256-sha1,aes128-sha1,3des-sha1
+
+As the proposals populated by the "Legacy Proposals" button includes the
+3DES, SHA1 and MODP1024 broken proposal, it should work with L2TP/IPsec VPN
+servers and consumer routers that only offer that proposal. Alternatively,
+manually enter the following :
+
+strongswan :
+* Phase1 Algorithms : 3des-sha1-modp1024!
+* Phase2 Algorithms : 3des-sha1!
+
+libreswan :
 * Phase1 Algorithms : 3des-sha1-modp1024
 * Phase2 Algorithms : 3des-sha1
 
-If you are using Libreswan >= 3.20 for IPsec client support, enter the
-following in the IPsec Options dialog box advanced section:
 
-* Phase1 Algorithms : 3des-sha1;modp1024
-* Phase2 Algorithms : 3des-sha1
+If you want to confirm if you are using libreswan or strongswan, issue the
+following on the command-line:
 
+```
+ipsec --version
+```
 
