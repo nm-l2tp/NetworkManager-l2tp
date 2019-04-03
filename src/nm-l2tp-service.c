@@ -666,12 +666,21 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 					if (!has_include_ipsec_secrets (ipsec_secrets_file)) {
 						fd = open (ipsec_secrets_file, O_CREAT|O_WRONLY, S_IRUSR|S_IWUSR);
 						if (fd == -1) {
-							snprintf (errorbuf, sizeof(errorbuf), _("Could not open %s"),
-							          ipsec_secrets_file);
 							crypto_deinit_openssl();
+							errsv = errno;
+							snprintf (errorbuf, sizeof(errorbuf),
+									  _("Could not open %s for writing: %s"),
+									  ipsec_secrets_file, g_strerror (errsv));
 							return nm_l2tp_ipsec_error(error, errorbuf);
 						}
 						fp = fdopen(fd, "a");
+						if (fp == NULL) {
+							crypto_deinit_openssl();
+							snprintf (errorbuf, sizeof(errorbuf),
+									  _("Could not append \"include ipsec.d/ipsec.nm-l2tp.secrets\" to %s"),
+									  ipsec_secrets_file);
+							return nm_l2tp_ipsec_error(error, errorbuf);
+						}
 						fprintf(fp, "\n\ninclude ipsec.d/ipsec.nm-l2tp.secrets\n");
 						fclose(fp);
 						close(fd);
