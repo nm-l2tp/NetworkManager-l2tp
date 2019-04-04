@@ -222,8 +222,9 @@ has_include_ipsec_secrets (const char *ipsec_secrets_file) {
 
 	all_lines = g_strsplit (contents, "\n", 0);
 	for (int i = 0; all_lines[i]; i++) {
-		if (g_str_has_prefix (all_lines[i], "include ipsec.d/ipsec.nm-l2tp.secrets")) {
-			return TRUE;
+		if (g_str_has_prefix (all_lines[i], "include ")) {
+			if (strstr (all_lines[i], "ipsec.d/ipsec.nm-l2tp.secrets"))
+				return TRUE;
 		}
 	}
 	return FALSE;
