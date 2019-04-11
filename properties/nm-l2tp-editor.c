@@ -30,6 +30,8 @@
 #include "ppp-dialog.h"
 #include "ipsec-dialog.h"
 
+#include "shared/utils.h"
+
 /*****************************************************************************/
 
 static void l2tp_plugin_ui_widget_interface_init (NMVpnEditorInterface *iface_class);
@@ -315,7 +317,7 @@ init_password_icon (L2tpPluginUiWidget *self,
 }
 
 static gboolean
-init_plugin_ui (L2tpPluginUiWidget *self, NMConnection *connection, GError **error)
+init_plugin_ui (L2tpPluginUiWidget *self, gboolean have_ipsec, NMConnection *connection, GError **error)
 {
 	L2tpPluginUiWidgetPrivate *priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
 	NMSettingVpn *s_vpn;
@@ -363,7 +365,12 @@ init_plugin_ui (L2tpPluginUiWidget *self, NMConnection *connection, GError **err
 	g_signal_connect (G_OBJECT (widget), "clicked", G_CALLBACK (ppp_button_clicked_cb), self);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "ipsec_button"));
-	g_signal_connect (G_OBJECT (widget), "clicked", G_CALLBACK (ipsec_button_clicked_cb), self);
+	g_return_val_if_fail (widget != NULL, FALSE);
+	if (have_ipsec) {
+		g_signal_connect (G_OBJECT (widget), "clicked", G_CALLBACK (ipsec_button_clicked_cb), self);
+	} else {
+		gtk_widget_set_sensitive (widget, FALSE);
+	}
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder,  "show_passwords_checkbutton"));
 	g_return_val_if_fail (widget != NULL, FALSE);
@@ -514,6 +521,7 @@ nm_vpn_plugin_ui_widget_interface_new (NMConnection *connection, GError **error)
 	NMVpnEditor *object;
 	L2tpPluginUiWidgetPrivate *priv;
 	gboolean new = TRUE;
+	gboolean have_ipsec = FALSE;
 	NMSettingVpn *s_vpn;
 
 	if (error)
@@ -551,7 +559,8 @@ nm_vpn_plugin_ui_widget_interface_new (NMConnection *connection, GError **error)
 		nm_setting_vpn_foreach_data_item (s_vpn, is_new_func, &new);
 	priv->new_connection = new;
 
-	if (!init_plugin_ui (L2TP_PLUGIN_UI_WIDGET (object), connection, error)) {
+	have_ipsec = nm_find_ipsec () != NULL;
+	if (!init_plugin_ui (L2TP_PLUGIN_UI_WIDGET (object), have_ipsec, connection, error)) {
 		g_object_unref (object);
 		return NULL;
 	}
@@ -561,10 +570,15 @@ nm_vpn_plugin_ui_widget_interface_new (NMConnection *connection, GError **error)
 		g_object_unref (object);
 		return NULL;
 	}
-	priv->ipsec = ipsec_dialog_new_hash_from_connection (connection, error);
-	if (!priv->ipsec) {
-		g_object_unref (object);
-		return NULL;
+
+	if (have_ipsec) {
+		priv->ipsec = ipsec_dialog_new_hash_from_connection (connection, error);
+		if (!priv->ipsec) {
+			g_object_unref (object);
+			return NULL;
+		}
+	} else {
+		priv->ipsec = NULL;
 	}
 
 	return object;
