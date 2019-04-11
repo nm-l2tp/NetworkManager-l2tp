@@ -31,6 +31,9 @@ check_ipsec_daemon (const char *path)
 	const char *argv[] = { path, "--version", NULL };
 	g_autofree char *output = NULL;
 
+	if (path == NULL)
+		return NM_L2TP_IPSEC_DAEMON_UNKNOWN;
+
 	if (g_spawn_sync (NULL, (char **) argv, NULL, 0, NULL, NULL, &output, NULL, NULL, NULL)) {
 		if (!output)
 			return NM_L2TP_IPSEC_DAEMON_UNKNOWN;
