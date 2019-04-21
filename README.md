@@ -125,55 +125,51 @@ issue:
 
     journalctl -b
 
-### Custom Debugging - Libreswan
+### Libreswan Custom Debugging
 
 The Libreswan debugging can be cutomized by setting the `PLUTODEBUG` env
 variable which corresponds to the `plutodebug` ipsec.conf config section option.
-The syntax for `PLUTODEBUG` is a comma separated list of the following format :
+The syntax for `PLUTODEBUG` is a white-space separated list of the following
+format :
 
-    PLUTODEBUG="TYPE, TYPE, TYPE"
+    PLUTODEBUG="TYPE TYPE ... TYPE"
 
 Where TYPE is a debug option from the list output by issuing the following on
 the command-line :
 
     ipsec whack --debug list
 
-Examples:
+*Examples:*
 
 #### Debian and Ubuntu
-    sudo PLUTODEBUG="all, proposal-parser" \
-         /usr/lib/NetworkManager/nm-l2tp-service --debug
+    sudo PLUTODEBUG="all proposal-parser" /usr/lib/NetworkManager/nm-l2tp-service --debug
 
 #### Fedora and Red Hat Enterprise Linux
-    sudo PLUTODEBUG="all, proposal-parser" \
-         /usr/libexec/nm-l2tp-service --debug
+    sudo PLUTODEBUG="all proposal-parser" /usr/libexec/nm-l2tp-service --debug
 
-### Custom Debugging - strongSwan
+### strongSwan Custom Debugging
 
 The strongSwan debugging can be cutomized by setting the `CHARONDEBUG` env
 variable which corresponds to the `charondebug` ipsec.conf config section option.
 The syntax for `CHARONDEBUG` is a comma separated list of the following format :
 
-    CHARONDEBUG="TYPE LEVEL, TYPE LEVEL, TYPE LEVEL"
+    CHARONDEBUG="TYPE LEVEL, TYPE LEVEL, ..., TYPE LEVEL"
 
 where TYPE is:
-    any|dmn|mgr|ike|chd|job|cfg|knl|net|asn|enc|tnc|imc|imv|pts|tls|esp|lib
+  any|dmn|mgr|ike|chd|job|cfg|knl|net|asn|enc|tnc|imc|imv|pts|tls|esp|lib
 
 and LEVEL is: -1|0|1|2|3|4
 
-Examples:
+*Examples:*
 
 #### Debian and Ubuntu
-    sudo CHARONDEBUG="knl 1, ike 2, esp 2, lib 1, cfg 3" \
-        /usr/lib/NetworkManager/nm-l2tp-service --debug
+    sudo CHARONDEBUG="knl 1, ike 2, esp 2, lib 1, cfg 3" /usr/lib/NetworkManager/nm-l2tp-service --debug
 
 #### Fedora and Red Hat Enterprise Linux
-    sudo CHARONDEBUG="knl 1, ike 2, esp 2, lib 1, cfg 3" \
-        /usr/libexec/nm-l2tp-service --debug
+    sudo CHARONDEBUG="knl 1, ike 2, esp 2, lib 1, cfg 3" /usr/libexec/nm-l2tp-service --debug
 
 #### openSUSE
-    sudo CHARONDEBUG="knl 1, ike 2, esp 2, lib 1, cfg 3" \
-        /usr/lib/nm-l2tp-service --debug
+    sudo CHARONDEBUG="knl 1, ike 2, esp 2, lib 1, cfg 3" /usr/lib/nm-l2tp-service --debug
 
 ## Issue with not stopping system xl2tpd service
 
