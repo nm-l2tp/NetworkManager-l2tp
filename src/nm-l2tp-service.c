@@ -848,6 +848,24 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 			return nm_l2tp_ipsec_error(error, _("Could not write ipsec config"));
 		}
 
+		/* IPsec config section */
+		if (_LOGD_enabled ()){
+			write_config_option (fd, "config setup\n");
+			if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
+				if (getenv ("PLUTODEBUG")) {
+					write_config_option (fd, "  plutodebug=\"%s\"\n\n", getenv ("PLUTODEBUG"));
+				} else {
+					write_config_option (fd, "  plutodebug=\"all\"\n\n");
+				}
+			} else if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_STRONGSWAN) {
+				if (getenv ("CHARONDEBUG")) {
+					write_config_option (fd, "  charondebug=\"%s\"\n\n", getenv ("CHARONDEBUG"));
+				} else {
+					write_config_option (fd, "  charondebug=\"knl 1, ike 2, esp 2, lib 1, cfg 2\"\n\n");
+				}
+			}
+		}
+
 		/* strongSwan CA section */
 		if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_STRONGSWAN && priv->machine_authtype == TLS_AUTH) {
 			if (tls_ca_filename) {
