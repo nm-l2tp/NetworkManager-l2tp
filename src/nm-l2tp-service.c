@@ -861,7 +861,8 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 				if (getenv ("CHARONDEBUG")) {
 					write_config_option (fd, "  charondebug=\"%s\"\n\n", getenv ("CHARONDEBUG"));
 				} else {
-					write_config_option (fd, "  charondebug=\"knl 1, ike 2, esp 2, lib 1, cfg 2\"\n\n");
+					/* Default strongswan debug level is 1 (control), set it to 2 (controlmore) for ike, esp & cfg */
+					write_config_option (fd, "  charondebug=\"ike 2, esp 2, cfg 2\"\n\n");
 				}
 			}
 		}
