@@ -737,6 +737,13 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 			if(value)write_config_option (fd, "  lifetime=%s\n", value);
 		}
 
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_FORCEENCAPS);
+		if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
+			if(value)write_config_option (fd, "  encapsulation=%s\n", value);
+		} else {
+			if(value)write_config_option (fd, "  forceencaps=%s\n", value);
+		}
+
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_IKEV2);
 		if (nm_streq0 (value, "yes")) {
 			if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
