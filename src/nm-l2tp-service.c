@@ -171,6 +171,7 @@ static const ValidProperty valid_properties[] = {
 	{ NM_L2TP_KEY_IPSEC_SALIFETIME,  G_TYPE_UINT, FALSE },
 	{ NM_L2TP_KEY_IPSEC_FORCEENCAPS, G_TYPE_BOOLEAN, FALSE },
 	{ NM_L2TP_KEY_IPSEC_IPCOMP,      G_TYPE_BOOLEAN, FALSE },
+	{ NM_L2TP_KEY_IPSEC_IKEV2,       G_TYPE_BOOLEAN, FALSE },
 	{ NM_L2TP_KEY_IPSEC_PFS,         G_TYPE_BOOLEAN, FALSE },
 	{ KDE_PLASMA_L2TP_KEY_USE_CERT,  G_TYPE_UINT, FALSE },
 	{ KDE_PLASMA_L2TP_KEY_CERT_CA,   G_TYPE_STRING, FALSE },
@@ -720,12 +721,6 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 
 		write_config_option (fd, "  keyingtries=%%forever\n");
 
-		if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
-			write_config_option (fd, "  ikev2=never\n");
-		} else {
-			write_config_option (fd, "  keyexchange=ikev1\n");
-		}
-
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_IKE);
 		if(value)write_config_option (fd, "  ike=%s\n", value);
 
@@ -742,11 +737,19 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 			if(value)write_config_option (fd, "  lifetime=%s\n", value);
 		}
 
-		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_FORCEENCAPS);
-		if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
-			if(value)write_config_option (fd, "  encapsulation=%s\n", value);
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_IKEV2);
+		if (nm_streq0 (value, "yes")) {
+			if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
+				write_config_option (fd, "  ikev2=yes\n");
+			} else {
+				write_config_option (fd, "  keyexchange=ikev2\n");
+			}
 		} else {
-			if(value)write_config_option (fd, "  forceencaps=%s\n", value);
+			if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
+				write_config_option (fd, "  ikev2=no\n");
+			} else {
+				write_config_option (fd, "  keyexchange=ikev1\n");
+			}
 		}
 
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_IPCOMP);

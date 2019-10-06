@@ -76,6 +76,7 @@
 #define NM_L2TP_KEY_IPSEC_SALIFETIME  "ipsec-salifetime"
 #define NM_L2TP_KEY_IPSEC_FORCEENCAPS "ipsec-forceencaps"
 #define NM_L2TP_KEY_IPSEC_IPCOMP      "ipsec-ipcomp"
+#define NM_L2TP_KEY_IPSEC_IKEV2       "ipsec-ikev2"
 #define NM_L2TP_KEY_IPSEC_PFS         "ipsec-pfs"
 
 /* Internal auth-dialog -> service token indicating that no secrets are required
