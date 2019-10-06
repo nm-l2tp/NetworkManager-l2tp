@@ -1009,16 +1009,29 @@ ipsec.secrets: &lt;ID&gt;</property>
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkButton" id="legacy_proposals_button">
-                            <property name="label" translatable="yes">_Legacy Proposals</property>
+                          <object class="GtkButton" id="prevalent_algorithms_button">
+                            <property name="label" translatable="yes">_Prevalent Algorithms</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
-                            <property name="tooltip_text" translatable="yes">Populates Phase 1 and 2 Algorithm text entry boxes with proposals offered by Windows Server 2019:
-• aes256-sha1-ecp384 and aes128-sha1-ecp256 strong proposals.
-strongSwan recommends not using SHA-1 in its security recommendations documentation.
-• 3des-sha1-modp1024 broken proposal.
-Legacy Windows 2000 Server era proposal still commonly offered, especially with consumer routers.</property>
+                            <property name="tooltip_text" translatable="yes">Populates Phase 1 and 2 Algorithm text entry boxes with a combination of proposals offered by Windows 10 and macOS/iOS L2TP clients:
+• Phase 1:
+{cipher=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_2048},
+{cipher=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_1536},
+{cipher=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_1024},
+{cipher=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_2048},
+{cipher=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_1536},
+{cipher=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_1024},
+{cipher=AES_CBC_256 integ=HMAC_SHA1_96 group=ECP_384},
+{cipher=AES_CBC_128 integ=HMAC_SHA1_96 group=MODP_1024},
+{cipher=AES_CBC_128 integ=HMAC_SHA1_96 group=ECP_256},
+{cipher=3DES_CBC integ=HMAC_SHA1_96 group=MODP_2048},
+{cipher=3DES_CBC integ=HMAC_SHA1_96 group=MODP_1024}
+
+• Phase 2:
+{cipher=AES_CBC_256 integ=HMAC_SHA1_96},
+{cipher=AES_CBC_128 integ=HMAC_SHA1_96},
+{cipher=3DES_CBC integ=HMAC_SHA1_96}</property>
                             <property name="halign">center</property>
                             <property name="valign">start</property>
                             <property name="use_underline">True</property>
