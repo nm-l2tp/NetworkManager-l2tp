@@ -112,6 +112,18 @@ config: xl2tpd lns parameter</property>
           </packing>
         </child>
         <child>
+          <object class="GtkAlignment" id="alignment1">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="left_padding">12</property>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
           <object class="GtkAlignment" id="alignment2">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
@@ -350,18 +362,6 @@ config: auth-user-pass</property>
           <packing>
             <property name="expand">False</property>
             <property name="fill">False</property>
-            <property name="position">1</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkAlignment" id="alignment1">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="left_padding">12</property>
-          </object>
-          <packing>
-            <property name="expand">True</property>
-            <property name="fill">True</property>
             <property name="position">1</property>
           </packing>
         </child>
@@ -1055,7 +1055,7 @@ config: ipsec-forceencaps &lt;yes/no&gt;</property>
                       <packing>
                         <property name="expand">False</property>
                         <property name="fill">True</property>
-                        <property name="position">3</property>
+                        <property name="position">1</property>
                       </packing>
                     </child>
                     <child>
@@ -1074,7 +1074,26 @@ config: ipsec-ipcomp &lt;yes/no&gt;</property>
                       <packing>
                         <property name="expand">False</property>
                         <property name="fill">True</property>
-                        <property name="position">4</property>
+                        <property name="position">2</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkCheckButton" id="ikev2_check">
+                        <property name="label" translatable="yes">Use IKEv_2 key exchange</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">False</property>
+                        <property name="tooltip_text" translatable="yes">Use IKEv2 key exchange
+config: ipsec-ikev2 &lt;yes/no&gt;</property>
+                        <property name="use_underline">True</property>
+                        <property name="xalign">0</property>
+                        <property name="active">True</property>
+                        <property name="draw_indicator">True</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">3</property>
                       </packing>
                     </child>
                     <child>
@@ -1093,7 +1112,7 @@ config: ipsec-pfs &lt;no/yes&gt;</property>
                       <packing>
                         <property name="expand">False</property>
                         <property name="fill">True</property>
-                        <property name="position">5</property>
+                        <property name="position">4</property>
                       </packing>
                     </child>
                   </object>

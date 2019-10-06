@@ -183,6 +183,7 @@ static const ValidProperty valid_properties[] = {
 	{ NM_L2TP_KEY_IPSEC_SALIFETIME,         G_TYPE_UINT, FALSE },
 	{ NM_L2TP_KEY_IPSEC_FORCEENCAPS,        G_TYPE_BOOLEAN, FALSE },
 	{ NM_L2TP_KEY_IPSEC_IPCOMP,             G_TYPE_BOOLEAN, FALSE },
+	{ NM_L2TP_KEY_IPSEC_IKEV2,              G_TYPE_BOOLEAN, FALSE },
 	{ NM_L2TP_KEY_IPSEC_PFS,                G_TYPE_BOOLEAN, FALSE },
 	{ NM_L2TP_KEY_PASSWORD"-flags",         G_TYPE_UINT, FALSE },
 	{ NM_L2TP_KEY_USER_CERTPASS"-flags",    G_TYPE_UINT, FALSE },
@@ -953,12 +954,6 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 
 		write_config_option (fd, "  keyingtries=%%forever\n");
 
-		if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
-			write_config_option (fd, "  ikev2=never\n");
-		} else {
-			write_config_option (fd, "  keyexchange=ikev1\n");
-		}
-
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_IKE);
 		if(value)write_config_option (fd, "  ike=%s\n", value);
 
@@ -984,6 +979,21 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_IPCOMP);
 		if(value)write_config_option (fd, "  compress=%s\n", value);
+
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_IKEV2);
+		if (nm_streq0 (value, "yes")) {
+			if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
+				write_config_option (fd, "  ikev2=yes\n");
+			} else {
+				write_config_option (fd, "  keyexchange=ikev2\n");
+			}
+		} else {
+			if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
+				write_config_option (fd, "  ikev2=no\n");
+			} else {
+				write_config_option (fd, "  keyexchange=ikev1\n");
+			}
+		}
 
 		if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
 			value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_PFS);

@@ -55,6 +55,7 @@ static const char *ipsec_keys[] = {
 	NM_L2TP_KEY_IPSEC_SALIFETIME,
 	NM_L2TP_KEY_IPSEC_FORCEENCAPS,
 	NM_L2TP_KEY_IPSEC_IPCOMP,
+	NM_L2TP_KEY_IPSEC_IKEV2,
 	NM_L2TP_KEY_IPSEC_PFS,
 	NULL
 };
@@ -576,6 +577,14 @@ ipsec_dialog_new (GHashTable *hash)
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), FALSE);
 	}
 
+	value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_IKEV2);
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ikev2_check"));
+	if (value && !strcmp (value, "yes")) {
+		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), TRUE);
+	} else {
+		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), FALSE);
+	}
+
 	/* PFS check button is not sensitive with strongSwan as the PFS option is ignored */
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "pfs_check"));
 	if (ipsec_daemon == NM_L2TP_IPSEC_DAEMON_STRONGSWAN) {
@@ -731,6 +740,10 @@ ipsec_dialog_new_hash_from_dialog (GtkWidget *dialog, GError **error)
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipcomp_check"));
 	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
 		g_hash_table_insert (hash, g_strdup(NM_L2TP_KEY_IPSEC_IPCOMP), g_strdup("yes"));
+
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ikev2_check"));
+	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
+		g_hash_table_insert (hash, g_strdup(NM_L2TP_KEY_IPSEC_IKEV2), g_strdup("yes"));
 
 	/* PFS check button is not sensitive with strongSwan as the PFS option is ignored */
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "pfs_check"));
