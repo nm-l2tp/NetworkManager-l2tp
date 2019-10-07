@@ -70,6 +70,7 @@ msgstr ""
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr ""
+"Vous devez vous authentifier pour accéder au réseau privé virtuel « %s »."
 
 #: ../properties/ppp-dialog.c:172
 msgid "All Available (Default)"
@@ -299,26 +300,26 @@ msgstr ""
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
 #, c-format
 msgid "unable to get editor plugin name: %s"
-msgstr ""
+msgstr "impossible d'obtenir le nom du plugin de l'éditeur : %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr ""
+msgstr "Fichier de plugin « %s » manquant"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:109
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr ""
+msgstr "impossible de charger le plugin : %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:118
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr ""
+msgstr "impossible de charger la fabrique %s du plugin : %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:144
 msgid "unknown error creating editor instance"
-msgstr ""
+msgstr "Erreur inconnue lors de la création de l'instance d'éditeur"
 
 #: ../src/nm-l2tp-service.c:288
 #, c-format
@@ -451,7 +452,7 @@ msgstr "Activer le débogage verbeux (des mots de passe peuvent apparaître)"
 
 #: ../src/nm-l2tp-service.c:2081
 msgid "D-Bus name to use for this instance"
-msgstr ""
+msgstr "Nom de D-Bus à utiliser pour cette instance"
 
 #: ../src/nm-l2tp-service.c:2102
 msgid ""

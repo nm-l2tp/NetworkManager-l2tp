@@ -35,6 +35,11 @@ msgstr ""
 msgid "The NetworkManager-L2TP Developers"
 msgstr ""
 
+#: ../auth-dialog/main.c:175
+#, c-format
+msgid "Authenticate VPN %s"
+msgstr "验证 VPN %s"
+
 #: ../auth-dialog/main.c:182 ../properties/nm-l2tp-dialog.ui.h:14
 msgid "Password:"
 msgstr "密码:"
@@ -62,7 +67,7 @@ msgstr ""
 #: ../auth-dialog/main.c:487
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
-msgstr ""
+msgstr "您需要验证来访问 VPN “%s”。"
 
 #: ../properties/ppp-dialog.c:172
 msgid "All Available (Default)"
@@ -281,26 +286,26 @@ msgstr ""
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
 #, c-format
 msgid "unable to get editor plugin name: %s"
-msgstr ""
+msgstr "无法获得编辑器插件名称 : %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr ""
+msgstr "缺少插件文件 \"%s\""
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:109
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr ""
+msgstr "无法加载编辑器插件 : %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:118
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr ""
+msgstr "无法从插件加载 factory %s : %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:144
 msgid "unknown error creating editor instance"
-msgstr ""
+msgstr "创建编辑器未知的错误"
 
 #: ../src/nm-l2tp-service.c:288
 #, c-format
@@ -429,7 +434,7 @@ msgstr "启用详细的调试记录(可能暴露密码)"
 
 #: ../src/nm-l2tp-service.c:2081
 msgid "D-Bus name to use for this instance"
-msgstr ""
+msgstr "这个实例要使用的 D-Bus 名称"
 
 #: ../src/nm-l2tp-service.c:2102
 msgid ""

@@ -36,6 +36,11 @@ msgstr ""
 msgid "The NetworkManager-L2TP Developers"
 msgstr ""
 
+#: ../auth-dialog/main.c:175
+#, c-format
+msgid "Authenticate VPN %s"
+msgstr "驗證VPN %s"
+
 #: ../auth-dialog/main.c:182 ../properties/nm-l2tp-dialog.ui.h:14
 msgid "Password:"
 msgstr "密碼:"
@@ -63,7 +68,7 @@ msgstr ""
 #: ../auth-dialog/main.c:487
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
-msgstr ""
+msgstr "您需要進行身份驗證才能訪問虛擬專用網絡“%s“。"
 
 #: ../properties/ppp-dialog.c:172
 msgid "All Available (Default)"
@@ -290,21 +295,21 @@ msgstr ""
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr ""
+msgstr "缺少插件文件“%s“"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:109
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr ""
+msgstr "無法加載編輯器插件： %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:118
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr ""
+msgstr "無法加載工廠 %s 來自插件： %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:144
 msgid "unknown error creating editor instance"
-msgstr ""
+msgstr "創建編輯器實例的未知錯誤"
 
 #: ../src/nm-l2tp-service.c:288
 #, c-format
@@ -437,11 +442,11 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:2080
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr ""
+msgstr "啟用詳細調試日誌記錄（可能會公開密碼）"
 
 #: ../src/nm-l2tp-service.c:2081
 msgid "D-Bus name to use for this instance"
-msgstr ""
+msgstr "用於此實例的D-Bus名稱"
 
 #: ../src/nm-l2tp-service.c:2102
 msgid ""
@@ -500,7 +505,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "Type:"
-msgstr ""
+msgstr "類型："
 
 #: ../properties/nm-l2tp-dialog.ui.h:19
 msgid "Select an authentication mode."

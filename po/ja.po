@@ -79,7 +79,7 @@ msgstr ""
 #: ../auth-dialog/main.c:487
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
-msgstr ""
+msgstr "仮想プライベートネットワーク “%s” にアクセスするには認証が必要です。"
 
 #: ../properties/ppp-dialog.c:172
 msgid "All Available (Default)"
@@ -304,6 +304,11 @@ msgid ""
 msgstr ""
 "値 \"%s\" (タイプ '%s') がプロパティー '%s' (タイプ '%s') に対して無効または"
 "範囲外です"
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
+#, c-format
+msgid "unable to get editor plugin name: %s"
+msgstr "エディタープラグイン名を取得できません: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
