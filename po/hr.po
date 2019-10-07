@@ -298,6 +298,11 @@ msgstr ""
 "vrijednost \"%s\" vrste '%s' je neispravna ili izvan raspona vlasništva '%s' "
 "vrste '%s'"
 
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
+#, c-format
+msgid "unable to get editor plugin name: %s"
+msgstr "nemoguće dobivanje naziva priključka uređivača: %s"
+
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
 msgid "missing plugin file \"%s\""
