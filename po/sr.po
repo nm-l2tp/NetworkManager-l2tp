@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-09 18:00+1000\n"
+"POT-Creation-Date: 2019-10-07 17:54+1000\n"
 "PO-Revision-Date: 2017-02-12 18:45+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <(nothing)>\n"
@@ -30,11 +30,11 @@ msgstr ""
 msgid "Support for configuring L2TP based virtual private network connections."
 msgstr ""
 
-#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:5
+#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:6
 msgid "The PPP options dialog"
 msgstr ""
 
-#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:6
+#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:7
 msgid "The NetworkManager-L2TP Developers"
 msgstr ""
 
@@ -106,44 +106,44 @@ msgstr "МСЦХАПв2"
 msgid "EAP"
 msgstr "ЕАП"
 
-#: ../properties/ipsec-dialog.c:457
+#: ../properties/ipsec-dialog.c:458
 msgid "Pre-shared key (PSK)"
 msgstr ""
 
-#: ../properties/ipsec-dialog.c:466 ../properties/nm-l2tp-editor.c:557
+#: ../properties/ipsec-dialog.c:467 ../properties/nm-l2tp-editor.c:558
 msgid "Certificates (TLS)"
 msgstr "Уверења (ТЛС)"
 
-#: ../properties/nm-l2tp-editor.c:378
+#: ../properties/nm-l2tp-editor.c:379
 #, c-format
 msgid "%s: error reading ppp settings: %s"
 msgstr ""
 
-#: ../properties/nm-l2tp-editor.c:402
+#: ../properties/nm-l2tp-editor.c:403
 #, c-format
 msgid "%s: error reading ipsec settings: %s"
 msgstr ""
 
-#: ../properties/nm-l2tp-editor.c:437
+#: ../properties/nm-l2tp-editor.c:438
 #, c-format
 msgid "%s: failed to create the PPP dialog!"
 msgstr ""
 
-#: ../properties/nm-l2tp-editor.c:480
+#: ../properties/nm-l2tp-editor.c:481
 #, c-format
 msgid "%s: failed to create the IPsec dialog!"
 msgstr ""
 
-#: ../properties/nm-l2tp-editor.c:548
+#: ../properties/nm-l2tp-editor.c:549
 msgid "Password"
 msgstr "Лозинка"
 
-#: ../properties/nm-l2tp-editor.c:717
+#: ../properties/nm-l2tp-editor.c:723
 #, c-format
 msgid "could not create l2tp object"
 msgstr ""
 
-#: ../properties/nm-l2tp-editor.c:734
+#: ../properties/nm-l2tp-editor.c:740
 #, c-format
 msgid "could not load UI widget"
 msgstr "не могу да учитам елемент сучеља"
@@ -313,136 +313,141 @@ msgstr "не могу да учитам погон „%s“ из прикључ�
 msgid "unknown error creating editor instance"
 msgstr "непозната грешка приликом стварања примерка уређивача"
 
-#: ../src/nm-l2tp-service.c:286
+#: ../src/nm-l2tp-service.c:288
 #, c-format
 msgid "invalid gateway '%s'"
 msgstr "неисправан мрежни пролаз „%s“"
 
-#: ../src/nm-l2tp-service.c:300
+#: ../src/nm-l2tp-service.c:302
 #, c-format
 msgid "invalid integer property '%s'"
 msgstr "неисправно својство целог броја „%s“"
 
-#: ../src/nm-l2tp-service.c:310
+#: ../src/nm-l2tp-service.c:312
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr "неисправно логичко својство „%s“ (није „да“ или „не“)"
 
-#: ../src/nm-l2tp-service.c:317
+#: ../src/nm-l2tp-service.c:319
 #, c-format
 msgid "unhandled property '%s' type %s"
 msgstr "неруковано својство „%s“ врсте %s"
 
-#: ../src/nm-l2tp-service.c:328
+#: ../src/nm-l2tp-service.c:330
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "својство „%s“ је неисправно или није подржано"
 
-#: ../src/nm-l2tp-service.c:347
+#: ../src/nm-l2tp-service.c:349
 msgid "No VPN configuration options."
 msgstr "Нема опција за ВПН подешавање."
 
-#: ../src/nm-l2tp-service.c:367
+#: ../src/nm-l2tp-service.c:369
 #, c-format
 msgid "Missing required option '%s'."
 msgstr "Недостаје затражена опција „%s“."
 
-#: ../src/nm-l2tp-service.c:669
+#: ../src/nm-l2tp-service.c:674
 #, c-format
-msgid "Could not open %s"
+msgid "Could not open %s for writing: %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:687
+#: ../src/nm-l2tp-service.c:682
+#, c-format
+msgid "Could not append \"include ipsec.d/ipsec.nm-l2tp.secrets\" to %s"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:698
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:724
+#: ../src/nm-l2tp-service.c:735
 msgid "Machine private key file not supplied"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:838
+#: ../src/nm-l2tp-service.c:849
 msgid "Could not write ipsec config"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:907
+#: ../src/nm-l2tp-service.c:937
 msgid "Machine certificate file not supplied"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:980
+#: ../src/nm-l2tp-service.c:1018
 msgid "Could not write xl2tpd config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1023
+#: ../src/nm-l2tp-service.c:1061
 msgid "Could not write ppp options."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1284 ../src/nm-l2tp-service.c:1309
+#: ../src/nm-l2tp-service.c:1322 ../src/nm-l2tp-service.c:1347
 msgid "Could not start the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1290 ../src/nm-l2tp-service.c:1317
+#: ../src/nm-l2tp-service.c:1328 ../src/nm-l2tp-service.c:1355
 msgid "Could not restart the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1428
+#: ../src/nm-l2tp-service.c:1466
 msgid "Could not find the xl2tpd binary."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1514
+#: ../src/nm-l2tp-service.c:1552
 msgid "Missing VPN username."
 msgstr "Недостаје ВПН корисничко име."
 
-#: ../src/nm-l2tp-service.c:1523
+#: ../src/nm-l2tp-service.c:1561
 msgid "Missing or invalid VPN password."
 msgstr "Недостаје или је неисправна ВПН лозинка."
 
-#: ../src/nm-l2tp-service.c:1627
+#: ../src/nm-l2tp-service.c:1665
 msgid "couldn't convert L2TP VPN gateway IP address."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1640
+#: ../src/nm-l2tp-service.c:1678
 msgid "couldn't look up L2TP VPN gateway IP address "
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1659
+#: ../src/nm-l2tp-service.c:1697
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1688
+#: ../src/nm-l2tp-service.c:1726
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1694
+#: ../src/nm-l2tp-service.c:1732
 msgid "Openswan is no longer supported, use Libreswan or strongSwan."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1696
+#: ../src/nm-l2tp-service.c:1734
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1705
+#: ../src/nm-l2tp-service.c:1743
 msgid "could not retrieve connection UUID"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1713
+#: ../src/nm-l2tp-service.c:1751
 msgid "Invalid or missing L2TP gateway."
 msgstr "Неисправан или недостаје ППТП мрежни пролаз."
 
-#: ../src/nm-l2tp-service.c:2041
+#: ../src/nm-l2tp-service.c:2079
 msgid "Don't quit when VPN connection terminates"
 msgstr "Не прекида када се завршава ВПН веза"
 
-#: ../src/nm-l2tp-service.c:2042
+#: ../src/nm-l2tp-service.c:2080
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr ""
 "Укључује опширно записивање зарад исправљања грешака (може да изложи лозинке)"
 
-#: ../src/nm-l2tp-service.c:2043
+#: ../src/nm-l2tp-service.c:2081
 msgid "D-Bus name to use for this instance"
 msgstr "Назив Д-сабирнице која ће се користити за овај примерак"
 
-#: ../src/nm-l2tp-service.c:2064
+#: ../src/nm-l2tp-service.c:2102
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
@@ -545,15 +550,15 @@ msgstr "Алгоритми фазе 2:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
 msgid ""
-"Optional. A list of proposals for IKE. The format is “cipher-hash-modpgroup, "
-"cipher-hash-modpgroup, …”.\n"
-"config: ipsec-psk <proposals>"
+"Optional. A list of proposals for IKE - Main Mode. The format is “enc-integ-"
+"group,enc-integ-group, …”.\n"
+"config: ipsec-ike <proposals>"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:33
 msgid ""
-"Optional. A list of proposals for ESP. The format is “cipher-hash,cipher-"
-"hash, …”.\n"
+"Optional. A list of proposals for ESP - Quick Mode. The format is “enc-integ,"
+"enc-integ, …”.\n"
 "config: ipsec-esp <proposals>"
 msgstr ""
 
@@ -595,76 +600,95 @@ msgid ""
 "ipsec.secrets: <ID>"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:47
-msgid "_Legacy Proposals"
-msgstr ""
-
 #: ../properties/nm-l2tp-dialog.ui.h:48
 msgid ""
-"Populates Phase 1 and 2 Algorithm text entry boxes with proposals offered by "
-"Windows Server 2019:\n"
-"• aes256-sha1-ecp384 and aes128-sha1-ecp256 strong proposals.\n"
-"strongSwan recommends not using SHA-1 in its security recommendations "
-"documentation.\n"
-"• 3des-sha1-modp1024 broken proposal.\n"
-"Legacy Windows 2000 Server era proposal still commonly offered, especially "
-"with consumer routers."
+"Populates Phase 1 and 2 Algorithm text entry boxes with the following "
+"proposals, which are a merge of Windows 10 and macOS/iOS/iPadOS L2TP "
+"clients' IKEv1 proposals.\n"
+"\n"
+"• Phase 1 - Main Mode :\n"
+"{enc=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_2048},\n"
+"{enc=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_1536},\n"
+"{enc=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_1024},\n"
+"{enc=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_2048},\n"
+"{enc=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_1536},\n"
+"{enc=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_1024},\n"
+"{enc=AES_CBC_256 integ=HMAC_SHA1_96 group=ECP_384},\n"
+"{enc=AES_CBC_128 integ=HMAC_SHA1_96 group=MODP_1024},\n"
+"{enc=AES_CBC_128 integ=HMAC_SHA1_96 group=ECP_256},\n"
+"{enc=3DES_CBC integ=HMAC_SHA1_96 group=MODP_2048},\n"
+"{enc=3DES_CBC integ=HMAC_SHA1_96 group=MODP_1024}\n"
+"\n"
+"• Phase 2 - Quick Mode :\n"
+"{enc=AES_CBC_256 integ=HMAC_SHA1_96},\n"
+"{enc=AES_CBC_128 integ=HMAC_SHA1_96},\n"
+"{enc=3DES_CBC integ=HMAC_SHA1_96}"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:53
+#: ../properties/nm-l2tp-dialog.ui.h:67
 msgid "_Enforce UDP encapsulation"
 msgstr "Наметни УДП енкапсулацију"
 
-#: ../properties/nm-l2tp-dialog.ui.h:54
+#: ../properties/nm-l2tp-dialog.ui.h:68
 msgid ""
 "Some firewalls block ESP traffic. Enforcing UDP capsulation even if no NAT "
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:56
+#: ../properties/nm-l2tp-dialog.ui.h:70
 msgid "Use IP c_ompression"
 msgstr "Користи ИП компресију"
 
-#: ../properties/nm-l2tp-dialog.ui.h:57
+#: ../properties/nm-l2tp-dialog.ui.h:71
 msgid ""
 "IPComp compresses raw IP packets before they get encrypted. This saves some "
 "bandwidth, but uses more processing power.\n"
 "config: ipsec-ipcomp <yes/no>"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:59
+#: ../properties/nm-l2tp-dialog.ui.h:73
+msgid "Use IKEv_2 key exchange"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:74
+msgid ""
+"Use IKEv2 key exchange\n"
+"config: ipsec-ikev2 <yes/no>"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:76
 msgid "Disable _PFS"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:60
+#: ../properties/nm-l2tp-dialog.ui.h:77
 msgid ""
 "Disable perfect forward security. Enable this option only if the server "
 "doesn’t support PFS.\n"
 "config: ipsec-pfs <no/yes>"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:62
+#: ../properties/nm-l2tp-dialog.ui.h:79
 msgid "Ad_vanced"
 msgstr "_Напредно"
 
-#: ../properties/nm-l2tp-dialog.ui.h:63
+#: ../properties/nm-l2tp-dialog.ui.h:80
 msgid "Default"
 msgstr "Основно"
 
-#: ../properties/nm-l2tp-dialog.ui.h:64
+#: ../properties/nm-l2tp-dialog.ui.h:81
 msgid "L2TP PPP Options"
 msgstr "Опције Л2ТП‑а/ППП‑а"
 
-#: ../properties/nm-l2tp-dialog.ui.h:65
+#: ../properties/nm-l2tp-dialog.ui.h:82
 msgid "Authentication"
 msgstr "Пријава"
 
-#: ../properties/nm-l2tp-dialog.ui.h:66
+#: ../properties/nm-l2tp-dialog.ui.h:83
 msgid "Allow the following authentication methods:"
 msgstr "Дозволи следеће начине пријављивања:"
 
-#: ../properties/nm-l2tp-dialog.ui.h:67
+#: ../properties/nm-l2tp-dialog.ui.h:84
 msgid ""
 "Allow/disable authentication methods.\n"
 "config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
@@ -673,15 +697,15 @@ msgstr ""
 "подешавање: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-"
 "eap"
 
-#: ../properties/nm-l2tp-dialog.ui.h:69
+#: ../properties/nm-l2tp-dialog.ui.h:86
 msgid "Security and Compression"
 msgstr "Безбедност и сажимање"
 
-#: ../properties/nm-l2tp-dialog.ui.h:70
+#: ../properties/nm-l2tp-dialog.ui.h:87
 msgid "Use _Point-to-Point encryption (MPPE)"
 msgstr "_Користи шифровање „тачка-до-тачке“ (МППЕ)"
 
-#: ../properties/nm-l2tp-dialog.ui.h:71
+#: ../properties/nm-l2tp-dialog.ui.h:88
 msgid ""
 "Note: MPPE encryption is only available with MSCHAP authentication methods. "
 "To enable this checkbox, select one or more of the MSCHAP authentication "
@@ -691,11 +715,11 @@ msgstr ""
 "кућицу за избор, изаберите један или неколико МСЦХАП начина пријављивања: "
 "МСЦХАП или МСЦХАПв2."
 
-#: ../properties/nm-l2tp-dialog.ui.h:72
+#: ../properties/nm-l2tp-dialog.ui.h:89
 msgid "_Security:"
 msgstr "_Безбедност:"
 
-#: ../properties/nm-l2tp-dialog.ui.h:73
+#: ../properties/nm-l2tp-dialog.ui.h:90
 msgid ""
 "Require the use of MPPE, with 40/128-bit encryption or all.\n"
 "config: require-mppe, require-mppe-128 or require-mppe-40"
@@ -703,11 +727,11 @@ msgstr ""
 "Захтева коришћење МППЕ-а, са 40/128-битним шифровањем или све.\n"
 "подешавање: require-mppe, require-mppe-128 или require-mppe-40"
 
-#: ../properties/nm-l2tp-dialog.ui.h:75
+#: ../properties/nm-l2tp-dialog.ui.h:92
 msgid "Allow st_ateful encryption"
 msgstr "Допусти _речито шифровање"
 
-#: ../properties/nm-l2tp-dialog.ui.h:76
+#: ../properties/nm-l2tp-dialog.ui.h:93
 msgid ""
 "Allow MPPE to use stateful mode. Stateless mode is still attempted first.\n"
 "config: mppe-stateful (when checked)"
@@ -716,11 +740,11 @@ msgstr ""
 "први.\n"
 "подешавање: mppe-stateful (када је изабран)"
 
-#: ../properties/nm-l2tp-dialog.ui.h:78
+#: ../properties/nm-l2tp-dialog.ui.h:95
 msgid "Allow _BSD data compression"
 msgstr "Дозволи _БСД паковање података"
 
-#: ../properties/nm-l2tp-dialog.ui.h:79
+#: ../properties/nm-l2tp-dialog.ui.h:96
 msgid ""
 "Allow/disable BSD-Compress compression.\n"
 "config: nobsdcomp (when unchecked)"
@@ -728,11 +752,11 @@ msgstr ""
 "Укључује/искључује сажимање БСД-Сажимања.\n"
 "подешавање: nobsdcomp (када није изабрано)"
 
-#: ../properties/nm-l2tp-dialog.ui.h:81
+#: ../properties/nm-l2tp-dialog.ui.h:98
 msgid "Allow _Deflate data compression"
 msgstr "Дозволи _Дефлејт паковање података"
 
-#: ../properties/nm-l2tp-dialog.ui.h:82
+#: ../properties/nm-l2tp-dialog.ui.h:99
 msgid ""
 "Allow/disable Deflate compression.\n"
 "config: nodeflate (when unchecked)"
@@ -740,11 +764,11 @@ msgstr ""
 "Укључује/искључује Дефлејт сажимање.\n"
 "подешавање: nodeflate (када није изабрано)"
 
-#: ../properties/nm-l2tp-dialog.ui.h:84
+#: ../properties/nm-l2tp-dialog.ui.h:101
 msgid "Use TCP _header compression"
 msgstr "Користи _паковање ТЦП заглавља"
 
-#: ../properties/nm-l2tp-dialog.ui.h:85
+#: ../properties/nm-l2tp-dialog.ui.h:102
 msgid ""
 "Allow/disable Van Jacobson style TCP/IP header compression in both the "
 "transmit and the receive directions.\n"
@@ -754,19 +778,19 @@ msgstr ""
 "преноса тако и у смеру пријема.\n"
 "подешавање: novj (када није изабрано)"
 
-#: ../properties/nm-l2tp-dialog.ui.h:87
+#: ../properties/nm-l2tp-dialog.ui.h:104
 msgid "Use protocol _field compression negotiation"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:93
+#: ../properties/nm-l2tp-dialog.ui.h:110
 msgid "Echo"
 msgstr "Одјек"
 
-#: ../properties/nm-l2tp-dialog.ui.h:94
+#: ../properties/nm-l2tp-dialog.ui.h:111
 msgid "Send PPP _echo packets"
 msgstr "Шаљи пакете ППП _одјека"
 
-#: ../properties/nm-l2tp-dialog.ui.h:95
+#: ../properties/nm-l2tp-dialog.ui.h:112
 msgid ""
 "Send LCP echo-requests to find out whether peer is alive.\n"
 "config: lcp-echo-failure and lcp-echo-interval"
@@ -774,14 +798,14 @@ msgstr ""
 "Шаље ЛЦП захтеве одјека да би дознао да ли је парњак активан.\n"
 "подешавање: lcp-echo-failure и lcp-echo-interval"
 
-#: ../properties/nm-l2tp-dialog.ui.h:97
+#: ../properties/nm-l2tp-dialog.ui.h:114
 msgid "Misc"
 msgstr "Разно"
 
-#: ../properties/nm-l2tp-dialog.ui.h:98
+#: ../properties/nm-l2tp-dialog.ui.h:115
 msgid "MTU :"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:99
+#: ../properties/nm-l2tp-dialog.ui.h:116
 msgid "MRU :"
 msgstr ""
