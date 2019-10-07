@@ -24,7 +24,7 @@ overridden with ./configure arguments. In the configure examples below, you
 may need to change the `--with-pppd-plugin-dir` value to an appropriate
 directory that exists.
 
-#### Debian sid and Ubuntu >= 18.04 (AMD64, i.e. x86-64)
+#### Debian >= 10 and Ubuntu >= 18.04 (AMD64, i.e. x86-64)
 
     ./configure \
       --disable-static --prefix=/usr \
@@ -43,7 +43,7 @@ directory that exists.
       --with-libnm-glib \
       --with-pppd-plugin-dir=/usr/lib/pppd/2.4.7
 
-#### Fedora >= 28 (x86-64)
+#### Fedora >= 28 and Red Hat Enterprise Linux 8 (x86-64)
 
     ./configure \
       --disable-static --prefix=/usr \
@@ -195,6 +195,10 @@ disable the xl2tpd service from starting at boot time with :
 
 ## Issue with VPN servers only proposing IPsec IKEv1 weak legacy algorithms
 
+If you are not able to connect to a L2TP/IPsec server, but have no issue
+connecting with a Windows 10 or macOS/iOS/iPadOS L2TP client, please also see
+the Prevalent IKEv1 algorithms section below.
+
 There is a general consensus that the following legacy algorithms are now
 considered weak or broken in regards to security and should be phased out and
 replaced with stronger algorithms.
@@ -214,73 +218,57 @@ Diffie Hellman Groups :
 
 Legacy algorithms that are considered weak or broken are regularly removed from
 the default set of allowed algorithms with newer releases of strongSwan and
-Libreswan. As of strongSwan 5.4.0 and Libreswan 3.20, the above algorithms
-(apart from SHA1 and MODP1536 for Libreswan which still includes them for
-backwards compatibility) have been or in some cases already been removed from
-the default set of allowed algorithms.
+Libreswan.
 
-If you are not sure which IKEv1 algorithms your VPN server uses, you can query
-the VPN server with the `ike-scan.sh` script located in the IPsec IKEv1
-algorithms section of the Wiki :
-* https://github.com/nm-l2tp/NetworkManager-l2tp/wiki/Known-Issues
+As of strongSwan 5.4.0, the above algorithms have been removed from
+strongSwan's default set of allowed algorithms.
 
-If the VPN server is only proposing weak or broken algorithms, it is
-recommended that it be reconfigured to propose stronger algorithms, e.g.
-AES, SHA2 and MODP2048.
+As of Libreswan 3.20, the above algorithms have been removed from Libreswan's
+default set of allowed algorithms, except for 3DES, SHA1 and MODP1536 which
+were kept for backwards compatibility.
 
-If for some reason the VPN server cannot be reconfigured and you are not too
-concerned about security, for a workaround, user specified phase 1 (ike) and
-phase 2 (esp) algorithms can be specified in the IPsec Options dialog box in
-the `Advanced` section. See the following example and the IPsec IKEv1
-algorithms section of the Wiki for more details :
-* https://github.com/nm-l2tp/NetworkManager-l2tp/wiki/Known-Issues
-
-### Example workaround for 3DES, SHA1 and MODP1024 broken proposal
-
-Unfortunately there are many L2TP/IPsec VPN servers and consumer routers still
-offering only the 3DES, SHA1 and MODP1024 broken proposal first introduced with
-Windows 2000 Server.
-
-Windows Server 2019 offers the following proposals :
-
-* AES256-SHA1-ECP384 and AES128-SHA1-ECP256 strong proposals.
-strongSwan recommends not using SHA1 in its security recommendations
-documentation.
-
-* 3DES-SHA1-MODP1024 broken proposal.
-Legacy Windows 2000 Server era proposal.
-
-Pressing the "Legacy Proposals" button in the IPsec Options dialog box
-populates Phase 1 and 2 Algorithm text entry boxes with the following (note: it
-auto-detects if you are using strongswan or libreswan and populates
-appropriately):
-
-strongswan :
-* Phase1 Algorithms : aes256-sha1-ecp384,aes128-sha1-ecp256,3des-sha1-modp1024!
-* Phase2 Algorithms : aes256-sha1,aes128-sha1,3des-sha1!
-
-libreswan :
-* Phase1 Algorithms : aes256-sha1-ecp\_384,aes128-sha1-ecp\_256,3des-sha1-modp1024
-* Phase2 Algorithms : aes256-sha1,aes128-sha1,3des-sha1
-
-As the proposals populated by the "Legacy Proposals" button includes the
-3DES, SHA1 and MODP1024 broken proposal, it should work with L2TP/IPsec VPN
-servers and consumer routers that only offer that proposal. Alternatively,
-manually enter the following :
-
-strongswan :
-* Phase1 Algorithms : 3des-sha1-modp1024!
-* Phase2 Algorithms : 3des-sha1!
-
-libreswan :
-* Phase1 Algorithms : 3des-sha1-modp1024
-* Phase2 Algorithms : 3des-sha1
-
-
-If you want to confirm if you are using libreswan or strongswan, issue the
+If you are not sure if you are using Libreswan or Strongswan, issue the
 following on the command-line:
 
 ```
 ipsec --version
 ```
+
+If you are not sure which IKEv1 algorithms your VPN server proposes, you can
+query the VPN server with the `ike-scan.sh` script located in the IPsec IKEv1
+algorithms section of the Wiki :
+* https://github.com/nm-l2tp/NetworkManager-l2tp/wiki/Known-Issues
+
+If for some reason the VPN server cannot be reconfigured or does not share any
+proposals in the Libreswan or Strongswan default set of allowed algorithms,
+user specified phase 1 (*ike* - Main Mode) and phase 2 (*esp* - Quick Mode)
+algorithms can be specified in the **Advanced** section of NetworkManager-l2tp's
+IPsec Options dialog box. Please see the Libreswan or openSwan `ipsec.conf`
+documentation for the *ike* and *esp* (aka *phase2alg*) syntax.
+
+### Prevalent IKEv1 algorithms
+
+Pressing the **Prevalent Algorithms** button in the IPsec Options dialog box
+populates the Phase 1 and 2 Algorithm text entry boxes with the following
+proposals, which are a merge of Windows 10 and macOS/iOS/iPadOS L2TP clients'
+IKEv1 proposals (**note:** it auto-detects if you are using strongSwan or
+Libreswan and populates appropriately with the correct syntax):
+
+* Phase 1 - Main Mode :
+{enc=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_2048},
+{enc=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_1536},
+{enc=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_1024},
+{enc=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_2048},
+{enc=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_1536},
+{enc=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_1024},
+{enc=AES_CBC_256 integ=HMAC_SHA1_96 group=ECP_384},
+{enc=AES_CBC_128 integ=HMAC_SHA1_96 group=MODP_1024},
+{enc=AES_CBC_128 integ=HMAC_SHA1_96 group=ECP_256},
+{enc=3DES_CBC integ=HMAC_SHA1_96 group=MODP_2048},
+{enc=3DES_CBC integ=HMAC_SHA1_96 group=MODP_1024}
+
+* Phase 2 - Quick Mode :
+{enc=AES_CBC_256 integ=HMAC_SHA1_96},
+{enc=AES_CBC_128 integ=HMAC_SHA1_96},
+{enc=3DES_CBC integ=HMAC_SHA1_96}
 
