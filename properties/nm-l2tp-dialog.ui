@@ -832,8 +832,8 @@ config: ipsec-psk</property>
                           <object class="GtkEntry" id="ipsec_phase1_entry">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
-                            <property name="tooltip_text" translatable="yes">Optional. A list of proposals for IKE. The format is “cipher-hash-modpgroup, cipher-hash-modpgroup, …”.
-config: ipsec-psk &lt;proposals&gt;</property>
+                            <property name="tooltip_text" translatable="yes">Optional. A list of proposals for IKE - Main Mode. The format is “enc-integ-group,enc-integ-group, …”.
+config: ipsec-ike &lt;proposals&gt;</property>
                             <property name="hexpand">True</property>
                           </object>
                           <packing>
@@ -845,7 +845,7 @@ config: ipsec-psk &lt;proposals&gt;</property>
                           <object class="GtkEntry" id="ipsec_phase2_entry">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
-                            <property name="tooltip_text" translatable="yes">Optional. A list of proposals for ESP. The format is “cipher-hash,cipher-hash, …”.
+                            <property name="tooltip_text" translatable="yes">Optional. A list of proposals for ESP - Quick Mode. The format is “enc-integ,enc-integ, …”.
 config: ipsec-esp &lt;proposals&gt;</property>
                             <property name="hexpand">True</property>
                           </object>
