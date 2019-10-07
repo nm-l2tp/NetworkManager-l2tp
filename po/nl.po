@@ -146,7 +146,7 @@ msgstr ""
 #: ../properties/nm-l2tp-editor.c:740
 #, c-format
 msgid "could not load UI widget"
-msgstr ""
+msgstr "kon UI-widget niet laden"
 
 #: ../properties/nm-l2tp-editor-plugin.c:34
 msgid "Layer 2 Tunneling Protocol (L2TP)"
@@ -508,9 +508,13 @@ msgstr "Gebruikersnaam:"
 msgid "NT Domain:"
 msgstr "NT-domein:"
 
+#: ../properties/nm-l2tp-dialog.ui.h:16
+msgid "CA"
+msgstr "CA"
+
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "User"
-msgstr ""
+msgstr "Gebruiker"
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "Type:"

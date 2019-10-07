@@ -294,6 +294,11 @@ msgstr ""
 "вредност „%s“ врсте „%s“ је неисправна или ван опсега за својство „%s“ врсте "
 "„%s“"
 
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
+#, c-format
+msgid "unable to get editor plugin name: %s"
+msgstr "не могу да добавим назив прикључка уређивача: %s"
+
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
 msgid "missing plugin file \"%s\""

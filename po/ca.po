@@ -296,6 +296,11 @@ msgstr ""
 "el valor «%s» de tipus «%s» no és vàlid o està fora de rang per a la "
 "propietat «%s» de tipus «%s»"
 
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
+#, c-format
+msgid "unable to get editor plugin name: %s"
+msgstr "no es pot obtenir el nom del connector de l'editor: %s"
+
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
 msgid "missing plugin file \"%s\""
