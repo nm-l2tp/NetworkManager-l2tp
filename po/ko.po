@@ -169,21 +169,21 @@ msgstr ""
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr ""
+msgstr "누락된 플러그인 파일 \"%s\""
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:109
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr ""
+msgstr "편집기 플러그인을 로딩할 수 없습니다: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:118
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr ""
+msgstr "플러그인에서 %s 팩토리를 로드할 수 없습니다: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:144
 msgid "unknown error creating editor instance"
-msgstr ""
+msgstr "편집기 인스턴스 작성 중 알 수 없는 오류 "
 
 #: ../src/nm-l2tp-service.c:270
 #, c-format
@@ -308,11 +308,11 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1693
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr ""
+msgstr "자세한 디버그 로깅 사용 (암호가 노출될 수 있음)"
 
 #: ../src/nm-l2tp-service.c:1694
 msgid "D-Bus name to use for this instance"
-msgstr ""
+msgstr "인스턴스에 사용할 D-Bus 이름 "
 
 #: ../src/nm-l2tp-service.c:1715
 msgid ""

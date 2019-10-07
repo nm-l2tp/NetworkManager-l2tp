@@ -163,21 +163,21 @@ msgstr ""
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr ""
+msgstr "缺少插件文件“%s“"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:109
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr ""
+msgstr "無法加載編輯器插件： %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:118
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr ""
+msgstr "無法加載工廠 %s 來自插件： %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:144
 msgid "unknown error creating editor instance"
-msgstr ""
+msgstr "創建編輯器實例的未知錯誤"
 
 #: ../src/nm-l2tp-service.c:270
 #, c-format
@@ -302,11 +302,11 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1693
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr ""
+msgstr "啟用詳細調試日誌記錄（可能會公開密碼）"
 
 #: ../src/nm-l2tp-service.c:1694
 msgid "D-Bus name to use for this instance"
-msgstr ""
+msgstr "用於此實例的D-Bus名稱"
 
 #: ../src/nm-l2tp-service.c:1715
 msgid ""
