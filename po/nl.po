@@ -116,7 +116,7 @@ msgstr ""
 #: ../properties/nm-l2tp-editor.c:549
 #, c-format
 msgid "could not load UI widget"
-msgstr ""
+msgstr "kon UI-widget niet laden"
 
 #: ../properties/nm-l2tp-editor-plugin.c:34
 msgid "Layer 2 Tunneling Protocol (L2TP)"
@@ -224,7 +224,7 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:370
 msgid "No VPN secrets!"
-msgstr ""
+msgstr "Geen VPN-geheimen!"
 
 #: ../src/nm-l2tp-service.c:618
 #, c-format
