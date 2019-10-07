@@ -1014,24 +1014,25 @@ ipsec.secrets: &lt;ID&gt;</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
-                            <property name="tooltip_text" translatable="yes">Populates Phase 1 and 2 Algorithm text entry boxes with a combination of proposals offered by Windows 10 and macOS/iOS L2TP clients:
-• Phase 1:
-{cipher=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_2048},
-{cipher=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_1536},
-{cipher=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_1024},
-{cipher=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_2048},
-{cipher=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_1536},
-{cipher=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_1024},
-{cipher=AES_CBC_256 integ=HMAC_SHA1_96 group=ECP_384},
-{cipher=AES_CBC_128 integ=HMAC_SHA1_96 group=MODP_1024},
-{cipher=AES_CBC_128 integ=HMAC_SHA1_96 group=ECP_256},
-{cipher=3DES_CBC integ=HMAC_SHA1_96 group=MODP_2048},
-{cipher=3DES_CBC integ=HMAC_SHA1_96 group=MODP_1024}
+                            <property name="tooltip_text" translatable="yes">Populates Phase 1 and 2 Algorithm text entry boxes with the following proposals, which are a merge of Windows 10 and macOS/iOS/iPadOS L2TP clients' IKEv1 proposals.
 
-• Phase 2:
-{cipher=AES_CBC_256 integ=HMAC_SHA1_96},
-{cipher=AES_CBC_128 integ=HMAC_SHA1_96},
-{cipher=3DES_CBC integ=HMAC_SHA1_96}</property>
+• Phase 1 - Main Mode :
+{enc=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_2048},
+{enc=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_1536},
+{enc=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_1024},
+{enc=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_2048},
+{enc=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_1536},
+{enc=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_1024},
+{enc=AES_CBC_256 integ=HMAC_SHA1_96 group=ECP_384},
+{enc=AES_CBC_128 integ=HMAC_SHA1_96 group=MODP_1024},
+{enc=AES_CBC_128 integ=HMAC_SHA1_96 group=ECP_256},
+{enc=3DES_CBC integ=HMAC_SHA1_96 group=MODP_2048},
+{enc=3DES_CBC integ=HMAC_SHA1_96 group=MODP_1024}
+
+• Phase 2 - Quick Mode :
+{enc=AES_CBC_256 integ=HMAC_SHA1_96},
+{enc=AES_CBC_128 integ=HMAC_SHA1_96},
+{enc=3DES_CBC integ=HMAC_SHA1_96}</property>
                             <property name="halign">center</property>
                             <property name="valign">start</property>
                             <property name="use_underline">True</property>
