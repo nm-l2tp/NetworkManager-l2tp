@@ -530,6 +530,7 @@ init_plugin_ui (L2tpPluginUiWidget *self, gboolean have_ipsec, NMConnection *con
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "auth_combo"));
 	g_return_val_if_fail (widget != NULL, FALSE);
 
+#ifdef USE_EAPTLS
 	if (s_vpn) {
 		authtype = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER_AUTH_TYPE);
 		if (authtype) {
@@ -539,6 +540,9 @@ init_plugin_ui (L2tpPluginUiWidget *self, gboolean have_ipsec, NMConnection *con
 		} else
 			authtype = NM_L2TP_AUTHTYPE_PASSWORD;
 	}
+#else
+	authtype = NM_L2TP_AUTHTYPE_PASSWORD;
+#endif
 
 	store = gtk_list_store_new (3, G_TYPE_STRING, G_TYPE_INT, G_TYPE_STRING);
 
@@ -567,6 +571,14 @@ init_plugin_ui (L2tpPluginUiWidget *self, gboolean have_ipsec, NMConnection *con
 	g_object_unref (store);
 	g_signal_connect (widget, "changed", G_CALLBACK (auth_combo_changed_cb), self);
 	gtk_combo_box_set_active (GTK_COMBO_BOX (widget), active < 0 ? 0 : active);
+
+#ifndef USE_EAPTLS
+	/* If not using EAP TLS pppd patch, then grey out the machine auth type selection */
+	gtk_widget_set_sensitive (widget, FALSE);
+	gtk_widget_set_tooltip_text (widget, "");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "auth_type_label"));
+	gtk_widget_set_sensitive (widget, FALSE);
+#endif
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "ppp_button"));
 	g_return_val_if_fail (widget != NULL, FALSE);
