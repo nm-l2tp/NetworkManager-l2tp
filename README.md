@@ -121,6 +121,22 @@ to `/etc/ipsec.secrets` at run-time if the line is missing:
 
     include ipsec.d/ipsec.nm-l2tp.secrets
 
+## Password protecting the libreswan NSS database
+
+By default the libreswan NSS database is created in `/etc/ipsec.d/` and is used
+by NetworkManager-l2tp for VPN connections using libreswan and machine
+certificates.
+
+The default libreswan package install for most Linux distributions uses an
+empty password. It is up to the administrator to decide on whether to use a
+password or not. However, a non-empty database password must be provided when
+running in FIPS mode.
+
+See the following page on how to set the password for the libreswan NSS database
+and the syntax for the `/etc/ipsec.d/nsspassword` file where the password is
+stored:
+* https://libreswan.org/wiki/HOWTO:_Using_NSS_with_libreswan
+
 ## Debugging
 
 For Systemd based Linux distributions logging goes to the Systemd journal
