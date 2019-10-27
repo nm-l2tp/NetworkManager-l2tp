@@ -1,19 +1,64 @@
 ==========================================================
-NetworkManager-l2tp-1.7.0  (development) 
-Overview of changes since NetworkManager-l2tp-1.2.12
+NetworkManager-l2tp-1.7.1  (development) 
+Overview of changes since NetworkManager-l2tp-1.7.0
 ==========================================================
 
-DO NOT PROVIDE PRE-BUILT BINARIES of THIS RELEASE UNTIL THE INTENDED LINUX
-DISTRIBUTION SHIPS WITH OPENSSL 3.0.0 OR LATER THAT IS COMPATIBLE with the
-GPLv2 LICENSE.
+YOU MIGHT NOT BE ABLE TO PROVIDE PRE-BUILT BINARIES OF THIS RELEASE UNTIL THE
+INTENDED LINUX DISTRIBUTION SHIPS WITH OPENSSL 3.0 OR LATER THAT IS COMPATIBLE
+WITH THE GPLv2 LICENSE.
 
 This is a development release of NetworkManager-l2tp for those that wish to
 try user or machine TLS certificate support with L2TP/IPsec VPN servers.
 For TLS certificate support, the code needs to be linked against libcrypto
 from OpenSSL version 1.1.0 or later.
-Note: OpenSSL versions prior to 3.0.0 are not under the GPL compatible Apache
+Note: OpenSSL versions prior to 3.0 are not under the GPL compatible Apache
 License v2 :
     https://www.openssl.org/source/license.html
+* merge changes from version 1.2.14
+* Correct resizing layout of IPsec Options dialog.
+* Grey out the machine auth type selection iin IPsec Options dialog box if
+  EAP-TLS ppd patch not detected.
+* Add instructions for password protecting the libreswan NSS database.
+
+==========================================================
+NetworkManager-l2tp-1.2.14
+Overview of changes since network-manager-l2tp-1.2.12
+==========================================================
+
+* Update translations by merging from various sources.
+* Changed Legacy Proposal button to Prevalent Algorithms button.
+  Clicking Prevalent Algorithms button populates Phase 1 and 2 Algorithm text
+  entry boxes with the following proposals, which are a merge of Windows 10
+  and macOS/iOS/iPadOS L2TP clients' IKEv1 proposals.
+  - Phase 1 - Main Mode :
+    {enc=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_2048},
+    {enc=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_1536},
+    {enc=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_1024},
+    {enc=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_2048},
+    {enc=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_1536},
+    {enc=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_1024},
+    {enc=AES_CBC_256 integ=HMAC_SHA1_96 group=ECP_384},
+    {enc=AES_CBC_128 integ=HMAC_SHA1_96 group=MODP_1024},
+    {enc=AES_CBC_128 integ=HMAC_SHA1_96 group=ECP_256},
+    {enc=3DES_CBC integ=HMAC_SHA1_96 group=MODP_2048},
+    {enc=3DES_CBC integ=HMAC_SHA1_96 group=MODP_1024}
+  - Phase 2 - Quick Mode :
+    {enc=AES_CBC_256 integ=HMAC_SHA1_96},
+    {enc=AES_CBC_128 integ=HMAC_SHA1_96},
+    {enc=3DES_CBC integ=HMAC_SHA1_96}
+* Added use IKEv2 key exchange option.
+* Improved debugging output for Libreswan and strongSwan.
+  Libreswan debugging can now be cutomized by setting the `PLUTODEBUG`
+  environment variable.
+  strongSwan debugging can now  be cutomized by setting the `CHARONDEBUG`
+  environment variable.
+* Gray out "IPsec Settings..." button if no *swan found.
+  Also fix crash if "IPsec Settings..." button pressed and no *swan installed.
+
+==========================================================
+NetworkManager-l2tp-1.7.0  (development) 
+Overview of changes since NetworkManager-l2tp-1.2.12
+==========================================================
 
 * Update translations by merging from various sources.
 * User and machine TLS certificate support.
@@ -29,6 +74,7 @@ License v2 :
   - traditional OpenSSL RSA, DSA and ECDSA private keys (PEM or DER).
 * Routines to import certificates and privates keys into a Libreswan NSS
   database.
+
 
 ==========================================================
 NetworkManager-l2tp-1.2.12
