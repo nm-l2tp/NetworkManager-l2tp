@@ -98,6 +98,15 @@ typedef struct {
 #define NM_L2TP_WAIT_PPPD 14000  /* 14 seconds */
 #define L2TP_SERVICE_SECRET_TRIES "l2tp-service-secret-tries"
 
+/* Default Phase 1 (Main Mode) and Phase 2 (Quick Mode) proposals which are a
+ * merge of Windows 10 and macOS/iOS/iPadOS L2TP/IPsec clients' IKEv1 proposal
+ * algorithms */
+#define STRONGSWAN_IKEV1_ALGORITHMS_PHASE1 "aes256-sha2_256-modp2048,aes256-sha2_256-modp1536,aes256-sha2_256-modp1024,aes256-sha1-modp2048,aes256-sha1-modp1536,aes256-sha1-modp1024,aes256-sha1-ecp384,aes128-sha1-modp1024,aes128-sha1-ecp256,3des-sha1-modp2048,3des-sha1-modp1024!"
+#define STRONGSWAN_IKEV1_ALGORITHMS_PHASE2 "aes256-sha1,aes128-sha1,3des-sha1!"
+
+#define LIBRESWAN_IKEV1_ALGORITHMS_PHASE1 "aes256-sha2_256-modp2048,aes256-sha2_256-modp1536,aes256-sha2_256-modp1024,aes256-sha1-modp2048,aes256-sha1-modp1536,aes256-sha1-modp1024,aes256-sha1-ecp_384,aes128-sha1-modp1024,aes128-sha1-ecp_256,3des-sha1-modp2048,3des-sha1-modp1024"
+#define LIBRESWAN_IKEV1_ALGORITHMS_PHASE2 "aes256-sha1,aes128-sha1,3des-sha1"
+
 /*****************************************************************************/
 
 #define _NMLOG(level, ...) \
@@ -557,6 +566,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	int i;
 	int errsv;
 	gboolean l2tp_port_is_free;
+	gboolean use_ikev2;
 	g_autofree char *psk_base64 = NULL;
 
 	rundir = g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s", priv->uuid);
@@ -721,11 +731,33 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 
 		write_config_option (fd, "  keyingtries=%%forever\n");
 
+		use_ikev2 = FALSE;
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_IKEV2);
+		if (nm_streq0 (value, "yes")) {
+			use_ikev2 = TRUE;
+		}
+
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_IKE);
-		if(value)write_config_option (fd, "  ike=%s\n", value);
+		if(value) {
+			write_config_option (fd, "  ike=%s\n", value);
+		} else if (!use_ikev2) {
+			if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
+				write_config_option (fd, "  ike=%s\n", LIBRESWAN_IKEV1_ALGORITHMS_PHASE1);
+			} else {
+				write_config_option (fd, "  ike=%s\n", STRONGSWAN_IKEV1_ALGORITHMS_PHASE1);
+			}
+		}
 
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_ESP);
-		if(value)write_config_option (fd, "  esp=%s\n", value);
+		if(value) {
+			write_config_option (fd, "  esp=%s\n", value);
+		} else if (!use_ikev2) {
+			if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
+				write_config_option (fd, "  esp=%s\n", LIBRESWAN_IKEV1_ALGORITHMS_PHASE2);
+			} else {
+				write_config_option (fd, "  esp=%s\n", STRONGSWAN_IKEV1_ALGORITHMS_PHASE2);
+			}
+		}
 
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_IKELIFETIME);
 		if(value)write_config_option (fd, "  ikelifetime=%s\n", value);
@@ -744,8 +776,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 			if(value)write_config_option (fd, "  forceencaps=%s\n", value);
 		}
 
-		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_IKEV2);
-		if (nm_streq0 (value, "yes")) {
+		if (use_ikev2) {
 			if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
 				write_config_option (fd, "  ikev2=yes\n");
 			} else {
