@@ -25,17 +25,17 @@
 
   <screenshots>
     <screenshot type="default">
-      <image width="800" height="498">https://raw.githubusercontent.com/nm-l2tp/NetworkManager-l2tp/1.2.14/appdata/l2tp.png</image>
+      <image width="800" height="495">https://raw.githubusercontent.com/nm-l2tp/NetworkManager-l2tp/1.2.16/appdata/l2tp.png</image>
     </screenshot>
 
     <screenshot type="default">
       <_caption>The IPsec options dialog</_caption>
-      <image width="800" height="564">https://raw.githubusercontent.com/nm-l2tp/NetworkManager-l2tp/1.2.14/appdata/l2tp-ipsec.png</image>
+      <image width="800" height="525">https://raw.githubusercontent.com/nm-l2tp/NetworkManager-l2tp/1.2.16/appdata/l2tp-ipsec.png</image>
     </screenshot>
 
     <screenshot type="default">
       <_caption>The PPP options dialog</_caption>
-      <image width="800" height="735">https://raw.githubusercontent.com/nm-l2tp/NetworkManager-l2tp/1.2.14/appdata/l2tp-ppp.png</image>
+      <image width="800" height="735">https://raw.githubusercontent.com/nm-l2tp/NetworkManager-l2tp/1.2.16/appdata/l2tp-ppp.png</image>
     </screenshot>
   </screenshots>
 
