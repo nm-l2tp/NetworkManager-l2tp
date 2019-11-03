@@ -45,7 +45,7 @@
                 <property name="row_spacing">6</property>
                 <property name="column_spacing">12</property>
                 <child>
-                  <object class="GtkLabel" id="label23">
+                  <object class="GtkLabel" id="gateway_label">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">_Gateway:</property>
@@ -176,7 +176,7 @@ config: ppp name parameter</property>
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="label26">
+                  <object class="GtkLabel" id="username_label">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">User name:</property>
@@ -188,7 +188,7 @@ config: ppp name parameter</property>
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="label3">
+                  <object class="GtkLabel" id="password_label">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Password:</property>
@@ -200,7 +200,7 @@ config: ppp name parameter</property>
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="label4">
+                  <object class="GtkLabel" id="nt_domain_label">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="label" translatable="yes">NT Domain:</property>
@@ -342,6 +342,15 @@ config: ppp name parameter</property>
         <property name="position">2</property>
       </packing>
     </child>
+  </object>
+  <object class="GtkSizeGroup" id="labels">
+    <property name="ignore_hidden">True</property>
+    <widgets>
+      <widget name="gateway_label"/>
+      <widget name="username_label"/>
+      <widget name="password_label"/>
+      <widget name="nt_domain_label"/>
+    </widgets>
   </object>
   <object class="GtkAdjustment" id="lifetime1_adjustment">
     <property name="upper">86400</property>
@@ -687,7 +696,7 @@ config: ipsec-salifetime &lt;lifetime&gt;</property>
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkLabel" id="ipsec_gateway_id_label">
+                          <object class="GtkLabel" id="ipsec_remote_id_label">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="xpad">12</property>
