@@ -1,7 +1,7 @@
 AC_PREREQ(2.60)
 
 AC_INIT(NetworkManager-l2tp,
-        1.2.14,
+        1.2.16,
         https://github.com/nm-l2tp/NetworkManager-l2tp/issues,
         NetworkManager-l2tp)
 AM_INIT_AUTOMAKE([1.9 foreign no-dist-gzip dist-xz -Wno-portability])
