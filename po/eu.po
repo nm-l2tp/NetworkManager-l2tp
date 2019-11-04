@@ -137,28 +137,29 @@ msgstr "Microsoft eta beste L2TP VPN zerbitzariekin bateragarria."
 #: ../shared/nm-utils/nm-shared-utils.c:1165
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr ""
+msgstr "'%s' klaseko objektuak ez du '%s' izeneko propietaterik"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr ""
+msgstr "'%s' propietatea ez da idazgarria '%s' klaseko objektuaren"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1179
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
+"eraiki ondoren ezin da \"% s\" eraikitzeko jabetza \"% s\" objekturako aldatu"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1187
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
-msgstr ""
+msgstr "'%s::%s' ez da baliozko propietate izena; '%s' ez da GObject azpimota"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1196
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
-msgstr ""
+msgstr "ezin ezarri '%s' propietatea, '%s' motakoa, '%s' motako baliotik"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1207
 #, c-format
@@ -166,30 +167,32 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
+"“%s” balioa '%s' motakoa ez da baliozkoa edo tartetik kanpo dago '%s' "
+"propietaterako '%s' motakoa"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
 #, c-format
 msgid "unable to get editor plugin name: %s"
-msgstr ""
+msgstr "ezin izan da editore-pluginaren izena lortu: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr ""
+msgstr "“%s” plugin-fitxategia falta da"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:109
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr ""
+msgstr "ezin da editore-plugina kargatu: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:118
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr ""
+msgstr "ezin da %s fabrika kargatu pluginetik: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:144
 msgid "unknown error creating editor instance"
-msgstr ""
+msgstr "errore ezezaguna editore-instantzia sortzean"
 
 #: ../src/nm-l2tp-service.c:279
 #, c-format
@@ -318,7 +321,7 @@ msgstr "Gaitu arazketaren erregistro xehea (pasahitzak erakuts ditzake)"
 
 #: ../src/nm-l2tp-service.c:1725
 msgid "D-Bus name to use for this instance"
-msgstr ""
+msgstr "Instantzia honetan erabiliko den D-Bus izena"
 
 #: ../src/nm-l2tp-service.c:1746
 msgid ""
