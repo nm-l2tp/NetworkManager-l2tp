@@ -1,4 +1,15 @@
 ==========================================================
+NetworkManager-l2tp-1.2.16
+Overview of changes since network-manager-l2tp-1.2.14
+==========================================================
+
+* Update translations.
+* Fix label geometry in LT2P dialog box.
+* Remove "Prevalent Algorithms" button, overide default algorithms.
+  Made the phase 1 & 2 proposals previously provided by the Prevalent
+  Algorithms button the new default for the IKEv1 proposals.
+
+==========================================================
 NetworkManager-l2tp-1.2.14
 Overview of changes since network-manager-l2tp-1.2.12
 ==========================================================
