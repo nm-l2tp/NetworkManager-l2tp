@@ -193,11 +193,7 @@ disable the xl2tpd service from starting at boot time with :
 
     sudo systemctl disable xl2tpd
 
-## Issue with VPN servers only proposing IPsec IKEv1 weak legacy algorithms
-
-If you are not able to connect to a L2TP/IPsec server, but have no issue
-connecting with a Windows 10 or macOS/iOS/iPadOS L2TP client, please also see
-the Prevalent IKEv1 algorithms section below.
+## IPsec IKEv1 weak legacy algorithms and backwards compatibilty
 
 There is a general consensus that the following legacy algorithms are now
 considered weak or broken in regards to security and should be phased out and
@@ -216,59 +212,75 @@ Diffie Hellman Groups :
 * MODP1024
 * MODP1536
 
+The following strongSwan page has more details on which algorithms are
+considered broken:
+* https://wiki.strongswan.org/projects/strongswan/wiki/IKEv1CipherSuites
+
 Legacy algorithms that are considered weak or broken are regularly removed from
 the default set of allowed algorithms with newer releases of strongSwan and
-Libreswan.
+libreswan.
 
-As of strongSwan 5.4.0, the above algorithms have been removed from
-strongSwan's default set of allowed algorithms.
+As of NetworkManager-l2tp version 1.2.16, it was decided to compromise for
+backwards compatibility by not using the strongSwan and libreswan default set
+of allowed algorithms, instead algorithms that are a merge of Windows 10 and
+macOS/iOS/iPadOS L2TP clients' IKEv1 proposals are used:
 
-As of Libreswan 3.20, the above algorithms have been removed from Libreswan's
-default set of allowed algorithms, except for 3DES, SHA1 and MODP1536 which
-were kept for backwards compatibility.
+* Phase 1 - Main Mode :
 
-If you are not sure if you are using Libreswan or Strongswan, issue the
+      {enc=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_2048},
+      {enc=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_1536},
+      {enc=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_1024},
+      {enc=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_2048},
+      {enc=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_1536},
+      {enc=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_1024},
+      {enc=AES_CBC_256 integ=HMAC_SHA1_96 group=ECP_384},
+      {enc=AES_CBC_128 integ=HMAC_SHA1_96 group=MODP_1024},
+      {enc=AES_CBC_128 integ=HMAC_SHA1_96 group=ECP_256},
+      {enc=3DES_CBC integ=HMAC_SHA1_96 group=MODP_2048},
+      {enc=3DES_CBC integ=HMAC_SHA1_96 group=MODP_1024}
+
+* Phase 2 - Quick Mode :
+
+      {enc=AES_CBC_256 integ=HMAC_SHA1_96},
+      {enc=AES_CBC_128 integ=HMAC_SHA1_96},
+      {enc=3DES_CBC integ=HMAC_SHA1_96}
+
+The above proposals would be equivalent to setting the following:
+#### libreswan
+* Phase 1 :
+
+      aes256-sha2_256-modp2048,aes256-sha2_256-modp1536,aes256-sha2_256-modp1024,aes256-sha1-modp2048,aes256-sha1-modp1536,aes256-sha1-modp1024,aes256-sha1-ecp_384,aes128-sha1-modp1024,aes128-sha1-ecp_256,3des-sha1-modp2048,3des-sha1-modp1024
+
+* Phase 2 :
+
+      aes256-sha1,aes128-sha1,3des-sha1
+
+#### strongSwan
+* Phase 1 :
+
+      aes256-sha2_256-modp2048,aes256-sha2_256-modp1536,aes256-sha2_256-modp1024,aes256-sha1-modp2048,aes256-sha1-modp1536,aes256-sha1-modp1024,aes256-sha1-ecp384,aes128-sha1-modp1024,aes128-sha1-ecp256,3des-sha1-modp2048,3des-sha1-modp1024!
+
+* Phase 2 :
+
+      aes256-sha1,aes128-sha1,3des-sha1!
+
+If you are concerned about security and with to use algorithms that are
+stronger than the proposals offered by the Windows 10 and macOS/iOS/iPadOS
+L2TP clients. User specified phase 1 (*ike* - Main Mode) and phase 2
+(*esp* - Quick Mode) algorithms can be specified in the **Advanced** section
+of NetworkManager-l2tp's IPsec Options dialog box. Please see the libreswan
+or strongSwan `ipsec.conf` documentation for the *ike* and *esp* (aka
+*phase2alg*) syntax.
+
+If you are not sure if you are using libreswan or Strongswan, issue the
 following on the command-line:
 
 ```
 ipsec --version
 ```
 
-If you are not sure which IKEv1 algorithms your VPN server proposes, you can
-query the VPN server with the `ike-scan.sh` script located in the IPsec IKEv1
-algorithms section of the Wiki :
+If you are not sure which IKEv1 Phase 1 algorithms your VPN server proposes,
+you can query the VPN server with the `ike-scan.sh` script located in the
+IPsec IKEv1 algorithms section of the Wiki :
 * https://github.com/nm-l2tp/NetworkManager-l2tp/wiki/Known-Issues
-
-If for some reason the VPN server cannot be reconfigured or does not share any
-proposals in the Libreswan or Strongswan default set of allowed algorithms,
-user specified phase 1 (*ike* - Main Mode) and phase 2 (*esp* - Quick Mode)
-algorithms can be specified in the **Advanced** section of NetworkManager-l2tp's
-IPsec Options dialog box. Please see the Libreswan or openSwan `ipsec.conf`
-documentation for the *ike* and *esp* (aka *phase2alg*) syntax.
-
-### Prevalent IKEv1 algorithms
-
-Pressing the **Prevalent Algorithms** button in the IPsec Options dialog box
-populates the Phase 1 and 2 Algorithm text entry boxes with the following
-proposals, which are a merge of Windows 10 and macOS/iOS/iPadOS L2TP clients'
-IKEv1 proposals (**note:** it auto-detects if you are using strongSwan or
-Libreswan and populates appropriately with the correct syntax):
-
-* Phase 1 - Main Mode :
-{enc=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_2048},
-{enc=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_1536},
-{enc=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_1024},
-{enc=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_2048},
-{enc=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_1536},
-{enc=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_1024},
-{enc=AES_CBC_256 integ=HMAC_SHA1_96 group=ECP_384},
-{enc=AES_CBC_128 integ=HMAC_SHA1_96 group=MODP_1024},
-{enc=AES_CBC_128 integ=HMAC_SHA1_96 group=ECP_256},
-{enc=3DES_CBC integ=HMAC_SHA1_96 group=MODP_2048},
-{enc=3DES_CBC integ=HMAC_SHA1_96 group=MODP_1024}
-
-* Phase 2 - Quick Mode :
-{enc=AES_CBC_256 integ=HMAC_SHA1_96},
-{enc=AES_CBC_128 integ=HMAC_SHA1_96},
-{enc=3DES_CBC integ=HMAC_SHA1_96}
 
