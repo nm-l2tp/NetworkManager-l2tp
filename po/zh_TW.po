@@ -298,7 +298,7 @@ msgstr "價值“%s\" 類型'%s' 屬於無效或超出範圍的財產'%s' 類型
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
 #, c-format
 msgid "unable to get editor plugin name: %s"
-msgstr ""
+msgstr "無法獲得編輯器外掛程式名稱：%s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
@@ -346,7 +346,7 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:358
 msgid "No VPN configuration options."
-msgstr ""
+msgstr "沒有 VPN 設定選項。"
 
 #: ../src/nm-l2tp-service.c:378
 #, c-format
@@ -406,11 +406,11 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1582
 msgid "Missing VPN username."
-msgstr ""
+msgstr "遺失 VPN 使用者名稱。"
 
 #: ../src/nm-l2tp-service.c:1591
 msgid "Missing or invalid VPN password."
-msgstr ""
+msgstr "遺失或無效的 VPN 密碼。"
 
 #: ../src/nm-l2tp-service.c:1695
 msgid "couldn't convert L2TP VPN gateway IP address."

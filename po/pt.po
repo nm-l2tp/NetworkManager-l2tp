@@ -410,7 +410,7 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1582
 msgid "Missing VPN username."
-msgstr ""
+msgstr "Nome de utilizador VPN em falta."
 
 #: ../src/nm-l2tp-service.c:1591
 msgid "Missing or invalid VPN password."
