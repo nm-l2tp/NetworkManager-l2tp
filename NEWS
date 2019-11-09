@@ -1,6 +1,6 @@
 ==========================================================
-NetworkManager-l2tp-1.7.1  (development) 
-Overview of changes since NetworkManager-l2tp-1.7.0
+NetworkManager-l2tp-1.7.2  (development) 
+Overview of changes since NetworkManager-l2tp-1.2.16
 ==========================================================
 
 YOU MIGHT NOT BE ABLE TO PROVIDE PRE-BUILT BINARIES OF THIS RELEASE UNTIL THE
@@ -14,11 +14,34 @@ from OpenSSL version 1.1.0 or later.
 Note: OpenSSL versions prior to 3.0 are not under the GPL compatible Apache
 License v2 :
     https://www.openssl.org/source/license.html
-* merge changes from version 1.2.14
-* Correct resizing layout of IPsec Options dialog.
+
+* User and machine TLS certificate support.
+* Uses NMACertChooser widget introduced with NetworkManager 1.8.0
+  for certificate support in the GUI.
+* Routines to auto detect the following TLS certificate and private key file
+  formats by looking at the file contents and not the file extension, also
+  determines if the files are encrypted with a password, which includes
+  testing if the password is the empty string on NULL :
+  - PKCS#12 certificates.
+  - X509 certificates (PEM or DER).
+  - PKCS#8 private keys (PEM or DER)
+  - traditional OpenSSL RSA, DSA and ECDSA private keys (PEM or DER).
+* Routines to import certificates and privates keys into a Libreswan NSS
+  database.
 * Grey out the machine auth type selection iin IPsec Options dialog box if
   EAP-TLS ppd patch not detected.
-* Add instructions for password protecting the libreswan NSS database.
+* Update translations.
+
+==========================================================
+NetworkManager-l2tp-1.2.16
+Overview of changes since network-manager-l2tp-1.2.14
+==========================================================
+
+* Update translations.
+* Fix label geometry in LT2P dialog box.
+* Remove "Prevalent Algorithms" button, override default algorithms.
+  Made the phase 1 & 2 proposals previously provided by the Prevalent
+  Algorithms button the new default for the IKEv1 proposals.
 
 ==========================================================
 NetworkManager-l2tp-1.2.14
@@ -54,27 +77,6 @@ Overview of changes since network-manager-l2tp-1.2.12
   environment variable.
 * Gray out "IPsec Settings..." button if no *swan found.
   Also fix crash if "IPsec Settings..." button pressed and no *swan installed.
-
-==========================================================
-NetworkManager-l2tp-1.7.0  (development) 
-Overview of changes since NetworkManager-l2tp-1.2.12
-==========================================================
-
-* Update translations by merging from various sources.
-* User and machine TLS certificate support.
-* Uses NMACertChooser widget introduced with NetworkManager 1.8.0
-  for certificate support in the GUI.
-* Routines to auto detect the following TLS certificate and private key file
-  formats by looking at the file contents and not the file extension, also
-  determines if the files are encrypted with a password, which includes
-  testing if the password is the empty string on NULL :
-  - PKCS#12 certificates.
-  - X509 certificates (PEM or DER).
-  - PKCS#8 private keys (PEM or DER)
-  - traditional OpenSSL RSA, DSA and ECDSA private keys (PEM or DER).
-* Routines to import certificates and privates keys into a Libreswan NSS
-  database.
-
 
 ==========================================================
 NetworkManager-l2tp-1.2.12
