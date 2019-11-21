@@ -69,7 +69,7 @@ hash_copy_value (const char *key, const char *value, gpointer user_data)
 
 GHashTable *
 ipsec_dialog_new_hash_from_connection (NMConnection *connection,
-                                          GError **error)
+                                       GError **error)
 {
 	GHashTable *hash;
 	NMSettingVpn *s_vpn;
@@ -100,26 +100,26 @@ ipsec_dialog_new_hash_from_connection (NMConnection *connection,
 static void
 ipsec_auth_combo_changed_cb (GtkWidget *combo, gpointer user_data)
 {
-        GtkBuilder *builder = GTK_BUILDER (user_data);
-        GtkWidget *widget;
-        GtkTreeModel *model;
-        GtkTreeIter iter;
-        gint new_page = 0;
+	GtkBuilder *builder = GTK_BUILDER (user_data);
+	GtkWidget *widget;
+	GtkTreeModel *model;
+	GtkTreeIter iter;
+	gint new_page = 0;
 
-        model = gtk_combo_box_get_model (GTK_COMBO_BOX (combo));
-        g_assert (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (combo), &iter));
-        gtk_tree_model_get (model, &iter, COL_AUTH_PAGE, &new_page, -1);
+	model = gtk_combo_box_get_model (GTK_COMBO_BOX (combo));
+	g_assert (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (combo), &iter));
+	gtk_tree_model_get (model, &iter, COL_AUTH_PAGE, &new_page, -1);
 
-        widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_auth_notebook"));
-        gtk_notebook_set_current_page (GTK_NOTEBOOK (widget), new_page);
+	if (new_page == 0) {
+		widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_tls"));
+		gtk_widget_hide (widget);
+	} else {
+		widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_tls"));
+		gtk_widget_show (widget);
+	}
 
-		if (new_page == 0) {
-			widget = GTK_WIDGET (gtk_builder_get_object (builder, "tls_machine_cert"));
-			gtk_widget_hide (widget);
-		} else {
-			widget = GTK_WIDGET (gtk_builder_get_object (builder, "tls_machine_cert"));
-			gtk_widget_show (widget);
-		}
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ipsec_auth_notebook"));
+	gtk_notebook_set_current_page (GTK_NOTEBOOK (widget), new_page);
 }
 
 static void
