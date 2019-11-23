@@ -327,21 +327,21 @@ stuff_changed_cb (GtkWidget *widget, gpointer user_data)
 static void
 auth_combo_changed_cb (GtkWidget *combo, gpointer user_data)
 {
-        L2tpPluginUiWidget *self = L2TP_PLUGIN_UI_WIDGET (user_data);
-        L2tpPluginUiWidgetPrivate *priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
-        GtkWidget *auth_notebook;
-        GtkTreeModel *model;
-        GtkTreeIter iter;
-        gint new_page = 0;
+	L2tpPluginUiWidget *self = L2TP_PLUGIN_UI_WIDGET (user_data);
+	L2tpPluginUiWidgetPrivate *priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
+	GtkWidget *auth_notebook;
+	GtkTreeModel *model;
+	GtkTreeIter iter;
+	gint new_page = 0;
 
-        model = gtk_combo_box_get_model (GTK_COMBO_BOX (combo));
-        g_assert (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (combo), &iter));
-        gtk_tree_model_get (model, &iter, COL_AUTH_PAGE, &new_page, -1);
+	model = gtk_combo_box_get_model (GTK_COMBO_BOX (combo));
+	g_assert (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (combo), &iter));
+	gtk_tree_model_get (model, &iter, COL_AUTH_PAGE, &new_page, -1);
 
-        auth_notebook = GTK_WIDGET (gtk_builder_get_object (priv->builder, "auth_notebook"));
-        gtk_notebook_set_current_page (GTK_NOTEBOOK (auth_notebook), new_page);
+	auth_notebook = GTK_WIDGET (gtk_builder_get_object (priv->builder, "auth_notebook"));
+	gtk_notebook_set_current_page (GTK_NOTEBOOK (auth_notebook), new_page);
 
-        stuff_changed_cb (combo, self);
+	stuff_changed_cb (combo, self);
 }
 
 static void
