@@ -93,9 +93,14 @@ crypto_file_format (const char *filename,
 	EC_KEY *ecdsa;
 	gsize taglen = 0;
 
-	if (out_need_password != NULL)
+	if (out_need_password != NULL) {
 		*out_need_password = FALSE;
+	}
 	file_format = NM_L2TP_CRYPTO_FILE_FORMAT_UNKNOWN;
+
+	if (filename == NULL) {
+		return file_format;
+	}
 
 	if (!(array = file_to_g_byte_array (filename, error))) {
 		return file_format;
