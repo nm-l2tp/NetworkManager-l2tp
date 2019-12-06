@@ -111,10 +111,8 @@
 
 #if ((NETWORKMANAGER_COMPILATION) & NM_NETWORKMANAGER_COMPILATION_WITH_LIBNM_UTIL)
 #include <nm-ui-utils.h>
-#include <nm-cert-chooser.h>
 #else
 #include <nma-ui-utils.h>
-#include <nma-cert-chooser.h>
 #endif
 
 #endif /* NM_NETWORKMANAGER_COMPILATION_LIB_EDITOR */

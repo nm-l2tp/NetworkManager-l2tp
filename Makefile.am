@@ -154,7 +154,9 @@ editor_sources = \
 	properties/ipsec-dialog.c \
 	properties/ipsec-dialog.h \
 	properties/nm-l2tp-editor.c \
-	properties/nm-l2tp-editor.h
+	properties/nm-l2tp-editor.h \
+	properties/auth-helpers.c \
+	properties/auth-helpers.h
 
 properties_cppflags = \
 	-DLOCALEDIR=\"$(datadir)/locale\" \
