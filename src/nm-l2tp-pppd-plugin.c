@@ -1,4 +1,3 @@
-/* -*- Mode: C; tab-width: 4; indent-tabs-mode: t; c-basic-offset: 4 -*- */
 /* nm-l2tp-service - l2tp (and other pppd) integration with NetworkManager
  *
  * (C) 2007 - 2008 Novell, Inc.

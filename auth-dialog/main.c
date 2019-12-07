@@ -1,4 +1,3 @@
-/* -*- Mode: C; tab-width: 4; indent-tabs-mode: t; c-basic-offset: 4 -*- */
 /* NetworkManager-l2tp - Authentication Dialog
  *
  * Dan Williams <dcbw@redhat.com>

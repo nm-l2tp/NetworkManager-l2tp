@@ -1,4 +1,3 @@
-/* -*- Mode: C; tab-width: 4; indent-tabs-mode: t; c-basic-offset: 4 -*- */
 /* nm-l2tp-service - L2TP VPN integration with NetworkManager
  *
  * Geo Carncross <geocar@gmail.com>
