@@ -613,8 +613,6 @@ tls_setup (GtkBuilder *builder,
 	nma_utils_setup_password_storage (widget, 0, (NMSetting *) s_vpn, NM_L2TP_KEY_USER_CERTPASS,
 	                                  TRUE, FALSE);
 
-	tls_cert_changed_cb (cert, builder);
-
 	/* Link choosers to the PKCS#12 changer callback */
 	id1 = g_signal_connect (ca_cert, "selection-changed", G_CALLBACK (tls_cert_changed_cb), builder);
 	id2 = g_signal_connect (cert, "selection-changed", G_CALLBACK (tls_cert_changed_cb), builder);
@@ -628,6 +626,8 @@ tls_setup (GtkBuilder *builder,
 	g_signal_connect (G_OBJECT (ca_cert), "selection-changed", G_CALLBACK (stuff_changed_cb), user_data);
 	g_signal_connect (G_OBJECT (cert), "selection-changed", G_CALLBACK (stuff_changed_cb), user_data);
 	g_signal_connect (G_OBJECT (key), "selection-changed", G_CALLBACK (stuff_changed_cb), user_data);
+
+	tls_cert_changed_cb (cert, builder);
 }
 
 static gboolean

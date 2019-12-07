@@ -358,8 +358,6 @@ ipsec_tls_setup (GtkBuilder *builder, GHashTable *hash)
 	nma_utils_setup_password_storage (widget, pw_flags, NULL, NM_L2TP_KEY_MACHINE_CERTPASS,
 	                                  FALSE, FALSE);
 
-	tls_cert_changed_cb (cert, builder);
-
 	/* Link choosers to the PKCS#12 changer callback */
 	id1 = g_signal_connect (ca_cert, "selection-changed", G_CALLBACK (tls_cert_changed_cb), builder);
 	id2 = g_signal_connect (cert, "selection-changed", G_CALLBACK (tls_cert_changed_cb), builder);
@@ -369,6 +367,8 @@ ipsec_tls_setup (GtkBuilder *builder, GHashTable *hash)
 	g_object_set_data (G_OBJECT (ca_cert), BLOCK_HANDLER_ID, GSIZE_TO_POINTER (id1));
 	g_object_set_data (G_OBJECT (cert), BLOCK_HANDLER_ID, GSIZE_TO_POINTER (id2));
 	g_object_set_data (G_OBJECT (key), BLOCK_HANDLER_ID, GSIZE_TO_POINTER (id3));
+
+	tls_cert_changed_cb (cert, builder);
 }
 
 static void
