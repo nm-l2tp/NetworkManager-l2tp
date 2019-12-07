@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.22.1 -->
 <interface>
-  <requires lib="gtk+" version="3.4"/>
+  <requires lib="gtk+" version="3.14"/>
   <object class="GtkBox" id="l2tp-vbox">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -153,12 +153,11 @@ config: xl2tpd lns parameter</property>
                             <child>
                               <object class="GtkCheckButton" id="show_password_checkbutton">
                                 <property name="label" translatable="yes">Sho_w password</property>
-                                <property name="use_action_appearance">False</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
+                                <property name="halign">start</property>
                                 <property name="use_underline">True</property>
-                                <property name="xalign">0</property>
                                 <property name="draw_indicator">True</property>
                               </object>
                               <packing>
@@ -472,7 +471,6 @@ config: auth-user-pass</property>
             <property name="can_focus">False</property>
             <child>
               <object class="GtkButton" id="ipsec_button">
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -518,7 +516,6 @@ config: auth-user-pass</property>
             </child>
             <child>
               <object class="GtkButton" id="ppp_button">
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -622,7 +619,6 @@ config: auth-user-pass</property>
             <child>
               <object class="GtkButton" id="ipsec_cancel_button">
                 <property name="label">gtk-cancel</property>
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -637,7 +633,6 @@ config: auth-user-pass</property>
             <child>
               <object class="GtkButton" id="ipsec_ok_button">
                 <property name="label">gtk-ok</property>
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -660,13 +655,12 @@ config: auth-user-pass</property>
         <child>
           <object class="GtkCheckButton" id="ipsec_check">
             <property name="label" translatable="yes">_Enable IPsec tunnel to L2TP host</property>
-            <property name="use_action_appearance">False</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">False</property>
             <property name="tooltip_text" translatable="yes">config: ipsec-enabled</property>
+            <property name="halign">start</property>
             <property name="use_underline">True</property>
-            <property name="xalign">0.5</property>
             <property name="draw_indicator">True</property>
           </object>
           <packing>
@@ -685,7 +679,6 @@ config: auth-user-pass</property>
               <object class="GtkLabel" id="machine_auth_label">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="ypad">5</property>
                 <property name="label" translatable="yes">Machine Authentication</property>
                 <property name="single_line_mode">True</property>
                 <property name="xalign">0</property>
@@ -732,12 +725,11 @@ config: auth-user-pass</property>
                                 <child>
                                   <object class="GtkCheckButton" id="show_psk_check">
                                     <property name="label" translatable="yes">Sho_w password</property>
-                                    <property name="use_action_appearance">False</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">False</property>
+                                    <property name="halign">start</property>
                                     <property name="use_underline">True</property>
-                                    <property name="xalign">0</property>
                                     <property name="draw_indicator">True</property>
                                   </object>
                                   <packing>
@@ -912,13 +904,12 @@ config: ipsec-psk</property>
                                 <child>
                                   <object class="GtkCheckButton" id="show_machine_tls_key_pw_check">
                                     <property name="label" translatable="yes">Sho_w password</property>
-                                    <property name="use_action_appearance">False</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">False</property>
+                                    <property name="halign">start</property>
                                     <property name="hexpand">True</property>
                                     <property name="use_underline">True</property>
-                                    <property name="xalign">0</property>
                                     <property name="draw_indicator">True</property>
                                   </object>
                                   <packing>
@@ -1018,7 +1009,8 @@ config: ipsec-psk</property>
                           <object class="GtkLabel" id="label_phase2">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="xpad">12</property>
+                            <property name="halign">start</property>
+                            <property name="margin_left">12</property>
                             <property name="label" translatable="yes">Phase2 Algorithms:</property>
                             <property name="xalign">0</property>
                           </object>
@@ -1057,7 +1049,8 @@ config: ipsec-esp &lt;proposals&gt;</property>
                           <object class="GtkLabel" id="label_phase1">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="xpad">12</property>
+                            <property name="halign">start</property>
+                            <property name="margin_left">12</property>
                             <property name="label" translatable="yes">Phase1 Algorithms:</property>
                             <property name="xalign">0</property>
                           </object>
@@ -1182,9 +1175,9 @@ config: ipsec-salifetime &lt;lifetime&gt;</property>
                           <object class="GtkLabel" id="ipsec_gateway_id_label">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="xpad">12</property>
+                            <property name="halign">start</property>
+                            <property name="margin_left">12</property>
                             <property name="label" translatable="yes">Remote ID:</property>
-                            <property name="xalign">0</property>
                           </object>
                           <packing>
                             <property name="left_attach">0</property>
@@ -1223,8 +1216,8 @@ ipsec.secrets: &lt;ID&gt;</property>
                         <property name="receives_default">False</property>
                         <property name="tooltip_text" translatable="yes">Some firewalls block ESP traffic. Enforcing UDP capsulation even if no NAT situation is detected might help in such cases.
 config: ipsec-forceencaps &lt;yes/no&gt;</property>
+                        <property name="halign">start</property>
                         <property name="use_underline">True</property>
-                        <property name="xalign">0</property>
                         <property name="active">True</property>
                         <property name="draw_indicator">True</property>
                       </object>
@@ -1242,8 +1235,8 @@ config: ipsec-forceencaps &lt;yes/no&gt;</property>
                         <property name="receives_default">False</property>
                         <property name="tooltip_text" translatable="yes">IPComp compresses raw IP packets before they get encrypted. This saves some bandwidth, but uses more processing power.
 config: ipsec-ipcomp &lt;yes/no&gt;</property>
+                        <property name="halign">start</property>
                         <property name="use_underline">True</property>
-                        <property name="xalign">0</property>
                         <property name="active">True</property>
                         <property name="draw_indicator">True</property>
                       </object>
@@ -1261,8 +1254,8 @@ config: ipsec-ipcomp &lt;yes/no&gt;</property>
                         <property name="receives_default">False</property>
                         <property name="tooltip_text" translatable="yes">Use IKEv2 key exchange
 config: ipsec-ikev2 &lt;yes/no&gt;</property>
+                        <property name="halign">start</property>
                         <property name="use_underline">True</property>
-                        <property name="xalign">0</property>
                         <property name="active">True</property>
                         <property name="draw_indicator">True</property>
                       </object>
@@ -1280,8 +1273,8 @@ config: ipsec-ikev2 &lt;yes/no&gt;</property>
                         <property name="receives_default">False</property>
                         <property name="tooltip_text" translatable="yes">Disable perfect forward security. Enable this option only if the server doesn’t support PFS.
 config: ipsec-pfs &lt;no/yes&gt;</property>
+                        <property name="halign">start</property>
                         <property name="use_underline">True</property>
-                        <property name="xalign">0</property>
                         <property name="active">True</property>
                         <property name="draw_indicator">True</property>
                       </object>
@@ -1390,7 +1383,6 @@ config: ipsec-pfs &lt;no/yes&gt;</property>
             <child>
               <object class="GtkButton" id="cancel_button1">
                 <property name="label">gtk-cancel</property>
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
@@ -1405,7 +1397,6 @@ config: ipsec-pfs &lt;no/yes&gt;</property>
             <child>
               <object class="GtkButton" id="ok_button1">
                 <property name="label">gtk-ok</property>
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
@@ -1551,6 +1542,7 @@ config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap</pr
                       <object class="GtkBox" id="vbox9">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="halign">start</property>
                         <property name="orientation">vertical</property>
                         <property name="spacing">6</property>
                         <child>
@@ -1562,13 +1554,12 @@ config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap</pr
                             <child>
                               <object class="GtkCheckButton" id="ppp_use_mppe">
                                 <property name="label" translatable="yes">Use _Point-to-Point encryption (MPPE)</property>
-                                <property name="use_action_appearance">False</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
                                 <property name="tooltip_text" translatable="yes">Note: MPPE encryption is only available with MSCHAP authentication methods. To enable this checkbox, select one or more of the MSCHAP authentication methods: MSCHAP or MSCHAPv2.</property>
+                                <property name="halign">start</property>
                                 <property name="use_underline">True</property>
-                                <property name="xalign">0.5</property>
                                 <property name="draw_indicator">True</property>
                               </object>
                               <packing>
@@ -1638,14 +1629,13 @@ config: require-mppe, require-mppe-128 or require-mppe-40</property>
                                     <child>
                                       <object class="GtkCheckButton" id="ppp_allow_stateful_mppe">
                                         <property name="label" translatable="yes">Allow st_ateful encryption</property>
-                                        <property name="use_action_appearance">False</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">False</property>
                                         <property name="tooltip_text" translatable="yes">Allow MPPE to use stateful mode. Stateless mode is still attempted first.
 config: mppe-stateful (when checked)</property>
+                                        <property name="halign">start</property>
                                         <property name="use_underline">True</property>
-                                        <property name="xalign">0.5</property>
                                         <property name="draw_indicator">True</property>
                                       </object>
                                       <packing>
@@ -1673,14 +1663,13 @@ config: mppe-stateful (when checked)</property>
                         <child>
                           <object class="GtkCheckButton" id="ppp_allow_bsdcomp">
                             <property name="label" translatable="yes">Allow _BSD data compression</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="tooltip_text" translatable="yes">Allow/disable BSD-Compress compression.
 config: nobsdcomp (when unchecked)</property>
+                            <property name="halign">start</property>
                             <property name="use_underline">True</property>
-                            <property name="xalign">0.5</property>
                             <property name="draw_indicator">True</property>
                           </object>
                           <packing>
@@ -1692,14 +1681,13 @@ config: nobsdcomp (when unchecked)</property>
                         <child>
                           <object class="GtkCheckButton" id="ppp_allow_deflate">
                             <property name="label" translatable="yes">Allow _Deflate data compression</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="tooltip_text" translatable="yes">Allow/disable Deflate compression.
 config: nodeflate (when unchecked)</property>
+                            <property name="halign">start</property>
                             <property name="use_underline">True</property>
-                            <property name="xalign">0.5</property>
                             <property name="draw_indicator">True</property>
                           </object>
                           <packing>
@@ -1711,14 +1699,13 @@ config: nodeflate (when unchecked)</property>
                         <child>
                           <object class="GtkCheckButton" id="ppp_usevj">
                             <property name="label" translatable="yes">Use TCP _header compression</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="tooltip_text" translatable="yes">Allow/disable Van Jacobson style TCP/IP header compression in both the transmit and the receive directions.
 config: novj (when unchecked)</property>
+                            <property name="halign">start</property>
                             <property name="use_underline">True</property>
-                            <property name="xalign">0.5</property>
                             <property name="draw_indicator">True</property>
                           </object>
                           <packing>
@@ -1730,14 +1717,13 @@ config: novj (when unchecked)</property>
                         <child>
                           <object class="GtkCheckButton" id="ppp_usepcomp">
                             <property name="label" translatable="yes">Use protocol _field compression negotiation</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="tooltip_text" translatable="yes">Allow protocol field compression negotiation in both the receive and the transmit direction.
 config: nopcomp (when unchecked)</property>
+                            <property name="halign">start</property>
                             <property name="use_underline">True</property>
-                            <property name="xalign">0.5</property>
                             <property name="draw_indicator">True</property>
                           </object>
                           <packing>
@@ -1749,14 +1735,13 @@ config: nopcomp (when unchecked)</property>
                         <child>
                           <object class="GtkCheckButton" id="ppp_useaccomp">
                             <property name="label" translatable="yes">Use _Address/Control compression</property>
-                            <property name="use_action_appearance">False</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="tooltip_text" translatable="yes">Use Address/Control compression in both directions (send and receive).
 config: noaccomp (when unchecked)</property>
+                            <property name="halign">start</property>
                             <property name="use_underline">True</property>
-                            <property name="xalign">0.5</property>
                             <property name="draw_indicator">True</property>
                           </object>
                           <packing>
@@ -1811,15 +1796,16 @@ config: noaccomp (when unchecked)</property>
                     <child>
                       <object class="GtkCheckButton" id="ppp_send_echo_packets">
                         <property name="label" translatable="yes">Send PPP _echo packets</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
                         <property name="tooltip_text" translatable="yes">Send LCP echo-requests to find out whether peer is alive.
 config: lcp-echo-failure and lcp-echo-interval</property>
                         <property name="use_underline">True</property>
-                        <property name="xalign">0.5</property>
                         <property name="draw_indicator">True</property>
+                        <child>
+                          <placeholder/>
+                        </child>
                       </object>
                     </child>
                   </object>
@@ -1863,11 +1849,11 @@ config: lcp-echo-failure and lcp-echo-interval</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="halign">start</property>
+                    <property name="spacing">12</property>
                     <child>
                       <object class="GtkLabel" id="label13">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="xpad">12</property>
                         <property name="label" translatable="yes">MTU :</property>
                         <property name="xalign">0</property>
                       </object>
@@ -1905,11 +1891,11 @@ config: lcp-echo-failure and lcp-echo-interval</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="halign">start</property>
+                    <property name="spacing">12</property>
                     <child>
                       <object class="GtkLabel" id="label16">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="xpad">12</property>
                         <property name="label" translatable="yes">MRU :</property>
                         <property name="xalign">0</property>
                       </object>
