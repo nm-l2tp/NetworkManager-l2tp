@@ -265,6 +265,8 @@ config: auth-user-pass</property>
                           <object class="GtkGrid">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
+                            <property name="row_spacing">6</property>
+                            <property name="column_spacing">12</property>
                             <child>
                               <object class="GtkLabel" id="user_ca_certificate_label">
                                 <property name="visible">True</property>
@@ -1803,9 +1805,6 @@ config: noaccomp (when unchecked)</property>
 config: lcp-echo-failure and lcp-echo-interval</property>
                         <property name="use_underline">True</property>
                         <property name="draw_indicator">True</property>
-                        <child>
-                          <placeholder/>
-                        </child>
                       </object>
                     </child>
                   </object>
