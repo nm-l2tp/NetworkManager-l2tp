@@ -13,7 +13,7 @@
 #define BLOCK_HANDLER_ID "block-handler-id"
 
 void
-show_password (GtkToggleButton *togglebutton, GtkEntry *password_entry);
+show_password_cb (GtkToggleButton *togglebutton, GtkEntry *password_entry);
 
 GtkFileFilter *
 tls_cert_filter (void);

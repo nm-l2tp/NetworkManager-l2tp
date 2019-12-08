@@ -290,7 +290,7 @@ ipsec_tls_setup (GtkBuilder *builder, GHashTable *hash)
 {
 	NMSettingSecretFlags pw_flags;
 	GtkWidget *widget;
-	GtkWidget *show_passwords;
+	GtkWidget *show_password;
 	GtkWidget *ca_cert;
 	GtkWidget *cert;
 	GtkWidget *key;
@@ -340,8 +340,8 @@ ipsec_tls_setup (GtkBuilder *builder, GHashTable *hash)
 
 	/* Fill in the private key password */
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "machine_tls_key_pw_entry"));
-	show_passwords = GTK_WIDGET (gtk_builder_get_object (builder, "show_machine_tls_key_pw_check"));
-	g_signal_connect (show_passwords, "toggled", G_CALLBACK (show_password), widget);
+	show_password = GTK_WIDGET (gtk_builder_get_object (builder, "show_machine_tls_key_pw_check"));
+	g_signal_connect (show_password, "toggled", G_CALLBACK (show_password_cb), widget);
 
 	value = g_hash_table_lookup (hash, NM_L2TP_KEY_MACHINE_CERTPASS);
 	if (value)
@@ -369,15 +369,6 @@ ipsec_tls_setup (GtkBuilder *builder, GHashTable *hash)
 	g_object_set_data (G_OBJECT (key), BLOCK_HANDLER_ID, GSIZE_TO_POINTER (id3));
 
 	tls_cert_changed_cb (cert, builder);
-}
-
-static void
-show_psk_toggled_cb (GtkCheckButton *button, GtkEntry *psk_entry)
-{
-	gboolean visible;
-
-	visible = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button));
-	gtk_entry_set_visibility (GTK_ENTRY (psk_entry), visible);
 }
 
 static void
@@ -410,7 +401,7 @@ ipsec_psk_setup (GtkBuilder *builder, GHashTable *hash)
 		}
 	}
 
-	g_signal_connect (checkbutton_widget, "toggled", G_CALLBACK (show_psk_toggled_cb), psk_entry_widget);
+	g_signal_connect (checkbutton_widget, "toggled", G_CALLBACK (show_password_cb), psk_entry_widget);
 }
 
 static gint

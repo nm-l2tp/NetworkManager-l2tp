@@ -210,31 +210,25 @@ tls_cert_changed_cb (GtkWidget *chooser, gpointer user_data)
 }
 
 static void
-pw_show_toggled_cb (GtkCheckButton *button, L2tpPluginUiWidget *self)
-{
-	L2tpPluginUiWidgetPrivate *priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
-	GtkWidget *widget;
-	gboolean visible;
-
-	visible = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button));
-
-	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "password_entry"));
-	g_assert (widget);
-	gtk_entry_set_visibility (GTK_ENTRY (widget), visible);
-}
-
-static void
 pw_setup (GtkBuilder *builder,
           NMSettingVpn *s_vpn,
           ChangedCallback changed_cb,
           gpointer user_data)
 {
-	GtkWidget *widget;
+	GtkWidget *widget, *show_password;
 	const char *value;
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "username_entry"));
 	if (s_vpn) {
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER);
+		if (value && value[0])
+			gtk_entry_set_text (GTK_ENTRY (widget), value);
+	}
+	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (changed_cb), user_data);
+
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "domain_entry"));
+	if (s_vpn) {
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_DOMAIN);
 		if (value && value[0])
 			gtk_entry_set_text (GTK_ENTRY (widget), value);
 	}
@@ -251,16 +245,8 @@ pw_setup (GtkBuilder *builder,
 	nma_utils_setup_password_storage (widget, 0, (NMSetting *) s_vpn, NM_L2TP_KEY_PASSWORD,
 	                                  FALSE, FALSE);
 
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "domain_entry"));
-	if (s_vpn) {
-		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_DOMAIN);
-		if (value && value[0])
-			gtk_entry_set_text (GTK_ENTRY (widget), value);
-	}
-	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (changed_cb), user_data);
-
-	widget = GTK_WIDGET (gtk_builder_get_object (builder,  "show_password_checkbutton"));
-	g_signal_connect (widget, "toggled", G_CALLBACK (pw_show_toggled_cb), user_data);
+	show_password = GTK_WIDGET (gtk_builder_get_object (builder,  "show_password_checkbutton"));
+	g_signal_connect (show_password, "toggled", G_CALLBACK (show_password_cb), widget);
 }
 
 static void
@@ -549,7 +535,7 @@ tls_setup (GtkBuilder *builder,
            gpointer user_data)
 {
 	GtkWidget *widget;
-	GtkWidget *show_passwords;
+	GtkWidget *show_password;
 	GtkWidget *ca_cert;
 	GtkWidget *cert;
 	GtkWidget *key;
@@ -601,8 +587,8 @@ tls_setup (GtkBuilder *builder,
 
 	/* Fill in the private key password */
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "user_tls_key_pw_entry"));
-	show_passwords = GTK_WIDGET (gtk_builder_get_object (builder, "show_user_tls_key_pw_check"));
-	g_signal_connect (show_passwords, "toggled", G_CALLBACK (show_password), widget);
+	show_password = GTK_WIDGET (gtk_builder_get_object (builder, "show_user_tls_key_pw_check"));
+	g_signal_connect (show_password, "toggled", G_CALLBACK (show_password_cb), widget);
 
 	value = nm_setting_vpn_get_secret (s_vpn, NM_L2TP_KEY_USER_CERTPASS);
 	if (value)
