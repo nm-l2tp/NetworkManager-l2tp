@@ -242,7 +242,7 @@ disable the xl2tpd service from starting at boot time with :
 
     sudo systemctl disable xl2tpd
 
-## IPsec IKEv1 weak legacy algorithms and backwards compatibilty
+## IPsec IKEv1 weak legacy algorithms and backwards compatibility
 
 There is a general consensus that the following legacy algorithms are now
 considered weak or broken in regards to security and should be phased out and
