@@ -8,7 +8,7 @@ WITH THE GPLv2 LICENSE.
 There are exceptions to this GPLv2 and OpenSSL licensing conflict, for example
 the Fedora Project considers OpenSSL to be a "System Library" and so exempt
 from the conflict per the "System Library Exception":
-* https://libreplanet.org/wiki/Using_the_GPL_with_OpenSSL/BSD-4-clause#13
+* https://fedoraproject.org/wiki/Licensing:FAQ?rd=Licensing/FAQ#What.27s_the_deal_with_the_OpenSSL_license.3F
 
 Debian has taken the opposite stance that OpenSSL is non-essential and
 therefore not protected by the GPL "System Library Exception":
