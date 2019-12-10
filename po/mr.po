@@ -90,7 +90,7 @@ msgstr ""
 
 #: ../properties/auth-helpers.c:101
 msgid "All Files"
-msgstr ""
+msgstr "सर्व फाईल्स"
 
 #: ../properties/ppp-dialog.c:158
 msgid "All Available (Default)"
@@ -543,7 +543,7 @@ msgstr "NT क्षेत्र:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
 msgid "CA Certificate:"
-msgstr ""
+msgstr "CA प्रमाणपत्र:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "Certificate authority (CA) file in PEM, DER or PKCS#12 format"
@@ -559,15 +559,15 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "Private Key:"
-msgstr ""
+msgstr "वैयक्तिक कि:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Private Key in PEM, DER or PKCS#8 format"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:22
-msgid "Key Password:"
-msgstr ""
+msgid "Private Key Password:"
+msgstr "वैयक्तिक कि परवलीचा शब्द:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:23
 msgid "Password for private key or PCKS#12 certificate"

@@ -544,7 +544,7 @@ msgstr "NT ಡೊಮೈನ್:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
 msgid "CA Certificate:"
-msgstr ""
+msgstr "CA ಪ್ರಮಾಣಪತ್ರ:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "Certificate authority (CA) file in PEM, DER or PKCS#12 format"
@@ -560,15 +560,15 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "Private Key:"
-msgstr ""
+msgstr "ಖಾಸಗಿ ಕೀಲಿ:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Private Key in PEM, DER or PKCS#8 format"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:22
-msgid "Key Password:"
-msgstr ""
+msgid "Private Key Password:"
+msgstr "ಖಾಸಗಿ ಕೀಲಿ ಗುಪ್ತಪದ:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:23
 msgid "Password for private key or PCKS#12 certificate"

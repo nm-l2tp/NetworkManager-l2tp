@@ -92,7 +92,7 @@ msgstr "DER, PEM vagy PKCS#8 személyes kulcsok (*.der, *.pem, *.pk8, *.key)"
 
 #: ../properties/auth-helpers.c:101
 msgid "All Files"
-msgstr ""
+msgstr "Minden fájl"
 
 #: ../properties/ppp-dialog.c:158
 msgid "All Available (Default)"
@@ -128,7 +128,7 @@ msgstr "EAP"
 
 #: ../properties/ipsec-dialog.c:311 ../properties/nm-l2tp-editor.c:556
 msgid "Choose a Certificate Authority certificate…"
-msgstr ""
+msgstr "Válasszon hitelesítésszolgáltatói tanúsítványt…"
 
 #: ../properties/ipsec-dialog.c:319
 msgid "Choose your machine certificate…"
@@ -136,7 +136,7 @@ msgstr ""
 
 #: ../properties/ipsec-dialog.c:327 ../properties/nm-l2tp-editor.c:572
 msgid "Choose your private key…"
-msgstr ""
+msgstr "Válassza ki a személyes kulcsát…"
 
 #: ../properties/ipsec-dialog.c:559
 msgid "Pre-shared key (PSK)"
@@ -168,7 +168,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-editor.c:564
 msgid "Choose your personal certificate…"
-msgstr ""
+msgstr "Válassza ki a személyes tanúsítványát…"
 
 #: ../properties/nm-l2tp-editor.c:665
 msgid "Password"
@@ -554,7 +554,7 @@ msgstr "NT tartomány:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
 msgid "CA Certificate:"
-msgstr ""
+msgstr "CA tanúsítvány:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "Certificate authority (CA) file in PEM, DER or PKCS#12 format"
@@ -562,7 +562,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "Certificate:"
-msgstr ""
+msgstr "Tanúsítvány:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:19
 msgid "Certificate file in PEM, DER or PKCS#12 format"
@@ -570,15 +570,15 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "Private Key:"
-msgstr ""
+msgstr "Személyes kulcs:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Private Key in PEM, DER or PKCS#8 format"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:22
-msgid "Key Password:"
-msgstr ""
+msgid "Private Key Password:"
+msgstr "Személyes kulcs jelszava:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:23
 msgid "Password for private key or PCKS#12 certificate"

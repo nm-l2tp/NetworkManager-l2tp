@@ -550,7 +550,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "Certificate:"
-msgstr ""
+msgstr "Chứng nhận:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:19
 msgid "Certificate file in PEM, DER or PKCS#12 format"
@@ -564,17 +564,13 @@ msgstr ""
 msgid "Private Key in PEM, DER or PKCS#8 format"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:22
-msgid "Key Password:"
-msgstr ""
-
 #: ../properties/nm-l2tp-dialog.ui.h:23
 msgid "Password for private key or PCKS#12 certificate"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Type:"
-msgstr ""
+msgstr "Kiểu :"
 
 #: ../properties/nm-l2tp-dialog.ui.h:25
 msgid "Select an authentication mode."

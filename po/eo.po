@@ -90,7 +90,7 @@ msgstr ""
 
 #: ../properties/auth-helpers.c:101
 msgid "All Files"
-msgstr ""
+msgstr "Ĉiuj dosieroj"
 
 #: ../properties/ppp-dialog.c:158
 msgid "All Available (Default)"
@@ -566,7 +566,7 @@ msgid "Private Key in PEM, DER or PKCS#8 format"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:22
-msgid "Key Password:"
+msgid "Private Key Password:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:23

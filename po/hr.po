@@ -556,7 +556,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "Certificate:"
-msgstr ""
+msgstr "Certifikat:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:19
 msgid "Certificate file in PEM, DER or PKCS#12 format"
@@ -568,10 +568,6 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Private Key in PEM, DER or PKCS#8 format"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:22
-msgid "Key Password:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:23

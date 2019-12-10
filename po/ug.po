@@ -88,7 +88,7 @@ msgstr ""
 
 #: ../properties/auth-helpers.c:101
 msgid "All Files"
-msgstr ""
+msgstr "بارلىق ھۆججەتلەر"
 
 #: ../properties/ppp-dialog.c:158
 msgid "All Available (Default)"
@@ -563,17 +563,13 @@ msgstr ""
 msgid "Private Key in PEM, DER or PKCS#8 format"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:22
-msgid "Key Password:"
-msgstr ""
-
 #: ../properties/nm-l2tp-dialog.ui.h:23
 msgid "Password for private key or PCKS#12 certificate"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Type:"
-msgstr ""
+msgstr "تىپى:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:25
 msgid "Select an authentication mode."

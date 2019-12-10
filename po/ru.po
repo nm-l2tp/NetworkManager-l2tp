@@ -96,7 +96,7 @@ msgstr "Секретные ключи DER, PEM или PKCS#8 (*.der, *.pem, *.p1
 
 #: ../properties/auth-helpers.c:101
 msgid "All Files"
-msgstr ""
+msgstr "Все файлы"
 
 #: ../properties/ppp-dialog.c:158
 msgid "All Available (Default)"
@@ -559,7 +559,7 @@ msgstr "NT-домен:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
 msgid "CA Certificate:"
-msgstr ""
+msgstr "Сертификат ЦС:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "Certificate authority (CA) file in PEM, DER or PKCS#12 format"
@@ -567,7 +567,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "Certificate:"
-msgstr ""
+msgstr "Сертификат:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:19
 msgid "Certificate file in PEM, DER or PKCS#12 format"
@@ -575,15 +575,15 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "Private Key:"
-msgstr ""
+msgstr "Личный ключ:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Private Key in PEM, DER or PKCS#8 format"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:22
-msgid "Key Password:"
-msgstr ""
+msgid "Private Key Password:"
+msgstr "Пароль к личному ключу:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:23
 msgid "Password for private key or PCKS#12 certificate"

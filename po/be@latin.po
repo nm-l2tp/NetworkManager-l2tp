@@ -562,10 +562,6 @@ msgstr ""
 msgid "Private Key in PEM, DER or PKCS#8 format"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:22
-msgid "Key Password:"
-msgstr ""
-
 #: ../properties/nm-l2tp-dialog.ui.h:23
 msgid "Password for private key or PCKS#12 certificate"
 msgstr ""

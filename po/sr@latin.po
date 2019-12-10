@@ -128,7 +128,7 @@ msgstr "EAP"
 
 #: ../properties/ipsec-dialog.c:311 ../properties/nm-l2tp-editor.c:556
 msgid "Choose a Certificate Authority certificate…"
-msgstr ""
+msgstr "Izaberite uverenje izdavača ovlašćenja…"
 
 #: ../properties/ipsec-dialog.c:319
 msgid "Choose your machine certificate…"
@@ -136,7 +136,7 @@ msgstr ""
 
 #: ../properties/ipsec-dialog.c:327 ../properties/nm-l2tp-editor.c:572
 msgid "Choose your private key…"
-msgstr ""
+msgstr "Izaberite lični ključ…"
 
 #: ../properties/ipsec-dialog.c:559
 msgid "Pre-shared key (PSK)"
@@ -168,7 +168,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-editor.c:564
 msgid "Choose your personal certificate…"
-msgstr ""
+msgstr "Izaberite lično uverenje…"
 
 #: ../properties/nm-l2tp-editor.c:665
 msgid "Password"
@@ -550,7 +550,7 @@ msgstr "NT domen:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
 msgid "CA Certificate:"
-msgstr ""
+msgstr "Uverenje izdavača uverenja:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "Certificate authority (CA) file in PEM, DER or PKCS#12 format"
@@ -558,7 +558,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "Certificate:"
-msgstr ""
+msgstr "Sertifikat:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:19
 msgid "Certificate file in PEM, DER or PKCS#12 format"
@@ -566,15 +566,15 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "Private Key:"
-msgstr ""
+msgstr "Lični ključ:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Private Key in PEM, DER or PKCS#8 format"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:22
-msgid "Key Password:"
-msgstr ""
+msgid "Private Key Password:"
+msgstr "Lozinka privatnog ključa:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:23
 msgid "Password for private key or PCKS#12 certificate"
