@@ -87,7 +87,7 @@ msgstr ""
 
 #: ../properties/auth-helpers.c:89
 msgid "DER, PEM, or PKCS#8 private keys (*.der, *.pem, *.pk8, *.key)"
-msgstr ""
+msgstr "Ιδιωτικά κλειδιά DER, PEM ή PKCS#8 (*.der, *.pem, *.pk8, *.key)"
 
 #: ../properties/auth-helpers.c:101
 msgid "All Files"
@@ -522,7 +522,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:7
 msgid "Sho_w password"
-msgstr ""
+msgstr "Εμ_φάνιση κωδικού πρόσβασης"
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Password passed to PPPD when prompted for it."

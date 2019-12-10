@@ -52,7 +52,7 @@ msgstr ""
 
 #: ../auth-dialog/main.c:168 ../properties/nm-l2tp-dialog.ui.h:14
 msgid "Password:"
-msgstr ""
+msgstr "Лозинка:"
 
 #: ../auth-dialog/main.c:175
 msgid "User Certificate password:"
@@ -105,23 +105,23 @@ msgstr ""
 
 #: ../properties/ppp-dialog.c:275
 msgid "PAP"
-msgstr ""
+msgstr "PAP"
 
 #: ../properties/ppp-dialog.c:288
 msgid "CHAP"
-msgstr ""
+msgstr "CHAP"
 
 #: ../properties/ppp-dialog.c:300
 msgid "MSCHAP"
-msgstr ""
+msgstr "MSCHAP"
 
 #: ../properties/ppp-dialog.c:312
 msgid "MSCHAPv2"
-msgstr ""
+msgstr "MSCHAPv2"
 
 #: ../properties/ppp-dialog.c:325
 msgid "EAP"
-msgstr ""
+msgstr "EAP"
 
 #: ../properties/ipsec-dialog.c:311 ../properties/nm-l2tp-editor.c:556
 msgid "Choose a Certificate Authority certificate…"
@@ -493,7 +493,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
 msgid "General"
-msgstr ""
+msgstr "Општо"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Gateway:"
@@ -517,7 +517,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:7
 msgid "Sho_w password"
-msgstr ""
+msgstr "П_окажи лозинка"
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Password passed to PPPD when prompted for it."
@@ -726,7 +726,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "Default"
-msgstr ""
+msgstr "Стандардно"
 
 #: ../properties/nm-l2tp-dialog.ui.h:66
 msgid "L2TP PPP Options"
@@ -783,7 +783,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:80
 msgid "Allow _BSD data compression"
-msgstr ""
+msgstr "Дозволи _BSD компресија на податоци"
 
 #: ../properties/nm-l2tp-dialog.ui.h:81
 msgid ""
@@ -793,7 +793,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:83
 msgid "Allow _Deflate data compression"
-msgstr ""
+msgstr "Дозволи _Deflate компресија на податоци"
 
 #: ../properties/nm-l2tp-dialog.ui.h:84
 msgid ""
@@ -803,7 +803,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:86
 msgid "Use TCP _header compression"
-msgstr ""
+msgstr "Користи компресија на TCP _заглавијата"
 
 #: ../properties/nm-l2tp-dialog.ui.h:87
 msgid ""
@@ -835,11 +835,11 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:95
 msgid "Echo"
-msgstr ""
+msgstr "Echo"
 
 #: ../properties/nm-l2tp-dialog.ui.h:96
 msgid "Send PPP _echo packets"
-msgstr ""
+msgstr "Испрати PPP _echo пакети"
 
 #: ../properties/nm-l2tp-dialog.ui.h:97
 msgid ""

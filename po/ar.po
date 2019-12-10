@@ -110,23 +110,23 @@ msgstr ""
 
 #: ../properties/ppp-dialog.c:275
 msgid "PAP"
-msgstr ""
+msgstr "PAP"
 
 #: ../properties/ppp-dialog.c:288
 msgid "CHAP"
-msgstr ""
+msgstr "CHAP"
 
 #: ../properties/ppp-dialog.c:300
 msgid "MSCHAP"
-msgstr ""
+msgstr "MSCHAP"
 
 #: ../properties/ppp-dialog.c:312
 msgid "MSCHAPv2"
-msgstr ""
+msgstr "MSCHAPv2"
 
 #: ../properties/ppp-dialog.c:325
 msgid "EAP"
-msgstr ""
+msgstr "EAP"
 
 #: ../properties/ipsec-dialog.c:311 ../properties/nm-l2tp-editor.c:556
 msgid "Choose a Certificate Authority certificate…"
@@ -522,7 +522,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:7
 msgid "Sho_w password"
-msgstr ""
+msgstr "أظهر _كلمة السر"
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Password passed to PPPD when prompted for it."
@@ -731,7 +731,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "Default"
-msgstr ""
+msgstr "المبدئي"
 
 #: ../properties/nm-l2tp-dialog.ui.h:66
 msgid "L2TP PPP Options"

@@ -516,7 +516,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:7
 msgid "Sho_w password"
-msgstr ""
+msgstr "ئىمنى كۆرسەت(_W)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Password passed to PPPD when prompted for it."
@@ -802,7 +802,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:86
 msgid "Use TCP _header compression"
-msgstr ""
+msgstr "TCP باشلىق پرېسلاشنى قوللان(_H)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:87
 msgid ""
@@ -838,7 +838,7 @@ msgstr "ئەكس سادا"
 
 #: ../properties/nm-l2tp-dialog.ui.h:96
 msgid "Send PPP _echo packets"
-msgstr ""
+msgstr "PPPPP echo بوغچىلىرىنى يوللا(_E)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:97
 msgid ""

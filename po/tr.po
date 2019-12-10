@@ -89,7 +89,7 @@ msgstr ""
 
 #: ../properties/auth-helpers.c:89
 msgid "DER, PEM, or PKCS#8 private keys (*.der, *.pem, *.pk8, *.key)"
-msgstr ""
+msgstr "DER, PEM, veya PKCS#8 özel anahtarları (*.der, *.pem, *.pk8, *.key)"
 
 #: ../properties/auth-helpers.c:101
 msgid "All Files"
@@ -298,28 +298,30 @@ msgstr ""
 #: ../shared/nm-utils/nm-shared-utils.c:1150
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr ""
+msgstr "'%s' nesne sınıfının '%s' adlı özelliği yok"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1157
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr ""
+msgstr "'%2$s' nesne sınıfının '%1$s' özelliği yazılabilir değil"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1164
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
-msgstr ""
+msgstr "'%2$s' nesnesi için \"%1$s\" kurgu özelliği inşadan sonra ayarlanamaz"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
 msgstr ""
+"'%s::%s' geçerli bir özellik adı değil; '%s' bir GObject alt türü değil"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1181
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
 msgstr ""
+"'%2$s' türündeki '%1$s' özelliğinin '%3$s' türünden değeri ayarlanamadı"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1192
 #, c-format
@@ -327,6 +329,8 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
+"'%2$s' türünde \"%1$s\" değeri geçersiz veya '%4$s' türünde '%3$s' özelliği "
+"için aralık dışında"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:53
 #, c-format
@@ -523,7 +527,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:7
 msgid "Sho_w password"
-msgstr ""
+msgstr "Parola_yı göster"
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Password passed to PPPD when prompted for it."

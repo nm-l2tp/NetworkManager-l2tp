@@ -84,7 +84,7 @@ msgstr ""
 
 #: ../properties/auth-helpers.c:89
 msgid "DER, PEM, or PKCS#8 private keys (*.der, *.pem, *.pk8, *.key)"
-msgstr ""
+msgstr "‏DER, ‏PEM או מפתחות פרטיים מסוג PKCS#8 ‏(‎*.der, *.pem, *.p12)"
 
 #: ../properties/auth-helpers.c:101
 msgid "All Files"
@@ -516,7 +516,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:7
 msgid "Sho_w password"
-msgstr ""
+msgstr "הצ_גת ססמה"
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Password passed to PPPD when prompted for it."

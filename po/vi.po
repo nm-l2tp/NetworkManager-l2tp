@@ -52,7 +52,7 @@ msgstr ""
 
 #: ../auth-dialog/main.c:168 ../properties/nm-l2tp-dialog.ui.h:14
 msgid "Password:"
-msgstr ""
+msgstr "Mật khẩu:"
 
 #: ../auth-dialog/main.c:175
 msgid "User Certificate password:"
@@ -85,7 +85,7 @@ msgstr ""
 
 #: ../properties/auth-helpers.c:89
 msgid "DER, PEM, or PKCS#8 private keys (*.der, *.pem, *.pk8, *.key)"
-msgstr ""
+msgstr "Khoá riêng DER, PEM, hoặc PKCS#8 (*.der, *.pem, *.pk8, *.key)"
 
 #: ../properties/auth-helpers.c:101
 msgid "All Files"
@@ -105,23 +105,23 @@ msgstr ""
 
 #: ../properties/ppp-dialog.c:275
 msgid "PAP"
-msgstr ""
+msgstr "PAP"
 
 #: ../properties/ppp-dialog.c:288
 msgid "CHAP"
-msgstr ""
+msgstr "CHAP"
 
 #: ../properties/ppp-dialog.c:300
 msgid "MSCHAP"
-msgstr ""
+msgstr "MSCHAP"
 
 #: ../properties/ppp-dialog.c:312
 msgid "MSCHAPv2"
-msgstr ""
+msgstr "MSCHAPv2"
 
 #: ../properties/ppp-dialog.c:325
 msgid "EAP"
-msgstr ""
+msgstr "EAP"
 
 #: ../properties/ipsec-dialog.c:311 ../properties/nm-l2tp-editor.c:556
 msgid "Choose a Certificate Authority certificate…"
@@ -493,7 +493,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
 msgid "General"
-msgstr ""
+msgstr "Chung"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Gateway:"
@@ -517,7 +517,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:7
 msgid "Sho_w password"
-msgstr ""
+msgstr "_Hiện mật khẩu"
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Password passed to PPPD when prompted for it."
@@ -726,7 +726,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "Default"
-msgstr ""
+msgstr "Mặc định"
 
 #: ../properties/nm-l2tp-dialog.ui.h:66
 msgid "L2TP PPP Options"
@@ -763,7 +763,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:74
 msgid "_Security:"
-msgstr ""
+msgstr "_An ninh:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:75
 msgid ""
@@ -783,7 +783,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:80
 msgid "Allow _BSD data compression"
-msgstr ""
+msgstr "Cho phép nén dữ liệu _BSD"
 
 #: ../properties/nm-l2tp-dialog.ui.h:81
 msgid ""
@@ -793,7 +793,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:83
 msgid "Allow _Deflate data compression"
-msgstr ""
+msgstr "Cho phép nén dữ liệu _Deflate"
 
 #: ../properties/nm-l2tp-dialog.ui.h:84
 msgid ""
@@ -803,7 +803,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:86
 msgid "Use TCP _header compression"
-msgstr ""
+msgstr "Dùng nén _tiêu đề TCP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:87
 msgid ""
@@ -835,11 +835,11 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:95
 msgid "Echo"
-msgstr ""
+msgstr "Vang"
 
 #: ../properties/nm-l2tp-dialog.ui.h:96
 msgid "Send PPP _echo packets"
-msgstr ""
+msgstr "Gửi gói _vang PPP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:97
 msgid ""

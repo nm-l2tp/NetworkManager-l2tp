@@ -88,7 +88,7 @@ msgstr ""
 
 #: ../properties/auth-helpers.c:89
 msgid "DER, PEM, or PKCS#8 private keys (*.der, *.pem, *.pk8, *.key)"
-msgstr ""
+msgstr "DER, PEM, of PKCS#8 private sleutels (*.der, *.pem, *.pk8, *.key)"
 
 #: ../properties/auth-helpers.c:101
 msgid "All Files"
@@ -525,7 +525,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:7
 msgid "Sho_w password"
-msgstr ""
+msgstr "Wachtwoord _tonen"
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Password passed to PPPD when prompted for it."
@@ -889,9 +889,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:101
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "CA"
-#~ msgstr "CA"
-
-#~ msgid "User"
-#~ msgstr "Gebruiker"

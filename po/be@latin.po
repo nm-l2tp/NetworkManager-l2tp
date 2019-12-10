@@ -119,7 +119,7 @@ msgstr "MSCHAPv2"
 
 #: ../properties/ppp-dialog.c:325
 msgid "EAP"
-msgstr ""
+msgstr "EAP"
 
 #: ../properties/ipsec-dialog.c:311 ../properties/nm-l2tp-editor.c:556
 msgid "Choose a Certificate Authority certificate…"
