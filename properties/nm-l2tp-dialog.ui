@@ -358,7 +358,7 @@ config: auth-user-pass</property>
                               <object class="GtkEntry" id="user_tls_key_pw_entry">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
-                                <property name="tooltip_text" translatable="yes">Password for private key</property>
+                                <property name="tooltip_text" translatable="yes">Password for private key or PCKS#12 certificate</property>
                                 <property name="hexpand">True</property>
                                 <property name="visibility">False</property>
                               </object>
@@ -894,7 +894,7 @@ config: ipsec-psk</property>
                                   <object class="GtkEntry" id="machine_tls_key_pw_entry">
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
-                                    <property name="tooltip_text" translatable="yes">Password for private key</property>
+                                    <property name="tooltip_text" translatable="yes">Password for private key or PCKS#12 certificate</property>
                                     <property name="hexpand">True</property>
                                     <property name="visibility">False</property>
                                   </object>
@@ -1190,7 +1190,7 @@ config: ipsec-salifetime &lt;lifetime&gt;</property>
                           <object class="GtkEntry" id="ipsec_remote_id_entry">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
-                            <property name="tooltip_text" translatable="yes">Optional. How the IPsec server should be identified for authentication. Sometimes referred to as IPsec identifier, Peer ID and Gateway ID. Also referred to as rightid by strongSwan, Libreswan, Openswan and FreeS/WAN. See strongSwan or Libreswan documentation for leftid/rightid syntax and identity parsing.
+                            <property name="tooltip_text" translatable="yes">Optional. How the IPsec server should be identified for authentication. Sometimes referred to as Peer ID or Gateway ID, also referred to as rightid by strongSwan, Libreswan, Openswan and FreeS/WAN. See strongSwan or Libreswan documentation for leftid/rightid syntax and identity parsing.
 config: ipsec-remote-id &lt;rightid&gt;
 ipsec.secrets: &lt;ID&gt;</property>
                             <property name="margin_top">1</property>
