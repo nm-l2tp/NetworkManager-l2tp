@@ -308,7 +308,7 @@ config: auth-user-pass</property>
                               <object class="GtkFileChooserButton" id="user_tls_cert_chooser">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="tooltip_text" translatable="yes">Certificate  file in PEM, DER or PKCS#12 format</property>
+                                <property name="tooltip_text" translatable="yes">Certificate file in PEM, DER or PKCS#12 format</property>
                                 <property name="hexpand">True</property>
                                 <property name="title" translatable="yes"/>
                               </object>

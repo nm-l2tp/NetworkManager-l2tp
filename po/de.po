@@ -570,7 +570,7 @@ msgid "Certificate:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:19
-msgid "Certificate  file in PEM, DER or PKCS#12 format"
+msgid "Certificate file in PEM, DER or PKCS#12 format"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
