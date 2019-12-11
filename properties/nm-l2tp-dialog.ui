@@ -2,9 +2,6 @@
 <!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.14"/>
-  <object class="GtkSizeGroup" id="ipsec_labels">
-    <property name="ignore_hidden">True</property>
-  </object>
   <object class="GtkBox" id="l2tp-vbox">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -579,6 +576,9 @@ config: auth-user-pass</property>
     <property name="ignore_hidden">True</property>
     <widgets>
       <widget name="gateway_label"/>
+      <widget name="username_label"/>
+      <widget name="password_label"/>
+      <widget name="nt_domain_label"/>
       <widget name="auth_type_label"/>
     </widgets>
   </object>
@@ -1318,6 +1318,13 @@ config: ipsec-pfs &lt;no/yes&gt;</property>
       <action-widget response="-6">ipsec_cancel_button</action-widget>
       <action-widget response="-5">ipsec_ok_button</action-widget>
     </action-widgets>
+  </object>
+  <object class="GtkSizeGroup" id="ipsec_labels">
+    <property name="ignore_hidden">True</property>
+    <widgets>
+      <widget name="psk_label"/>
+      <widget name="ipsec_auth_type_label"/>
+    </widgets>
   </object>
   <object class="GtkListStore" id="model1">
     <columns>
