@@ -25,22 +25,22 @@
 
   <screenshots>
     <screenshot type="default">
-      <image width="800" height="582">https://raw.githubusercontent.com/nm-l2tp/network-manager-l2tp/master/appdata/l2tp.png</image>
+      <image width="800" height="582">https://raw.githubusercontent.com/nm-l2tp/NetworkManager-l2tp/1.8.0/appdata/l2tp.png</image>
     </screenshot>
 
     <screenshot type="default">
       <_caption>The IPsec options dialog</_caption>
-      <image width="800" height="700">https://raw.githubusercontent.com/nm-l2tp/network-manager-l2tp/master/appdata/l2tp-ipsec.png</image>
+      <image width="800" height="677">https://raw.githubusercontent.com/nm-l2tp/NetworkManager-l2tp/1.8.0/appdata/l2tp-ipsec.png</image>
     </screenshot>
 
     <screenshot type="default">
       <_caption>The PPP options dialog</_caption>
-      <image width="800" height="735">https://raw.githubusercontent.com/nm-l2tp/network-manager-l2tp/master/appdata/l2tp-ppp.png</image>
+      <image width="800" height="735">https://raw.githubusercontent.com/nm-l2tp/NetworkManager-l2tp/1.8.0/appdata/l2tp-ppp.png</image>
     </screenshot>
   </screenshots>
 
-  <url type="homepage">https://github.com/nm-l2tp/network-manager-l2tp</url>
-  <url type="bugtracker">https://github.com/nm-l2tp/network-manager-l2tp/issues</url>
+  <url type="homepage">https://github.com/nm-l2tp/NetworkManager-l2tp</url>
+  <url type="bugtracker">https://github.com/nm-l2tp/NetworkManager-l2tp/issues</url>
   <update_contact>doug@uq.edu.au</update_contact>
   <translation type="gettext">NetworkManager-l2tp</translation>
   <_developer_name>The NetworkManager-L2TP Developers</_developer_name>
