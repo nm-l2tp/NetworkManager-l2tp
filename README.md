@@ -3,9 +3,9 @@
 
 YOU MIGHT NOT BE ABLE TO PROVIDE PRE-BUILT BINARIES OF THIS RELEASE UNTIL THE
 INTENDED LINUX DISTRIBUTION SHIPS WITH OPENSSL 3.0 OR LATER THAT IS COMPATIBLE
-WITH THE GPLv2 LICENSE.
+WITH THE GPLv3 LICENSE.
 
-There are exceptions to this GPLv2 and OpenSSL licensing conflict, for example
+There are exceptions to this GPL and OpenSSL licensing conflict, for example
 the Fedora Project considers OpenSSL to be a "System Library" and so exempt
 from the conflict per the "System Library Exception":
 * https://fedoraproject.org/wiki/Licensing:FAQ?rd=Licensing/FAQ#What.27s_the_deal_with_the_OpenSSL_license.3F
