@@ -1,30 +1,4 @@
 # NetworkMananger-l2tp
-----
-
-YOU MIGHT NOT BE ABLE TO PROVIDE PRE-BUILT BINARIES OF THIS RELEASE UNTIL THE
-INTENDED LINUX DISTRIBUTION SHIPS WITH OPENSSL 3.0 OR LATER THAT IS COMPATIBLE
-WITH THE GPLv3 LICENSE.
-
-There are exceptions to this GPL and OpenSSL licensing conflict, for example
-the Fedora Project considers OpenSSL to be a "System Library" and so exempt
-from the conflict per the "System Library Exception":
-* https://fedoraproject.org/wiki/Licensing:FAQ?rd=Licensing/FAQ#What.27s_the_deal_with_the_OpenSSL_license.3F
-
-Debian has taken the opposite stance that OpenSSL is non-essential and
-therefore not protected by the GPL "System Library Exception":
-* https://lists.debian.org/debian-legal/2004/05/msg00595.html
-
-Please check to see if your intended Linux distribution has made any statements
-about if they consider OpenSSL to be a "System Library" and so exempt from the
-licensing conflict.
-
-This licensing conflict is not applicable if you just wish to build the source
-code and not ship any pre-built binaries.
-
-Alternatively use the `nm-1-2` branch or a NetworkManager-l2tp 1.2.x release to
-avoid the licensing conflict.
-
-----
 
 NetworkManager-l2tp is a VPN plugin for NetworkManager 1.8 and later which
 provides support for L2TP and L2TP/IPsec (i.e. L2TP over IPsec) connections.
