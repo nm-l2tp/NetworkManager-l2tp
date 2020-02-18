@@ -1117,7 +1117,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 			return FALSE;
 		}
 		if (tls_need_password)
-			value = nm_setting_vpn_get_secret (s_vpn, NM_L2TP_KEY_MACHINE_CERTPASS);
+			value = nm_setting_vpn_get_secret (s_vpn, NM_L2TP_KEY_USER_CERTPASS);
 		else
 			value = NULL;
 
