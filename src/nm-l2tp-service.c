@@ -1209,7 +1209,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 			write_config_option (fd, "cert \"%s\"\n", tls_cert_filename);
 
 		if (tls_ca_out_filename)
-			write_config_option (fd, "ca \"%s\"\n", tls_ca_filename);
+			write_config_option (fd, "ca \"%s\"\n", tls_ca_out_filename);
 		else if (tls_ca_filename)
 			write_config_option (fd, "ca \"%s\"\n", tls_ca_filename);
 	} else {
