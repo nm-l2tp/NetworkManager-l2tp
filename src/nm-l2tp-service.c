@@ -1123,7 +1123,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 
 		tls_key_out_filename = g_strdup_printf ("%s/key.pem", rundir);
 		tls_cert_out_filename = g_strdup_printf ("%s/cert.pem", rundir);
-		tls_ca_out_filename = g_strdup_printf ("%s/ca.pem", rundir);;
+		tls_ca_out_filename = g_strdup_printf ("%s/ca.pem", rundir);
 		if (tls_key_fileformat == NM_L2TP_CRYPTO_FILE_FORMAT_PKCS12) {
 			crypto_pkcs12_to_pem_files (tls_cert_filename,
 			                            value,
@@ -1543,18 +1543,19 @@ handle_need_secrets (NMDBusL2tpPpp *object,
 		tls_key_filename = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER_KEY);
 		crypto_file_format (tls_key_filename, &tls_need_password, NULL);
 
-		if (!tls_need_password)
-			return FALSE;
-
-		password = nm_setting_vpn_get_secret (s_vpn, NM_L2TP_KEY_USER_CERTPASS);
-		if (!password || !strlen (password)) {
-			g_dbus_method_invocation_return_error_literal (invocation,
-			                                               NM_VPN_PLUGIN_ERROR,
-			                                               NM_VPN_PLUGIN_ERROR_INVALID_CONNECTION,
-			                                               _("Missing or invalid VPN user certificate password."));
-			return FALSE;;
+		if (!tls_need_password) {
+			nmdbus_l2tp_ppp_complete_need_secrets (object, invocation, tls_key_filename, "");
+		} else {
+			password = nm_setting_vpn_get_secret (s_vpn, NM_L2TP_KEY_USER_CERTPASS);
+			if (!password || !strlen (password)) {
+				g_dbus_method_invocation_return_error_literal (invocation,
+				                                               NM_VPN_PLUGIN_ERROR,
+				                                               NM_VPN_PLUGIN_ERROR_INVALID_CONNECTION,
+				                                               _("Missing or invalid VPN user certificate password."));
+				return FALSE;;
+			}
+			nmdbus_l2tp_ppp_complete_need_secrets (object, invocation, tls_key_filename, password);
 		}
-		nmdbus_l2tp_ppp_complete_need_secrets (object, invocation, tls_key_filename, password);
 
 	} else {
 		/* Username; try L2TP specific username first, then generic username */
