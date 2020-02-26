@@ -1124,6 +1124,9 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		tls_key_out_filename = g_strdup_printf ("%s/key.pem", rundir);
 		tls_cert_out_filename = g_strdup_printf ("%s/cert.pem", rundir);
 		tls_ca_out_filename = g_strdup_printf ("%s/ca.pem", rundir);
+		unlink (tls_key_out_filename);
+		unlink (tls_cert_out_filename);
+		unlink (tls_ca_out_filename);
 		if (tls_key_fileformat == NM_L2TP_CRYPTO_FILE_FORMAT_PKCS12) {
 			crypto_pkcs12_to_pem_files (tls_cert_filename,
 			                            value,
@@ -1198,20 +1201,29 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		}
 
 		write_config_option (fd, "need-peer-eap\n");
-		if (tls_key_out_filename)
-			write_config_option (fd, "key \"%s\"\n", tls_key_out_filename);
-		else
+		if (tls_key_out_filename) {
+			if (g_file_test (tls_key_out_filename, G_FILE_TEST_EXISTS)) {
+				write_config_option (fd, "key \"%s\"\n", tls_key_out_filename);
+			}
+		} else {
 			write_config_option (fd, "key \"%s\"\n", tls_key_filename);
+		}
 
-		if (tls_cert_out_filename)
-			write_config_option (fd, "cert \"%s\"\n", tls_cert_out_filename);
-		else
+		if (tls_cert_out_filename) {
+			if (g_file_test (tls_cert_out_filename, G_FILE_TEST_EXISTS)) {
+				write_config_option (fd, "cert \"%s\"\n", tls_cert_out_filename);
+			}
+		} else {
 			write_config_option (fd, "cert \"%s\"\n", tls_cert_filename);
+		}
 
-		if (tls_ca_out_filename)
-			write_config_option (fd, "ca \"%s\"\n", tls_ca_out_filename);
-		else if (tls_ca_filename)
+		if (tls_ca_out_filename) {
+			if (g_file_test (tls_ca_out_filename, G_FILE_TEST_EXISTS)) {
+				write_config_option (fd, "ca \"%s\"\n", tls_ca_out_filename);
+			}
+		} else if (tls_ca_filename) {
 			write_config_option (fd, "ca \"%s\"\n", tls_ca_filename);
+		}
 	} else {
 		/* Username; try L2TP specific username first, then generic username */
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER);
@@ -1529,8 +1541,10 @@ handle_need_secrets (NMDBusL2tpPpp *object,
 	NML2tpPlugin *self = NM_L2TP_PLUGIN (user_data);
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (self);
 	NMSettingVpn *s_vpn;
+	NML2tpCryptoFileFormat tls_key_fileformat;
 	const char *user, *password, *domain, *auth_type, *tls_key_filename;
 	gchar *username;
+	gchar *key_filename;
 	gboolean tls_need_password = FALSE;
 
 	remove_timeout_handler (NM_L2TP_PLUGIN (user_data));
@@ -1541,10 +1555,23 @@ handle_need_secrets (NMDBusL2tpPpp *object,
 	auth_type = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER_AUTH_TYPE);
 	if (nm_streq0 (auth_type, NM_L2TP_AUTHTYPE_TLS)) {
 		tls_key_filename = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER_KEY);
-		crypto_file_format (tls_key_filename, &tls_need_password, NULL);
+		tls_key_fileformat = crypto_file_format (tls_key_filename, &tls_need_password, NULL);
+
+		switch (tls_key_fileformat) {
+		case NM_L2TP_CRYPTO_FILE_FORMAT_PKCS12 :
+		case NM_L2TP_CRYPTO_FILE_FORMAT_PKCS8_DER :
+		case NM_L2TP_CRYPTO_FILE_FORMAT_RSA_PKEY_DER :
+		case NM_L2TP_CRYPTO_FILE_FORMAT_DSA_PKEY_DER :
+		case NM_L2TP_CRYPTO_FILE_FORMAT_ECDSA_PKEY_DER :
+			key_filename = g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s/key.pem", priv->uuid);
+		break;
+
+		default :
+			key_filename = g_strdup (tls_key_filename);
+		}
 
 		if (!tls_need_password) {
-			nmdbus_l2tp_ppp_complete_need_secrets (object, invocation, tls_key_filename, "");
+			nmdbus_l2tp_ppp_complete_need_secrets (object, invocation, key_filename, "");
 		} else {
 			password = nm_setting_vpn_get_secret (s_vpn, NM_L2TP_KEY_USER_CERTPASS);
 			if (!password || !strlen (password)) {
@@ -1552,10 +1579,12 @@ handle_need_secrets (NMDBusL2tpPpp *object,
 				                                               NM_VPN_PLUGIN_ERROR,
 				                                               NM_VPN_PLUGIN_ERROR_INVALID_CONNECTION,
 				                                               _("Missing or invalid VPN user certificate password."));
+				g_free (key_filename);
 				return FALSE;;
 			}
-			nmdbus_l2tp_ppp_complete_need_secrets (object, invocation, tls_key_filename, password);
+			nmdbus_l2tp_ppp_complete_need_secrets (object, invocation, key_filename, password);
 		}
+		g_free (key_filename);
 
 	} else {
 		/* Username; try L2TP specific username first, then generic username */
