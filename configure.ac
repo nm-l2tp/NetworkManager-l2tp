@@ -114,6 +114,15 @@ AC_SEARCH_LIBS([dlopen], [dl dld], [], [ac_cv_search_dlopen=])
 AC_SUBST([DL_LIBS], "$ac_cv_search_dlopen")
 
 dnl
+dnl Libreswan DH2(modp1024) support
+dnl Note: Libreswan >= 3.30 is no longer built with DH2
+dnl
+AC_ARG_ENABLE(libreswan_dh2, AS_HELP_STRING([--enable-libreswan-dh2], [Build NetworkManager-l2tp with DH2(modp1024) in default phase 1 algorithms for Libreswan (default is no)]))
+if test "x${enable_libreswan_dh2}" = "xyes"; then
+	AC_DEFINE(LIBRESWAN_DH2, 1, [Libreswan DH2 support])
+fi
+
+dnl
 dnl Checks for NSS and OpenSSL.
 dnl
 PKG_CHECK_MODULES(OPENSSL, [libcrypto >= 1.1.0], [have_crypto_openssl=yes], [have_crypto_openssl=no])
