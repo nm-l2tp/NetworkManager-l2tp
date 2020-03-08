@@ -104,7 +104,16 @@ typedef struct {
 #define STRONGSWAN_IKEV1_ALGORITHMS_PHASE1 "aes256-sha2_256-modp2048,aes256-sha2_256-modp1536,aes256-sha2_256-modp1024,aes256-sha1-modp2048,aes256-sha1-modp1536,aes256-sha1-modp1024,aes256-sha1-ecp384,aes128-sha1-modp1024,aes128-sha1-ecp256,3des-sha1-modp2048,3des-sha1-modp1024!"
 #define STRONGSWAN_IKEV1_ALGORITHMS_PHASE2 "aes256-sha1,aes128-sha1,3des-sha1!"
 
-#define LIBRESWAN_IKEV1_ALGORITHMS_PHASE1 "aes256-sha2_256-modp2048,aes256-sha2_256-modp1536,aes256-sha2_256-modp1024,aes256-sha1-modp2048,aes256-sha1-modp1536,aes256-sha1-modp1024,aes256-sha1-ecp_384,aes128-sha1-modp1024,aes128-sha1-ecp_256,3des-sha1-modp2048,3des-sha1-modp1024"
+#ifdef LIBRESWAN_DH2 /* DH2(modp1024) enabled with configure time --enable_libreswan_dh2 switch */
+
+# define LIBRESWAN_IKEV1_ALGORITHMS_PHASE1 "aes256-sha2_256-modp2048,aes256-sha2_256-modp1536,aes256-sha2_256-modp1024,aes256-sha1-modp2048,aes256-sha1-modp1536,aes256-sha1-modp1024,aes256-sha1-ecp_384,aes128-sha1-modp1024,aes128-sha1-ecp_256,3des-sha1-modp2048,3des-sha1-modp1024"
+
+#else
+
+# define LIBRESWAN_IKEV1_ALGORITHMS_PHASE1 "aes256-sha2_256-modp2048,aes256-sha2_256-modp1536,aes256-sha1-modp2048,aes256-sha1-modp1536,aes256-sha1-ecp_384,aes128-sha1-ecp_256,3des-sha1-modp2048"
+
+#endif
+
 #define LIBRESWAN_IKEV1_ALGORITHMS_PHASE2 "aes256-sha1,aes128-sha1,3des-sha1"
 
 /*****************************************************************************/
