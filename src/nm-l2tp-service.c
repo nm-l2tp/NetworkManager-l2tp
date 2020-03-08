@@ -605,7 +605,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 
 	/* Map depricated Gateway ID to Remote ID */
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GATEWAY_ID);
-	if (nm_streq0 (value, "yes")) {
+	if (value) {
 		nm_setting_vpn_add_data_item (s_vpn, NM_L2TP_KEY_IPSEC_REMOTE_ID, value);
 	}
 
