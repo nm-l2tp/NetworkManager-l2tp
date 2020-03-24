@@ -202,6 +202,55 @@ and LEVEL is: -1|0|1|2|3|4
 #### openSUSE
     sudo CHARONDEBUG="knl 1, ike 2, esp 2, lib 1, cfg 3" /usr/lib/nm-l2tp-service --debug
 
+## Issue with blacklisting of L2TP kernel modules
+
+For compatibility with Microsoft L2TP servers (and with later kernel updates,
+other L2TP servers), L2TP kernel modules are required.
+
+If you see the following error message, then chances are that the `l2tp_ppp`
+and `l2tp_netlink` kernel modules are blacklisted :
+```
+xl2tpd[1234]: L2TP kernel support not detected (try modprobing l2tp_ppp and pppol2tp)
+```
+
+`modprobe l2tp_ppp` (or `modprobe pppol2tp` for older kernels) can be used as a
+temporary workaround instead of the permanent blacklist removal as described below.
+
+The following is an extract from _"Enhanced security of auto-loading kernel
+modules in RHEL 8 "_ web page :
+* https://access.redhat.com/articles/3760101
+
+> To enhance Red Hat Enterprise Linux against possible future security
+> vulnerabilities in lesser-known components which system administrators
+> typically do not protect against, a set of kernel modules have been moved to
+> the `kernel-modules-extra` package and blacklisted by default so those
+> components cannot be loaded by non-root users.
+> 
+> When a system requires use of one of these kernel modules, the system
+> administrator must explicitly remove the module blacklist.
+
+Although the above is for RHEL8, it is also applicable to Fedora >= 31,
+CentOS 8 and other derivatives.
+
+The `/etc/modprobe.d/l2tp_netlink-blacklist.conf` file contains:
+```sh
+# Remove the blacklist by adding a comment # at the start of the line.
+blacklist l2tp_netlink
+```
+
+The `/etc/modprobe.d/l2tp_ppp-blacklist.conf` file contains :
+```sh
+# Remove the blacklist by adding a comment # at the start of the line.
+blacklist l2tp_ppp
+```
+
+To remove the blacklist of the L2TP modules by adding a # comment to the start
+of the blacklist lines can be achieved with:
+```
+sudo sed -e '/blacklist l2tp_netlink/s/^b/#b/g' -i /etc/modprobe.d/l2tp_netlink-blacklist.conf
+sudo sed -e '/blacklist l2tp_ppp/s/^b/#b/g' -i /etc/modprobe.d/l2tp_ppp-blacklist.conf
+```
+
 ## Issue with not stopping system xl2tpd service
 
 NetworkManager-l2tp starts its own instance of xl2tpd and if the system xl2tpd
@@ -262,21 +311,26 @@ all of the strongest ones were kept:
 | ------------------- |
 | {enc=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_2048} |
 | {enc=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_1536} |
-| {enc=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_1024} |
+| {enc=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_1024} &ast; |
 | {enc=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_2048} |
 | {enc=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_1536} |
-| {enc=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_1024} |
+| {enc=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_1024} &ast; |
 | {enc=AES_CBC_256 integ=HMAC_SHA1_96 group=ECP_384} |
-| {enc=AES_CBC_128 integ=HMAC_SHA1_96 group=MODP_1024} |
+| {enc=AES_CBC_128 integ=HMAC_SHA1_96 group=MODP_1024} &ast; |
 | {enc=AES_CBC_128 integ=HMAC_SHA1_96 group=ECP_256} |
 | {enc=3DES_CBC integ=HMAC_SHA1_96 group=MODP_2048} |
-| {enc=3DES_CBC integ=HMAC_SHA1_96 group=MODP_1024} |
+| {enc=3DES_CBC integ=HMAC_SHA1_96 group=MODP_1024} &ast; |
 
 | Phase 2 - Quick Mode |
 | ------------------- |
 | {enc=AES_CBC_256 integ=HMAC_SHA1_96} |
 | {enc=AES_CBC_128 integ=HMAC_SHA1_96} |
 | {enc=3DES_CBC integ=HMAC_SHA1_96} |
+
+&ast; Libreswan >= 3.30 is no longer built with DH2 (modp1024) support, so
+above proposals with modp1024 have been excluded when libreswan is used,
+except if NetworkManager-l2tp is built with the `--enable-libreswan-dh2`
+configure switch.
 
 The above proposals are equivalent to setting the following phase 1 and 2
 algorithms in the **Advanced** section of NetworkManager-l2tp's IPsec Options
