@@ -1,4 +1,14 @@
 ==========================================================
+NetworkManager-l2tp-1.2.18
+Overview of changes since network-manager-l2tp-1.2.16
+==========================================================
+
+* Remove modp1024 in default phase 1 algorithms for Libreswan, as
+  libreswan >= 3.30 is no longer built with DH2 (modp1024) support.
+* Provide --enable-libreswan-dh2 configure switch.
+* KDE plasma-nm compatibilty for Gateway ID.
+
+==========================================================
 NetworkManager-l2tp-1.2.16
 Overview of changes since network-manager-l2tp-1.2.14
 ==========================================================
