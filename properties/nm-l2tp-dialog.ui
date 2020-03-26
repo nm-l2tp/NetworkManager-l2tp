@@ -807,7 +807,7 @@ config: ipsec-ikev2 &lt;yes/no&gt;</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
-                        <property name="tooltip_text" translatable="yes">Disable perfect forward security. Enable this option only if the server doesn’t support PFS.
+                        <property name="tooltip_text" translatable="yes">Disable perfect forward secrecy. Enable this option only if the server doesn’t support PFS.
 config: ipsec-pfs &lt;no/yes&gt;</property>
                         <property name="use_underline">True</property>
                         <property name="xalign">0</property>

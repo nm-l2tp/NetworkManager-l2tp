@@ -542,7 +542,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:52
 msgid ""
-"Disable perfect forward security. Enable this option only if the server "
+"Disable perfect forward secrecy. Enable this option only if the server "
 "doesn’t support PFS.\n"
 "config: ipsec-pfs <no/yes>"
 msgstr ""
