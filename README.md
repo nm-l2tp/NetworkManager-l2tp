@@ -41,6 +41,7 @@ directory that exists.
       --libexecdir=/usr/lib/NetworkManager \
       --localstatedir=/var \
       --with-libnm-glib \
+      --enable-libreswan-dh2 \
       --with-pppd-plugin-dir=/usr/lib/pppd/2.4.7
 
 #### Fedora >= 28 and Red Hat Enterprise Linux 8 (x86-64)
@@ -58,6 +59,7 @@ directory that exists.
       --sysconfdir=/etc --libdir=/usr/lib64 \
       --localstatedir=/var \
       --with-libnm-glib \
+      --enable-libreswan-dh2 \
       --with-pppd-plugin-dir=/usr/lib64/pppd/2.4.7
 
 #### openSUSE (x86-64)
@@ -171,6 +173,55 @@ and LEVEL is: -1|0|1|2|3|4
 #### openSUSE
     sudo CHARONDEBUG="knl 1, ike 2, esp 2, lib 1, cfg 3" /usr/lib/nm-l2tp-service --debug
 
+## Issue with blacklisting of L2TP kernel modules
+
+For compatibility with Microsoft L2TP servers (and with later kernel updates,
+other L2TP servers), L2TP kernel modules are required.
+
+If you see the following error message, then chances are that the `l2tp_ppp`
+and `l2tp_netlink` kernel modules are blacklisted :
+```
+xl2tpd[1234]: L2TP kernel support not detected (try modprobing l2tp_ppp and pppol2tp)
+```
+
+`modprobe l2tp_ppp` (or `modprobe pppol2tp` for older kernels) can be used as a
+temporary workaround instead of the permanent blacklist removal as described below.
+
+The following is an extract from _"Enhanced security of auto-loading kernel
+modules in RHEL 8 "_ web page :
+* https://access.redhat.com/articles/3760101
+
+> To enhance Red Hat Enterprise Linux against possible future security
+> vulnerabilities in lesser-known components which system administrators
+> typically do not protect against, a set of kernel modules have been moved to
+> the `kernel-modules-extra` package and blacklisted by default so those
+> components cannot be loaded by non-root users.
+>
+> When a system requires use of one of these kernel modules, the system
+> administrator must explicitly remove the module blacklist.
+
+Although the above is for RHEL8, it is also applicable to Fedora >= 31,
+CentOS 8 and other derivatives.
+
+The `/etc/modprobe.d/l2tp_netlink-blacklist.conf` file contains:
+```sh
+# Remove the blacklist by adding a comment # at the start of the line.
+blacklist l2tp_netlink
+```
+
+The `/etc/modprobe.d/l2tp_ppp-blacklist.conf` file contains :
+```sh
+# Remove the blacklist by adding a comment # at the start of the line.
+blacklist l2tp_ppp
+```
+
+To remove the blacklist of the L2TP modules by adding a # comment to the start
+of the blacklist lines can be achieved with:
+```
+sudo sed -e '/blacklist l2tp_netlink/s/^b/#b/g' -i /etc/modprobe.d/l2tp_netlink-blacklist.conf
+sudo sed -e '/blacklist l2tp_ppp/s/^b/#b/g' -i /etc/modprobe.d/l2tp_ppp-blacklist.conf
+```
+
 ## Issue with not stopping system xl2tpd service
 
 NetworkManager-l2tp starts its own instance of xl2tpd and if the system xl2tpd
@@ -193,7 +244,7 @@ disable the xl2tpd service from starting at boot time with :
 
     sudo systemctl disable xl2tpd
 
-## IPsec IKEv1 weak legacy algorithms and backwards compatibilty
+## IPsec IKEv1 weak legacy algorithms and backwards compatibility
 
 There is a general consensus that the following legacy algorithms are now
 considered weak or broken in regards to security and should be phased out and
@@ -223,61 +274,68 @@ libreswan.
 As of NetworkManager-l2tp version 1.2.16, it was decided to compromise for
 backwards compatibility by not using the strongSwan and libreswan default set
 of allowed algorithms, instead algorithms that are a merge of Windows 10 and
-macOS/iOS/iPadOS L2TP clients' IKEv1 proposals are used:
+macOS/iOS/iPadOS L2TP/IPsec clients' IKEv1 proposals are used instead. The
+weakest proposals that were not common to both Win10 and iOS were dropped, but
+all of the strongest ones were kept:
 
-* Phase 1 - Main Mode :
+| Phase 1 - Main Mode |
+| ------------------- |
+| {enc=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_2048} |
+| {enc=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_1536} |
+| {enc=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_1024} &ast; |
+| {enc=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_2048} |
+| {enc=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_1536} |
+| {enc=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_1024} &ast; |
+| {enc=AES_CBC_256 integ=HMAC_SHA1_96 group=ECP_384} |
+| {enc=AES_CBC_128 integ=HMAC_SHA1_96 group=MODP_1024} &ast; |
+| {enc=AES_CBC_128 integ=HMAC_SHA1_96 group=ECP_256} |
+| {enc=3DES_CBC integ=HMAC_SHA1_96 group=MODP_2048} |
+| {enc=3DES_CBC integ=HMAC_SHA1_96 group=MODP_1024} &ast; |
 
-      {enc=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_2048},
-      {enc=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_1536},
-      {enc=AES_CBC_256 integ=HMAC_SHA2_256_128 group=MODP_1024},
-      {enc=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_2048},
-      {enc=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_1536},
-      {enc=AES_CBC_256 integ=HMAC_SHA1_96 group=MODP_1024},
-      {enc=AES_CBC_256 integ=HMAC_SHA1_96 group=ECP_384},
-      {enc=AES_CBC_128 integ=HMAC_SHA1_96 group=MODP_1024},
-      {enc=AES_CBC_128 integ=HMAC_SHA1_96 group=ECP_256},
-      {enc=3DES_CBC integ=HMAC_SHA1_96 group=MODP_2048},
-      {enc=3DES_CBC integ=HMAC_SHA1_96 group=MODP_1024}
+| Phase 2 - Quick Mode |
+| ------------------- |
+| {enc=AES_CBC_256 integ=HMAC_SHA1_96} |
+| {enc=AES_CBC_128 integ=HMAC_SHA1_96} |
+| {enc=3DES_CBC integ=HMAC_SHA1_96} |
 
-* Phase 2 - Quick Mode :
+&ast; Libreswan >= 3.30 is no longer built with DH2 (modp1024) support, so
+above proposals with modp1024 have been excluded when libreswan is used,
+except if NetworkManager-l2tp is built with the `--enable-libreswan-dh2`
+configure switch.
 
-      {enc=AES_CBC_256 integ=HMAC_SHA1_96},
-      {enc=AES_CBC_128 integ=HMAC_SHA1_96},
-      {enc=3DES_CBC integ=HMAC_SHA1_96}
+The above proposals are equivalent to setting the following phase 1 and 2
+algorithms in the **Advanced** section of NetworkManager-l2tp's IPsec Options
+dialog box:
 
-The above proposals would be equivalent to setting the following:
-#### libreswan
-* Phase 1 :
+**Phase 1 algorithms** with libreswan :
 
-      aes256-sha2_256-modp2048,aes256-sha2_256-modp1536,aes256-sha2_256-modp1024,aes256-sha1-modp2048,aes256-sha1-modp1536,aes256-sha1-modp1024,aes256-sha1-ecp_384,aes128-sha1-modp1024,aes128-sha1-ecp_256,3des-sha1-modp2048,3des-sha1-modp1024
+    aes256-sha2_256-modp2048,aes256-sha2_256-modp1536,aes256-sha2_256-modp1024,aes256-sha1-modp2048,aes256-sha1-modp1536,aes256-sha1-modp1024,aes256-sha1-ecp_384,aes128-sha1-modp1024,aes128-sha1-ecp_256,3des-sha1-modp2048,3des-sha1-modp1024
 
-* Phase 2 :
+**Phase 2 algorithms** with libreswan :
 
-      aes256-sha1,aes128-sha1,3des-sha1
+    aes256-sha1,aes128-sha1,3des-sha1
 
-#### strongSwan
-* Phase 1 :
+**Phase 1 algorithms** with strongSwan :
 
-      aes256-sha2_256-modp2048,aes256-sha2_256-modp1536,aes256-sha2_256-modp1024,aes256-sha1-modp2048,aes256-sha1-modp1536,aes256-sha1-modp1024,aes256-sha1-ecp384,aes128-sha1-modp1024,aes128-sha1-ecp256,3des-sha1-modp2048,3des-sha1-modp1024!
+    aes256-sha2_256-modp2048,aes256-sha2_256-modp1536,aes256-sha2_256-modp1024,aes256-sha1-modp2048,aes256-sha1-modp1536,aes256-sha1-modp1024,aes256-sha1-ecp384,aes128-sha1-modp1024,aes128-sha1-ecp256,3des-sha1-modp2048,3des-sha1-modp1024!
 
-* Phase 2 :
+**Phase 2 algorithms** with strongSwan :
 
-      aes256-sha1,aes128-sha1,3des-sha1!
+    aes256-sha1,aes128-sha1,3des-sha1!
 
-If you are concerned about security and with to use algorithms that are
-stronger than the proposals offered by the Windows 10 and macOS/iOS/iPadOS
-L2TP clients. User specified phase 1 (*ike* - Main Mode) and phase 2
-(*esp* - Quick Mode) algorithms can be specified in the **Advanced** section
-of NetworkManager-l2tp's IPsec Options dialog box. Please see the libreswan
-or strongSwan `ipsec.conf` documentation for the *ike* and *esp* (aka
-*phase2alg*) syntax.
-
-If you are not sure if you are using libreswan or Strongswan, issue the
+If you are not sure if you are using libreswan or strongSwan, issue the
 following on the command-line:
 
 ```
 ipsec --version
 ```
+
+If you are concerned about security and wish to use algorithms that are
+stronger than the proposals offered by Windows 10 and macOS/iOS/iPadOS
+L2TP/IPsec clients, user specified phase 1 (*ike* - Main Mode) and phase 2
+(*esp* - Quick Mode) algorithms can be specified in the IPsec Options dialog
+box. Please see the libreswan or strongSwan `ipsec.conf` documentation for the
+*ike* and *esp* (aka *phase2alg*) syntax.
 
 If you are not sure which IKEv1 Phase 1 algorithms your VPN server proposes,
 you can query the VPN server with the `ike-scan.sh` script located in the
