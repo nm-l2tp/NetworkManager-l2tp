@@ -225,7 +225,7 @@ modules in RHEL 8 "_ web page :
 > typically do not protect against, a set of kernel modules have been moved to
 > the `kernel-modules-extra` package and blacklisted by default so those
 > components cannot be loaded by non-root users.
-> 
+>
 > When a system requires use of one of these kernel modules, the system
 > administrator must explicitly remove the module blacklist.
 
