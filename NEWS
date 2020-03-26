@@ -1,19 +1,30 @@
 ==========================================================
-NetworkManager-l2tp-1.8.0
-Overview of changes since NetworkManager-l2tp-1.2.16
+NetworkManager-l2tp-1.8.2
+Overview of changes since NetworkManager-l2tp-1.8.0
 ==========================================================
 
-YOU MIGHT NOT BE ABLE TO PROVIDE PRE-BUILT BINARIES OF THIS RELEASE UNTIL THE
-INTENDED LINUX DISTRIBUTION SHIPS WITH OPENSSL 3.0 OR LATER THAT IS COMPATIBLE
-WITH THE GPLv2 LICENSE.
+YOU MIGHT NOT BE ABLE TO PROVIDE PRE-BUILT BINARIES OF THIS RELEASE UNTIL
+THE INTENDED LINUX DISTRIBUTION SHIPS WITH OPENSSL 3.0 OR LATER THAT IS
+GPL COMPATIBLE.
 
 There are exceptions to this GPLv2 and OpenSSL licensing conflict, for example
 the Fedora Project considers OpenSSL to be a "System Library" and so exempt
 from the conflict per the "System Library Exception" :
 
-https://fedoraproject.org/wiki/Licensing:FAQ?rd=Licensing/FAQ#What.27s_the_deal_with_the_OpenSSL_license.3F
+https://fedoraproject.org/wiki/Licensing:FAQ#What.27s_the_deal_with_the_OpenSSL_license.3F
 
 Changes:
+* Fixes for user certificate support.
+* Remove modp1024 in default phase 1 algorithms for Libreswan, as
+  libreswan >= 3.30 is no longer built with DH2 (modp1024) support.
+* Provide --enable-libreswan-dh2 configure switch for older libreswan versions.
+* KDE plasma-nm compatibility for "Gateway ID".
+
+==========================================================
+NetworkManager-l2tp-1.8.0
+Overview of changes since NetworkManager-l2tp-1.2.16
+==========================================================
+
 * User and machine TLS certificate support.
 * New dependency on OpenSSL's libcrypto (>= 1.1.0).
 * New dependency on Network Security Services (NSS) libraries.
