@@ -1,7 +1,7 @@
 # NetworkMananger-l2tp
 
 ----
-If you wish to distribute NetworkManager-l2tp 1.8.0 binaries for a Linux
+If you wish to distribute NetworkManager-l2tp 1.8.2 binaries for a Linux
 distribution, please note that there is a GPL/OpenSSL license conflict
 with OpenSSL < 3.0.0 on Linux distibutions that do not consider OpenSSL
 (or LibreSSL) to be a "System Library". See release notes for further details:
