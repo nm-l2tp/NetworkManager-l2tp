@@ -151,16 +151,12 @@ eui_finish (const char *vpn_name,
             const char *existing_machine_certpass)
 {
 	GKeyFile *keyfile;
-	char *title;
 
 	keyfile = g_key_file_new ();
 
 	g_key_file_set_integer (keyfile, UI_KEYFILE_GROUP, "Version", 2);
 	g_key_file_set_string (keyfile, UI_KEYFILE_GROUP, "Description", prompt);
-
-	title = g_strdup_printf (_("Authenticate VPN"));
-	g_key_file_set_string (keyfile, UI_KEYFILE_GROUP, "Title", title);
-	g_free (title);
+	g_key_file_set_string (keyfile, UI_KEYFILE_GROUP, "Title", _("Authenticate VPN"));
 
 	keyfile_add_entry_info (keyfile,
 	                        NM_L2TP_KEY_PASSWORD,
