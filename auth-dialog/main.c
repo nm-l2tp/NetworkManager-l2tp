@@ -158,28 +158,28 @@ eui_finish (const char *vpn_name,
 	g_key_file_set_integer (keyfile, UI_KEYFILE_GROUP, "Version", 2);
 	g_key_file_set_string (keyfile, UI_KEYFILE_GROUP, "Description", prompt);
 
-	title = g_strdup_printf (_("Authenticate VPN %s"), vpn_name);
+	title = g_strdup_printf (_("Authenticate VPN"));
 	g_key_file_set_string (keyfile, UI_KEYFILE_GROUP, "Title", title);
 	g_free (title);
 
 	keyfile_add_entry_info (keyfile,
 	                        NM_L2TP_KEY_PASSWORD,
 	                        existing_password ? existing_password : "",
-	                        _("Password:"),
+	                        _("Password"),
 	                        TRUE,
 	                        need_password && allow_interaction);
 
 	keyfile_add_entry_info (keyfile,
 	                        NM_L2TP_KEY_USER_CERTPASS,
 	                        existing_user_certpass ? existing_user_certpass : "",
-	                        _("User Certificate password:"),
+	                        _("User Certificate password"),
 	                        TRUE,
 	                        need_user_certpass && allow_interaction);
 
 	keyfile_add_entry_info (keyfile,
 	                        NM_L2TP_KEY_MACHINE_CERTPASS,
 	                        existing_machine_certpass ? existing_machine_certpass : "",
-	                        _("Machine Certificate password:"),
+	                        _("Machine Certificate password"),
 	                        TRUE,
 	                        need_machine_certpass && allow_interaction);
 
