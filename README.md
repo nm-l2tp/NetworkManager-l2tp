@@ -42,6 +42,31 @@ For details on pre-built packages, known issues and build dependencies,
 please visit the Wiki :
 * https://github.com/nm-l2tp/NetworkManager-l2tp/wiki
 
+## Table of Contents
+
+- [Building](#building)
+    - [Debian >= 10 and Ubuntu >= 18.04 (AMD64, i.e. x86-64)](#debian--10-and-ubuntu--1804-amd64-ie-x86-64)
+    - [Fedora and Red Hat Enterprise Linux 8 (x86-64)](#fedora-and-red-hat-enterprise-linux-8-x86-64)
+    - [openSUSE (x86-64)](#opensuse-x86-64)
+- [VPN connection profile files](#vpn-connection-profile-files)
+- [Run-time generated files](#run-time-generated-files)
+- [Password protecting the libreswan NSS database](#password-protecting-the-libreswan-nss-database)
+- [Debugging](#debugging)
+  - [Increase Debugging Output](#increase-debugging-output)
+    - [Debian and Ubuntu](#debian-and-ubuntu)
+    - [Fedora and Red Hat Enterprise Linux](#fedora-and-red-hat-enterprise-linux)
+    - [openSUSE](#opensuse)
+  - [Libreswan Custom Debugging](#libreswan-custom-debugging)
+    - [Debian and Ubuntu](#debian-and-ubuntu-1)
+    - [Fedora and Red Hat Enterprise Linux](#fedora-and-red-hat-enterprise-linux-1)
+  - [strongSwan Custom Debugging](#strongswan-custom-debugging)
+    - [Debian and Ubuntu](#debian-and-ubuntu-2)
+    - [Fedora and Red Hat Enterprise Linux](#fedora-and-red-hat-enterprise-linux-2)
+    - [openSUSE](#opensuse-1)
+- [Issue with blacklisting of L2TP kernel modules](#issue-with-blacklisting-of-l2tp-kernel-modules)
+- [Issue with not stopping system xl2tpd service](#issue-with-not-stopping-system-xl2tpd-service)
+- [IPsec IKEv1 weak legacy algorithms and backwards compatibility](#ipsec-ikev1-weak-legacy-algorithms-and-backwards-compatibility)
+
 ## Building
 
     ./autogen.sh
