@@ -558,9 +558,8 @@ msgid "Private Key in PEM, DER or PKCS#8 format"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:22
-#, fuzzy
 msgid "Private Key Password:"
-msgstr "Parol:"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:23
 msgid "Password for private key or PCKS#12 certificate"

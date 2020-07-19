@@ -55,9 +55,8 @@ msgid "Password"
 msgstr "Лозинка"
 
 #: ../auth-dialog/main.c:171
-#, fuzzy
 msgid "User Certificate password"
-msgstr "Уверење издавача уверења:"
+msgstr ""
 
 #: ../auth-dialog/main.c:178
 msgid "Machine Certificate password"

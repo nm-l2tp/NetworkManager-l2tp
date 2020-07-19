@@ -56,14 +56,12 @@ msgid "Password"
 msgstr "Lösenord"
 
 #: ../auth-dialog/main.c:171
-#, fuzzy
 msgid "User Certificate password"
-msgstr "CA-certifikat:"
+msgstr ""
 
 #: ../auth-dialog/main.c:178
-#, fuzzy
 msgid "Machine Certificate password"
-msgstr "Maskinautentisering"
+msgstr ""
 
 #: ../auth-dialog/main.c:227
 msgid "_User Certificate password:"

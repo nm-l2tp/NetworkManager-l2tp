@@ -57,9 +57,8 @@ msgid "Password"
 msgstr "Parool"
 
 #: ../auth-dialog/main.c:171
-#, fuzzy
 msgid "User Certificate password"
-msgstr "Sertifikaadikeskuse serdifail:"
+msgstr ""
 
 #: ../auth-dialog/main.c:178
 msgid "Machine Certificate password"

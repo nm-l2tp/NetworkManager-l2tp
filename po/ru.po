@@ -60,14 +60,12 @@ msgid "Password"
 msgstr "Пароль"
 
 #: ../auth-dialog/main.c:171
-#, fuzzy
 msgid "User Certificate password"
-msgstr "Сертификат ЦС:"
+msgstr ""
 
 #: ../auth-dialog/main.c:178
-#, fuzzy
 msgid "Machine Certificate password"
-msgstr "Аутентификация компьютера"
+msgstr ""
 
 #: ../auth-dialog/main.c:227
 msgid "_User Certificate password:"

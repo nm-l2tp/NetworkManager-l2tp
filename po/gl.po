@@ -60,9 +60,8 @@ msgid "Password"
 msgstr "Contrasinal"
 
 #: ../auth-dialog/main.c:171
-#, fuzzy
 msgid "User Certificate password"
-msgstr "Certificado CA:"
+msgstr ""
 
 #: ../auth-dialog/main.c:178
 msgid "Machine Certificate password"

@@ -53,9 +53,8 @@ msgid "Password"
 msgstr "密碼"
 
 #: ../auth-dialog/main.c:171
-#, fuzzy
 msgid "User Certificate password"
-msgstr "CA 憑證:"
+msgstr ""
 
 #: ../auth-dialog/main.c:178
 msgid "Machine Certificate password"
@@ -560,9 +559,8 @@ msgid "Private Key in PEM, DER or PKCS#8 format"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:22
-#, fuzzy
 msgid "Private Key Password:"
-msgstr "密碼:"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:23
 msgid "Password for private key or PCKS#12 certificate"

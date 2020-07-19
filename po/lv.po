@@ -56,9 +56,8 @@ msgid "Password"
 msgstr "Parole"
 
 #: ../auth-dialog/main.c:171
-#, fuzzy
 msgid "User Certificate password"
-msgstr "CA Sertifikāts:"
+msgstr ""
 
 #: ../auth-dialog/main.c:178
 msgid "Machine Certificate password"

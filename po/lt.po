@@ -57,9 +57,8 @@ msgid "Password"
 msgstr "Slaptažodis"
 
 #: ../auth-dialog/main.c:171
-#, fuzzy
 msgid "User Certificate password"
-msgstr "LĮ liudijimas:"
+msgstr ""
 
 #: ../auth-dialog/main.c:178
 msgid "Machine Certificate password"

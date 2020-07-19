@@ -59,9 +59,8 @@ msgid "Password"
 msgstr "Geslo"
 
 #: ../auth-dialog/main.c:171
-#, fuzzy
 msgid "User Certificate password"
-msgstr "Potrdilo CA:"
+msgstr ""
 
 #: ../auth-dialog/main.c:178
 msgid "Machine Certificate password"
