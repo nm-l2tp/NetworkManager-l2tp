@@ -870,6 +870,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:102
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "Authenticate VPN %s"
-#~ msgstr "VPN %s の認証"
