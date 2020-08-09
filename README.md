@@ -84,7 +84,8 @@ directory that exists.
       --disable-static --prefix=/usr \
       --sysconfdir=/etc --libdir=/usr/lib/x86_64-linux-gnu \
       --libexecdir=/usr/lib/NetworkManager \
-      --localstatedir=/var \
+      --runstatedir=/run \
+      --with-nm-ipsec-nss-dir=/var/lib/ipsec/nss \
       --with-pppd-plugin-dir=/usr/lib/pppd/2.4.7
 
 #### Fedora and Red Hat Enterprise Linux 8 (x86-64)
@@ -130,18 +131,18 @@ to `/etc/ipsec.secrets` at run-time if the line is missing:
 
 ## Password protecting the libreswan NSS database
 
-By default the libreswan NSS database is created in `/etc/ipsec.d/` and is used
-by NetworkManager-l2tp for VPN connections using libreswan and machine
-certificates.
+By default the NSS database is created in `/etc/ipsec.d/` on RHEL/Fedora/CentOS
+but in `/var/lib/ipsec/nss/` on Debian/Ubuntu. The NSS database is used
+by NetworkManager-l2tp for machine certificate VPN connections using libreswan.
 
 The default libreswan package install for most Linux distributions uses an
 empty password. It is up to the administrator to decide on whether to use a
 password or not. However, a non-empty database password must be provided when
 running in FIPS mode.
 
-See the following page on how to set the password for the libreswan NSS database
-and the syntax for the `/etc/ipsec.d/nsspassword` file where the password is
-stored:
+See the following page on how to set the password for the libreswan NSS
+database and the syntax for the `/etc/ipsec.d/nsspassword` file where the
+password is stored:
 * https://libreswan.org/wiki/HOWTO:_Using_NSS_with_libreswan
 
 ## Debugging
@@ -353,7 +354,7 @@ all of the strongest ones were kept:
 | {enc=3DES_CBC integ=HMAC_SHA1_96} |
 
 &ast; Libreswan >= 3.30 is no longer built with DH2 (modp1024) support, so
-above proposals with modp1024 have been excluded when libreswan is used,
+above proposals which have modp1024 have been excluded when libreswan is used,
 except if NetworkManager-l2tp is built with the `--enable-libreswan-dh2`
 configure switch.
 
