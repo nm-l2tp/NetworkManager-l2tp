@@ -94,6 +94,13 @@ if (printf '%s' "$with_nm_ipsec_secrets_dir" | grep -v -q '^/'); then
 fi
 AC_DEFINE_UNQUOTED(NM_IPSEC_SECRETS_DIR, "$with_nm_ipsec_secrets_dir", [IPSec secret dir])
 
+AC_ARG_WITH(nm-ipsec-nss-dir, AS_HELP_STRING([--with-nm-ipsec-nss-dir=path], [The directory where Libreswan's NSS db is stored, defaults to /etc/ipsec.d/]), [], [with_nm_ipsec_nss_dir=])
+AS_IF([test -z "$with_nm_ipsec_nss_dir"], with_nm_ipsec_nss_dir="/etc/ipsec.d")
+if (printf '%s' "$with_nm_ipsec_nss_dir" | grep -v -q '^/'); then
+	AC_MSG_ERROR([--with-nm-ipsec-nss-dir must be an absolute path, instead it is '$with_nm_ipsec_nss_dir'])
+fi
+AC_DEFINE_UNQUOTED(NM_IPSEC_NSS_DIR, "$with_nm_ipsec_nss_dir", [Libreswan NSS db dir])
+
 dnl
 dnl Checks for typedefs, structures, and compiler characteristics.
 dnl
@@ -129,15 +136,15 @@ PKG_CHECK_MODULES(OPENSSL, [libcrypto >= 1.1.0], [have_crypto_openssl=yes], [hav
 if test "x${have_crypto_openssl}" = "xno"; then
 	AC_MSG_ERROR($OPENSSL_PKG_ERRORS)
 fi
-PKG_CHECK_MODULES(NSS, [nss], [have_crypto_nss=yes], [have_crypto_nss=yes])
-if test "${have_crypto_nss}" = "yes"; then
+PKG_CHECK_MODULES(NSS, [nss], [have_crypto_ipsec_nss=yes], [have_crypto_ipsec_nss=yes])
+if test "${have_crypto_ipsec_nss}" = "yes"; then
 	# Work around a pkg-config bug (fdo #29801) where exists != usable
 	FOO=`$PKG_CONFIG --cflags --libs nss`
 	if test x"$?" != "x0"; then
-		 have_crypto_nss=no
+		 have_crypto_ipsec_nss=no
 	fi
 fi
-if test "x${have_crypto_nss}" = "xno"; then
+if test "x${have_crypto_ipsec_nss}" = "xno"; then
 	AC_MSG_ERROR($NSS_PKG_ERRORS)
 fi
 
