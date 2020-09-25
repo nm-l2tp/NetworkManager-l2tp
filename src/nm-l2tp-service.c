@@ -10,7 +10,7 @@
  * (C) Copyright 2011 Geo Carncross <geocar@gmail.com>
  * (C) Copyright 2012 Sergey Prokhorov <me@seriyps.ru>
  * (C) Copyright 2014 Nathan Dorfman <ndorf@rtfm.net>
- * (C) Copyright 2016 - 2019 Douglas Kosovic <doug@uq.edu.au>
+ * (C) Copyright 2016 - 2020 Douglas Kosovic <doug@uq.edu.au>
  */
 
 #include "nm-default.h"
@@ -1084,6 +1084,11 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		write_config_option (fd, "debug\n");
 
 	write_config_option (fd, "ipparam nm-l2tp-service-%s\n", priv->uuid);
+
+	/* pass gateway IP address to nm-l2tp-pppd-plugin via ipcp_wantoptions[0].hisaddr,
+	   but let pppd use the remote IP address being offered by the peer using IPCP */
+	write_config_option (fd, ":%s\n", priv->saddr);
+	write_config_option (fd, "ipcp-accept-remote\n");
 
 	write_config_option (fd, "nodetach\n");
 	/* revisit - xl2tpd-1.3.7 generates an unrecognized option 'lock' error.
