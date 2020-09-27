@@ -51,33 +51,13 @@ msgstr ""
 msgid "Authenticate VPN"
 msgstr "VPN କୁ ବୈଧିକରଣ କରନ୍ତୁ"
 
-#: ../auth-dialog/main.c:164 ../properties/nm-l2tp-editor.c:665
-#, fuzzy
-msgid "Password"
-msgstr "ପ୍ରବେଶ ସଂକେତ (_P):"
-
-#: ../auth-dialog/main.c:171
-#, fuzzy
-msgid "User Certificate password"
-msgstr "ଚାଳକ ପ୍ରବେଶ ସଂକେତ (_U):"
-
 #: ../auth-dialog/main.c:178
 msgid "Machine Certificate password"
 msgstr ""
 
-#: ../auth-dialog/main.c:227
-#, fuzzy
-msgid "_User Certificate password:"
-msgstr "ଚାଳକ ପ୍ରବେଶ ସଂକେତ (_U):"
-
 #: ../auth-dialog/main.c:233
 msgid "_Machine Certificate password:"
 msgstr ""
-
-#: ../auth-dialog/main.c:469
-#, fuzzy, c-format
-msgid "You need to authenticate to access the Virtual Private Network “%s”."
-msgstr "ଆପଣଙ୍କୁ ଏହି ଆଭାସୀ ବ୍ୟକ୍ତିଗତ ନେଟୱର୍କ '%s'କୁ ଅଭିଗମ୍ୟ କରିବା ଆବଶ୍ୟକ।"
 
 #: ../properties/auth-helpers.c:76
 msgid "DER, PEM, or PKCS#12 certificates (*der, *.pem, *.crt, *.cer, *.p12)"
@@ -90,11 +70,6 @@ msgstr ""
 #: ../properties/auth-helpers.c:101
 msgid "All Files"
 msgstr ""
-
-#: ../properties/ppp-dialog.c:158
-#, fuzzy
-msgid "All Available (Default)"
-msgstr "NAT-T ଯେତେବେଳେ ଉପଲବ୍ଧ ହୋଇଥାଏ (ପୂର୍ବନିର୍ଦ୍ଧାରିତ)"
 
 #: ../properties/ppp-dialog.c:162
 msgid "128-bit (most secure)"
@@ -488,11 +463,6 @@ msgid ""
 "NetworkManager."
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:1
-#, fuzzy
-msgid "General"
-msgstr "<b>ସାଧାରଣ</b>"
-
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Gateway:"
 msgstr "ପ୍ରବେଶଦ୍ୱାରା (_G):"
@@ -503,21 +473,11 @@ msgid ""
 "config: xl2tpd lns parameter"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:5
-#, fuzzy
-msgid "User Authentication"
-msgstr "VPN କୁ ବୈଧିକରଣ କରନ୍ତୁ"
-
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
 "DOMAIN\\username, where DOMAIN is the value from this text entry box."
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:7
-#, fuzzy
-msgid "Sho_w password"
-msgstr "ପ୍ରବେଶ ସଂକେତ ଦର୍ଶାନ୍ତୁ"
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Password passed to PPPD when prompted for it."
@@ -531,21 +491,6 @@ msgid ""
 "\n"
 "config: auth-user-pass"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:13
-#, fuzzy
-msgid "User name:"
-msgstr "ଚାଳକ ନାମ:"
-
-#: ../properties/nm-l2tp-dialog.ui.h:14
-#, fuzzy
-msgid "Password:"
-msgstr "ପ୍ରବେଶ ସଂକେତ (_P):"
-
-#: ../properties/nm-l2tp-dialog.ui.h:15
-#, fuzzy
-msgid "NT Domain:"
-msgstr "ଡମେନ:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
 msgid "CA Certificate:"
@@ -720,11 +665,6 @@ msgid ""
 "config: ipsec-ikev2 <yes/no>"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:62
-#, fuzzy
-msgid "Disable _PFS"
-msgstr "ନିଷ୍କ୍ରିୟ"
-
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid ""
 "Disable perfect forward secrecy. Enable this option only if the server "
@@ -743,11 +683,6 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:67
 msgid "L2TP PPP Options"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:68
-#, fuzzy
-msgid "Authentication"
-msgstr "VPN କୁ ବୈଧିକରଣ କରନ୍ତୁ"
 
 #: ../properties/nm-l2tp-dialog.ui.h:69
 msgid "Allow the following authentication methods:"
@@ -871,112 +806,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:102
 msgid "MRU :"
 msgstr ""
-
-#~ msgid "_Secondary Password:"
-#~ msgstr "ଦ୍ୱିତୀୟକ ପ୍ରବେଶ ସଂକେତ (_S):"
-
-#~ msgid "Sh_ow passwords"
-#~ msgstr "ପ୍ରବେଶ ସଂକେତ ଦର୍ଶାନ୍ତୁ (_o)"
-
-#~ msgid "_Remember passwords for this session"
-#~ msgstr "ଏହି ଅଧିବେଶନ ପାଇଁ ପ୍ରବେଶ ସଂକେତକୁ ମନେରଖନ୍ତୁ (_R)"
-
-#~ msgid "_Save passwords in keyring"
-#~ msgstr "ପ୍ରବେଶ ସଂକେତକୁ କି ରିଙ୍ଗରେ ସଂରକ୍ଷଣ କରନ୍ତୁ (_S)"
-
-#~ msgid "_Group Password:"
-#~ msgstr "ସମୂହ ପ୍ରବେଶ ସଂକେତ (_G):"
-
-#~ msgid "Add, Remove, and Edit VPN Connections"
-#~ msgstr "VPN ସଂଯୋଗଗୁଡ଼ିକୁ ଯୋଗ କରନ୍ତୁ, କାଢ଼ନ୍ତୁ ଏବଂ ସମ୍ପାଦନ କରନ୍ତୁ"
-
-#~ msgid "VPN Connection Manager (vpnc)"
-#~ msgstr "VPN ସଂଯୋଗ ପରିଚାଳକ (vpnc)"
-
-#~ msgid "Cisco Compatible VPN (vpnc)"
-#~ msgstr "Cisco ସୁସଙ୍ଗତ VPN (vpnc)"
-
-#~ msgid ""
-#~ "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-"
-#~ "based VPN gateways."
-#~ msgstr ""
-#~ "ଭିନ୍ନ ପ୍ରକାରର Cisco, Juniper, Netscreen, ଏବଂ Sonicwall IPsec-ଆଧାରିତ VPN ସହିତ "
-#~ "ସୁସଂଗତ।"
-
-#~ msgid "Saved"
-#~ msgstr "ସଂରକ୍ଷିତ"
-
-#~ msgid "Always Ask"
-#~ msgstr "ସର୍ବଦା ପଚାରନ୍ତୁ"
-
-#~ msgid "Not Required"
-#~ msgstr "ଆବଶ୍ୟକ ନାହିଁ"
-
-#~ msgid "Secure (default)"
-#~ msgstr "ସୁରକ୍ଷିତ (ପୂର୍ବନିର୍ଦ୍ଧାରିତ)"
-
-#~ msgid "Weak (use with caution)"
-#~ msgstr "ଦୁର୍ବଳ (ସତର୍କତାର ସହିତ ବ୍ୟବହାର କରନ୍ତୁ)"
-
-#~ msgid "None (completely insecure)"
-#~ msgstr "କେହି ନୁହଁ (ସମ୍ପୂର୍ଣ୍ଣ ଭାବରେ ଅସୁରକ୍ଷିତ)"
-
-#~ msgid "NAT-T always"
-#~ msgstr "NAT-T ସର୍ବଦା"
-
-#~| msgid "Cisco UDP (default)"
-#~ msgid "Cisco UDP"
-#~ msgstr "Cisco UDP"
-
-#~ msgid "DH Group 1"
-#~ msgstr "DH ଶ୍ରେଣୀ 1"
-
-#~| msgid "Cisco UDP (default)"
-#~ msgid "DH Group 2 (default)"
-#~ msgstr "DH ଶ୍ରେଣୀ 2 ‍‌(ପୂର୍ବନିର୍ଦ୍ଧାରିତ)"
-
-#~ msgid "DH Group 5"
-#~ msgstr "DH ଶ୍ରେଣୀ 5"
-
-#~ msgid "TCP tunneling not supported"
-#~ msgstr "TCP ଟନେଲିଙ୍ଗ ସମରଥିତନୁହଁ"
-
-#~ msgid ""
-#~ "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
-#~ "through TCP which is currently not supported in the vpnc software.\n"
-#~ "\n"
-#~ "The connection can still be created, with TCP tunneling disabled, however "
-#~ "it may not work as expected."
-#~ msgstr ""
-#~ "VPN ସଂରଚନା ଫାଇଲ '%s' ଉଲ୍ଲେଖ କରିଥାଏ ଯେ VPN ଯାତାୟାତକୁ TCP ମାଧ୍ଯମରେ ପଠାଇବା ଉଚିତ "
-#~ "ଯାହାକି ବର୍ତ୍ତମାନ vpnc ସଫ୍ଟୱେରରେ ସମର୍ଥିତ ନୁହଁ।\n"
-#~ "\n"
-#~ "TCP ଟନେଲିଙ୍ଗକୁ ନିଷ୍କ୍ରିୟ କରି ମଧ୍ଯ, ସଂଯୋଗକୁ ଏବେ ମଧ୍ଯ ସୃଷ୍ଟିକରିହେବ, ତଥାପି ଏହା ଆଶା ମୁତାବକ "
-#~ "କାର୍ଯ୍ୟ କରିନଥାଏ।"
-
-#~ msgid " "
-#~ msgstr " "
-
-#~ msgid "<b>Optional</b>"
-#~ msgstr "<b>ବୈକଳ୍ପିକ</b>"
-
-#~ msgid "Disable Dead _Peer Detection"
-#~ msgstr "ଅକାମୀ ସାଥି ଚିହ୍ନଟକୁ ନିଷ୍କ୍ରିୟ କରନ୍ତୁ"
-
-#~ msgid "_Encryption method:"
-#~ msgstr "ସଂଗୁପ୍ତ ପଦ୍ଧତି:"
-
-#~ msgid "G_roup name:"
-#~ msgstr "ଶ୍ରେଣୀ ନାମ (_r):"
-
-#~ msgid "Gro_up password:"
-#~ msgstr "ଶ୍ରେଣୀ ପ୍ରବେଶ ସଂକେତ (_u):"
-
-#~ msgid "_IKE DH Group:"
-#~ msgstr "IKE DH ଶ୍ରେଣୀ:"
-
-#~ msgid "_NAT traversal:"
-#~ msgstr "NAT ପରିକ୍ରମା:"
-
-#~ msgid "NAT-T"
-#~ msgstr "NAT-T"

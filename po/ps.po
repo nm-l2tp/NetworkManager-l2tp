@@ -18,11 +18,6 @@ msgstr ""
 "X-Poedit-Language: Pashto, Pushto\n"
 "X-Poedit-Country: AFGHANISTAN\n"
 
-#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
-#, fuzzy
-msgid "L2TP VPN Client"
-msgstr "OpenVPN"
-
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:2
 msgid "Client for L2TP based virtual private networks"
 msgstr ""
@@ -30,11 +25,6 @@ msgstr ""
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:3
 msgid "Support for configuring L2TP based virtual private network connections."
 msgstr ""
-
-#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:4
-#, fuzzy
-msgid "Compatible with L2TP and L2TP over IPsec services."
-msgstr ".پالنګر سره جوړ OpenVPN"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:5
 msgid "The IPsec options dialog"
@@ -55,42 +45,6 @@ msgstr "اوڅاریز ځاني ځال کرول"
 #: ../auth-dialog/main.c:164 ../properties/nm-l2tp-editor.c:665
 msgid "Password"
 msgstr "تېرنويې"
-
-#: ../auth-dialog/main.c:171
-#, fuzzy
-msgid "User Certificate password"
-msgstr "د بريليک تېرنويې:"
-
-#: ../auth-dialog/main.c:178
-#, fuzzy
-msgid "Machine Certificate password"
-msgstr "د بريليک تېرنويې:"
-
-#: ../auth-dialog/main.c:227
-#, fuzzy
-msgid "_User Certificate password:"
-msgstr "د بريليک تېر_نويې:"
-
-#: ../auth-dialog/main.c:233
-#, fuzzy
-msgid "_Machine Certificate password:"
-msgstr "د بريليک تېر_نويې:"
-
-#: ../auth-dialog/main.c:469
-#, fuzzy, c-format
-msgid "You need to authenticate to access the Virtual Private Network “%s”."
-msgstr ""
-".اوڅاریز ځانی ځال ته د لاسرسي لپاره ځان کره کړﺉ '%s' تاسو ته اړينه ده چې د"
-
-#: ../properties/auth-helpers.c:76
-#, fuzzy
-msgid "DER, PEM, or PKCS#12 certificates (*der, *.pem, *.crt, *.cer, *.p12)"
-msgstr "(*.pem, *.crt, *.key) بريليکونه PEM"
-
-#: ../properties/auth-helpers.c:89
-#, fuzzy
-msgid "DER, PEM, or PKCS#8 private keys (*.der, *.pem, *.pk8, *.key)"
-msgstr "(*.pem, *.crt, *.key) بريليکونه PEM"
 
 #: ../properties/auth-helpers.c:101
 msgid "All Files"
@@ -128,21 +82,6 @@ msgstr ""
 msgid "EAP"
 msgstr ""
 
-#: ../properties/ipsec-dialog.c:311 ../properties/nm-l2tp-editor.c:556
-#, fuzzy
-msgid "Choose a Certificate Authority certificate…"
-msgstr "د بريليک واک يو برېليک وټاکئ..."
-
-#: ../properties/ipsec-dialog.c:319
-#, fuzzy
-msgid "Choose your machine certificate…"
-msgstr "خپل وګړيز برېليک وټاکئ..."
-
-#: ../properties/ipsec-dialog.c:327 ../properties/nm-l2tp-editor.c:572
-#, fuzzy
-msgid "Choose your private key…"
-msgstr "خپله وګړيزه کيلۍ وټاکئ..."
-
 #: ../properties/ipsec-dialog.c:559
 msgid "Pre-shared key (PSK)"
 msgstr ""
@@ -171,11 +110,6 @@ msgstr ""
 msgid "%s: failed to create the IPsec dialog!"
 msgstr ""
 
-#: ../properties/nm-l2tp-editor.c:564
-#, fuzzy
-msgid "Choose your personal certificate…"
-msgstr "خپل وګړيز برېليک وټاکئ..."
-
 #: ../properties/nm-l2tp-editor.c:847
 #, c-format
 msgid "could not create l2tp object"
@@ -189,11 +123,6 @@ msgstr ""
 #: ../properties/nm-l2tp-editor-plugin.c:20
 msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr ""
-
-#: ../properties/nm-l2tp-editor-plugin.c:21
-#, fuzzy
-msgid "Compatible with Microsoft and other L2TP VPN servers."
-msgstr ".پالنګر سره جوړ OpenVPN"
 
 #: ../shared/nm-l2tp-crypto-nss.c:49
 #, c-format
@@ -511,21 +440,11 @@ msgid ""
 "config: xl2tpd lns parameter"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:5
-#, fuzzy
-msgid "User Authentication"
-msgstr "<b>کرونه</b>"
-
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
 "DOMAIN\\username, where DOMAIN is the value from this text entry box."
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:7
-#, fuzzy
-msgid "Sho_w password"
-msgstr ":تېرنويې_"
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Password passed to PPPD when prompted for it."
@@ -544,16 +463,6 @@ msgstr ""
 msgid "User name:"
 msgstr ":کارن نوم"
 
-#: ../properties/nm-l2tp-dialog.ui.h:14
-#, fuzzy
-msgid "Password:"
-msgstr ":تېرنويې_"
-
-#: ../properties/nm-l2tp-dialog.ui.h:15
-#, fuzzy
-msgid "NT Domain:"
-msgstr ":شپول_"
-
 #: ../properties/nm-l2tp-dialog.ui.h:16
 msgid "CA Certificate:"
 msgstr ":برېليک CA"
@@ -561,11 +470,6 @@ msgstr ":برېليک CA"
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "Certificate authority (CA) file in PEM, DER or PKCS#12 format"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:18
-#, fuzzy
-msgid "Certificate:"
-msgstr ":برېليک CA"
 
 #: ../properties/nm-l2tp-dialog.ui.h:19
 msgid "Certificate file in PEM, DER or PKCS#12 format"
@@ -578,16 +482,6 @@ msgstr "وګړيزه کيلۍ:"
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Private Key in PEM, DER or PKCS#8 format"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:22
-#, fuzzy
-msgid "Private Key Password:"
-msgstr "وګړيزه کيلۍ:"
-
-#: ../properties/nm-l2tp-dialog.ui.h:23
-#, fuzzy
-msgid "Password for private key or PCKS#12 certificate"
-msgstr "خپله وګړيزه کيلۍ وټاکئ..."
 
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Type:"
@@ -616,11 +510,6 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid "config: ipsec-enabled"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:31
-#, fuzzy
-msgid "Machine Authentication"
-msgstr "<b>کرونه</b>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
 msgid ""
@@ -710,11 +599,6 @@ msgid ""
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:56
-#, fuzzy
-msgid "Use IP c_ompression"
-msgstr "اومتوک زېرنه کارول L_ZO"
-
 #: ../properties/nm-l2tp-dialog.ui.h:57
 msgid ""
 "IPComp compresses raw IP packets before they get encrypted. This saves some "
@@ -743,11 +627,6 @@ msgid ""
 "config: ipsec-pfs <no/yes>"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:65
-#, fuzzy
-msgid "Ad_vanced"
-msgstr "...بر_یونلې"
-
 #: ../properties/nm-l2tp-dialog.ui.h:66
 msgid "Default"
 msgstr "تلواله"
@@ -755,11 +634,6 @@ msgstr "تلواله"
 #: ../properties/nm-l2tp-dialog.ui.h:67
 msgid "L2TP PPP Options"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:68
-#, fuzzy
-msgid "Authentication"
-msgstr "<b>کرونه</b>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:69
 msgid "Allow the following authentication methods:"
@@ -770,11 +644,6 @@ msgid ""
 "Allow/disable authentication methods.\n"
 "config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:72
-#, fuzzy
-msgid "Security and Compression"
-msgstr "اومتوک زېرنه کارول L_ZO"
 
 #: ../properties/nm-l2tp-dialog.ui.h:73
 msgid "Use _Point-to-Point encryption (MPPE)"
@@ -807,21 +676,11 @@ msgid ""
 "config: mppe-stateful (when checked)"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:81
-#, fuzzy
-msgid "Allow _BSD data compression"
-msgstr "اومتوک زېرنه کارول L_ZO"
-
 #: ../properties/nm-l2tp-dialog.ui.h:82
 msgid ""
 "Allow/disable BSD-Compress compression.\n"
 "config: nobsdcomp (when unchecked)"
 msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:84
-#, fuzzy
-msgid "Allow _Deflate data compression"
-msgstr "اومتوک زېرنه کارول L_ZO"
 
 #: ../properties/nm-l2tp-dialog.ui.h:85
 msgid ""
@@ -886,150 +745,3 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:102
 msgid "MRU :"
 msgstr ""
-
-#, fuzzy
-#~ msgid "Authentication required"
-#~ msgstr "<b>کرونه</b>"
-
-#, fuzzy
-#~ msgid "HTTP proxy password"
-#~ msgstr ":تېرنويې_"
-
-#, fuzzy
-#~ msgid "_HTTP proxy password:"
-#~ msgstr ":تېرنويې_"
-
-#~ msgid "OpenVPN"
-#~ msgstr "OpenVPN"
-
-#, fuzzy
-#~ msgid "Choose an OpenVPN static key…"
-#~ msgstr "ولاړ کيلۍ وټاکئ... OpenVPN يوه"
-
-#~ msgid "None"
-#~ msgstr "هېڅ"
-
-#~ msgid "OpenVPN Static Keys (*.key)"
-#~ msgstr "(*.key) ولاړ کيلۍ OpenVPN"
-
-#~ msgid "Password with Certificates (TLS)"
-#~ msgstr "(TLS) بريليکونو سره تېرنویې "
-
-#~ msgid "Static Key"
-#~ msgstr "ولاړه کيلۍ"
-
-#, fuzzy
-#~ msgid "Unhandled pending authentication."
-#~ msgstr "کرونه کارول TLS زياتي "
-
-#, fuzzy
-#~ msgid "Key Direction:"
-#~ msgstr ":کيلۍ لور"
-
-#~ msgid "Static Key:"
-#~ msgstr ":ولاړه کيلۍ"
-
-#~ msgid "Use custom gateway p_ort:"
-#~ msgstr ":دوديزې ورلارې در_شل کارول"
-
-#~ msgid "Use a _TCP connection"
-#~ msgstr "نښلېدنه کارول _TCP"
-
-#~ msgid "Ci_pher:"
-#~ msgstr "ټکی:"
-
-#, fuzzy
-#~ msgid "_HMAC Authentication:"
-#~ msgstr "<b>کرونه</b>"
-
-#, fuzzy
-#~ msgid "Server _Certificate Check:"
-#~ msgstr ":کارن برېليک"
-
-#~ msgid "Key _Direction:"
-#~ msgstr ":کيلۍ لور"
-
-#~ msgid "Key _File:"
-#~ msgstr ":کيلي دوتنه"
-
-#, fuzzy
-#~ msgid "Add an additional layer of encryption or HMAC authentication."
-#~ msgstr "کرونه کارول TLS زياتي "
-
-#, fuzzy
-#~ msgid "Extra Certificates:"
-#~ msgstr ":کارن برېليک"
-
-#, fuzzy
-#~ msgid "Additional TLS authentication or encryption"
-#~ msgstr "کرونه کارول TLS زياتي "
-
-#, fuzzy
-#~ msgid "TLS Authentication"
-#~ msgstr "<b>کرونه</b>"
-
-#, fuzzy
-#~ msgid "Proxy _Username:"
-#~ msgstr ":کارننوم_"
-
-#, fuzzy
-#~ msgid "Proxy Passwor_d:"
-#~ msgstr ":تېرنويې_"
-
-#, fuzzy
-#~ msgid "Connect timeout"
-#~ msgstr "بېنومه نښلېدل_"
-
-#, fuzzy
-#~ msgid "Authenticate VPN %s"
-#~ msgstr "اوڅاریز ځاني ځال کرول"
-
-#, fuzzy
-#~ msgid "PEM certificates (*.pem, *.crt, *.key, *.cer)"
-#~ msgstr "(*.pem, *.crt, *.key) بريليکونه PEM"
-
-#~ msgid " "
-#~ msgstr " "
-
-#~ msgid "<b>General</b>"
-#~ msgstr "<b>ټوليز</b>"
-
-#~ msgid "<b>Authentication</b>"
-#~ msgstr "<b>کرونه</b>"
-
-#, fuzzy
-#~ msgid "_Show passwords"
-#~ msgstr ":تېرنويې_"
-
-#~ msgid "_Secondary Password:"
-#~ msgstr ":دويمه تېرنويې_"
-
-#~ msgid "Connect as _user:"
-#~ msgstr ":لکه _کارن نښلېدل"
-
-#~ msgid "_Remember password for this session"
-#~ msgstr "دې ناستې لپاره تېرنويې په ياد ساتل_"
-
-#~ msgid "_Save password in keyring"
-#~ msgstr "تېرونویي په کيلۍ رېنګ کې ساتل_"
-
-#~ msgid "Use a TA_P device"
-#~ msgstr "وزله کارول TA_P"
-
-#~ msgid "gtk-cancel"
-#~ msgstr "بندول-gtk"
-
-#~ msgid "gtk-ok"
-#~ msgstr "هوکې-gtk"
-
-#~ msgid "page 1"
-#~ msgstr "۱ پاڼه"
-
-#~ msgid "page 2"
-#~ msgstr "۲مه پاڼه"
-
-#~ msgid "page 3"
-#~ msgstr "۳مه پاڼه"
-
-#~ msgid "page 4"
-#~ msgstr "۴مه پاڼه"
