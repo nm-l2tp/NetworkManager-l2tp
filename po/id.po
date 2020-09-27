@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-l2tp master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-19 16:03+1000\n"
+"POT-Creation-Date: 2020-09-27 15:06+1000\n"
 "PO-Revision-Date: 2017-04-08 16:26+0700\n"
 "Last-Translator: Andika Triwidada <atriwidada@gnome.org>\n"
 "Language-Team: Indonesian Translator <gnome@i15n.org>\n"
@@ -380,110 +380,110 @@ msgstr "Tak ada opsi konfigurasi VPN."
 msgid "Missing required option '%s'."
 msgstr "Kehilangan opsi '%s' yang diperlukan."
 
-#: ../src/nm-l2tp-service.c:679
+#: ../src/nm-l2tp-service.c:678
 #, c-format
 msgid "Could not open %s for writing: %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:687
+#: ../src/nm-l2tp-service.c:686
 #, c-format
 msgid "Could not append \"include ipsec.d/ipsec.nm-l2tp.secrets\" to %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:703
+#: ../src/nm-l2tp-service.c:702
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:740
+#: ../src/nm-l2tp-service.c:739
 msgid "Machine private key file not supplied"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:854
+#: ../src/nm-l2tp-service.c:848
 msgid "Could not write ipsec config"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:942
+#: ../src/nm-l2tp-service.c:936
 msgid "Machine certificate file not supplied"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1043
+#: ../src/nm-l2tp-service.c:1037
 msgid "Could not write xl2tpd config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1086
+#: ../src/nm-l2tp-service.c:1080
 msgid "Could not write ppp options."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1359 ../src/nm-l2tp-service.c:1384
+#: ../src/nm-l2tp-service.c:1358 ../src/nm-l2tp-service.c:1383
 msgid "Could not start the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1365 ../src/nm-l2tp-service.c:1392
+#: ../src/nm-l2tp-service.c:1364 ../src/nm-l2tp-service.c:1391
 msgid "Could not restart the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1503
+#: ../src/nm-l2tp-service.c:1502
 msgid "Could not find the xl2tpd binary."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1590
+#: ../src/nm-l2tp-service.c:1589
 msgid "Missing or invalid VPN user certificate password."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1607
+#: ../src/nm-l2tp-service.c:1606
 msgid "Missing VPN username."
 msgstr "Nama pengguna VPN hilang."
 
-#: ../src/nm-l2tp-service.c:1616
+#: ../src/nm-l2tp-service.c:1615
 msgid "Missing or invalid VPN password."
 msgstr "Sandi VPN hilang atau tak valid."
 
-#: ../src/nm-l2tp-service.c:1720
+#: ../src/nm-l2tp-service.c:1719
 msgid "couldn't convert L2TP VPN gateway IP address."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1733
+#: ../src/nm-l2tp-service.c:1732
 msgid "couldn't look up L2TP VPN gateway IP address "
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1752
+#: ../src/nm-l2tp-service.c:1751
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1781
+#: ../src/nm-l2tp-service.c:1780
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1787
+#: ../src/nm-l2tp-service.c:1786
 msgid "Openswan is no longer supported, use Libreswan or strongSwan."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1789
+#: ../src/nm-l2tp-service.c:1788
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1798
+#: ../src/nm-l2tp-service.c:1797
 msgid "could not retrieve connection UUID"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1806
+#: ../src/nm-l2tp-service.c:1805
 msgid "Invalid or missing L2TP gateway."
 msgstr "Gateway L2TP tak valid atau hilang."
 
-#: ../src/nm-l2tp-service.c:2134
+#: ../src/nm-l2tp-service.c:2133
 msgid "Don't quit when VPN connection terminates"
 msgstr "Jangan keluar ketika koneksi VPN diputus"
 
-#: ../src/nm-l2tp-service.c:2135
+#: ../src/nm-l2tp-service.c:2134
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Aktifkan log pengawakutuan verbose (mungkin mengungkap sandi)"
 
-#: ../src/nm-l2tp-service.c:2136
+#: ../src/nm-l2tp-service.c:2135
 msgid "D-Bus name to use for this instance"
 msgstr "Nama D-Bus untuk dipakai bagi instansi ini"
 
-#: ../src/nm-l2tp-service.c:2157
+#: ../src/nm-l2tp-service.c:2156
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
