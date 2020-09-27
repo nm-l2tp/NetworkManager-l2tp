@@ -554,7 +554,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "Private Key:"
-msgstr ""
+msgstr "ব্যক্তিগত-কি:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Private Key in PEM, DER or PKCS#8 format"
@@ -570,7 +570,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Type:"
-msgstr ""
+msgstr "ধরন:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:25
 msgid "Select an authentication mode."

@@ -332,6 +332,11 @@ msgstr ""
 "Wert »%s« des Typs »%s« ist ungültig oder außerhalb des zulässigen Bereichs "
 "der Eigenschaft »%s« des Typs »%s«"
 
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:53
+#, c-format
+msgid "unable to get editor plugin name: %s"
+msgstr ""
+
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:87
 #, c-format
 msgid "missing plugin file \"%s\""

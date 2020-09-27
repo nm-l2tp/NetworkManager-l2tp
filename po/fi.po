@@ -124,7 +124,7 @@ msgstr "EAP"
 
 #: ../properties/ipsec-dialog.c:311 ../properties/nm-l2tp-editor.c:556
 msgid "Choose a Certificate Authority certificate…"
-msgstr ""
+msgstr "Valitse CA-varmenne…"
 
 #: ../properties/ipsec-dialog.c:319
 msgid "Choose your machine certificate…"
@@ -132,7 +132,7 @@ msgstr ""
 
 #: ../properties/ipsec-dialog.c:327 ../properties/nm-l2tp-editor.c:572
 msgid "Choose your private key…"
-msgstr ""
+msgstr "Valitse yksityinen avain…"
 
 #: ../properties/ipsec-dialog.c:559
 msgid "Pre-shared key (PSK)"
@@ -164,7 +164,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-editor.c:564
 msgid "Choose your personal certificate…"
-msgstr ""
+msgstr "Valitse henkilökohtainen varmenne…"
 
 #: ../properties/nm-l2tp-editor.c:847
 #, c-format

@@ -513,6 +513,10 @@ msgstr ""
 msgid "User name:"
 msgstr "ଚାଳକ ନାମ:"
 
+#: ../properties/nm-l2tp-dialog.ui.h:14
+msgid "Password:"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:15
 msgid "NT Domain:"
 msgstr ""
@@ -551,7 +555,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Type:"
-msgstr ""
+msgstr "ପ୍ରକାର:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:25
 msgid "Select an authentication mode."
@@ -688,6 +692,10 @@ msgstr ""
 msgid ""
 "Use IKEv2 key exchange\n"
 "config: ipsec-ikev2 <yes/no>"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:62
+msgid "Disable _PFS"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:63

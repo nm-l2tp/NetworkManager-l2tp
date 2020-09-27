@@ -564,7 +564,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Type:"
-msgstr ""
+msgstr "類型:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:25
 msgid "Select an authentication mode."

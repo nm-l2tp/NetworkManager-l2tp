@@ -1,10 +1,10 @@
-# Vietnamese translation for Network Manager Open VPN.
+# Vietnamese translation for NetworkManager-l2tp.
 # Copyright © 2008 Free Software Foundation, Inc.
 # Clytie Siddall <clytie@riverland.net.au>, 2006-2008.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-l2tp GNOME TRUNK\n"
+"Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
 "PO-Revision-Date: 2008-06-06 14:34+0930\n"
@@ -348,21 +348,21 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:316
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
-msgstr ""
+msgstr "thuộc tính kiểu boolean không hợp lệ '%s' (không phải là yes hoặc no)"
 
 #: ../src/nm-l2tp-service.c:323
 #, c-format
 msgid "unhandled property '%s' type %s"
-msgstr ""
+msgstr "chưa xử lí thuộc tính '%s' kiểu %s"
 
 #: ../src/nm-l2tp-service.c:334
 #, c-format
 msgid "property '%s' invalid or not supported"
-msgstr ""
+msgstr "thuộc tính '%s' không hợp lệ hoặc không được hỗ trợ"
 
 #: ../src/nm-l2tp-service.c:353
 msgid "No VPN configuration options."
-msgstr ""
+msgstr "Không có các tùy chỉnh cấu hình VPN."
 
 #: ../src/nm-l2tp-service.c:373
 #, c-format

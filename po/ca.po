@@ -128,7 +128,7 @@ msgstr "EAP"
 
 #: ../properties/ipsec-dialog.c:311 ../properties/nm-l2tp-editor.c:556
 msgid "Choose a Certificate Authority certificate…"
-msgstr ""
+msgstr "Trieu un certificat d'autoritat de certificació…"
 
 #: ../properties/ipsec-dialog.c:319
 msgid "Choose your machine certificate…"
@@ -136,7 +136,7 @@ msgstr ""
 
 #: ../properties/ipsec-dialog.c:327 ../properties/nm-l2tp-editor.c:572
 msgid "Choose your private key…"
-msgstr ""
+msgstr "Trieu la vostra clau privada…"
 
 #: ../properties/ipsec-dialog.c:559
 msgid "Pre-shared key (PSK)"
@@ -168,7 +168,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-editor.c:564
 msgid "Choose your personal certificate…"
-msgstr ""
+msgstr "Trieu el vostre certificat personal…"
 
 #: ../properties/nm-l2tp-editor.c:847
 #, c-format

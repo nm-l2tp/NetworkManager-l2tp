@@ -355,21 +355,21 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:316
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
-msgstr ""
+msgstr "sobimatu tõeväärtusomaduse '%s' väärtus (ei olnud yes või no)"
 
 #: ../src/nm-l2tp-service.c:323
 #, c-format
 msgid "unhandled property '%s' type %s"
-msgstr ""
+msgstr "'%s' omadus (liik %s) jäeti kasutamata"
 
 #: ../src/nm-l2tp-service.c:334
 #, c-format
 msgid "property '%s' invalid or not supported"
-msgstr ""
+msgstr "omadus '%s' on sobimatu või pole toetatud"
 
 #: ../src/nm-l2tp-service.c:353
 msgid "No VPN configuration options."
-msgstr ""
+msgstr "VPNi seadistuse valikuid pole."
 
 #: ../src/nm-l2tp-service.c:373
 #, c-format
