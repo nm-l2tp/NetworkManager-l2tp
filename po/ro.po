@@ -438,11 +438,11 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1606
 msgid "Missing VPN username."
-msgstr ""
+msgstr "Lipsește numele de utilizator VPN."
 
 #: ../src/nm-l2tp-service.c:1615
 msgid "Missing or invalid VPN password."
-msgstr ""
+msgstr "Parolă VPN care lipsește sau care nu este validă."
 
 #: ../src/nm-l2tp-service.c:1719
 msgid "couldn't convert L2TP VPN gateway IP address."
@@ -756,6 +756,8 @@ msgid ""
 "Allow/disable authentication methods.\n"
 "config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 msgstr ""
+"Permite/Dezactivează metodele de autentificare.\n"
+"config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 
 #: ../properties/nm-l2tp-dialog.ui.h:72
 msgid "Security and Compression"
@@ -784,6 +786,8 @@ msgid ""
 "Require the use of MPPE, with 40/128-bit encryption or all.\n"
 "config: require-mppe, require-mppe-128 or require-mppe-40"
 msgstr ""
+"Necesită utilizarea de MPPE, cu criptarea 40/128-bit sau toate.\n"
+"config: require-mppe, require-mppe-128 sau require-mppe-40"
 
 #: ../properties/nm-l2tp-dialog.ui.h:78
 msgid "Allow st_ateful encryption"
@@ -794,6 +798,9 @@ msgid ""
 "Allow MPPE to use stateful mode. Stateless mode is still attempted first.\n"
 "config: mppe-stateful (when checked)"
 msgstr ""
+"Permite MPPE să utilizeze modul de stare. Modul fără stare este încă "
+"încercat mai întâi.\n"
+"config: mppe-stateful (când este verificat)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:81
 msgid "Allow _BSD data compression"
@@ -804,6 +811,8 @@ msgid ""
 "Allow/disable BSD-Compress compression.\n"
 "config: nobsdcomp (when unchecked)"
 msgstr ""
+"Permite/dezactivează compresia Compresie-BDS.\n"
+"config: nobsdcomp (când nu este verificat)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:84
 msgid "Allow _Deflate data compression"
@@ -814,6 +823,8 @@ msgid ""
 "Allow/disable Deflate compression.\n"
 "config: nodeflate (when unchecked)"
 msgstr ""
+"Permite/dezactivează compresia Deflate.\n"
+"config: nodeflate (când nu este verificată)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:87
 msgid "Use TCP _header compression"
@@ -825,6 +836,9 @@ msgid ""
 "transmit and the receive directions.\n"
 "config: novj (when unchecked)"
 msgstr ""
+"Permite/dezactivează compresia de antet TCP/IP în stil Van Jacobson în "
+"amândouă direcțiile de transmitere și de primire.\n"
+"config: novj (când nu este verificat)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:90
 msgid "Use protocol _field compression negotiation"
@@ -860,10 +874,12 @@ msgid ""
 "Send LCP echo-requests to find out whether peer is alive.\n"
 "config: lcp-echo-failure and lcp-echo-interval"
 msgstr ""
+"Trimite cererile echo LCP pentru a găsi dacă partenerul este viu.\n"
+"config: lcp-echo-failure și lcp-echo-interval"
 
 #: ../properties/nm-l2tp-dialog.ui.h:100
 msgid "Misc"
-msgstr ""
+msgstr "Diverse"
 
 #: ../properties/nm-l2tp-dialog.ui.h:101
 msgid "MTU :"

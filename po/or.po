@@ -71,6 +71,10 @@ msgstr ""
 msgid "All Files"
 msgstr ""
 
+#: ../properties/ppp-dialog.c:158
+msgid "All Available (Default)"
+msgstr ""
+
 #: ../properties/ppp-dialog.c:162
 msgid "128-bit (most secure)"
 msgstr ""
@@ -491,6 +495,10 @@ msgid ""
 "\n"
 "config: auth-user-pass"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:13
+msgid "User name:"
+msgstr "ଚାଳକ ନାମ:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
 msgid "CA Certificate:"

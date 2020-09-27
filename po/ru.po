@@ -330,6 +330,11 @@ msgstr ""
 "значение «%s» типа «%s» недействительно или вне диапазона для свойства «%s» "
 "типа «%s»"
 
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:53
+#, c-format
+msgid "unable to get editor plugin name: %s"
+msgstr ""
+
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:87
 #, c-format
 msgid "missing plugin file \"%s\""
