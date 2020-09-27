@@ -50,6 +50,10 @@ msgstr ""
 msgid "Authenticate VPN"
 msgstr "Потврди автентичност за виртуелна приватна мрежа"
 
+#: ../auth-dialog/main.c:164 ../properties/nm-l2tp-editor.c:665
+msgid "Password"
+msgstr ""
+
 #: ../auth-dialog/main.c:171
 msgid "User Certificate password"
 msgstr ""

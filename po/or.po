@@ -51,12 +51,21 @@ msgstr ""
 msgid "Authenticate VPN"
 msgstr "VPN କୁ ବୈଧିକରଣ କରନ୍ତୁ"
 
+#: ../auth-dialog/main.c:164 ../properties/nm-l2tp-editor.c:665
+msgid "Password"
+msgstr "ପ୍ରବେଶ ସଙ୍କେତ"
+
 #: ../auth-dialog/main.c:178
 msgid "Machine Certificate password"
 msgstr ""
 
 #: ../auth-dialog/main.c:233
 msgid "_Machine Certificate password:"
+msgstr ""
+
+#: ../auth-dialog/main.c:469
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr ""
 
 #: ../properties/auth-helpers.c:76
@@ -467,6 +476,10 @@ msgid ""
 "NetworkManager."
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:1
+msgid "General"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Gateway:"
 msgstr "ପ୍ରବେଶଦ୍ୱାରା (_G):"
@@ -499,6 +512,10 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "User name:"
 msgstr "ଚାଳକ ନାମ:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:15
+msgid "NT Domain:"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
 msgid "CA Certificate:"
@@ -691,6 +708,10 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:67
 msgid "L2TP PPP Options"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:68
+msgid "Authentication"
+msgstr "ବୈଧିକରଣ"
 
 #: ../properties/nm-l2tp-dialog.ui.h:69
 msgid "Allow the following authentication methods:"

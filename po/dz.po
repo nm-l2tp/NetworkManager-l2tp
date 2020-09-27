@@ -72,6 +72,11 @@ msgstr ""
 msgid "_Machine Certificate password:"
 msgstr ""
 
+#: ../auth-dialog/main.c:469
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network “%s”."
+msgstr ""
+
 #: ../properties/auth-helpers.c:76
 msgid "DER, PEM, or PKCS#12 certificates (*der, *.pem, *.crt, *.cer, *.p12)"
 msgstr ""
@@ -513,6 +518,14 @@ msgid ""
 "config: auth-user-pass"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:13
+msgid "User name:"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:15
+msgid "NT Domain:"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:16
 msgid "CA Certificate:"
 msgstr ""
@@ -571,6 +584,10 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid "config: ipsec-enabled"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:31
+msgid "Machine Authentication"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
@@ -703,6 +720,10 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:67
 msgid "L2TP PPP Options"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:68
+msgid "Authentication"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:69
