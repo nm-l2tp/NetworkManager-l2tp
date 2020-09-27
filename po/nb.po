@@ -351,7 +351,7 @@ msgstr "ugyldig heltallsegenskap «%s»"
 #: ../src/nm-l2tp-service.c:316
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
-msgstr ""
+msgstr "ugyldig boolsk egenskap «%s» (ikke ja eller nei)"
 
 #: ../src/nm-l2tp-service.c:323
 #, c-format
@@ -361,7 +361,7 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:334
 #, c-format
 msgid "property '%s' invalid or not supported"
-msgstr ""
+msgstr "eggenskap «%s» er ugyldig eller ikke støttet"
 
 #: ../src/nm-l2tp-service.c:353
 msgid "No VPN configuration options."
@@ -469,7 +469,7 @@ msgstr "Ikke avslutt når VPN-forbindelsen termineres"
 
 #: ../src/nm-l2tp-service.c:2134
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr ""
+msgstr "Vis mer feilsøkingsinformasjon (kan eksponere passord)"
 
 #: ../src/nm-l2tp-service.c:2135
 msgid "D-Bus name to use for this instance"

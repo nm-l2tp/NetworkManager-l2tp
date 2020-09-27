@@ -76,6 +76,7 @@ msgstr ""
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr ""
+"Trebuie să vă autentificați pentru a accesa rețeaua privată virtuală „%s”."
 
 #: ../properties/auth-helpers.c:76
 msgid "DER, PEM, or PKCS#12 certificates (*der, *.pem, *.crt, *.cer, *.p12)"
@@ -288,28 +289,34 @@ msgstr ""
 #: ../shared/nm-utils/nm-shared-utils.c:1150
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr ""
+msgstr "clasa obiect „%s” nu are nicio proprietate numită „%s”"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1157
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr ""
+msgstr "proprietatea „%s” a clasei de obiect „%s” nu este inscriptibilă"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1164
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
+"proprietatea de construct „%s” pentru obiectul „%s” nu poate fi stabilită "
+"după construcție"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
 msgstr ""
+"„%s::%s'” nu este un nume de proprietate valid; „%s” nu este un subtip de "
+"GObject"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1181
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
 msgstr ""
+"nu se poate stabili proprietatea „%s” de tipul „%s” de la valoarea de tipul "
+"„%s”"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1192
 #, c-format
@@ -317,30 +324,32 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
+"valoarea „%s” de tipul „%s” nu este validă sau este în afara intervalului "
+"pentru proprietatea „%s” de tipul „%s”"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:53
 #, c-format
 msgid "unable to get editor plugin name: %s"
-msgstr ""
+msgstr "nu se poate obține numele de modul de editor: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:87
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr ""
+msgstr "lipsește fișierul de modul „%s”"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:93
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr ""
+msgstr "nu se poate încărca modulul editor: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:102
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr ""
+msgstr "nu se poate încărca fabrica %s de la modulul: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:128
 msgid "unknown error creating editor instance"
-msgstr ""
+msgstr "eroare necunoscută la creare instanței editorului"
 
 #: ../src/nm-l2tp-service.c:292
 #, c-format
@@ -369,7 +378,7 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:353
 msgid "No VPN configuration options."
-msgstr ""
+msgstr "Nu există opțiuni de configurare VPN."
 
 #: ../src/nm-l2tp-service.c:373
 #, c-format
@@ -473,11 +482,11 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:2134
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr ""
+msgstr "Activează înregistrarea de depanare detaliată (poate expune parole)"
 
 #: ../src/nm-l2tp-service.c:2135
 msgid "D-Bus name to use for this instance"
-msgstr ""
+msgstr "Nume D-Bus de utilizat pentru această instanță"
 
 #: ../src/nm-l2tp-service.c:2156
 msgid ""

@@ -46,6 +46,10 @@ msgstr ""
 msgid "The NetworkManager-L2TP Developers"
 msgstr ""
 
+#: ../auth-dialog/main.c:159 ../auth-dialog/main.c:218
+msgid "Authenticate VPN"
+msgstr "Overenie totožnosti VPN"
+
 #: ../auth-dialog/main.c:164 ../properties/nm-l2tp-editor.c:665
 msgid "Password"
 msgstr "Heslo"
@@ -58,6 +62,8 @@ msgstr ""
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr ""
+"Na prístup do Virtuálnej súkromnej siete „%s“ musí byť overená vaša "
+"totožnosť."
 
 #: ../properties/auth-helpers.c:76
 msgid "DER, PEM, or PKCS#12 certificates (*der, *.pem, *.crt, *.cer, *.p12)"
@@ -270,12 +276,12 @@ msgstr ""
 #: ../shared/nm-utils/nm-shared-utils.c:1150
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr ""
+msgstr "trieda objektu „%s“ neobsahuje vlastnosť s názvom „%s“"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1157
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr ""
+msgstr "vlastnosť „%s“ triedy objektu „%s“ nie je zapisovateľná"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1164
 #, c-format
@@ -291,7 +297,7 @@ msgstr ""
 #: ../shared/nm-utils/nm-shared-utils.c:1181
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
-msgstr ""
+msgstr "nie je možné nastaviť vlastnosť „%s“ typu „%s“ z hodnoty typu „%s“"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1192
 #, c-format
@@ -303,7 +309,7 @@ msgstr ""
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:53
 #, c-format
 msgid "unable to get editor plugin name: %s"
-msgstr ""
+msgstr "nie je možné získať názov zásuvného modulu editora: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:87
 #, c-format
@@ -313,7 +319,7 @@ msgstr "chýba súbor „%s“ zásuvného modulu"
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:93
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr ""
+msgstr "nedá sa načítať zásuvný modul editora: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:102
 #, c-format
@@ -322,7 +328,7 @@ msgstr ""
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:128
 msgid "unknown error creating editor instance"
-msgstr ""
+msgstr "neznáma chyba pri vytváraní inštancie editora"
 
 #: ../src/nm-l2tp-service.c:292
 #, c-format
@@ -351,7 +357,7 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:353
 msgid "No VPN configuration options."
-msgstr ""
+msgstr "Žiadne voľby konfigurácie siete VPN."
 
 #: ../src/nm-l2tp-service.c:373
 #, c-format
@@ -455,11 +461,11 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:2134
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr ""
+msgstr "Povolí podrobný záznam ladenia (môže odkryť heslá)"
 
 #: ../src/nm-l2tp-service.c:2135
 msgid "D-Bus name to use for this instance"
-msgstr ""
+msgstr "Názov zbernice D-Bus, ktorá sa má použiť pre túto inštanciu"
 
 #: ../src/nm-l2tp-service.c:2156
 msgid ""

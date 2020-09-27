@@ -20,6 +20,10 @@ msgstr ""
 "X-Poedit-Country: Bhutan\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
+#: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
+msgid "L2TP VPN Client"
+msgstr ""
+
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:2
 msgid "Client for L2TP based virtual private networks"
 msgstr ""
@@ -52,6 +56,22 @@ msgstr "ཝི་པི་ཨེན་བདེན་བཤད་འབད་"
 msgid "Password"
 msgstr "ཆོག་ཡིག་"
 
+#: ../auth-dialog/main.c:171
+msgid "User Certificate password"
+msgstr ""
+
+#: ../auth-dialog/main.c:178
+msgid "Machine Certificate password"
+msgstr ""
+
+#: ../auth-dialog/main.c:227
+msgid "_User Certificate password:"
+msgstr ""
+
+#: ../auth-dialog/main.c:233
+msgid "_Machine Certificate password:"
+msgstr ""
+
 #: ../properties/auth-helpers.c:76
 msgid "DER, PEM, or PKCS#12 certificates (*der, *.pem, *.crt, *.cer, *.p12)"
 msgstr ""
@@ -76,6 +96,10 @@ msgstr ""
 msgid "40-bit (less secure)"
 msgstr ""
 
+#: ../properties/ppp-dialog.c:275
+msgid "PAP"
+msgstr ""
+
 #: ../properties/ppp-dialog.c:288
 msgid "CHAP"
 msgstr ""
@@ -88,6 +112,10 @@ msgstr ""
 msgid "MSCHAPv2"
 msgstr ""
 
+#: ../properties/ppp-dialog.c:325
+msgid "EAP"
+msgstr ""
+
 #: ../properties/ipsec-dialog.c:311 ../properties/nm-l2tp-editor.c:556
 msgid "Choose a Certificate Authority certificate…"
 msgstr ""
@@ -98,6 +126,14 @@ msgstr ""
 
 #: ../properties/ipsec-dialog.c:327 ../properties/nm-l2tp-editor.c:572
 msgid "Choose your private key…"
+msgstr ""
+
+#: ../properties/ipsec-dialog.c:559
+msgid "Pre-shared key (PSK)"
+msgstr ""
+
+#: ../properties/ipsec-dialog.c:568 ../properties/nm-l2tp-editor.c:674
+msgid "Certificates (TLS)"
 msgstr ""
 
 #: ../properties/nm-l2tp-editor.c:404
@@ -222,10 +258,26 @@ msgstr ""
 msgid "Error decrypting private key file '%s'."
 msgstr ""
 
+#: ../shared/nm-l2tp-crypto-openssl.c:444
+#: ../shared/nm-l2tp-crypto-openssl.c:472
+#: ../shared/nm-l2tp-crypto-openssl.c:709
+#, c-format
+msgid "Error decrypting X.509 certificate file '%s'."
+msgstr ""
+
 #: ../shared/nm-l2tp-crypto-openssl.c:498
 #: ../shared/nm-l2tp-crypto-openssl.c:577
 #, c-format
 msgid "Error creating PKCS#12 data: %s"
+msgstr ""
+
+#: ../shared/nm-l2tp-crypto-openssl.c:643
+#: ../shared/nm-l2tp-crypto-openssl.c:660
+#: ../shared/nm-l2tp-crypto-openssl.c:672
+#: ../shared/nm-l2tp-crypto-openssl.c:721
+#: ../shared/nm-l2tp-crypto-openssl.c:773
+#, c-format
+msgid "Could not write '%s' : %s"
 msgstr ""
 
 #: ../shared/nm-utils/nm-shared-utils.c:1150
@@ -308,6 +360,10 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:334
 #, c-format
 msgid "property '%s' invalid or not supported"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:353
+msgid "No VPN configuration options."
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:373
@@ -428,6 +484,10 @@ msgstr ""
 msgid "General"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:2
+msgid "_Gateway:"
+msgstr "འཛུལ་སྒོ: (_G)"
+
 #: ../properties/nm-l2tp-dialog.ui.h:3
 msgid ""
 "L2TP server IP or name.\n"
@@ -453,16 +513,32 @@ msgid ""
 "config: auth-user-pass"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:16
+msgid "CA Certificate:"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "Certificate authority (CA) file in PEM, DER or PKCS#12 format"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:18
+msgid "Certificate:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:19
 msgid "Certificate file in PEM, DER or PKCS#12 format"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:20
+msgid "Private Key:"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Private Key in PEM, DER or PKCS#8 format"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:22
+msgid "Private Key Password:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:23
@@ -501,6 +577,10 @@ msgstr ""
 msgid ""
 "Pre-shared key (PSK) secret.\n"
 "config: ipsec-psk"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:34
+msgid "Pre-shared key:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:35
@@ -556,6 +636,10 @@ msgstr ""
 msgid "Phase_2 Lifetime:"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:49
+msgid "Remote ID:"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:50
 msgid ""
 "Optional. How the IPsec server should be identified for authentication. "
@@ -575,6 +659,10 @@ msgid ""
 "Some firewalls block ESP traffic. Enforcing UDP capsulation even if no NAT "
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:56
+msgid "Use IP c_ompression"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:57
@@ -605,6 +693,14 @@ msgid ""
 "config: ipsec-pfs <no/yes>"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:65
+msgid "Ad_vanced"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:66
+msgid "Default"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:67
 msgid "L2TP PPP Options"
 msgstr ""
@@ -617,6 +713,10 @@ msgstr ""
 msgid ""
 "Allow/disable authentication methods.\n"
 "config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:72
+msgid "Security and Compression"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:73
@@ -650,16 +750,28 @@ msgid ""
 "config: mppe-stateful (when checked)"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:81
+msgid "Allow _BSD data compression"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:82
 msgid ""
 "Allow/disable BSD-Compress compression.\n"
 "config: nobsdcomp (when unchecked)"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:84
+msgid "Allow _Deflate data compression"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:85
 msgid ""
 "Allow/disable Deflate compression.\n"
 "config: nodeflate (when unchecked)"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:87
+msgid "Use TCP _header compression"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:88

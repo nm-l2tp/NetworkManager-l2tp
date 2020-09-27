@@ -327,7 +327,7 @@ msgstr ""
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:87
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr ""
+msgstr "puuttuva liitännäistiedosto \"%s\""
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:93
 #, c-format
