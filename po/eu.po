@@ -603,7 +603,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
 msgid "Machine Authentication"
-msgstr ""
+msgstr "Makinaren autentifikazioa"
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
 msgid ""
@@ -670,7 +670,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:49
 msgid "Remote ID:"
-msgstr ""
+msgstr "Urrutiko ID:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:50
 msgid ""

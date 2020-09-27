@@ -534,6 +534,10 @@ msgstr "ئىم:"
 msgid "NT Domain:"
 msgstr "NT دائىرە:"
 
+#: ../properties/nm-l2tp-dialog.ui.h:16
+msgid "CA Certificate:"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "Certificate authority (CA) file in PEM, DER or PKCS#12 format"
 msgstr ""

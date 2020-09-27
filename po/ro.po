@@ -574,6 +574,10 @@ msgstr ""
 msgid "Type:"
 msgstr "Tip:"
 
+#: ../properties/nm-l2tp-dialog.ui.h:25
+msgid "Select an authentication mode."
+msgstr "Alegeți un regim de autentificare."
+
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid "_IPsec Settings..."
 msgstr ""
@@ -584,7 +588,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:28
 msgid "L2TP IPsec Options"
-msgstr ""
+msgstr "Opțiuni L2TP IPsec"
 
 #: ../properties/nm-l2tp-dialog.ui.h:29
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -663,7 +667,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:49
 msgid "Remote ID:"
-msgstr ""
+msgstr "ID distant:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:50
 msgid ""
@@ -728,7 +732,7 @@ msgstr "Implicit"
 
 #: ../properties/nm-l2tp-dialog.ui.h:67
 msgid "L2TP PPP Options"
-msgstr ""
+msgstr "Opțiuni L2TP PPP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:68
 msgid "Authentication"

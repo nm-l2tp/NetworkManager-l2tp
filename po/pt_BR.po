@@ -616,7 +616,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
 msgid "Machine Authentication"
-msgstr ""
+msgstr "Autenticação por máquina"
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
 msgid ""
@@ -683,7 +683,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:49
 msgid "Remote ID:"
-msgstr ""
+msgstr "ID remoto:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:50
 msgid ""

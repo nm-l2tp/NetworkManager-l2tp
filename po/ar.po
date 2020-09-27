@@ -139,6 +139,10 @@ msgstr ""
 msgid "Pre-shared key (PSK)"
 msgstr ""
 
+#: ../properties/ipsec-dialog.c:568 ../properties/nm-l2tp-editor.c:674
+msgid "Certificates (TLS)"
+msgstr ""
+
 #: ../properties/nm-l2tp-editor.c:404
 #, c-format
 msgid "%s: error reading ppp settings: %s"
@@ -535,6 +539,10 @@ msgstr "كلمة المرور:"
 #: ../properties/nm-l2tp-dialog.ui.h:15
 msgid "NT Domain:"
 msgstr "مجال NT:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:16
+msgid "CA Certificate:"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "Certificate authority (CA) file in PEM, DER or PKCS#12 format"

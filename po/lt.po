@@ -554,7 +554,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "Certificate:"
-msgstr ""
+msgstr "Liudijimas:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:19
 msgid "Certificate file in PEM, DER or PKCS#12 format"
@@ -606,7 +606,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
 msgid "Machine Authentication"
-msgstr ""
+msgstr "Kompiuterio tapatybės nustatymas"
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
 msgid ""
@@ -673,7 +673,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:49
 msgid "Remote ID:"
-msgstr ""
+msgstr "Nuotolinis ID:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:50
 msgid ""
