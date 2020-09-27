@@ -1,23 +1,23 @@
-# translation of NetworkManager-l2tp.HEAD.po to
+# translation of NetworkManager-l2tp.master.po to
 # Copyright (C) 2007 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
 # Kostas Papadimas <pkst@gnome.org>, 2007.
-# Jennie Petoumenou <epetoumenou@gmail.com>, 2008.
+# Jennie Petoumenou <epetoumenou@gmail.com>, 2008, 2009.
+# Michael Kotsarinis <mk73628@gmail.com>, 2011.
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-l2tp.HEAD\n"
+"Project-Id-Version: NetworkManager-l2tp.master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2016-03-10 14:28+0200\n"
+"PO-Revision-Date: 2016-04-17 21:54+0300\n"
 "Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
-"Language-Team: Greek <team@gnome.gr>\n"
+"Language-Team: team@gnome.gr\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
 msgid "L2TP VPN Client"
@@ -369,7 +369,7 @@ msgstr "Μη έγκυρη ή μη υποστηριζόμενη τιμή '%s'"
 
 #: ../src/nm-l2tp-service.c:353
 msgid "No VPN configuration options."
-msgstr "Δεν υπάρχουν επιλογές ρύθμισης παραμέτρων VPN."
+msgstr "Χωρίς επιλογές διαμόρφωσης VPN."
 
 #: ../src/nm-l2tp-service.c:373
 #, c-format
@@ -474,7 +474,7 @@ msgstr "Να μην γίνει έξοδος όταν η σύνδεση VPN τε�
 #: ../src/nm-l2tp-service.c:2134
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr ""
-"Ενεργοποίηση καταγραφής εντοπισμού σφαλμάτων (μπορεί να εκθέσει τους "
+"Ενεργοποίηση αναλυτικής καταγραφής αποσφαλμάτωσης (μπορεί να εκθέτει τους "
 "κωδικούς πρόσβασης)"
 
 #: ../src/nm-l2tp-service.c:2135
@@ -493,7 +493,7 @@ msgstr "Γενικά"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Gateway:"
-msgstr "Πύ_λη:"
+msgstr "Πύ_λη δικτύου:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:3
 msgid ""
@@ -730,7 +730,7 @@ msgstr "Για προ_χωρημένους"
 
 #: ../properties/nm-l2tp-dialog.ui.h:66
 msgid "Default"
-msgstr "Προεπιλεγμένη"
+msgstr "Προεπιλεγμένο"
 
 #: ../properties/nm-l2tp-dialog.ui.h:67
 msgid "L2TP PPP Options"

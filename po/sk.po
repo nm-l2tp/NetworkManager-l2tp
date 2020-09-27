@@ -1,26 +1,27 @@
-# Japanese message catalog for NetworkManager-l2tp
-# Copyright (C) 2006-2007, 2013, 2020 THE NetworkManager-l2tp's COPYRIGHT HOLDER
-# This file is distributed under the same license as the NetworkManager-l2tp package.
-# Satoru SATOH <ss@gnome.gr.jp>, 2006, 2007.
-# Hajime Taira <htaira@redhat.com>, 2013.
-# sicklylife <translation@sicklylife.jp>, 2020.
+# Slovak translations for NetworkManager-l2tp.
+# Copyright (C) 2004, 2005, 2006 Free Software Foundation, Inc.
+# This file is distributed under the same license as NetworkManager-l2tp.
+# Marcel Telka <marcel@telka.sk>, 2004, 2005, 2006.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-l2tp master\n"
+"Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2020-05-10 21:00+0900\n"
-"Last-Translator: sicklylife <translation@sicklylife.jp>\n"
-"Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
-"Language: ja\n"
+"PO-Revision-Date: 2020-09-07 16:03+0200\n"
+"Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
+"Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 ? 1 : 2);\n"
+"X-Generator: Poedit 2.4.1\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
+#, fuzzy
 msgid "L2TP VPN Client"
-msgstr ""
+msgstr "Klient OpenVPN"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:2
 msgid "Client for L2TP based virtual private networks"
@@ -31,8 +32,9 @@ msgid "Support for configuring L2TP based virtual private network connections."
 msgstr ""
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:4
+#, fuzzy
 msgid "Compatible with L2TP and L2TP over IPsec services."
-msgstr ""
+msgstr "Kompatibilná so serverom OpenVPN."
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:5
 msgid "The IPsec options dialog"
@@ -47,33 +49,38 @@ msgid "The NetworkManager-L2TP Developers"
 msgstr ""
 
 #: ../auth-dialog/main.c:159 ../auth-dialog/main.c:218
+#, fuzzy
 msgid "Authenticate VPN"
-msgstr "VPN 認証"
+msgstr "Overenie totožnosti:"
 
 #: ../auth-dialog/main.c:164 ../properties/nm-l2tp-editor.c:665
 msgid "Password"
-msgstr "パスワード"
+msgstr "Heslo"
 
 #: ../auth-dialog/main.c:171
+#, fuzzy
 msgid "User Certificate password"
-msgstr ""
+msgstr "Heslo certifikátu"
 
 #: ../auth-dialog/main.c:178
+#, fuzzy
 msgid "Machine Certificate password"
-msgstr ""
+msgstr "Heslo certifikátu"
 
 #: ../auth-dialog/main.c:227
+#, fuzzy
 msgid "_User Certificate password:"
-msgstr ""
+msgstr "Hes_lo certifikátu:"
 
 #: ../auth-dialog/main.c:233
+#, fuzzy
 msgid "_Machine Certificate password:"
-msgstr ""
+msgstr "Hes_lo certifikátu:"
 
 #: ../auth-dialog/main.c:469
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
-msgstr "仮想プライベートネットワーク“%s”にアクセスするには認証が必要です。"
+msgstr ""
 
 #: ../properties/auth-helpers.c:76
 msgid "DER, PEM, or PKCS#12 certificates (*der, *.pem, *.crt, *.cer, *.p12)"
@@ -81,43 +88,45 @@ msgstr ""
 
 #: ../properties/auth-helpers.c:89
 msgid "DER, PEM, or PKCS#8 private keys (*.der, *.pem, *.pk8, *.key)"
-msgstr "DER か、PEM、 PKCS#8 のプライベートキー (*.der, *.pem, *.pk8, *.key)"
+msgstr ""
 
 #: ../properties/auth-helpers.c:101
 msgid "All Files"
-msgstr "すべてのファイル"
+msgstr ""
 
 #: ../properties/ppp-dialog.c:158
 msgid "All Available (Default)"
-msgstr "利用可能なものすべて (デフォルト)"
+msgstr ""
 
 #: ../properties/ppp-dialog.c:162
 msgid "128-bit (most secure)"
-msgstr "128 ビット (最も安全)"
+msgstr ""
 
 #: ../properties/ppp-dialog.c:171
 msgid "40-bit (less secure)"
-msgstr "40 ビット (最低限の安全)"
+msgstr ""
 
 #: ../properties/ppp-dialog.c:275
+#, fuzzy
 msgid "PAP"
-msgstr "PAP"
+msgstr "TAP"
 
 #: ../properties/ppp-dialog.c:288
 msgid "CHAP"
-msgstr "CHAP"
+msgstr ""
 
 #: ../properties/ppp-dialog.c:300
 msgid "MSCHAP"
-msgstr "MSCHAP"
+msgstr ""
 
 #: ../properties/ppp-dialog.c:312
 msgid "MSCHAPv2"
-msgstr "MSCHAPv2"
+msgstr ""
 
 #: ../properties/ppp-dialog.c:325
+#, fuzzy
 msgid "EAP"
-msgstr "EAP"
+msgstr "TAP"
 
 #: ../properties/ipsec-dialog.c:311 ../properties/nm-l2tp-editor.c:556
 msgid "Choose a Certificate Authority certificate…"
@@ -132,12 +141,13 @@ msgid "Choose your private key…"
 msgstr ""
 
 #: ../properties/ipsec-dialog.c:559
+#, fuzzy
 msgid "Pre-shared key (PSK)"
-msgstr ""
+msgstr "Zdieľaný kľúč"
 
 #: ../properties/ipsec-dialog.c:568 ../properties/nm-l2tp-editor.c:674
 msgid "Certificates (TLS)"
-msgstr "証明書 (TLS):"
+msgstr "Certifikáty (TLS)"
 
 #: ../properties/nm-l2tp-editor.c:404
 #, c-format
@@ -178,8 +188,9 @@ msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr ""
 
 #: ../properties/nm-l2tp-editor-plugin.c:21
+#, fuzzy
 msgid "Compatible with Microsoft and other L2TP VPN servers."
-msgstr "Microsoft と、その他の L2TP VPN サーバーとの互換性"
+msgstr "Kompatibilná so serverom OpenVPN."
 
 #: ../shared/nm-l2tp-crypto-nss.c:49
 #, c-format
@@ -264,9 +275,9 @@ msgstr ""
 #: ../shared/nm-l2tp-crypto-openssl.c:444
 #: ../shared/nm-l2tp-crypto-openssl.c:472
 #: ../shared/nm-l2tp-crypto-openssl.c:709
-#, c-format
+#, fuzzy, c-format
 msgid "Error decrypting X.509 certificate file '%s'."
-msgstr ""
+msgstr "Typ spojenia: X.509 certifikáty"
 
 #: ../shared/nm-l2tp-crypto-openssl.c:498
 #: ../shared/nm-l2tp-crypto-openssl.c:577
@@ -279,40 +290,35 @@ msgstr ""
 #: ../shared/nm-l2tp-crypto-openssl.c:672
 #: ../shared/nm-l2tp-crypto-openssl.c:721
 #: ../shared/nm-l2tp-crypto-openssl.c:773
-#, c-format
+#, fuzzy, c-format
 msgid "Could not write '%s' : %s"
-msgstr ""
+msgstr "zlyhal zápis súboru: %s"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1150
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr "オブジェクトクラス '%s' には '%s' という名前のプロパティーがありません"
+msgstr ""
 
 #: ../shared/nm-utils/nm-shared-utils.c:1157
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
 msgstr ""
-"オブジェクトクラス '%s' のプロパティー '%s' は、書き込み可能ではありません"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1164
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
-"オブジェクト '%s' のコンストラクトプロパティー \"%s\" は構築後に設定できませ"
-"ん"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
 msgstr ""
-"'%s::%s' は有効なプロパティー名ではありません。'%s' は GObject サブタイプでは"
-"ありません"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1181
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
-msgstr "プロパティー '%s' (タイプ '%s') をタイプ '%s' の値から設定できません"
+msgstr ""
 
 #: ../shared/nm-utils/nm-shared-utils.c:1192
 #, c-format
@@ -320,67 +326,64 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
-"値 \"%s\" (タイプ '%s') がプロパティー '%s' (タイプ '%s') に対して無効または"
-"範囲外です"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:53
 #, c-format
 msgid "unable to get editor plugin name: %s"
-msgstr "エディタープラグイン名を取得できません: %s"
+msgstr ""
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:87
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr "プラグインファイル '%s' がありません"
+msgstr "chýba súbor „%s“ zásuvného modulu"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:93
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr "エディタープラグインを読み込めません: %s"
+msgstr ""
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:102
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr "プラグインからファクトリー %s を読み込めません: %s"
+msgstr ""
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:128
 msgid "unknown error creating editor instance"
-msgstr "エディターインスタンスの作成中に不明なエラー"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:292
 #, c-format
 msgid "invalid gateway '%s'"
-msgstr "無効なゲートウェイ %s"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:306
 #, c-format
 msgid "invalid integer property '%s'"
-msgstr "数値型パラメーター %s が無効な数値です。"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:316
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr ""
-"ブーリアン型パラメーター %s が無効な値です。(値はyes、noではありません)"
 
 #: ../src/nm-l2tp-service.c:323
 #, c-format
 msgid "unhandled property '%s' type %s"
-msgstr "対処できない %s 型パラメーターの %s"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:334
 #, c-format
 msgid "property '%s' invalid or not supported"
-msgstr "パラメーター %s は無効かサポートされていません。"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:353
 msgid "No VPN configuration options."
-msgstr "VPN 設定オプションがありません。"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:373
 #, c-format
 msgid "Missing required option '%s'."
-msgstr "必須オプション %s が不足しています。"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:678
 #, c-format
@@ -435,11 +438,11 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1606
 msgid "Missing VPN username."
-msgstr "VPN ユーザー名がありません。"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1615
 msgid "Missing or invalid VPN password."
-msgstr "VPN パスワードが不足しているか、無効です。"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1719
 msgid "couldn't convert L2TP VPN gateway IP address."
@@ -471,19 +474,19 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1805
 msgid "Invalid or missing L2TP gateway."
-msgstr "L2TP ゲートウェイが無効か不足しています。"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:2133
 msgid "Don't quit when VPN connection terminates"
-msgstr "VPN 接続が切断された時に終了しないでください。"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:2134
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr "詳細なデバッグ情報の保存を有効にする (パスワードも含まれます)"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:2135
 msgid "D-Bus name to use for this instance"
-msgstr "このインスタンスの D-Bus 名"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:2156
 msgid ""
@@ -493,11 +496,11 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
 msgid "General"
-msgstr "全般"
+msgstr "Všeobecné"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Gateway:"
-msgstr "ゲートウェイ(_G):"
+msgstr "_Brána:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:3
 msgid ""
@@ -506,8 +509,9 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
+#, fuzzy
 msgid "User Authentication"
-msgstr "ユーザ認証"
+msgstr "Overenie totožnosti"
 
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
@@ -516,8 +520,9 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:7
+#, fuzzy
 msgid "Sho_w password"
-msgstr "パスワードを表示(_W)"
+msgstr "_Zobraziť heslo"
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Password passed to PPPD when prompted for it."
@@ -534,43 +539,48 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "User name:"
-msgstr "ユーザー名:"
+msgstr "Meno používateľa:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:14
 msgid "Password:"
-msgstr "パスワード:"
+msgstr "Heslo:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:15
+#, fuzzy
 msgid "NT Domain:"
-msgstr "NT ドメイン:"
+msgstr "_Doména:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
+#, fuzzy
 msgid "CA Certificate:"
-msgstr "CA 証明書:"
+msgstr "Heslo certifikátu:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "Certificate authority (CA) file in PEM, DER or PKCS#12 format"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
+#, fuzzy
 msgid "Certificate:"
-msgstr "証明書："
+msgstr "Heslo certifikátu:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:19
 msgid "Certificate file in PEM, DER or PKCS#12 format"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
+#, fuzzy
 msgid "Private Key:"
-msgstr "秘密鍵:"
+msgstr "Zdieľaný kľúč"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Private Key in PEM, DER or PKCS#8 format"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:22
+#, fuzzy
 msgid "Private Key Password:"
-msgstr "秘密鍵のパスワード:"
+msgstr "Heslo certifikátu:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:23
 msgid "Password for private key or PCKS#12 certificate"
@@ -578,11 +588,11 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Type:"
-msgstr "タイプ:"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:25
 msgid "Select an authentication mode."
-msgstr "認証モードを選択肢てください。"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid "_IPsec Settings..."
@@ -605,8 +615,9 @@ msgid "config: ipsec-enabled"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
+#, fuzzy
 msgid "Machine Authentication"
-msgstr "コンピュータ認証"
+msgstr "Overenie totožnosti"
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
 msgid ""
@@ -615,8 +626,9 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:34
+#, fuzzy
 msgid "Pre-shared key:"
-msgstr ""
+msgstr "Zdieľaný kľúč"
 
 #: ../properties/nm-l2tp-dialog.ui.h:35
 msgid "Certificate  file in PEM, DER or PKCS#12 format"
@@ -624,7 +636,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid "Phase2 Algorithms:"
-msgstr "フェーズ2 アルゴリズム:"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:37
 msgid ""
@@ -642,7 +654,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:41
 msgid "Phase1 Algorithms:"
-msgstr "フェーズ1 アルゴリズム:"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:42
 msgid ""
@@ -672,8 +684,9 @@ msgid "Phase_2 Lifetime:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:49
+#, fuzzy
 msgid "Remote ID:"
-msgstr "リモート ID："
+msgstr "Vzdialené:  %s"
 
 #: ../properties/nm-l2tp-dialog.ui.h:50
 msgid ""
@@ -697,8 +710,9 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:56
+#, fuzzy
 msgid "Use IP c_ompression"
-msgstr ""
+msgstr "_Kompresia údajov:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:57
 msgid ""
@@ -729,12 +743,13 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:65
+#, fuzzy
 msgid "Ad_vanced"
-msgstr "高度な(_V)"
+msgstr "_Rozšírené…"
 
 #: ../properties/nm-l2tp-dialog.ui.h:66
 msgid "Default"
-msgstr "デフォルト"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:67
 msgid "L2TP PPP Options"
@@ -742,11 +757,11 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:68
 msgid "Authentication"
-msgstr "認証"
+msgstr "Overenie totožnosti"
 
 #: ../properties/nm-l2tp-dialog.ui.h:69
 msgid "Allow the following authentication methods:"
-msgstr "次の認証方式を許可します。"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:70
 msgid ""
@@ -755,12 +770,13 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:72
+#, fuzzy
 msgid "Security and Compression"
-msgstr "暗号化と圧縮"
+msgstr "_Kompresia údajov:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:73
 msgid "Use _Point-to-Point encryption (MPPE)"
-msgstr "MPPE 暗号を使用する(_P)"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:74
 msgid ""
@@ -768,13 +784,11 @@ msgid ""
 "To enable this checkbox, select one or more of the MSCHAP authentication "
 "methods: MSCHAP or MSCHAPv2."
 msgstr ""
-"注: MPPE 暗号は、MSCHAP 認証方式でのみ利用可能です。このチェックボックスを有"
-"効にするには、MSCHAP 認証方式である MSCHAP または MSCHAPv2 のいずれか、または"
-"複数を選択してください。"
 
 #: ../properties/nm-l2tp-dialog.ui.h:75
+#, fuzzy
 msgid "_Security:"
-msgstr "セキュリティ(_S):"
+msgstr "Zabezpečenie"
 
 #: ../properties/nm-l2tp-dialog.ui.h:76
 msgid ""
@@ -784,7 +798,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:78
 msgid "Allow st_ateful encryption"
-msgstr "ステートフル暗号を許可する(_A)"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:79
 msgid ""
@@ -793,8 +807,9 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:81
+#, fuzzy
 msgid "Allow _BSD data compression"
-msgstr "BSD データ圧縮を許可する(_B)"
+msgstr "_Kompresia údajov:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:82
 msgid ""
@@ -803,8 +818,9 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:84
+#, fuzzy
 msgid "Allow _Deflate data compression"
-msgstr "デフレート圧縮を許可する(_D)"
+msgstr "_Kompresia údajov:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:85
 msgid ""
@@ -814,7 +830,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:87
 msgid "Use TCP _header compression"
-msgstr "TCP ヘッダー圧縮を使用する(_H)"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:88
 msgid ""
@@ -846,11 +862,11 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:96
 msgid "Echo"
-msgstr "Echo"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:97
 msgid "Send PPP _echo packets"
-msgstr "PPP Echo パケットを送信する(_E)"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:98
 msgid ""
@@ -860,7 +876,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:100
 msgid "Misc"
-msgstr ""
+msgstr "Rôzne"
 
 #: ../properties/nm-l2tp-dialog.ui.h:101
 msgid "MTU :"
@@ -869,3 +885,292 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:102
 msgid "MRU :"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Authentication required"
+#~ msgstr "Overenie totožnosti:"
+
+#~ msgid "HTTP proxy password"
+#~ msgstr "Heslo proxy HTTP"
+
+#~ msgid "_HTTP proxy password:"
+#~ msgstr "Heslo proxy _HTTP:"
+
+#~ msgid "invalid option"
+#~ msgstr "neplatná voľba"
+
+#~ msgid "OpenVPN"
+#~ msgstr "OpenVPN"
+
+#~ msgid "OpenVPN Static Keys (*.key)"
+#~ msgstr "Statické kľúče OpenVPN (*.key)"
+
+#~ msgid "RSA MD-4"
+#~ msgstr "RSA MD-4"
+
+#~ msgid "MD-5"
+#~ msgstr "MD-5"
+
+#~ msgid "SHA-1"
+#~ msgstr "SHA-1"
+
+#~ msgid "SHA-224"
+#~ msgstr "SHA-224"
+
+#~ msgid "SHA-256"
+#~ msgstr "SHA-256"
+
+#~ msgid "SHA-384"
+#~ msgstr "SHA-384"
+
+#~ msgid "SHA-512"
+#~ msgstr "SHA-512"
+
+#~ msgid "RIPEMD-160"
+#~ msgstr "RIPEMD-160"
+
+#~ msgid "Server"
+#~ msgstr "Server"
+
+#~ msgid "Client"
+#~ msgstr "Klient"
+
+#~ msgid "Not required"
+#~ msgstr "Nevyžadované"
+
+#~ msgid "HTTP"
+#~ msgstr "HTTP"
+
+#~ msgid "SOCKS"
+#~ msgstr "SOCKS"
+
+#~ msgid "TUN"
+#~ msgstr "TUN"
+
+#~ msgid "Password with Certificates (TLS)"
+#~ msgstr "Heslo s certifikátmi (TLS)"
+
+#~ msgid "Static Key"
+#~ msgstr "Statický kľúč"
+
+#~ msgid "empty host"
+#~ msgstr "prázdny hostiteľ"
+
+#~ msgid "invalid port"
+#~ msgstr "neplatný port"
+
+#~ msgid "invalid protocol"
+#~ msgstr "neplatný protokol"
+
+#~ msgid "invalid address “%s”"
+#~ msgstr "neplatná adresa „%s“"
+
+#~ msgid "A username is required."
+#~ msgstr "Vyžaduje sa používateľské meno."
+
+#~ msgid "A password is required."
+#~ msgstr "Vyžaduje sa heslo."
+
+#~ msgid "A username and password are required."
+#~ msgstr "Vyžaduje sa používateľské meno a heslo."
+
+#~ msgid "A private key password is required."
+#~ msgstr "Vyžaduje sa heslo k súkromnému kľúču."
+
+#~ msgid "Invalid connection type."
+#~ msgstr "Neplatný typ pripojenia."
+
+#~ msgid "Invalid port number “%s”."
+#~ msgstr "Neplatné číslo portu „%s“."
+
+#, fuzzy
+#~ msgid "Invalid connect timeout “%s”."
+#~ msgstr "Pripojiť k:"
+
+#~ msgid "Unknown connection type “%s”."
+#~ msgstr "Neznámy typ pripojenia „%s“."
+
+#~ msgid "LZO"
+#~ msgstr "LZO"
+
+#~ msgid "LZ4"
+#~ msgstr "LZ4"
+
+#~ msgid "LZ4 v2"
+#~ msgstr "LZ4 v2"
+
+#~ msgid "Yes"
+#~ msgstr "Áno"
+
+#~ msgid "CA"
+#~ msgstr "CA"
+
+#~ msgid "User"
+#~ msgstr "Používateľský"
+
+#~ msgid "Remote IP Address:"
+#~ msgstr "Vzdialená adresa IP:"
+
+#~ msgid "Local IP Address:"
+#~ msgstr "Miestna adresa IP:"
+
+#~ msgid "Static Key:"
+#~ msgstr "Statický kľúč:"
+
+#~ msgid "OpenVPN Advanced Options"
+#~ msgstr "Rozšírené voľby OpenVPN"
+
+#, fuzzy
+#~ msgid ""
+#~ "Use fast LZO compression.\n"
+#~ "config: comp-lzo"
+#~ msgstr "Použiť kompresiu LZO: %s"
+
+#~ msgid "Use a _TCP connection"
+#~ msgstr "Použiť pripojenie _TCP"
+
+#~ msgid "Ci_pher:"
+#~ msgstr "Ci_fra:"
+
+#~ msgid "_HMAC Authentication:"
+#~ msgstr "Overenie totožnosti _HMAC:"
+
+#~ msgid "Server _Certificate Check:"
+#~ msgstr "Kontrola _certifikátu servera:"
+
+#~ msgid "Key _File:"
+#~ msgstr "Súbor _kľúča:"
+
+#~ msgid "Mode:"
+#~ msgstr "Režim:"
+
+#~ msgid "Extra Certificates:"
+#~ msgstr "Certifikáty navyše:"
+
+#~ msgid "TLS _min version: "
+#~ msgstr "_Min. verzia TLS: "
+
+#~ msgid "TLS Authentication"
+#~ msgstr "Overenie totožnosti TLS"
+
+#~ msgid "Proxy _Type:"
+#~ msgstr "_Typ proxy:"
+
+#~ msgid ""
+#~ "<i>Select this option if your organization requires the use of a proxy "
+#~ "server to access the Internet.</i>"
+#~ msgstr ""
+#~ "<i>Túto voľbu vyberte, ak vaša spoločnosť vyžaduje na prístup k internetu "
+#~ "server proxy.</i>"
+
+#~ msgid "Server _Address:"
+#~ msgstr "_Adresa servera:"
+
+#~ msgid "_Port:"
+#~ msgstr "_Port:"
+
+#~ msgid "Proxy _Username:"
+#~ msgstr "Meno po_užívateľa proxy:"
+
+#~ msgid "Proxy Passwor_d:"
+#~ msgstr "_Heslo proxy:"
+
+#~ msgid "Proxies"
+#~ msgstr "Proxy"
+
+#~ msgid "Connect timeout"
+#~ msgstr "Čas pripojenia vypršal"
+
+#~ msgid "0"
+#~ msgstr "0"
+
+#, fuzzy
+#~ msgid "Authenticate VPN %s"
+#~ msgstr "Overenie totožnosti:"
+
+#~ msgid "VPN Connection Manager (OpenVPN)"
+#~ msgstr "Manažér spojenia VPN (OpenVPN)"
+
+#~ msgid "Add, Remove, and Edit VPN Connections"
+#~ msgstr "Pridať, odstrániť a upraviť VPN spojenia"
+
+#, fuzzy
+#~ msgid "_Show passwords"
+#~ msgstr "_Heslo:"
+
+#~ msgid "_Secondary Password:"
+#~ msgstr "_Sekundárne heslo:"
+
+#~ msgid "Connect as _user:"
+#~ msgstr "Pripojiť sa ako po_užívateľ:"
+
+#~ msgid "_Remember password for this session"
+#~ msgstr "_Zapamätať si heslo pre toto sedenie"
+
+#~ msgid "_Save password in keyring"
+#~ msgstr "_Uložiť heslo na zväzok kľúčov"
+
+#, fuzzy
+#~ msgid "The following OpenVPN connection will be created:"
+#~ msgstr "Vyberte si, ktorý typ VPN spojenia chcete vytvoriť."
+
+#~ msgid "Name:  %s"
+#~ msgstr "Meno:  %s"
+
+#~ msgid "CA:  %s"
+#~ msgstr "CA:  %s"
+
+#~ msgid "Cert:  %s"
+#~ msgstr "Cert:  %s"
+
+#~ msgid "Key:  %s"
+#~ msgstr "Kľúč:  %s"
+
+#~ msgid "Connection Type: Shared Key"
+#~ msgstr "Typ spojenia: Zdieľaný kľúč"
+
+#~ msgid "Shared Key:  %s"
+#~ msgstr "Zdieľaný kľúč: %s"
+
+#~ msgid "Connection Type: Password"
+#~ msgstr "Typ spojenia: Heslo"
+
+#~ msgid "Username:  %s"
+#~ msgstr "Meno používateľa:  %s"
+
+#~ msgid "Connection Type: X.509 with Password Authentication"
+#~ msgstr "Typ spojenia: X.509 s overením totožnosti heslom"
+
+#~ msgid "Device: %s"
+#~ msgstr "Zariadenie: %s"
+
+#~ msgid "Protocol: %s"
+#~ msgstr "Protokol: %s"
+
+#~ msgid "TCP"
+#~ msgstr "TCP"
+
+#~ msgid "UDP"
+#~ msgstr "UDP"
+
+#~ msgid "No"
+#~ msgstr "Nie"
+
+#~ msgid "The connection details can be changed using the \"Edit\" button."
+#~ msgstr "Podrobnosti spojenia je možné zmeniť pomocou tlačidla \"Upraviť\"."
+
+#~ msgid "Cannot import settings"
+#~ msgstr "Nepodarilo sa naimportovať nastavenia"
+
+#, fuzzy
+#~ msgid "<b>Optional Information</b>"
+#~ msgstr "Informácie o spojení"
+
+#~ msgid "Key:"
+#~ msgstr "Kľúč:"
+
+#~ msgid "none"
+#~ msgstr "nič"
+
+#~ msgid "VPN connection failed"
+#~ msgstr "VPN spojenie zlyhalo"

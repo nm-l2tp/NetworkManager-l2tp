@@ -1,16 +1,15 @@
-# Bulgarian translation of network-manager-l2tp po-file
-# Copyright (C) 2007, 2008 Free Software Foundation, Inc.
-# Copyright (C) 2009 Krasimir Chonov <mk2616@abv.bg>.
-# This file is distributed under the same license as the network-manager-l2tp package.
-# Alexander Shopov <ash@contact.bg>, 2007, 2008.
+# Bulgarian translation of NetworkManager-l2tp po-file
+# Copyright (C) 2007, 2008, 2010 Free Software Foundation, Inc.
+# This file is distributed under the same license as the NetworkManager-l2tp package.
+# Alexander Shopov <ash@contact.bg>, 2007, 2008, 2010.
 # Krasimir Chonov <mk2616@abv.bg>, 2009.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-l2tp master\n"
+"Project-Id-Version: NetworkManager-l2tp master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2010-03-11 09:10+0200\n"
+"PO-Revision-Date: 2010-10-02 10:52+0300\n"
 "Last-Translator: Krasimir Chonov <mk2616@abv.bg>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "Language: bg\n"
@@ -49,7 +48,7 @@ msgstr ""
 
 #: ../auth-dialog/main.c:159 ../auth-dialog/main.c:218
 msgid "Authenticate VPN"
-msgstr "Идентификация за ВЧМ"
+msgstr "Идентифициране пред ВЧМ"
 
 #: ../auth-dialog/main.c:164 ../properties/nm-l2tp-editor.c:665
 msgid "Password"
@@ -573,10 +572,6 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Type:"
 msgstr "Вид:"
-
-#: ../properties/nm-l2tp-dialog.ui.h:25
-msgid "Select an authentication mode."
-msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid "_IPsec Settings..."

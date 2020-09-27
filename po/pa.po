@@ -1,22 +1,22 @@
-# translation of NetworkManager-l2tp.HEAD.po to Punjabi
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Punjabi translation of NetworkManager-l2tp.
+# Copyright (C) 2009 NetworkManager-l2tp's COPYRIGHT HOLDER
+# This file is distributed under the same license as the NetworkManager-l2tp package.
 #
-# A S Alam <aalam@users.sf.net>, 2007, 2009, 2012.
+# A S Alam <aalam@users.sf.net>, 2009, 2010, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-l2tp.HEAD\n"
+"Project-Id-Version: NetworkManager-l2tp master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2012-08-19 16:03+0530\n"
+"PO-Revision-Date: 2012-08-19 15:58+0530\n"
 "Last-Translator: A S Alam <aalam@users.sf.net>\n"
-"Language-Team: Punjabi/Panjabi <punjabi-users@lists.sf.net>\n"
+"Language-Team: Punjabi/Panjabi <kde-i18n-doc@kde.org>\n"
 "Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Lokalize 1.4\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
 msgid "L2TP VPN Client"
@@ -570,7 +570,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Type:"
-msgstr "ਕਿਸਮ:"
+msgstr "ਟਾਈਪ:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:25
 msgid "Select an authentication mode."

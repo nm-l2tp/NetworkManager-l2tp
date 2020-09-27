@@ -1,16 +1,17 @@
-# Thai translation of NetworkManager-ppp_vpn.
+# Thai translation of NetworkManager-l2tp
 # Copyright (C) 2007 Free Software Foundation, Inc.
-# This file is distributed under the same license as the NetworkManager-ppp_vpn package.
-# Theppitak Karoonboonyanan <thep@linux.thai.net>, 2007.
+# This file is distributed under the same license as NetworkManager-l2tp.
 #
+# Supranee Thirawatthanasuk <supranee@opentle.org>, 2007.
+# Theppitak Karoonboonyanan  <thep@linux.thai.net>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-ppp_vpn\n"
+"Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2007-01-30 12:01+0700\n"
+"PO-Revision-Date: 2007-02-02 20:53+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
-"Language-Team: Thai <l10n@opentle.org>\n"
+"Language-Team: Thai <l10n.opentle.org>\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -131,10 +132,6 @@ msgstr ""
 
 #: ../properties/ipsec-dialog.c:559
 msgid "Pre-shared key (PSK)"
-msgstr ""
-
-#: ../properties/ipsec-dialog.c:568 ../properties/nm-l2tp-editor.c:674
-msgid "Certificates (TLS)"
 msgstr ""
 
 #: ../properties/nm-l2tp-editor.c:404
@@ -534,10 +531,6 @@ msgstr "รหัสผ่าน:"
 msgid "NT Domain:"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:16
-msgid "CA Certificate:"
-msgstr ""
-
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "Certificate authority (CA) file in PEM, DER or PKCS#12 format"
 msgstr ""
@@ -556,10 +549,6 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Private Key in PEM, DER or PKCS#8 format"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:22
-msgid "Private Key Password:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:23

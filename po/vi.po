@@ -1,13 +1,13 @@
-# Vietnamese translation for Network Manager L2TP.
+# Vietnamese translation for Network Manager Open VPN.
 # Copyright © 2008 Free Software Foundation, Inc.
 # Clytie Siddall <clytie@riverland.net.au>, 2006-2008.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-l2tp\n"
+"Project-Id-Version: NetworkManager-l2tp GNOME TRUNK\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2008-06-06 14:48+0930\n"
+"PO-Revision-Date: 2008-06-06 14:34+0930\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
 "Language: vi\n"
@@ -48,10 +48,6 @@ msgstr ""
 #: ../auth-dialog/main.c:159 ../auth-dialog/main.c:218
 msgid "Authenticate VPN"
 msgstr "Xác thực VPN"
-
-#: ../auth-dialog/main.c:164 ../properties/nm-l2tp-editor.c:665
-msgid "Password"
-msgstr ""
 
 #: ../auth-dialog/main.c:171
 msgid "User Certificate password"
@@ -132,10 +128,6 @@ msgstr ""
 
 #: ../properties/ipsec-dialog.c:559
 msgid "Pre-shared key (PSK)"
-msgstr ""
-
-#: ../properties/ipsec-dialog.c:568 ../properties/nm-l2tp-editor.c:674
-msgid "Certificates (TLS)"
 msgstr ""
 
 #: ../properties/nm-l2tp-editor.c:404
@@ -535,10 +527,6 @@ msgstr "Mật khẩu:"
 msgid "NT Domain:"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:16
-msgid "CA Certificate:"
-msgstr ""
-
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "Certificate authority (CA) file in PEM, DER or PKCS#12 format"
 msgstr ""
@@ -557,10 +545,6 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Private Key in PEM, DER or PKCS#8 format"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:22
-msgid "Private Key Password:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:23

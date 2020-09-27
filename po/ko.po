@@ -1,16 +1,16 @@
-# GNOME Korea translation of nm-l2tp.
-# Copyright (C) 2007 THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# GNOME Korea translation of NetworkManager-l2tp.
+# Copyright (C) 2007 THE NetworkManager-l2tp'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the NetworkManager-l2tp package.
 # Young-Ho Cha <ganadist@gmail.com>, 2007.
 # Namhyung Kim <namhyung@gmail.com>, 2007.
 # Changwoo Ryu <cwryu@debian.org>, 2011.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: nm-l2tp\n"
+"Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2011-03-19 23:03+0900\n"
+"PO-Revision-Date: 2011-02-27 15:45+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: GNOME Korea <gnome-kr@googlegroups.com>\n"
 "Language: ko\n"

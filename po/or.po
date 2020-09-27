@@ -1,22 +1,23 @@
-# Japanese message catalog for NetworkManager-l2tp
-# Copyright (C) 2006-2007, 2013, 2020 THE NetworkManager-l2tp's COPYRIGHT HOLDER
-# This file is distributed under the same license as the NetworkManager-l2tp package.
-# Satoru SATOH <ss@gnome.gr.jp>, 2006, 2007.
-# Hajime Taira <htaira@redhat.com>, 2013.
-# sicklylife <translation@sicklylife.jp>, 2020.
+# translation of or.po to Oriya
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 #
+# Manoj Kumar Giri <mgiri@redhat.com>, 2009, 2011.
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-l2tp master\n"
+"Project-Id-Version: or\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2020-05-10 21:00+0900\n"
-"Last-Translator: sicklylife <translation@sicklylife.jp>\n"
-"Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
-"Language: ja\n"
+"PO-Revision-Date: 2011-03-04 17:49+0530\n"
+"Last-Translator: Manoj Kumar Giri <mgiri@redhat.com>\n"
+"Language-Team: Oriya <oriya-it@googlegroups.com>\n"
+"Language: or\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.1\n"
+"Plural-Forms:  nplurals=2; plural=(n!=1);\n"
+"\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
 msgid "L2TP VPN Client"
@@ -48,32 +49,35 @@ msgstr ""
 
 #: ../auth-dialog/main.c:159 ../auth-dialog/main.c:218
 msgid "Authenticate VPN"
-msgstr "VPN 認証"
+msgstr "VPN କୁ ବୈଧିକରଣ କରନ୍ତୁ"
 
 #: ../auth-dialog/main.c:164 ../properties/nm-l2tp-editor.c:665
+#, fuzzy
 msgid "Password"
-msgstr "パスワード"
+msgstr "ପ୍ରବେଶ ସଂକେତ (_P):"
 
 #: ../auth-dialog/main.c:171
+#, fuzzy
 msgid "User Certificate password"
-msgstr ""
+msgstr "ଚାଳକ ପ୍ରବେଶ ସଂକେତ (_U):"
 
 #: ../auth-dialog/main.c:178
 msgid "Machine Certificate password"
 msgstr ""
 
 #: ../auth-dialog/main.c:227
+#, fuzzy
 msgid "_User Certificate password:"
-msgstr ""
+msgstr "ଚାଳକ ପ୍ରବେଶ ସଂକେତ (_U):"
 
 #: ../auth-dialog/main.c:233
 msgid "_Machine Certificate password:"
 msgstr ""
 
 #: ../auth-dialog/main.c:469
-#, c-format
+#, fuzzy, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
-msgstr "仮想プライベートネットワーク“%s”にアクセスするには認証が必要です。"
+msgstr "ଆପଣଙ୍କୁ ଏହି ଆଭାସୀ ବ୍ୟକ୍ତିଗତ ନେଟୱର୍କ '%s'କୁ ଅଭିଗମ୍ୟ କରିବା ଆବଶ୍ୟକ।"
 
 #: ../properties/auth-helpers.c:76
 msgid "DER, PEM, or PKCS#12 certificates (*der, *.pem, *.crt, *.cer, *.p12)"
@@ -81,43 +85,44 @@ msgstr ""
 
 #: ../properties/auth-helpers.c:89
 msgid "DER, PEM, or PKCS#8 private keys (*.der, *.pem, *.pk8, *.key)"
-msgstr "DER か、PEM、 PKCS#8 のプライベートキー (*.der, *.pem, *.pk8, *.key)"
+msgstr ""
 
 #: ../properties/auth-helpers.c:101
 msgid "All Files"
-msgstr "すべてのファイル"
+msgstr ""
 
 #: ../properties/ppp-dialog.c:158
+#, fuzzy
 msgid "All Available (Default)"
-msgstr "利用可能なものすべて (デフォルト)"
+msgstr "NAT-T ଯେତେବେଳେ ଉପଲବ୍ଧ ହୋଇଥାଏ (ପୂର୍ବନିର୍ଦ୍ଧାରିତ)"
 
 #: ../properties/ppp-dialog.c:162
 msgid "128-bit (most secure)"
-msgstr "128 ビット (最も安全)"
+msgstr ""
 
 #: ../properties/ppp-dialog.c:171
 msgid "40-bit (less secure)"
-msgstr "40 ビット (最低限の安全)"
+msgstr ""
 
 #: ../properties/ppp-dialog.c:275
 msgid "PAP"
-msgstr "PAP"
+msgstr ""
 
 #: ../properties/ppp-dialog.c:288
 msgid "CHAP"
-msgstr "CHAP"
+msgstr ""
 
 #: ../properties/ppp-dialog.c:300
 msgid "MSCHAP"
-msgstr "MSCHAP"
+msgstr ""
 
 #: ../properties/ppp-dialog.c:312
 msgid "MSCHAPv2"
-msgstr "MSCHAPv2"
+msgstr ""
 
 #: ../properties/ppp-dialog.c:325
 msgid "EAP"
-msgstr "EAP"
+msgstr ""
 
 #: ../properties/ipsec-dialog.c:311 ../properties/nm-l2tp-editor.c:556
 msgid "Choose a Certificate Authority certificate…"
@@ -137,7 +142,7 @@ msgstr ""
 
 #: ../properties/ipsec-dialog.c:568 ../properties/nm-l2tp-editor.c:674
 msgid "Certificates (TLS)"
-msgstr "証明書 (TLS):"
+msgstr ""
 
 #: ../properties/nm-l2tp-editor.c:404
 #, c-format
@@ -179,7 +184,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-editor-plugin.c:21
 msgid "Compatible with Microsoft and other L2TP VPN servers."
-msgstr "Microsoft と、その他の L2TP VPN サーバーとの互換性"
+msgstr ""
 
 #: ../shared/nm-l2tp-crypto-nss.c:49
 #, c-format
@@ -286,33 +291,28 @@ msgstr ""
 #: ../shared/nm-utils/nm-shared-utils.c:1150
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr "オブジェクトクラス '%s' には '%s' という名前のプロパティーがありません"
+msgstr ""
 
 #: ../shared/nm-utils/nm-shared-utils.c:1157
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
 msgstr ""
-"オブジェクトクラス '%s' のプロパティー '%s' は、書き込み可能ではありません"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1164
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
-"オブジェクト '%s' のコンストラクトプロパティー \"%s\" は構築後に設定できませ"
-"ん"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
 msgstr ""
-"'%s::%s' は有効なプロパティー名ではありません。'%s' は GObject サブタイプでは"
-"ありません"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1181
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
-msgstr "プロパティー '%s' (タイプ '%s') をタイプ '%s' の値から設定できません"
+msgstr ""
 
 #: ../shared/nm-utils/nm-shared-utils.c:1192
 #, c-format
@@ -320,67 +320,64 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
-"値 \"%s\" (タイプ '%s') がプロパティー '%s' (タイプ '%s') に対して無効または"
-"範囲外です"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:53
 #, c-format
 msgid "unable to get editor plugin name: %s"
-msgstr "エディタープラグイン名を取得できません: %s"
+msgstr ""
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:87
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr "プラグインファイル '%s' がありません"
+msgstr ""
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:93
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr "エディタープラグインを読み込めません: %s"
+msgstr ""
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:102
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr "プラグインからファクトリー %s を読み込めません: %s"
+msgstr ""
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:128
 msgid "unknown error creating editor instance"
-msgstr "エディターインスタンスの作成中に不明なエラー"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:292
 #, c-format
 msgid "invalid gateway '%s'"
-msgstr "無効なゲートウェイ %s"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:306
 #, c-format
 msgid "invalid integer property '%s'"
-msgstr "数値型パラメーター %s が無効な数値です。"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:316
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr ""
-"ブーリアン型パラメーター %s が無効な値です。(値はyes、noではありません)"
 
 #: ../src/nm-l2tp-service.c:323
 #, c-format
 msgid "unhandled property '%s' type %s"
-msgstr "対処できない %s 型パラメーターの %s"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:334
 #, c-format
 msgid "property '%s' invalid or not supported"
-msgstr "パラメーター %s は無効かサポートされていません。"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:353
 msgid "No VPN configuration options."
-msgstr "VPN 設定オプションがありません。"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:373
 #, c-format
 msgid "Missing required option '%s'."
-msgstr "必須オプション %s が不足しています。"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:678
 #, c-format
@@ -435,11 +432,11 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1606
 msgid "Missing VPN username."
-msgstr "VPN ユーザー名がありません。"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1615
 msgid "Missing or invalid VPN password."
-msgstr "VPN パスワードが不足しているか、無効です。"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1719
 msgid "couldn't convert L2TP VPN gateway IP address."
@@ -471,19 +468,19 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1805
 msgid "Invalid or missing L2TP gateway."
-msgstr "L2TP ゲートウェイが無効か不足しています。"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:2133
 msgid "Don't quit when VPN connection terminates"
-msgstr "VPN 接続が切断された時に終了しないでください。"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:2134
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr "詳細なデバッグ情報の保存を有効にする (パスワードも含まれます)"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:2135
 msgid "D-Bus name to use for this instance"
-msgstr "このインスタンスの D-Bus 名"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:2156
 msgid ""
@@ -492,12 +489,13 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
+#, fuzzy
 msgid "General"
-msgstr "全般"
+msgstr "<b>ସାଧାରଣ</b>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Gateway:"
-msgstr "ゲートウェイ(_G):"
+msgstr "ପ୍ରବେଶଦ୍ୱାରା (_G):"
 
 #: ../properties/nm-l2tp-dialog.ui.h:3
 msgid ""
@@ -506,8 +504,9 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
+#, fuzzy
 msgid "User Authentication"
-msgstr "ユーザ認証"
+msgstr "VPN କୁ ବୈଧିକରଣ କରନ୍ତୁ"
 
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
@@ -516,8 +515,9 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:7
+#, fuzzy
 msgid "Sho_w password"
-msgstr "パスワードを表示(_W)"
+msgstr "ପ୍ରବେଶ ସଂକେତ ଦର୍ଶାନ୍ତୁ"
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Password passed to PPPD when prompted for it."
@@ -533,20 +533,23 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
+#, fuzzy
 msgid "User name:"
-msgstr "ユーザー名:"
+msgstr "ଚାଳକ ନାମ:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:14
+#, fuzzy
 msgid "Password:"
-msgstr "パスワード:"
+msgstr "ପ୍ରବେଶ ସଂକେତ (_P):"
 
 #: ../properties/nm-l2tp-dialog.ui.h:15
+#, fuzzy
 msgid "NT Domain:"
-msgstr "NT ドメイン:"
+msgstr "ଡମେନ:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
 msgid "CA Certificate:"
-msgstr "CA 証明書:"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "Certificate authority (CA) file in PEM, DER or PKCS#12 format"
@@ -554,7 +557,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "Certificate:"
-msgstr "証明書："
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:19
 msgid "Certificate file in PEM, DER or PKCS#12 format"
@@ -562,7 +565,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "Private Key:"
-msgstr "秘密鍵:"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Private Key in PEM, DER or PKCS#8 format"
@@ -570,7 +573,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:22
 msgid "Private Key Password:"
-msgstr "秘密鍵のパスワード:"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:23
 msgid "Password for private key or PCKS#12 certificate"
@@ -578,11 +581,11 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Type:"
-msgstr "タイプ:"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:25
 msgid "Select an authentication mode."
-msgstr "認証モードを選択肢てください。"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid "_IPsec Settings..."
@@ -606,7 +609,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
 msgid "Machine Authentication"
-msgstr "コンピュータ認証"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
 msgid ""
@@ -624,7 +627,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid "Phase2 Algorithms:"
-msgstr "フェーズ2 アルゴリズム:"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:37
 msgid ""
@@ -642,7 +645,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:41
 msgid "Phase1 Algorithms:"
-msgstr "フェーズ1 アルゴリズム:"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:42
 msgid ""
@@ -673,7 +676,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:49
 msgid "Remote ID:"
-msgstr "リモート ID："
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:50
 msgid ""
@@ -718,8 +721,9 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:62
+#, fuzzy
 msgid "Disable _PFS"
-msgstr ""
+msgstr "ନିଷ୍କ୍ରିୟ"
 
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid ""
@@ -730,23 +734,24 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "Ad_vanced"
-msgstr "高度な(_V)"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:66
 msgid "Default"
-msgstr "デフォルト"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:67
 msgid "L2TP PPP Options"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:68
+#, fuzzy
 msgid "Authentication"
-msgstr "認証"
+msgstr "VPN କୁ ବୈଧିକରଣ କରନ୍ତୁ"
 
 #: ../properties/nm-l2tp-dialog.ui.h:69
 msgid "Allow the following authentication methods:"
-msgstr "次の認証方式を許可します。"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:70
 msgid ""
@@ -756,11 +761,11 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:72
 msgid "Security and Compression"
-msgstr "暗号化と圧縮"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:73
 msgid "Use _Point-to-Point encryption (MPPE)"
-msgstr "MPPE 暗号を使用する(_P)"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:74
 msgid ""
@@ -768,13 +773,10 @@ msgid ""
 "To enable this checkbox, select one or more of the MSCHAP authentication "
 "methods: MSCHAP or MSCHAPv2."
 msgstr ""
-"注: MPPE 暗号は、MSCHAP 認証方式でのみ利用可能です。このチェックボックスを有"
-"効にするには、MSCHAP 認証方式である MSCHAP または MSCHAPv2 のいずれか、または"
-"複数を選択してください。"
 
 #: ../properties/nm-l2tp-dialog.ui.h:75
 msgid "_Security:"
-msgstr "セキュリティ(_S):"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:76
 msgid ""
@@ -784,7 +786,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:78
 msgid "Allow st_ateful encryption"
-msgstr "ステートフル暗号を許可する(_A)"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:79
 msgid ""
@@ -794,7 +796,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:81
 msgid "Allow _BSD data compression"
-msgstr "BSD データ圧縮を許可する(_B)"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:82
 msgid ""
@@ -804,7 +806,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:84
 msgid "Allow _Deflate data compression"
-msgstr "デフレート圧縮を許可する(_D)"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:85
 msgid ""
@@ -814,7 +816,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:87
 msgid "Use TCP _header compression"
-msgstr "TCP ヘッダー圧縮を使用する(_H)"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:88
 msgid ""
@@ -846,11 +848,11 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:96
 msgid "Echo"
-msgstr "Echo"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:97
 msgid "Send PPP _echo packets"
-msgstr "PPP Echo パケットを送信する(_E)"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:98
 msgid ""
@@ -869,3 +871,112 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:102
 msgid "MRU :"
 msgstr ""
+
+#~ msgid "_Secondary Password:"
+#~ msgstr "ଦ୍ୱିତୀୟକ ପ୍ରବେଶ ସଂକେତ (_S):"
+
+#~ msgid "Sh_ow passwords"
+#~ msgstr "ପ୍ରବେଶ ସଂକେତ ଦର୍ଶାନ୍ତୁ (_o)"
+
+#~ msgid "_Remember passwords for this session"
+#~ msgstr "ଏହି ଅଧିବେଶନ ପାଇଁ ପ୍ରବେଶ ସଂକେତକୁ ମନେରଖନ୍ତୁ (_R)"
+
+#~ msgid "_Save passwords in keyring"
+#~ msgstr "ପ୍ରବେଶ ସଂକେତକୁ କି ରିଙ୍ଗରେ ସଂରକ୍ଷଣ କରନ୍ତୁ (_S)"
+
+#~ msgid "_Group Password:"
+#~ msgstr "ସମୂହ ପ୍ରବେଶ ସଂକେତ (_G):"
+
+#~ msgid "Add, Remove, and Edit VPN Connections"
+#~ msgstr "VPN ସଂଯୋଗଗୁଡ଼ିକୁ ଯୋଗ କରନ୍ତୁ, କାଢ଼ନ୍ତୁ ଏବଂ ସମ୍ପାଦନ କରନ୍ତୁ"
+
+#~ msgid "VPN Connection Manager (vpnc)"
+#~ msgstr "VPN ସଂଯୋଗ ପରିଚାଳକ (vpnc)"
+
+#~ msgid "Cisco Compatible VPN (vpnc)"
+#~ msgstr "Cisco ସୁସଙ୍ଗତ VPN (vpnc)"
+
+#~ msgid ""
+#~ "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-"
+#~ "based VPN gateways."
+#~ msgstr ""
+#~ "ଭିନ୍ନ ପ୍ରକାରର Cisco, Juniper, Netscreen, ଏବଂ Sonicwall IPsec-ଆଧାରିତ VPN ସହିତ "
+#~ "ସୁସଂଗତ।"
+
+#~ msgid "Saved"
+#~ msgstr "ସଂରକ୍ଷିତ"
+
+#~ msgid "Always Ask"
+#~ msgstr "ସର୍ବଦା ପଚାରନ୍ତୁ"
+
+#~ msgid "Not Required"
+#~ msgstr "ଆବଶ୍ୟକ ନାହିଁ"
+
+#~ msgid "Secure (default)"
+#~ msgstr "ସୁରକ୍ଷିତ (ପୂର୍ବନିର୍ଦ୍ଧାରିତ)"
+
+#~ msgid "Weak (use with caution)"
+#~ msgstr "ଦୁର୍ବଳ (ସତର୍କତାର ସହିତ ବ୍ୟବହାର କରନ୍ତୁ)"
+
+#~ msgid "None (completely insecure)"
+#~ msgstr "କେହି ନୁହଁ (ସମ୍ପୂର୍ଣ୍ଣ ଭାବରେ ଅସୁରକ୍ଷିତ)"
+
+#~ msgid "NAT-T always"
+#~ msgstr "NAT-T ସର୍ବଦା"
+
+#~| msgid "Cisco UDP (default)"
+#~ msgid "Cisco UDP"
+#~ msgstr "Cisco UDP"
+
+#~ msgid "DH Group 1"
+#~ msgstr "DH ଶ୍ରେଣୀ 1"
+
+#~| msgid "Cisco UDP (default)"
+#~ msgid "DH Group 2 (default)"
+#~ msgstr "DH ଶ୍ରେଣୀ 2 ‍‌(ପୂର୍ବନିର୍ଦ୍ଧାରିତ)"
+
+#~ msgid "DH Group 5"
+#~ msgstr "DH ଶ୍ରେଣୀ 5"
+
+#~ msgid "TCP tunneling not supported"
+#~ msgstr "TCP ଟନେଲିଙ୍ଗ ସମରଥିତନୁହଁ"
+
+#~ msgid ""
+#~ "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
+#~ "through TCP which is currently not supported in the vpnc software.\n"
+#~ "\n"
+#~ "The connection can still be created, with TCP tunneling disabled, however "
+#~ "it may not work as expected."
+#~ msgstr ""
+#~ "VPN ସଂରଚନା ଫାଇଲ '%s' ଉଲ୍ଲେଖ କରିଥାଏ ଯେ VPN ଯାତାୟାତକୁ TCP ମାଧ୍ଯମରେ ପଠାଇବା ଉଚିତ "
+#~ "ଯାହାକି ବର୍ତ୍ତମାନ vpnc ସଫ୍ଟୱେରରେ ସମର୍ଥିତ ନୁହଁ।\n"
+#~ "\n"
+#~ "TCP ଟନେଲିଙ୍ଗକୁ ନିଷ୍କ୍ରିୟ କରି ମଧ୍ଯ, ସଂଯୋଗକୁ ଏବେ ମଧ୍ଯ ସୃଷ୍ଟିକରିହେବ, ତଥାପି ଏହା ଆଶା ମୁତାବକ "
+#~ "କାର୍ଯ୍ୟ କରିନଥାଏ।"
+
+#~ msgid " "
+#~ msgstr " "
+
+#~ msgid "<b>Optional</b>"
+#~ msgstr "<b>ବୈକଳ୍ପିକ</b>"
+
+#~ msgid "Disable Dead _Peer Detection"
+#~ msgstr "ଅକାମୀ ସାଥି ଚିହ୍ନଟକୁ ନିଷ୍କ୍ରିୟ କରନ୍ତୁ"
+
+#~ msgid "_Encryption method:"
+#~ msgstr "ସଂଗୁପ୍ତ ପଦ୍ଧତି:"
+
+#~ msgid "G_roup name:"
+#~ msgstr "ଶ୍ରେଣୀ ନାମ (_r):"
+
+#~ msgid "Gro_up password:"
+#~ msgstr "ଶ୍ରେଣୀ ପ୍ରବେଶ ସଂକେତ (_u):"
+
+#~ msgid "_IKE DH Group:"
+#~ msgstr "IKE DH ଶ୍ରେଣୀ:"
+
+#~ msgid "_NAT traversal:"
+#~ msgstr "NAT ପରିକ୍ରମା:"
+
+#~ msgid "NAT-T"
+#~ msgstr "NAT-T"

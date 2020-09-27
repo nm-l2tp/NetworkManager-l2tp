@@ -1,22 +1,22 @@
-# Indonesian translation of network-manager-l2tp.
-# Copyright (C) 2009 THE network-manager-l2tp'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the network-manager-l2tp package.
-# Andika Triwidada <andika@gmail.com>, 2009, 2010, 2011, 2012.
-#
+# Indonesian translation of NetworkManager-l2tp
+# # Copyright (C) 2009 THE NetworkManager-l2tp'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the NetworkManager-l2tp package.
+# Andika Triwidada <andika@gmail.com>, 2009-2013, 2017.
+# Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2017, 2018, 2019.
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-l2tp master\n"
+"Project-Id-Version: NetworkManager-l2tp master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2017-04-08 16:26+0700\n"
-"Last-Translator: Andika Triwidada <atriwidada@gnome.org>\n"
-"Language-Team: Indonesian Translator <gnome@i15n.org>\n"
+"PO-Revision-Date: 2020-08-16 14:41+0700\n"
+"Last-Translator: Andika Triwidada <andika@gmail.com>\n"
+"Language-Team: GNOME Indonesian Translation Team <gnome@i15n.org>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 1.6.10\n"
+"Plural-Forms: nplurals=2; plural=n!=1;\n"
+"X-Generator: Poedit 2.4.1\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
 msgid "L2TP VPN Client"
@@ -48,7 +48,7 @@ msgstr ""
 
 #: ../auth-dialog/main.c:159 ../auth-dialog/main.c:218
 msgid "Authenticate VPN"
-msgstr "Otentikasikan VPN"
+msgstr "Autentikasikan VPN"
 
 #: ../auth-dialog/main.c:164 ../properties/nm-l2tp-editor.c:665
 msgid "Password"
@@ -74,7 +74,7 @@ msgstr ""
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr ""
-"Anda perlu mengotentikasi untuk mengakses Virtual Private Network \"%s\"."
+"Anda perlu mengautentikasi untuk mengakses Virtual Private Network \"%s\"."
 
 #: ../properties/auth-helpers.c:76
 msgid "DER, PEM, or PKCS#12 certificates (*der, *.pem, *.crt, *.cer, *.p12)"
@@ -292,21 +292,21 @@ msgstr "kelas objek '%s' tidak punya properti bernama '%s'"
 #: ../shared/nm-utils/nm-shared-utils.c:1157
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr "properti \"%s\" dengan kelas objek \"%s\"' tidak dapat ditulisi"
+msgstr "properti '%s' dari kelas objek '%s' tak dapat ditulisi"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1164
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
-"properti construct \"%s\" bagi objek '%s' tak dapat ditata setelah konstruksi"
+"properti construct \"%s\" bagi objek '%s' tidak bisa ditata setelah "
+"konstruksi"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
 msgstr ""
-"'%s::%s' bukat suatu nama properti yang valid; '%s' bukat suatu sub tipe "
-"GObject"
+"'%s::%s' bukan nama properti yang valid; '%s' bukan suatu sub tipe GObject"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1181
 #, c-format
@@ -319,8 +319,8 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
-"nilai \"%s\" dengan tipe '%s' tidak valid atau di luar jangkauan bagi "
-"properti '%s' bertipe '%s'"
+"nilai \"%s\" bertipe '%s' tak valid atau di luar jangkauan bagi properti "
+"'%s' bertipe '%s'"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:53
 #, c-format
@@ -330,21 +330,21 @@ msgstr "tidak bisa memperoleh nama pengaya penyunting: %s"
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:87
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr "kurang berkas pengaya \"%s\""
+msgstr "berkas plugin \"%s\" kurang"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:93
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr "tidak bisa memuat pengaya penyunting: %s"
+msgstr "tak bisa memuat plugin penyunting: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:102
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr "tidak bisa memuat pabrik %s dari pengaya: %s"
+msgstr "tak bisa memuat pabrik %s dari plugin: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:128
 msgid "unknown error creating editor instance"
-msgstr "galat tidak dikenal saat membuat instansi penyunting"
+msgstr "galat tak dikenal saat membuat instansi penyunting"
 
 #: ../src/nm-l2tp-service.c:292
 #, c-format
@@ -536,7 +536,7 @@ msgstr "Nama pengguna:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:14
 msgid "Password:"
-msgstr "Kata sandi:"
+msgstr "Kata Sandi:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:15
 msgid "NT Domain:"
@@ -580,7 +580,7 @@ msgstr "Jenis:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:25
 msgid "Select an authentication mode."
-msgstr "Pilih mode otentikasi."
+msgstr "Pilih mode autentikasi."
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid "_IPsec Settings..."
@@ -740,7 +740,7 @@ msgstr "Opsi L2TP PPP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:68
 msgid "Authentication"
-msgstr "Otentikasi"
+msgstr "Autentikasi"
 
 #: ../properties/nm-l2tp-dialog.ui.h:69
 msgid "Allow the following authentication methods:"

@@ -1,19 +1,19 @@
-# GNOME NetworkManager - L2TP klient
+# GNOME NetworkManager-l2tp klient
 #
 # Copyright (C) 2007 The GNOME Project.
 # This file is distributed under the same license as the NetworkManager-l2tp package.
 #
 # Priit Laes <amd store20 com>, 2007.
 # Ivar Smolin <okul linux ee>, 2007.
-# Mattias Põldaru <mahfiaz gmail.com>, 2007-2010.
+# Mattias Põldaru <mahfiaz gmail com>, 2007-2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2010-03-10 06:41+0300\n"
-"Last-Translator: Mattias Põldaru <mahfiaz gmail com>\n"
+"PO-Revision-Date: 2011-03-15 08:45+0300\n"
+"Last-Translator: Mattias Põldaru <mahfiaz@gmail.com>\n"
 "Language-Team: Estonian <gnome-et@linux.ee>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
@@ -491,7 +491,7 @@ msgstr "Üldine"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Gateway:"
-msgstr "_Lüüs (gateway):"
+msgstr "_Gateway:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:3
 msgid ""

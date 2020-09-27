@@ -1,15 +1,15 @@
 # Lithuanian translation of NetworkManager-l2tp.
-# Copyright (C) 2008 Free Software Foundation, Inc.
-# This file is distributed under the same license as the NetworkManager package.
-# Žygimantas Beručka <zygis@gnome.org>, 2008.
-# Aurimas Černius <aurisc4@gmail.com>, 2015, 2016, 2017.
+# Copyright © 2008, 2010 Free Software Foundation, Inc.
+# This file is distributed under the same license as NetworkManager-l2tp.
+# Žygimantas Beručka <zygis@gnome.org>, 2008, 2010.
+# Aurimas Černius <aurisc4@gmail.com>, 2010-2020.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-l2tp HEAD\n"
+"Project-Id-Version: NetworkManager-l2tp master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2017-03-13 23:50+0200\n"
+"PO-Revision-Date: 2020-09-06 22:56+0300\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -17,8 +17,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Gtranslator 2.91.7\n"
+"%100<10 || n%100>=20) ? 1 : 2)\n"
+"X-Generator: Gtranslator 3.36.0\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
 msgid "L2TP VPN Client"
@@ -290,20 +290,20 @@ msgstr ""
 #: ../shared/nm-utils/nm-shared-utils.c:1150
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr "objekto klasė „%s“ neturi savybės pavadinimu „%s“"
+msgstr "objekto klasė „%s“ neturi savybės „%s“"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1157
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr "savybė „%s“, kuri priklauso klasei „%s“, nėra skirta rašymui"
+msgstr "savybė „%s“ objekto klasėje „%s“ nėra rašoma"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1164
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
-"konstruktoriaus savybė „%s“, kuri priklauso objektui „%s“, negali būti "
-"nustatyta po sukonstravimo"
+"konstruktoriaus savybė „%s“ objekte „%s“ negali būti nustatyta po "
+"sukonstravimo"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
@@ -313,9 +313,7 @@ msgstr "„%s::%s“ nėra tinkamas savybės pavadinimas; „%s“ nėra GObject
 #: ../shared/nm-utils/nm-shared-utils.c:1181
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
-msgstr ""
-"nepavyko nustatyti savybės „%s“, priklausančios tipui „%s“, į „%s“ tipo "
-"reikšmę"
+msgstr "nepavyksta nustatyti savybės „%s“ tipe „%s“ į „%s“ tipo vertę"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1192
 #, c-format
@@ -323,8 +321,8 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
-"reikšmė „%s“, kuri priklauso tipui „%s“, yra netinkama arba už savybės „%s“, "
-"priklausančios tipui „%s“, ribų"
+"vertė „%s“, kurios tipas „%s“, yra netinkama arba už galimų ribų savybei "
+"„%s“, kurios tipas „%s“"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:53
 #, c-format
@@ -334,7 +332,7 @@ msgstr "nepavyksta gauti redaktoriaus įskiepio pavadinimo: %s"
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:87
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr "trūksta „%s“ įskiepio failo"
+msgstr "trūksta įskiepio failo „%s“"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:93
 #, c-format
@@ -344,11 +342,11 @@ msgstr "nepavyksta įkelti redaktoriaus įskiepio: %s"
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:102
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr "nepavyksta įkelti %s gamyklos iš įskiepio: %s"
+msgstr "nepavyksta įkelti gamyklos %s iš įskiepio: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:128
 msgid "unknown error creating editor instance"
-msgstr "nežinoma klaida kuriant redaktoriaus vienetą"
+msgstr "nežinoma klaida kuriant redaktoriaus egzempliorių"
 
 #: ../src/nm-l2tp-service.c:292
 #, c-format
@@ -485,7 +483,7 @@ msgstr "Įjungti išsamų derinimo žurnalą (gali parodyti slaptažodžius)"
 
 #: ../src/nm-l2tp-service.c:2135
 msgid "D-Bus name to use for this instance"
-msgstr "D-Bus vardas, naudojamas šiam vienetui"
+msgstr "D-Bus pavadinimas, kurį naudoti šiam egzemplioriui"
 
 #: ../src/nm-l2tp-service.c:2156
 msgid ""

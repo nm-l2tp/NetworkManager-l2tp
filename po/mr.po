@@ -1,14 +1,14 @@
-# translation of network-manager-l2tp.HEAD.po to marathi
+# translation of NetworkManager-l2tp.master.mr.po to marathi
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Sandeep Shedmake <sandeep.shedmake@gmail.com>, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-l2tp.HEAD\n"
+"Project-Id-Version: NetworkManager-l2tp.master.mr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2009-03-04 18:58+0530\n"
+"PO-Revision-Date: 2009-06-09 14:53+0530\n"
 "Last-Translator: Sandeep Shedmake <sandeep.shedmake@gmail.com>\n"
 "Language-Team: marathi\n"
 "Language: mr\n"
@@ -526,7 +526,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "User name:"
-msgstr "वापकर्ता नाव:"
+msgstr "वापरकर्ता नाव:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:14
 msgid "Password:"
@@ -571,10 +571,6 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Type:"
 msgstr "प्रकार:"
-
-#: ../properties/nm-l2tp-dialog.ui.h:25
-msgid "Select an authentication mode."
-msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid "_IPsec Settings..."

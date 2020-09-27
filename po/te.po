@@ -1,12 +1,12 @@
-# translation of network-manager-l2tp.master.te.po to Telugu
-# Telugu translation of network-manager-l2tp.
-# Copyright (C) 2009 network-manager-l2tp's COPYRIGHT HOLDER
-# This file is distributed under the same license as the network-manager-l2tp package.
+# translation of NetworkManager-l2tp.master.te.po to Telugu
+# Telugu translation of NetworkManager-l2tp.
+# Copyright (C) 2009 NetworkManager-l2tp's COPYRIGHT HOLDER
+# This file is distributed under the same license as the NetworkManager-l2tp package.
 #
 # Krishna Babu K <kkrothap@redhat.com>, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-l2tp.master.te\n"
+"Project-Id-Version: NetworkManager-l2tp.master.te\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
 "PO-Revision-Date: 2009-10-27 19:25+0530\n"
@@ -575,10 +575,6 @@ msgstr ""
 msgid "Type:"
 msgstr "రకము:"
 
-#: ../properties/nm-l2tp-dialog.ui.h:25
-msgid "Select an authentication mode."
-msgstr ""
-
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid "_IPsec Settings..."
 msgstr ""
@@ -729,7 +725,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:66
 msgid "Default"
-msgstr "అప్రమేయ"
+msgstr "అప్రమేయం"
 
 #: ../properties/nm-l2tp-dialog.ui.h:67
 msgid "L2TP PPP Options"

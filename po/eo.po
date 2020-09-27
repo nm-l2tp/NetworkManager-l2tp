@@ -1,14 +1,14 @@
-# Esperanto translation for network-manager-l2tp.
+# Esperanto translation for NetworkManager-l2tp.
 # Copyright (C) 2011 Free Software Foundation, Inc.
-# This file is distributed under the same license as the network-manager-l2tp package.
+# This file is distributed under the same license as the NetworkManager-l2tp package.
 # Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>, 2011.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-l2tp master\n"
+"Project-Id-Version: NetworkManager-l2tp master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2011-11-21 18:13+0100\n"
+"PO-Revision-Date: 2011-11-23 20:10+0100\n"
 "Last-Translator: Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>\n"
 "Language-Team: Esperanto <gnome-l10n-eo@lists.launchpad.net>\n"
 "Language: eo\n"

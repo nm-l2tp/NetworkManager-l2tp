@@ -1,27 +1,30 @@
-# translation of network-manager-l2tp.master.ru.po to Russian
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the NetworkManager package.
+# translation of NetworkManager-l2tp.master.ru.po to Russian
+# Russian translation of NetworkManager-l2tp
+# Copyright (C) Free Software Foundation, 2005
+# This file is distributed under the same license as NetworkManager-l2tp.
 #
+#
+# Maxim Dziumanenko <dziumanenko@gmail.com>, 2005-2007.
 # Leonid Kanter <leon@asplinux.ru>, 2007, 2008.
 # Артём Попов <artfwo@gmail.com>, 2009.
 # Yuri Kozlov <yuray@komyakino.ru>, 2010, 2011.
-# Stas Solovey <whats_up@tut.by>, 2015.
-#
+# Stas Solovey <whats_up@tut.by>, 2011.
+# Виктор <victorr2007@yandex.ru>, 2018.
 msgid ""
 msgstr ""
-"Project-Id-Version: ru\n"
+"Project-Id-Version: NetworkManager-l2tp trunk\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2015-07-27 23:28+0300\n"
-"Last-Translator: Stas Solovey <whats_up@tut.by>\n"
-"Language-Team: Русский <gnome-cyr@gnome.org>\n"
+"PO-Revision-Date: 2018-10-12 22:36+0300\n"
+"Last-Translator: Виктор <victorr2007@yandex.ru>\n"
+"Language-Team: Russian <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
-"X-Generator: Gtranslator 2.91.7\n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 2.0\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
 msgid "L2TP VPN Client"
@@ -78,8 +81,7 @@ msgstr ""
 #: ../auth-dialog/main.c:469
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
-msgstr ""
-"Необходима аутентификация для доступа к виртуальной приватной сети «%s»."
+msgstr "Для доступа к виртуальной частной сети «%s» требуется аутентификация."
 
 #: ../properties/auth-helpers.c:76
 msgid "DER, PEM, or PKCS#12 certificates (*der, *.pem, *.crt, *.cer, *.p12)"
@@ -177,7 +179,7 @@ msgstr "не могу создать l2tp объект"
 #: ../properties/nm-l2tp-editor.c:864
 #, c-format
 msgid "could not load UI widget"
-msgstr "не могу загрузить виджет"
+msgstr "Не удаётся загрузить виджет интерфейса пользователя"
 
 #: ../properties/nm-l2tp-editor-plugin.c:20
 msgid "Layer 2 Tunneling Protocol (L2TP)"
@@ -311,7 +313,7 @@ msgstr ""
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
 msgstr ""
-"«%s::%s'» не является допустимым именем свойства; «%s» не является подтипом "
+"«%s::%s» не является допустимым именем свойства; «%s» не является подтипом "
 "GObject"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1181
@@ -328,20 +330,15 @@ msgstr ""
 "значение «%s» типа «%s» недействительно или вне диапазона для свойства «%s» "
 "типа «%s»"
 
-#: ../shared/nm-utils/nm-vpn-plugin-utils.c:53
-#, c-format
-msgid "unable to get editor plugin name: %s"
-msgstr ""
-
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:87
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr "отсутствует файл плагина «%s»"
+msgstr "Отсутствует файл модуля «%s»"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:93
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr "невозможно загрузить плагин редактора: %s"
+msgstr "Не удалось загрузить модуль редактора: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:102
 #, c-format
@@ -890,7 +887,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:100
 msgid "Misc"
-msgstr "Прочее"
+msgstr "Прочие"
 
 #: ../properties/nm-l2tp-dialog.ui.h:101
 msgid "MTU :"

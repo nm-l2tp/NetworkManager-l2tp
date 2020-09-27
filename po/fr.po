@@ -1,25 +1,30 @@
 # French translation of NetworkManager-l2tp.
-# Copyright (C) 2007-2012 Free Software Foundation, Inc.
-# This file is distributed under the same license as the evolution package.
+# Copyright (C) 2006-2012 The GNOME Foundation.
+# This file is distributed under the same license as the NetworkManager-l2tp package
 #
+# Haïkel Guémar <karlthered@gmail.com>, 2006.
 # Jonathan Ernst <jonathan@ernstfamily.ch>, 2007.
+# Stéphane Raimbault <stephane.raimbault@gmail.com>, 2007-2008.
 # Robert-André Mauchin <zebob.m@pengzone.org>, 2007-2008.
-# Claude Paroz <claude@2xlibre.net>, 2009-2011.
-# Bruno Brouard <annoa.b@gmail.com>, 2012
+# Claude Paroz <claude@2xlibre.net>, 2009.
+# Nicolas Repentin <nicolas@shivaserv.fr>, 2010.
+# Bruno Brouard <annoa.b@gmail.com>, 2011-2012.
+# Guillaume Bernard <filorin@gmx.com>, 2014.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-l2tp\n"
+"Project-Id-Version: NetworkManager-l2tp master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2012-05-16 23:49+0200\n"
-"Last-Translator: Bruno Brouard <annoa.b@gmail.com>\n"
-"Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
+"PO-Revision-Date: 2020-02-04 14:54+0100\n"
+"Last-Translator: Guillaume Bernard <filorin@gmx.com>\n"
+"Language-Team: français <gnomefr@traduc.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n>1;\n"
+"X-Generator: Poedit 2.2.1\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
 msgid "L2TP VPN Client"
@@ -483,7 +488,7 @@ msgstr "Ne pas quitter lorsque la connexion VPN se termine"
 
 #: ../src/nm-l2tp-service.c:2134
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr "Activer le débogage verbeux (des mots de passe peuvent apparaître)"
+msgstr "Activer le débogage verbeux (peut afficher des mots de passe)"
 
 #: ../src/nm-l2tp-service.c:2135
 msgid "D-Bus name to use for this instance"
@@ -882,7 +887,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:100
 msgid "Misc"
-msgstr ""
+msgstr "Divers"
 
 #: ../properties/nm-l2tp-dialog.ui.h:101
 msgid "MTU :"

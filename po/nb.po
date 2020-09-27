@@ -1,14 +1,14 @@
-# Norwegian bokmål translation of NetworkManager's l2tp support.
-# Copyright (C) 2006-2007 Kjartan Maraas
-# This file is distributed under the same license as the NetworkManager package.
-# Kjartan Maraas <kmaraas@gnome.org>, 2006-2012.
+# Norwegian bokmål translation of NetworkManager-l2tp.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Kjartan Maraas <kmaraas@gnome.org>, 2007,2012.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-l2tp\n"
+"Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2012-11-06 07:32+0100\n"
+"PO-Revision-Date: 2012-11-06 07:25+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: nb\n"
@@ -365,7 +365,7 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:353
 msgid "No VPN configuration options."
-msgstr "Ingen konfigurasjonsvalg for VPN."
+msgstr "Ingen konfigurasjonsalternativer for VPN."
 
 #: ../src/nm-l2tp-service.c:373
 #, c-format
@@ -487,7 +487,7 @@ msgstr "Generelt"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Gateway:"
-msgstr "_Gateway:"
+msgstr "_Portner:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:3
 msgid ""
@@ -724,7 +724,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:66
 msgid "Default"
-msgstr "Forvalgt"
+msgstr "Forvalg"
 
 #: ../properties/nm-l2tp-dialog.ui.h:67
 msgid "L2TP PPP Options"

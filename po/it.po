@@ -1,25 +1,25 @@
-# Italian translation of  NetworkManager-L2TP.
-# Copyright (C) 2006, 2007, 2008, 2009, 2010, 2012, 2015, 2016, 2017 the NetworkManager-L2TP'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the NetworkManager-L2TP package.
+# Italian translation of NetworkManager-l2tp
+# Copyright (C) 2006, 2007, 2008, 2009, 2010, 2012, 2013, 2015, 2017, 2018 the NetworkManager-l2tp's COPYRIGHT HOLDER
+# Copyright (C) 2019, 2020 the NetworkManager-l2tp's COPYRIGHT HOLDER
+# This file is distributed under the same license as the NetworkManager-l2tp package.
 # Francesco Marletta <francesco.marletta@tiscali.it>, 2006, 2007, 2008, 2009, 2010.
 # Luca Ferretti <elle.uca@libero.it>, 2010.
-# Milo Casagrande <milo@milo.name>, 2012, 2015, 2016, 2017.
+# Milo Casagrande <milo@milo.name>, 2012, 2013, 2015, 2017, 2018, 2019, 2020.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-l2tp\n"
+"Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2017-03-14 13:31+0100\n"
+"PO-Revision-Date: 2020-09-07 09:59+0200\n"
 "Last-Translator: Milo Casagrande <milo@milo.name>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-14 14:49+0000\n"
-"X-Generator: Poedit 2.0beta3\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: Poedit 2.4.1\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
 msgid "L2TP VPN Client"
@@ -339,7 +339,7 @@ msgstr "file di plugin «%s» mancante"
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:93
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr "Impossibile caricare l'editor del plugin: %s"
+msgstr "impossibile caricare l'editor del plugin: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:102
 #, c-format

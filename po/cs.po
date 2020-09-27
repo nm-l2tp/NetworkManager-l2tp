@@ -1,17 +1,17 @@
 # Czech translation of NetworkManager-l2tp.
-# Copyright (C) 2008 the author(s) of NetworkManager-l2tp.
+# Copyright (C) 2008, 2009, 2010 the author(s) of NetworkManager-l2tp.
 # This file is distributed under the same license as the NetworkManager-l2tp package.
 #
 # Jakub Friedl <jfriedl@suse.cz>, 2006.
 # Jiří Eischmann <jiri@eischmann.cz>, 2008.
-# Zdeněk Hataš <zdenek.hatas@gmail.com>, 2009 - 2016.
+# Zdeněk Hataš <zdenek.hatas@gmail.com>, 2009 - 2019
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2016-10-17 10:59+0200\n"
+"PO-Revision-Date: 2019-03-05 16:31+0100\n"
 "Last-Translator: Zdeněk Hataš <zdenek.hatas@gmail.com>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -19,7 +19,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Poedit 2.0.6\n"
+"X-Poedit-Bookmarks: 35,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
 msgid "L2TP VPN Client"
@@ -51,7 +53,7 @@ msgstr ""
 
 #: ../auth-dialog/main.c:159 ../auth-dialog/main.c:218
 msgid "Authenticate VPN"
-msgstr "Autentizovat VPN"
+msgstr "Ověřování VPN"
 
 #: ../auth-dialog/main.c:164 ../properties/nm-l2tp-editor.c:665
 msgid "Password"
@@ -76,7 +78,7 @@ msgstr ""
 #: ../auth-dialog/main.c:469
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
-msgstr "Pro přístup k virtuální privátní síti „%s“ musíte provést autentizaci."
+msgstr "Pro přístup do VPN „%s“ se musíte autentizovat."
 
 #: ../properties/auth-helpers.c:76
 msgid "DER, PEM, or PKCS#12 certificates (*der, *.pem, *.crt, *.cer, *.p12)"
@@ -289,7 +291,7 @@ msgstr ""
 #: ../shared/nm-utils/nm-shared-utils.c:1150
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr "objektová třída „%s“ nemá vlastnost s názvem „%s„“"
+msgstr "objektová třída „%s“ nemá vlastnost s názvem „%s“"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1157
 #, c-format
@@ -301,12 +303,12 @@ msgstr "vlastnost „%s“ objektové třídy „%s“ není zapisovatelná"
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
-"konstrukce vlastnosti „%s“ pro objekt „%s“ nemůže být nastavena po vytvoření"
+"vytvoření vlastnosti „%s“ objektu „%s“ nemůže být nastaveno po vytvoření"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
-msgstr "„%s::%s“ není název vlastnosti; „%s“ není podtyp objektu GObject"
+msgstr "„%s::%s“ není platný název vlastnosti; „%s“ není podtyp GObject"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1181
 #, c-format
@@ -319,7 +321,8 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
-"hodnota „%s“ typu „%s“ je neplatná nebo mimo rozsah vlastnosti „%s“ typu „%s“"
+"hodnota „%s“ typu „%s“ je neplatná nebo mimo rozmezí pro vlastnost „%s“ u "
+"typu „%s“"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:53
 #, c-format
@@ -329,21 +332,21 @@ msgstr "nelze zjistit název zásuvného modulu editoru: %s"
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:87
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr "chybějící soubor zásuvného modulu „%s“"
+msgstr "chybí souboer se zásuvným modulem „%s“"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:93
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr "nelze nahrát editor zásuvného modulu: %s"
+msgstr "nelze načíst zásuvný modul edotoru: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:102
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr "nelze nahrát generátor %s ze zásuvného modulu: %s"
+msgstr "nelze načíst generátor %s ze zásuvného modulu: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:128
 msgid "unknown error creating editor instance"
-msgstr "neznámá chyba vytváření instance editoru"
+msgstr "neznámá chyba při vytváření instance editoru"
 
 #: ../src/nm-l2tp-service.c:292
 #, c-format
@@ -480,7 +483,7 @@ msgstr "Povolit podrobný ladicí výpis (může prozradit hesla)"
 
 #: ../src/nm-l2tp-service.c:2135
 msgid "D-Bus name to use for this instance"
-msgstr "Název použitý v D-Bus pro tuto instanci"
+msgstr "Název použitý pro tuto instanci v D-Bus"
 
 #: ../src/nm-l2tp-service.c:2156
 msgid ""

@@ -1,23 +1,28 @@
-# Simplified Chinese translation of network-manager-l2tp
-# Copyright (C) 2009, 2010 Free software Foundation, Inc.
-# This file is distributed under the same license as the network-manager-l2tp package.
+# Chinese (China) translation for NetworkManager-l2tp.
+# Copyright (C) 2009-2018 NetworkManager-l2tp's COPYRIGHT HOLDER
+# This file is distributed under the same license as the NetworkManager-l2tp package.
 # Wei Mingzhi <whistler@openoffice.org>, 2009.
-# Aron Xu <aronxu@gnome.org>, 2010.
-# YunQiang Su <wzssyqa@gmail.com>, 2011.
+# Aron Xu <happyaron.xu@gmail.com>, 2009.
+# du baodao <centerpoint@139.com>, 2010.
+# Lele Long <schemacs@gmail.com>, 2011.
+# Dingzhong Chen <wsxy162@gmail.com>, 2016, 2018.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2011-11-27 18:26+0800\n"
-"Last-Translator: YunQiang Su <wzssyqa@gmail.com>\n"
-"Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
+"PO-Revision-Date: 2018-07-07 23:22+0800\n"
+"Last-Translator: Dingzhong Chen <wsxy162@gmail.com>\n"
+"Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Language: zh_CN\n"
+"X-Source-Language: C\n"
+"X-Generator: Gtranslator 2.91.7\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
 msgid "L2TP VPN Client"
@@ -49,7 +54,7 @@ msgstr ""
 
 #: ../auth-dialog/main.c:159 ../auth-dialog/main.c:218
 msgid "Authenticate VPN"
-msgstr "认证 VPN"
+msgstr "验证 VPN"
 
 #: ../auth-dialog/main.c:164 ../properties/nm-l2tp-editor.c:665
 msgid "Password"
@@ -74,7 +79,7 @@ msgstr ""
 #: ../auth-dialog/main.c:469
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
-msgstr "您需要验证来访问 VPN “%s”。"
+msgstr "您需要进行身份验证才能访问虚拟专用网络“%s”。"
 
 #: ../properties/auth-helpers.c:76
 msgid "DER, PEM, or PKCS#12 certificates (*der, *.pem, *.crt, *.cer, *.p12)"
@@ -138,7 +143,7 @@ msgstr ""
 
 #: ../properties/ipsec-dialog.c:568 ../properties/nm-l2tp-editor.c:674
 msgid "Certificates (TLS)"
-msgstr "证书(TLS)"
+msgstr "证书（TLS）"
 
 #: ../properties/nm-l2tp-editor.c:404
 #, c-format
@@ -331,16 +336,16 @@ msgstr "缺少插件文件 \"%s\""
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:93
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr "无法加载编辑器插件 : %s"
+msgstr "无法加载编辑器插件：%s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:102
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr "无法从插件加载 factory %s : %s"
+msgstr "无法加载来自插件的工厂（factory）%s：%s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:128
 msgid "unknown error creating editor instance"
-msgstr "创建编辑器未知的错误"
+msgstr "创建编辑器实例时出现未知错误"
 
 #: ../src/nm-l2tp-service.c:292
 #, c-format
@@ -473,11 +478,11 @@ msgstr "在 VPN 连接终止时不退出"
 
 #: ../src/nm-l2tp-service.c:2134
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr "启用详细的调试记录(可能暴露密码)"
+msgstr "启用详细的调试日志记录（可能暴露密码）"
 
 #: ../src/nm-l2tp-service.c:2135
 msgid "D-Bus name to use for this instance"
-msgstr "这个实例要使用的 D-Bus 名称"
+msgstr "此实例使用的 D-Bus 名称"
 
 #: ../src/nm-l2tp-service.c:2156
 msgid ""
@@ -488,7 +493,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
 msgid "General"
-msgstr "一般"
+msgstr "常规"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Gateway:"
@@ -531,11 +536,11 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "User name:"
-msgstr "用户名(_U)："
+msgstr "用户名："
 
 #: ../properties/nm-l2tp-dialog.ui.h:14
 msgid "Password:"
-msgstr "密码:"
+msgstr "密码："
 
 #: ../properties/nm-l2tp-dialog.ui.h:15
 msgid "NT Domain:"
@@ -579,7 +584,7 @@ msgstr "类型："
 
 #: ../properties/nm-l2tp-dialog.ui.h:25
 msgid "Select an authentication mode."
-msgstr "选择认证模式。"
+msgstr "选择验证模式。"
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid "_IPsec Settings..."
@@ -874,7 +879,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:100
 msgid "Misc"
-msgstr ""
+msgstr "杂项"
 
 #: ../properties/nm-l2tp-dialog.ui.h:101
 msgid "MTU :"

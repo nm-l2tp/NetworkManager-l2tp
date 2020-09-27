@@ -1,16 +1,16 @@
-# translation of network-manager-l2tp.master.ta.po to Tamil
-# Tamil translation of network-manager-l2tp.
-# Copyright (C) 2009 network-manager-l2tp's COPYRIGHT HOLDER
-# This file is distributed under the same license as the network-manager-l2tp package.
+# translation of NetworkManager-l2tp.master.ta.po to Tamil
+# Tamil translation of NetworkManager-l2tp.
+# Copyright (C) 2009 NetworkManager-l2tp's COPYRIGHT HOLDER
+# This file is distributed under the same license as the NetworkManager-l2tp package.
 #
 # ifelix <ifelix25@gmail.com>, 2009.
 # I. Felix <ifelix@redhat.com>, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-l2tp.master.ta\n"
+"Project-Id-Version: NetworkManager-l2tp.master.ta\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2009-10-29 15:36+0530\n"
+"PO-Revision-Date: 2009-10-30 12:25+0530\n"
 "Last-Translator: I. Felix <ifelix@redhat.com>\n"
 "Language-Team: Tamil <fedora-trans-ta@redhat.com>\n"
 "Language: ta\n"
@@ -490,7 +490,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
 msgid "General"
-msgstr "பொதுவான"
+msgstr "பொது"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Gateway:"
@@ -576,10 +576,6 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Type:"
 msgstr "வகை:"
-
-#: ../properties/nm-l2tp-dialog.ui.h:25
-msgid "Select an authentication mode."
-msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid "_IPsec Settings..."

@@ -1,18 +1,20 @@
-# German translation of networkmanager-l2tp.
+# German translation of NetworkManager-l2tp.
 # Copyright (C) 2005 Dan Williams <dcbw@redhat.com>
-# This file is distributed under the same license as the NetworkManager package.
+# This file is distributed under the same license as NetworkManager-l2tp.
 # Thomas Gier <info@thomasgier.de>, 2007.
 # Hauke Mehrtens <hauke@hauke-m.de>, 2008.
-# Mario Blättermann <mario.blaettermann@gmail.com>, 2009, 2011, 2016.
-# Christian Kirbach <Christian.Kirbach@googlemail.com>, 2012.
-# Wolfgang Stöggl <c72578@yahoo.de>, 2012, 2015.
+# Mario Blättermann <mario.blaettermann@gmail.com>, 2009-2011, 2016-2018.
+# Christoph Göhre <chris@sigxcpu.org>, 2009.
+# Christian Kirbach <Christian.Kirbach@googlemail.com>, 2008-2010, 2012.
+# Wolfgang Stöggl <c72578@yahoo.de>, 2012, 2016.
+# Bernd Homuth <dev@hmt.im>, 2015.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-l2tp master\n"
+"Project-Id-Version: NetworkManager-l2tp master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2016-11-15 11:35+0100\n"
+"PO-Revision-Date: 2018-08-21 00:21+0200\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de\n"
@@ -20,7 +22,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 2.1.1\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
 msgid "L2TP VPN Client"
@@ -297,28 +300,28 @@ msgstr "Objektklasse »%s« hat keine Eigenschaft namens »%s«"
 #: ../shared/nm-utils/nm-shared-utils.c:1157
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr "Eigenschaft »%s« der Objektklasse »%s« ist schreibgeschützt"
+msgstr "Eigenschaft »%s« der Objektklasse »%s« ist nicht schreibgeschützt"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1164
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
-"Konstrukt-Eigenschaft »%s« für Objekt »%s« kann nicht nach der Konstruktion "
-"gesetzt werden"
+"Konstruktor-Eigenschaft »%s« für Objekt »%s« kann nicht nach der "
+"Konstruktion gesetzt werden"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
 msgstr ""
-"»%s::%s« ist kein gültiger Eigenschaftsname; »%s« ist kein GObject-Untertyp"
+"»%s::%s« ist kein gültiger Eigenschaftsname; »%s« ist kein GObject-Subtyp"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1181
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
 msgstr ""
-"Eigenschaft »%s« des Typs »%s« konnte nicht aus dem Wert des Typs »%s« "
-"gesetzt werden"
+"Eigenschaft »%s« des Typs »%s« kann nicht aus dem Wert des Typs »%s« gesetzt "
+"werden"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1192
 #, c-format
@@ -326,13 +329,8 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
-"Wert »%s« des Typs »%s« ist ungültig oder außerhalb des Bereichs der "
-"Eigenschaft »%s« des Typs »%s«"
-
-#: ../shared/nm-utils/nm-vpn-plugin-utils.c:53
-#, c-format
-msgid "unable to get editor plugin name: %s"
-msgstr ""
+"Wert »%s« des Typs »%s« ist ungültig oder außerhalb des zulässigen Bereichs "
+"der Eigenschaft »%s« des Typs »%s«"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:87
 #, c-format
@@ -539,7 +537,6 @@ msgid ""
 "config: auth-user-pass"
 msgstr ""
 
-# CHECK: accelerator
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "User name:"
 msgstr "Benutzername:"
@@ -742,7 +739,7 @@ msgstr "Er_weitert"
 
 #: ../properties/nm-l2tp-dialog.ui.h:66
 msgid "Default"
-msgstr "Standard"
+msgstr "Vorgabe"
 
 #: ../properties/nm-l2tp-dialog.ui.h:67
 msgid "L2TP PPP Options"
@@ -886,7 +883,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:100
 msgid "Misc"
-msgstr "Verschiedenes"
+msgstr "Extra"
 
 #: ../properties/nm-l2tp-dialog.ui.h:101
 msgid "MTU :"

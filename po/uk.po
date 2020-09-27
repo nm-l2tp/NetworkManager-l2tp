@@ -1,22 +1,24 @@
-# Ukrainian translation of NetworkManager l2tp
+# Ukrainian translation of NetworkManager-l2tp
 # Copyright (C) Free Software Foundation, 2005
-# This file is distributed under the same license as the NetworkManager package.
-# Maxim Dziumanenko <dziumanenko@gmail.com>, 2005-2007
-#
+# This file is distributed under the same license as NetworkManager-l2tp.
+# Maxim Dziumanenko <dziumanenko@gmail.com>, 2005-2007.
+# Korostil Daniel <ted.korostiled@gmail.com>, 2011.
+# Yuri Chornoivan <yurchor@ukr.net>, 2020.
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager l2tp\n"
+"Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2010-04-02 03:32+0200\n"
-"Last-Translator: Maxim Dziumanenko <dziumanenko@gmail.com>\n"
-"Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
+"PO-Revision-Date: 2020-09-17 14:13+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 20.11.70\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
 msgid "L2TP VPN Client"
@@ -48,7 +50,7 @@ msgstr ""
 
 #: ../auth-dialog/main.c:159 ../auth-dialog/main.c:218
 msgid "Authenticate VPN"
-msgstr "Автентифікація VPN"
+msgstr "Розпізнавання у VPN"
 
 #: ../auth-dialog/main.c:164 ../properties/nm-l2tp-editor.c:665
 msgid "Password"
@@ -74,6 +76,8 @@ msgstr ""
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr ""
+"Вам слід пройти розпізнавання для отримання доступу до віртуальної приватної "
+"мережі «%s»."
 
 #: ../properties/auth-helpers.c:76
 msgid "DER, PEM, or PKCS#12 certificates (*der, *.pem, *.crt, *.cer, *.p12)"
@@ -171,7 +175,7 @@ msgstr ""
 #: ../properties/nm-l2tp-editor.c:864
 #, c-format
 msgid "could not load UI widget"
-msgstr ""
+msgstr "не вдалося завантажити віджет інтерфейсу користувача"
 
 #: ../properties/nm-l2tp-editor-plugin.c:20
 msgid "Layer 2 Tunneling Protocol (L2TP)"
@@ -286,19 +290,19 @@ msgstr ""
 #: ../shared/nm-utils/nm-shared-utils.c:1150
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr "у класі об’єктів «%s» немає властивості із назвою «%s»"
+msgstr "у класі об'єктів «%s» немає властивості із назвою «%s»"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1157
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr "властивість «%s» класу об’єктів «%s» є непридатною до запису"
+msgstr "властивість «%s» класу об'єктів «%s» є непридатною до запису"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1164
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
-"властивість construct «%s» об’єкта «%s» не можна встановлювати після побудови"
+"властивість construct «%s» об'єкта «%s» не можна встановлювати після побудови"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
@@ -324,26 +328,26 @@ msgstr ""
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:53
 #, c-format
 msgid "unable to get editor plugin name: %s"
-msgstr ""
+msgstr "не вдалося отримати назву додатка до редактора: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:87
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr ""
+msgstr "не вистачає файла додатка «%s»"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:93
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr ""
+msgstr "не вдалося завантажити додаток до редактора: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:102
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr ""
+msgstr "не вдалося завантажити обробник %s з додатка: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:128
 msgid "unknown error creating editor instance"
-msgstr ""
+msgstr "невідома помилка під час створення екземпляра редактора"
 
 #: ../src/nm-l2tp-service.c:292
 #, c-format
@@ -372,7 +376,7 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:353
 msgid "No VPN configuration options."
-msgstr ""
+msgstr "Немає параметрів налаштування VPN."
 
 #: ../src/nm-l2tp-service.c:373
 #, c-format
@@ -476,11 +480,11 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:2134
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr ""
+msgstr "Увімкнути докладний журнал діагностики (можливе виведення паролів)"
 
 #: ../src/nm-l2tp-service.c:2135
 msgid "D-Bus name to use for this instance"
-msgstr ""
+msgstr "Назва D-Bus для використання для цього екземпляра"
 
 #: ../src/nm-l2tp-service.c:2156
 msgid ""
@@ -531,7 +535,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "User name:"
-msgstr "Ім'я користувача:"
+msgstr "Користувач:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:14
 msgid "Password:"
@@ -739,7 +743,7 @@ msgstr "Параметри PPP L2TP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:68
 msgid "Authentication"
-msgstr "Автентифікація"
+msgstr "Розпізнавання"
 
 #: ../properties/nm-l2tp-dialog.ui.h:69
 msgid "Allow the following authentication methods:"
@@ -857,7 +861,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:100
 msgid "Misc"
-msgstr ""
+msgstr "Інше"
 
 #: ../properties/nm-l2tp-dialog.ui.h:101
 msgid "MTU :"

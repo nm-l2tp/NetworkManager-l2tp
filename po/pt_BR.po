@@ -1,29 +1,31 @@
 # Brazilian Portuguese translation of NetworkManager-l2tp.
-# Copyright (C) 2007-2016 Free Software Foundation, Inc.
-# This file is distributed under the same license as the NetworkManager-l2tp package.
-# Raphael Higino <In Memoriam>, 2007.
+# Copyright (C) 2020 Free Software Foundation, Inc.
+# This file is distributed under the same license as NetworkManager-l2tp.
+# Raphael Higino <In Memoriam>, 2004-2007.
+# Washington Lins <washington-lins@uol.com.br>, 2007.
 # Luiz Armesto <luiz.armesto@gmail.com>, 2007.
-# Fabrício Godoy <skarllot@gmail.com>, 2008.
-# Vladimir Melo <vmelo@gnome.org>, 2008.
 # Henrique P Machado <zehrique@gmail.com>, 2008.
-# Og Maciel <ogmaciel@gnome.org>, 2009, 2010.
-# Djavan Fagundes <djavan@comum.org>, 2011.
-# Rafael Fontenelle <rafaelff@gnome.org>, 2012, 2016, 2017.
-# Freire de Almeida <laudivan@riseup.net>, 2016.
+# Fábio Nogueira <deb-user-ba@ubuntu.com>, 2008.
+# Og Maciel <ogmaciel@gnome.org>, 2009.
+# Antonio Fernandes C. Neto <fernandesn@gnome.org>, 2010, 2011.
+# Enrico Nicoletto <liverig@gmail.com>, 2013.
+# Rafael Fontenelle <rafaelff@gnome.org>, 2012-2020.
+# Henrique Machado Campos <henriquecamposrj@gmail.com>, 2020.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2017-02-06 14:41-0200\n"
-"Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
+"PO-Revision-Date: 2020-09-10 21:37-0300\n"
+"Last-Translator: Henrique Machado Campos <henriquecamposrj@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Virtaal 1.0.0-beta1\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"X-Generator: Gtranslator 3.36.0\n"
 "X-Project-Style: gnome\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
@@ -81,8 +83,7 @@ msgstr ""
 #: ../auth-dialog/main.c:469
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
-msgstr ""
-"Você precisa autenticar-se para acessar a Rede Particular Virtual “%s”."
+msgstr "Você precisa se autenticar para acessar a Rede Privada Virtual “%s”."
 
 #: ../properties/auth-helpers.c:76
 msgid "DER, PEM, or PKCS#12 certificates (*der, *.pem, *.crt, *.cer, *.p12)"
@@ -295,32 +296,33 @@ msgstr ""
 #: ../shared/nm-utils/nm-shared-utils.c:1150
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr "classe de objeto “%s” possui nenhuma propriedade chamada “%s”"
+msgstr "a classe de objeto “%s” não possui uma propriedade chamada “%s”"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1157
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr "propriedade “%s” de classe de objeto “%s” não pode ser escrita"
+msgstr "a propriedade “%s” da classe de objeto “%s” não pode ser escrita"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1164
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
-"propriedade do construct “%s” para objeto “%s” não pode ser definido após "
+"propriedade de construtor “%s” para objeto “%s” não pode ser definido após "
 "construção"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
 msgstr ""
-"“%s::%s” não é um nome de propriedade válida; “%s” não é um subtipo GObject"
+"“%s::%s” não é um nome de propriedade válido; “%s” não é um subtipo de "
+"GObject"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1181
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
 msgstr ""
-"não foi possível definir a propriedade “%s” do tipo “%s” a partir do valor "
+"não foi possível definir a propriedade “%s” de tipo “%s” a partir do valor "
 "de tipo “%s”"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1192
@@ -329,13 +331,13 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
-"valor “%s” do tipo “%s” é inválido ou está fora do intervalo para "
-"propriedade “%s” do tipo “%s”"
+"o valor “%s” de tipo “%s” é inválido ou fora do intervalo da propriedade "
+"“%s” de tipo “%s”"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:53
 #, c-format
 msgid "unable to get editor plugin name: %s"
-msgstr "não pôde obter nome do plug-in do editor: %s"
+msgstr "não foi possível obter o nome do plug-in do editor %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:87
 #, c-format
@@ -345,9 +347,8 @@ msgstr "faltando arquivo de plug-in “%s”"
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:93
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr "não pôde carregar o editor do editos: %s"
+msgstr "não foi possível carregar o plug-in do editor: %s"
 
-# Fiquei na dúvida quanto a usar fábrica na tradução.
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:102
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
@@ -384,7 +385,7 @@ msgstr "propriedade \"%s\" inválida ou sem suporte"
 
 #: ../src/nm-l2tp-service.c:353
 msgid "No VPN configuration options."
-msgstr "Sem opções de configuração de VPN."
+msgstr "Sem opções de configurações de VPN."
 
 #: ../src/nm-l2tp-service.c:373
 #, c-format
@@ -488,11 +489,11 @@ msgstr "Não sair até que a conexão com a VPN tenha terminado"
 
 #: ../src/nm-l2tp-service.c:2134
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr "Habilitar registro de depuração detalhado (pode expôr senhas)"
+msgstr "Habilitar registros detalhados para depuração (pode expor senhas)"
 
 #: ../src/nm-l2tp-service.c:2135
 msgid "D-Bus name to use for this instance"
-msgstr "Nome D-Bus a ser usado para essa instância"
+msgstr "Nome D-Bus a ser usado para esta instância"
 
 #: ../src/nm-l2tp-service.c:2156
 msgid ""

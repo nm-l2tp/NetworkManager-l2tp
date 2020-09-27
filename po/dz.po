@@ -1,26 +1,29 @@
-# Japanese message catalog for NetworkManager-l2tp
-# Copyright (C) 2006-2007, 2013, 2020 THE NetworkManager-l2tp's COPYRIGHT HOLDER
-# This file is distributed under the same license as the NetworkManager-l2tp package.
-# Satoru SATOH <ss@gnome.gr.jp>, 2006, 2007.
-# Hajime Taira <htaira@redhat.com>, 2013.
-# sicklylife <translation@sicklylife.jp>, 2020.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-l2tp master\n"
+"Project-Id-Version: networkmanager-openvpn.networkmamager-0-6-0=release.pot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2020-05-10 21:00+0900\n"
-"Last-Translator: sicklylife <translation@sicklylife.jp>\n"
-"Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
-"Language: ja\n"
+"PO-Revision-Date: 2007-03-19 15:41+0530\n"
+"Last-Translator: sonam pelden <sonaa_peldn@yahoo.com>\n"
+"Language-Team: Dzongkha <pgeyleg@dit.gov.bt>\n"
+"Language: dz\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Poedit-Language: Dzongkha\n"
+"X-Poedit-Country: Bhutan\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
+#, fuzzy
 msgid "L2TP VPN Client"
-msgstr ""
+msgstr "ཝི་པི་ཨེན་ཁྱེ་བའི་ཞབས་ཏོག་"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:2
 msgid "Client for L2TP based virtual private networks"
@@ -48,32 +51,36 @@ msgstr ""
 
 #: ../auth-dialog/main.c:159 ../auth-dialog/main.c:218
 msgid "Authenticate VPN"
-msgstr "VPN 認証"
+msgstr "ཝི་པི་ཨེན་བདེན་བཤད་འབད་"
 
 #: ../auth-dialog/main.c:164 ../properties/nm-l2tp-editor.c:665
 msgid "Password"
-msgstr "パスワード"
+msgstr "ཆོག་ཡིག་"
 
 #: ../auth-dialog/main.c:171
+#, fuzzy
 msgid "User Certificate password"
-msgstr ""
+msgstr "ལག་ཁྱེལ་ཆོག་ཡིག:"
 
 #: ../auth-dialog/main.c:178
+#, fuzzy
 msgid "Machine Certificate password"
-msgstr ""
+msgstr "ལག་ཁྱེལ་ཆོག་ཡིག:"
 
 #: ../auth-dialog/main.c:227
+#, fuzzy
 msgid "_User Certificate password:"
-msgstr ""
+msgstr "ལག་ཁྱེལ་ཆོག་ཡིག:"
 
 #: ../auth-dialog/main.c:233
+#, fuzzy
 msgid "_Machine Certificate password:"
-msgstr ""
+msgstr "ལག་ཁྱེལ་ཆོག་ཡིག:"
 
 #: ../auth-dialog/main.c:469
-#, c-format
+#, fuzzy, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
-msgstr "仮想プライベートネットワーク“%s”にアクセスするには認証が必要です。"
+msgstr "བར་ཅུ་ཡལ་སྒེར་སྡེ་ཡོངས་འབྲེལ་'%s'འཛུལ་སྤྱོད་འབད་ནི་ལུ་ ཁྱོད་ཀྱིས་བདེན་བཤད་འབད་དགོ།"
 
 #: ../properties/auth-helpers.c:76
 msgid "DER, PEM, or PKCS#12 certificates (*der, *.pem, *.crt, *.cer, *.p12)"
@@ -81,43 +88,45 @@ msgstr ""
 
 #: ../properties/auth-helpers.c:89
 msgid "DER, PEM, or PKCS#8 private keys (*.der, *.pem, *.pk8, *.key)"
-msgstr "DER か、PEM、 PKCS#8 のプライベートキー (*.der, *.pem, *.pk8, *.key)"
+msgstr ""
 
 #: ../properties/auth-helpers.c:101
 msgid "All Files"
-msgstr "すべてのファイル"
+msgstr ""
 
 #: ../properties/ppp-dialog.c:158
 msgid "All Available (Default)"
-msgstr "利用可能なものすべて (デフォルト)"
+msgstr ""
 
 #: ../properties/ppp-dialog.c:162
 msgid "128-bit (most secure)"
-msgstr "128 ビット (最も安全)"
+msgstr ""
 
 #: ../properties/ppp-dialog.c:171
 msgid "40-bit (less secure)"
-msgstr "40 ビット (最低限の安全)"
+msgstr ""
 
 #: ../properties/ppp-dialog.c:275
+#, fuzzy
 msgid "PAP"
-msgstr "PAP"
+msgstr "ཊི་ཨེ་པི་"
 
 #: ../properties/ppp-dialog.c:288
 msgid "CHAP"
-msgstr "CHAP"
+msgstr ""
 
 #: ../properties/ppp-dialog.c:300
 msgid "MSCHAP"
-msgstr "MSCHAP"
+msgstr ""
 
 #: ../properties/ppp-dialog.c:312
 msgid "MSCHAPv2"
-msgstr "MSCHAPv2"
+msgstr ""
 
 #: ../properties/ppp-dialog.c:325
+#, fuzzy
 msgid "EAP"
-msgstr "EAP"
+msgstr "ཊི་ཨེ་པི་"
 
 #: ../properties/ipsec-dialog.c:311 ../properties/nm-l2tp-editor.c:556
 msgid "Choose a Certificate Authority certificate…"
@@ -132,12 +141,14 @@ msgid "Choose your private key…"
 msgstr ""
 
 #: ../properties/ipsec-dialog.c:559
+#, fuzzy
 msgid "Pre-shared key (PSK)"
-msgstr ""
+msgstr "རུབ་སྤྱོད་འབད་ཡོད་པའི་ལྡེ་མིག་"
 
 #: ../properties/ipsec-dialog.c:568 ../properties/nm-l2tp-editor.c:674
+#, fuzzy
 msgid "Certificates (TLS)"
-msgstr "証明書 (TLS):"
+msgstr "ལག་ཁྱེར:"
 
 #: ../properties/nm-l2tp-editor.c:404
 #, c-format
@@ -179,7 +190,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-editor-plugin.c:21
 msgid "Compatible with Microsoft and other L2TP VPN servers."
-msgstr "Microsoft と、その他の L2TP VPN サーバーとの互換性"
+msgstr ""
 
 #: ../shared/nm-l2tp-crypto-nss.c:49
 #, c-format
@@ -264,9 +275,9 @@ msgstr ""
 #: ../shared/nm-l2tp-crypto-openssl.c:444
 #: ../shared/nm-l2tp-crypto-openssl.c:472
 #: ../shared/nm-l2tp-crypto-openssl.c:709
-#, c-format
+#, fuzzy, c-format
 msgid "Error decrypting X.509 certificate file '%s'."
-msgstr ""
+msgstr "མཐུད་ལམ་དབྱེ་བ: X.509 ལག་ཁྱེར་"
 
 #: ../shared/nm-l2tp-crypto-openssl.c:498
 #: ../shared/nm-l2tp-crypto-openssl.c:577
@@ -279,40 +290,35 @@ msgstr ""
 #: ../shared/nm-l2tp-crypto-openssl.c:672
 #: ../shared/nm-l2tp-crypto-openssl.c:721
 #: ../shared/nm-l2tp-crypto-openssl.c:773
-#, c-format
+#, fuzzy, c-format
 msgid "Could not write '%s' : %s"
-msgstr ""
+msgstr "ཡིག་སྣོད་%sསྲུང་མ་ཚུགས་"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1150
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr "オブジェクトクラス '%s' には '%s' という名前のプロパティーがありません"
+msgstr ""
 
 #: ../shared/nm-utils/nm-shared-utils.c:1157
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
 msgstr ""
-"オブジェクトクラス '%s' のプロパティー '%s' は、書き込み可能ではありません"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1164
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
-"オブジェクト '%s' のコンストラクトプロパティー \"%s\" は構築後に設定できませ"
-"ん"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
 msgstr ""
-"'%s::%s' は有効なプロパティー名ではありません。'%s' は GObject サブタイプでは"
-"ありません"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1181
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
-msgstr "プロパティー '%s' (タイプ '%s') をタイプ '%s' の値から設定できません"
+msgstr ""
 
 #: ../shared/nm-utils/nm-shared-utils.c:1192
 #, c-format
@@ -320,67 +326,65 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
-"値 \"%s\" (タイプ '%s') がプロパティー '%s' (タイプ '%s') に対して無効または"
-"範囲外です"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:53
 #, c-format
 msgid "unable to get editor plugin name: %s"
-msgstr "エディタープラグイン名を取得できません: %s"
+msgstr ""
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:87
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr "プラグインファイル '%s' がありません"
+msgstr ""
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:93
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr "エディタープラグインを読み込めません: %s"
+msgstr ""
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:102
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr "プラグインからファクトリー %s を読み込めません: %s"
+msgstr ""
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:128
 msgid "unknown error creating editor instance"
-msgstr "エディターインスタンスの作成中に不明なエラー"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:292
 #, c-format
 msgid "invalid gateway '%s'"
-msgstr "無効なゲートウェイ %s"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:306
 #, c-format
 msgid "invalid integer property '%s'"
-msgstr "数値型パラメーター %s が無効な数値です。"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:316
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr ""
-"ブーリアン型パラメーター %s が無効な値です。(値はyes、noではありません)"
 
 #: ../src/nm-l2tp-service.c:323
 #, c-format
 msgid "unhandled property '%s' type %s"
-msgstr "対処できない %s 型パラメーターの %s"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:334
 #, c-format
 msgid "property '%s' invalid or not supported"
-msgstr "パラメーター %s は無効かサポートされていません。"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:353
+#, fuzzy
 msgid "No VPN configuration options."
-msgstr "VPN 設定オプションがありません。"
+msgstr "ཝི་པི་ཨེན་ཁ་ཕྱེ་བའི་རིམ་སྒྲིག་"
 
 #: ../src/nm-l2tp-service.c:373
 #, c-format
 msgid "Missing required option '%s'."
-msgstr "必須オプション %s が不足しています。"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:678
 #, c-format
@@ -435,11 +439,11 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1606
 msgid "Missing VPN username."
-msgstr "VPN ユーザー名がありません。"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1615
 msgid "Missing or invalid VPN password."
-msgstr "VPN パスワードが不足しているか、無効です。"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1719
 msgid "couldn't convert L2TP VPN gateway IP address."
@@ -471,19 +475,19 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1805
 msgid "Invalid or missing L2TP gateway."
-msgstr "L2TP ゲートウェイが無効か不足しています。"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:2133
 msgid "Don't quit when VPN connection terminates"
-msgstr "VPN 接続が切断された時に終了しないでください。"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:2134
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr "詳細なデバッグ情報の保存を有効にする (パスワードも含まれます)"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:2135
 msgid "D-Bus name to use for this instance"
-msgstr "このインスタンスの D-Bus 名"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:2156
 msgid ""
@@ -493,11 +497,12 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
 msgid "General"
-msgstr "全般"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
+#, fuzzy
 msgid "_Gateway:"
-msgstr "ゲートウェイ(_G):"
+msgstr "འཛུལ་སྒོའི་འདྲེན་ལམ: (_P)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:3
 msgid ""
@@ -506,8 +511,9 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
+#, fuzzy
 msgid "User Authentication"
-msgstr "ユーザ認証"
+msgstr "ཝི་པི་ཨེན་བདེན་བཤད་འབད་"
 
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
@@ -516,8 +522,9 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:7
+#, fuzzy
 msgid "Sho_w password"
-msgstr "パスワードを表示(_W)"
+msgstr "ཆོག་ཡིག: (_P)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Password passed to PPPD when prompted for it."
@@ -533,44 +540,51 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
+#, fuzzy
 msgid "User name:"
-msgstr "ユーザー名:"
+msgstr "ལག་ལེན་པའི་མིང་:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:14
+#, fuzzy
 msgid "Password:"
-msgstr "パスワード:"
+msgstr "ཆོག་ཡིག: (_P)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:15
+#, fuzzy
 msgid "NT Domain:"
-msgstr "NT ドメイン:"
+msgstr "ཌོ་མེན་: (_D)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
+#, fuzzy
 msgid "CA Certificate:"
-msgstr "CA 証明書:"
+msgstr "ལག་ཁྱེར:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "Certificate authority (CA) file in PEM, DER or PKCS#12 format"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
+#, fuzzy
 msgid "Certificate:"
-msgstr "証明書："
+msgstr "ལག་ཁྱེར:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:19
 msgid "Certificate file in PEM, DER or PKCS#12 format"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
+#, fuzzy
 msgid "Private Key:"
-msgstr "秘密鍵:"
+msgstr "རུབ་སྤྱོད་འབད་ཡོད་པའི་ལྡེ་མིག:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Private Key in PEM, DER or PKCS#8 format"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:22
+#, fuzzy
 msgid "Private Key Password:"
-msgstr "秘密鍵のパスワード:"
+msgstr "ལག་ཁྱེལ་ཆོག་ཡིག:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:23
 msgid "Password for private key or PCKS#12 certificate"
@@ -578,11 +592,11 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Type:"
-msgstr "タイプ:"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:25
 msgid "Select an authentication mode."
-msgstr "認証モードを選択肢てください。"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid "_IPsec Settings..."
@@ -605,8 +619,9 @@ msgid "config: ipsec-enabled"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
+#, fuzzy
 msgid "Machine Authentication"
-msgstr "コンピュータ認証"
+msgstr "ཝི་པི་ཨེན་བདེན་བཤད་འབད་"
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
 msgid ""
@@ -615,8 +630,9 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:34
+#, fuzzy
 msgid "Pre-shared key:"
-msgstr ""
+msgstr "རུབ་སྤྱོད་འབད་ཡོད་པའི་ལྡེ་མིག་"
 
 #: ../properties/nm-l2tp-dialog.ui.h:35
 msgid "Certificate  file in PEM, DER or PKCS#12 format"
@@ -624,7 +640,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid "Phase2 Algorithms:"
-msgstr "フェーズ2 アルゴリズム:"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:37
 msgid ""
@@ -642,7 +658,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:41
 msgid "Phase1 Algorithms:"
-msgstr "フェーズ1 アルゴリズム:"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:42
 msgid ""
@@ -672,8 +688,9 @@ msgid "Phase_2 Lifetime:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:49
+#, fuzzy
 msgid "Remote ID:"
-msgstr "リモート ID："
+msgstr "ཐག་རིང་གི་ཨའི་པི: %s"
 
 #: ../properties/nm-l2tp-dialog.ui.h:50
 msgid ""
@@ -697,8 +714,9 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:56
+#, fuzzy
 msgid "Use IP c_ompression"
-msgstr ""
+msgstr "ཨེལ་ཛེརཌི་ཨོ་ཨེབ་བཙུགས་ལག་ལེན་འཐབ: %s"
 
 #: ../properties/nm-l2tp-dialog.ui.h:57
 msgid ""
@@ -729,24 +747,27 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:65
+#, fuzzy
 msgid "Ad_vanced"
-msgstr "高度な(_V)"
+msgstr "སྔ་གཡར་"
 
 #: ../properties/nm-l2tp-dialog.ui.h:66
+#, fuzzy
 msgid "Default"
-msgstr "デフォルト"
+msgstr "(སྔོན་སྒྲིག: 1194)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:67
 msgid "L2TP PPP Options"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:68
+#, fuzzy
 msgid "Authentication"
-msgstr "認証"
+msgstr "ཝི་པི་ཨེན་བདེན་བཤད་འབད་"
 
 #: ../properties/nm-l2tp-dialog.ui.h:69
 msgid "Allow the following authentication methods:"
-msgstr "次の認証方式を許可します。"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:70
 msgid ""
@@ -755,12 +776,13 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:72
+#, fuzzy
 msgid "Security and Compression"
-msgstr "暗号化と圧縮"
+msgstr "ཨེལ་ཛེརཌི་ཨེབ་བཙུགས་ལག་ལེན་འཐབ་"
 
 #: ../properties/nm-l2tp-dialog.ui.h:73
 msgid "Use _Point-to-Point encryption (MPPE)"
-msgstr "MPPE 暗号を使用する(_P)"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:74
 msgid ""
@@ -768,13 +790,10 @@ msgid ""
 "To enable this checkbox, select one or more of the MSCHAP authentication "
 "methods: MSCHAP or MSCHAPv2."
 msgstr ""
-"注: MPPE 暗号は、MSCHAP 認証方式でのみ利用可能です。このチェックボックスを有"
-"効にするには、MSCHAP 認証方式である MSCHAP または MSCHAPv2 のいずれか、または"
-"複数を選択してください。"
 
 #: ../properties/nm-l2tp-dialog.ui.h:75
 msgid "_Security:"
-msgstr "セキュリティ(_S):"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:76
 msgid ""
@@ -784,7 +803,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:78
 msgid "Allow st_ateful encryption"
-msgstr "ステートフル暗号を許可する(_A)"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:79
 msgid ""
@@ -793,8 +812,9 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:81
+#, fuzzy
 msgid "Allow _BSD data compression"
-msgstr "BSD データ圧縮を許可する(_B)"
+msgstr "ཨེལ་ཛེརཌི་ཨེབ་བཙུགས་ལག་ལེན་འཐབ་"
 
 #: ../properties/nm-l2tp-dialog.ui.h:82
 msgid ""
@@ -803,8 +823,9 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:84
+#, fuzzy
 msgid "Allow _Deflate data compression"
-msgstr "デフレート圧縮を許可する(_D)"
+msgstr "ཨེལ་ཛེརཌི་ཨེབ་བཙུགས་ལག་ལེན་འཐབ་"
 
 #: ../properties/nm-l2tp-dialog.ui.h:85
 msgid ""
@@ -813,8 +834,9 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:87
+#, fuzzy
 msgid "Use TCP _header compression"
-msgstr "TCP ヘッダー圧縮を使用する(_H)"
+msgstr "ཨེལ་ཛེརཌི་ཨོ་ཨེབ་བཙུགས་ལག་ལེན་འཐབ: %s"
 
 #: ../properties/nm-l2tp-dialog.ui.h:88
 msgid ""
@@ -846,11 +868,11 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:96
 msgid "Echo"
-msgstr "Echo"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:97
 msgid "Send PPP _echo packets"
-msgstr "PPP Echo パケットを送信する(_E)"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:98
 msgid ""
@@ -869,3 +891,373 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:102
 msgid "MRU :"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Authentication required"
+#~ msgstr "ཝི་པི་ཨེན་བདེན་བཤད་འབད་"
+
+#, fuzzy
+#~ msgid "HTTP proxy password"
+#~ msgstr "ཆོག་ཡིག: (_P)"
+
+#, fuzzy
+#~ msgid "_HTTP proxy password:"
+#~ msgstr "ཆོག་ཡིག: (_P)"
+
+#, fuzzy
+#~ msgid "invalid option"
+#~ msgstr "མཐུད་ལམ་དབྱེ་བ་"
+
+#, fuzzy
+#~ msgid "The file to import wasn’t a valid OpenVPN client configuration"
+#~ msgstr "ཝི་པི་ཨེན་ཁ་ཕྱེ་བའི་རིམ་སྒྲིག་"
+
+#, fuzzy
+#~ msgid "connection is not a valid OpenVPN connection"
+#~ msgstr "ཝི་པི་ཨེན་ཁ་ཕྱེ་བའི་རིམ་སྒྲིག་"
+
+#, fuzzy
+#~ msgid "OpenVPN"
+#~ msgstr "ཝི་པི་ཨེན་ཁྱེ་བའི་ཞབས་ཏོག་"
+
+#, fuzzy
+#~ msgid "Client"
+#~ msgstr "ཝི་པི་ཨེན་ཁྱེ་བའི་ཞབས་ཏོག་"
+
+#~ msgid "TUN"
+#~ msgstr "ཊི་ཡུ་ཨེན་"
+
+#, fuzzy
+#~ msgid ""
+#~ "Could not process the request because the VPN connection settings were "
+#~ "invalid."
+#~ msgstr ""
+#~ "ཝི་པི་ཨེན་ནང་བསྐྱོད་འཐུས་ཤོར་བྱུང་ཡོདཔ་  ག་ཅི་སྦེ་ཟེར་བ་ཅིན་  ཝི་པི་ཨེན་རིམ་སྒྲིག་གདམ་ཁ་ཚུ་ནུས་ཅན་"
+#~ "མེད།"
+
+#, fuzzy
+#~ msgid "Invalid connection type."
+#~ msgstr "མཐུད་ལམ་དབྱེ་བ་"
+
+#, fuzzy
+#~ msgid "Invalid connect timeout “%s”."
+#~ msgstr "མཐུད་ལམ་དབྱེ་བ་"
+
+#, fuzzy
+#~ msgid "Unknown connection type “%s”."
+#~ msgstr "མཐུད་ལམ་དབྱེ་བ་"
+
+#~ msgid "TLS-Auth"
+#~ msgstr "ཊི་ཨེལ་ཨེསི་-བདེན་བཤད་"
+
+#~ msgid "Yes"
+#~ msgstr "ཨིན་"
+
+#, fuzzy
+#~ msgid "Remote IP Address:"
+#~ msgstr "ཐག་རིང་གི་ཨའི་པི:"
+
+#, fuzzy
+#~ msgid "Local IP Address:"
+#~ msgstr "ཉེ་གནས་ཨའི་པི:"
+
+#, fuzzy
+#~ msgid "Key Direction:"
+#~ msgstr "ཕྱོགས:"
+
+#, fuzzy
+#~ msgid "Static Key:"
+#~ msgstr "རུབ་སྤྱོད་འབད་ཡོད་པའི་ལྡེ་མིག:"
+
+#~ msgid "OpenVPN Advanced Options"
+#~ msgstr "ཝི་པི་ཨེན་ཁ་ཕྱེ་སྔ་གཡར་གདམ་ཁ་ཚུ་"
+
+#, fuzzy
+#~ msgid "Use custom gateway p_ort:"
+#~ msgstr "འཛུལ་སྒོའི་འདྲེན་ལམ: (_P)"
+
+#, fuzzy
+#~ msgid ""
+#~ "Use fast LZO compression.\n"
+#~ "config: comp-lzo"
+#~ msgstr "ཨེལ་ཛེརཌི་ཨེབ་བཙུགས་ལག་ལེན་འཐབ་"
+
+#, fuzzy
+#~ msgid "Use a _TCP connection"
+#~ msgstr "ཊི་སི་པི་མཐུད་ལམ་ལག་ལེན་འཐབ་"
+
+#, fuzzy
+#~ msgid "Ci_pher:"
+#~ msgstr "གསང་ཡིག:  %s"
+
+#, fuzzy
+#~ msgid "Server _Certificate Check:"
+#~ msgstr "ལག་ཁྱེར:"
+
+#, fuzzy
+#~ msgid "Key _Direction:"
+#~ msgstr "ཕྱོགས:"
+
+#, fuzzy
+#~ msgid "Extra Certificates:"
+#~ msgstr "ལག་ཁྱེར:"
+
+#, fuzzy
+#~ msgid "TLS Authentication"
+#~ msgstr "ཝི་པི་ཨེན་བདེན་བཤད་འབད་"
+
+#, fuzzy
+#~ msgid "Server _Address:"
+#~ msgstr "འཛུལ་སྒོའི་ཁ་བྱང་: (_G)"
+
+#, fuzzy
+#~ msgid "_Port:"
+#~ msgstr "འདྲེན་ལམ:  %s"
+
+#, fuzzy
+#~ msgid "Proxy _Username:"
+#~ msgstr "ལག་ལེན་པའི་མིང་: (_U)"
+
+#, fuzzy
+#~ msgid "Proxy Passwor_d:"
+#~ msgstr "ཆོག་ཡིག: (_P)"
+
+#, fuzzy
+#~ msgid "Connect timeout"
+#~ msgstr "མཐུད་ལམ་མིང་"
+
+#~ msgid "0"
+#~ msgstr "༠"
+
+#, fuzzy
+#~ msgid "Authenticate VPN %s"
+#~ msgstr "ཝི་པི་ཨེན་བདེན་བཤད་འབད་"
+
+#~ msgid "VPN Connection Manager (OpenVPN)"
+#~ msgstr "ཝི་པི་ཨེན་མཐུད་ལམ་འཛིན་སྐྱོང་པ(ཝི་པི་ཨེན་ཁ་ཕྱེ)"
+
+#~ msgid "Add, Remove, and Edit VPN Connections"
+#~ msgstr "ཝི་པི་ཨེན་མཐུད་ལམ་ཚུ་ཁ་སྐོང་བརྐྱབ་ནི་རྩ་བསྐྲད་གཏང་ནི་དང་ཞུན་དག་འབད"
+
+#, fuzzy
+#~ msgid "<b>Authentication</b>"
+#~ msgstr "<b>མཐུད་ལམ་མིང་</b>"
+
+#, fuzzy
+#~ msgid "_Show passwords"
+#~ msgstr "ཆོག་ཡིག: (_P)"
+
+#~ msgid "_Secondary Password:"
+#~ msgstr "གལ་ནད་ཆུང་བའི་ཆོག་ཡིག: (_S)"
+
+#~ msgid "Connect _anonymously"
+#~ msgstr "མིང་མེད་ཐོག་ལས་མཐུད།(_a)"
+
+#~ msgid "Connect as _user:"
+#~ msgstr "ལག་ལེན་པ་བཟུམ་སྦེ་མཐུད:(_u)"
+
+#~ msgid "_Remember password for this session"
+#~ msgstr "ལཱ་ཡུན་འདི་གི་དོན་ལུ་ ཆོག་ཡིག་སེམས་ཁར་བཞག(_R)"
+
+#~ msgid "_Save password in keyring"
+#~ msgstr "ལྡེ་འཁོར་ནང་ ཆོག་ཡིག་སྲུངས་(_S)"
+
+#~ msgid "The following OpenVPN connection will be created:"
+#~ msgstr "འོག་གི་ཝི་པི་ཨེན་ཁ་ཕྱེ་བའི་མཐུད་ལམ་འདི་གསར་བསྐྲུན་འབད་ནི་ཨིན:"
+
+#~ msgid "Name:  %s"
+#~ msgstr "མིང་:%s"
+
+#~ msgid "CA:  %s"
+#~ msgstr "སི་ཨེ: %s"
+
+#~ msgid "Cert:  %s"
+#~ msgstr "ངེས་ཅན: %s"
+
+#~ msgid "Key:  %s"
+#~ msgstr "ལྡེ་མིག: %s"
+
+#~ msgid "Connection Type: Shared Key"
+#~ msgstr "མཐུད་ལམ་དབྱེ་བ: རུབ་སྤྱོད་འབད་ཡོད་པའི་ལྡེ་མིག་"
+
+#~ msgid "Shared Key:  %s"
+#~ msgstr "རུབ་སྤྱོད་འབད་ཡོད་པའི་ལྡེ་མིག་: %s"
+
+#~ msgid "Local IP:  %s"
+#~ msgstr "ཉེ་གནས་ཨའི་པི: %s"
+
+#~ msgid "Connection Type: Password"
+#~ msgstr "མཐུད་ལམ་དབྱེ་བ: ཆོག་ཡིག་"
+
+#~ msgid "Username:  %s"
+#~ msgstr "ལག་ལེན་པའི་མིང་: %s"
+
+#~ msgid "Connection Type: X.509 with Password Authentication"
+#~ msgstr "མཐུད་ལམ་དབྱེ་བ: X.509འདི་ཆོག་ཡིག་བདེན་བཤད་དང་ཅིག་ཁར་"
+
+#~ msgid "Remote:  %s"
+#~ msgstr "ཐག་རིང་གི:  %s"
+
+#~ msgid "Device: %s"
+#~ msgstr "ཐབས་འཕྲུལ: %s"
+
+#~ msgid "Protocol: %s"
+#~ msgstr "གནད་སྤེལ་ལམ་ལུགས: %s"
+
+#~ msgid "TCP"
+#~ msgstr "ཊི་སི་པི་"
+
+#~ msgid "UDP"
+#~ msgstr "ཡུ་ཌི་པི་"
+
+#~ msgid "Routes:  %s"
+#~ msgstr "འགྲུལ་ལམ:  %s"
+
+#~ msgid "No"
+#~ msgstr "མེན་"
+
+#~ msgid "TLS auth:  %s %s"
+#~ msgstr "ཊི་ཨེལ་ཨེསི་བདེན་བཤད:  %s %s"
+
+#~ msgid "The connection details can be changed using the \"Edit\" button."
+#~ msgstr "མཐུད་ལམ་རྒྱས་བཤད་ཚུ་  \"Edit\" ཨེབ་རྟ་ལག་ལེན་འཐབ་སྟེ་བསྒྱུར་བཅོས་འབད་ཚུགས།"
+
+#~ msgid "Cannot import settings"
+#~ msgstr "སྒྲིག་སྟངས་ཚུ་ནང་འདྲེན་འབད་མི་ཚུགས་"
+
+#~ msgid "The VPN settings file '%s' does not contain valid data."
+#~ msgstr "ཝི་པི་ཨེན་སྒྲིག་སྟངས་ཚུའི་ཡིག་སྣོད་'%s' དེ་གིས་ནུས་ཅན་གནས་སྡུད་གནས་ཏེ་མེདཔ་ཨིན།"
+
+#~ msgid "Select file to import"
+#~ msgstr "ནང་འདྲེན་འབད་ནི་ལུ་ཡིག་སྣོད་སེལ་འཐུ་འབད་"
+
+#~ msgid "Select CA to use"
+#~ msgstr "ལག་ལེན་འཐབ་ནི་ལུ་སི་ཨེ་སེལ་འཐུ་འབད་"
+
+#~ msgid "Select certificate to use"
+#~ msgstr "ལག་ལེན་འཐབ་ནི་ལུ་ལག་ཁྱེར་སེལ་འཐུ་འབད་"
+
+#~ msgid "Select key to use"
+#~ msgstr "ལག་ལེན་འཐབ་ནི་ལུ་ལྡེ་མིག་སེལ་འཐུ་འབད་"
+
+#~ msgid "Select shared key to use"
+#~ msgstr "ལག་ལེན་འཐབ་ནི་ལུ་རུབ་སྤྱོད་འབད་ཡོད་པའི་ལྡེ་མིག་སེལ་འཐུ་འབད་"
+
+#~ msgid "Select TA to use"
+#~ msgstr "ལག་ལེན་འཐབ་ནི་ལུ་ཊི་ཨེ་སེལ་འཐུ་འབད་"
+
+#~ msgid "Save as..."
+#~ msgstr "དེ་སྦེ་སྲུང་..."
+
+#~ msgid "A file named \"%s\" already exists."
+#~ msgstr "ཡིག་སྣོད་མིང་ \"%s\" ཧེ་མ་ལས་རང་འདུག།"
+
+#~ msgid "Do you want to replace it with the one you are saving?"
+#~ msgstr "ཁྱོད་ཀྱིས་སྲུང་མི་དང་ཅིག་ཁར་ཁྱོད་ཀྱིས་ཚབ་བཙུགས་ནི་ཨིན་ན?"
+
+#~ msgid "Failed to export configuration"
+#~ msgstr "རིམ་སྒྲིག་ཕྱིར་འདྲེན་འབད་ནི་ལུ་འཐུས་ཤོར་བྱུང་ཡོདཔ་"
+
+#~ msgid "1"
+#~ msgstr "༡"
+
+#~ msgid "65536"
+#~ msgstr "65536"
+
+#~ msgid "<b>Connection Information</b>"
+#~ msgstr "<b>མཐུད་ལམ་བརྡ་དོན</b>"
+
+#~ msgid "<i>example: 172.16.0.0/16 10.11.12.0/24</i>"
+#~ msgstr "<i>དཔེར་ན: 172.16.0.0/16 10.11.12.0/24</i>"
+
+#~ msgid "CA file:"
+#~ msgstr "སི་ཨེ་ཡིག་སྣོད:"
+
+#~ msgid "Key:"
+#~ msgstr "ལྡེ་མིག:"
+
+#~ msgid ""
+#~ "Name used to identify the connection to the private network, e.g. "
+#~ "\"Campus VPN\" or \"Corporate Network\""
+#~ msgstr ""
+#~ "སྒེར་སྡེ་ཡོངས་འབྲེལ་ལུ་མཐུད་ལམ་ངོས་འཛིན་འབད་ནི་ལུ་ལག་ལེན་འཐབ་ཡོད་པའི་མིང་ e.g. \"Campus VPN"
+#~ "\" or \"Corporate Network\""
+
+#~ msgid "Network"
+#~ msgstr "ཡོངས་འབྲེལ་"
+
+#~ msgid ""
+#~ "Please enter the information provided by your system administrator below. "
+#~ "Do not enter your password here as you will be prompted when connecting."
+#~ msgstr ""
+#~ "འོག་ལུ་ཁྱོད་རའི་རིམ་ལུགས་བདག་སྐྱོང་པ་གིས་བྱིན་ཡོད་པའི་བརྡ་དོན་ཐོ་བཀོད་འབད་གནང་།  མཐུད་པའི་བསྒང་"
+#~ "ཁྱོད་ཡར་བསྐྱེད་འབདཝ་ལས་ ནཱ་ལུ་ཁྱོད་རའི་ཆོག་ཡིག་མ་བཙུགས།  "
+
+#~ msgid ""
+#~ "Please note that the file you import is not an OpenVPN configuration "
+#~ "file. Ask your administrator for the file."
+#~ msgstr ""
+#~ "ཁྱོད་ཀྱིས་ནང་འདྲེན་འབད་མི་ཡིག་སྣོད་འདི་  ཝི་པི་ཨེན་ཁ་ཕྱེ་རིམ་སྒྲིག་ཡིག་སྣོད་མེན་ཟེར་དྲན་འཛིན་འབད།  "
+#~ "ཁྱོད་རའི་བདག་སྐྱོང་པ་ལུ་ཡིག་སྣོད་དོན་ལུ་དྲི།"
+
+#~ msgid "Use TAP device"
+#~ msgstr "ཊི་ཨེ་པི་ཐབས་འཕྲུལ་ལག་ལེན་འཐབ་"
+
+#~ msgid "Use TLS auth:"
+#~ msgstr "ཊི་ཨེལ་ཨེསི་བདེན་བཤད་ལག་ལེན་འཐབ:"
+
+#~ msgid "Use cipher:"
+#~ msgstr "གསང་ཡིག་ལག་ལེན་འཐབ:"
+
+#~ msgid "X.509"
+#~ msgstr "X.509"
+
+#~ msgid ""
+#~ "X.509 Certificates\n"
+#~ "Pre-shared key\n"
+#~ "Password Authentication\n"
+#~ "X.509 with Password Authentication"
+#~ msgstr ""
+#~ "X.509 ལག་ཁྱེར་ཚུ་\n"
+#~ "སྔོན་-རུབ་སྤྱོད་འབད་ཡོད་པའི་ལྡེ་མིག\n"
+#~ "ཆོག་ཡིག་བདེན་བཤད\n"
+#~ "X.509 ཆོག་ཡིག་བདེན་བཤད་དང་ཅིག་ཁར་"
+
+#~ msgid "X.509/Pass"
+#~ msgstr "X.509/རྩིས་སྤྲོད་"
+
+#~ msgid "_Import Saved Configuration..."
+#~ msgstr "སྲུང་བཞག་པའི་རིམ་སྒྲིག་ནང་འདྲེན་འབད... (_I)"
+
+#~ msgid "_Only use VPN connection for these addresses"
+#~ msgstr "ཁ་བྱང་འདི་གི་དོན་ལུ་ ཝི་པི་ཨེན་མཐུད་ལམ་རྐྱངམ་ཅིག་ལག་ལེན་འཐབ། (_O)"
+
+#~ msgid "none"
+#~ msgstr "ཅི་མེད་"
+
+#~ msgid ""
+#~ "The VPN login failed because the user name and password were not accepted "
+#~ "or the certificate password was wrong."
+#~ msgstr ""
+#~ "ཝི་པི་ཨེན་ནང་བསྐྱོད་འཐུས་ཤོར་བྱུང་ཡོདཔ་  ག་ཅི་སྦེ་ཟེར་བ་ཅིན་ ལག་ལེན་པ་དང་ཆོག་ཡིག་དང་ལེན་མ་འབད་"
+#~ "བས་ ཡང་ན་  ལག་ཁྱེར་ཆོག་ཡིག་འདི་འཛོལ་བ་འདུག།"
+
+#~ msgid "The VPN login failed because the VPN program could not be started."
+#~ msgstr "ཝི་པི་ཨེན་ནང་བསྐྱོད་འཐུས་ཤོར་བྱུང་ཡོདཔ་  ག་ཅི་སྦེ་ཟེར་བ་ཅིན་  ཝི་པི་ཨེན་འགོ་བཙུགས་མ་ཚུགས།"
+
+#~ msgid ""
+#~ "The VPN login failed because the VPN program could not connect to the VPN "
+#~ "server."
+#~ msgstr ""
+#~ "ཝི་པི་ཨེན་ནང་བསྐྱོད་འཐུས་ཤོར་བྱུང་ཡོདཔ་  ག་ཅི་སྦེ་ཟེར་བ་ཅིན་  ཝི་པི་ཨེན་ལས་རིམ་ཝི་པི་ཨེན་སར་བར་ལུ་"
+#~ "མཐུད་མ་ཚུགས།"
+
+#~ msgid ""
+#~ "The VPN login failed because the VPN program received an invalid "
+#~ "configuration from the VPN server."
+#~ msgstr ""
+#~ "ཝི་པི་ཨེན་ནང་བསྐྱོད་འཐུས་ཤོར་བྱུང་ཡོདཔ་ག་ཅི་སྦེ་ཟེར་བ་ཅིན་  ཝི་པི་ཨེན་ལས་རིམ་གྱིས་  ཝི་པི་ཨེན་སར་"
+#~ "བར་ལས་ནུས་ཅན་མེད་པའི་རིམ་སྒྲིག་ཐོབ་ཡོད།"
+
+#~ msgid "VPN connection failed"
+#~ msgstr "ཝི་པི་ཨེན་མཐུད་ལམ་འཐུས་ཤོར་བྱུང་ཡོད།"

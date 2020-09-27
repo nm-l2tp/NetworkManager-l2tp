@@ -3,20 +3,25 @@
 # This file is distributed under the same license as the NetworkManager
 # package.
 #
-# Tino Meinen <a.t.meinen@chello.nl>, 2008.
+# Tino Meinen <a.t.meinen@chello.nl>, 2006, 2007.
+# Wouter Bolsterlee <wbolster@gnome.org>, 2008, 2011.
+# Rachid BM <rachidbm@ubuntu.com>, 2011.
+# Nathan Follens <nthn@unseen.is>, 2019-2020.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager L2TP\n"
+"Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2008-09-14 18:07+0200\n"
-"Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
+"PO-Revision-Date: 2020-03-07 23:25+0100\n"
+"Last-Translator: Nathan Follens <nthn@unseen.is>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.3\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
 msgid "L2TP VPN Client"
@@ -70,6 +75,8 @@ msgstr ""
 msgid "_Machine Certificate password:"
 msgstr ""
 
+# eigenlijk: moet er een aanmeldingscontrole worden uitgevoerd,
+# maar het gaat erom dat er een wachtwoord moet worden gegeven
 #: ../auth-dialog/main.c:469
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
@@ -293,26 +300,27 @@ msgstr "objectklasse ‘%s’ heeft geen eigenschap met de naam ‘%s’"
 #: ../shared/nm-utils/nm-shared-utils.c:1157
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr "eigenschap ‘%s’ van objectklasse ‘%s’ is niet schrijfbaar"
+msgstr "eigenschap ‘%s’ van objectklasse ‘%s’ is niet beschrijfbaar"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1164
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
-"constructeigenschap ‘%s’ voor object ‘%s’ kan niet ingesteld worden na "
-"constructie"
+"bouweigenschap ‘%s’ voor object ‘%s’ kan niet worden ingesteld na de bouw"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
-msgstr "‘%s::%s’ is geen geldige eigenschapsnaam; ‘%s’ is geen GObject-subtype"
+msgstr ""
+"‘%s::%s’ is geen geldige eigenschapnaam; ‘%s’ is niet van het subtype GObject"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1181
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
 msgstr ""
-"instellen van eigenschap ‘%s’ van type ‘%s’ van waarde van type ‘%s’ mislukt"
+"instellen van eigenschap ‘%s’ type ‘%s’ van waarde van type ‘%s’ is niet "
+"mogelijk"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1192
 #, c-format
@@ -321,7 +329,7 @@ msgid ""
 "type '%s'"
 msgstr ""
 "waarde ‘%s’ van type ‘%s’ is ongeldig of buiten bereik voor eigenschap ‘%s’ "
-"van type ‘%s’"
+"type ‘%s’"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:53
 #, c-format
@@ -478,7 +486,7 @@ msgstr "Niet afsluiten wanneer de VPN-verbinding verbroken wordt"
 
 #: ../src/nm-l2tp-service.c:2134
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr "Uitgebreide debug-logging inschakelen (kan wachtwoorden blootstellen)"
+msgstr "Uitgebreide debug-logging inschakelen (kan wachtwoorden blootleggen)"
 
 #: ../src/nm-l2tp-service.c:2135
 msgid "D-Bus name to use for this instance"
@@ -581,7 +589,7 @@ msgstr "Type:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:25
 msgid "Select an authentication mode."
-msgstr "Authenticatie-methode kiezen"
+msgstr "Kies een modus voor aanmeldingscontrole."
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid "_IPsec Settings..."

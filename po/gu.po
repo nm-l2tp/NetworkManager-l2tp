@@ -1,15 +1,15 @@
-# translation of network-manager-l2tp.master.gu.po to Gujarati
-# Gujarati translation of network-manager-l2tp.
-# Copyright (C) 2009 network-manager-l2tp's COPYRIGHT HOLDER
-# This file is distributed under the same license as the network-manager-l2tp package.
+# translation of gu.po to Gujarati
+# Gujarati translation of NetworkManager-l2tp.
+# Copyright (C) 2009 NetworkManager-l2tp's COPYRIGHT HOLDER
+# This file is distributed under the same license as the NetworkManager-l2tp package.
 #
-# Sweta Kothari <swkothar@redhat.com>, 2009.
+# Sweta Kothari <swkothar@redhat.com>, 2009, 2011.
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-l2tp.master.gu\n"
+"Project-Id-Version: gu\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2009-10-28 15:19+0530\n"
+"PO-Revision-Date: 2011-02-18 11:13+0530\n"
 "Last-Translator: Sweta Kothari <swkothar@redhat.com>\n"
 "Language-Team: Gujarati\n"
 "Language: gu\n"
@@ -537,10 +537,6 @@ msgstr "પાસવર્ડ:"
 msgid "NT Domain:"
 msgstr "NT ડોમેઇન:"
 
-#: ../properties/nm-l2tp-dialog.ui.h:16
-msgid "CA Certificate:"
-msgstr ""
-
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "Certificate authority (CA) file in PEM, DER or PKCS#12 format"
 msgstr ""
@@ -559,10 +555,6 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Private Key in PEM, DER or PKCS#8 format"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:22
-msgid "Private Key Password:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:23

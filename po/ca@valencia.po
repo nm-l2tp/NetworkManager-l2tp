@@ -1,8 +1,10 @@
-# Catalan translation of NetworkManager-l2tp
-# Copyright © 2005 The Free Software Foundation, Inc.
+# Catalan translations for NetworkManager-l2tp
+# Traduccions al català del paquet NetworkManager-l2tp.
+# Copyright © 2006 The Free Software Foundaton, Inc.
 # This file is distributed under the same license as the
-#   NetworkManager-l2tp package.
-# Gil Forcada <gilforcada@guifi.net>, 2006, 2007.
+# NetworkManager-l2tp.
+# Josep Puigdemont Casamajó <josep.puigdemont@gmail.com>, 2006.
+# Gil Forcada <gilforcada@guifi.net>, 2006, 2007, 2008.
 # David Planella <david.planella@gmail.com>, 2009.
 #
 msgid ""
@@ -10,7 +12,7 @@ msgstr ""
 "Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2009-01-14 22:33+0100\n"
+"PO-Revision-Date: 2009-05-10 12:43+0200\n"
 "Last-Translator: David Planella <david.planella@gmail.com>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "Language: ca@valencia\n"
@@ -489,7 +491,7 @@ msgstr "General"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Gateway:"
-msgstr "_Pasarel·la:"
+msgstr "Pas_sarel·la:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:3
 msgid ""

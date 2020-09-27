@@ -1,21 +1,22 @@
-# Friulian translation for network-manager-l2tp.
-# Copyright (C) 2017 network-manager-l2tp's COPYRIGHT HOLDER
-# This file is distributed under the same license as the network-manager-l2tp package.
-# Fabio Tomat <f.t.public@gmail.com>, 2017.
+# Friulian translation for NetworkManager-l2tp.
+# Copyright (C) 2019 NetworkManager-l2tp's COPYRIGHT HOLDER
+# This file is distributed under the same license as the NetworkManager-l2tp package.
+# Fabio Tomat <f.t.public@gmail.com>, 2019.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-l2tp master\n"
+"Project-Id-Version: NetworkManager-l2tp master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2017-04-09 19:02+0200\n"
+"PO-Revision-Date: 2019-02-12 11:23+0100\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <fur@li.org>\n"
 "Language: fur\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.12\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.2\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
 msgid "L2TP VPN Client"
@@ -47,7 +48,7 @@ msgstr ""
 
 #: ../auth-dialog/main.c:159 ../auth-dialog/main.c:218
 msgid "Authenticate VPN"
-msgstr "Autentiche VPN"
+msgstr "Autenticazion VPN"
 
 #: ../auth-dialog/main.c:164 ../properties/nm-l2tp-editor.c:665
 msgid "Password"
@@ -72,7 +73,7 @@ msgstr ""
 #: ../auth-dialog/main.c:469
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
-msgstr "Al covente autenticâsi par acedi ae rêt privade virtuâl “%s”."
+msgstr "Si scugne autenticâsi par jentrâ te Rêt Privade Virtuâl “%s”."
 
 #: ../properties/auth-helpers.c:76
 msgid "DER, PEM, or PKCS#12 certificates (*der, *.pem, *.crt, *.cer, *.p12)"
@@ -285,12 +286,12 @@ msgstr ""
 #: ../shared/nm-utils/nm-shared-utils.c:1150
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr "la classe dal ogjet '%s' no à proprietâts clamadis '%s'"
+msgstr "la classe dal ogjet '%s' no à une proprietât clamade '%s'"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1157
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr "proprietât '%s' de classe dal ogjet '%s' no je scrivibile"
+msgstr "no si pues scrivi la proprietât '%s' de classe dal ogjet '%s'"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1164
 #, c-format
@@ -318,8 +319,8 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
-"il valôr \"%s\" di gjenar '%s' nol è valit o fûr dal interval pe proprietât "
-"'%s' di gjenar '%s'"
+"valôr \"%s\" di gjenar '%s' nol è valit o fûr dai limits pe proprietât '%s' "
+"di gjenar '%s'"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:53
 #, c-format
@@ -334,7 +335,7 @@ msgstr "al mancje il file plugin \"%s\""
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:93
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr "impussibil cjariâ il plugin editôr: %s"
+msgstr "impussibil cjariâ il plugin dal editôr: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:102
 #, c-format
@@ -476,11 +477,12 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:2134
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr "Abilite regjistris di debug prolìs (al podarès esponi lis password)"
+msgstr ""
+"Abilite la regjistrazion dal debug prolìs (al pues palesâ lis password)"
 
 #: ../src/nm-l2tp-service.c:2135
 msgid "D-Bus name to use for this instance"
-msgstr "Non D-Bus di doprâ par cheste istance"
+msgstr "Non di D-Bus di doprâ par cheste istance"
 
 #: ../src/nm-l2tp-service.c:2156
 msgid ""
@@ -873,7 +875,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:100
 msgid "Misc"
-msgstr "Variis"
+msgstr "Altris"
 
 #: ../properties/nm-l2tp-dialog.ui.h:101
 msgid "MTU :"

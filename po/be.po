@@ -1,26 +1,24 @@
-# Japanese message catalog for NetworkManager-l2tp
-# Copyright (C) 2006-2007, 2013, 2020 THE NetworkManager-l2tp's COPYRIGHT HOLDER
-# This file is distributed under the same license as the NetworkManager-l2tp package.
-# Satoru SATOH <ss@gnome.gr.jp>, 2006, 2007.
-# Hajime Taira <htaira@redhat.com>, 2013.
-# sicklylife <translation@sicklylife.jp>, 2020.
+# Yuri Matsuk <yuri@matsuk.net>, 2011.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-l2tp master\n"
+"Project-Id-Version: NetworkManager-l2tp.master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2020-05-10 21:00+0900\n"
-"Last-Translator: sicklylife <translation@sicklylife.jp>\n"
-"Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
-"Language: ja\n"
+"PO-Revision-Date: 2011-09-11 17:34+0300\n"
+"Last-Translator: Yuri Matsuk <yuri@matsuk.net>\n"
+"Language-Team: Belarusian <i18n-bel-gnome@googlegroups.com>\n"
+"Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: UTF-8\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
+#, fuzzy
 msgid "L2TP VPN Client"
-msgstr ""
+msgstr "OpenVPN"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:2
 msgid "Client for L2TP based virtual private networks"
@@ -31,8 +29,9 @@ msgid "Support for configuring L2TP based virtual private network connections."
 msgstr ""
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:4
+#, fuzzy
 msgid "Compatible with L2TP and L2TP over IPsec services."
-msgstr ""
+msgstr "Сумяшчальны з серверам OpenVPN."
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:5
 msgid "The IPsec options dialog"
@@ -48,88 +47,98 @@ msgstr ""
 
 #: ../auth-dialog/main.c:159 ../auth-dialog/main.c:218
 msgid "Authenticate VPN"
-msgstr "VPN 認証"
+msgstr "Ідэнтыфікацыя VPN"
 
 #: ../auth-dialog/main.c:164 ../properties/nm-l2tp-editor.c:665
 msgid "Password"
-msgstr "パスワード"
+msgstr "Пароль"
 
 #: ../auth-dialog/main.c:171
+#, fuzzy
 msgid "User Certificate password"
-msgstr ""
+msgstr "Пароль да сертыфіката:"
 
 #: ../auth-dialog/main.c:178
+#, fuzzy
 msgid "Machine Certificate password"
-msgstr ""
+msgstr "Пароль да сертыфіката:"
 
 #: ../auth-dialog/main.c:227
+#, fuzzy
 msgid "_User Certificate password:"
-msgstr ""
+msgstr "_Пароль да сертыфіката:"
 
 #: ../auth-dialog/main.c:233
+#, fuzzy
 msgid "_Machine Certificate password:"
-msgstr ""
+msgstr "_Пароль да сертыфіката:"
 
 #: ../auth-dialog/main.c:469
-#, c-format
+#, fuzzy, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
-msgstr "仮想プライベートネットワーク“%s”にアクセスするには認証が必要です。"
+msgstr ""
+"Каб даступіцца да віртуальнай прыватнай сеткі \"%s\", патрэбна ідэнтыфікацыя."
 
 #: ../properties/auth-helpers.c:76
+#, fuzzy
 msgid "DER, PEM, or PKCS#12 certificates (*der, *.pem, *.crt, *.cer, *.p12)"
-msgstr ""
+msgstr "Сертыфікаты PEM або PKCS#12 (*.pem, *.crt, *.key, *.cer, *.p12)"
 
 #: ../properties/auth-helpers.c:89
+#, fuzzy
 msgid "DER, PEM, or PKCS#8 private keys (*.der, *.pem, *.pk8, *.key)"
-msgstr "DER か、PEM、 PKCS#8 のプライベートキー (*.der, *.pem, *.pk8, *.key)"
+msgstr "Сертыфікаты PEM або PKCS#12 (*.pem, *.crt, *.key, *.cer, *.p12)"
 
 #: ../properties/auth-helpers.c:101
 msgid "All Files"
-msgstr "すべてのファイル"
+msgstr ""
 
 #: ../properties/ppp-dialog.c:158
 msgid "All Available (Default)"
-msgstr "利用可能なものすべて (デフォルト)"
+msgstr ""
 
 #: ../properties/ppp-dialog.c:162
 msgid "128-bit (most secure)"
-msgstr "128 ビット (最も安全)"
+msgstr ""
 
 #: ../properties/ppp-dialog.c:171
 msgid "40-bit (less secure)"
-msgstr "40 ビット (最低限の安全)"
+msgstr ""
 
 #: ../properties/ppp-dialog.c:275
 msgid "PAP"
-msgstr "PAP"
+msgstr ""
 
 #: ../properties/ppp-dialog.c:288
 msgid "CHAP"
-msgstr "CHAP"
+msgstr ""
 
 #: ../properties/ppp-dialog.c:300
 msgid "MSCHAP"
-msgstr "MSCHAP"
+msgstr ""
 
 #: ../properties/ppp-dialog.c:312
 msgid "MSCHAPv2"
-msgstr "MSCHAPv2"
+msgstr ""
 
 #: ../properties/ppp-dialog.c:325
 msgid "EAP"
-msgstr "EAP"
+msgstr ""
 
 #: ../properties/ipsec-dialog.c:311 ../properties/nm-l2tp-editor.c:556
+#, fuzzy
 msgid "Choose a Certificate Authority certificate…"
-msgstr ""
+msgstr "Выберыце сертыфікат цэнтра сертыфікацыі..."
 
 #: ../properties/ipsec-dialog.c:319
+#, fuzzy
 msgid "Choose your machine certificate…"
-msgstr ""
+msgstr "Выберыце свой асабісты сертыфікат..."
 
 #: ../properties/ipsec-dialog.c:327 ../properties/nm-l2tp-editor.c:572
+#, fuzzy
 msgid "Choose your private key…"
-msgstr ""
+msgstr "Выберыце свой прыватны ключ..."
 
 #: ../properties/ipsec-dialog.c:559
 msgid "Pre-shared key (PSK)"
@@ -137,7 +146,7 @@ msgstr ""
 
 #: ../properties/ipsec-dialog.c:568 ../properties/nm-l2tp-editor.c:674
 msgid "Certificates (TLS)"
-msgstr "証明書 (TLS):"
+msgstr "Сертыфікаты (TLS)"
 
 #: ../properties/nm-l2tp-editor.c:404
 #, c-format
@@ -160,13 +169,14 @@ msgid "%s: failed to create the IPsec dialog!"
 msgstr ""
 
 #: ../properties/nm-l2tp-editor.c:564
+#, fuzzy
 msgid "Choose your personal certificate…"
-msgstr ""
+msgstr "Выберыце свой асабісты сертыфікат..."
 
 #: ../properties/nm-l2tp-editor.c:847
-#, c-format
+#, fuzzy, c-format
 msgid "could not create l2tp object"
-msgstr ""
+msgstr "Не ўдалося знайсці двайковы файл \"openvpn\"."
 
 #: ../properties/nm-l2tp-editor.c:864
 #, c-format
@@ -178,8 +188,9 @@ msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr ""
 
 #: ../properties/nm-l2tp-editor-plugin.c:21
+#, fuzzy
 msgid "Compatible with Microsoft and other L2TP VPN servers."
-msgstr "Microsoft と、その他の L2TP VPN サーバーとの互換性"
+msgstr "Сумяшчальны з серверам OpenVPN."
 
 #: ../shared/nm-l2tp-crypto-nss.c:49
 #, c-format
@@ -286,33 +297,28 @@ msgstr ""
 #: ../shared/nm-utils/nm-shared-utils.c:1150
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr "オブジェクトクラス '%s' には '%s' という名前のプロパティーがありません"
+msgstr ""
 
 #: ../shared/nm-utils/nm-shared-utils.c:1157
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
 msgstr ""
-"オブジェクトクラス '%s' のプロパティー '%s' は、書き込み可能ではありません"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1164
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
-"オブジェクト '%s' のコンストラクトプロパティー \"%s\" は構築後に設定できませ"
-"ん"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
 msgstr ""
-"'%s::%s' は有効なプロパティー名ではありません。'%s' は GObject サブタイプでは"
-"ありません"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1181
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
-msgstr "プロパティー '%s' (タイプ '%s') をタイプ '%s' の値から設定できません"
+msgstr ""
 
 #: ../shared/nm-utils/nm-shared-utils.c:1192
 #, c-format
@@ -320,67 +326,66 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
-"値 \"%s\" (タイプ '%s') がプロパティー '%s' (タイプ '%s') に対して無効または"
-"範囲外です"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:53
 #, c-format
 msgid "unable to get editor plugin name: %s"
-msgstr "エディタープラグイン名を取得できません: %s"
+msgstr ""
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:87
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr "プラグインファイル '%s' がありません"
+msgstr ""
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:93
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr "エディタープラグインを読み込めません: %s"
+msgstr ""
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:102
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr "プラグインからファクトリー %s を読み込めません: %s"
+msgstr ""
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:128
 msgid "unknown error creating editor instance"
-msgstr "エディターインスタンスの作成中に不明なエラー"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:292
 #, c-format
 msgid "invalid gateway '%s'"
-msgstr "無効なゲートウェイ %s"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:306
-#, c-format
+#, fuzzy, c-format
 msgid "invalid integer property '%s'"
-msgstr "数値型パラメーター %s が無効な数値です。"
+msgstr ""
+"хібная цэлалікавая ўласцівасць \"%s\", або значэнне па-за дыяпазонам [%d -> "
+"%d]"
 
 #: ../src/nm-l2tp-service.c:316
-#, c-format
+#, fuzzy, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
-msgstr ""
-"ブーリアン型パラメーター %s が無効な値です。(値はyes、noではありません)"
+msgstr "хібная булева ўласцівасць \"%s\" (мусіць быць: yes/no)"
 
 #: ../src/nm-l2tp-service.c:323
-#, c-format
+#, fuzzy, c-format
 msgid "unhandled property '%s' type %s"
-msgstr "対処できない %s 型パラメーターの %s"
+msgstr "неапрацаваная ўласцівасць \"%s\" з тыпам %s"
 
 #: ../src/nm-l2tp-service.c:334
-#, c-format
+#, fuzzy, c-format
 msgid "property '%s' invalid or not supported"
-msgstr "パラメーター %s は無効かサポートされていません。"
+msgstr "хібная ўласцівасць \"%s\", або яна не падтрымліваецца"
 
 #: ../src/nm-l2tp-service.c:353
 msgid "No VPN configuration options."
-msgstr "VPN 設定オプションがありません。"
+msgstr "Няма опцый настройкі VPN."
 
 #: ../src/nm-l2tp-service.c:373
 #, c-format
 msgid "Missing required option '%s'."
-msgstr "必須オプション %s が不足しています。"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:678
 #, c-format
@@ -414,8 +419,9 @@ msgid "Could not write xl2tpd config."
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:1080
+#, fuzzy
 msgid "Could not write ppp options."
-msgstr ""
+msgstr "Не ўдалося знайсці двайковы файл \"openvpn\"."
 
 #: ../src/nm-l2tp-service.c:1358 ../src/nm-l2tp-service.c:1383
 msgid "Could not start the ipsec service."
@@ -426,8 +432,9 @@ msgid "Could not restart the ipsec service."
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:1502
+#, fuzzy
 msgid "Could not find the xl2tpd binary."
-msgstr ""
+msgstr "Не ўдалося знайсці двайковы файл \"openvpn\"."
 
 #: ../src/nm-l2tp-service.c:1589
 msgid "Missing or invalid VPN user certificate password."
@@ -435,11 +442,11 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1606
 msgid "Missing VPN username."
-msgstr "VPN ユーザー名がありません。"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1615
 msgid "Missing or invalid VPN password."
-msgstr "VPN パスワードが不足しているか、無効です。"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1719
 msgid "couldn't convert L2TP VPN gateway IP address."
@@ -466,38 +473,42 @@ msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:1797
+#, fuzzy
 msgid "could not retrieve connection UUID"
-msgstr ""
+msgstr "Не ўдалося знайсці двайковы файл \"openvpn\"."
 
 #: ../src/nm-l2tp-service.c:1805
 msgid "Invalid or missing L2TP gateway."
-msgstr "L2TP ゲートウェイが無効か不足しています。"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:2133
+#, fuzzy
 msgid "Don't quit when VPN connection terminates"
-msgstr "VPN 接続が切断された時に終了しないでください。"
+msgstr "Не заканчваць працу пры разрыве VPN-злучэння"
 
 #: ../src/nm-l2tp-service.c:2134
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr "詳細なデバッグ情報の保存を有効にする (パスワードも含まれます)"
+msgstr ""
+"Уключыць падрабязнае адладачнае журналіраванне (гэта можа выявіць паролі)"
 
 #: ../src/nm-l2tp-service.c:2135
 msgid "D-Bus name to use for this instance"
-msgstr "このインスタンスの D-Bus 名"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:2156
+#, fuzzy
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
-msgstr ""
+msgstr "NetworkManager-l2tp-service забяспечвае інтэграцыю OpenVPN з NetworkManager."
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
 msgid "General"
-msgstr "全般"
+msgstr "Агульнае"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Gateway:"
-msgstr "ゲートウェイ(_G):"
+msgstr "Сеткавая _брама:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:3
 msgid ""
@@ -506,8 +517,9 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
+#, fuzzy
 msgid "User Authentication"
-msgstr "ユーザ認証"
+msgstr "TLS-ідэнтыфікацыя"
 
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
@@ -516,8 +528,9 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:7
+#, fuzzy
 msgid "Sho_w password"
-msgstr "パスワードを表示(_W)"
+msgstr "Паказваць пароль"
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Password passed to PPPD when prompted for it."
@@ -534,27 +547,28 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "User name:"
-msgstr "ユーザー名:"
+msgstr "Імя карыстальніка:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:14
 msgid "Password:"
-msgstr "パスワード:"
+msgstr "Пароль:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:15
 msgid "NT Domain:"
-msgstr "NT ドメイン:"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
 msgid "CA Certificate:"
-msgstr "CA 証明書:"
+msgstr "Сертыфікат цэнтра (CA):"
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "Certificate authority (CA) file in PEM, DER or PKCS#12 format"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
+#, fuzzy
 msgid "Certificate:"
-msgstr "証明書："
+msgstr "Сертыфікат цэнтра (CA):"
 
 #: ../properties/nm-l2tp-dialog.ui.h:19
 msgid "Certificate file in PEM, DER or PKCS#12 format"
@@ -562,7 +576,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "Private Key:"
-msgstr "秘密鍵:"
+msgstr "Прыватны ключ:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Private Key in PEM, DER or PKCS#8 format"
@@ -570,19 +584,21 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:22
 msgid "Private Key Password:"
-msgstr "秘密鍵のパスワード:"
+msgstr "Пароль да прыватнага ключа:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:23
+#, fuzzy
 msgid "Password for private key or PCKS#12 certificate"
-msgstr ""
+msgstr "Выберыце свой прыватны ключ..."
 
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Type:"
-msgstr "タイプ:"
+msgstr "Тып:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:25
+#, fuzzy
 msgid "Select an authentication mode."
-msgstr "認証モードを選択肢てください。"
+msgstr "TLS-ідэнтыфікацыя"
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid "_IPsec Settings..."
@@ -605,8 +621,9 @@ msgid "config: ipsec-enabled"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
+#, fuzzy
 msgid "Machine Authentication"
-msgstr "コンピュータ認証"
+msgstr "TLS-ідэнтыфікацыя"
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
 msgid ""
@@ -624,7 +641,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid "Phase2 Algorithms:"
-msgstr "フェーズ2 アルゴリズム:"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:37
 msgid ""
@@ -642,7 +659,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:41
 msgid "Phase1 Algorithms:"
-msgstr "フェーズ1 アルゴリズム:"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:42
 msgid ""
@@ -672,8 +689,9 @@ msgid "Phase_2 Lifetime:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:49
+#, fuzzy
 msgid "Remote ID:"
-msgstr "リモート ID："
+msgstr "Аддалены IP-адрас:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:50
 msgid ""
@@ -697,8 +715,9 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:56
+#, fuzzy
 msgid "Use IP c_ompression"
-msgstr ""
+msgstr "Выкарыстоўваць LZO-_сцісканне"
 
 #: ../properties/nm-l2tp-dialog.ui.h:57
 msgid ""
@@ -729,24 +748,27 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:65
+#, fuzzy
 msgid "Ad_vanced"
-msgstr "高度な(_V)"
+msgstr "_Адмысловыя настройкі..."
 
 #: ../properties/nm-l2tp-dialog.ui.h:66
 msgid "Default"
-msgstr "デフォルト"
+msgstr "Прадвызначаны"
 
 #: ../properties/nm-l2tp-dialog.ui.h:67
 msgid "L2TP PPP Options"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:68
+#, fuzzy
 msgid "Authentication"
-msgstr "認証"
+msgstr "TLS-ідэнтыфікацыя"
 
 #: ../properties/nm-l2tp-dialog.ui.h:69
+#, fuzzy
 msgid "Allow the following authentication methods:"
-msgstr "次の認証方式を許可します。"
+msgstr "TLS-ідэнтыфікацыя"
 
 #: ../properties/nm-l2tp-dialog.ui.h:70
 msgid ""
@@ -755,12 +777,13 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:72
+#, fuzzy
 msgid "Security and Compression"
-msgstr "暗号化と圧縮"
+msgstr "Выкарыстоўваць LZO-_сцісканне"
 
 #: ../properties/nm-l2tp-dialog.ui.h:73
 msgid "Use _Point-to-Point encryption (MPPE)"
-msgstr "MPPE 暗号を使用する(_P)"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:74
 msgid ""
@@ -768,13 +791,11 @@ msgid ""
 "To enable this checkbox, select one or more of the MSCHAP authentication "
 "methods: MSCHAP or MSCHAPv2."
 msgstr ""
-"注: MPPE 暗号は、MSCHAP 認証方式でのみ利用可能です。このチェックボックスを有"
-"効にするには、MSCHAP 認証方式である MSCHAP または MSCHAPv2 のいずれか、または"
-"複数を選択してください。"
 
 #: ../properties/nm-l2tp-dialog.ui.h:75
+#, fuzzy
 msgid "_Security:"
-msgstr "セキュリティ(_S):"
+msgstr "Бяспека"
 
 #: ../properties/nm-l2tp-dialog.ui.h:76
 msgid ""
@@ -784,7 +805,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:78
 msgid "Allow st_ateful encryption"
-msgstr "ステートフル暗号を許可する(_A)"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:79
 msgid ""
@@ -793,8 +814,9 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:81
+#, fuzzy
 msgid "Allow _BSD data compression"
-msgstr "BSD データ圧縮を許可する(_B)"
+msgstr "Выкарыстоўваць LZO-_сцісканне"
 
 #: ../properties/nm-l2tp-dialog.ui.h:82
 msgid ""
@@ -803,8 +825,9 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:84
+#, fuzzy
 msgid "Allow _Deflate data compression"
-msgstr "デフレート圧縮を許可する(_D)"
+msgstr "Выкарыстоўваць LZO-_сцісканне"
 
 #: ../properties/nm-l2tp-dialog.ui.h:85
 msgid ""
@@ -814,7 +837,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:87
 msgid "Use TCP _header compression"
-msgstr "TCP ヘッダー圧縮を使用する(_H)"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:88
 msgid ""
@@ -846,11 +869,11 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:96
 msgid "Echo"
-msgstr "Echo"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:97
 msgid "Send PPP _echo packets"
-msgstr "PPP Echo パケットを送信する(_E)"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:98
 msgid ""
@@ -869,3 +892,344 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:102
 msgid "MRU :"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Authentication required"
+#~ msgstr "TLS-ідэнтыфікацыя"
+
+#, fuzzy
+#~ msgid "HTTP proxy password"
+#~ msgstr "Пароль да проксі-сервера:"
+
+#, fuzzy
+#~ msgid "_HTTP proxy password:"
+#~ msgstr "Пароль да проксі-сервера:"
+
+#, fuzzy
+#~ msgid "invalid option"
+#~ msgstr "Хібны тып злучэння."
+
+#, fuzzy
+#~ msgid "The file to import wasn’t a valid OpenVPN client configuration"
+#~ msgstr "Няма опцый настройкі VPN."
+
+#, fuzzy
+#~ msgid "connection is not a valid OpenVPN connection"
+#~ msgstr "Няма опцый настройкі VPN."
+
+#~ msgid "OpenVPN"
+#~ msgstr "OpenVPN"
+
+#, fuzzy
+#~ msgid "Choose an OpenVPN static key…"
+#~ msgstr "Выберыце статычны ключ OpenVPN..."
+
+#~ msgid "None"
+#~ msgstr "Нічога"
+
+#~ msgid "OpenVPN Static Keys (*.key)"
+#~ msgstr "Статычныя ключы OpenVPN (*.key)"
+
+#~ msgid "RSA MD-4"
+#~ msgstr "RSA MD-4"
+
+#~ msgid "MD-5"
+#~ msgstr "MD-5"
+
+#~ msgid "SHA-1"
+#~ msgstr "SHA-1"
+
+#~ msgid "SHA-224"
+#~ msgstr "SHA-224"
+
+#~ msgid "SHA-256"
+#~ msgstr "SHA-256"
+
+#~ msgid "SHA-384"
+#~ msgstr "SHA-384"
+
+#~ msgid "SHA-512"
+#~ msgstr "SHA-512"
+
+#~ msgid "RIPEMD-160"
+#~ msgstr "RIPEMD-160"
+
+#~ msgid "Not required"
+#~ msgstr "Не патрабуецца"
+
+#~ msgid "HTTP"
+#~ msgstr "HTTP"
+
+#~ msgid "SOCKS"
+#~ msgstr "SOCKS"
+
+#~ msgid "Password with Certificates (TLS)"
+#~ msgstr "Пароль з сертыфікатамі (TLS)"
+
+#~ msgid "Static Key"
+#~ msgstr "Статычны ключ"
+
+#, fuzzy
+#~ msgid "invalid port"
+#~ msgstr "Хібны тып проксі-сервера \"%s\"."
+
+#, fuzzy
+#~ msgid "invalid protocol"
+#~ msgstr "Хібны тып проксі-сервера \"%s\"."
+
+#, fuzzy
+#~ msgid "invalid address “%s”"
+#~ msgstr "хібны адрас \"%s\""
+
+#, fuzzy
+#~ msgid "A private key password is required."
+#~ msgstr "Пароль да прыватнага ключа:"
+
+#~ msgid ""
+#~ "Could not process the request because the VPN connection settings were "
+#~ "invalid."
+#~ msgstr ""
+#~ "Не ўдалося апрацаваць запыт, таму што настройкі VPN-злучэння былі хібныя."
+
+#~ msgid "Invalid connection type."
+#~ msgstr "Хібны тып злучэння."
+
+#, fuzzy
+#~ msgid "Invalid port number “%s”."
+#~ msgstr "Хібны нумар порта \"%s\"."
+
+#, fuzzy
+#~ msgid "Invalid proto “%s”."
+#~ msgstr "Хібны тып проксі-сервера \"%s\"."
+
+#, fuzzy
+#~ msgid "Invalid proxy type “%s”."
+#~ msgstr "Хібны тып проксі-сервера \"%s\"."
+
+#, fuzzy
+#~ msgid "Invalid ping duration “%s”."
+#~ msgstr "Хібны тып проксі-сервера \"%s\"."
+
+#, fuzzy
+#~ msgid "Invalid connect timeout “%s”."
+#~ msgstr "Хібны тып злучэння."
+
+#, fuzzy
+#~ msgid "Invalid keysize “%s”."
+#~ msgstr "Хібны памер фрагмента \"%s\"."
+
+#, fuzzy
+#~ msgid "Invalid reneg seconds “%s”."
+#~ msgstr "Хібная колькасць секундаў \"%s\" для перагляду ўмоў сеанса."
+
+#, fuzzy
+#~ msgid "Invalid TUN MTU size “%s”."
+#~ msgstr "Хібны памер TUN MTU \"%s\"."
+
+#, fuzzy
+#~ msgid "Invalid fragment size “%s”."
+#~ msgstr "Хібны памер фрагмента \"%s\"."
+
+#, fuzzy
+#~ msgid "Unknown connection type “%s”."
+#~ msgstr "Невядомы тып злучэння \"%s\"."
+
+#, fuzzy
+#~ msgid "Unhandled pending authentication."
+#~ msgstr "Выкарыстоўваць дадатковую TLS-ідэнтыфікацыю"
+
+#~ msgid "Local IP Address:"
+#~ msgstr "Мясцовы IP-адрас:"
+
+#, fuzzy
+#~ msgid "Key Direction:"
+#~ msgstr "Кірунак ключа:"
+
+#~ msgid "Static Key:"
+#~ msgstr "Статычны ключ:"
+
+#, fuzzy
+#~ msgid ""
+#~ "Direction for Static Key encryption mode (non-TLS).\n"
+#~ "If key direction is used, it must be the opposite of that used on the VPN "
+#~ "peer. For example, if the peer uses “1”, this connection must use “0”. If "
+#~ "you are unsure what value to use, contact your system administrator.\n"
+#~ "config: static <file> [direction]"
+#~ msgstr ""
+#~ "<i>Калі выкарыстоўваецца кірунак ключа, ён павінен быць супрацьлеглы "
+#~ "кірунку, які выкарыстоўваецца з другога боку злучэння. Напрыклад, калі з "
+#~ "другога боку выкарыстоўваецца \"1\", то гэта злучэнне павінна "
+#~ "выкарыстоўваць \"0\". Калі вы не ўпэўнены, якое значэнне выкарыстаць, "
+#~ "звярніцеся да сістэмнага адміністратара.</i>"
+
+#~ msgid "OpenVPN Advanced Options"
+#~ msgstr "Адмысловыя опцыі OpenVPN"
+
+#~ msgid "Use custom gateway p_ort:"
+#~ msgstr "Выкарыстоўваць уласны порт сеткавай _брамы:"
+
+#~ msgid "Use custom _renegotiation interval:"
+#~ msgstr "_Выкарыстоўваць уласны інтэрвал перагляду ўмоў сеанса:"
+
+#~ msgid "Use a _TCP connection"
+#~ msgstr "Выкарыстоўваць TCP-_злучэнне"
+
+#~ msgid "Use custom tunnel Maximum Transmission _Unit (MTU):"
+#~ msgstr ""
+#~ "Выкарыстоўваць уласны _максімальны памер элемента перадачы тунэлем (MTU):"
+
+#~ msgid "Use custom UDP _fragment size:"
+#~ msgstr "Выкарыстоўваць у_ласны памер UDP-фрагмента:"
+
+#~ msgid "Restrict tunnel TCP Maximum _Segment Size (MSS)"
+#~ msgstr "Абмежаваць максімальны памер TCP-сегмента тунэля (MSS)"
+
+#~ msgid "Ci_pher:"
+#~ msgstr "Шыфр:"
+
+#~ msgid "_HMAC Authentication:"
+#~ msgstr "HMAC-ідэнтыфікацыя:"
+
+#~ msgid "_Subject Match:"
+#~ msgstr "Адпаведнасць атрымальніка:"
+
+#, fuzzy
+#~ msgid "Server _Certificate Check:"
+#~ msgstr "Сертыфікат карыстальніка:"
+
+#~ msgid "Key _Direction:"
+#~ msgstr "Кірунак ключа:"
+
+#, fuzzy
+#~ msgid ""
+#~ "Direction parameter for static key mode.\n"
+#~ "If key direction is used, it must be the opposite of that used on the VPN "
+#~ "peer. For example, if the peer uses “1”, this connection must use “0”. If "
+#~ "you are unsure what value to use, contact your system administrator.\n"
+#~ "config: tls-auth <file> [direction]"
+#~ msgstr ""
+#~ "<i>Калі выкарыстоўваецца кірунак ключа, ён павінен быць супрацьлеглы "
+#~ "кірунку, які выкарыстоўваецца з другога боку злучэння. Напрыклад, калі з "
+#~ "другога боку выкарыстоўваецца \"1\", то гэта злучэнне павінна "
+#~ "выкарыстоўваць \"0\". Калі вы не ўпэўнены, якое значэнне выкарыстаць, "
+#~ "звярніцеся да сістэмнага адміністратара.</i>"
+
+#~ msgid "Key _File:"
+#~ msgstr "Файл ключа:"
+
+#, fuzzy
+#~ msgid "Add an additional layer of encryption or HMAC authentication."
+#~ msgstr "Выкарыстоўваць дадатковую TLS-ідэнтыфікацыю"
+
+#, fuzzy
+#~ msgid "Extra Certificates:"
+#~ msgstr "Сертыфікат карыстальніка:"
+
+#, fuzzy
+#~ msgid "Additional TLS authentication or encryption"
+#~ msgstr "Выкарыстоўваць дадатковую TLS-ідэнтыфікацыю"
+
+#~ msgid "TLS Authentication"
+#~ msgstr "TLS-ідэнтыфікацыя"
+
+#~ msgid "Proxy _Type:"
+#~ msgstr "Тып проксі-сервера:"
+
+#~ msgid ""
+#~ "<i>Select this option if your organization requires the use of a proxy "
+#~ "server to access the Internet.</i>"
+#~ msgstr ""
+#~ "<i>Выберыце гэтую опцыю, калі ваша ўстанова патрабуе выкарыстоўваць "
+#~ "проксі-сервер для доступу да Інтэрнэту.</i>"
+
+#~ msgid "Server _Address:"
+#~ msgstr "Адрас сервера:"
+
+#~ msgid "_Port:"
+#~ msgstr "Порт:"
+
+#, fuzzy
+#~ msgid "_Retry indefinitely when errors occur"
+#~ msgstr "Пры памылках паўтараць бясконца"
+
+#~ msgid "Proxy _Username:"
+#~ msgstr "Імя карыстальніка на проксі-серверы:"
+
+#~ msgid "Proxy Passwor_d:"
+#~ msgstr "Пароль да проксі-сервера:"
+
+#~ msgid "Proxies"
+#~ msgstr "Проксі-серверы"
+
+#, fuzzy
+#~ msgid "Authenticate VPN %s"
+#~ msgstr "Ідэнтыфікацыя VPN"
+
+#~ msgid "Saved"
+#~ msgstr "Захаваны"
+
+#~ msgid "Always Ask"
+#~ msgstr "Заўсёды пытацца"
+
+#~ msgid "Not Required"
+#~ msgstr "Не патрабуецца"
+
+#~ msgid "PEM certificates (*.pem, *.crt, *.key, *.cer)"
+#~ msgstr "Сертыфікаты PEM (*.pem, *.crt, *.key, *.cer)"
+
+#~ msgid " "
+#~ msgstr " "
+
+#~ msgid "<b>General</b>"
+#~ msgstr "<b>Агульнае</b>"
+
+#~ msgid "<b>Authentication</b>"
+#~ msgstr "<b>Ідэнтыфікацыя</b>"
+
+#~ msgid "_Show passwords"
+#~ msgstr "Паказваць паролі"
+
+#~ msgid ""
+#~ "<i>Connect only to servers whose certificate matches the given subject.\n"
+#~ "Example: /CN=myvpn.company.com</i>"
+#~ msgstr ""
+#~ "<i>Злучацца толькі з серверамі, чые сертыфікаты маюць адпаведнае значэнне "
+#~ "ў графе атрымальніка.\n"
+#~ "Напрыклад: /CN=myvpn.company.com</i>"
+
+#~ msgid "Invalid HMAC auth."
+#~ msgstr "Хібная HMAC-ідэнтыфікацыя."
+
+#~ msgid "Missing required local IP address for static key mode."
+#~ msgstr ""
+#~ "Адсутнічае патрэбны мясцовы IP-адрас для рэжыму са статычным ключом."
+
+#~ msgid "Missing required remote IP address for static key mode."
+#~ msgstr ""
+#~ "Адсутнічае патрэбны аддалены IP-адрас для рэжыму са статычным ключом."
+
+#, fuzzy
+#~ msgid ""
+#~ "Could not process the request because the openvpn connection type was "
+#~ "invalid."
+#~ msgstr ""
+#~ "Не ўдалося апрацаваць запыт, таму што настройкі VPN-злучэння былі хібныя."
+
+#~ msgid "_Password:"
+#~ msgstr "_Пароль:"
+
+#~ msgid "_Secondary Password:"
+#~ msgstr "_Дадатковы пароль:"
+
+#~ msgid "Sh_ow passwords"
+#~ msgstr "_Паказваць паролі"
+
+#~ msgid "Use a TA_P device"
+#~ msgstr "Выкарыстоўваць TAP-_прыстасаванне"
+
+#~ msgid "No VPN secrets!"
+#~ msgstr "Няма сакрэтных ключоў VPN!"
+
+#~ msgid "Could not process the request because no username was provided."
+#~ msgstr ""
+#~ "Не ўдалося апрацаваць запыт, таму што не было пададзена імя карыстальніка."

@@ -2,7 +2,7 @@
 # Copyright © 2007, 2009 NetworkManager-l2tp
 # This file is distributed under the same license as the NetworkManager-l2tp package.
 # Duarte Loreto <happyguy_pt@hotmail.com>, 2007.
-# Filipe Gomes <filipefgomes@gmail.com>, 2009, 2010, 2012.
+# Filipe Gomes <filipefgomes@gmail.com>, 2009, 2010, 2011.
 # Pedro Albuquerque <palbuquerque73@gmail.com>, 2015.
 #
 msgid ""
@@ -10,15 +10,18 @@ msgstr ""
 "Project-Id-Version: 2.26\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2015-11-13 08:44+0000\n"
-"Last-Translator:  <>\n"
-"Language-Team: Portuguese <gnome_pt@yahoogroups.com>\n"
+"PO-Revision-Date: 2015-11-13 08:24+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: Pedro Albuquerque\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Gtranslator 2.91.6\n"
+"X-Project-Style: gnome\n"
+"X-Language: pt_PT\n"
+"X-Source-Language: C\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
 msgid "L2TP VPN Client"
@@ -473,7 +476,7 @@ msgstr "Não sair quando a ligaçãp VPN termina"
 
 #: ../src/nm-l2tp-service.c:2134
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr "Ativar depurador descritivo (pode expor senhas)"
+msgstr "Ativar diário de depuração verboso (pode expor senhas)"
 
 #: ../src/nm-l2tp-service.c:2135
 msgid "D-Bus name to use for this instance"
@@ -528,7 +531,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "User name:"
-msgstr "Utilizador:"
+msgstr "Nome de utilizador:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:14
 msgid "Password:"

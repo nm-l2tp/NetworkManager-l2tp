@@ -1,12 +1,12 @@
-# translation of NetworkManager-l2tp.HEAD.po to Georgian
-# Malkhaz Barkalaya მალზახ ბარკალაია <malxaz@gmail.com>, 2007.
+# translation of NetworkManager-l2tp.master.po to Georgian
 # Vladimer Sichinava ვლადიმერ სიჭინავა <vsichi@gnome.org>, 2007.
+# Malkhaz Barkalaya მალზახ ბარკალაია <malxaz@gmail.com>
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-l2tp.HEAD\n"
+"Project-Id-Version: NetworkManager-l2tp.master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2007-03-07 01:12+0100\n"
+"PO-Revision-Date: 2007-03-07 01:02+0100\n"
 "Last-Translator: Vladimer Sichinava ვლადიმერ სიჭინავა <vsichi@gnome.org>\n"
 "Language-Team: Georgian <http://mail.gnome.org/mailman/listinfo/gnome-ge-"
 "list>\n"
@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0\n"
 "X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
 msgid "L2TP VPN Client"
@@ -47,7 +47,7 @@ msgstr ""
 
 #: ../auth-dialog/main.c:159 ../auth-dialog/main.c:218
 msgid "Authenticate VPN"
-msgstr "VPN-აუთენტიკაცია"
+msgstr "VPN-ავტორიზაცია"
 
 #: ../auth-dialog/main.c:164 ../properties/nm-l2tp-editor.c:665
 msgid "Password"
@@ -525,10 +525,6 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "User name:"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:14
-msgid "Password:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:15

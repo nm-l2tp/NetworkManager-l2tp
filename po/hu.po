@@ -1,23 +1,24 @@
-# Hungarian translation of network-manager-l2tp
-# Copyright (C) 2006-2016 Free Software Foundation, Inc.
-# This file is distributed under the same license as the network-manager-l2tp package.
+# Hungarian translation for NetworkManager-l2tp.
+# Copyright (C) 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018 The Free Software Foundation, Inc.
+# This file is distributed under the same license as the NetworkManager-l2tp package.
 #
-# Gabor Kelemen <kelemeng at gnome dot hu>, 2006, 2007, 2008, 2010, 2012, 2015, 2016.
+# Gabor Halaszvari <g.halaszvari at portmax dot hu>, 2006.
+# Gabor Kelemen <kelemeng at gnome dot hu>, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2015, 2016, 2017, 2018.
 # Mate Ory <orymate at ubuntu dot com>, 2011.
-# Balázs Úr <urbalazs at gmail dot com>, 2015, 2016.
+# Balázs Úr <urbalazs at gmail dot com>, 2014, 2015, 2016, 2018.
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-l2tp master\n"
+"Project-Id-Version: NetworkManager-l2tp master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2016-10-04 12:17+0200\n"
-"Last-Translator: Meskó Balázs <meskobalazs@gmail.com>\n"
-"Language-Team: Hungarian <openscope at gmail dot com>\n"
+"PO-Revision-Date: 2019-04-25 21:51+0200\n"
+"Last-Translator: Meskó Balázs <mesko.balazs@fsf.hu>\n"
+"Language-Team: Hungarian <openscope at googlegroups dot com>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 2.2.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
@@ -50,7 +51,7 @@ msgstr ""
 
 #: ../auth-dialog/main.c:159 ../auth-dialog/main.c:218
 msgid "Authenticate VPN"
-msgstr "VPN-hitelesítés"
+msgstr "VPN azonosítás"
 
 #: ../auth-dialog/main.c:164 ../properties/nm-l2tp-editor.c:665
 msgid "Password"
@@ -293,28 +294,26 @@ msgstr "a(z) „%s” objektumosztálynak nincs „%s” nevű tulajdonsága"
 #: ../shared/nm-utils/nm-shared-utils.c:1157
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr "a(z) „%2$s” objektumosztály „%1$s” tulajdonsága nem írható"
+msgstr "„%2$s” osztály „%1$s” tulajdonsága nem írható"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1164
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
-"a(z) „%2$s” objektum „%1$s” konstrukciós tulajdonsága nem állítható be a "
-"létrehozás után"
+"„%2$s” objektum „%1$s” konstuktortulajdonsága nem állítható be a létrehozás "
+"után"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
-msgstr ""
-"a(z) „%s::%s” érvénytelen tulajdonságnév; a(z) „%s” nem GObject altípus"
+msgstr "„%s::%s” nem érvényes tulajdonságnév, „%s” nem egy GObject résztípus"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1181
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
 msgstr ""
-"a(z) „%2$s” típus „%1$s” tulajdonság beállítása nem lehetséges a(z) „%3$s” "
-"típusú értékből"
+"nem állítható be „%2$s” típusú „%1$s” tulajdonság „%3$s” típusú értékre"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1192
 #, c-format
@@ -322,32 +321,32 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
-"a(z) „%2$s” típus „%1$s” értéke érvénytelen, vagy kívül esik a(z) „%4$s” "
-"típus „%3$s” tulajdonságának tartományán"
+"a(z) „%2$s” típusú „%1$s” érték érvénytelen vagy kívül esik a tartományon "
+"„%4$s” típusú „%3$s” tulajdonsághoz"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:53
 #, c-format
 msgid "unable to get editor plugin name: %s"
-msgstr "nem lehet lekérni a szerkesztőbővítmény nevét: %s"
+msgstr "a szerkesztőbővítmény neve nem kérhető le: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:87
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr "hiányzó bővítmény fájl: „%s”"
+msgstr "hiányzó bővítményfájl: „%s”"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:93
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr "nem tölthető be a szerkesztő bővítmény: %s"
+msgstr "nem tölthető be a szerkesztőbővítmény: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:102
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr "nem tölthető be a(z) %s gyár a bővítményből: %s"
+msgstr "nem tölthető be a(z) %s factory a bővítményből: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:128
 msgid "unknown error creating editor instance"
-msgstr "ismeretlen hiba a szerkesztő példány létrehozásakor"
+msgstr "ismeretlen hiba a szerkesztőpéldány létrehozásakor"
 
 #: ../src/nm-l2tp-service.c:292
 #, c-format
@@ -486,7 +485,7 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:2135
 msgid "D-Bus name to use for this instance"
-msgstr "Ehhez a példányhoz használandó D-Bus név"
+msgstr "A példányhoz használandó D-Bus név"
 
 #: ../src/nm-l2tp-service.c:2156
 msgid ""

@@ -1,14 +1,14 @@
-# Chinese (Hong Kong) translation of Network Manager.
-# Copyright (C) 2005 Free Software Foundation, Inc.
-# Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>, 2008, 2009.
+# Chinese (Hong Kong) translation of NetworkManager-l2tp.
+# Copyright (C) 2007 Free Software Foundation, Inc.
+# Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>, 2007, 2009.
 # Wei-Lun Chao <chaoweilun@gmail.com>, 2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Network Manager-l2tp 0.8.1\n"
+"Project-Id-Version: NetworkManager-l2tp 0.8.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2011-01-25 19:41+0800\n"
+"PO-Revision-Date: 2011-01-25 19:37+0800\n"
 "Last-Translator: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>\n"
 "Language-Team: Chinese (Hong Kong) <community@linuxhall.org>\n"
 "Language: zh_HK\n"
@@ -556,10 +556,6 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Private Key in PEM, DER or PKCS#8 format"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:22
-msgid "Private Key Password:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:23

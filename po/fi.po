@@ -1,16 +1,17 @@
 # Finnish messages for NetworkManager-l2tp.
-# Copyright (C) 2006-2008 Ilkka Tuohela
-# Ilkka Tuohela <hile@iki.fi>, 2006-2008.
+# Copyright (C) 2006-2008 Free Software Foundation.
 #
 # Suomennos: https://l10n.gnome.org/teams/fi/
-# Jiri Grönroos <jiri.gronroos+l10n@iki.fi>, 2013.
+#
+# Ilkka Tuohela <hile@iki.fi>, 2006-2008.
+# Jiri Grönroos <jiri.gronroos+l10n@iki.fi>, 2012, 2013, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2013-09-22 19:48+0300\n"
+"PO-Revision-Date: 2020-09-09 18:53+0300\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <gnome-fi-laatu@lists.sourceforge.net>\n"
 "Language: fi\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"X-Generator: Poedit 2.4.1\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
 msgid "L2TP VPN Client"
@@ -50,7 +51,7 @@ msgstr ""
 
 #: ../auth-dialog/main.c:159 ../auth-dialog/main.c:218
 msgid "Authenticate VPN"
-msgstr "Todenna VPN-yhteys"
+msgstr "Todenna VPN-yhteyden avaus"
 
 #: ../auth-dialog/main.c:164 ../properties/nm-l2tp-editor.c:665
 msgid "Password"
@@ -736,7 +737,7 @@ msgstr "L2TP:n PPP-valinnat"
 
 #: ../properties/nm-l2tp-dialog.ui.h:68
 msgid "Authentication"
-msgstr "Todentaminen"
+msgstr "Tunnistautuminen"
 
 #: ../properties/nm-l2tp-dialog.ui.h:69
 msgid "Allow the following authentication methods:"

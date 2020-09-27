@@ -1,4 +1,4 @@
-# translation of NetworkManager-l2tp.HEAD.ar.po to Arabic
+# translation of NetworkManager-l2tp.master.ar.po to Arabic
 # Arabic translations for PACKAGE package.
 # Copyright (C) 2006 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Project\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-27 15:06+1000\n"
-"PO-Revision-Date: 2007-12-26 09:09+0100\n"
+"PO-Revision-Date: 2007-12-26 09:06+0100\n"
 "Last-Translator: Djihed Afifi <djihed@gmail.com>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
 "Language: ar\n"
@@ -137,10 +137,6 @@ msgstr ""
 
 #: ../properties/ipsec-dialog.c:559
 msgid "Pre-shared key (PSK)"
-msgstr ""
-
-#: ../properties/ipsec-dialog.c:568 ../properties/nm-l2tp-editor.c:674
-msgid "Certificates (TLS)"
 msgstr ""
 
 #: ../properties/nm-l2tp-editor.c:404
@@ -540,10 +536,6 @@ msgstr "كلمة المرور:"
 msgid "NT Domain:"
 msgstr "مجال NT:"
 
-#: ../properties/nm-l2tp-dialog.ui.h:16
-msgid "CA Certificate:"
-msgstr ""
-
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "Certificate authority (CA) file in PEM, DER or PKCS#12 format"
 msgstr ""
@@ -562,10 +554,6 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Private Key in PEM, DER or PKCS#8 format"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:22
-msgid "Private Key Password:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:23
