@@ -94,8 +94,8 @@ if (printf '%s' "$with_nm_ipsec_secrets_dir" | grep -v -q '^/'); then
 fi
 AC_DEFINE_UNQUOTED(NM_IPSEC_SECRETS_DIR, "$with_nm_ipsec_secrets_dir", [IPSec secret dir])
 
-AC_ARG_WITH(nm-ipsec-nss-dir, AS_HELP_STRING([--with-nm-ipsec-nss-dir=path], [The directory where Libreswan's NSS db is stored, defaults to /etc/ipsec.d/]), [], [with_nm_ipsec_nss_dir=])
-AS_IF([test -z "$with_nm_ipsec_nss_dir"], with_nm_ipsec_nss_dir="/etc/ipsec.d")
+AC_ARG_WITH(nm-ipsec-nss-dir, AS_HELP_STRING([--with-nm-ipsec-nss-dir=path], [The directory where Libreswan's NSS db is stored, defaults to /var/lib/ipsec/nss/]), [], [with_nm_ipsec_nss_dir=])
+AS_IF([test -z "$with_nm_ipsec_nss_dir"], with_nm_ipsec_nss_dir="/var/lib/ipsec/nss")
 if (printf '%s' "$with_nm_ipsec_nss_dir" | grep -v -q '^/'); then
 	AC_MSG_ERROR([--with-nm-ipsec-nss-dir must be an absolute path, instead it is '$with_nm_ipsec_nss_dir'])
 fi
