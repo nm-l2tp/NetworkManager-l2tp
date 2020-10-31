@@ -275,6 +275,7 @@ static void
 update_tls (GtkBuilder *builder, NMSettingVpn *s_vpn)
 {
 	GtkWidget *widget;
+	NMSettingSecretFlags pw_flags;
 	const char *str;
 
 	g_return_if_fail (builder != NULL);
@@ -286,11 +287,12 @@ update_tls (GtkBuilder *builder, NMSettingVpn *s_vpn)
 
 	/* Password */
 	widget = (GtkWidget *) gtk_builder_get_object (builder, "user_tls_key_pw_entry");
-	g_assert (widget);
-
 	str = gtk_entry_get_text (GTK_ENTRY (widget));
 	if (str && str[0])
 		nm_setting_vpn_add_secret (s_vpn, NM_L2TP_KEY_USER_CERTPASS, str);
+	pw_flags = nma_utils_menu_to_secret_flags (widget);
+	nm_setting_set_secret_flags (NM_SETTING (s_vpn), NM_L2TP_KEY_USER_CERTPASS, pw_flags, NULL);
+
 }
 
 static void
