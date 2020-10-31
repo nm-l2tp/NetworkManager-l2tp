@@ -794,7 +794,7 @@ ipsec_dialog_new_hash_from_dialog (GtkWidget *dialog, GError **error)
 		                     g_strdup (value));
 	}
 
-	pw_flags = nma_utils_menu_to_secret_flags (widget);;
+	pw_flags = nma_utils_menu_to_secret_flags (widget);
 	if (pw_flags != NM_SETTING_SECRET_FLAG_NONE) {
 		g_hash_table_insert (hash,
 		                     g_strdup (NM_L2TP_KEY_MACHINE_CERTPASS"-flags"),
