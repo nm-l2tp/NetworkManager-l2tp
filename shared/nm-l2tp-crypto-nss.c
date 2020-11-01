@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: LGPL-2.1+
 /*
- * Copyright (C) 2018 - 2019 Douglas Kosovic, <doug@uq.edu.au>
+ * Copyright (C) 2018 - 2020 Douglas Kosovic, <doug@uq.edu.au>
  */
 
 #include <stdio.h>
@@ -38,6 +38,16 @@ crypto_init_nss (const char *db_dir, GError **error)
 	if (initialized)
 		return TRUE;
 
+	if (!g_file_test (db_dir, G_FILE_TEST_IS_DIR)) {
+		if (error != NULL) {
+			g_set_error (error, NM_CRYPTO_ERROR,
+			             NM_CRYPTO_ERROR_FAILED,
+			             _("Libreswan NSS database directory \"%s\" does not exist."),
+			             db_dir);
+		}
+		return FALSE;
+	}
+
 	PR_Init (PR_USER_THREAD, PR_PRIORITY_NORMAL, 1);
 
 	configdir = g_strconcat ("sql:", db_dir, NULL);
@@ -56,19 +66,23 @@ crypto_init_nss (const char *db_dir, GError **error)
 	slot = PK11_GetInternalKeySlot ();
 	if (slot) {
 		if (PK11_NeedUserInit (slot)) {
-			g_set_error (error, NM_CRYPTO_ERROR,
-			             NM_CRYPTO_ERROR_FAILED,
-			             _("Libreswan NSS database \"%s\" is not initialized."),
-			             configdir);
+			if (error != NULL) {
+				g_set_error (error, NM_CRYPTO_ERROR,
+				             NM_CRYPTO_ERROR_FAILED,
+				             _("Libreswan NSS database \"%s\" is not initialized."),
+				             configdir);
+			}
 			PK11_FreeSlot (slot);
 			return FALSE;
 		} else if (PK11_IsFIPS () || PK11_NeedLogin (slot)) {
 			nsspassword_file = g_strconcat (db_dir, "/nsspassword", NULL);
 			if (!g_file_test (nsspassword_file, G_FILE_TEST_EXISTS)) {
-				g_set_error (error, NM_CRYPTO_ERROR,
-				             NM_CRYPTO_ERROR_FAILED,
-				             _("Libreswan NSS password file \"%s\" does not exist."),
-				             nsspassword_file);
+				if (error != NULL) {
+					g_set_error (error, NM_CRYPTO_ERROR,
+					             NM_CRYPTO_ERROR_FAILED,
+					             _("Libreswan NSS password file \"%s\" does not exist."),
+					             nsspassword_file);
+				}
 				PK11_FreeSlot (slot);
 				return FALSE;
 			}
@@ -76,11 +90,13 @@ crypto_init_nss (const char *db_dir, GError **error)
 			ret = PK11_Authenticate (slot, PR_FALSE, NULL);
 			if (ret != SECSuccess) {
 				token = PK11_GetTokenName (slot);
-				g_set_error (error, NM_CRYPTO_ERROR,
-				             NM_CRYPTO_ERROR_FAILED,
-				             _("Password for token \"%s\" is incorrect or not found : %d"),
-				             token,
-				             PR_GetError ());
+				if (error != NULL) {
+					g_set_error (error, NM_CRYPTO_ERROR,
+					             NM_CRYPTO_ERROR_FAILED,
+					             _("Password for token \"%s\" is incorrect or not found : %d"),
+					             token,
+					             PR_GetError ());
+				}
 				PR_Cleanup ();
 				PK11_FreeSlot (slot);
 				return FALSE;
@@ -121,8 +137,8 @@ crypto_deinit_nss (GError **error)
  * Return corresponding password for slot's token from Libreswan NSS password file.
  *
  * The Libreswan NSS password file is typically one of the following :
+ *    /var/lib/ipsec/nss/nsspassword   (Libreswan >= 4.0 or Debian/Ubuntu)
  *    /etc/ipsec.d/nsspassword
- *    /var/lib/ipsec/nss/nsspassword  (Debian and Ubuntu)
  *
  * The syntax of the "nsspassword" file is :
  * token_1_name:password1
