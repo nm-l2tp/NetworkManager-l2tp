@@ -1,6 +1,6 @@
 ==========================================================
-NetworkManager-l2tp-1.8.2
-Overview of changes since NetworkManager-l2tp-1.8.0
+NetworkManager-l2tp-1.8.4
+Overview of changes since NetworkManager-l2tp-1.8.2
 ==========================================================
 
 YOU MIGHT NOT BE ABLE TO PROVIDE PRE-BUILT BINARIES OF THIS RELEASE UNTIL
@@ -12,6 +12,24 @@ the Fedora Project considers OpenSSL to be a "System Library" and so exempt
 from the conflict per the "System Library Exception" :
 
 https://fedoraproject.org/wiki/Licensing:FAQ#What.27s_the_deal_with_the_OpenSSL_license.3F
+
+Changes:
+* Update translations.
+* Update strings for new dialog design in gnome-shell.
+  e.g use "Password" instead of "Password:".
+* Use /usr/share/metainfo for AppData files.
+* Move D-Bus policy file to /usr/share/dbus-1/system.d/
+* Add --with-nm-ipsec-nss-dir configure switch for Libreswan NSS
+  database location with default value of /var/lib/ipsec/nss
+* Do not add broken route to VPN gateway IP address.
+* Add back import/export capability.
+* update default PPPD_PLUGIN_DIR to ${libdir}/pppd/2.4.8
+* Fix for user certificate password flags for connection editor.
+
+==========================================================
+NetworkManager-l2tp-1.8.2
+Overview of changes since NetworkManager-l2tp-1.8.0
+==========================================================
 
 Changes:
 * Fixes for user certificate support.
