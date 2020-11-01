@@ -1,7 +1,7 @@
 # NetworkMananger-l2tp
 
 ----
-If you wish to distribute NetworkManager-l2tp 1.8.2 binaries for a Linux
+If you wish to distribute NetworkManager-l2tp 1.8.4 binaries for a Linux
 distribution, please note that there is a GPL/OpenSSL license conflict
 with OpenSSL < 3.0.0 on Linux distibutions that do not consider OpenSSL
 (or LibreSSL) to be a "System Library". See release notes for further details:
@@ -21,22 +21,26 @@ For user authentication it supports either:
 * username/pasword credentials.
 * TLS certificates.
 
-For machine authentication is supports either:
+For machine authentication it supports either:
 * Pre-shared key (PSK).
 * TLS certificates.
-
-This VPN plugin auto detect the following TLS certificate and private key file
-formats by looking at the file contents and not the file extension :
-* PKCS#12 certificates.
-* X509 certificates (PEM or DER).
-* PKCS#8 private keys (PEM or DER)
-* traditional OpenSSL RSA, DSA and ECDSA private keys (PEM or DER).
 
 For TLS user certificate support, the ppp package has to have the EAP-TLS patch
 for pppd applied to the ppp source code (which many Linux distributions already
 do) :
 
 * https://www.nikhef.nl/~janjust/ppp/
+
+The configure script will attempt to determine if the EAP-TLS patch for pppd
+has been applied and will disable the build time TLS user certificate support
+if it can not detect it has been applied.
+
+This VPN plugin auto detects the following TLS certificate and private key file
+formats by looking at the file contents and not the file extension :
+* PKCS#12 certificates.
+* X509 certificates (PEM or DER).
+* PKCS#8 private keys (PEM or DER)
+* traditional OpenSSL RSA, DSA and ECDSA private keys (PEM or DER).
 
 For details on pre-built packages, known issues and build dependencies,
 please visit the Wiki :
@@ -76,7 +80,9 @@ please visit the Wiki :
 The default ./configure settings aren't reasonable and should be explicitly
 overridden with ./configure arguments. In the configure examples below, you
 may need to change the `--with-pppd-plugin-dir` value to an appropriate
-directory that exists.
+directory that exists, similarly `--with-nm-ipsec-nss-dir` may need to be
+set to the Libreswan NSS database location if it is not located in
+`/var/lib/ipsec/nss`.
 
 #### Debian >= 10 and Ubuntu >= 18.04 (AMD64, i.e. x86-64)
 
@@ -94,6 +100,7 @@ directory that exists.
       --disable-static --prefix=/usr \
       --sysconfdir=/etc --libdir=/usr/lib64 \
       --localstatedir=/var \
+      --with-nm-ipsec-nss-dir=/var/lib/ipsec/nss \
       --with-pppd-plugin-dir=/usr/lib64/pppd/2.4.7
 
 #### openSUSE (x86-64)
@@ -131,9 +138,13 @@ to `/etc/ipsec.secrets` at run-time if the line is missing:
 
 ## Password protecting the libreswan NSS database
 
-By default the NSS database is created in `/etc/ipsec.d/` on RHEL/Fedora/CentOS
-but in `/var/lib/ipsec/nss/` on Debian/Ubuntu. The NSS database is used
-by NetworkManager-l2tp for machine certificate VPN connections using libreswan.
+The NSS database is used by NetworkManager-l2tp for machine certificate VPN
+connections using libreswan.
+
+libreswan >= 4.0 default NSS database location is `/var/lib/ipsec/nss/` and
+for all versions of libreswan on Debian/Ubuntu. Older libreswan versions often
+use `/etc/ipsec.d/` such as on older version of RHEL/Fedora/CentOS.
+
 
 The default libreswan package install for most Linux distributions uses an
 empty password. It is up to the administrator to decide on whether to use a
@@ -141,7 +152,7 @@ password or not. However, a non-empty database password must be provided when
 running in FIPS mode.
 
 See the following page on how to set the password for the libreswan NSS
-database and the syntax for the `/etc/ipsec.d/nsspassword` file where the
+database and the syntax for the `/var/lib/ipsec/nss/nsspassword` file where the
 password is stored:
 * https://libreswan.org/wiki/HOWTO:_Using_NSS_with_libreswan
 
