@@ -1,6 +1,6 @@
 ==========================================================
-NetworkManager-l2tp-1.8.4
-Overview of changes since NetworkManager-l2tp-1.8.2
+NetworkManager-l2tp-1.8.6
+Overview of changes since NetworkManager-l2tp-1.8.4
 ==========================================================
 
 YOU MIGHT NOT BE ABLE TO PROVIDE PRE-BUILT BINARIES OF THIS RELEASE UNTIL
@@ -12,6 +12,15 @@ the Fedora Project considers OpenSSL to be a "System Library" and so exempt
 from the conflict per the "System Library Exception" :
 
 https://fedoraproject.org/wiki/Licensing:FAQ#What.27s_the_deal_with_the_OpenSSL_license.3F
+
+Changes:
+* Fix for preventing Fedora RPMs from building.
+  add missing properties/import-export.c to POTFILES.in
+
+==========================================================
+NetworkManager-l2tp-1.8.4
+Overview of changes since NetworkManager-l2tp-1.8.2
+==========================================================
 
 Changes:
 * Update translations.
