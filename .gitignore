@@ -25,7 +25,7 @@ autom4te.cache
 intltool-*
 po/*.gmo
 po/.intltool-merge-cache
-properties/resources.c
+properties/resources.[ch]
 m4/gtk-doc.m4
 m4/intltool.m4
 m4/libtool.m4
