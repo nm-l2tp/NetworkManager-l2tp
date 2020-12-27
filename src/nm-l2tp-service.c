@@ -183,7 +183,6 @@ static const ValidProperty valid_properties[] = {
 	{ NM_L2TP_KEY_IPSEC_ENABLE,             G_TYPE_BOOLEAN, FALSE },
 	{ NM_L2TP_KEY_IPSEC_REMOTE_ID,          G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_GATEWAY_ID,         G_TYPE_STRING, FALSE },
-	{ NM_L2TP_KEY_IPSEC_PSK,                G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_IKE,                G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_ESP,                G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_IKELIFETIME,        G_TYPE_UINT, FALSE },
@@ -194,6 +193,7 @@ static const ValidProperty valid_properties[] = {
 	{ NM_L2TP_KEY_IPSEC_PFS,                G_TYPE_BOOLEAN, FALSE },
 	{ NM_L2TP_KEY_PASSWORD"-flags",         G_TYPE_UINT, FALSE },
 	{ NM_L2TP_KEY_USER_CERTPASS"-flags",    G_TYPE_UINT, FALSE },
+	{ NM_L2TP_KEY_IPSEC_PSK"-flags",        G_TYPE_UINT, FALSE },
 	{ NM_L2TP_KEY_MACHINE_CERTPASS"-flags", G_TYPE_UINT, FALSE },
 	{ KDE_PLASMA_L2TP_KEY_USE_CERT,         G_TYPE_UINT, FALSE },
 	{ KDE_PLASMA_L2TP_KEY_CERT_CA,          G_TYPE_STRING, FALSE },
@@ -205,6 +205,7 @@ static const ValidProperty valid_properties[] = {
 static ValidProperty valid_secrets[] = {
 	{ NM_L2TP_KEY_PASSWORD,                 G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_USER_CERTPASS,            G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_IPSEC_PSK,                G_TYPE_STRING, FALSE },
  	{ NM_L2TP_KEY_MACHINE_CERTPASS,         G_TYPE_STRING, FALSE },
  	{ NM_L2TP_KEY_NOSECRET,                 G_TYPE_STRING, FALSE },
 	{ NULL }
@@ -746,7 +747,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 					}
 				}
 
-				value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_PSK);
+				value = nm_setting_vpn_get_secret (s_vpn, NM_L2TP_KEY_IPSEC_PSK);
 				if (!value) value="";
 
 				if (g_str_has_prefix (value, "0s")) {
@@ -1946,14 +1947,26 @@ real_need_secrets (NMVpnServicePlugin *plugin,
 			need_secrets = FALSE;
 	}
 
-	/* Check if machine certificate or machine private key need a password */
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_MACHINE_AUTH_TYPE);
 	if (!need_secrets && nm_streq0 (value, NM_L2TP_AUTHTYPE_TLS)) {
+		/* Check if machine certificate or machine private key need a password */
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_MACHINE_KEY);
 		crypto_file_format (value, &need_secrets, NULL);
 
 		/* Don't need the password if we already have one */
 		if (need_secrets && nm_setting_vpn_get_secret (NM_SETTING_VPN (s_vpn), NM_L2TP_KEY_MACHINE_CERTPASS)) {
+				need_secrets = FALSE;
+		}
+	} else if (!need_secrets) { /* NM_L2TP_AUTHTYPE_PSK */
+		/* Check if need PSK */
+		nm_setting_get_secret_flags (NM_SETTING (s_vpn), NM_L2TP_KEY_IPSEC_PSK, &flags, NULL);
+
+		/* Need the PSK if user specified it is required */
+		if (!(flags & NM_SETTING_SECRET_FLAG_NOT_REQUIRED))
+			need_secrets = TRUE;
+
+		/* Don't need the PSK if we already have one */
+		if (need_secrets && nm_setting_vpn_get_secret (NM_SETTING_VPN (s_vpn), NM_L2TP_KEY_IPSEC_PSK)) {
 				need_secrets = FALSE;
 		}
 	}

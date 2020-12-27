@@ -68,6 +68,20 @@ ipsec_dialog_new_hash_from_connection (NMConnection *connection,
 	s_vpn = nm_connection_get_setting_vpn (connection);
 	nm_setting_vpn_foreach_data_item (s_vpn, hash_copy_value, hash);
 
+	/* IPSEC PSK is special */
+	secret = nm_setting_vpn_get_secret (s_vpn, NM_L2TP_KEY_IPSEC_PSK);
+	if (secret) {
+		g_hash_table_insert (hash,
+		                     g_strdup (NM_L2TP_KEY_IPSEC_PSK),
+		                     g_strdup (secret));
+	}
+
+	flags = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_PSK"-flags");
+	if (flags)
+		g_hash_table_insert (hash,
+		                     g_strdup (NM_L2TP_KEY_IPSEC_PSK"-flags"),
+		                     g_strdup (flags));
+
 	/* IPsec certificate password is special */
 	secret = nm_setting_vpn_get_secret (s_vpn, NM_L2TP_KEY_MACHINE_CERTPASS);
 	if (secret) {
@@ -374,6 +388,7 @@ ipsec_tls_setup (GtkBuilder *builder, GHashTable *hash)
 static void
 ipsec_psk_setup (GtkBuilder *builder, GHashTable *hash)
 {
+	NMSettingSecretFlags pw_flags;
 	GtkWidget *psk_entry_widget;
 	GtkWidget *checkbutton_widget;
 	const char *value;
@@ -402,6 +417,17 @@ ipsec_psk_setup (GtkBuilder *builder, GHashTable *hash)
 	}
 
 	g_signal_connect (checkbutton_widget, "toggled", G_CALLBACK (show_password_cb), psk_entry_widget);
+
+	value = g_hash_table_lookup (hash, NM_L2TP_KEY_IPSEC_PSK"-flags");
+	if (value) {
+		G_STATIC_ASSERT_EXPR (((guint) (NMSettingSecretFlags) 0xFFFFu) == 0xFFFFu);
+		pw_flags = _nm_utils_ascii_str_to_int64 (value, 10, 0, 0xFFFF, NM_SETTING_SECRET_FLAG_NONE);
+	} else {
+		pw_flags = NM_SETTING_SECRET_FLAG_NONE;
+	}
+
+	nma_utils_setup_password_storage (psk_entry_widget, pw_flags, NULL, NM_L2TP_KEY_IPSEC_PSK,
+	                                  FALSE, FALSE);
 }
 
 static gint
@@ -760,6 +786,13 @@ ipsec_dialog_new_hash_from_dialog (GtkWidget *dialog, GError **error)
 		                     g_strdup (NM_L2TP_KEY_IPSEC_PSK),
 		                     g_strdup_printf("0s%s", psk_base64));
 		g_free (psk_base64);
+	}
+
+	pw_flags = nma_utils_menu_to_secret_flags (widget);
+	if (pw_flags != NM_SETTING_SECRET_FLAG_NONE) {
+		g_hash_table_insert (hash,
+		                     g_strdup (NM_L2TP_KEY_IPSEC_PSK"-flags"),
+		                     g_strdup_printf ("%d", pw_flags));
 	}
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "machine_tls_ca_cert_chooser"));
