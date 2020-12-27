@@ -43,7 +43,6 @@ mtu=1200 (int)
 
 ipsec-enabled=true (bool)
 ipsec-gateway-id=192.168.0.1 (str)
-ipsec-psk=my_psk (str)
 ipsec-forceencaps=true (bool)
 
 [ipv4]
@@ -96,7 +95,6 @@ static VpnImportExportProperty vpn_properties[] = {
 	{ NM_L2TP_KEY_IPSEC_ENABLE,             G_TYPE_BOOLEAN, FALSE },
 	{ NM_L2TP_KEY_IPSEC_REMOTE_ID,          G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_GATEWAY_ID,         G_TYPE_STRING, FALSE },
-	{ NM_L2TP_KEY_IPSEC_PSK,                G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_IKE,                G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_ESP,                G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_IKELIFETIME,        G_TYPE_UINT, FALSE },
@@ -107,6 +105,7 @@ static VpnImportExportProperty vpn_properties[] = {
 	{ NM_L2TP_KEY_IPSEC_PFS,                G_TYPE_BOOLEAN, FALSE },
 	/* { NM_L2TP_KEY_PASSWORD"-flags",         G_TYPE_UINT, FALSE },*/
 	/* { NM_L2TP_KEY_USER_CERTPASS"-flags",    G_TYPE_UINT, FALSE },*/
+	/* { NM_L2TP_KEY_IPSEC_PSK"-flags",        G_TYPE_UINT, FALSE },*/
 	/* { NM_L2TP_KEY_MACHINE_CERTPASS"-flags", G_TYPE_UINT, FALSE },*/
 	{ NULL }
 };
