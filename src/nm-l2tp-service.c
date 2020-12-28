@@ -39,6 +39,7 @@
 #include "nm-ppp-status.h"
 #include "nm-l2tp-pppd-service-dbus.h"
 #include "nm-utils/nm-shared-utils.h"
+#include "nm-utils/nm-secret-utils.h"
 #include "nm-utils/nm-vpn-plugin-macros.h"
 #include "shared/utils.h"
 #include "nm-l2tp-crypto-nss.h"
@@ -183,6 +184,8 @@ static const ValidProperty valid_properties[] = {
 	{ NM_L2TP_KEY_IPSEC_ENABLE,             G_TYPE_BOOLEAN, FALSE },
 	{ NM_L2TP_KEY_IPSEC_REMOTE_ID,          G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_GATEWAY_ID,         G_TYPE_STRING, FALSE },
+	/* For legacy purposes, the PSK can also be specified as a non-secret */
+	{ NM_L2TP_KEY_IPSEC_PSK,                G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_IKE,                G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_ESP,                G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_IPSEC_IKELIFETIME,        G_TYPE_UINT, FALSE },
@@ -747,7 +750,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 					}
 				}
 
-				value = nm_setting_vpn_get_secret (s_vpn, NM_L2TP_KEY_IPSEC_PSK);
+				value = nm_setting_vpn_get_secret_or_legacy_data_item (s_vpn, NM_L2TP_KEY_IPSEC_PSK);
 				if (!value) value="";
 
 				if (g_str_has_prefix (value, "0s")) {
@@ -1966,7 +1969,7 @@ real_need_secrets (NMVpnServicePlugin *plugin,
 			need_secrets = TRUE;
 
 		/* Don't need the PSK if we already have one */
-		if (need_secrets && nm_setting_vpn_get_secret (NM_SETTING_VPN (s_vpn), NM_L2TP_KEY_IPSEC_PSK)) {
+		if (need_secrets && nm_setting_vpn_get_secret_or_legacy_data_item (NM_SETTING_VPN (s_vpn), NM_L2TP_KEY_IPSEC_PSK)) {
 				need_secrets = FALSE;
 		}
 	}

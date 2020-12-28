@@ -378,6 +378,8 @@ get_existing_passwords (GHashTable *vpn_data,
 			*out_psk = g_strdup (g_hash_table_lookup (existing_secrets, NM_L2TP_KEY_IPSEC_PSK));
 			if (!*out_psk)
 				*out_psk = keyring_lookup_secret (vpn_uuid, NM_L2TP_KEY_IPSEC_PSK);
+			if (!*out_psk) /* For legacy purposes, the PSK can also be specified as a non-secret */
+				*out_psk = g_strdup (g_hash_table_lookup (vpn_data, NM_L2TP_KEY_IPSEC_PSK));
 		}
 	}
 

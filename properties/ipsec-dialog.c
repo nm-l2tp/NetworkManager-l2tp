@@ -11,6 +11,7 @@
 #include "nm-l2tp-editor.h"
 
 #include "nm-utils/nm-shared-utils.h"
+#include "nm-utils/nm-secret-utils.h"
 #include "shared/nm-l2tp-crypto-openssl.h"
 #include "shared/utils.h"
 
@@ -69,7 +70,7 @@ ipsec_dialog_new_hash_from_connection (NMConnection *connection,
 	nm_setting_vpn_foreach_data_item (s_vpn, hash_copy_value, hash);
 
 	/* IPSEC PSK is special */
-	secret = nm_setting_vpn_get_secret (s_vpn, NM_L2TP_KEY_IPSEC_PSK);
+	secret = nm_setting_vpn_get_secret_or_legacy_data_item (s_vpn, NM_L2TP_KEY_IPSEC_PSK);
 	if (secret) {
 		g_hash_table_insert (hash,
 		                     g_strdup (NM_L2TP_KEY_IPSEC_PSK),
