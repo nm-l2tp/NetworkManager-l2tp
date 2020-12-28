@@ -1950,27 +1950,30 @@ real_need_secrets (NMVpnServicePlugin *plugin,
 			need_secrets = FALSE;
 	}
 
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_MACHINE_AUTH_TYPE);
-	if (!need_secrets && nm_streq0 (value, NM_L2TP_AUTHTYPE_TLS)) {
-		/* Check if machine certificate or machine private key need a password */
-		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_MACHINE_KEY);
-		crypto_file_format (value, &need_secrets, NULL);
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_ENABLE);
+	if(nm_streq0 (value, "yes")) {
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_MACHINE_AUTH_TYPE);
+		if (!need_secrets && nm_streq0 (value, NM_L2TP_AUTHTYPE_TLS)) {
+			/* Check if machine certificate or machine private key need a password */
+			value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_MACHINE_KEY);
+			crypto_file_format (value, &need_secrets, NULL);
 
-		/* Don't need the password if we already have one */
-		if (need_secrets && nm_setting_vpn_get_secret (NM_SETTING_VPN (s_vpn), NM_L2TP_KEY_MACHINE_CERTPASS)) {
-				need_secrets = FALSE;
-		}
-	} else if (!need_secrets) { /* NM_L2TP_AUTHTYPE_PSK */
-		/* Check if need PSK */
-		nm_setting_get_secret_flags (NM_SETTING (s_vpn), NM_L2TP_KEY_IPSEC_PSK, &flags, NULL);
+			/* Don't need the password if we already have one */
+			if (need_secrets && nm_setting_vpn_get_secret (NM_SETTING_VPN (s_vpn), NM_L2TP_KEY_MACHINE_CERTPASS)) {
+					need_secrets = FALSE;
+			}
+		} else if (!need_secrets) { /* NM_L2TP_AUTHTYPE_PSK */
+			/* Check if need PSK */
+			nm_setting_get_secret_flags (NM_SETTING (s_vpn), NM_L2TP_KEY_IPSEC_PSK, &flags, NULL);
 
-		/* Need the PSK if user specified it is required */
-		if (!(flags & NM_SETTING_SECRET_FLAG_NOT_REQUIRED))
-			need_secrets = TRUE;
+			/* Need the PSK if user specified it is required */
+			if (!(flags & NM_SETTING_SECRET_FLAG_NOT_REQUIRED))
+				need_secrets = TRUE;
 
-		/* Don't need the PSK if we already have one */
-		if (need_secrets && nm_setting_vpn_get_secret_or_legacy_data_item (NM_SETTING_VPN (s_vpn), NM_L2TP_KEY_IPSEC_PSK)) {
-				need_secrets = FALSE;
+			/* Don't need the PSK if we already have one */
+			if (need_secrets && nm_setting_vpn_get_secret_or_legacy_data_item (NM_SETTING_VPN (s_vpn), NM_L2TP_KEY_IPSEC_PSK)) {
+					need_secrets = FALSE;
+			}
 		}
 	}
 
