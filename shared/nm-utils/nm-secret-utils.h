@@ -133,4 +133,14 @@ GBytes *nm_secret_buf_to_gbytes_take (NMSecretBuf *secret, gssize actual_len);
 
 /*****************************************************************************/
 
+static inline const char *nm_setting_vpn_get_secret_or_legacy_data_item
+	(NMSettingVpn *setting, const char *key) {
+	const char *value = nm_setting_vpn_get_secret (setting, key);
+	if (!value)
+		value = nm_setting_vpn_get_data_item (setting, key);
+	return value;
+}
+
+/*****************************************************************************/
+
 #endif /* __NM_SECRET_UTILS_H__ */

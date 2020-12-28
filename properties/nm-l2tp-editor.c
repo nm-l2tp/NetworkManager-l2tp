@@ -727,10 +727,15 @@ copy_hash_pair (gpointer key, gpointer data, gpointer user_data)
 	g_return_if_fail (value && value[0]);
 
 	/* IPsec PSK and certificate password is a secret, not a data item */
-	if (!strcmp (key, NM_L2TP_KEY_IPSEC_PSK) || !strcmp (key, NM_L2TP_KEY_MACHINE_CERTPASS))
+	if (!strcmp (key, NM_L2TP_KEY_IPSEC_PSK)) {
+		/* Migrate legacy non-secret PSK data items to VPN secret */
+		nm_setting_vpn_remove_data_item (s_vpn, (const char *) key);
 		nm_setting_vpn_add_secret (s_vpn, (const char *) key, value);
-	else
+	} else if (!strcmp (key, NM_L2TP_KEY_MACHINE_CERTPASS)) {
+		nm_setting_vpn_add_secret (s_vpn, (const char *) key, value);
+	} else {
 		nm_setting_vpn_add_data_item (s_vpn, (const char *) key, value);
+	}
 }
 
 static char *
