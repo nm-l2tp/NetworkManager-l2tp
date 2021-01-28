@@ -163,6 +163,8 @@ which can be viewed by issuing the following :
 
     journalctl --unit=NetworkManager
 
+For later versions of Fedora, libreswan logging goes to `/var/log/pluto.log`.
+
 For non-Systemd based Linux distributions, view the appropriate system log
 file which is most likely located under `/var/log/`.
 
