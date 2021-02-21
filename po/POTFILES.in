@@ -5,6 +5,7 @@ auth-dialog/main.c
 properties/auth-helpers.c
 properties/import-export.c
 properties/ipsec-dialog.c
+properties/nm-l2tp-dialog.ui
 properties/nm-l2tp-editor.c
 properties/nm-l2tp-editor-plugin.c
 properties/ppp-dialog.c
@@ -13,4 +14,3 @@ shared/nm-l2tp-crypto-openssl.c
 shared/nm-utils/nm-shared-utils.c
 shared/nm-utils/nm-vpn-plugin-utils.c
 src/nm-l2tp-service.c
-[type: gettext/glade]properties/nm-l2tp-dialog.ui

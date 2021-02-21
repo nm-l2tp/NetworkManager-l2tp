@@ -6,8 +6,8 @@
   <metadata_license>CC0-1.0</metadata_license>
   <extends>nm-connection-editor.desktop</extends>
   <extends>gnome-control-center.desktop</extends>
-  <_name>L2TP VPN Client</_name>
-  <_summary>Client for L2TP based virtual private networks</_summary>
+  <name>L2TP VPN Client</name>
+  <summary>Client for L2TP based virtual private networks</summary>
 
   <keywords>
     <keyword>network</keyword>
@@ -19,8 +19,8 @@
   </keywords>
 
   <description>
-    <_p>Support for configuring L2TP based virtual private network connections.</_p>
-    <_p>Compatible with L2TP and L2TP over IPsec services.</_p>
+    <p>Support for configuring L2TP based virtual private network connections.</p>
+    <p>Compatible with L2TP and L2TP over IPsec services.</p>
   </description>
 
   <screenshots>
@@ -29,12 +29,12 @@
     </screenshot>
 
     <screenshot type="default">
-      <_caption>The IPsec options dialog</_caption>
+      <caption>The IPsec options dialog</caption>
       <image width="800" height="677">https://raw.githubusercontent.com/nm-l2tp/NetworkManager-l2tp/1.8.0/appdata/l2tp-ipsec.png</image>
     </screenshot>
 
     <screenshot type="default">
-      <_caption>The PPP options dialog</_caption>
+      <caption>The PPP options dialog</caption>
       <image width="800" height="735">https://raw.githubusercontent.com/nm-l2tp/NetworkManager-l2tp/1.8.0/appdata/l2tp-ppp.png</image>
     </screenshot>
   </screenshots>
@@ -43,5 +43,5 @@
   <url type="bugtracker">https://github.com/nm-l2tp/NetworkManager-l2tp/issues</url>
   <update_contact>doug@uq.edu.au</update_contact>
   <translation type="gettext">NetworkManager-l2tp</translation>
-  <_developer_name>The NetworkManager-L2TP Developers</_developer_name>
+  <developer_name>The NetworkManager-L2TP Developers</developer_name>
 </component>

@@ -304,12 +304,14 @@ uninstall-hook:
 endif
 
 appdatadir = $(datadir)/metainfo
+appdata_in_files = appdata/network-manager-l2tp.metainfo.xml.in
 appdata_files = $(appdata_in_files:.xml.in=.xml)
 if WITH_GNOME
 appdata_DATA = $(appdata_files)
+
+$(appdata_DATA): $(appdata_in_files)
+	$(AM_V_GEN)$(MSGFMT) --xml --template $< -d $(top_srcdir)/po -o $@
 endif
-appdata_in_files = appdata/network-manager-l2tp.metainfo.xml.in
-@INTLTOOL_XML_RULE@
 
 nm-l2tp-service.name: $(srcdir)/nm-l2tp-service.name.in
 	$(AM_V_GEN) sed -e 's|[@]LIBEXECDIR[@]|$(libexecdir)|g' \
@@ -320,18 +322,10 @@ EXTRA_DIST += \
 	nm-l2tp-service.name.in \
 	$(dbusservice_DATA) \
 	$(appdata_in_files) \
-	$(appdata_files) \
-	intltool-extract.in \
-	intltool-merge.in \
-	intltool-update.in
+	$(appdata_files)
 
 CLEANFILES += \
 	$(nmvpnservice_DATA) \
 	$(appdata_files)
-
-DISTCLEANFILES = \
-	intltool-extract \
-	intltool-merge \
-	intltool-update
 
 ACLOCAL_AMFLAGS = -I m4

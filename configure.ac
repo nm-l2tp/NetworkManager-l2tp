@@ -172,12 +172,15 @@ AM_CONDITIONAL(WITH_LIBNM_GLIB, test "$with_libnm_glib" != no)
 
 AC_ARG_ENABLE(absolute-paths, AS_HELP_STRING([--enable-absolute-paths], [Use absolute paths to in .name files. Useful for development. (default is no)]))
 
+dnl
+dnl translation support
+dnl
+AM_GNU_GETTEXT([external])
+AM_GNU_GETTEXT_VERSION([0.19.8])
+
 GETTEXT_PACKAGE=NetworkManager-l2tp
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package])
-
-IT_PROG_INTLTOOL([0.35])
-AM_GLIB_GNU_GETTEXT
 
 # gio-unix will require glib and gio
 PKG_CHECK_MODULES(GLIB, gio-unix-2.0 >= 2.32)
