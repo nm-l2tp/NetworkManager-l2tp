@@ -44,6 +44,8 @@
 #define NM_L2TP_KEY_NO_VJ_COMP        "no-vj-comp"
 #define NM_L2TP_KEY_NO_PCOMP          "nopcomp"
 #define NM_L2TP_KEY_NO_ACCOMP         "noaccomp"
+#define NM_L2TP_KEY_MULTILINK         "multilink"
+#define NM_L2TP_KEY_MRRU              "mrru"
 #define NM_L2TP_KEY_LCP_ECHO_FAILURE  "lcp-echo-failure"
 #define NM_L2TP_KEY_LCP_ECHO_INTERVAL "lcp-echo-interval"
 #define NM_L2TP_KEY_UNIT_NUM          "unit"
