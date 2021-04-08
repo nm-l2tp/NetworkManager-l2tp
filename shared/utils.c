@@ -41,9 +41,9 @@ nm_find_ipsec (void)
 {
 	static const char *ipsec_binary_paths[] =
 		{
-			"/sbin/ipsec",
-			"/usr/sbin/ipsec",
-			"/usr/local/sbin/ipsec",
+			"/bin/ipsec",
+			"/usr/bin/ipsec",
+			"/usr/local/bin/ipsec",
 			"/sbin/strongswan",
 			"/usr/sbin/strongswan",
 			"/usr/local/sbin/strongswan",
@@ -66,6 +66,9 @@ nm_find_l2tpd (void)
 {
 	static const char *l2tp_binary_paths[] =
 		{
+			"/bin/xl2tpd",
+			"/usr/bin/xl2tpd",
+			"/usr/local/bin/xl2tpd",
 			"/sbin/xl2tpd",
 			"/usr/sbin/xl2tpd",
 			"/usr/local/sbin/xl2tpd",
