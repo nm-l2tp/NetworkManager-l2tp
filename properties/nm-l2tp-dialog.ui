@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 -->
+<!-- Generated with glade 3.22.2 -->
 <interface>
   <requires lib="gtk+" version="3.14"/>
   <object class="GtkBox" id="l2tp-vbox">
@@ -600,7 +600,7 @@ config: auth-user-pass</property>
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
     <property name="skip_pager_hint">True</property>
-    <child>
+    <child type="titlebar">
       <placeholder/>
     </child>
     <child internal-child="vbox">
@@ -1367,7 +1367,7 @@ config: ipsec-pfs &lt;no/yes&gt;</property>
     <property name="icon_name">stock-preferences</property>
     <property name="type_hint">dialog</property>
     <property name="skip_pager_hint">True</property>
-    <child>
+    <child type="titlebar">
       <placeholder/>
     </child>
     <child internal-child="vbox">
@@ -1822,16 +1822,15 @@ config: lcp-echo-failure and lcp-echo-interval</property>
                           <object class="GtkBox">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="orientation">vertical</property>
                             <property name="spacing">6</property>
                             <child>
                               <object class="GtkCheckButton" id="ppp_usemultilink">
-                                <property name="label" translatable="yes">Allow PPP _Multilink</property>
+                                <property name="label" translatable="yes">_Multilink PPP MRRU:</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
                                 <property name="tooltip_text" translatable="yes">Try to negotiate a PPP Multilink on a single connection.
-config: multilink and mrru, nomultilink (when unchecked)</property>
+config: mrru</property>
                                 <property name="halign">start</property>
                                 <property name="use_underline">True</property>
                                 <property name="draw_indicator">True</property>
@@ -1843,58 +1842,24 @@ config: multilink and mrru, nomultilink (when unchecked)</property>
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkAlignment">
+                              <object class="GtkSpinButton" id="ppp_mrru_spinbutton">
                                 <property name="visible">True</property>
-                                <property name="can_focus">False</property>
-                                <property name="left_padding">12</property>
-                                <child>
-                                  <object class="GtkBox" id="hbox7">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                    <property name="halign">start</property>
-                                    <property name="spacing">12</property>
-                                    <child>
-                                      <object class="GtkLabel" id="ppp_mrru_label">
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">False</property>
-                                        <property name="label" translatable="yes">MRRU:</property>
-                                        <property name="xalign">0</property>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">True</property>
-                                        <property name="position">0</property>
-                                      </packing>
-                                    </child>
-                                    <child>
-                                      <object class="GtkSpinButton" id="ppp_mrru_spinbutton">
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="max_length">4</property>
-                                        <property name="width_chars">4</property>
-                                        <property name="max_width_chars">4</property>
-                                        <property name="text" translatable="yes">1400</property>
-                                        <property name="adjustment">ppp_mrru_adjustment</property>
-                                        <property name="climb_rate">1</property>
-                                        <property name="value">1600</property>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">True</property>
-                                        <property name="position">1</property>
-                                      </packing>
-                                    </child>
-                                  </object>
-                                </child>
+                                <property name="can_focus">True</property>
+                                <property name="tooltip_text" translatable="yes">Try to negotiate a PPP Multilink on a single connection.
+config: mrru</property>
+                                <property name="max_length">4</property>
+                                <property name="width_chars">4</property>
+                                <property name="max_width_chars">4</property>
+                                <property name="text" translatable="yes">1400</property>
+                                <property name="adjustment">ppp_mrru_adjustment</property>
+                                <property name="climb_rate">1</property>
+                                <property name="value">1600</property>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
                                 <property name="fill">True</property>
                                 <property name="position">1</property>
                               </packing>
-                            </child>
-                            <child>
-                              <placeholder/>
                             </child>
                           </object>
                           <packing>

@@ -38,7 +38,6 @@ static const char *ppp_keys[] = {
 	NM_L2TP_KEY_NO_VJ_COMP,
 	NM_L2TP_KEY_NO_PCOMP,
 	NM_L2TP_KEY_NO_ACCOMP,
-	NM_L2TP_KEY_MULTILINK,
 	NM_L2TP_KEY_MRRU,
 	NM_L2TP_KEY_LCP_ECHO_FAILURE,
 	NM_L2TP_KEY_LCP_ECHO_INTERVAL,
@@ -82,9 +81,6 @@ multilink_toggled_cb (GtkWidget *check, gpointer user_data)
 	gboolean use_multilink;
 
 	use_multilink = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (check));
-
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ppp_mrru_label"));
-	gtk_widget_set_sensitive (widget, use_multilink);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ppp_mrru_spinbutton"));
 	gtk_widget_set_sensitive (widget, use_multilink);
@@ -470,28 +466,6 @@ ppp_dialog_new (GHashTable *hash, const char *authtype)
 	if (value && !strcmp (value, "yes"))
 		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), FALSE);
 
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ppp_usemultilink"));
-	value = g_hash_table_lookup (hash, NM_L2TP_KEY_MULTILINK);
-	if (value && !strcmp (value, "yes"))
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), TRUE);
-
-	multilink_toggled_cb (widget, builder);
-	g_signal_connect (G_OBJECT (widget), "toggled", G_CALLBACK (multilink_toggled_cb), builder);
-
-	widget = GTK_WIDGET (gtk_builder_get_object (builder,"ppp_mrru_spinbutton"));
-	value = g_hash_table_lookup (hash, NM_L2TP_KEY_MRRU);
-	if (value && *value) {
-		long int tmp_int;
-
-		errno = 0;
-		tmp_int = strtol (value, NULL, 10);
-		if (errno == 0 && tmp_int >= 1500 && tmp_int <= 4500) {
-			gtk_spin_button_set_value (GTK_SPIN_BUTTON (widget), (gdouble) tmp_int);
-		}
-	} else {
-		gtk_spin_button_set_value (GTK_SPIN_BUTTON (widget), 1600);
-	}
-
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ppp_send_echo_packets"));
 	value = g_hash_table_lookup (hash, NM_L2TP_KEY_LCP_ECHO_INTERVAL);
 	if (value && strlen (value)) {
@@ -508,6 +482,25 @@ ppp_dialog_new (GHashTable *hash, const char *authtype)
 	widget = GTK_WIDGET (gtk_builder_get_object (builder,"ppp_use_mppe"));
 	handle_mppe_changed (widget, TRUE, builder);
 	g_signal_connect (G_OBJECT (widget), "toggled", G_CALLBACK (mppe_toggled_cb), builder);
+
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ppp_usemultilink"));
+	multilink_toggled_cb (widget, builder);
+	g_signal_connect (G_OBJECT (widget), "toggled", G_CALLBACK (multilink_toggled_cb), builder);
+	value = g_hash_table_lookup (hash, NM_L2TP_KEY_MRRU);
+	if (value && *value) {
+		long int tmp_int;
+
+		errno = 0;
+		tmp_int = strtol (value, NULL, 10);
+		if (errno == 0 && tmp_int >= 1500 && tmp_int <= 4500) {
+			gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), TRUE);
+			widget = GTK_WIDGET (gtk_builder_get_object (builder,"ppp_mrru_spinbutton"));
+			gtk_spin_button_set_value (GTK_SPIN_BUTTON (widget), (gdouble) tmp_int);
+		}
+	} else {
+		widget = GTK_WIDGET (gtk_builder_get_object (builder,"ppp_mrru_spinbutton"));
+		gtk_spin_button_set_value (GTK_SPIN_BUTTON (widget), 1600);
+	}
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder,"ppp_mtu_spinbutton"));
 	value = g_hash_table_lookup (hash, NM_L2TP_KEY_MTU);
@@ -604,16 +597,6 @@ ppp_dialog_new_hash_from_dialog (GtkWidget *dialog, GError **error)
 	if (!gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
 		g_hash_table_insert (hash, g_strdup (NM_L2TP_KEY_NO_ACCOMP), g_strdup ("yes"));
 
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ppp_usemultilink"));
-	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget))) {
-		g_hash_table_insert (hash, g_strdup (NM_L2TP_KEY_MULTILINK), g_strdup ("yes"));
-
-		widget = GTK_WIDGET (gtk_builder_get_object (builder, "ppp_mrru_spinbutton"));
-		mrru_num = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (widget));
-		g_hash_table_insert (hash, g_strdup (NM_L2TP_KEY_MRRU),
-							g_strdup_printf ("%d", mrru_num));
-	}
-
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ppp_send_echo_packets"));
 	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget))) {
 		g_hash_table_insert (hash, g_strdup (NM_L2TP_KEY_LCP_ECHO_FAILURE), g_strdup_printf ("%d", 5));
@@ -657,6 +640,14 @@ ppp_dialog_new_hash_from_dialog (GtkWidget *dialog, GError **error)
 
 			valid = gtk_tree_model_iter_next (model, &iter);
 		}
+	}
+
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ppp_usemultilink"));
+	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget))) {
+		widget = GTK_WIDGET (gtk_builder_get_object (builder, "ppp_mrru_spinbutton"));
+		mrru_num = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (widget));
+		g_hash_table_insert (hash, g_strdup (NM_L2TP_KEY_MRRU),
+		                     g_strdup_printf ("%d", mrru_num));
 	}
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, "ppp_mtu_spinbutton"));

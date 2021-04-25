@@ -157,7 +157,6 @@ static const ValidProperty valid_properties[] = {
 	{ NM_L2TP_KEY_MTU,                      G_TYPE_UINT, FALSE },
 	{ NM_L2TP_KEY_MRU,                      G_TYPE_UINT, FALSE },
 	{ NM_L2TP_KEY_MRRU,                     G_TYPE_UINT, FALSE },
-	{ NM_L2TP_KEY_MULTILINK,                G_TYPE_BOOLEAN, FALSE },
 	{ NM_L2TP_KEY_REFUSE_EAP,               G_TYPE_BOOLEAN, FALSE },
 	{ NM_L2TP_KEY_REFUSE_PAP,               G_TYPE_BOOLEAN, FALSE },
 	{ NM_L2TP_KEY_REFUSE_CHAP,              G_TYPE_BOOLEAN, FALSE },
@@ -1108,17 +1107,10 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	/* Don't need to auth the L2TP server */
 	write_config_option (fd, "noauth\n");
 
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_MULTILINK);
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_MRRU);
 	if (value) {
 		write_config_option (fd, "multilink\n");
-		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_MRRU);
-		if (value) {
-			write_config_option (fd, "mrru %s\n", value);
-		} else {
-			write_config_option (fd, "mrru 1600\n");
-		}
-	} else {
-		write_config_option (fd, "nomultilink\n");
+		write_config_option (fd, "mrru %s\n", value);
 	}
 
 	/* pppd and xl2tpd on Linux require this option to support Android and iOS clients,
