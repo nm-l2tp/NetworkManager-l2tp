@@ -63,9 +63,20 @@ nm_find_ipsec (void)
 }
 
 const char *
-nm_find_l2tpd (void)
+nm_find_l2tpd (NML2tpL2tpDaemon *l2tp_daemon)
 {
-	static const char *l2tp_binary_paths[] =
+	char  **l2tp_binary;
+
+	static const char *kl2tp_binary_paths[] =
+		{
+			"/usr/bin/kl2tpd",
+			"/sbin/kl2tpd",
+			"/usr/sbin/kl2tpd",
+			"/usr/local/sbin/kl2tpd",
+			NULL
+		};
+
+	static const char *xl2tp_binary_paths[] =
 		{
 			"/usr/bin/xl2tpd",
 			"/sbin/xl2tpd",
@@ -74,14 +85,26 @@ nm_find_l2tpd (void)
 			NULL
 		};
 
-	const char  **l2tp_binary = l2tp_binary_paths;
-
+	l2tp_binary = (char **) kl2tp_binary_paths;
 	while (*l2tp_binary != NULL) {
-		if (g_file_test (*l2tp_binary, G_FILE_TEST_EXISTS))
-			break;
+		if (g_file_test (*l2tp_binary, G_FILE_TEST_EXISTS)) {
+			if (l2tp_daemon != NULL)
+				*l2tp_daemon = NM_L2TP_L2TP_DAEMON_KL2TPD;
+			return *l2tp_binary;
+		}
 		l2tp_binary++;
 	}
 
-	return *l2tp_binary;
+	l2tp_binary = (char **) xl2tp_binary_paths;
+	while (*l2tp_binary != NULL) {
+		if (g_file_test (*l2tp_binary, G_FILE_TEST_EXISTS)) {
+			if (l2tp_daemon != NULL)
+				*l2tp_daemon = NM_L2TP_L2TP_DAEMON_XL2TPD;
+			return *l2tp_binary;
+		}
+		l2tp_binary++;
+	}
+
+	return NULL;
 }
 

@@ -79,6 +79,7 @@ typedef struct {
 	NML2tpAuthType user_authtype;
 	NML2tpAuthType machine_authtype;
 	NML2tpIpsecDaemon ipsec_daemon;
+	NML2tpL2tpDaemon l2tp_daemon;
 
 	/* IP of L2TP gateway in numeric and string format */
 	guint32 naddr;
@@ -403,17 +404,31 @@ l2tpd_watch_cb (GPid pid, gint status, gpointer user_data)
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
 	guint error = 0;
 
-	if (WIFEXITED (status)) {
-		error = WEXITSTATUS (status);
-		if (error != 0)
-			_LOGW ("xl2tpd exited with error code %d", error);
+	if (priv->l2tp_daemon == NM_L2TP_L2TP_DAEMON_KL2TPD) {
+		if (WIFEXITED (status)) {
+			error = WEXITSTATUS (status);
+			if (error != 0)
+				_LOGW ("kl2tpd exited with error code %d", error);
+		}
+		else if (WIFSTOPPED (status))
+			_LOGW ("kl2tpd stopped unexpectedly with signal %d", WSTOPSIG (status));
+		else if (WIFSIGNALED (status))
+			_LOGW ("kl2tpd died with signal %d", WTERMSIG (status));
+		else
+			_LOGW ("kl2tpd died from an unknown cause");
+	} else {
+		if (WIFEXITED (status)) {
+			error = WEXITSTATUS (status);
+			if (error != 0)
+				_LOGW ("xl2tpd exited with error code %d", error);
+		}
+		else if (WIFSTOPPED (status))
+			_LOGW ("xl2tpd stopped unexpectedly with signal %d", WSTOPSIG (status));
+		else if (WIFSIGNALED (status))
+			_LOGW ("xl2tpd died with signal %d", WTERMSIG (status));
+		else
+			_LOGW ("xl2tpd died from an unknown cause");
 	}
-	else if (WIFSTOPPED (status))
-		_LOGW ("xl2tpd stopped unexpectedly with signal %d", WSTOPSIG (status));
-	else if (WIFSIGNALED (status))
-		_LOGW ("xl2tpd died with signal %d", WTERMSIG (status));
-	else
-		_LOGW ("xl2tpd died from an unknown cause");
 
 	/* Reap child if needed. */
 	waitpid (priv->pid_l2tpd, NULL, WNOHANG);
@@ -1027,45 +1042,67 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	 * L2TP options
 	 */
 
-	/* xl2tpd config */
-	filename = g_strdup_printf ("%s/xl2tpd.conf", rundir);
-	fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR|S_IRGRP|S_IROTH);
-	g_free (filename);
-
-	if (fd == -1) {
-		crypto_deinit_openssl();
-		return nm_l2tp_ipsec_error(error, _("Could not write xl2tpd config."));
-	}
-
-	write_config_option (fd, "[global]\n");
-	write_config_option (fd, "access control = yes\n");
-
 	/* If xl2tpd's default port 1701 is busy, use 0 (ephemeral random port) */
 	port = 1701;
-	if (!l2tp_port_is_free){
+	if (!l2tp_port_is_free) {
 		port = 0;
 		_LOGW ("L2TP port 1701 is busy, using ephemeral.");
 	}
-	write_config_option (fd, "port = %d\n", port);
-	if (_LOGD_enabled ()){
-		/* write_config_option (fd, "debug network = yes\n"); */
-		write_config_option (fd, "debug state = yes\n");
-		write_config_option (fd, "debug tunnel = yes\n");
-		write_config_option (fd, "debug avp = yes\n");
+	if (priv->l2tp_daemon == NM_L2TP_L2TP_DAEMON_KL2TPD) {
+		/* kl2tpd config */
+		filename = g_strdup_printf ("%s/kl2tpd.conf", rundir);
+		fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR|S_IRGRP|S_IROTH);
+		g_free (filename);
+
+		if (fd == -1) {
+			crypto_deinit_openssl();
+			return nm_l2tp_ipsec_error(error, _("Could not write kl2tpd config."));
+		}
+
+		write_config_option(fd, "[tunnel.t1]\n");
+		if (l2tp_port_is_free)
+			write_config_option(fd, "local = \"0.0.0.0:1701\"\n");
+		write_config_option(fd, "peer = \"%s:1701\"\n", priv->saddr);
+		write_config_option(fd, "version = \"l2tpv2\"\n");
+		write_config_option(fd, "encap = \"udp\"\n");
+		write_config_option(fd, "[tunnel.t1.session.s1]\n");
+		write_config_option(fd, "pseudowire = \"ppp\"\n");
+		write_config_option(fd, "pppd_args = \"%s/ppp-options\"\n", rundir);
+	} else {
+		/* xl2tpd config */
+		filename = g_strdup_printf ("%s/xl2tpd.conf", rundir);
+		fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR|S_IRGRP|S_IROTH);
+		g_free (filename);
+
+		if (fd == -1) {
+			crypto_deinit_openssl();
+			return nm_l2tp_ipsec_error(error, _("Could not write xl2tpd config."));
+		}
+
+		write_config_option (fd, "[global]\n");
+		write_config_option (fd, "access control = yes\n");
+
+		write_config_option (fd, "port = %d\n", port);
+		if (_LOGD_enabled ()){
+			/* write_config_option (fd, "debug network = yes\n"); */
+			write_config_option (fd, "debug state = yes\n");
+			write_config_option (fd, "debug tunnel = yes\n");
+			write_config_option (fd, "debug avp = yes\n");
+		}
+
+		write_config_option (fd, "[lac l2tp]\n");
+
+		/* value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_GATEWAY); */
+		write_config_option (fd, "lns = %s\n", priv->saddr);
+
+		if (_LOGD_enabled ())
+			write_config_option (fd, "ppp debug = yes\n");
+		write_config_option (fd, "pppoptfile = %s/ppp-options\n", rundir);
+		write_config_option (fd, "autodial = yes\n");
+		write_config_option (fd, "tunnel rws = 8\n");
+		write_config_option (fd, "tx bps = 100000000\n");
+		write_config_option (fd, "rx bps = 100000000\n");
 	}
-
-	write_config_option (fd, "[lac l2tp]\n");
-
-	/* value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_GATEWAY); */
-	write_config_option (fd, "lns = %s\n", priv->saddr);
-
-	if (_LOGD_enabled ())
-		write_config_option (fd, "ppp debug = yes\n");
-	write_config_option (fd, "pppoptfile = %s/ppp-options\n", rundir);
-	write_config_option (fd, "autodial = yes\n");
-	write_config_option (fd, "tunnel rws = 8\n");
-	write_config_option (fd, "tx bps = 100000000\n");
-	write_config_option (fd, "rx bps = 100000000\n");
 
 	close(fd);
 
@@ -1091,10 +1128,6 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	write_config_option (fd, "ipcp-accept-remote\n");
 
 	write_config_option (fd, "nodetach\n");
-	/* revisit - xl2tpd-1.3.7 generates an unrecognized option 'lock' error.
-	   but with xl2tpd-1.3.6, pppd wasn't creating a lock file under /var/run/lock/ anyway.
-	write_config_option (fd, "lock\n");
-	*/
 
 	s_ip4 = nm_connection_get_setting_ip4_config (priv->connection);
 	if (!nm_setting_ip_config_get_ignore_auto_dns (s_ip4)) {
@@ -1503,20 +1536,27 @@ nm_l2tp_start_l2tpd_binary (NML2tpPlugin *plugin,
 	const char *l2tpd_binary;
 	GPtrArray *l2tpd_argv;
 
-	l2tpd_binary = nm_find_l2tpd ();
+
+	l2tpd_binary = nm_find_l2tpd (NULL);
 	if (!l2tpd_binary) {
-		return nm_l2tp_ipsec_error(error, _("Could not find the xl2tpd binary."));
+		return nm_l2tp_ipsec_error(error, _("Could not find kl2tpd or xl2tpd binaries."));
 	}
 
 	l2tpd_argv = g_ptr_array_new ();
-	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup (l2tpd_binary));
-	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup ("-D"));
-	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup ("-c"));
-	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s/xl2tpd.conf", priv->uuid));
-	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup ("-C"));
-	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s/xl2tpd-control", priv->uuid));
-	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup ("-p"));
-	g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s/xl2tpd.pid", priv->uuid));
+	if (priv->l2tp_daemon == NM_L2TP_L2TP_DAEMON_KL2TPD) {
+		g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup (l2tpd_binary));
+		g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup ("-config"));
+		g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s/kl2tpd.conf", priv->uuid));
+	} else {
+		g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup (l2tpd_binary));
+		g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup ("-D"));
+		g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup ("-c"));
+		g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s/xl2tpd.conf", priv->uuid));
+		g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup ("-C"));
+		g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s/xl2tpd-control", priv->uuid));
+		g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup ("-p"));
+		g_ptr_array_add (l2tpd_argv, (gpointer) g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s/xl2tpd.pid", priv->uuid));
+	}
 	g_ptr_array_add (l2tpd_argv, NULL);
 
 	if (!g_spawn_async (NULL, (char **) l2tpd_argv->pdata, NULL,
@@ -1526,7 +1566,11 @@ nm_l2tp_start_l2tpd_binary (NML2tpPlugin *plugin,
 	}
 	free_l2tpd_args (l2tpd_argv);
 
-	g_message ("xl2tpd started with pid %d", pid);
+	if (priv->l2tp_daemon == NM_L2TP_L2TP_DAEMON_KL2TPD) {
+		g_message ("kl2tpd started with pid %d", pid);
+	} else {
+		g_message ("xl2tpd started with pid %d", pid);
+	}
 
 	NM_L2TP_PLUGIN_GET_PRIVATE (plugin)->pid_l2tpd = pid;
 	g_child_watch_add (pid, l2tpd_watch_cb, plugin);
@@ -1795,6 +1839,9 @@ real_connect (NMVpnServicePlugin *plugin,
 		}
 	}
 
+	priv->l2tp_daemon = NM_L2TP_L2TP_DAEMON_UNKNOWN;
+	nm_find_l2tpd (&(priv->l2tp_daemon));
+
 	g_clear_object (&priv->connection);
 	priv->connection = g_object_ref (connection);
 
@@ -1932,7 +1979,11 @@ real_disconnect (NMVpnServicePlugin *plugin, GError **err)
 		else
 			kill (priv->pid_l2tpd, SIGKILL);
 
-		_LOGI ("Terminated xl2tpd daemon with PID %d.", priv->pid_l2tpd);
+		if (priv->l2tp_daemon == NM_L2TP_L2TP_DAEMON_KL2TPD) {
+			_LOGI ("Terminated kl2tpd daemon with PID %d.", priv->pid_l2tpd);
+		} else {
+			_LOGI ("Terminated xl2tpd daemon with PID %d.", priv->pid_l2tpd);
+		}
 		priv->pid_l2tpd = 0;
 	}
 
@@ -1956,11 +2007,11 @@ real_disconnect (NMVpnServicePlugin *plugin, GError **err)
 		unlink (filename);
 		g_free (filename);
 
-		filename = g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s/xl2tpd.conf", priv->uuid);
+		filename = g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s/kl2tpd.conf", priv->uuid);
 		unlink (filename);
 		g_free (filename);
 
-		filename = g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s/ppp-options", priv->uuid);
+		filename = g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s/xl2tpd.conf", priv->uuid);
 		unlink (filename);
 		g_free (filename);
 
@@ -1969,6 +2020,10 @@ real_disconnect (NMVpnServicePlugin *plugin, GError **err)
 		g_free (filename);
 
 		filename = g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s/xl2tpd.pid", priv->uuid);
+		unlink (filename);
+		g_free (filename);
+
+		filename = g_strdup_printf (RUNSTATEDIR"/nm-l2tp-%s/ppp-options", priv->uuid);
 		unlink (filename);
 		g_free (filename);
 

@@ -16,6 +16,12 @@ typedef enum {
         NM_L2TP_IPSEC_DAEMON_OPENSWAN,
 } NML2tpIpsecDaemon;
 
+typedef enum {
+        NM_L2TP_L2TP_DAEMON_UNKNOWN = 0,
+        NM_L2TP_L2TP_DAEMON_XL2TPD,
+        NM_L2TP_L2TP_DAEMON_KL2TPD,
+} NML2tpL2tpDaemon;
+
 NML2tpIpsecDaemon
 check_ipsec_daemon (const char *path);
 
@@ -23,7 +29,7 @@ const char *
 nm_find_ipsec (void);
 
 const char *
-nm_find_l2tpd (void);
+nm_find_l2tpd (NML2tpL2tpDaemon *l2tp_daemon);
 
 #endif /* __UTILS_H__ */
 
