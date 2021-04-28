@@ -175,8 +175,11 @@ AC_ARG_ENABLE(absolute-paths, AS_HELP_STRING([--enable-absolute-paths], [Use abs
 dnl
 dnl translation support
 dnl
+
+# FIXME: Remove AM_GNU_GETTEXT_VERSION once autoreconf supports REQUIRE_VERSION
 AM_GNU_GETTEXT([external])
 AM_GNU_GETTEXT_VERSION([0.19.8])
+AM_GNU_GETTEXT_REQUIRE_VERSION([0.19.8])
 
 GETTEXT_PACKAGE=NetworkManager-l2tp
 AC_SUBST(GETTEXT_PACKAGE)
