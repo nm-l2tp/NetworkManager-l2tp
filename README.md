@@ -169,7 +169,7 @@ password is stored:
 For Systemd based Linux distributions logging goes to the Systemd journal
 which can be viewed by issuing the following :
 
-    journalctl --unit=NetworkManager
+    journalctl --no-hostname --unit=NetworkManager
 
 For later versions of Fedora, libreswan logging goes to `/var/log/pluto.log`.
 
