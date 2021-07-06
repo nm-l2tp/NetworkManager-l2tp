@@ -864,21 +864,19 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		}
 
 		/* IPsec config section */
-		if (_LOGD_enabled ()){
-			write_config_option (fd, "config setup\n");
-			if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
-				if (getenv ("PLUTODEBUG")) {
-					write_config_option (fd, "  plutodebug=\"%s\"\n\n", getenv ("PLUTODEBUG"));
-				} else {
-					write_config_option (fd, "  plutodebug=\"all\"\n\n");
-				}
-			} else if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_STRONGSWAN) {
-				if (getenv ("CHARONDEBUG")) {
-					write_config_option (fd, "  charondebug=\"%s\"\n\n", getenv ("CHARONDEBUG"));
-				} else {
-					/* Default strongswan debug level is 1 (control), set it to 2 (controlmore) for ike, esp & cfg */
-					write_config_option (fd, "  charondebug=\"ike 2, esp 2, cfg 2\"\n\n");
-				}
+		write_config_option (fd, "config setup\n");
+		if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
+			if (getenv ("PLUTODEBUG")) {
+				write_config_option (fd, "  plutodebug=\"%s\"\n\n", getenv ("PLUTODEBUG"));
+			} else if (_LOGD_enabled ()){
+				write_config_option (fd, "  plutodebug=\"all\"\n\n");
+			}
+		} else if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_STRONGSWAN) {
+			if (getenv ("CHARONDEBUG")) {
+				write_config_option (fd, "  charondebug=\"%s\"\n\n", getenv ("CHARONDEBUG"));
+			} else if (_LOGD_enabled ()){
+				/* Default strongswan debug level is 1 (control), set it to 2 (controlmore) for ike, esp & cfg */
+				write_config_option (fd, "  charondebug=\"ike 2, esp 2, cfg 2\"\n\n");
 			}
 		}
 
