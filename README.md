@@ -171,6 +171,10 @@ which can be viewed by issuing the following :
 
     journalctl --no-hostname _SYSTEMD_UNIT=NetworkManager.service + SYSLOG_IDENTIFIER=pppd
 
+if using go-l2tp's kl2tpd, it is recommended to issue the following :
+
+    journalctl --no-hostname _SYSTEMD_UNIT=NetworkManager.service + _COMM=kl2tpd + SYSLOG_IDENTIFIER=pppd
+
 For some versions of Fedora, libreswan logging also goes to `/var/log/pluto.log`.
 
 For non-Systemd based Linux distributions, view the appropriate system log
