@@ -169,9 +169,9 @@ password is stored:
 For Systemd based Linux distributions logging goes to the Systemd journal
 which can be viewed by issuing the following :
 
-    journalctl --no-hostname --unit=NetworkManager
+    journalctl --no-hostname _SYSTEMD_UNIT=NetworkManager.service + SYSLOG_IDENTIFIER=pppd
 
-For later versions of Fedora, libreswan logging goes to `/var/log/pluto.log`.
+For some versions of Fedora, libreswan logging also goes to `/var/log/pluto.log`.
 
 For non-Systemd based Linux distributions, view the appropriate system log
 file which is most likely located under `/var/log/`.
@@ -197,9 +197,8 @@ the VPN connection is disconnected :
 then start your VPN connection and reproduce the problem.
 
 For Systemd based Linux distributions when increasing the debugging output
-by running `nm-l2tp-service --debug` on the command-line, do not use
-`journalctl --unit=NetworkManager` as you may not see all the logs, instead
-issue:
+by running `nm-l2tp-service --debug` on the command-line, you may need to
+issue the following to see more log output:
 
     journalctl -b
 
