@@ -1,4 +1,4 @@
-/* SPDX-License-Identifier: GPL-2.0+ */
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 /* nm-l2tp-service - L2TP VPN integration with NetworkManager
  *
  * (C) Copyright 2007 - 2008 Novell, Inc.

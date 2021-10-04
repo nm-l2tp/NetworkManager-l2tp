@@ -1,4 +1,4 @@
-/* SPDX-License-Identifier: GPL-2.0+ */
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 /* NetworkManager-l2tp - Authentication Dialog
  *
  * Dan Williams <dcbw@redhat.com>

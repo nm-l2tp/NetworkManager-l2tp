@@ -1,4 +1,4 @@
-/* SPDX-License-Identifier: GPL-2.0+ */
+/* SPDX-License-Identifier: GPL-2.0-or-later */
 /* nm-l2tp-service - L2TP VPN integration with NetworkManager
  *
  * Dan Williams <dcbw@redhat.com>
