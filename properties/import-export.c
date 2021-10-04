@@ -67,6 +67,7 @@ static VpnImportExportProperty vpn_properties[] = {
 	{ NM_L2TP_KEY_USER_AUTH_TYPE,           G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_USER,                     G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_DOMAIN,                   G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_EPHEMERAL_PORT,           G_TYPE_BOOLEAN, FALSE },
 	{ NM_L2TP_KEY_USER_CA,                  G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_USER_CERT,                G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_USER_KEY,                 G_TYPE_STRING, FALSE },

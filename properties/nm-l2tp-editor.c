@@ -706,6 +706,18 @@ init_plugin_ui (L2tpPluginUiWidget *self, gboolean have_ipsec, NMConnection *con
 		gtk_widget_set_sensitive (widget, FALSE);
 	}
 
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "ephemeral_checkbutton"));
+	g_return_val_if_fail (widget != NULL, FALSE);
+	if (s_vpn) {
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_EPHEMERAL_PORT);
+		if (value && !strcmp (value, "yes")) {
+			gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), TRUE);
+		} else {
+			gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), FALSE);
+		}
+	}
+	g_signal_connect (G_OBJECT (widget), "toggled", G_CALLBACK (stuff_changed_cb), self);
+
 	return TRUE;
 }
 
@@ -809,6 +821,10 @@ update_connection (NMVpnEditor *iface,
 			                             NULL);
 		}
 	}
+
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "ephemeral_checkbutton"));
+	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
+		nm_setting_vpn_add_data_item (s_vpn, NM_L2TP_KEY_EPHEMERAL_PORT, "yes");
 
 	nm_connection_add_setting (connection, NM_SETTING (s_vpn));
 	valid = TRUE;

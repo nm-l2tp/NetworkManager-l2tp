@@ -152,6 +152,7 @@ static const ValidProperty valid_properties[] = {
 	{ NM_L2TP_KEY_USER_AUTH_TYPE,           G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_USER,                     G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_DOMAIN,                   G_TYPE_STRING, FALSE },
+	{ NM_L2TP_KEY_EPHEMERAL_PORT,           G_TYPE_BOOLEAN, FALSE },
 	{ NM_L2TP_KEY_USER_CA,                  G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_USER_CERT,                G_TYPE_STRING, FALSE },
 	{ NM_L2TP_KEY_USER_KEY,                 G_TYPE_STRING, FALSE },
@@ -591,7 +592,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	struct in_addr naddr;
 	int port;
 	int errsv;
-	gboolean l2tp_port_is_free;
+	gboolean use_ephemeral_port;
 	gboolean use_ikev2;
 	gboolean tls_need_password;
 	g_autofree char *pwd_base64 = NULL;
@@ -623,8 +624,16 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		}
 	}
 
-	/* Check that xl2tpd's default port 1701 is free */
-	l2tp_port_is_free = is_port_free (1701);
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_EPHEMERAL_PORT);
+	if (nm_streq0 (value, "yes")) {
+		use_ephemeral_port = TRUE;
+	} else {
+		/* Check that UDP port 1701 for is free for L2TP source port */
+		use_ephemeral_port = !is_port_free (1701);
+		if (use_ephemeral_port) {
+			_LOGW ("L2TP port 1701 is busy, using ephemeral.");
+		}
+	}
 
 	/* Map depricated Gateway ID to Remote ID */
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_IPSEC_GATEWAY_ID);
@@ -916,7 +925,9 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		}
 
 		write_config_option (fd, "  left=%%defaultroute\n");
-		if (l2tp_port_is_free) {
+		if (use_ephemeral_port) {
+			write_config_option (fd, "  leftprotoport=udp/%%any\n");
+		} else {
 			write_config_option (fd, "  leftprotoport=udp/l2tp\n");
 		}
 		if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN && priv->machine_authtype == TLS_AUTH) {
@@ -1042,9 +1053,8 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 
 	/* If xl2tpd's default port 1701 is busy, use 0 (ephemeral random port) */
 	port = 1701;
-	if (!l2tp_port_is_free) {
+	if (use_ephemeral_port) {
 		port = 0;
-		_LOGW ("L2TP port 1701 is busy, using ephemeral.");
 	}
 	if (priv->l2tp_daemon == NM_L2TP_L2TP_DAEMON_KL2TPD) {
 		/* kl2tpd config */
@@ -1058,7 +1068,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		}
 
 		write_config_option(fd, "[tunnel.t1]\n");
-		if (l2tp_port_is_free)
+		if (!use_ephemeral_port)
 			write_config_option(fd, "local = \"0.0.0.0:1701\"\n");
 		write_config_option(fd, "peer = \"%s:1701\"\n", priv->saddr);
 		write_config_option(fd, "version = \"l2tpv2\"\n");

@@ -24,6 +24,7 @@
 #define NM_L2TP_KEY_USER              "user"
 #define NM_L2TP_KEY_PASSWORD          "password"
 #define NM_L2TP_KEY_DOMAIN            "domain"
+#define NM_L2TP_KEY_EPHEMERAL_PORT    "ephemeral-port"
 #define NM_L2TP_KEY_USER_CA           "user-ca"
 #define NM_L2TP_KEY_USER_CERT         "user-cert"
 #define NM_L2TP_KEY_USER_KEY          "user-key"
