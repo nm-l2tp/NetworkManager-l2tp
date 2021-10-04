@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: LGPL-2.1+
+/* SPDX-License-Identifier: LGPL-2.1+ */
 /* NetworkManager -- Network link manager
  *
  * (C) Copyright 2012 Colin Walters <walters@verbum.org>.

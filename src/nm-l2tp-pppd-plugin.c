@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-2.0+
+/* SPDX-License-Identifier: GPL-2.0+ */
 /* nm-l2tp-service - l2tp (and other pppd) integration with NetworkManager
  *
  * (C) 2007 - 2008 Novell, Inc.

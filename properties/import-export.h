@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-2.0+
+/* SPDX-License-Identifier: GPL-2.0+ */
 /* NetworkManager-l2tp - import-export
  *
  * Copyright (C) 2008 Dan Williams, <dcbw@redhat.com>

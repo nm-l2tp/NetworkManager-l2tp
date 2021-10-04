@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-2.0+
+/* SPDX-License-Identifier: GPL-2.0+ */
 /* nm-l2tp-service - L2TP VPN integration with NetworkManager
  *
  * Geo Carncross <geocar@gmail.com>
