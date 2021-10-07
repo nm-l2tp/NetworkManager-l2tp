@@ -13,10 +13,10 @@
 
 #include <nm-connection.h>
 
-GtkWidget *ipsec_dialog_new (GHashTable *hash);
+GtkWidget *ipsec_dialog_new(GHashTable *hash);
 
-GHashTable *ipsec_dialog_new_hash_from_connection (NMConnection *connection, GError **error);
+GHashTable *ipsec_dialog_new_hash_from_connection(NMConnection *connection, GError **error);
 
-GHashTable *ipsec_dialog_new_hash_from_dialog (GtkWidget *dialog, GError **error);
+GHashTable *ipsec_dialog_new_hash_from_dialog(GtkWidget *dialog, GError **error);
 
 #endif

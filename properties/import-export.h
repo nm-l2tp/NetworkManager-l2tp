@@ -7,8 +7,8 @@
 #ifndef _IMPORT_EXPORT_H_
 #define _IMPORT_EXPORT_H_
 
-NMConnection *do_import (const char *path, GError **error);
+NMConnection *do_import(const char *path, GError **error);
 
-gboolean do_export (const char *path, NMConnection *connection, GError **error);
+gboolean do_export(const char *path, NMConnection *connection, GError **error);
 
 #endif

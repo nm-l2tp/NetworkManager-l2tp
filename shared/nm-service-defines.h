@@ -9,15 +9,15 @@
 #ifndef NM_L2TP_SERVICE_DEFINES_H
 #define NM_L2TP_SERVICE_DEFINES_H
 
-#define NM_DBUS_SERVICE_L2TP    "org.freedesktop.NetworkManager.l2tp"
+#define NM_DBUS_SERVICE_L2TP "org.freedesktop.NetworkManager.l2tp"
 
 /* For the NM <-> VPN plugin service */
-#define NM_DBUS_INTERFACE_L2TP  "org.freedesktop.NetworkManager.l2tp"
-#define NM_DBUS_PATH_L2TP       "/org/freedesktop/NetworkManager/l2tp"
+#define NM_DBUS_INTERFACE_L2TP "org.freedesktop.NetworkManager.l2tp"
+#define NM_DBUS_PATH_L2TP      "/org/freedesktop/NetworkManager/l2tp"
 
 /* For the VPN plugin service <-> PPP plugin */
-#define NM_DBUS_INTERFACE_L2TP_PPP  "org.freedesktop.NetworkManager.l2tp.ppp"
-#define NM_DBUS_PATH_L2TP_PPP       "/org/freedesktop/NetworkManager/l2tp/ppp"
+#define NM_DBUS_INTERFACE_L2TP_PPP "org.freedesktop.NetworkManager.l2tp.ppp"
+#define NM_DBUS_PATH_L2TP_PPP      "/org/freedesktop/NetworkManager/l2tp/ppp"
 
 #define NM_L2TP_KEY_GATEWAY           "gateway"
 #define NM_L2TP_KEY_USER_AUTH_TYPE    "user-auth-type"
@@ -70,9 +70,9 @@
 /* Internal auth-dialog -> service token indicating that no secrets are required
  * for the connection if X.509 private keys are used with no password protection.
  */
-#define NM_L2TP_KEY_NOSECRET          "no-secret"
+#define NM_L2TP_KEY_NOSECRET "no-secret"
 
-#define NM_L2TP_AUTHTYPE_PASSWORD     "password"
-#define NM_L2TP_AUTHTYPE_TLS          "tls"
-#define NM_L2TP_AUTHTYPE_PSK          "psk"
+#define NM_L2TP_AUTHTYPE_PASSWORD "password"
+#define NM_L2TP_AUTHTYPE_TLS      "tls"
+#define NM_L2TP_AUTHTYPE_PSK      "psk"
 #endif /* NM_L2TP_SERVICE_DEFINES_H */
