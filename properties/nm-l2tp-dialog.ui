@@ -584,6 +584,7 @@ config: auth-user-pass</property>
         <property name="tooltip_text" translatable="yes">Do not use UDP port 1701 for L2TP source port even if it is free,
 will use an ephemeral port (i.e. random high port) instead.
 May be required to allow multiple L2TP clients behind same NAT.</property>
+        <property name="halign">start</property>
         <property name="use_underline">True</property>
         <property name="draw_indicator">True</property>
       </object>
@@ -1026,20 +1027,6 @@ config: ipsec-psk</property>
                         <property name="can_focus">False</property>
                         <property name="row_spacing">4</property>
                         <child>
-                          <object class="GtkLabel" id="label_phase2">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="halign">start</property>
-                            <property name="margin_left">12</property>
-                            <property name="label" translatable="yes">Phase2 Algorithms:</property>
-                            <property name="xalign">0</property>
-                          </object>
-                          <packing>
-                            <property name="left_attach">0</property>
-                            <property name="top_attach">2</property>
-                          </packing>
-                        </child>
-                        <child>
                           <object class="GtkEntry" id="ipsec_phase1_entry">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
@@ -1063,20 +1050,6 @@ config: ipsec-esp &lt;proposals&gt;</property>
                           <packing>
                             <property name="left_attach">1</property>
                             <property name="top_attach">2</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkLabel" id="label_phase1">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="halign">start</property>
-                            <property name="margin_left">12</property>
-                            <property name="label" translatable="yes">Phase1 Algorithms:</property>
-                            <property name="xalign">0</property>
-                          </object>
-                          <packing>
-                            <property name="left_attach">0</property>
-                            <property name="top_attach">1</property>
                           </packing>
                         </child>
                         <child>
@@ -1165,10 +1138,11 @@ config: ipsec-salifetime &lt;lifetime&gt;</property>
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="phase1_lifetime_check">
-                            <property name="label" translatable="yes">Phase_1 Lifetime:</property>
+                            <property name="label" translatable="yes">Phase1 Lifetime:</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
+                            <property name="halign">start</property>
                             <property name="use_underline">True</property>
                             <property name="draw_indicator">True</property>
                           </object>
@@ -1179,29 +1153,17 @@ config: ipsec-salifetime &lt;lifetime&gt;</property>
                         </child>
                         <child>
                           <object class="GtkCheckButton" id="phase2_lifetime_check">
-                            <property name="label" translatable="yes">Phase_2 Lifetime:</property>
+                            <property name="label" translatable="yes">Phase2 Lifetime:</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
+                            <property name="halign">start</property>
                             <property name="use_underline">True</property>
                             <property name="draw_indicator">True</property>
                           </object>
                           <packing>
                             <property name="left_attach">0</property>
                             <property name="top_attach">4</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkLabel" id="ipsec_gateway_id_label">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="halign">start</property>
-                            <property name="margin_left">12</property>
-                            <property name="label" translatable="yes">Remote ID:</property>
-                          </object>
-                          <packing>
-                            <property name="left_attach">0</property>
-                            <property name="top_attach">0</property>
                           </packing>
                         </child>
                         <child>
@@ -1217,6 +1179,51 @@ ipsec.secrets: &lt;ID&gt;</property>
                           </object>
                           <packing>
                             <property name="left_attach">1</property>
+                            <property name="top_attach">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkCheckButton" id="phase1_check">
+                            <property name="label" translatable="yes">Phase1 Algorithms:</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">False</property>
+                            <property name="halign">start</property>
+                            <property name="use_underline">True</property>
+                            <property name="draw_indicator">True</property>
+                          </object>
+                          <packing>
+                            <property name="left_attach">0</property>
+                            <property name="top_attach">1</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkCheckButton" id="phase2_check">
+                            <property name="label" translatable="yes">Phase2 Algorithms:</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">False</property>
+                            <property name="halign">start</property>
+                            <property name="use_underline">True</property>
+                            <property name="draw_indicator">True</property>
+                          </object>
+                          <packing>
+                            <property name="left_attach">0</property>
+                            <property name="top_attach">2</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkCheckButton" id="remote_id_check">
+                            <property name="label" translatable="yes">Remote ID:</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">False</property>
+                            <property name="halign">start</property>
+                            <property name="use_underline">True</property>
+                            <property name="draw_indicator">True</property>
+                          </object>
+                          <packing>
+                            <property name="left_attach">0</property>
                             <property name="top_attach">0</property>
                           </packing>
                         </child>
