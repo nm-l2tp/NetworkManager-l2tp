@@ -1,0 +1,124 @@
+Language: Cpp
+
+TabWidth: 4
+IndentWidth: 4
+UseTab: Never
+ColumnLimit: 100
+ContinuationIndentWidth: 4
+UseCRLF: false
+
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments: true
+AlignConsecutiveDeclarations: true
+AlignConsecutiveMacros: true
+AlignEscapedNewlines: Left
+AlignOperands: true
+AlignTrailingComments: true
+AllowAllArgumentsOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowShortBlocksOnASingleLine: Empty
+AllowShortCaseLabelsOnASingleLine: false
+#AllowShortEnumsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+AlwaysBreakAfterReturnType: AllDefinitions
+AlwaysBreakBeforeMultilineStrings: false
+
+BinPackArguments: false
+BinPackParameters: false
+BreakBeforeBraces: Custom
+BraceWrapping:
+    AfterCaseLabel: true
+    AfterControlStatement: Never
+    AfterFunction: true
+    AfterStruct: false
+    AfterUnion: false
+    BeforeElse: false
+    IndentBraces: false
+    SplitEmptyFunction: false
+BreakBeforeBinaryOperators: NonAssignment
+BreakBeforeTernaryOperators: true
+BreakStringLiterals: true
+
+IncludeBlocks: Preserve
+IndentCaseLabels: false
+IndentGotoLabels: false
+IndentPPDirectives: None
+IndentWrappedFunctionNames: false
+KeepEmptyLinesAtTheStartOfBlocks: false
+MaxEmptyLinesToKeep: 1
+
+DerivePointerAlignment: false
+PointerAlignment: Right
+ReflowComments: false
+SortIncludes: false
+SpaceAfterCStyleCast: true
+SpaceAfterLogicalNot: false
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeParens: ControlStatements
+SpaceBeforeSquareBrackets: false
+SpaceInEmptyBlock: false
+SpaceInEmptyParentheses: false
+SpacesBeforeTrailingComments: 2
+SpacesInCStyleCastParentheses: false
+SpacesInContainerLiterals: false
+SpacesInParentheses: false
+
+ForEachMacros: ['c_list_for_each',
+                'c_list_for_each_prev',
+                'c_list_for_each_prev_safe',
+                'c_list_for_each_continue',
+                'c_list_for_each_entry',
+                'c_list_for_each_entry_continue',
+                'c_list_for_each_entry_prev',
+                'c_list_for_each_entry_safe',
+                'c_list_for_each_entry_safe_continue',
+                'c_list_for_each_entry_safe_unlink',
+                'c_list_for_each_safe',
+                'c_list_for_each_safe_continue',
+                'c_list_for_each_safe_unlink',
+                'c_rbtree_for_each',
+                'c_rbtree_for_each_entry',
+                'c_rbtree_for_each_entry_postorder',
+                'c_rbtree_for_each_entry_safe',
+                'c_rbtree_for_each_entry_safe_postorder',
+                'c_rbtree_for_each_entry_safe_postorder_unlink',
+                'c_rbtree_for_each_postorder',
+                'c_rbtree_for_each_safe',
+                'c_rbtree_for_each_safe_postorder',
+                'c_rbtree_for_each_safe_postorder_unlink',
+                'json_array_foreach',
+                'json_object_foreach',
+                'json_object_foreach_safe',
+                'ndp_msg_opt_dnssl_for_each_domain',
+                'ndp_msg_opt_for_each_offset',
+                'ndp_msg_opt_rdnss_for_each_addr',
+                'nla_for_each_attr',
+                'nla_for_each_nested',
+                'nm_dedup_multi_iter_for_each',
+                'nm_ip_config_iter_ip4_address_for_each',
+                'nm_ip_config_iter_ip4_route_for_each',
+                'nm_ip_config_iter_ip6_address_for_each',
+                'nm_ip_config_iter_ip6_route_for_each',
+                'nm_ip_config_iter_ip_address_for_each',
+                'nm_ip_config_iter_ip_route_for_each',
+                'nm_json_array_foreach',
+                'nm_json_object_foreach',
+                'nm_l3_config_data_iter_ip_address_for_each',
+                'nm_l3_config_data_iter_ip4_address_for_each',
+                'nm_l3_config_data_iter_ip6_address_for_each',
+                'nm_l3_config_data_iter_ip_route_for_each',
+                'nm_l3_config_data_iter_ip4_route_for_each',
+                'nm_l3_config_data_iter_ip6_route_for_each',
+                'nm_l3_config_data_iter_obj_for_each',
+                'nm_manager_for_each_active_connection',
+                'nm_manager_for_each_active_connection_prev',
+                'nm_manager_for_each_active_connection_safe',
+                'nm_manager_for_each_device',
+                'nm_manager_for_each_device_safe',
+                'nm_platform_iter_obj_for_each',
+                'nmp_cache_iter_for_each',
+                'nmp_cache_iter_for_each_link',
+                'nmp_cache_iter_for_each_reverse',
+                ]
