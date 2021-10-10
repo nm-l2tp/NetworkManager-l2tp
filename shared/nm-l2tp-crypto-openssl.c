@@ -209,11 +209,11 @@ crypto_file_format(const char *filename, gboolean *out_need_password, GError **e
         }
     }
 
-    /*
-	 * Note: There is no such thing as encrypted traditional OpenSSL
-	 * DER PrivateKeys, as OpenSSL never provided functions in the API.
-	 * For DER there is only unencrypted traditional OpenSSL PrivateKeys.
-	 */
+    /**
+     * Note: There is no such thing as encrypted traditional OpenSSL
+     * DER PrivateKeys, as OpenSSL never provided functions in the API.
+     * For DER there is only unencrypted traditional OpenSSL PrivateKeys.
+     **/
 
     /* try traditional OpenSSL RSA PrivateKey DER */
     BIO_reset(in);
@@ -499,8 +499,10 @@ crypto_create_pkcs12_data(const char *pkey_filename,
     return g_byte_array_new_take(p12bytes, len);
 }
 
-/* Outputs ASN.1 PKCS#12 certificate data with NULL password
- * and specified friendly name */
+/**
+ * Outputs ASN.1 PKCS#12 certificate data with NULL password
+ * and specified friendly name
+ **/
 GByteArray *
 crypto_decrypt_pkcs12_data(const char *p12_filename,
                            const char *password,
@@ -552,8 +554,10 @@ crypto_decrypt_pkcs12_data(const char *p12_filename,
     }
     PKCS12_free(p12);
 
-    /* create new PKCS#12 certificate with NULL password
-	  and specified friendly name */
+    /**
+     * create new PKCS#12 certificate with NULL password
+     * and specified friendly name
+     **/
     ERR_clear_error();
     p12 = PKCS12_create(NULL, friendly_name, pkey, cert, ca, -1, -1, 0, 0, 0);
     sk_X509_pop_free(ca, X509_free);

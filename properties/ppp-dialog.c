@@ -106,17 +106,19 @@ handle_mppe_changed(GtkWidget *check, gboolean is_init, GtkBuilder *builder)
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "ppp_allow_stateful_mppe"));
     gtk_widget_set_sensitive(widget, use_mppe && mppe_sensitive);
 
-    /* At dialog-setup time, don't touch the auth methods if MPPE is disabled
-	 * since that could overwrite the user's previously chosen auth methods.
-	 * But ensure that at init time if MPPE is on that incompatible auth methods
-	 * aren't selected.
-	 */
+    /**
+     * At dialog-setup time, don't touch the auth methods if MPPE is disabled
+     * since that could overwrite the user's previously chosen auth methods.
+     * But ensure that at init time if MPPE is on that incompatible auth methods
+     * aren't selected.
+     **/
     if (is_init && !use_mppe)
         return;
 
-    /* If MPPE is active, PAP, CHAP, and EAP aren't allowed by the MPPE specs;
-	 * likewise, if MPPE is inactive, sensitize the PAP, CHAP, and EAP checkboxes.
-	 */
+    /**
+     * If MPPE is active, PAP, CHAP, and EAP aren't allowed by the MPPE specs;
+     * likewise, if MPPE is inactive, sensitize the PAP, CHAP, and EAP checkboxes.
+     **/
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "ppp_auth_methods"));
     model  = gtk_tree_view_get_model(GTK_TREE_VIEW(widget));
     valid  = gtk_tree_model_get_iter_first(model, &iter);

@@ -174,14 +174,15 @@ tls_cert_changed_cb(GtkWidget *chooser, gpointer user_data)
                                               "machine_tls_private_key_chooser",
                                               NULL};
 
-    /* If the just-changed file chooser is a PKCS#12 file, then all of the
-	 * TLS filechoosers have to be PKCS#12.  But if it just changed to something
-	 * other than a PKCS#12 file, then clear out the other file choosers.
-	 *
-	 * Basically, all the choosers have to contain PKCS#12 files, or none of
-	 * them can, because PKCS#12 files contain everything required for the TLS
-	 * connection (CA cert, cert, private key).
-	 */
+    /**
+     * If the just-changed file chooser is a PKCS#12 file, then all of the
+     * TLS filechoosers have to be PKCS#12.  But if it just changed to something
+     * other than a PKCS#12 file, then clear out the other file choosers.
+     *
+     * Basically, all the choosers have to contain PKCS#12 files, or none of
+     * them can, because PKCS#12 files contain everything required for the TLS
+     * connection (CA cert, cert, private key).
+     **/
 
     crypto_init_openssl();
 
@@ -224,10 +225,11 @@ tls_cert_changed_cb(GtkWidget *chooser, gpointer user_data)
         sensitive_ca_key = FALSE;
 
     } else {
-        /* Just-chosen file isn't PKCS#12 or no file was chosen, so clear out other
-		 * file selectors that have PKCS#12 files in them.
-		 * Set directory of unset file choosers to the directory just selected.
-		 */
+        /**
+         * Just-chosen file isn't PKCS#12 or no file was chosen, so clear out other
+         * file selectors that have PKCS#12 files in them.
+         * Set directory of unset file choosers to the directory just selected.
+         **/
         if (id != id1) {
             tls_fileformat = crypto_file_format(ca_cert_fname, NULL, &config_error);
             if (tls_fileformat == NM_L2TP_CRYPTO_FILE_FORMAT_PKCS12) {

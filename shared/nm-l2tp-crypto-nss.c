@@ -138,7 +138,7 @@ crypto_deinit_nss(GError **error)
     return TRUE;
 }
 
-/*
+/**
  * Return corresponding password for slot's token from Libreswan NSS password file.
  *
  * The Libreswan NSS password file is typically one of the following :
@@ -150,7 +150,7 @@ crypto_deinit_nss(GError **error)
  * token_2_name:password2
  *
  *    ...
- */
+ **/
 static char *
 crypto_get_password_libreswan_nss(PK11SlotInfo *slot, PRBool retry, void *arg)
 {
@@ -191,10 +191,10 @@ crypto_get_password_libreswan_nss(PK11SlotInfo *slot, PRBool retry, void *arg)
     return FALSE;
 }
 
-/*
+/**
  * This callback is called by SEC_PKCS12DecoderValidateBags() each time
  * a nickname collission is detected.
- */
+ **/
 static SECItem *
 nickname_cb(SECItem *old_nick, PRBool *cancel, void *wincx)
 {
