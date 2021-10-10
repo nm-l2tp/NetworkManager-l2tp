@@ -540,8 +540,8 @@ main(int argc, char *argv[])
     }
 
     /* Determine which passwords are actually required,
-	 * from looking at the VPN configuration.
-	 */
+     * from looking at the VPN configuration.
+     */
     prompt = get_passwords_required(data,
                                     &need_password,
                                     &need_user_certpass,
@@ -581,8 +581,8 @@ main(int argc, char *argv[])
         ask_user = FALSE;
 
     /* If interaction is allowed then ask the user, otherwise pass back
-	 * whatever existing secrets we can find.
-	 */
+     * whatever existing secrets we can find.
+     */
     if (ask_user_func && allow_interaction && (ask_user || retry)) {
         if (!ask_user_func(vpn_name,
                            prompt,

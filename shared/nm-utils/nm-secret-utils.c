@@ -1,7 +1,6 @@
 /* SPDX-License-Identifier: LGPL-2.1-or-later */
-/* NetworkManager -- Network link manager
- *
- * (C) Copyright 2018 Red Hat, Inc.
+/*
+ * Copyright (C) 2018 Red Hat, Inc.
  */
 
 #include "nm-default.h"
@@ -35,9 +34,9 @@ nm_secret_strchomp(char *secret)
     g_return_val_if_fail(secret, NULL);
 
     /* it's actually identical to g_strchomp(). However,
-	 * the glib function does not document, that it clears the
-	 * memory. For @secret, we don't only want to truncate trailing
-	 * spaces, we want to overwrite them with NUL. */
+     * the glib function does not document, that it clears the
+     * memory. For @secret, we don't only want to truncate trailing
+     * spaces, we want to overwrite them with NUL. */
 
     len = strlen(secret);
     while (len--) {
@@ -63,16 +62,16 @@ nm_secret_copy_to_gbytes(gconstpointer mem, gsize mem_len)
     nm_assert(mem);
 
     /* NUL terminate the buffer.
-	 *
-	 * The entire buffer is already malloc'ed and likely has some room for padding.
-	 * Thus, in many situations, this additional byte will cause no overhead in
-	 * practice.
-	 *
-	 * Even if it causes an overhead, do it just for safety. Yes, the returned
-	 * bytes is not a NUL terminated string and no user must rely on this. Do
-	 * not treat binary data as NUL terminated strings, unless you know what
-	 * you are doing. Anyway, defensive FTW.
-	 */
+     *
+     * The entire buffer is already malloc'ed and likely has some room for padding.
+     * Thus, in many situations, this additional byte will cause no overhead in
+     * practice.
+     *
+     * Even if it causes an overhead, do it just for safety. Yes, the returned
+     * bytes is not a NUL terminated string and no user must rely on this. Do
+     * not treat binary data as NUL terminated strings, unless you know what
+     * you are doing. Anyway, defensive FTW.
+     */
 
     b = nm_secret_buf_new(mem_len + 1);
     memcpy(b->bin, mem, mem_len);

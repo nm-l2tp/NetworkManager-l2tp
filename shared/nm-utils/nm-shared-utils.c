@@ -1,8 +1,8 @@
 /* SPDX-License-Identifier: LGPL-2.1-or-later */
-/* NetworkManager -- Network link manager
- *
- * (C) Copyright 2016 Red Hat, Inc.
+/*
+ * Copyright (C) 2016 Red Hat, Inc.
  */
+
 
 #include "nm-default.h"
 
@@ -204,8 +204,8 @@ nm_utils_strbuf_seek_end(char **buf, gsize *len)
 
 truncate:
     /* hm, no NUL character within len bytes.
-	 * Just NUL terminate the array and consume them
-	 * all. */
+     * Just NUL terminate the array and consume them
+     * all. */
     *buf += *len;
     (*buf)[-1] = '\0';
     *len       = 0;
@@ -232,7 +232,7 @@ nm_utils_gbytes_equal_mem(GBytes *bytes, gconstpointer mem_data, gsize mem_len)
 
     if (!bytes) {
         /* as a special case, let %NULL GBytes compare idential
-		 * to an empty array. */
+         * to an empty array. */
         return (mem_len == 0);
     }
 
@@ -307,7 +307,7 @@ nm_strquote(char *buf, gsize buf_len, const char *str)
     nm_utils_strbuf_append_str(&buf, &buf_len, str);
 
     /* if the string was too long we indicate truncation with a
-	 * '^' instead of a closing quote. */
+     * '^' instead of a closing quote. */
     if (G_UNLIKELY(buf_len <= 1)) {
         switch (buf_len) {
         case 1:
@@ -423,7 +423,7 @@ nm_utils_flags2str(const NMUtilsFlags2StrDesc *descs,
 guint32
 _nm_utils_ip4_prefix_to_netmask(guint32 prefix)
 {
-    return prefix < 32 ? ~htonl(0xFFFFFFFF >> prefix) : 0xFFFFFFFF;
+    return prefix < 32 ? ~htonl(0xFFFFFFFF >> prefix) : 0xFFFFFFFFu;
 }
 
 /**
@@ -457,7 +457,7 @@ nm_utils_ip_is_site_local(int addr_family, const void *address)
     switch (addr_family) {
     case AF_INET:
         /* RFC1918 private addresses
-		 * 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 */
+         * 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 */
         addr4 = ntohl(*((const in_addr_t *) address));
         return (addr4 & 0xff000000) == 0x0a000000 || (addr4 & 0xfff00000) == 0xac100000
                || (addr4 & 0xffff0000) == 0xc0a80000;
@@ -539,8 +539,10 @@ nm_utils_parse_inaddr_prefix_bin(int         addr_family,
         return FALSE;
 
     if (slash) {
+        /* For IPv4, `ip addr add` supports the prefix-length as a netmask. We don't
+         * do that. */
         prefix =
-            _nm_utils_ascii_str_to_int64(slash + 1, 10, 0, addr_family == AF_INET ? 32 : 128, -1);
+            _nm_utils_ascii_str_to_int64(&slash[1], 10, 0, addr_family == AF_INET ? 32 : 128, -1);
         if (prefix == -1)
             return FALSE;
     }
@@ -655,8 +657,8 @@ _nm_utils_ascii_str_to_uint64(const char *str,
     }
 
     if (v != 0 && str[0] == '-') {
-        /* I don't know why, but g_ascii_strtoull() accepts minus signs ("-2" gives 18446744073709551614).
-		 * For "-0" that is OK, but otherwise not. */
+        /* As documented, g_ascii_strtoull() accepts negative values, and returns their
+         * absolute value. We don't. */
         errno = ERANGE;
         return fallback;
     }
@@ -699,11 +701,11 @@ int
 nm_cmp_int2ptr_p_with_data(gconstpointer p_a, gconstpointer p_b, gpointer user_data)
 {
     /* p_a and p_b are two pointers to a pointer, where the pointer is
-	 * interpreted as a integer using GPOINTER_TO_INT().
-	 *
-	 * That is the case of a hash-table that uses GINT_TO_POINTER() to
-	 * convert integers as pointers, and the resulting keys-as-array
-	 * array. */
+     * interpreted as a integer using GPOINTER_TO_INT().
+     *
+     * That is the case of a hash-table that uses GINT_TO_POINTER() to
+     * convert integers as pointers, and the resulting keys-as-array
+     * array. */
     const int a = GPOINTER_TO_INT(*((gconstpointer *) p_a));
     const int b = GPOINTER_TO_INT(*((gconstpointer *) p_b));
 
@@ -733,10 +735,10 @@ _dbus_path_component_as_num(const char *p)
     gint64 n;
 
     /* no odd stuff. No leading zeros, only a non-negative, decimal integer.
-	 *
-	 * Otherwise, there would be multiple ways to encode the same number "10"
-	 * and "010". That is just confusing. A number has no leading zeros,
-	 * if it has, it's not a number (as far as we are concerned here). */
+     *
+     * Otherwise, there would be multiple ways to encode the same number "10"
+     * and "010". That is just confusing. A number has no leading zeros,
+     * if it has, it's not a number (as far as we are concerned here). */
     if (p[0] == '0') {
         if (p[1] != '\0')
             return -1;
@@ -760,14 +762,14 @@ nm_utils_dbus_path_cmp(const char *dbus_path_a, const char *dbus_path_b)
     gint64      n_a, n_b;
 
     /* compare function for two D-Bus paths. It behaves like
-	 * strcmp(), except, if both paths have the same prefix,
-	 * and both end in a (positive) number, then the paths
-	 * will be sorted by number. */
+     * strcmp(), except, if both paths have the same prefix,
+     * and both end in a (positive) number, then the paths
+     * will be sorted by number. */
 
     NM_CMP_SELF(dbus_path_a, dbus_path_b);
 
     /* if one or both paths have no slash (and no last component)
-	 * compare the full paths directly. */
+     * compare the full paths directly. */
     if (!(l_a = nm_utils_dbus_path_get_last_component(dbus_path_a))
         || !(l_b = nm_utils_dbus_path_get_last_component(dbus_path_b)))
         goto comp_full;
@@ -784,20 +786,20 @@ nm_utils_dbus_path_cmp(const char *dbus_path_a, const char *dbus_path_b)
         goto comp_l;
 
     /* both components must be convertiable to a number. If they are not,
-	 * (and only one of them is), then we must always strictly sort numeric parts
-	 * after non-numeric components. If we wouldn't, we wouldn't have
-	 * a total order.
-	 *
-	 * An example of a not total ordering would be:
-	 *   "8"   < "010"  (numeric)
-	 *   "0x"  < "8"    (lexical)
-	 *   "0x"  > "010"  (lexical)
-	 * We avoid this, by forcing that a non-numeric entry "0x" always sorts
-	 * before numeric entries.
-	 *
-	 * Additionally, _dbus_path_component_as_num() would also reject "010" as
-	 * not a valid number.
-	 */
+     * (and only one of them is), then we must always strictly sort numeric parts
+     * after non-numeric components. If we wouldn't, we wouldn't have
+     * a total order.
+     *
+     * An example of a not total ordering would be:
+     *   "8"   < "010"  (numeric)
+     *   "0x"  < "8"    (lexical)
+     *   "0x"  > "010"  (lexical)
+     * We avoid this, by forcing that a non-numeric entry "0x" always sorts
+     * before numeric entries.
+     *
+     * Additionally, _dbus_path_component_as_num() would also reject "010" as
+     * not a valid number.
+     */
     if (n_a == -1)
         return -1;
     if (n_b == -1)
@@ -880,7 +882,7 @@ nm_utils_strsplit_set(const char *str, const char *delimiters, gboolean allow_es
     G_STMT_END
 
     /* skip initial delimiters, and return of the remaining string is
-	 * empty. */
+     * empty. */
     while (_is_delimiter(str[0], delimiters_table, allow_escaping, escaped))
         next_char(str, escaped);
 
@@ -891,7 +893,7 @@ nm_utils_strsplit_set(const char *str, const char *delimiters, gboolean allow_es
     alloc_size = 8;
 
     /* we allocate the buffer larger, so to copy @str at the
-	 * end of it as @s0. */
+     * end of it as @s0. */
     ptr0 = g_malloc((sizeof(const char *) * (alloc_size + 1)) + str_len);
     s0   = (char *) &ptr0[alloc_size + 1];
     memcpy(s0, str, str_len);
@@ -905,7 +907,7 @@ nm_utils_strsplit_set(const char *str, const char *delimiters, gboolean allow_es
             const char **ptr_old = ptr;
 
             /* reallocate the buffer. Note that for now the string
-			 * continues to be in ptr0/s0. We fix that at the end. */
+             * continues to be in ptr0/s0. We fix that at the end. */
             alloc_size *= 2;
             ptr = g_malloc((sizeof(const char *) * (alloc_size + 1)) + str_len);
             memcpy(ptr, ptr_old, sizeof(const char *) * plen);
@@ -937,7 +939,7 @@ done:
 
     if (ptr != ptr0) {
         /* we reallocated the buffer. We must copy over the
-		 * string @s0 and adjust the pointers. */
+         * string @s0 and adjust the pointers. */
         s = (char *) &ptr[alloc_size + 1];
         memcpy(s, s0, str_len);
         for (i = 0; i < plen; i++)
@@ -1135,7 +1137,7 @@ nm_g_object_set_property(GObject *     object,
     g_return_val_if_fail(!error || !*error, FALSE);
 
     /* g_object_class_find_property() does g_param_spec_get_redirect_target(),
-	 * where we differ from a plain g_object_set_property(). */
+     * where we differ from a plain g_object_set_property(). */
     pspec = g_object_class_find_property(G_OBJECT_GET_CLASS(object), property_name);
 
     if (!pspec) {
@@ -1263,10 +1265,10 @@ nm_g_object_set_property_char(GObject *   object,
                               GError **   error)
 {
     /* glib says about G_TYPE_CHAR:
-	 *
-	 * The type designated by G_TYPE_CHAR is unconditionally an 8-bit signed integer.
-	 *
-	 * This is always a (signed!) char. */
+     *
+     * The type designated by G_TYPE_CHAR is unconditionally an 8-bit signed integer.
+     *
+     * This is always a (signed!) char. */
     _set_property(object, property_name, G_TYPE_CHAR, g_value_set_schar, value, error);
 }
 
@@ -1437,7 +1439,7 @@ nm_utils_buf_utf8safe_unescape(const char *str, gsize *out_len, gpointer *to_fre
                 break;
             default:
                 /* Here we handle "\\\\", but all other unexpected escape sequences are really a bug.
-				 * Take them literally, after removing the escape character */
+                 * Take them literally, after removing the escape character */
                 break;
             }
             str++;
@@ -1521,7 +1523,7 @@ nm_utils_buf_utf8safe_escape(gconstpointer           buf,
 
     if (g_utf8_validate(str, buflen, &p) && nul_terminated) {
         /* note that g_utf8_validate() does not allow NUL character inside @str. Good.
-		 * We can treat @str like a NUL terminated string. */
+         * We can treat @str like a NUL terminated string. */
         if (!NM_STRCHAR_ANY(
                 str,
                 ch,
@@ -1713,7 +1715,7 @@ nm_utils_fd_read_loop(int fd, void *buf, size_t nbytes, bool do_poll)
     g_return_val_if_fail(buf, -EINVAL);
 
     /* If called with nbytes == 0, let's call read() at least
-	 * once, to validate the operation */
+     * once, to validate the operation */
 
     if (nbytes > (size_t) SSIZE_MAX)
         return -EINVAL;
@@ -1728,8 +1730,8 @@ nm_utils_fd_read_loop(int fd, void *buf, size_t nbytes, bool do_poll)
 
             if (errno == EAGAIN && do_poll) {
                 /* We knowingly ignore any return value here,
-				 * and expect that any error/EOF is reported
-				 * via read() */
+                 * and expect that any error/EOF is reported
+                 * via read() */
 
                 (void) nm_utils_fd_wait_for_event(fd, POLLIN, -1);
                 continue;
@@ -1807,7 +1809,7 @@ nm_utils_hash_keys_to_array(GHashTable *     hash,
     gpointer *keys;
 
     /* by convention, we never return an empty array. In that
-	 * case, always %NULL. */
+     * case, always %NULL. */
     if (!hash || g_hash_table_size(hash) == 0) {
         NM_SET_OUT(out_len, 0);
         return NULL;
@@ -1827,8 +1829,8 @@ nm_utils_strv_make_deep_copied(const char **strv)
     gsize i;
 
     /* it takes a strv dictionary, and copies each
-	 * strings. Note that this updates @strv *in-place*
-	 * and returns it. */
+     * strings. Note that this updates @strv *in-place*
+     * and returns it. */
 
     if (!strv)
         return NULL;
@@ -1865,9 +1867,9 @@ nm_utils_ptrarray_find_binary_search(gconstpointer *  list,
             cmp = cmpfcn(list[imid], needle, user_data);
             if (cmp == 0) {
                 /* we found a matching entry at index imid.
-				 *
-				 * Does the caller request the first/last index as well (in case that
-				 * there are multiple entries which compare equal). */
+                 *
+                 * Does the caller request the first/last index as well (in case that
+                 * there are multiple entries which compare equal). */
 
                 if (out_idx_first) {
                     i2min = imin;
@@ -1912,7 +1914,7 @@ nm_utils_ptrarray_find_binary_search(gconstpointer *  list,
     }
 
     /* return the inverse of @imin. This is a negative number, but
-	 * also is ~imin the position where the value should be inserted. */
+     * also is ~imin the position where the value should be inserted. */
     imin = ~imin;
     NM_SET_OUT(out_idx_first, imin);
     NM_SET_OUT(out_idx_last, imin);
@@ -1980,7 +1982,7 @@ nm_utils_array_find_binary_search(gconstpointer    list,
     }
 
     /* return the inverse of @imin. This is a negative number, but
-	 * also is ~imin the position where the value should be inserted. */
+     * also is ~imin the position where the value should be inserted. */
     return ~imin;
 }
 
@@ -2079,9 +2081,9 @@ nm_utils_get_start_time_for_pid(pid_t pid, char *out_state, pid_t *out_ppid)
         goto fail;
 
     /* start time is the token at index 19 after the '(process name)' entry - since only this
-	 * field can contain the ')' character, search backwards for this to avoid malicious
-	 * processes trying to fool us
-	 */
+     * field can contain the ')' character, search backwards for this to avoid malicious
+     * processes trying to fool us
+     */
     p = strrchr(contents, ')');
     if (!p)
         goto fail;
@@ -2295,12 +2297,12 @@ nm_utils_invoke_on_idle(NMUtilsInvokeOnIdleCallback callback,
     data->cancellable        = nm_g_object_ref(cancellable);
     if (cancellable && !g_cancellable_is_cancelled(cancellable)) {
         /* if we are passed a non-cancelled cancellable, we register to the "cancelled"
-		 * signal an invoke the callback synchronously (from the signal handler).
-		 *
-		 * We don't do that,
-		 *  - if the cancellable is already cancelled (because we don't want to invoke
-		 *    the callback synchronously from the caller).
-		 *  - if we have no cancellable at hand. */
+         * signal an invoke the callback synchronously (from the signal handler).
+         *
+         * We don't do that,
+         *  - if the cancellable is already cancelled (because we don't want to invoke
+         *    the callback synchronously from the caller).
+         *  - if we have no cancellable at hand. */
         data->cancelled_id = g_signal_connect(cancellable,
                                               "cancelled",
                                               G_CALLBACK(_nm_utils_invoke_on_idle_cb_cancelled),
@@ -2349,7 +2351,7 @@ nm_utils_memeqzero(gconstpointer data, gsize length)
     int                  len;
 
     /* Taken from https://github.com/rustyrussell/ccan/blob/9d2d2c49f053018724bcc6e37029da10b7c3d60d/ccan/mem/mem.c#L92,
-	 * CC-0 licensed. */
+     * CC-0 licensed. */
 
     /* Check first 16 bytes manually */
     for (len = 0; len < 16; len++) {

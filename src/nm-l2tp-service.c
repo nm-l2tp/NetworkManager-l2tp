@@ -667,9 +667,9 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         crypto_init_openssl();
     }
 
-    /*
-	 * IPsec
-	 */
+    /**
+     * IPsec
+     **/
     value = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_IPSEC_ENABLE);
     if (nm_streq0(value, "yes")) {
         value = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_MACHINE_AUTH_TYPE);
@@ -684,9 +684,9 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
 
         if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_STRONGSWAN
             || priv->machine_authtype == PSK_AUTH) {
-            /*
-			 * IPsec secrets
-			 */
+            /**
+             * IPsec secrets
+             **/
             ipsec_secrets_file = NM_IPSEC_SECRETS;     /* typically /etc/ipsec.secrets */
             ipsec_conf_dir     = NM_IPSEC_SECRETS_DIR; /* typically /etc/ipsec.d */
             if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_STRONGSWAN) {
@@ -746,7 +746,7 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
                         write_config_option(fd, "%%any ");
                     }
                     /* Only literal strings starting with @ and IP addresses
-					   are allowed as IDs with IKEv1 PSK */
+                       are allowed as IDs with IKEv1 PSK */
                     if (value[0] == '@') {
                         write_config_option(fd, "%s ", value);
                     } else if (inet_pton(AF_INET, value, &naddr)) {
@@ -800,7 +800,7 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
                 case NM_L2TP_CRYPTO_FILE_FORMAT_DSA_PKEY_DER:
                 case NM_L2TP_CRYPTO_FILE_FORMAT_DSA_PKEY_PEM:
                     /* strongSwan no longer supports DSA,
-					   we let strongSwan produce an error message */
+                       we let strongSwan produce an error message */
                     write_config_option(fd, ": DSA");
                     break;
 
@@ -827,9 +827,9 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
             close(fd);
         }
 
-        /*
-		 * Libreswan NSS database
-		 */
+        /**
+         * Libreswan NSS database
+         **/
         if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN
             && priv->machine_authtype == TLS_AUTH) {
             crypto_init_nss(NM_IPSEC_NSS_DIR, &config_error);
@@ -880,9 +880,9 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
             crypto_deinit_nss(NULL);
         }
 
-        /*
-		 * IPsec config
-		 */
+        /**
+         * IPsec config
+         **/
         filename = g_strdup_printf("%s/ipsec.conf", rundir);
         fd       = open(filename, O_RDWR | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
         g_free(filename);
@@ -1078,9 +1078,9 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         close(fd);
     }
 
-    /*
-	 * L2TP options
-	 */
+    /**
+     * L2TP options
+     **/
 
     /* If xl2tpd's default port 1701 is busy, use 0 (ephemeral random port) */
     port = 1701;
@@ -1162,7 +1162,7 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
     write_config_option(fd, "ipparam nm-l2tp-service-%s\n", priv->uuid);
 
     /* pass gateway IP address to nm-l2tp-pppd-plugin via ipcp_wantoptions[0].hisaddr,
-	   but let pppd use the remote IP address being offered by the peer using IPCP */
+       but let pppd use the remote IP address being offered by the peer using IPCP */
     write_config_option(fd, ":%s\n", priv->saddr);
     write_config_option(fd, "ipcp-accept-remote\n");
 
@@ -1186,7 +1186,7 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
     }
 
     /* pppd and xl2tpd on Linux require this option to support Android and iOS clients,
-	   and pppd on Linux clients won't work without the same option */
+       and pppd on Linux clients won't work without the same option */
     write_config_option(fd, "noccp\n");
 
     if (priv->user_authtype == TLS_AUTH) {
@@ -1335,8 +1335,8 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         long int tmp_int;
 
         /* Convert to integer and then back to string for security's sake
-		 * because strtol ignores some leading and trailing characters.
-		 */
+         * because strtol ignores some leading and trailing characters.
+         */
         if (str_to_int(value, &tmp_int)) {
             write_config_option(fd, "lcp-echo-failure %ld\n", tmp_int);
         } else {
@@ -1565,9 +1565,9 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
                     _LOGI("Libreswan IPsec tunnel is up.");
                 } else {
                     /* Do not trust exit status of strongSwan 'ipsec up' command.
-					   explictly check if connection is established.
-					   strongSwan bug #1449.
-					*/
+                       explictly check if connection is established.
+                       strongSwan bug #1449.
+                     */
                     snprintf(cmdbuf,
                              sizeof(cmdbuf),
                              "%s status '%s'",
@@ -1802,8 +1802,8 @@ handle_set_ip4_config(NMDBusL2tpPpp *        object,
     }
 
     /* Insert the external VPN gateway into the table, which the pppd plugin
-	 * simply doesn't know about.
-	 */
+     * simply doesn't know about.
+     */
     g_variant_builder_add(&builder, "{sv}", NM_L2TP_KEY_GATEWAY, g_variant_new_uint32(priv->naddr));
     new_config = g_variant_builder_end(&builder);
     g_variant_ref_sink(new_config);
@@ -1862,8 +1862,8 @@ lookup_gateway(NML2tpPlugin *self, const char *src, GError **error)
     }
 
     /* If the hostname resolves to multiple IP addresses, use the first one.
-	 * FIXME: maybe we just want to use a random one instead?
-	 */
+     * FIXME: maybe we just want to use a random one instead?
+     */
     memset(&naddr, 0, sizeof(naddr));
     for (rp = result; rp; rp = rp->ai_next) {
         if ((rp->ai_family == AF_INET) && (rp->ai_addrlen == sizeof(struct sockaddr_in))) {
@@ -1939,11 +1939,11 @@ real_connect(NMVpnServicePlugin *plugin, NMConnection *connection, GError **erro
     }
 
     /* Look up the IP address of the L2TP server; if the server has multiple
-	 * addresses, because we can't get the actual IP used back from xl2tp itself,
-	 * we need to do name->addr conversion here and only pass the IP address
-	 * down to pppd/l2tp.  If only xl2tp could somehow return the IP address it's
-	 * using for the connection, we wouldn't need to do this...
-	 */
+     * addresses, because we can't get the actual IP used back from xl2tp itself,
+     * we need to do name->addr conversion here and only pass the IP address
+     * down to pppd/l2tp.  If only xl2tp could somehow return the IP address it's
+     * using for the connection, we wouldn't need to do this...
+     */
     if (!lookup_gateway(NM_L2TP_PLUGIN(plugin), gwaddr, error))
         return FALSE;
 

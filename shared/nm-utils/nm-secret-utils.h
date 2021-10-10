@@ -1,7 +1,6 @@
 /* SPDX-License-Identifier: LGPL-2.1-or-later */
-/* NetworkManager -- Network link manager
- *
- * (C) Copyright 2018 Red Hat, Inc.
+/*
+ * Copyright (C) 2018 Red Hat, Inc.
  */
 
 #ifndef __NM_SECRET_UTILS_H__
@@ -52,7 +51,7 @@ typedef struct {
     gsize len;
 
     /* the data pointer. This pointer must be allocated with malloc (at least
-	 * when used with nm_secret_ptr_clear()). */
+     * when used with nm_secret_ptr_clear()). */
     union {
         char *  str;
         void *  ptr;

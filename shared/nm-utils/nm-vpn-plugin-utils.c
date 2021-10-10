@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: LGPL-2.1-or-later */
 /*
- * Copyright 2016,2018 Red Hat, Inc.
+ * Copyright (C) 2016,2018 Red Hat, Inc.
  */
 
 #include "nm-default.h"
@@ -41,10 +41,10 @@ nm_vpn_plugin_utils_load_editor(const char *                  module_name,
 
     if (!g_path_is_absolute(module_name)) {
         /*
-		 * Load an editor from the same directory this plugin is in.
-		 * Ideally, we'd get our .so name from the NMVpnEditorPlugin if it
-		 * would just have a property with it...
-		 */
+         * Load an editor from the same directory this plugin is in.
+         * Ideally, we'd get our .so name from the NMVpnEditorPlugin if it
+         * would just have a property with it...
+         */
         if (!dladdr(nm_vpn_plugin_utils_load_editor, &plugin_info)) {
             /* Really a "can not happen" scenario. */
             g_set_error(error,
@@ -61,16 +61,16 @@ nm_vpn_plugin_utils_load_editor(const char *                  module_name,
     }
 
     /* we really expect this function to be called with unchanging @module_name
-	 * and @factory_name. And we only want to load the module once, hence it would
-	 * be more complicated to accept changing @module_name/@factory_name arguments.
-	 *
-	 * The reason for only loading once is that due to glib types, we cannot create a
-	 * certain type-name more then once, so loading the same module or another version
-	 * of the same module will fail horribly as both try to create a GType with the same
-	 * name.
-	 *
-	 * Only support loading once, any future calls will reuse the handle. To simplify
-	 * that, we enforce that the @factory_name and @module_name is the same. */
+     * and @factory_name. And we only want to load the module once, hence it would
+     * be more complicated to accept changing @module_name/@factory_name arguments.
+     *
+     * The reason for only loading once is that due to glib types, we cannot create a
+     * certain type-name more then once, so loading the same module or another version
+     * of the same module will fail horribly as both try to create a GType with the same
+     * name.
+     *
+     * Only support loading once, any future calls will reuse the handle. To simplify
+     * that, we enforce that the @factory_name and @module_name is the same. */
     if (cached.factory) {
         g_return_val_if_fail(cached.dl_module, NULL);
         g_return_val_if_fail(cached.factory_name && nm_streq0(cached.factory_name, factory_name),
@@ -112,9 +112,9 @@ nm_vpn_plugin_utils_load_editor(const char *                  module_name,
         }
 
         /* we cannot ever unload the module because it creates glib types, which
-		 * cannot be unregistered.
-		 *
-		 * Thus we just leak the dl_module handle indefinitely. */
+         * cannot be unregistered.
+         *
+         * Thus we just leak the dl_module handle indefinitely. */
         cached.factory      = factory;
         cached.dl_module    = dl_module;
         cached.module_name  = g_strdup(module_name);

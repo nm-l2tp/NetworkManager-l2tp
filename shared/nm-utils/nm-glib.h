@@ -240,7 +240,7 @@ static inline gboolean
 nm_g_hash_table_replace(GHashTable *hash, gpointer key, gpointer value)
 {
     /* glib 2.40 added a return value indicating whether the key already existed
-	 * (910191597a6c2e5d5d460e9ce9efb4f47d9cc63c). */
+     * (910191597a6c2e5d5d460e9ce9efb4f47d9cc63c). */
 #if GLIB_CHECK_VERSION(2, 40, 0)
     return g_hash_table_replace(hash, key, value);
 #else
@@ -255,7 +255,7 @@ static inline gboolean
 nm_g_hash_table_insert(GHashTable *hash, gpointer key, gpointer value)
 {
     /* glib 2.40 added a return value indicating whether the key already existed
-	 * (910191597a6c2e5d5d460e9ce9efb4f47d9cc63c). */
+     * (910191597a6c2e5d5d460e9ce9efb4f47d9cc63c). */
 #if GLIB_CHECK_VERSION(2, 40, 0)
     return g_hash_table_insert(hash, key, value);
 #else
@@ -270,7 +270,7 @@ static inline gboolean
 nm_g_hash_table_add(GHashTable *hash, gpointer key)
 {
     /* glib 2.40 added a return value indicating whether the key already existed
-	 * (910191597a6c2e5d5d460e9ce9efb4f47d9cc63c). */
+     * (910191597a6c2e5d5d460e9ce9efb4f47d9cc63c). */
 #if GLIB_CHECK_VERSION(2, 40, 0)
     return g_hash_table_add(hash, key);
 #else

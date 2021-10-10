@@ -1,7 +1,6 @@
 /* SPDX-License-Identifier: LGPL-2.1-or-later */
-/* NetworkManager -- Network link manager
- *
- * (C) Copyright 2016 Red Hat, Inc.
+/*
+ * Copyright (C) 2016 Red Hat, Inc.
  */
 
 #ifndef __NM_SHARED_UTILS_H__
@@ -15,16 +14,16 @@ static inline gboolean
 _NM_INT_NOT_NEGATIVE(gssize val)
 {
     /* whether an enum (without negative values) is a signed int, depends on compiler options
-	 * and compiler implementation.
-	 *
-	 * When using such an enum for accessing an array, one naturally wants to check
-	 * that the enum is not negative. However, the compiler doesn't like a plain
-	 * comparison "enum_val >= 0", because (if the enum is unsigned), it will warn
-	 * that the expression is always true *duh*. Not even a cast to a signed
-	 * type helps to avoid the compiler warning in any case.
-	 *
-	 * The sole purpose of this function is to avoid a compiler warning, when checking
-	 * that an enum is not negative. */
+     * and compiler implementation.
+     *
+     * When using such an enum for accessing an array, one naturally wants to check
+     * that the enum is not negative. However, the compiler doesn't like a plain
+     * comparison "enum_val >= 0", because (if the enum is unsigned), it will warn
+     * that the expression is always true *duh*. Not even a cast to a signed
+     * type helps to avoid the compiler warning in any case.
+     *
+     * The sole purpose of this function is to avoid a compiler warning, when checking
+     * that an enum is not negative. */
     return val >= 0;
 }
 
@@ -94,8 +93,8 @@ typedef struct {
         struct in6_addr addr6;
 
         /* NMIPAddr is really a union for IP addresses.
-		 * However, as ethernet addresses fit in here nicely, use
-		 * it also for an ethernet MAC address. */
+         * However, as ethernet addresses fit in here nicely, use
+         * it also for an ethernet MAC address. */
         guint8 addr_eth[6 /*ETH_ALEN*/];
     };
 } NMIPAddr;
@@ -579,8 +578,8 @@ _nm_g_slice_free_fcn_define(1) _nm_g_slice_free_fcn_define(2) _nm_g_slice_free_f
         void (*_fcn)(gpointer);                                                               \
                                                                                               \
         /* If mem_size is a compile time constant, the compiler
-		 * will be able to optimize this. Hence, you don't want
-		 * to call this with a non-constant size argument. */                               \
+         * will be able to optimize this. Hence, you don't want
+         * to call this with a non-constant size argument. */                                 \
         G_STATIC_ASSERT_EXPR(((mem_size) == 1) || ((mem_size) == 2) || ((mem_size) == 4)      \
                              || ((mem_size) == 8) || ((mem_size) == 10) || ((mem_size) == 12) \
                              || ((mem_size) == 16));                                          \
@@ -658,16 +657,16 @@ _nm_g_slice_free_fcn_define(1) _nm_g_slice_free_fcn_define(2) _nm_g_slice_free_f
         NM_UTILS_ERROR_INVALID_ARGUMENT,    /*< nick=InvalidArgument >*/
 
         /* the following codes have a special meaning and are exactly used for
-	 * nm_device_check_connection_compatible() and nm_device_check_connection_available().
-	 *
-	 * Actually, their meaning is not very important (so, don't think too
-	 * hard about the name of these error codes). What is important, is their
-	 * relative order (i.e. the integer value of the codes). When manager
-	 * searches for a suitable device, it will check all devices whether
-	 * a profile can be activated. If they all fail, it will pick the error
-	 * message from the device that returned the *highest* error code,
-	 * in the hope that this message makes the most sense for the caller.
-	 * */
+         * nm_device_check_connection_compatible() and nm_device_check_connection_available().
+         *
+         * Actually, their meaning is not very important (so, don't think too
+         * hard about the name of these error codes). What is important, is their
+         * relative order (i.e. the integer value of the codes). When manager
+         * searches for a suitable device, it will check all devices whether
+         * a profile can be activated. If they all fail, it will pick the error
+         * message from the device that returned the *highest* error code,
+         * in the hope that this message makes the most sense for the caller.
+         * */
         NM_UTILS_ERROR_CONNECTION_AVAILABLE_INCOMPATIBLE,
         NM_UTILS_ERROR_CONNECTION_AVAILABLE_UNMANAGED_DEVICE,
         NM_UTILS_ERROR_CONNECTION_AVAILABLE_TEMPORARY,
@@ -796,15 +795,15 @@ static inline void
 nm_g_variant_unref_floating(GVariant *var)
 {
     /* often a function wants to keep a reference to an input variant.
-	 * It uses g_variant_ref_sink() to either increase the ref-count,
-	 * or take ownership of a possibly floating reference.
-	 *
-	 * If the function doesn't actually want to do anything with the
-	 * input variant, it still must make sure that a passed in floating
-	 * reference is consumed. Hence, this helper which:
-	 *
-	 *   - does nothing if @var is not floating
-	 *   - unrefs (consumes) @var if it is floating. */
+     * It uses g_variant_ref_sink() to either increase the ref-count,
+     * or take ownership of a possibly floating reference.
+     *
+     * If the function doesn't actually want to do anything with the
+     * input variant, it still must make sure that a passed in floating
+     * reference is consumed. Hence, this helper which:
+     *
+     *   - does nothing if @var is not floating
+     *   - unrefs (consumes) @var if it is floating. */
     if (g_variant_is_floating(var))
         g_variant_unref(var);
 }
@@ -920,9 +919,9 @@ static inline const char *
 nm_utils_dbus_normalize_object_path(const char *path)
 {
     /* D-Bus does not allow an empty object path. Hence, whenever we mean NULL / no-object
-	 * on D-Bus, it's path is actually "/".
-	 *
-	 * Normalize that away, and return %NULL in that case. */
+     * on D-Bus, it's path is actually "/".
+     *
+     * Normalize that away, and return %NULL in that case. */
     if (path && path[0] == '/' && path[1] == '\0')
         return NULL;
     return path;

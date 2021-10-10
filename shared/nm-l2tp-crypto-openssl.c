@@ -474,7 +474,7 @@ crypto_create_pkcs12_data(const char *pkey_filename,
     }
 
     /* create PKCS#12 certificate with NULL password
-	  and specified friendly name */
+       and specified friendly name */
     ERR_clear_error();
     p12 = PKCS12_create(NULL, friendly_name, pkey, cert, ca, -1, -1, 0, 0, 0);
     EVP_PKEY_free(pkey);

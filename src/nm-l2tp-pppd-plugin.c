@@ -175,11 +175,11 @@ nm_ip_up(void *data, int arg)
                           g_variant_new_uint32(opts.ouraddr));
 
     /* Prefer the peer options remote address first, _unless_ it is the
-	 * gateway IP address nm-l2tp-services is using
-	 * (i.e. want_opts.hisaddr) or pppd made the address up, at which
-	 * point prefer the local options remote address, and if that's not
-	 * right, use the made-up address as a last resort.
-	 */
+     * gateway IP address nm-l2tp-services is using
+     * (i.e. want_opts.hisaddr) or pppd made the address up, at which
+     * point prefer the local options remote address, and if that's not
+     * right, use the made-up address as a last resort.
+     */
     if (peer_opts.hisaddr && (peer_opts.hisaddr != want_opts.hisaddr)
         && (peer_opts.hisaddr != pppd_made_up_address)) {
         g_variant_builder_add(&builder,

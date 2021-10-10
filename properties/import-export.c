@@ -255,8 +255,8 @@ import_ip4(GKeyFile *keyfile, NMSettingIPConfig *s_ip4, GError **error)
 
             ptr = routes[i];
             /* 192.168.0.0/24 via 192.168.0.1 metric 1
-			   ^          0^ 0    ^          0       ^
-			   dest        prefix next_hop           metric*/
+               ^          0^ 0    ^          0       ^
+               dest        prefix next_hop           metric*/
 
             /* Parse dest */
             dest_s = routes[i];
@@ -484,8 +484,8 @@ do_import(const char *path, GError **error)
         }
 
         /* TODO: add custom validators for int and string fields there, add special
-		   "validator_flag" field to #vpn_properties and
-		   then use switch "case validator_flag: validation_function() ..." */
+           "validator_flag" field to #vpn_properties and
+           then use switch "case validator_flag: validation_function() ..." */
 
         /* g_message("Import [%s]%s = %s", VPN_SECTION, prop.name, value); */
         nm_setting_vpn_add_data_item(s_vpn, prop.name, value);
