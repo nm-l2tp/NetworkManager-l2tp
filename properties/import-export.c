@@ -145,9 +145,7 @@ import_ip4(GKeyFile *keyfile, NMSettingIPConfig *s_ip4, GError **error)
 {
     char *str_val;
     int   i;
-#if !((NETWORKMANAGER_COMPILATION) &NM_NETWORKMANAGER_COMPILATION_WITH_LIBNM_UTIL)
     GError *local_error = NULL;
-#endif
 
     for (i = 0; ip4_properties[i].name; i++) {
         VpnImportExportProperty prop = ip4_properties[i];
@@ -200,20 +198,7 @@ import_ip4(GKeyFile *keyfile, NMSettingIPConfig *s_ip4, GError **error)
                                            &length,
                                            error);
         for (i = 0; i < length; i++) {
-#if ((NETWORKMANAGER_COMPILATION) &NM_NETWORKMANAGER_COMPILATION_WITH_LIBNM_UTIL)
-            struct in_addr addr;
-            if (!inet_aton(dnses[i], &addr)) {
-                ip4_import_error(error,
-                                 _("Property '%s' value '%s' can't be parsed as IP address."),
-                                 NM_SETTING_IP_CONFIG_DNS,
-                                 dnses[i]);
-                g_strfreev(dnses);
-                return FALSE;
-            }
-            nm_setting_ip4_config_add_dns(s_ip4, addr.s_addr);
-#else
             nm_setting_ip_config_add_dns(s_ip4, dnses[i]);
-#endif
         }
         g_strfreev(dnses);
     }
@@ -228,11 +213,7 @@ import_ip4(GKeyFile *keyfile, NMSettingIPConfig *s_ip4, GError **error)
                                            &length,
                                            error);
         for (i = 0; i < length; i++)
-#if ((NETWORKMANAGER_COMPILATION) &NM_NETWORKMANAGER_COMPILATION_WITH_LIBNM_UTIL)
-            nm_setting_ip4_config_add_dns_search(s_ip4, (const char *) dnses[i]);
-#else
             nm_setting_ip_config_add_dns_search(s_ip4, (const char *) dnses[i]);
-#endif
         g_strfreev(dnses);
     }
 
@@ -353,16 +334,6 @@ import_ip4(GKeyFile *keyfile, NMSettingIPConfig *s_ip4, GError **error)
                 return FALSE;
             }
 
-#if ((NETWORKMANAGER_COMPILATION) &NM_NETWORKMANAGER_COMPILATION_WITH_LIBNM_UTIL)
-            route = nm_ip4_route_new();
-            nm_ip4_route_set_dest(route, dest.s_addr);
-            nm_ip4_route_set_prefix(route, prefix);
-            if (next_hop.s_addr)
-                nm_ip4_route_set_next_hop(route, next_hop.s_addr);
-            if (metric != -1)
-                nm_ip4_route_set_metric(route, metric);
-            nm_setting_ip4_config_add_route(s_ip4, route);
-#else
             route = nm_ip_route_new(AF_INET, dest_s, prefix, next_hop_s, metric, &local_error);
             if (route) {
                 nm_setting_ip_config_add_route(s_ip4, route);
@@ -375,7 +346,6 @@ import_ip4(GKeyFile *keyfile, NMSettingIPConfig *s_ip4, GError **error)
                 g_clear_error(&local_error);
                 return FALSE;
             }
-#endif
         }
         g_strfreev(routes);
     }
@@ -518,34 +488,17 @@ export_ip4(NMSettingIPConfig *s_ip4, GKeyFile *keyfile, GError **error)
     guint32     num_routes;
     int         i;
 
-#if ((NETWORKMANAGER_COMPILATION) &NM_NETWORKMANAGER_COMPILATION_WITH_LIBNM_UTIL)
-    str_val = nm_setting_ip4_config_get_method(s_ip4);
-
-    g_key_file_set_string(keyfile, IP4_SECTION, NM_SETTING_IP_CONFIG_METHOD, str_val);
-
-    num_dns = nm_setting_ip4_config_get_num_dns(s_ip4);
-#else
     str_val = nm_setting_ip_config_get_method(s_ip4);
 
     g_key_file_set_string(keyfile, IP4_SECTION, NM_SETTING_IP_CONFIG_METHOD, str_val);
 
     num_dns = nm_setting_ip_config_get_num_dns(s_ip4);
-#endif
 
     if (num_dns > 0) {
         gchar *dnses[num_dns];
 
         for (i = 0; i < num_dns; i++) {
-#if ((NETWORKMANAGER_COMPILATION) &NM_NETWORKMANAGER_COMPILATION_WITH_LIBNM_UTIL)
-            struct in_addr addr;
-            guint32        dns;
-
-            dns         = nm_setting_ip4_config_get_dns(s_ip4, i);
-            addr.s_addr = dns;
-            dnses[i]    = g_strdup(inet_ntoa(addr));
-#else
             dnses[i] = g_strdup(nm_setting_ip_config_get_dns(s_ip4, i));
-#endif
         }
         g_key_file_set_string_list(keyfile,
                                    IP4_SECTION,
@@ -556,20 +509,12 @@ export_ip4(NMSettingIPConfig *s_ip4, GKeyFile *keyfile, GError **error)
             g_free(dnses[i]);
     }
 
-#if ((NETWORKMANAGER_COMPILATION) &NM_NETWORKMANAGER_COMPILATION_WITH_LIBNM_UTIL)
-    num_dns_searches = nm_setting_ip4_config_get_num_dns_searches(s_ip4);
-#else
     num_dns_searches = nm_setting_ip_config_get_num_dns_searches(s_ip4);
-#endif
     if (num_dns_searches > 0) {
         const char *dnses[num_dns_searches];
 
         for (i = 0; i < num_dns_searches; i++) {
-#if ((NETWORKMANAGER_COMPILATION) &NM_NETWORKMANAGER_COMPILATION_WITH_LIBNM_UTIL)
-            dnses[i] = nm_setting_ip4_config_get_dns_search(s_ip4, i);
-#else
             dnses[i] = nm_setting_ip_config_get_dns_search(s_ip4, i);
-#endif
         }
         g_key_file_set_string_list(keyfile,
                                    IP4_SECTION,
@@ -578,11 +523,7 @@ export_ip4(NMSettingIPConfig *s_ip4, GKeyFile *keyfile, GError **error)
                                    num_dns_searches);
     }
 
-#if ((NETWORKMANAGER_COMPILATION) &NM_NETWORKMANAGER_COMPILATION_WITH_LIBNM_UTIL)
-    num_routes = nm_setting_ip4_config_get_num_routes(s_ip4);
-#else
     num_routes = nm_setting_ip_config_get_num_routes(s_ip4);
-#endif
 
     if (num_routes > 0) {
         char *     routes[num_routes];
@@ -590,32 +531,6 @@ export_ip4(NMSettingIPConfig *s_ip4, GKeyFile *keyfile, GError **error)
 
         for (i = 0; i < num_routes; i++) {
             GString *route_s;
-#if ((NETWORKMANAGER_COMPILATION) &NM_NETWORKMANAGER_COMPILATION_WITH_LIBNM_UTIL)
-            guint32        dest, prefix, nhop, metric;
-            struct in_addr addr;
-
-            route  = nm_setting_ip4_config_get_route(s_ip4, i);
-            dest   = nm_ip4_route_get_dest(route);
-            prefix = nm_ip4_route_get_prefix(route);
-            nhop   = nm_ip4_route_get_next_hop(route);
-            metric = nm_ip4_route_get_metric(route);
-
-            /* dest and prefix are required */
-            g_return_val_if_fail(dest, FALSE);
-            g_return_val_if_fail(prefix, FALSE);
-
-            route_s = g_string_new("");
-
-            addr.s_addr = dest;
-            g_string_append_printf(route_s, "%s/%d", inet_ntoa(addr), prefix);
-
-            if (nhop) {
-                addr.s_addr = nhop;
-                g_string_append_printf(route_s, " via %s", inet_ntoa(addr));
-            }
-            if (metric)
-                g_string_append_printf(route_s, " metric %d", metric);
-#else
             route = nm_setting_ip_config_get_route(s_ip4, i);
             if (nm_ip_route_get_family(route) != AF_INET) {
                 g_message("ignoring route #%d of %d: Not a IPv4 route", i, num_routes);
@@ -630,7 +545,6 @@ export_ip4(NMSettingIPConfig *s_ip4, GKeyFile *keyfile, GError **error)
                 g_string_append_printf(route_s, " via %s", nm_ip_route_get_next_hop(route));
             if (nm_ip_route_get_metric(route) != -1)
                 g_string_append_printf(route_s, " metric %" PRId64, nm_ip_route_get_metric(route));
-#endif
             routes[i] = g_string_free(route_s, FALSE);
             g_message("export route #%d of %d: %s", i, num_routes, routes[i]);
         }
@@ -643,32 +557,16 @@ export_ip4(NMSettingIPConfig *s_ip4, GKeyFile *keyfile, GError **error)
             g_free(routes[i]);
     }
 
-#if ((NETWORKMANAGER_COMPILATION) &NM_NETWORKMANAGER_COMPILATION_WITH_LIBNM_UTIL)
-    bool_val = nm_setting_ip4_config_get_ignore_auto_routes(s_ip4);
-#else
     bool_val = nm_setting_ip_config_get_ignore_auto_routes(s_ip4);
-#endif
     g_key_file_set_boolean(keyfile, IP4_SECTION, NM_SETTING_IP_CONFIG_IGNORE_AUTO_ROUTES, bool_val);
 
-#if ((NETWORKMANAGER_COMPILATION) &NM_NETWORKMANAGER_COMPILATION_WITH_LIBNM_UTIL)
-    bool_val = nm_setting_ip4_config_get_ignore_auto_dns(s_ip4);
-#else
     bool_val = nm_setting_ip_config_get_ignore_auto_dns(s_ip4);
-#endif
     g_key_file_set_boolean(keyfile, IP4_SECTION, NM_SETTING_IP_CONFIG_IGNORE_AUTO_DNS, bool_val);
 
-#if ((NETWORKMANAGER_COMPILATION) &NM_NETWORKMANAGER_COMPILATION_WITH_LIBNM_UTIL)
-    bool_val = nm_setting_ip4_config_get_dhcp_send_hostname(s_ip4);
-#else
     bool_val = nm_setting_ip_config_get_dhcp_send_hostname(s_ip4);
-#endif
     g_key_file_set_boolean(keyfile, IP4_SECTION, NM_SETTING_IP_CONFIG_DHCP_SEND_HOSTNAME, bool_val);
 
-#if ((NETWORKMANAGER_COMPILATION) &NM_NETWORKMANAGER_COMPILATION_WITH_LIBNM_UTIL)
-    bool_val = nm_setting_ip4_config_get_never_default(s_ip4);
-#else
     bool_val = nm_setting_ip_config_get_never_default(s_ip4);
-#endif
     g_key_file_set_boolean(keyfile, IP4_SECTION, NM_SETTING_IP_CONFIG_NEVER_DEFAULT, bool_val);
 
     return TRUE;

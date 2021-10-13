@@ -228,27 +228,19 @@ properties_libnm_vpn_plugin_l2tp_editor_la_LDFLAGS = \
 
 ###############################################################################
 
-if WITH_LIBNM_GLIB
-plugin_LTLIBRARIES += properties/libnm-l2tp-properties.la
-endif
-
 properties_libnm_l2tp_properties_la_SOURCES = \
 	shared/nm-utils/nm-glib.h \
 	$(plugin_sources) \
 	$(editor_sources)
 properties_libnm_l2tp_properties_la_CFLAGS = \
 	$(GLIB_CFLAGS) \
-	$(GTK_CFLAGS) \
-	$(LIBNM_GLIB_CFLAGS) \
-	$(LIBNM_GTK_CFLAGS)
+	$(GTK_CFLAGS)
 properties_libnm_l2tp_properties_la_CPPFLAGS = \
-	-DNETWORKMANAGER_COMPILATION='NM_NETWORKMANAGER_COMPILATION_LIB|NM_NETWORKMANAGER_COMPILATION_WITH_LIBNM_UTIL' \
+	-DNETWORKMANAGER_COMPILATION=NM_NETWORKMANAGER_COMPILATION_LIB \
 	$(properties_cppflags)
 properties_libnm_l2tp_properties_la_LIBADD = \
 	$(GLIB_LIBS) \
-	$(GTK_LIBS) \
-	$(LIBNM_GLIB_LIBS) \
-	$(LIBNM_GLIB_LIBS)
+	$(GTK_LIBS)
 properties_libnm_l2tp_properties_la_LDFLAGS = \
 	-avoid-version \
 	-Wl,--version-script="$(srcdir)/properties/libnm-l2tp-properties.ver"
@@ -287,21 +279,6 @@ auth_dialog_nm_l2tp_auth_dialog_LDADD = \
 	$(OPENSSL_LIBS)
 
 ###############################################################################
-
-if WITH_LIBNM_GLIB
-# Install a file with full path to plugins for an old gnome-shell
-# https://bugzilla.gnome.org/show_bug.cgi?id=693590
-install-data-hook:
-	mkdir -p $(DESTDIR)$(sysconfdir)/NetworkManager/VPN
-	sed -e "1s|^|# This file is obsoleted by a file in $(NM_VPN_SERVICE_DIR)\n\n|" \
-	    -e 's|[@]LIBEXECDIR[@]|$(libexecdir)|g' \
-	    -e 's|[@]PLUGINDIR[@]|@NM_PLUGIN_DIR@|g' \
-	    <$(srcdir)/nm-l2tp-service.name.in \
-	    >$(DESTDIR)$(sysconfdir)/NetworkManager/VPN/nm-l2tp-service.name
-
-uninstall-hook:
-	 rm -f $(DESTDIR)$(sysconfdir)/NetworkManager/VPN/nm-l2tp-service.name
-endif
 
 appdatadir = $(datadir)/metainfo
 appdata_in_files = appdata/network-manager-l2tp.metainfo.xml.in

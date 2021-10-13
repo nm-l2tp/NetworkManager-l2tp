@@ -981,17 +981,3 @@ l2tp_plugin_ui_widget_interface_init(NMVpnEditorInterface *iface_class)
 
 /*****************************************************************************/
 
-#if !(NETWORKMANAGER_COMPILATION & NM_NETWORKMANAGER_COMPILATION_WITH_LIBNM_UTIL)
-
-#include "nm-l2tp-editor-plugin.h"
-
-G_MODULE_EXPORT NMVpnEditor *
-                nm_vpn_editor_factory_l2tp(NMVpnEditorPlugin *editor_plugin,
-                                           NMConnection *     connection,
-                                           GError **          error)
-{
-    g_return_val_if_fail(!error || !*error, NULL);
-
-    return nm_vpn_plugin_ui_widget_interface_new(connection, error);
-}
-#endif
