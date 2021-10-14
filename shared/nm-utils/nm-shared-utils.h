@@ -579,7 +579,7 @@ _nm_g_slice_free_fcn_define(1) _nm_g_slice_free_fcn_define(2) _nm_g_slice_free_f
                                                                                               \
         /* If mem_size is a compile time constant, the compiler
          * will be able to optimize this. Hence, you don't want
-         * to call this with a non-constant size argument. */                                 \
+         * to call this with a non-constant size argument. */                               \
         G_STATIC_ASSERT_EXPR(((mem_size) == 1) || ((mem_size) == 2) || ((mem_size) == 4)      \
                              || ((mem_size) == 8) || ((mem_size) == 10) || ((mem_size) == 12) \
                              || ((mem_size) == 16));                                          \

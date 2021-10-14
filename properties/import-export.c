@@ -143,8 +143,8 @@ ip4_route_import_error(GError **error, char *message, const char *val, char **ro
 static gboolean
 import_ip4(GKeyFile *keyfile, NMSettingIPConfig *s_ip4, GError **error)
 {
-    char *str_val;
-    int   i;
+    char *  str_val;
+    int     i;
     GError *local_error = NULL;
 
     for (i = 0; ip4_properties[i].name; i++) {

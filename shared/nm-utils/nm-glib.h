@@ -426,12 +426,12 @@ _nm_g_hash_table_get_keys_as_array(GHashTable *hash_table, guint *length)
 #endif
 
 static inline gpointer
-_g_steal_pointer (gpointer pp)
+_g_steal_pointer(gpointer pp)
 {
     gpointer *ptr = (gpointer *) pp;
-    gpointer ref;
+    gpointer  ref;
 
-    ref = *ptr;
+    ref  = *ptr;
     *ptr = NULL;
 
     return ref;

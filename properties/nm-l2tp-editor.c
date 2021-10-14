@@ -980,4 +980,3 @@ l2tp_plugin_ui_widget_interface_init(NMVpnEditorInterface *iface_class)
 }
 
 /*****************************************************************************/
-
