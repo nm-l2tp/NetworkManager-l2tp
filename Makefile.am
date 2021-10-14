@@ -144,6 +144,7 @@ plugin_sources = \
 
 editor_sources = \
 	$(shared_sources) \
+	shared/nm-utils/nm-glib.h \
 	shared/nm-utils/nm-vpn-plugin-utils.h \
 	shared/nm-l2tp-crypto-openssl.c \
 	shared/nm-l2tp-crypto-openssl.h \
@@ -225,25 +226,6 @@ properties_libnm_vpn_plugin_l2tp_editor_la_LIBADD = \
 properties_libnm_vpn_plugin_l2tp_editor_la_LDFLAGS = \
 	-avoid-version \
 	-Wl,--version-script="$(srcdir)/properties/libnm-vpn-plugin-l2tp-editor.ver"
-
-###############################################################################
-
-properties_libnm_l2tp_properties_la_SOURCES = \
-	shared/nm-utils/nm-glib.h \
-	$(plugin_sources) \
-	$(editor_sources)
-properties_libnm_l2tp_properties_la_CFLAGS = \
-	$(GLIB_CFLAGS) \
-	$(GTK_CFLAGS)
-properties_libnm_l2tp_properties_la_CPPFLAGS = \
-	-DNETWORKMANAGER_COMPILATION=NM_NETWORKMANAGER_COMPILATION_LIB \
-	$(properties_cppflags)
-properties_libnm_l2tp_properties_la_LIBADD = \
-	$(GLIB_LIBS) \
-	$(GTK_LIBS)
-properties_libnm_l2tp_properties_la_LDFLAGS = \
-	-avoid-version \
-	-Wl,--version-script="$(srcdir)/properties/libnm-l2tp-properties.ver"
 
 ###############################################################################
 
