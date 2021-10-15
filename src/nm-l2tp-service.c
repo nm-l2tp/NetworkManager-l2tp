@@ -2323,8 +2323,6 @@ main(int argc, char *argv[])
                                NULL},
                               {NULL}};
 
-    nm_g_type_init();
-
     /* locale will be set according to environment LC_* variables */
     setlocale(LC_ALL, "");
 

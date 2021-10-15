@@ -308,8 +308,6 @@ plugin_init(void)
     GError *         error = NULL;
     const char *     bus_name;
 
-    nm_g_type_init();
-
     g_return_val_if_fail(!gl.proxy, -1);
 
     bus_name = getenv("NM_DBUS_SERVICE_L2TP");
