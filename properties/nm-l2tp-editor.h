@@ -23,8 +23,6 @@
 #define COL_AUTH_PAGE 1
 #define COL_AUTH_TYPE 2
 
-typedef void (*ChangedCallback)(GtkWidget *widget, gpointer user_data);
-
 typedef struct _L2tpPluginUiWidget      L2tpPluginUiWidget;
 typedef struct _L2tpPluginUiWidgetClass L2tpPluginUiWidgetClass;
 

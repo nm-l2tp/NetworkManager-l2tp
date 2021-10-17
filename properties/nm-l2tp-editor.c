@@ -21,6 +21,8 @@
 
 #include "auth-helpers.h"
 
+#include "nm-l2tp-editor-plugin.h"
+
 /*****************************************************************************/
 
 static void l2tp_plugin_ui_widget_interface_init(NMVpnEditorInterface *iface_class);
@@ -34,6 +36,8 @@ G_DEFINE_TYPE_EXTENDED(L2tpPluginUiWidget,
 
 #define L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE(o) \
     (G_TYPE_INSTANCE_GET_PRIVATE((o), L2TP_TYPE_PLUGIN_UI_WIDGET, L2tpPluginUiWidgetPrivate))
+
+typedef void (*ChangedCallback)(GtkWidget *widget, gpointer user_data);
 
 typedef struct {
     GtkBuilder *    builder;
@@ -977,6 +981,16 @@ l2tp_plugin_ui_widget_interface_init(NMVpnEditorInterface *iface_class)
 {
     iface_class->get_widget        = get_widget;
     iface_class->update_connection = update_connection;
+}
+
+G_MODULE_EXPORT NMVpnEditor *
+nm_vpn_editor_factory_l2tp(NMVpnEditorPlugin *editor_plugin,
+                           NMConnection *     connection,
+                           GError **          error)
+{
+    g_return_val_if_fail(!error || !*error, NULL);
+
+    return nm_vpn_plugin_ui_widget_interface_new(connection, error);
 }
 
 /*****************************************************************************/

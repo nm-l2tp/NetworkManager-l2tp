@@ -174,7 +174,7 @@ l2tp_plugin_ui_interface_init(NMVpnEditorPluginInterface *iface_class)
 /*****************************************************************************/
 
 G_MODULE_EXPORT NMVpnEditorPlugin *
-                nm_vpn_editor_plugin_factory(GError **error)
+nm_vpn_editor_plugin_factory(GError **error)
 {
     if (error)
         g_return_val_if_fail(*error == NULL, NULL);
