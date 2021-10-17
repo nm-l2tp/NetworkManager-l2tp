@@ -39,6 +39,7 @@ shared_sources = \
 
 EXTRA_DIST += \
 	README.md \
+	autogen.sh \
 	shared/README
 
 src_cppflags = \
