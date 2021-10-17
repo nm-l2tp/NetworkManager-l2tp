@@ -883,11 +883,7 @@ ipsec_dialog_new_hash_from_dialog(GtkWidget *dialog, GError **error)
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "ipsec_psk_entry"));
     value  = gtk_entry_get_text(GTK_ENTRY(widget));
     if (value && *value) {
-        char *psk_base64 = g_base64_encode((const unsigned char *) value, strlen(value));
-        g_hash_table_insert(hash,
-                            g_strdup(NM_L2TP_KEY_IPSEC_PSK),
-                            g_strdup_printf("0s%s", psk_base64));
-        g_free(psk_base64);
+        g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_PSK), g_strdup(value));
     }
 
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "machine_tls_ca_cert_chooser"));
