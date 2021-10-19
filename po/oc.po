@@ -126,16 +126,6 @@ msgstr ""
 msgid "Property '%s' value '%s' can't be parsed as route metric."
 msgstr ""
 
-#: properties/import-export.c:331
-#, fuzzy, c-format
-msgid "Error parsing property '%s' value '%s'."
-msgstr "proprietat « %s » de tipe « %s » pas gerida"
-
-#: properties/import-export.c:343
-#, fuzzy, c-format
-msgid "Error parsing property '%s': %s."
-msgstr "proprietat « %s » de tipe « %s » pas gerida"
-
 #: properties/import-export.c:377
 msgid "does not look like a L2TP VPN connection (parse failed)"
 msgstr ""
@@ -150,11 +140,6 @@ msgstr ""
 msgid ""
 "Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."
 msgstr ""
-
-#: properties/import-export.c:615
-#, fuzzy, c-format
-msgid "Missing required property '%s'"
-msgstr "Opcion obligatòria « %s » mancanta."
 
 #: properties/import-export.c:642
 msgid "Couldn't open file for writing."
@@ -980,6 +965,3 @@ msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
 msgstr ""
-
-#~ msgid "Echo"
-#~ msgstr "Resson"

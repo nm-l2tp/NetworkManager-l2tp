@@ -149,11 +149,6 @@ msgid ""
 "Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."
 msgstr ""
 
-#: properties/import-export.c:615
-#, fuzzy, c-format
-msgid "Missing required property '%s'"
-msgstr "Mangler obligatorisk valg «%s»."
-
 #: properties/import-export.c:642
 msgid "Couldn't open file for writing."
 msgstr ""
@@ -358,16 +353,6 @@ msgid ""
 "negotiation to expiry.\n"
 "config: ipsec-salifetime <lifetime>"
 msgstr ""
-
-#: properties/nm-l2tp-dialog.ui:1141
-#, fuzzy
-msgid "Phase1 Lifetime:"
-msgstr "Fase 1 algoritmer:"
-
-#: properties/nm-l2tp-dialog.ui:1156
-#, fuzzy
-msgid "Phase2 Lifetime:"
-msgstr "Fase 2 algoritmer:"
 
 #: properties/nm-l2tp-dialog.ui:1173
 msgid ""
@@ -961,6 +946,3 @@ msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
 msgstr ""
-
-#~ msgid "Echo"
-#~ msgstr "Ekko"

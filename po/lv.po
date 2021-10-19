@@ -130,16 +130,6 @@ msgstr ""
 msgid "Property '%s' value '%s' can't be parsed as route metric."
 msgstr ""
 
-#: properties/import-export.c:331
-#, fuzzy, c-format
-msgid "Error parsing property '%s' value '%s'."
-msgstr "neapstrādāts īpašības “%s” tips %s"
-
-#: properties/import-export.c:343
-#, fuzzy, c-format
-msgid "Error parsing property '%s': %s."
-msgstr "neapstrādāts īpašības “%s” tips %s"
-
 #: properties/import-export.c:377
 msgid "does not look like a L2TP VPN connection (parse failed)"
 msgstr ""
@@ -154,11 +144,6 @@ msgstr ""
 msgid ""
 "Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."
 msgstr ""
-
-#: properties/import-export.c:615
-#, fuzzy, c-format
-msgid "Missing required property '%s'"
-msgstr "Trūkst vajadzīgās opcijas “%s”."
 
 #: properties/import-export.c:642
 msgid "Couldn't open file for writing."
@@ -364,16 +349,6 @@ msgid ""
 "negotiation to expiry.\n"
 "config: ipsec-salifetime <lifetime>"
 msgstr ""
-
-#: properties/nm-l2tp-dialog.ui:1141
-#, fuzzy
-msgid "Phase1 Lifetime:"
-msgstr "Phase1 algoritms:"
-
-#: properties/nm-l2tp-dialog.ui:1156
-#, fuzzy
-msgid "Phase2 Lifetime:"
-msgstr "Phase2 algoritms:"
 
 #: properties/nm-l2tp-dialog.ui:1173
 msgid ""
@@ -818,11 +793,6 @@ msgstr ""
 "tipa “%2$s” vērtība “%1$s” nav derīga vai ir ārpus tipa “%4$s” īpašības "
 "“%3$s” apgabala"
 
-#: shared/nm-utils/nm-vpn-plugin-utils.c:53
-#, fuzzy, c-format
-msgid "unable to get editor plugin name: %s"
-msgstr "nevar ielādēt redaktora spraudni: %s"
-
 #: shared/nm-utils/nm-vpn-plugin-utils.c:90
 #, c-format
 msgid "missing plugin file \"%s\""
@@ -988,6 +958,3 @@ msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
 msgstr ""
-
-#~ msgid "Echo"
-#~ msgstr "Atbalss"

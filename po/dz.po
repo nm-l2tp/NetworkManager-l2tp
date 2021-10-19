@@ -201,22 +201,11 @@ msgid ""
 "config: xl2tpd lns parameter"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:103
-#, fuzzy
-msgid "User Authentication"
-msgstr "ཝི་པི་ཨེན་བདེན་བཤད་འབད་"
-
 #: properties/nm-l2tp-dialog.ui:149
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
 "DOMAIN\\username, where DOMAIN is the value from this text entry box."
 msgstr ""
-
-#: properties/nm-l2tp-dialog.ui:159 properties/nm-l2tp-dialog.ui:376
-#: properties/nm-l2tp-dialog.ui:748 properties/nm-l2tp-dialog.ui:927
-#, fuzzy
-msgid "Sho_w password"
-msgstr "ཆོག་ཡིག་"
 
 #: properties/nm-l2tp-dialog.ui:176
 msgid "Password passed to PPPD when prompted for it."
@@ -236,9 +225,8 @@ msgid "User name:"
 msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:216
-#, fuzzy
 msgid "Password:"
-msgstr "ཆོག་ཡིག་"
+msgstr "ཆོག་ཡིག:"
 
 #: properties/nm-l2tp-dialog.ui:228
 msgid "NT Domain:"
@@ -643,7 +631,7 @@ msgstr ""
 
 #: properties/ppp-dialog.c:294
 msgid "PAP"
-msgstr ""
+msgstr "པི་ཨེ་པི་"
 
 #: properties/ppp-dialog.c:312
 msgid "CHAP"
@@ -651,7 +639,7 @@ msgstr ""
 
 #: properties/ppp-dialog.c:329
 msgid "MSCHAP"
-msgstr ""
+msgstr "MSCHAP"
 
 #: properties/ppp-dialog.c:346
 msgid "MSCHAPv2"

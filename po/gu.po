@@ -240,11 +240,6 @@ msgstr "પાસવર્ડ:"
 msgid "NT Domain:"
 msgstr "NT ડોમેઇન:"
 
-#: properties/nm-l2tp-dialog.ui:278 properties/nm-l2tp-dialog.ui:829
-#, fuzzy
-msgid "CA Certificate:"
-msgstr "પ્રમાણપત્રો (TLS)"
-
 #: properties/nm-l2tp-dialog.ui:290 properties/nm-l2tp-dialog.ui:841
 msgid "Certificate authority (CA) file in PEM, DER or PKCS#12 format"
 msgstr ""
@@ -264,11 +259,6 @@ msgstr ""
 #: properties/nm-l2tp-dialog.ui:340 properties/nm-l2tp-dialog.ui:891
 msgid "Private Key in PEM, DER or PKCS#8 format"
 msgstr ""
-
-#: properties/nm-l2tp-dialog.ui:353 properties/nm-l2tp-dialog.ui:904
-#, fuzzy
-msgid "Private Key Password:"
-msgstr "પાસવર્ડ:"
 
 #: properties/nm-l2tp-dialog.ui:365 properties/nm-l2tp-dialog.ui:916
 msgid "Password for private key or PCKS#12 certificate"
@@ -965,6 +955,3 @@ msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
 msgstr ""
-
-#~ msgid "Echo"
-#~ msgstr "પડઘો"

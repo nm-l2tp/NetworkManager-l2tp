@@ -125,16 +125,6 @@ msgstr ""
 msgid "Property '%s' value '%s' can't be parsed as route metric."
 msgstr ""
 
-#: properties/import-export.c:331
-#, fuzzy, c-format
-msgid "Error parsing property '%s' value '%s'."
-msgstr "chưa xử lí thuộc tính '%s' kiểu %s"
-
-#: properties/import-export.c:343
-#, fuzzy, c-format
-msgid "Error parsing property '%s': %s."
-msgstr "chưa xử lí thuộc tính '%s' kiểu %s"
-
 #: properties/import-export.c:377
 msgid "does not look like a L2TP VPN connection (parse failed)"
 msgstr ""
@@ -170,11 +160,6 @@ msgstr ""
 #: properties/ipsec-dialog.c:334 properties/nm-l2tp-editor.c:577
 msgid "Choose your private key…"
 msgstr ""
-
-#: properties/ipsec-dialog.c:648 properties/nm-l2tp-editor.c:695
-#, fuzzy
-msgid "Certificates (TLS)"
-msgstr "Chứng nhận:"
 
 #: properties/nm-l2tp-dialog.ui:8
 msgid ""
@@ -239,11 +224,6 @@ msgstr "Mật khẩu:"
 msgid "NT Domain:"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:278 properties/nm-l2tp-dialog.ui:829
-#, fuzzy
-msgid "CA Certificate:"
-msgstr "Chứng nhận:"
-
 #: properties/nm-l2tp-dialog.ui:290 properties/nm-l2tp-dialog.ui:841
 msgid "Certificate authority (CA) file in PEM, DER or PKCS#12 format"
 msgstr ""
@@ -263,11 +243,6 @@ msgstr ""
 #: properties/nm-l2tp-dialog.ui:340 properties/nm-l2tp-dialog.ui:891
 msgid "Private Key in PEM, DER or PKCS#8 format"
 msgstr ""
-
-#: properties/nm-l2tp-dialog.ui:353 properties/nm-l2tp-dialog.ui:904
-#, fuzzy
-msgid "Private Key Password:"
-msgstr "Mật khẩu:"
 
 #: properties/nm-l2tp-dialog.ui:365 properties/nm-l2tp-dialog.ui:916
 msgid "Password for private key or PCKS#12 certificate"
@@ -961,6 +936,3 @@ msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
 msgstr ""
-
-#~ msgid "Echo"
-#~ msgstr "Vang"

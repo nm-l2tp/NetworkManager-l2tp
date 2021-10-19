@@ -55,24 +55,9 @@ msgstr "Overenie totožnosti VPN"
 msgid "Password"
 msgstr "Heslo"
 
-#: auth-dialog/main.c:184
-#, fuzzy
-msgid "User Certificate password"
-msgstr "Certifikát CA:"
-
 #: auth-dialog/main.c:191 properties/ipsec-dialog.c:635
 msgid "Pre-shared key (PSK)"
 msgstr ""
-
-#: auth-dialog/main.c:198
-#, fuzzy
-msgid "Machine Certificate password"
-msgstr "Overenie totožnosti počítačom"
-
-#: auth-dialog/main.c:253
-#, fuzzy
-msgid "_User Certificate password:"
-msgstr "Certifikát CA:"
 
 #: auth-dialog/main.c:259
 msgid "_Pre-shared key (PSK):"
@@ -205,11 +190,6 @@ msgid ""
 "config: xl2tpd lns parameter"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:103
-#, fuzzy
-msgid "User Authentication"
-msgstr "Overenie totožnosti"
-
 #: properties/nm-l2tp-dialog.ui:149
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
@@ -218,9 +198,8 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:159 properties/nm-l2tp-dialog.ui:376
 #: properties/nm-l2tp-dialog.ui:748 properties/nm-l2tp-dialog.ui:927
-#, fuzzy
 msgid "Sho_w password"
-msgstr "Heslo"
+msgstr "Z_obraziť heslo"
 
 #: properties/nm-l2tp-dialog.ui:176
 msgid "Password passed to PPPD when prompted for it."
@@ -369,16 +348,6 @@ msgid ""
 "config: ipsec-salifetime <lifetime>"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:1141
-#, fuzzy
-msgid "Phase1 Lifetime:"
-msgstr "Algoritmy fázy 1:"
-
-#: properties/nm-l2tp-dialog.ui:1156
-#, fuzzy
-msgid "Phase2 Lifetime:"
-msgstr "Algoritmy fázy 2:"
-
 #: properties/nm-l2tp-dialog.ui:1173
 msgid ""
 "Optional. How the IPsec server should be identified for authentication. "
@@ -450,7 +419,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1365
 msgid "Default"
-msgstr ""
+msgstr "Predvolené"
 
 #: properties/nm-l2tp-dialog.ui:1393
 msgid "L2TP PPP Options"
@@ -507,7 +476,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1695
 msgid "Allow _BSD data compression"
-msgstr ""
+msgstr "Povoliť kompresiu dát _BSD"
 
 #: properties/nm-l2tp-dialog.ui:1699
 msgid ""
@@ -517,7 +486,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1713
 msgid "Allow _Deflate data compression"
-msgstr ""
+msgstr "Povoliť kompresiu dát _Deflate"
 
 #: properties/nm-l2tp-dialog.ui:1717
 msgid ""
@@ -527,7 +496,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1731
 msgid "Use TCP _header compression"
-msgstr ""
+msgstr "Použiť kompresiu _hlavičky TCP"
 
 #: properties/nm-l2tp-dialog.ui:1735
 msgid ""
@@ -563,7 +532,7 @@ msgstr "Rôzne"
 
 #: properties/nm-l2tp-dialog.ui:1834
 msgid "Send PPP _echo packets"
-msgstr ""
+msgstr "Posielať pakety _echo cez PPP"
 
 #: properties/nm-l2tp-dialog.ui:1838
 msgid ""
@@ -969,6 +938,3 @@ msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
 msgstr ""
-
-#~ msgid "Echo"
-#~ msgstr "Odozva"

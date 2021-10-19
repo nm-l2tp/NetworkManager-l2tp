@@ -362,16 +362,6 @@ msgid ""
 "config: ipsec-salifetime <lifetime>"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:1141
-#, fuzzy
-msgid "Phase1 Lifetime:"
-msgstr "Algoritmi faze 1:"
-
-#: properties/nm-l2tp-dialog.ui:1156
-#, fuzzy
-msgid "Phase2 Lifetime:"
-msgstr "Algoritmi faze 2:"
-
 #: properties/nm-l2tp-dialog.ui:1173
 msgid ""
 "Optional. How the IPsec server should be identified for authentication. "
@@ -601,7 +591,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1910
 msgid "MTU:"
-msgstr ""
+msgstr "MTU:"
 
 #: properties/nm-l2tp-dialog.ui:1954
 msgid "MRU:"
@@ -987,6 +977,3 @@ msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
 msgstr ""
-
-#~ msgid "Echo"
-#~ msgstr "Jeka"

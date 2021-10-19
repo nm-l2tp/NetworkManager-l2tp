@@ -52,11 +52,6 @@ msgstr "Ідэнтыфікацыя VPN"
 msgid "Password"
 msgstr "Пароль"
 
-#: auth-dialog/main.c:184
-#, fuzzy
-msgid "User Certificate password"
-msgstr "Сертыфікат цэнтра (CA):"
-
 #: auth-dialog/main.c:191 properties/ipsec-dialog.c:635
 msgid "Pre-shared key (PSK)"
 msgstr ""
@@ -64,11 +59,6 @@ msgstr ""
 #: auth-dialog/main.c:198
 msgid "Machine Certificate password"
 msgstr ""
-
-#: auth-dialog/main.c:253
-#, fuzzy
-msgid "_User Certificate password:"
-msgstr "Сертыфікат цэнтра (CA):"
 
 #: auth-dialog/main.c:259
 msgid "_Pre-shared key (PSK):"
@@ -198,11 +188,6 @@ msgid ""
 "config: xl2tpd lns parameter"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:103
-#, fuzzy
-msgid "User Authentication"
-msgstr "Ідэнтыфікацыя VPN"
-
 #: properties/nm-l2tp-dialog.ui:149
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
@@ -211,9 +196,8 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:159 properties/nm-l2tp-dialog.ui:376
 #: properties/nm-l2tp-dialog.ui:748 properties/nm-l2tp-dialog.ui:927
-#, fuzzy
 msgid "Sho_w password"
-msgstr "Пароль"
+msgstr "_Паказаць пароль"
 
 #: properties/nm-l2tp-dialog.ui:176
 msgid "Password passed to PPPD when prompted for it."
@@ -247,11 +231,6 @@ msgstr "Сертыфікат цэнтра (CA):"
 #: properties/nm-l2tp-dialog.ui:290 properties/nm-l2tp-dialog.ui:841
 msgid "Certificate authority (CA) file in PEM, DER or PKCS#12 format"
 msgstr ""
-
-#: properties/nm-l2tp-dialog.ui:303 properties/nm-l2tp-dialog.ui:854
-#, fuzzy
-msgid "Certificate:"
-msgstr "Сертыфікат цэнтра (CA):"
 
 #: properties/nm-l2tp-dialog.ui:315
 msgid "Certificate file in PEM, DER or PKCS#12 format"
@@ -449,9 +428,8 @@ msgid "L2TP PPP Options"
 msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1466
-#, fuzzy
 msgid "Authentication"
-msgstr "Ідэнтыфікацыя VPN"
+msgstr "Ідэнтыфікацыя"
 
 #: properties/nm-l2tp-dialog.ui:1493
 msgid "Allow the following authentication methods:"
@@ -500,7 +478,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1695
 msgid "Allow _BSD data compression"
-msgstr ""
+msgstr "_Дазволіць BSD-сцісканне даных"
 
 #: properties/nm-l2tp-dialog.ui:1699
 msgid ""
@@ -510,7 +488,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1713
 msgid "Allow _Deflate data compression"
-msgstr ""
+msgstr "Даз_воліць Deflate-сцісканне даных"
 
 #: properties/nm-l2tp-dialog.ui:1717
 msgid ""
@@ -520,7 +498,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1731
 msgid "Use TCP _header compression"
-msgstr ""
+msgstr "Сціскаць TCP-_загалоўкі"
 
 #: properties/nm-l2tp-dialog.ui:1735
 msgid ""
@@ -556,7 +534,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1834
 msgid "Send PPP _echo packets"
-msgstr ""
+msgstr "Пасылаць р_эхавыя PPP-пакеты"
 
 #: properties/nm-l2tp-dialog.ui:1838
 msgid ""
@@ -641,23 +619,23 @@ msgstr ""
 
 #: properties/ppp-dialog.c:294
 msgid "PAP"
-msgstr ""
+msgstr "PAP"
 
 #: properties/ppp-dialog.c:312
 msgid "CHAP"
-msgstr ""
+msgstr "CHAP"
 
 #: properties/ppp-dialog.c:329
 msgid "MSCHAP"
-msgstr ""
+msgstr "MSCHAP"
 
 #: properties/ppp-dialog.c:346
 msgid "MSCHAPv2"
-msgstr ""
+msgstr "MSCHAPv2"
 
 #: properties/ppp-dialog.c:364
 msgid "EAP"
-msgstr ""
+msgstr "EAP"
 
 #: shared/nm-l2tp-crypto-nss.c:45
 #, c-format

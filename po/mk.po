@@ -263,11 +263,6 @@ msgstr ""
 msgid "Private Key in PEM, DER or PKCS#8 format"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:353 properties/nm-l2tp-dialog.ui:904
-#, fuzzy
-msgid "Private Key Password:"
-msgstr "Лозинка:"
-
 #: properties/nm-l2tp-dialog.ui:365 properties/nm-l2tp-dialog.ui:916
 msgid "Password for private key or PCKS#12 certificate"
 msgstr ""
@@ -960,6 +955,3 @@ msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
 msgstr ""
-
-#~ msgid "Echo"
-#~ msgstr "Echo"

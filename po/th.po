@@ -171,11 +171,6 @@ msgstr ""
 msgid "Choose your private key…"
 msgstr ""
 
-#: properties/ipsec-dialog.c:648 properties/nm-l2tp-editor.c:695
-#, fuzzy
-msgid "Certificates (TLS)"
-msgstr "ใบรับรอง:"
-
 #: properties/nm-l2tp-dialog.ui:8
 msgid ""
 "Do not attempt to use UDP port 1701 as the L2TP source port,\n"
@@ -239,11 +234,6 @@ msgstr "รหัสผ่าน:"
 msgid "NT Domain:"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:278 properties/nm-l2tp-dialog.ui:829
-#, fuzzy
-msgid "CA Certificate:"
-msgstr "ใบรับรอง:"
-
 #: properties/nm-l2tp-dialog.ui:290 properties/nm-l2tp-dialog.ui:841
 msgid "Certificate authority (CA) file in PEM, DER or PKCS#12 format"
 msgstr ""
@@ -263,11 +253,6 @@ msgstr ""
 #: properties/nm-l2tp-dialog.ui:340 properties/nm-l2tp-dialog.ui:891
 msgid "Private Key in PEM, DER or PKCS#8 format"
 msgstr ""
-
-#: properties/nm-l2tp-dialog.ui:353 properties/nm-l2tp-dialog.ui:904
-#, fuzzy
-msgid "Private Key Password:"
-msgstr "รหัสผ่าน:"
 
 #: properties/nm-l2tp-dialog.ui:365 properties/nm-l2tp-dialog.ui:916
 msgid "Password for private key or PCKS#12 certificate"
@@ -961,6 +946,3 @@ msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
 msgstr ""
-
-#~ msgid "Echo"
-#~ msgstr "การสะท้อนข้อมูล"

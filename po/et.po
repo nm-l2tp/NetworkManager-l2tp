@@ -128,16 +128,6 @@ msgstr ""
 msgid "Property '%s' value '%s' can't be parsed as route metric."
 msgstr ""
 
-#: properties/import-export.c:331
-#, fuzzy, c-format
-msgid "Error parsing property '%s' value '%s'."
-msgstr "'%s' omadus (liik %s) jäeti kasutamata"
-
-#: properties/import-export.c:343
-#, fuzzy, c-format
-msgid "Error parsing property '%s': %s."
-msgstr "'%s' omadus (liik %s) jäeti kasutamata"
-
 #: properties/import-export.c:377
 msgid "does not look like a L2TP VPN connection (parse failed)"
 msgstr ""
@@ -362,16 +352,6 @@ msgid ""
 "negotiation to expiry.\n"
 "config: ipsec-salifetime <lifetime>"
 msgstr ""
-
-#: properties/nm-l2tp-dialog.ui:1141
-#, fuzzy
-msgid "Phase1 Lifetime:"
-msgstr "Faas 1 algoritmid:"
-
-#: properties/nm-l2tp-dialog.ui:1156
-#, fuzzy
-msgid "Phase2 Lifetime:"
-msgstr "Faas 2 algoritmid:"
 
 #: properties/nm-l2tp-dialog.ui:1173
 msgid ""
@@ -966,6 +946,3 @@ msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
 msgstr ""
-
-#~ msgid "Echo"
-#~ msgstr "Echo"

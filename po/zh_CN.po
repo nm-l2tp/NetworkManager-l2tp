@@ -77,11 +77,6 @@ msgstr ""
 msgid "_User Certificate password:"
 msgstr ""
 
-#: auth-dialog/main.c:259
-#, fuzzy
-msgid "_Pre-shared key (PSK):"
-msgstr "预共享密钥："
-
 #: auth-dialog/main.c:263
 msgid "_Machine Certificate password:"
 msgstr ""
@@ -133,16 +128,6 @@ msgstr ""
 msgid "Property '%s' value '%s' can't be parsed as route metric."
 msgstr ""
 
-#: properties/import-export.c:331
-#, fuzzy, c-format
-msgid "Error parsing property '%s' value '%s'."
-msgstr "无法处理的属性“%s”类型 %s"
-
-#: properties/import-export.c:343
-#, fuzzy, c-format
-msgid "Error parsing property '%s': %s."
-msgstr "无法处理的属性“%s”类型 %s"
-
 #: properties/import-export.c:377
 msgid "does not look like a L2TP VPN connection (parse failed)"
 msgstr ""
@@ -157,11 +142,6 @@ msgstr ""
 msgid ""
 "Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."
 msgstr ""
-
-#: properties/import-export.c:615
-#, fuzzy, c-format
-msgid "Missing required property '%s'"
-msgstr "缺少需要的选项“%s”。"
 
 #: properties/import-export.c:642
 msgid "Couldn't open file for writing."
@@ -369,16 +349,6 @@ msgid ""
 "negotiation to expiry.\n"
 "config: ipsec-salifetime <lifetime>"
 msgstr ""
-
-#: properties/nm-l2tp-dialog.ui:1141
-#, fuzzy
-msgid "Phase1 Lifetime:"
-msgstr "Phase1 算法："
-
-#: properties/nm-l2tp-dialog.ui:1156
-#, fuzzy
-msgid "Phase2 Lifetime:"
-msgstr "Phase2 算法："
 
 #: properties/nm-l2tp-dialog.ui:1173
 msgid ""
@@ -906,11 +876,6 @@ msgstr ""
 msgid "Machine certificate file not supplied"
 msgstr ""
 
-#: src/nm-l2tp-service.c:1098
-#, fuzzy
-msgid "Could not write kl2tpd config."
-msgstr "无法创建 l2tp 对象"
-
 #: src/nm-l2tp-service.c:1118
 msgid "Could not write xl2tpd config."
 msgstr ""
@@ -993,6 +958,3 @@ msgid ""
 "NetworkManager."
 msgstr ""
 "nm-l2tp-service 为网络管理器提供了集成的带可选 IPsec 支持的 L2TP VPN 功能。"
-
-#~ msgid "Echo"
-#~ msgstr "回响"

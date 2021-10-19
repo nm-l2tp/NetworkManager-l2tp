@@ -276,11 +276,6 @@ msgstr ""
 msgid "Type:"
 msgstr "ধৰণ:"
 
-#: properties/nm-l2tp-dialog.ui:438 properties/nm-l2tp-dialog.ui:990
-#, fuzzy
-msgid "Select an authentication mode."
-msgstr "এই প্ৰমাণীকৰণৰ ধৰণৰ অনুমতি দিয়ক:"
-
 #: properties/nm-l2tp-dialog.ui:504
 msgid "_IPsec Settings..."
 msgstr ""
@@ -961,6 +956,3 @@ msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
 msgstr ""
-
-#~ msgid "Echo"
-#~ msgstr "প্ৰতিধ্বনি"

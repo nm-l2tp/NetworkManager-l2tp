@@ -132,16 +132,6 @@ msgstr ""
 msgid "Property '%s' value '%s' can't be parsed as route metric."
 msgstr ""
 
-#: properties/import-export.c:331
-#, fuzzy, c-format
-msgid "Error parsing property '%s' value '%s'."
-msgstr "propiedade «%s» do tipo %s non se xestiona"
-
-#: properties/import-export.c:343
-#, fuzzy, c-format
-msgid "Error parsing property '%s': %s."
-msgstr "propiedade «%s» do tipo %s non se xestiona"
-
 #: properties/import-export.c:377
 msgid "does not look like a L2TP VPN connection (parse failed)"
 msgstr ""
@@ -156,11 +146,6 @@ msgstr ""
 msgid ""
 "Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."
 msgstr ""
-
-#: properties/import-export.c:615
-#, fuzzy, c-format
-msgid "Missing required property '%s'"
-msgstr "Falta a opción «%s» requirida."
 
 #: properties/import-export.c:642
 msgid "Couldn't open file for writing."
@@ -366,16 +351,6 @@ msgid ""
 "negotiation to expiry.\n"
 "config: ipsec-salifetime <lifetime>"
 msgstr ""
-
-#: properties/nm-l2tp-dialog.ui:1141
-#, fuzzy
-msgid "Phase1 Lifetime:"
-msgstr "Algoritmos de Phase1:"
-
-#: properties/nm-l2tp-dialog.ui:1156
-#, fuzzy
-msgid "Phase2 Lifetime:"
-msgstr "Algoritmos de Phase2:"
 
 #: properties/nm-l2tp-dialog.ui:1173
 msgid ""
@@ -605,7 +580,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1910
 msgid "MTU:"
-msgstr ""
+msgstr "MTU:"
 
 #: properties/nm-l2tp-dialog.ui:1954
 msgid "MRU:"
@@ -995,6 +970,3 @@ msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
 msgstr ""
-
-#~ msgid "Echo"
-#~ msgstr "Echo"
