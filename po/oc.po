@@ -765,12 +765,12 @@ msgstr ""
 #: shared/nm-utils/nm-shared-utils.c:1146
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr ""
+msgstr "L’objècte de a classa « %s » pas cap de proprietat apelada « %s »"
 
 #: shared/nm-utils/nm-shared-utils.c:1155
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr ""
+msgstr "La proprietat « %s » de la classa objècte « %s » es pas enregistrabla"
 
 #: shared/nm-utils/nm-shared-utils.c:1164
 #, c-format

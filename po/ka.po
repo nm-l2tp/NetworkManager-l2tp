@@ -231,9 +231,8 @@ msgid "User name:"
 msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:216
-#, fuzzy
 msgid "Password:"
-msgstr "პაროლი"
+msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:228
 msgid "NT Domain:"

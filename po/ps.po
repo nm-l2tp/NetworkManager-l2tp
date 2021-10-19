@@ -55,11 +55,6 @@ msgstr "اوڅاریز ځاني ځال کرول"
 msgid "Password"
 msgstr "تېرنويې"
 
-#: auth-dialog/main.c:184
-#, fuzzy
-msgid "User Certificate password"
-msgstr ":برېليک CA"
-
 #: auth-dialog/main.c:191 properties/ipsec-dialog.c:635
 msgid "Pre-shared key (PSK)"
 msgstr ""
@@ -67,11 +62,6 @@ msgstr ""
 #: auth-dialog/main.c:198
 msgid "Machine Certificate password"
 msgstr ""
-
-#: auth-dialog/main.c:253
-#, fuzzy
-msgid "_User Certificate password:"
-msgstr ":برېليک CA"
 
 #: auth-dialog/main.c:259
 msgid "_Pre-shared key (PSK):"
@@ -201,22 +191,11 @@ msgid ""
 "config: xl2tpd lns parameter"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:103
-#, fuzzy
-msgid "User Authentication"
-msgstr "اوڅاریز ځاني ځال کرول"
-
 #: properties/nm-l2tp-dialog.ui:149
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
 "DOMAIN\\username, where DOMAIN is the value from this text entry box."
 msgstr ""
-
-#: properties/nm-l2tp-dialog.ui:159 properties/nm-l2tp-dialog.ui:376
-#: properties/nm-l2tp-dialog.ui:748 properties/nm-l2tp-dialog.ui:927
-#, fuzzy
-msgid "Sho_w password"
-msgstr "تېرنويې"
 
 #: properties/nm-l2tp-dialog.ui:176
 msgid "Password passed to PPPD when prompted for it."
@@ -235,11 +214,6 @@ msgstr ""
 msgid "User name:"
 msgstr ":کارن نوم"
 
-#: properties/nm-l2tp-dialog.ui:216
-#, fuzzy
-msgid "Password:"
-msgstr "تېرنويې"
-
 #: properties/nm-l2tp-dialog.ui:228
 msgid "NT Domain:"
 msgstr ""
@@ -252,11 +226,6 @@ msgstr ":برېليک CA"
 msgid "Certificate authority (CA) file in PEM, DER or PKCS#12 format"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:303 properties/nm-l2tp-dialog.ui:854
-#, fuzzy
-msgid "Certificate:"
-msgstr ":برېليک CA"
-
 #: properties/nm-l2tp-dialog.ui:315
 msgid "Certificate file in PEM, DER or PKCS#12 format"
 msgstr ""
@@ -268,11 +237,6 @@ msgstr "وګړيزه کيلۍ:"
 #: properties/nm-l2tp-dialog.ui:340 properties/nm-l2tp-dialog.ui:891
 msgid "Private Key in PEM, DER or PKCS#8 format"
 msgstr ""
-
-#: properties/nm-l2tp-dialog.ui:353 properties/nm-l2tp-dialog.ui:904
-#, fuzzy
-msgid "Private Key Password:"
-msgstr "وګړيزه کيلۍ:"
 
 #: properties/nm-l2tp-dialog.ui:365 properties/nm-l2tp-dialog.ui:916
 msgid "Password for private key or PCKS#12 certificate"
@@ -452,11 +416,6 @@ msgstr "تلواله"
 #: properties/nm-l2tp-dialog.ui:1393
 msgid "L2TP PPP Options"
 msgstr ""
-
-#: properties/nm-l2tp-dialog.ui:1466
-#, fuzzy
-msgid "Authentication"
-msgstr "اوڅاریز ځاني ځال کرول"
 
 #: properties/nm-l2tp-dialog.ui:1493
 msgid "Allow the following authentication methods:"

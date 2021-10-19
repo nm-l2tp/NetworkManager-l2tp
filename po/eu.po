@@ -84,7 +84,7 @@ msgstr ""
 #: auth-dialog/main.c:552
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
-msgstr ""
+msgstr "Autentifikatu egin behar duzu “%s” Sare Birtual Pribatura sartzeko."
 
 #: properties/auth-helpers.c:77
 msgid "DER, PEM, or PKCS#12 certificates (*der, *.pem, *.crt, *.cer, *.p12)"
@@ -546,7 +546,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1809
 msgid "Misc"
-msgstr ""
+msgstr "Hainbat"
 
 #: properties/nm-l2tp-dialog.ui:1834
 msgid "Send PPP _echo packets"
@@ -613,7 +613,7 @@ msgstr ""
 
 #: properties/nm-l2tp-editor.c:907
 msgid "could not load UI widget"
-msgstr ""
+msgstr "ezin izan da interfazearen trepeta kargatu"
 
 #: properties/nm-l2tp-editor-plugin.c:17
 msgid "Layer 2 Tunneling Protocol (L2TP)"

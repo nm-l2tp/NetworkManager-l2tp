@@ -458,7 +458,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1621
 msgid "_Security:"
-msgstr ""
+msgstr "_Security:"
 
 #: properties/nm-l2tp-dialog.ui:1636
 msgid ""
@@ -740,28 +740,34 @@ msgstr ""
 #: shared/nm-utils/nm-shared-utils.c:1146
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr ""
+msgstr "клас аб’екта \"%s\" не мае ўласцівасці з назвай \"%s\""
 
 #: shared/nm-utils/nm-shared-utils.c:1155
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr ""
+msgstr "уласцівасць \"%s\" класа аб’екта \"%s\" недаступная для запісу"
 
 #: shared/nm-utils/nm-shared-utils.c:1164
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
+"уласцівасць стварэння \"%s\" для аб’екта \"%s\" не можа быць вызначаная "
+"пасля стварэння"
 
 #: shared/nm-utils/nm-shared-utils.c:1175
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
 msgstr ""
+"\"%s::%s\" - непрыдатная назва для ўласцівасці; \"%s\" не ёсць падтыпам "
+"GObject"
 
 #: shared/nm-utils/nm-shared-utils.c:1188
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
 msgstr ""
+"не атрымалася вызначыць уласцівасць \"%s\" тыпу \"%s\" са значэння тыпу \"%s"
+"\""
 
 #: shared/nm-utils/nm-shared-utils.c:1200
 #, c-format
@@ -769,6 +775,8 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
+"значэнне \"%sд тыпу \"%s\" непрыдатнае альбо знаходзіцца па-за дыяпазонам "
+"для ўласцівасці \"%s\" тыпу \"%s\""
 
 #: shared/nm-utils/nm-vpn-plugin-utils.c:53
 #, c-format

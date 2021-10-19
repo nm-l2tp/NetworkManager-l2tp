@@ -350,6 +350,14 @@ msgid ""
 "config: ipsec-salifetime <lifetime>"
 msgstr ""
 
+#: properties/nm-l2tp-dialog.ui:1141
+msgid "Phase1 Lifetime:"
+msgstr "Pirmos fazės ciklas:"
+
+#: properties/nm-l2tp-dialog.ui:1156
+msgid "Phase2 Lifetime:"
+msgstr "Antros fazės ciklas:"
+
 #: properties/nm-l2tp-dialog.ui:1173
 msgid ""
 "Optional. How the IPsec server should be identified for authentication. "
