@@ -259,17 +259,21 @@ and LEVEL is: -1|0|1|2|3|4
 
 ## Issue with blacklisting of L2TP kernel modules
 
-For compatibility with Microsoft L2TP servers (and with later kernel updates,
-other L2TP servers), L2TP kernel modules are required.
+go-l2tp's kl2tpd requires `l2tp_ppp` and `l2tp_netlink` kernel modules which
+will fail to auto-load if the  kernel modules are blacklisted.
 
-If you see the following error message, then chances are that the `l2tp_ppp`
-and `l2tp_netlink` kernel modules are blacklisted :
+If you are using xl2tpd and see the following error message, then chances are
+that the `l2tp_ppp` and `l2tp_netlink` kernel modules are blacklisted :
 ```
 xl2tpd[1234]: L2TP kernel support not detected (try modprobing l2tp_ppp and pppol2tp)
 ```
 
-`modprobe l2tp_ppp` (or `modprobe pppol2tp` for older kernels) can be used as a
-temporary workaround instead of the permanent blacklist removal as described below.
+For xl2tpd compatibility with Microsoft L2TP servers (and some other L2TP
+servers), L2TP kernel modules are required.
+
+`sudo modprobe l2tp_ppp` (or `sudo modprobe pppol2tp` for older kernels) can
+be used as a temporary workaround, but it is recommended to do a blacklist
+removal as described further which provides a permanent solution.
 
 The following is an extract from _"Enhanced security of auto-loading kernel
 modules in RHEL 8 "_ web page :
