@@ -1,17 +1,23 @@
 ==========================================================
+NetworkManager-l2tp-1.20.0
+Overview of changes since NetworkManager-l2tp-1.8.6
+==========================================================
+
+Changes:
+* Support for kl2tpd from Katalix's go-l2tp project added.
+* Support for Multilink PPP added.
+* L2TP ephemeral source port checkbox added.
+* deprecated libnm-glib/libnm-util code removed and
+  --with-libnm-glib configure option removed.
+* Honors $CHARONDEBUG and $PLUTODEBUG even without --debug.
+* Sourcecode reformated with clang-format.
+* intltool for i18n build support no longer required.
+* Updated translations.
+
+==========================================================
 NetworkManager-l2tp-1.8.6
 Overview of changes since NetworkManager-l2tp-1.8.4
 ==========================================================
-
-YOU MIGHT NOT BE ABLE TO PROVIDE PRE-BUILT BINARIES OF THIS RELEASE UNTIL
-THE INTENDED LINUX DISTRIBUTION SHIPS WITH OPENSSL 3.0 OR LATER THAT IS
-GPL COMPATIBLE.
-
-There are exceptions to this GPLv2 and OpenSSL licensing conflict, for example
-the Fedora Project considers OpenSSL to be a "System Library" and so exempt
-from the conflict per the "System Library Exception" :
-
-https://fedoraproject.org/wiki/Licensing:FAQ#What.27s_the_deal_with_the_OpenSSL_license.3F
 
 Changes:
 * Fix for preventing Fedora RPMs from building.
