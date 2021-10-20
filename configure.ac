@@ -1,7 +1,7 @@
 AC_PREREQ(2.60)
 
 AC_INIT(NetworkManager-l2tp,
-        1.8.6,
+        1.20.0,
         https://github.com/nm-l2tp/NetworkManager-l2tp/issues,
         NetworkManager-l2tp)
 AM_INIT_AUTOMAKE([1.9 foreign no-dist-gzip dist-xz -Wno-portability])
@@ -173,8 +173,8 @@ AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package])
 
 # gio-unix will require glib and gio
-PKG_CHECK_MODULES(GLIB, gio-unix-2.0 >= 2.32)
-GLIB_CFLAGS="$GLIB_CFLAGS -DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_32"
+PKG_CHECK_MODULES(GLIB, gio-unix-2.0 >= 2.40)
+GLIB_CFLAGS="$GLIB_CFLAGS -DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_40"
 
 if test x"$with_gnome" != xno; then
 	PKG_CHECK_MODULES(GTK, gtk+-3.0 >= 3.14)
@@ -184,9 +184,9 @@ if test x"$with_gnome" != xno; then
 	PKG_CHECK_MODULES(LIBSECRET, libsecret-1 >= 0.18)
 fi
 
-PKG_CHECK_MODULES(LIBNM, libnm >= 1.8.0)
-LIBNM_CFLAGS="$LIBNM_CFLAGS -DNM_VERSION_MIN_REQUIRED=NM_VERSION_1_8"
-LIBNM_CFLAGS="$LIBNM_CFLAGS -DNM_VERSION_MAX_ALLOWED=NM_VERSION_1_8"
+PKG_CHECK_MODULES(LIBNM, libnm >= 1.20)
+LIBNM_CFLAGS="$LIBNM_CFLAGS -DNM_VERSION_MIN_REQUIRED=NM_VERSION_1_20"
+LIBNM_CFLAGS="$LIBNM_CFLAGS -DNM_VERSION_MAX_ALLOWED=NM_VERSION_1_20"
 
 NM_VPN_SERVICE_DIR=`$PKG_CONFIG --define-variable prefix='\${prefix}' --variable vpnservicedir libnm`
 AC_SUBST(NM_VPN_SERVICE_DIR)
