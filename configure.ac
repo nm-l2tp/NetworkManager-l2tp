@@ -1,9 +1,9 @@
-AC_PREREQ(2.60)
+AC_PREREQ([2.69])
 
-AC_INIT(NetworkManager-l2tp,
-        1.20.0,
-        https://github.com/nm-l2tp/NetworkManager-l2tp/issues,
-        NetworkManager-l2tp)
+AC_INIT([NetworkManager-l2tp],
+        [1.20.0],
+        [https://github.com/nm-l2tp/NetworkManager-l2tp/issues],
+        [NetworkManager-l2tp])
 AM_INIT_AUTOMAKE([1.9 foreign no-dist-gzip dist-xz -Wno-portability])
 AM_MAINTAINER_MODE
 AM_SILENT_RULES([yes])
@@ -33,10 +33,10 @@ dnl
 AC_PROG_CC
 AM_PROG_CC_C_O
 AC_PROG_INSTALL
-AC_PROG_LIBTOOL
+LT_INIT
 AC_PATH_PROG(GLIB_COMPILE_RESOURCES, glib-compile-resources)
 
-AC_GNU_SOURCE
+AC_USE_SYSTEM_EXTENSIONS
 
 AC_CHECK_PROG([has_file], file, yes, no)
 if test x$has_file = xno ; then
