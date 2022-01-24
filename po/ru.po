@@ -217,7 +217,7 @@ msgid ""
 "DOMAIN\\username, where DOMAIN is the value from this text entry box."
 msgstr ""
 "Для аутентификации пользователя используйте формат нижнего уровня "
-"на вход, то есть ДОМЕН\имя_пользователя, где ДОМЕН — значение из "
+"на вход, то есть ДОМЕН\\имя_пользователя, где ДОМЕН — значение из "
 "этого текстового поля."
 
 #: properties/nm-l2tp-dialog.ui:159 properties/nm-l2tp-dialog.ui:376
