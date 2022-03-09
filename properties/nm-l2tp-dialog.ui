@@ -244,134 +244,29 @@ config: auth-user-pass</property>
             <property name="orientation">vertical</property>
             <property name="spacing">6</property>
             <child>
-              <object class="GtkGrid">
+              <object class="NmaCertChooser" id="user_ca_chooser">
+                <property name="flags">13</property>
+                <property name="title">CA</property>
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="row_spacing">6</property>
-                <property name="column_spacing">6</property>
-                <child>
-                  <object class="GtkLabel" id="user_ca_certificate_label">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">CA Certificate</property>
-                    <property name="xalign">1</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">0</property>
-                    <property name="top_attach">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkFileChooserButton" id="user_tls_ca_cert_chooser">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="tooltip_text" translatable="yes">Certificate authority (CA) file in PEM, DER or PKCS#12 format</property>
-                    <property name="hexpand">True</property>
-                    <property name="title" translatable="yes"/>
-                  </object>
-                  <packing>
-                    <property name="left_attach">1</property>
-                    <property name="top_attach">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkLabel" id="user_certificate_label">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">Certificate</property>
-                    <property name="xalign">1</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">0</property>
-                    <property name="top_attach">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkFileChooserButton" id="user_tls_cert_chooser">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="tooltip_text" translatable="yes">Certificate file in PEM, DER or PKCS#12 format</property>
-                    <property name="hexpand">True</property>
-                    <property name="title" translatable="yes"/>
-                  </object>
-                  <packing>
-                    <property name="left_attach">1</property>
-                    <property name="top_attach">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkLabel" id="user_private_key_label">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">Private Key</property>
-                    <property name="xalign">1</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">0</property>
-                    <property name="top_attach">2</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkFileChooserButton" id="user_tls_private_key_chooser">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="tooltip_text" translatable="yes">Private Key in PEM, DER or PKCS#8 format</property>
-                    <property name="hexpand">True</property>
-                    <property name="title" translatable="yes"/>
-                  </object>
-                  <packing>
-                    <property name="left_attach">1</property>
-                    <property name="top_attach">2</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkLabel" id="user_key_pw_label">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">Private Key Password</property>
-                    <property name="xalign">1</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">0</property>
-                    <property name="top_attach">3</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkEntry" id="user_tls_key_pw_entry">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="tooltip_text" translatable="yes">Password for private key or PCKS#12 certificate</property>
-                    <property name="hexpand">True</property>
-                    <property name="visibility">False</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">1</property>
-                    <property name="top_attach">3</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkCheckButton" id="show_user_tls_key_pw_check">
-                    <property name="label" translatable="yes">Sho_w password</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
-                    <property name="hexpand">True</property>
-                    <property name="use_underline">True</property>
-                    <property name="draw_indicator">True</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">1</property>
-                    <property name="top_attach">4</property>
-                  </packing>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
+                <property name="can-focus">False</property>
               </object>
               <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
+               <property name="expand">False</property>
+               <property name="fill">True</property>
+               <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="NmaCertChooser" id="user_cert_chooser">
+                <property name="flags">4</property>
+                <property name="title">User</property>
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+              </object>
+              <packing>
+               <property name="expand">False</property>
+               <property name="fill">True</property>
+               <property name="position">1</property>
               </packing>
             </child>
           </object>
@@ -532,10 +427,6 @@ May be required to allow multiple L2TP clients behind same NAT.</property>
       <widget name="password_label"/>
       <widget name="nt_domain_label"/>
       <widget name="auth_type_label"/>
-      <widget name="user_ca_certificate_label"/>
-      <widget name="user_certificate_label"/>
-      <widget name="user_private_key_label"/>
-      <widget name="user_key_pw_label"/>
     </widgets>
   </object>
   <object class="GtkAdjustment" id="lifetime1_adjustment">
