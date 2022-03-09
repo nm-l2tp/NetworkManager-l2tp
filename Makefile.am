@@ -151,8 +151,6 @@ editor_sources = \
 	shared/nm-l2tp-crypto-openssl.h \
 	shared/utils.h \
 	shared/utils.c \
-	properties/resources.c \
-	properties/resources.h \
 	properties/ppp-dialog.c \
 	properties/ppp-dialog.h \
 	properties/ipsec-dialog.c \
@@ -209,6 +207,9 @@ endif
 
 properties_libnm_vpn_plugin_l2tp_editor_la_SOURCES = \
 	$(editor_sources)
+nodist_properties_libnm_vpn_plugin_l2tp_editor_la_SOURCES = \
+	properties/resources.c \
+	properties/resources.h
 properties_libnm_vpn_plugin_l2tp_editor_la_CFLAGS = \
 	$(GLIB_CFLAGS) \
 	$(GTK_CFLAGS) \
