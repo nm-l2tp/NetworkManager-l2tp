@@ -240,8 +240,6 @@ auth_dialog_nm_l2tp_auth_dialog_SOURCES = \
 	shared/nm-l2tp-crypto-openssl.h \
 	shared/nm-utils/nm-secret-utils.c \
 	shared/nm-utils/nm-secret-utils.h \
-	properties/resources.c \
-	properties/resources.h \
 	auth-dialog/main.c
 auth_dialog_nm_l2tp_auth_dialog_CFLAGS = \
 	$(GLIB_CFLAGS) \
