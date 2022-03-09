@@ -177,7 +177,7 @@ pw_setup(GtkBuilder *builder, NMSettingVpn *s_vpn, ChangedCallback changed_cb, g
     if (s_vpn) {
         value = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_USER);
         if (value && value[0])
-            gtk_entry_set_text(GTK_ENTRY(widget), value);
+            gtk_editable_set_text(GTK_EDITABLE(widget), value);
     }
     g_signal_connect(G_OBJECT(widget), "changed", G_CALLBACK(changed_cb), user_data);
 
@@ -185,7 +185,7 @@ pw_setup(GtkBuilder *builder, NMSettingVpn *s_vpn, ChangedCallback changed_cb, g
     if (s_vpn) {
         value = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_DOMAIN);
         if (value && value[0])
-            gtk_entry_set_text(GTK_ENTRY(widget), value);
+            gtk_editable_set_text(GTK_EDITABLE(widget), value);
     }
     g_signal_connect(G_OBJECT(widget), "changed", G_CALLBACK(changed_cb), user_data);
 
@@ -194,7 +194,7 @@ pw_setup(GtkBuilder *builder, NMSettingVpn *s_vpn, ChangedCallback changed_cb, g
     if (s_vpn) {
         value = nm_setting_vpn_get_secret(s_vpn, NM_L2TP_KEY_PASSWORD);
         if (value)
-            gtk_entry_set_text(GTK_ENTRY(widget), value);
+            gtk_editable_set_text(GTK_EDITABLE(widget), value);
     }
     g_signal_connect(widget, "changed", G_CALLBACK(changed_cb), user_data);
     nma_utils_setup_password_storage(widget,
@@ -248,19 +248,19 @@ update_pw(GtkBuilder *builder, NMSettingVpn *s_vpn)
     g_return_if_fail(s_vpn != NULL);
 
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "username_entry"));
-    str    = gtk_entry_get_text(GTK_ENTRY(widget));
+    str    = gtk_editable_get_text(GTK_EDITABLE(widget));
     if (str && str[0])
         nm_setting_vpn_add_data_item(s_vpn, NM_L2TP_KEY_USER, str);
 
     widget = (GtkWidget *) gtk_builder_get_object(builder, "password_entry");
-    str    = gtk_entry_get_text(GTK_ENTRY(widget));
+    str    = gtk_editable_get_text(GTK_EDITABLE(widget));
     if (str && str[0])
         nm_setting_vpn_add_secret(s_vpn, NM_L2TP_KEY_PASSWORD, str);
     pw_flags = nma_utils_menu_to_secret_flags(widget);
     nm_setting_set_secret_flags(NM_SETTING(s_vpn), NM_L2TP_KEY_PASSWORD, pw_flags, NULL);
 
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "domain_entry"));
-    str    = gtk_entry_get_text(GTK_ENTRY(widget));
+    str    = gtk_editable_get_text(GTK_EDITABLE(widget));
     if (str && str[0])
         nm_setting_vpn_add_data_item(s_vpn, NM_L2TP_KEY_DOMAIN, str);
 }
@@ -274,7 +274,7 @@ check_validity(L2tpPluginUiWidget *self, GError **error)
     char *                     s = NULL;
 
     widget = GTK_WIDGET(gtk_builder_get_object(priv->builder, "gateway_entry"));
-    str    = gtk_entry_get_text(GTK_ENTRY(widget));
+    str    = gtk_editable_get_text(GTK_EDITABLE(widget));
     if (!str || !strlen(s = strstrip(str))) {
         g_free(s);
         g_set_error(error,
@@ -317,16 +317,16 @@ static void
 ppp_dialog_close_cb(GtkWidget *dialog, gpointer user_data)
 {
     gtk_widget_hide(dialog);
-    /* gtk_widget_destroy() will remove the window from the window group */
-    gtk_widget_destroy(dialog);
+    /* gtk_window_destroy() will remove the window from the window group */
+    gtk_window_destroy(GTK_WINDOW(dialog));
 }
 
 static void
 ipsec_dialog_close_cb(GtkWidget *dialog, gpointer user_data)
 {
     gtk_widget_hide(dialog);
-    /* gtk_widget_destroy() will remove the window from the window group */
-    gtk_widget_destroy(dialog);
+    /* gtk_window_destroy() will remove the window from the window group */
+    gtk_window_destroy(GTK_WINDOW(dialog));
 }
 
 static void
@@ -382,7 +382,8 @@ ppp_button_clicked_cb(GtkWidget *button, gpointer user_data)
 {
     L2tpPluginUiWidget *       self = L2TP_PLUGIN_UI_WIDGET(user_data);
     L2tpPluginUiWidgetPrivate *priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE(self);
-    GtkWidget *                dialog, *toplevel, *widget;
+    GtkWidget *                dialog, *widget;
+    GtkRoot *                  root;
     GtkBuilder *               builder;
     GtkTreeModel *             model;
     GtkTreeIter                iter;
@@ -390,8 +391,9 @@ ppp_button_clicked_cb(GtkWidget *button, gpointer user_data)
     gboolean                   success;
     guint32                    i = 0;
     const char *widgets[] = {"ppp_auth_label", "auth_methods_label", "ppp_auth_methods", NULL};
-    toplevel              = gtk_widget_get_toplevel(priv->widget);
-    g_return_if_fail(gtk_widget_is_toplevel(toplevel));
+    root                  = gtk_widget_get_root (priv->widget);
+
+    g_return_if_fail(GTK_IS_WINDOW(root));
 
     widget  = GTK_WIDGET(gtk_builder_get_object(priv->builder, "auth_combo"));
     model   = gtk_combo_box_get_model(GTK_COMBO_BOX(widget));
@@ -407,11 +409,11 @@ ppp_button_clicked_cb(GtkWidget *button, gpointer user_data)
 
     gtk_window_group_add_window(priv->window_group, GTK_WINDOW(dialog));
     if (!priv->window_added) {
-        gtk_window_group_add_window(priv->window_group, GTK_WINDOW(toplevel));
+        gtk_window_group_add_window(priv->window_group, GTK_WINDOW(root));
         priv->window_added = TRUE;
     }
 
-    gtk_window_set_transient_for(GTK_WINDOW(dialog), GTK_WINDOW(toplevel));
+    gtk_window_set_transient_for(GTK_WINDOW(dialog), GTK_WINDOW(root));
     g_signal_connect(G_OBJECT(dialog), "response", G_CALLBACK(ppp_dialog_response_cb), self);
     g_signal_connect(G_OBJECT(dialog), "close", G_CALLBACK(ppp_dialog_close_cb), self);
 
@@ -427,7 +429,7 @@ ppp_button_clicked_cb(GtkWidget *button, gpointer user_data)
         }
     }
 
-    gtk_widget_show_all(dialog);
+    gtk_widget_show(dialog);
 }
 
 static void
@@ -435,12 +437,13 @@ ipsec_button_clicked_cb(GtkWidget *button, gpointer user_data)
 {
     L2tpPluginUiWidget *       self = L2TP_PLUGIN_UI_WIDGET(user_data);
     L2tpPluginUiWidgetPrivate *priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE(self);
-    GtkWidget *                dialog, *toplevel, *widget;
+    GtkWidget *                dialog, *widget;
+    GtkRoot *                  root;
     GtkBuilder *               builder;
     const char *               authtype = NULL;
 
-    toplevel = gtk_widget_get_toplevel(priv->widget);
-    g_return_if_fail(gtk_widget_is_toplevel(toplevel));
+    root = gtk_widget_get_root (priv->widget);
+    g_return_if_fail (GTK_IS_WINDOW(root));
 
     dialog = ipsec_dialog_new(priv->ipsec);
     if (!dialog) {
@@ -450,15 +453,15 @@ ipsec_button_clicked_cb(GtkWidget *button, gpointer user_data)
 
     gtk_window_group_add_window(priv->window_group, GTK_WINDOW(dialog));
     if (!priv->window_added) {
-        gtk_window_group_add_window(priv->window_group, GTK_WINDOW(toplevel));
+        gtk_window_group_add_window(priv->window_group, GTK_WINDOW(root));
         priv->window_added = TRUE;
     }
 
-    gtk_window_set_transient_for(GTK_WINDOW(dialog), GTK_WINDOW(toplevel));
+    gtk_window_set_transient_for(GTK_WINDOW(dialog), GTK_WINDOW(root));
     g_signal_connect(G_OBJECT(dialog), "response", G_CALLBACK(ipsec_dialog_response_cb), self);
     g_signal_connect(G_OBJECT(dialog), "close", G_CALLBACK(ipsec_dialog_close_cb), self);
 
-    gtk_widget_show_all(dialog);
+    gtk_widget_show(dialog);
 
     authtype = g_object_get_data(G_OBJECT(dialog), "auth-type");
     if (authtype) {
@@ -537,7 +540,7 @@ init_plugin_ui(L2tpPluginUiWidget *self,
     if (s_vpn) {
         value = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_GATEWAY);
         if (value)
-            gtk_entry_set_text(GTK_ENTRY(widget), value);
+            gtk_editable_set_text(GTK_EDITABLE(widget), value);
     }
     g_signal_connect(G_OBJECT(widget), "changed", G_CALLBACK(stuff_changed_cb), self);
 
@@ -619,9 +622,9 @@ init_plugin_ui(L2tpPluginUiWidget *self,
     if (s_vpn) {
         value = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_EPHEMERAL_PORT);
         if (value && !strcmp(value, "yes")) {
-            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
+            gtk_check_button_set_active(GTK_CHECK_BUTTON(widget), TRUE);
         } else {
-            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), FALSE);
+            gtk_check_button_set_active(GTK_CHECK_BUTTON(widget), FALSE);
         }
     }
     g_signal_connect(G_OBJECT(widget), "toggled", G_CALLBACK(stuff_changed_cb), self);
@@ -695,7 +698,7 @@ update_connection(NMVpnEditor *iface, NMConnection *connection, GError **error)
     g_object_set(s_vpn, NM_SETTING_VPN_SERVICE_TYPE, NM_DBUS_SERVICE_L2TP, NULL);
 
     widget = GTK_WIDGET(gtk_builder_get_object(priv->builder, "gateway_entry"));
-    str    = gtk_entry_get_text(GTK_ENTRY(widget));
+    str    = gtk_editable_get_text(GTK_EDITABLE(widget));
     if (str && str[0])
         nm_setting_vpn_add_data_item(s_vpn, NM_L2TP_KEY_GATEWAY, str);
 
@@ -734,7 +737,7 @@ update_connection(NMVpnEditor *iface, NMConnection *connection, GError **error)
     }
 
     widget = GTK_WIDGET(gtk_builder_get_object(priv->builder, "ephemeral_checkbutton"));
-    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget)))
+    if (gtk_check_button_get_active(GTK_CHECK_BUTTON(widget)))
         nm_setting_vpn_add_data_item(s_vpn, NM_L2TP_KEY_EPHEMERAL_PORT, "yes");
 
     nm_connection_add_setting(connection, NM_SETTING(s_vpn));

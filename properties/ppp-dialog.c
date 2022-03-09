@@ -8,6 +8,7 @@
 
 #include "nm-default.h"
 
+#include "nm-l2tp-editor.h"
 #include "ppp-dialog.h"
 
 #include <errno.h>
@@ -77,7 +78,7 @@ multilink_toggled_cb(GtkWidget *check, gpointer user_data)
     GtkWidget * widget;
     gboolean    use_multilink;
 
-    use_multilink = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(check));
+    use_multilink = gtk_check_button_get_active(GTK_CHECK_BUTTON(check));
 
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "ppp_mrru_spinbutton"));
     gtk_widget_set_sensitive(widget, use_multilink);
@@ -94,7 +95,7 @@ handle_mppe_changed(GtkWidget *check, gboolean is_init, GtkBuilder *builder)
     gboolean      valid;
 
     mppe_sensitive = gtk_widget_get_sensitive(check);
-    use_mppe       = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(check));
+    use_mppe       = gtk_check_button_get_active(GTK_CHECK_BUTTON(check));
 
     /* (De)-sensitize MPPE related stuff */
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "ppp_mppe_security_label"));
@@ -409,7 +410,7 @@ auth_methods_setup(GtkBuilder *builder, GHashTable *hash)
     /* Make sure MPPE is non-sensitive if MSCHAP and MSCHAPv2 are disabled */
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "ppp_use_mppe"));
     if (!mschap_state && !mschap2_state) {
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), FALSE);
+        gtk_check_button_set_active(GTK_CHECK_BUTTON(widget), FALSE);
         gtk_widget_set_sensitive(widget, FALSE);
     } else
         gtk_widget_set_sensitive(widget, TRUE);
@@ -468,42 +469,42 @@ ppp_dialog_new(GHashTable *hash, const char *authtype)
 
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "ppp_use_mppe"));
     if (mppe)
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
+        gtk_check_button_set_active(GTK_CHECK_BUTTON(widget), TRUE);
 
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "ppp_allow_stateful_mppe"));
     value  = g_hash_table_lookup(hash, NM_L2TP_KEY_MPPE_STATEFUL);
     if (value && !strcmp(value, "yes"))
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
+        gtk_check_button_set_active(GTK_CHECK_BUTTON(widget), TRUE);
 
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "ppp_allow_bsdcomp"));
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
+    gtk_check_button_set_active(GTK_CHECK_BUTTON(widget), TRUE);
     value = g_hash_table_lookup(hash, NM_L2TP_KEY_NOBSDCOMP);
     if (value && !strcmp(value, "yes"))
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), FALSE);
+        gtk_check_button_set_active(GTK_CHECK_BUTTON(widget), FALSE);
 
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "ppp_allow_deflate"));
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
+    gtk_check_button_set_active(GTK_CHECK_BUTTON(widget), TRUE);
     value = g_hash_table_lookup(hash, NM_L2TP_KEY_NODEFLATE);
     if (value && !strcmp(value, "yes"))
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), FALSE);
+        gtk_check_button_set_active(GTK_CHECK_BUTTON(widget), FALSE);
 
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "ppp_usevj"));
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
+    gtk_check_button_set_active(GTK_CHECK_BUTTON(widget), TRUE);
     value = g_hash_table_lookup(hash, NM_L2TP_KEY_NO_VJ_COMP);
     if (value && !strcmp(value, "yes"))
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), FALSE);
+        gtk_check_button_set_active(GTK_CHECK_BUTTON(widget), FALSE);
 
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "ppp_usepcomp"));
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
+    gtk_check_button_set_active(GTK_CHECK_BUTTON(widget), TRUE);
     value = g_hash_table_lookup(hash, NM_L2TP_KEY_NO_PCOMP);
     if (value && !strcmp(value, "yes"))
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), FALSE);
+        gtk_check_button_set_active(GTK_CHECK_BUTTON(widget), FALSE);
 
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "ppp_useaccomp"));
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
+    gtk_check_button_set_active(GTK_CHECK_BUTTON(widget), TRUE);
     value = g_hash_table_lookup(hash, NM_L2TP_KEY_NO_ACCOMP);
     if (value && !strcmp(value, "yes"))
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), FALSE);
+        gtk_check_button_set_active(GTK_CHECK_BUTTON(widget), FALSE);
 
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "ppp_send_echo_packets"));
     value  = g_hash_table_lookup(hash, NM_L2TP_KEY_LCP_ECHO_INTERVAL);
@@ -513,7 +514,7 @@ ppp_dialog_new(GHashTable *hash, const char *authtype)
         errno   = 0;
         tmp_int = strtol(value, NULL, 10);
         if (errno == 0 && tmp_int > 0)
-            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
+            gtk_check_button_set_active(GTK_CHECK_BUTTON(widget), TRUE);
     }
 
     auth_methods_setup(builder, hash);
@@ -532,7 +533,7 @@ ppp_dialog_new(GHashTable *hash, const char *authtype)
         errno   = 0;
         tmp_int = strtol(value, NULL, 10);
         if (errno == 0 && tmp_int >= 1500 && tmp_int <= 4500) {
-            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
+            gtk_check_button_set_active(GTK_CHECK_BUTTON(widget), TRUE);
             widget = GTK_WIDGET(gtk_builder_get_object(builder, "ppp_mrru_spinbutton"));
             gtk_spin_button_set_value(GTK_SPIN_BUTTON(widget), (gdouble) tmp_int);
         }
@@ -596,7 +597,7 @@ ppp_dialog_new_hash_from_dialog(GtkWidget *dialog, GError **error)
     hash = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free);
 
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "ppp_use_mppe"));
-    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget))) {
+    if (gtk_check_button_get_active(GTK_CHECK_BUTTON(widget))) {
         widget = GTK_WIDGET(gtk_builder_get_object(builder, "ppp_mppe_security_combo"));
         switch (gtk_combo_box_get_active(GTK_COMBO_BOX(widget))) {
         case SEC_INDEX_MPPE_128:
@@ -611,32 +612,32 @@ ppp_dialog_new_hash_from_dialog(GtkWidget *dialog, GError **error)
         }
 
         widget = GTK_WIDGET(gtk_builder_get_object(builder, "ppp_allow_stateful_mppe"));
-        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget)))
+        if (gtk_check_button_get_active(GTK_CHECK_BUTTON(widget)))
             g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_MPPE_STATEFUL), g_strdup("yes"));
     }
 
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "ppp_allow_bsdcomp"));
-    if (!gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget)))
+    if (!gtk_check_button_get_active(GTK_CHECK_BUTTON(widget)))
         g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_NOBSDCOMP), g_strdup("yes"));
 
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "ppp_allow_deflate"));
-    if (!gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget)))
+    if (!gtk_check_button_get_active(GTK_CHECK_BUTTON(widget)))
         g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_NODEFLATE), g_strdup("yes"));
 
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "ppp_usevj"));
-    if (!gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget)))
+    if (!gtk_check_button_get_active(GTK_CHECK_BUTTON(widget)))
         g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_NO_VJ_COMP), g_strdup("yes"));
 
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "ppp_usepcomp"));
-    if (!gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget)))
+    if (!gtk_check_button_get_active(GTK_CHECK_BUTTON(widget)))
         g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_NO_PCOMP), g_strdup("yes"));
 
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "ppp_useaccomp"));
-    if (!gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget)))
+    if (!gtk_check_button_get_active(GTK_CHECK_BUTTON(widget)))
         g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_NO_ACCOMP), g_strdup("yes"));
 
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "ppp_send_echo_packets"));
-    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget))) {
+    if (gtk_check_button_get_active(GTK_CHECK_BUTTON(widget))) {
         g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_LCP_ECHO_FAILURE), g_strdup_printf("%d", 5));
         g_hash_table_insert(hash,
                             g_strdup(NM_L2TP_KEY_LCP_ECHO_INTERVAL),
@@ -685,7 +686,7 @@ ppp_dialog_new_hash_from_dialog(GtkWidget *dialog, GError **error)
     }
 
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "ppp_usemultilink"));
-    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget))) {
+    if (gtk_check_button_get_active(GTK_CHECK_BUTTON(widget))) {
         widget   = GTK_WIDGET(gtk_builder_get_object(builder, "ppp_mrru_spinbutton"));
         mrru_num = gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(widget));
         g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_MRRU), g_strdup_printf("%d", mrru_num));

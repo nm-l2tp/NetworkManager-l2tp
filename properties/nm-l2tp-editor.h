@@ -7,6 +7,17 @@
 #ifndef _NM_L2TP_EDITOR_H_
 #define _NM_L2TP_EDITOR_H_
 
+#if !GTK_CHECK_VERSION(4,0,0)
+#define gtk_editable_set_text(editable,text)            gtk_entry_set_text(GTK_ENTRY(editable), (text))
+#define gtk_editable_get_text(editable)                 gtk_entry_get_text(GTK_ENTRY(editable))
+#define gtk_widget_get_root(widget)                     gtk_widget_get_toplevel(widget)
+#define gtk_window_destroy(window)                      gtk_widget_destroy(GTK_WIDGET (window))
+#define gtk_check_button_get_active(button)		gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button))
+#define gtk_check_button_set_active(button, active)	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(button), active)
+
+typedef void GtkRoot;
+#endif
+
 #define L2TP_TYPE_PLUGIN_UI_WIDGET (l2tp_plugin_ui_widget_get_type())
 #define L2TP_PLUGIN_UI_WIDGET(obj) \
     (G_TYPE_CHECK_INSTANCE_CAST((obj), L2TP_TYPE_PLUGIN_UI_WIDGET, L2tpPluginUiWidget))
