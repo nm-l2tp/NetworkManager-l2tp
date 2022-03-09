@@ -189,7 +189,6 @@ properties_libnm_vpn_plugin_l2tp_la_CFLAGS = \
 	$(OPENSSL_CFLAGS)
 properties_libnm_vpn_plugin_l2tp_la_CPPFLAGS = \
 	-DNETWORKMANAGER_COMPILATION=NM_NETWORKMANAGER_COMPILATION_LIB_BASE \
-	-DNM_PLUGIN_DIR=\"$(NM_PLUGIN_DIR)\" \
 	$(properties_cppflags)
 properties_libnm_vpn_plugin_l2tp_la_LIBADD = \
 	$(GLIB_LIBS) \

@@ -115,7 +115,7 @@ get_editor(NMVpnEditorPlugin *iface, NMConnection *connection, GError **error)
     g_return_val_if_fail(NM_IS_CONNECTION(connection), NULL);
     g_return_val_if_fail(!error || !*error, NULL);
 
-    return nm_vpn_plugin_utils_load_editor(NM_PLUGIN_DIR "/libnm-vpn-plugin-l2tp-editor.so",
+    return nm_vpn_plugin_utils_load_editor("libnm-vpn-plugin-l2tp-editor.so",
                                            "nm_vpn_editor_factory_l2tp",
                                            _call_editor_factory,
                                            iface,
