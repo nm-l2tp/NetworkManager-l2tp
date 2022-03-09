@@ -420,7 +420,6 @@ May be required to allow multiple L2TP clients behind same NAT.</property>
     </child>
   </object>
   <object class="GtkSizeGroup" id="labels">
-    <property name="ignore_hidden">True</property>
     <widgets>
       <widget name="gateway_label"/>
       <widget name="username_label"/>
@@ -441,12 +440,8 @@ May be required to allow multiple L2TP clients behind same NAT.</property>
   </object>
   <object class="GtkDialog" id="l2tp-ipsec-dialog">
     <property name="can_focus">False</property>
-    <property name="border_width">5</property>
     <property name="title" translatable="yes">L2TP IPsec Options</property>
-    <property name="window_position">center-on-parent</property>
     <property name="destroy_with_parent">True</property>
-    <property name="type_hint">dialog</property>
-    <property name="skip_pager_hint">True</property>
     <child type="titlebar">
       <placeholder/>
     </child>
@@ -457,10 +452,9 @@ May be required to allow multiple L2TP clients behind same NAT.</property>
         <property name="orientation">vertical</property>
         <property name="spacing">4</property>
         <child internal-child="action_area">
-          <object class="GtkButtonBox" id="dialog-action_area2">
+          <object class="GtkBox" id="dialog-action_area2">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="layout_style">end</property>
             <child>
               <object class="GtkButton" id="ipsec_cancel_button">
                 <property name="label" translatable="yes">_Cancel</property>
@@ -769,10 +763,8 @@ config: ipsec-esp &lt;proposals&gt;</property>
                                 <property name="can_focus">True</property>
                                 <property name="tooltip_text" translatable="yes">How long the keying channel of a connection should last before being renegotiated. 
 config: ipsec-ikelifetime &lt;lifetime&gt;</property>
-                                <property name="max_length">5</property>
                                 <property name="width_chars">5</property>
                                 <property name="xalign">1</property>
-                                <property name="caps_lock_warning">False</property>
                                 <property name="adjustment">lifetime1_adjustment</property>
                                 <property name="value">100</property>
                               </object>
@@ -811,10 +803,8 @@ config: ipsec-ikelifetime &lt;lifetime&gt;</property>
                                 <property name="can_focus">True</property>
                                 <property name="tooltip_text" translatable="yes">How long a particular instance of a connection (a set of encryption/authentication keys for user packets) should last, from successful negotiation to expiry.
 config: ipsec-salifetime &lt;lifetime&gt;</property>
-                                <property name="max_length">5</property>
                                 <property name="width_chars">5</property>
                                 <property name="xalign">1</property>
-                                <property name="caps_lock_warning">False</property>
                                 <property name="adjustment">lifetime2_adjustment</property>
                                 <property name="value">100</property>
                               </object>
@@ -1054,7 +1044,6 @@ config: ipsec-pfs &lt;no/yes&gt;</property>
     </action-widgets>
   </object>
   <object class="GtkSizeGroup" id="ipsec_labels">
-    <property name="ignore_hidden">True</property>
     <widgets>
       <widget name="psk_label"/>
       <widget name="ipsec_auth_type_label"/>
@@ -1094,13 +1083,9 @@ config: ipsec-pfs &lt;no/yes&gt;</property>
   </object>
   <object class="GtkDialog" id="l2tp-ppp-dialog">
     <property name="can_focus">False</property>
-    <property name="border_width">5</property>
     <property name="title" translatable="yes">L2TP PPP Options</property>
-    <property name="window_position">center-on-parent</property>
     <property name="destroy_with_parent">True</property>
     <property name="icon_name">stock-preferences</property>
-    <property name="type_hint">dialog</property>
-    <property name="skip_pager_hint">True</property>
     <child type="titlebar">
       <placeholder/>
     </child>
@@ -1111,10 +1096,9 @@ config: ipsec-pfs &lt;no/yes&gt;</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
-          <object class="GtkButtonBox" id="dialog-action_area3">
+          <object class="GtkBox" id="dialog-action_area3">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="layout_style">end</property>
             <child>
               <object class="GtkButton" id="cancel_button1">
                 <property name="label" translatable="yes">_Cancel</property>
@@ -1155,7 +1139,6 @@ config: ipsec-pfs &lt;no/yes&gt;</property>
           <object class="GtkBox" id="PppPage">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="border_width">5</property>
             <property name="orientation">vertical</property>
             <property name="spacing">18</property>
             <child>
@@ -1204,7 +1187,6 @@ config: ipsec-pfs &lt;no/yes&gt;</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="hscrollbar_policy">never</property>
-                        <property name="shadow_type">in</property>
                         <property name="min_content_height">120</property>
                         <child>
                           <object class="GtkTreeView" id="ppp_auth_methods">
@@ -1555,7 +1537,6 @@ config: mrru</property>
                             <property name="can_focus">True</property>
                             <property name="tooltip_text" translatable="yes">Try to negotiate a PPP Multilink on a single connection.
 config: mrru</property>
-                            <property name="max_length">4</property>
                             <property name="width_chars">4</property>
                             <property name="max_width_chars">4</property>
                             <property name="text" translatable="yes">1400</property>
@@ -1599,7 +1580,6 @@ config: mrru</property>
                           <object class="GtkSpinButton" id="ppp_mtu_spinbutton">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
-                            <property name="max_length">4</property>
                             <property name="width_chars">4</property>
                             <property name="max_width_chars">4</property>
                             <property name="text" translatable="yes">1400</property>
@@ -1643,7 +1623,6 @@ config: mrru</property>
                           <object class="GtkSpinButton" id="ppp_mru_spinbutton">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
-                            <property name="max_length">4</property>
                             <property name="width_chars">4</property>
                             <property name="max_width_chars">4</property>
                             <property name="text" translatable="yes">1400</property>
