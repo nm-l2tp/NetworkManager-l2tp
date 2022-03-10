@@ -463,11 +463,11 @@ May be required to allow multiple L2TP clients behind same NAT.</property>
             <property name="layout_style">end</property>
             <child>
               <object class="GtkButton" id="ipsec_cancel_button">
-                <property name="label">gtk-cancel</property>
+                <property name="label" translatable="yes">_Cancel</property>
+                <property name="use-underline">True</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -477,11 +477,11 @@ May be required to allow multiple L2TP clients behind same NAT.</property>
             </child>
             <child>
               <object class="GtkButton" id="ipsec_ok_button">
-                <property name="label">gtk-ok</property>
+                <property name="label" translatable="yes">_Apply</property>
+                <property name="use-underline">True</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1117,11 +1117,11 @@ config: ipsec-pfs &lt;no/yes&gt;</property>
             <property name="layout_style">end</property>
             <child>
               <object class="GtkButton" id="cancel_button1">
-                <property name="label">gtk-cancel</property>
+                <property name="label" translatable="yes">_Cancel</property>
+                <property name="use-underline">True</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
-                <property name="use_stock">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1131,11 +1131,11 @@ config: ipsec-pfs &lt;no/yes&gt;</property>
             </child>
             <child>
               <object class="GtkButton" id="ok_button1">
-                <property name="label">gtk-ok</property>
+                <property name="label" translatable="yes">_Apply</property>
+                <property name="use-underline">True</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
-                <property name="use_stock">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
