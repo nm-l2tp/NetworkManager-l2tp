@@ -1351,6 +1351,10 @@ config: ipsec-pfs &lt;no/yes&gt;</property>
     <widgets>
       <widget name="psk_label"/>
       <widget name="ipsec_auth_type_label"/>
+      <widget name="machine_ca_certificate_label"/>
+      <widget name="machine_certificate_label"/>
+      <widget name="machine_private_key_label"/>
+      <widget name="machine_key_pw_label"/>
     </widgets>
   </object>
   <object class="GtkListStore" id="model1">
