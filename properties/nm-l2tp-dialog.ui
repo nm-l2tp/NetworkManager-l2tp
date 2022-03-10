@@ -66,8 +66,6 @@ L2TP clients behind the same NAT.</property>
                     <property name="tooltip_text" translatable="yes">L2TP server IP or name.
 config: xl2tpd lns parameter</property>
                     <property name="hexpand">True</property>
-                    <property name="primary_icon_activatable">False</property>
-                    <property name="secondary_icon_activatable">False</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
