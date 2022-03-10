@@ -597,6 +597,10 @@ May be required to allow multiple L2TP clients behind same NAT.</property>
       <widget name="password_label"/>
       <widget name="nt_domain_label"/>
       <widget name="auth_type_label"/>
+      <widget name="user_ca_certificate_label"/>
+      <widget name="user_certificate_label"/>
+      <widget name="user_private_key_label"/>
+      <widget name="user_key_pw_label"/>
     </widgets>
   </object>
   <object class="GtkAdjustment" id="lifetime1_adjustment">
