@@ -5,11 +5,7 @@
   <object class="GtkBox" id="l2tp-vbox">
     <property name="visible">True</property>
     <property name="can_focus">True</property>
-    <property name="tooltip_text" translatable="yes">Do not attempt to use UDP port 1701 as the L2TP source port,
-instead use an ephemeral source port (i.e. random high port)
-
-Ephemeral L2TP source ports are often required to allow multiple
-L2TP clients behind the same NAT.</property>
+    <property name="row_spacing">6</property>
     <property name="orientation">vertical</property>
     <property name="spacing">16</property>
     <child>
