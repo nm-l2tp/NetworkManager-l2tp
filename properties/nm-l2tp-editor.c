@@ -12,6 +12,7 @@
 
 #include <ctype.h>
 #include <gtk/gtk.h>
+#include <nma-cert-chooser.h>
 
 #include "ppp-dialog.h"
 #include "ipsec-dialog.h"
@@ -82,22 +83,14 @@ strstrip(const char *s)
 static void
 tls_cert_changed_cb(GtkWidget *chooser, gpointer user_data)
 {
-    GtkFileChooser *this = GTK_FILE_CHOOSER(chooser);
-    GtkFileChooser *       ca_cert, *cert, *key;
+    NMACertChooser *this = NMA_CERT_CHOOSER(chooser);
+    NMACertChooser *       ca_cert, *cert;
     GtkBuilder *           builder = (GtkBuilder *) user_data;
-    GtkWidget *            widget;
     char *                 fname, *dirname, *ca_cert_fname, *cert_fname, *key_fname;
     NML2tpCryptoFileFormat tls_fileformat = NM_L2TP_CRYPTO_FILE_FORMAT_UNKNOWN;
     gboolean               tls_need_password;
-    gboolean               sensitive_ca_key = TRUE;
     GError *               config_error     = NULL;
-    gulong                 id, id1, id2, id3;
-    guint32                i                          = 0;
-    const char *           sensitive_ca_key_widgets[] = {"user_ca_certificate_label",
-                                              "user_tls_ca_cert_chooser",
-                                              "user_private_key_label",
-                                              "user_tls_private_key_chooser",
-                                              NULL};
+    gulong                 id, id1, id2;
 
     /**
      * If the just-changed file chooser is a PKCS#12 file, then all of the
@@ -111,43 +104,35 @@ tls_cert_changed_cb(GtkWidget *chooser, gpointer user_data)
 
     crypto_init_openssl();
 
-    fname = gtk_file_chooser_get_filename(this);
+    fname = nma_cert_chooser_get_cert(this, NULL);
     if (fname)
         dirname = g_path_get_dirname(fname);
     else
         dirname = NULL;
 
-    ca_cert = GTK_FILE_CHOOSER(gtk_builder_get_object(builder, "user_tls_ca_cert_chooser"));
-    cert    = GTK_FILE_CHOOSER(gtk_builder_get_object(builder, "user_tls_cert_chooser"));
-    key     = GTK_FILE_CHOOSER(gtk_builder_get_object(builder, "user_tls_private_key_chooser"));
+    ca_cert = NMA_CERT_CHOOSER(gtk_builder_get_object(builder, "user_ca_chooser"));
+    cert    = NMA_CERT_CHOOSER(gtk_builder_get_object(builder, "user_cert_chooser"));
 
-    ca_cert_fname = gtk_file_chooser_get_filename(ca_cert);
-    cert_fname    = gtk_file_chooser_get_filename(cert);
-    key_fname     = gtk_file_chooser_get_filename(key);
+    ca_cert_fname = nma_cert_chooser_get_cert(ca_cert, NULL);
+    cert_fname    = nma_cert_chooser_get_cert(cert, NULL);
+    key_fname     = nma_cert_chooser_get_key(cert, NULL);
 
     id  = GPOINTER_TO_SIZE(g_object_get_data(G_OBJECT(this), BLOCK_HANDLER_ID));
     id1 = GPOINTER_TO_SIZE(g_object_get_data(G_OBJECT(ca_cert), BLOCK_HANDLER_ID));
     id2 = GPOINTER_TO_SIZE(g_object_get_data(G_OBJECT(cert), BLOCK_HANDLER_ID));
-    id3 = GPOINTER_TO_SIZE(g_object_get_data(G_OBJECT(key), BLOCK_HANDLER_ID));
 
     g_signal_handler_block(ca_cert, id1);
     g_signal_handler_block(cert, id2);
-    g_signal_handler_block(key, id3);
 
     tls_fileformat = crypto_file_format(fname, &tls_need_password, &config_error);
-    if (!ca_cert_fname && !cert_fname && !key_fname) {
-        sensitive_ca_key = FALSE;
-
-    } else if (tls_fileformat == NM_L2TP_CRYPTO_FILE_FORMAT_PKCS12) {
+    if (tls_fileformat == NM_L2TP_CRYPTO_FILE_FORMAT_PKCS12) {
         /* Make sure all choosers have this PKCS#12 file */
         if (!nm_streq0(fname, ca_cert_fname))
-            gtk_file_chooser_set_filename(ca_cert, fname);
+            nma_cert_chooser_set_cert(NMA_CERT_CHOOSER(ca_cert), fname, NM_SETTING_802_1X_CK_SCHEME_PATH);
         if (!nm_streq0(fname, cert_fname))
-            gtk_file_chooser_set_filename(cert, fname);
+            nma_cert_chooser_set_cert(NMA_CERT_CHOOSER(cert), fname, NM_SETTING_802_1X_CK_SCHEME_PATH);
         if (!nm_streq0(fname, key_fname))
-            gtk_file_chooser_set_filename(key, fname);
-
-        sensitive_ca_key = FALSE;
+            nma_cert_chooser_set_key(NMA_CERT_CHOOSER(cert), fname, NM_SETTING_802_1X_CK_SCHEME_PATH);
 
     } else {
         /**
@@ -158,35 +143,21 @@ tls_cert_changed_cb(GtkWidget *chooser, gpointer user_data)
         if (id != id1) {
             tls_fileformat = crypto_file_format(ca_cert_fname, NULL, &config_error);
             if (tls_fileformat == NM_L2TP_CRYPTO_FILE_FORMAT_PKCS12) {
-                gtk_file_chooser_unselect_all(ca_cert);
-
-                if (!ca_cert_fname && dirname)
-                    gtk_file_chooser_set_current_folder(ca_cert, dirname);
+                nma_cert_chooser_set_cert(NMA_CERT_CHOOSER(ca_cert), NULL, NM_SETTING_802_1X_CK_SCHEME_PATH);
             }
         }
         if (id != id2) {
             tls_fileformat = crypto_file_format(cert_fname, NULL, &config_error);
             if (tls_fileformat == NM_L2TP_CRYPTO_FILE_FORMAT_PKCS12) {
-                gtk_file_chooser_unselect_all(cert);
-
-                if (!cert_fname && dirname)
-                    gtk_file_chooser_set_current_folder(cert, dirname);
+                nma_cert_chooser_set_cert(NMA_CERT_CHOOSER(cert), NULL, NM_SETTING_802_1X_CK_SCHEME_PATH);
+                nma_cert_chooser_set_key(NMA_CERT_CHOOSER(cert), NULL, NM_SETTING_802_1X_CK_SCHEME_PATH);
             }
         }
         tls_fileformat = crypto_file_format(key_fname, &tls_need_password, &config_error);
-        if (id != id3) {
-            if (tls_fileformat == NM_L2TP_CRYPTO_FILE_FORMAT_PKCS12) {
-                gtk_file_chooser_unselect_all(key);
-
-                if (!key_fname && dirname)
-                    gtk_file_chooser_set_current_folder(key, dirname);
-            }
-        }
     }
 
     g_signal_handler_unblock(ca_cert, id1);
     g_signal_handler_unblock(cert, id2);
-    g_signal_handler_unblock(key, id3);
 
     g_free(fname);
     g_free(dirname);
@@ -194,28 +165,6 @@ tls_cert_changed_cb(GtkWidget *chooser, gpointer user_data)
     g_free(cert_fname);
     g_free(key_fname);
     crypto_deinit_openssl();
-
-    while (sensitive_ca_key_widgets[i]) {
-        widget = GTK_WIDGET(gtk_builder_get_object(builder, sensitive_ca_key_widgets[i++]));
-        gtk_widget_set_sensitive(widget, sensitive_ca_key);
-    }
-
-    widget = GTK_WIDGET(gtk_builder_get_object(builder, "user_tls_key_pw_entry"));
-    if (!tls_need_password) {
-        gtk_entry_set_visibility(GTK_ENTRY(widget), FALSE);
-        if (gtk_entry_get_text(GTK_ENTRY(widget)))
-            gtk_entry_set_text(GTK_ENTRY(widget), "");
-    }
-    gtk_widget_set_sensitive(widget, tls_need_password);
-
-    widget = GTK_WIDGET(gtk_builder_get_object(builder, "show_user_tls_key_pw_check"));
-    if (!tls_need_password) {
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), tls_need_password);
-    }
-    gtk_widget_set_sensitive(widget, tls_need_password);
-
-    widget = GTK_WIDGET(gtk_builder_get_object(builder, "user_key_pw_label"));
-    gtk_widget_set_sensitive(widget, tls_need_password);
 }
 
 static void
@@ -228,7 +177,7 @@ pw_setup(GtkBuilder *builder, NMSettingVpn *s_vpn, ChangedCallback changed_cb, g
     if (s_vpn) {
         value = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_USER);
         if (value && value[0])
-            gtk_entry_set_text(GTK_ENTRY(widget), value);
+            gtk_editable_set_text(GTK_EDITABLE(widget), value);
     }
     g_signal_connect(G_OBJECT(widget), "changed", G_CALLBACK(changed_cb), user_data);
 
@@ -236,7 +185,7 @@ pw_setup(GtkBuilder *builder, NMSettingVpn *s_vpn, ChangedCallback changed_cb, g
     if (s_vpn) {
         value = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_DOMAIN);
         if (value && value[0])
-            gtk_entry_set_text(GTK_ENTRY(widget), value);
+            gtk_editable_set_text(GTK_EDITABLE(widget), value);
     }
     g_signal_connect(G_OBJECT(widget), "changed", G_CALLBACK(changed_cb), user_data);
 
@@ -245,7 +194,7 @@ pw_setup(GtkBuilder *builder, NMSettingVpn *s_vpn, ChangedCallback changed_cb, g
     if (s_vpn) {
         value = nm_setting_vpn_get_secret(s_vpn, NM_L2TP_KEY_PASSWORD);
         if (value)
-            gtk_entry_set_text(GTK_ENTRY(widget), value);
+            gtk_editable_set_text(GTK_EDITABLE(widget), value);
     }
     g_signal_connect(widget, "changed", G_CALLBACK(changed_cb), user_data);
     nma_utils_setup_password_storage(widget,
@@ -260,28 +209,6 @@ pw_setup(GtkBuilder *builder, NMSettingVpn *s_vpn, ChangedCallback changed_cb, g
 }
 
 static void
-update_from_filechooser(GtkBuilder *  builder,
-                        const char *  key,
-                        const char *  widget_name,
-                        NMSettingVpn *s_vpn)
-{
-    GtkWidget *widget;
-    char *     filename;
-
-    g_return_if_fail(builder != NULL);
-    g_return_if_fail(key != NULL);
-    g_return_if_fail(widget_name != NULL);
-    g_return_if_fail(s_vpn != NULL);
-
-    widget = GTK_WIDGET(gtk_builder_get_object(builder, widget_name));
-
-    filename = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(widget));
-    if (filename && filename[0])
-        nm_setting_vpn_add_data_item(s_vpn, key, filename);
-    g_free(filename);
-}
-
-static void
 update_tls(GtkBuilder *builder, NMSettingVpn *s_vpn)
 {
     GtkWidget *          widget;
@@ -291,16 +218,22 @@ update_tls(GtkBuilder *builder, NMSettingVpn *s_vpn)
     g_return_if_fail(builder != NULL);
     g_return_if_fail(s_vpn != NULL);
 
-    update_from_filechooser(builder, NM_L2TP_KEY_USER_CA, "user_tls_ca_cert_chooser", s_vpn);
-    update_from_filechooser(builder, NM_L2TP_KEY_USER_CERT, "user_tls_cert_chooser", s_vpn);
-    update_from_filechooser(builder, NM_L2TP_KEY_USER_KEY, "user_tls_private_key_chooser", s_vpn);
+    widget = GTK_WIDGET(gtk_builder_get_object(builder, "user_ca_chooser"));
+    str = nma_cert_chooser_get_cert(NMA_CERT_CHOOSER(widget), NULL);
+    if (str && str[0])
+        nm_setting_vpn_add_data_item(s_vpn, NM_L2TP_KEY_USER_CA, str);
 
-    /* Password */
-    widget = (GtkWidget *) gtk_builder_get_object(builder, "user_tls_key_pw_entry");
-    str    = gtk_entry_get_text(GTK_ENTRY(widget));
+    widget = GTK_WIDGET(gtk_builder_get_object(builder, "user_cert_chooser"));
+    str = nma_cert_chooser_get_cert(NMA_CERT_CHOOSER(widget), NULL);
+    if (str && str[0])
+        nm_setting_vpn_add_data_item(s_vpn, NM_L2TP_KEY_USER_CERT, str);
+    str = nma_cert_chooser_get_key(NMA_CERT_CHOOSER(widget), NULL);
+    if (str && str[0])
+        nm_setting_vpn_add_data_item(s_vpn, NM_L2TP_KEY_USER_KEY, str);
+    str = nma_cert_chooser_get_key_password(NMA_CERT_CHOOSER(widget));
     if (str && str[0])
         nm_setting_vpn_add_secret(s_vpn, NM_L2TP_KEY_USER_CERTPASS, str);
-    pw_flags = nma_utils_menu_to_secret_flags(widget);
+    pw_flags = nma_cert_chooser_get_key_password_flags(NMA_CERT_CHOOSER(widget));
     nm_setting_set_secret_flags(NM_SETTING(s_vpn), NM_L2TP_KEY_USER_CERTPASS, pw_flags, NULL);
 }
 
@@ -315,19 +248,19 @@ update_pw(GtkBuilder *builder, NMSettingVpn *s_vpn)
     g_return_if_fail(s_vpn != NULL);
 
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "username_entry"));
-    str    = gtk_entry_get_text(GTK_ENTRY(widget));
+    str    = gtk_editable_get_text(GTK_EDITABLE(widget));
     if (str && str[0])
         nm_setting_vpn_add_data_item(s_vpn, NM_L2TP_KEY_USER, str);
 
     widget = (GtkWidget *) gtk_builder_get_object(builder, "password_entry");
-    str    = gtk_entry_get_text(GTK_ENTRY(widget));
+    str    = gtk_editable_get_text(GTK_EDITABLE(widget));
     if (str && str[0])
         nm_setting_vpn_add_secret(s_vpn, NM_L2TP_KEY_PASSWORD, str);
     pw_flags = nma_utils_menu_to_secret_flags(widget);
     nm_setting_set_secret_flags(NM_SETTING(s_vpn), NM_L2TP_KEY_PASSWORD, pw_flags, NULL);
 
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "domain_entry"));
-    str    = gtk_entry_get_text(GTK_ENTRY(widget));
+    str    = gtk_editable_get_text(GTK_EDITABLE(widget));
     if (str && str[0])
         nm_setting_vpn_add_data_item(s_vpn, NM_L2TP_KEY_DOMAIN, str);
 }
@@ -341,7 +274,7 @@ check_validity(L2tpPluginUiWidget *self, GError **error)
     char *                     s = NULL;
 
     widget = GTK_WIDGET(gtk_builder_get_object(priv->builder, "gateway_entry"));
-    str    = gtk_entry_get_text(GTK_ENTRY(widget));
+    str    = gtk_editable_get_text(GTK_EDITABLE(widget));
     if (!str || !strlen(s = strstrip(str))) {
         g_free(s);
         g_set_error(error,
@@ -384,16 +317,16 @@ static void
 ppp_dialog_close_cb(GtkWidget *dialog, gpointer user_data)
 {
     gtk_widget_hide(dialog);
-    /* gtk_widget_destroy() will remove the window from the window group */
-    gtk_widget_destroy(dialog);
+    /* gtk_window_destroy() will remove the window from the window group */
+    gtk_window_destroy(GTK_WINDOW(dialog));
 }
 
 static void
 ipsec_dialog_close_cb(GtkWidget *dialog, gpointer user_data)
 {
     gtk_widget_hide(dialog);
-    /* gtk_widget_destroy() will remove the window from the window group */
-    gtk_widget_destroy(dialog);
+    /* gtk_window_destroy() will remove the window from the window group */
+    gtk_window_destroy(GTK_WINDOW(dialog));
 }
 
 static void
@@ -449,7 +382,8 @@ ppp_button_clicked_cb(GtkWidget *button, gpointer user_data)
 {
     L2tpPluginUiWidget *       self = L2TP_PLUGIN_UI_WIDGET(user_data);
     L2tpPluginUiWidgetPrivate *priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE(self);
-    GtkWidget *                dialog, *toplevel, *widget;
+    GtkWidget *                dialog, *widget;
+    GtkRoot *                  root;
     GtkBuilder *               builder;
     GtkTreeModel *             model;
     GtkTreeIter                iter;
@@ -457,8 +391,9 @@ ppp_button_clicked_cb(GtkWidget *button, gpointer user_data)
     gboolean                   success;
     guint32                    i = 0;
     const char *widgets[] = {"ppp_auth_label", "auth_methods_label", "ppp_auth_methods", NULL};
-    toplevel              = gtk_widget_get_toplevel(priv->widget);
-    g_return_if_fail(gtk_widget_is_toplevel(toplevel));
+    root                  = gtk_widget_get_root (priv->widget);
+
+    g_return_if_fail(GTK_IS_WINDOW(root));
 
     widget  = GTK_WIDGET(gtk_builder_get_object(priv->builder, "auth_combo"));
     model   = gtk_combo_box_get_model(GTK_COMBO_BOX(widget));
@@ -474,11 +409,11 @@ ppp_button_clicked_cb(GtkWidget *button, gpointer user_data)
 
     gtk_window_group_add_window(priv->window_group, GTK_WINDOW(dialog));
     if (!priv->window_added) {
-        gtk_window_group_add_window(priv->window_group, GTK_WINDOW(toplevel));
+        gtk_window_group_add_window(priv->window_group, GTK_WINDOW(root));
         priv->window_added = TRUE;
     }
 
-    gtk_window_set_transient_for(GTK_WINDOW(dialog), GTK_WINDOW(toplevel));
+    gtk_window_set_transient_for(GTK_WINDOW(dialog), GTK_WINDOW(root));
     g_signal_connect(G_OBJECT(dialog), "response", G_CALLBACK(ppp_dialog_response_cb), self);
     g_signal_connect(G_OBJECT(dialog), "close", G_CALLBACK(ppp_dialog_close_cb), self);
 
@@ -494,7 +429,7 @@ ppp_button_clicked_cb(GtkWidget *button, gpointer user_data)
         }
     }
 
-    gtk_widget_show_all(dialog);
+    gtk_widget_show(dialog);
 }
 
 static void
@@ -502,12 +437,13 @@ ipsec_button_clicked_cb(GtkWidget *button, gpointer user_data)
 {
     L2tpPluginUiWidget *       self = L2TP_PLUGIN_UI_WIDGET(user_data);
     L2tpPluginUiWidgetPrivate *priv = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE(self);
-    GtkWidget *                dialog, *toplevel, *widget;
+    GtkWidget *                dialog, *widget;
+    GtkRoot *                  root;
     GtkBuilder *               builder;
     const char *               authtype = NULL;
 
-    toplevel = gtk_widget_get_toplevel(priv->widget);
-    g_return_if_fail(gtk_widget_is_toplevel(toplevel));
+    root = gtk_widget_get_root (priv->widget);
+    g_return_if_fail (GTK_IS_WINDOW(root));
 
     dialog = ipsec_dialog_new(priv->ipsec);
     if (!dialog) {
@@ -517,15 +453,15 @@ ipsec_button_clicked_cb(GtkWidget *button, gpointer user_data)
 
     gtk_window_group_add_window(priv->window_group, GTK_WINDOW(dialog));
     if (!priv->window_added) {
-        gtk_window_group_add_window(priv->window_group, GTK_WINDOW(toplevel));
+        gtk_window_group_add_window(priv->window_group, GTK_WINDOW(root));
         priv->window_added = TRUE;
     }
 
-    gtk_window_set_transient_for(GTK_WINDOW(dialog), GTK_WINDOW(toplevel));
+    gtk_window_set_transient_for(GTK_WINDOW(dialog), GTK_WINDOW(root));
     g_signal_connect(G_OBJECT(dialog), "response", G_CALLBACK(ipsec_dialog_response_cb), self);
     g_signal_connect(G_OBJECT(dialog), "close", G_CALLBACK(ipsec_dialog_close_cb), self);
 
-    gtk_widget_show_all(dialog);
+    gtk_widget_show(dialog);
 
     authtype = g_object_get_data(G_OBJECT(dialog), "auth-type");
     if (authtype) {
@@ -540,90 +476,44 @@ ipsec_button_clicked_cb(GtkWidget *button, gpointer user_data)
 static void
 tls_setup(GtkBuilder *builder, NMSettingVpn *s_vpn, gpointer user_data)
 {
-    GtkWidget *    widget;
-    GtkWidget *    show_password;
     GtkWidget *    ca_cert;
     GtkWidget *    cert;
-    GtkWidget *    key;
+    GtkSizeGroup * labels;
     const char *   value;
-    GtkFileFilter *filter;
-    gulong         id1, id2, id3;
+    gulong         id1, id2;
 
-    ca_cert = GTK_WIDGET(gtk_builder_get_object(builder, "user_tls_ca_cert_chooser"));
-    cert    = GTK_WIDGET(gtk_builder_get_object(builder, "user_tls_cert_chooser"));
-    key     = GTK_WIDGET(gtk_builder_get_object(builder, "user_tls_private_key_chooser"));
+    ca_cert = GTK_WIDGET(gtk_builder_get_object(builder, "user_ca_chooser"));
+    cert    = GTK_WIDGET(gtk_builder_get_object(builder, "user_cert_chooser"));
+    labels  = GTK_SIZE_GROUP(gtk_builder_get_object(builder, "labels"));
 
-    filter = tls_cert_filter();
-    gtk_file_chooser_add_filter(GTK_FILE_CHOOSER(ca_cert), filter);
-    filter = all_files_filter();
-    gtk_file_chooser_add_filter(GTK_FILE_CHOOSER(ca_cert), filter);
-    gtk_file_chooser_set_local_only(GTK_FILE_CHOOSER(ca_cert), TRUE);
-    gtk_file_chooser_button_set_title(GTK_FILE_CHOOSER_BUTTON(ca_cert),
-                                      _("Choose a Certificate Authority certificate…"));
-
-    filter = tls_cert_filter();
-    gtk_file_chooser_add_filter(GTK_FILE_CHOOSER(cert), filter);
-    filter = all_files_filter();
-    gtk_file_chooser_add_filter(GTK_FILE_CHOOSER(cert), filter);
-    gtk_file_chooser_set_local_only(GTK_FILE_CHOOSER(cert), TRUE);
-    gtk_file_chooser_button_set_title(GTK_FILE_CHOOSER_BUTTON(cert),
-                                      _("Choose your personal certificate…"));
-
-    filter = tls_key_filter();
-    gtk_file_chooser_add_filter(GTK_FILE_CHOOSER(key), filter);
-    filter = all_files_filter();
-    gtk_file_chooser_add_filter(GTK_FILE_CHOOSER(key), filter);
-    gtk_file_chooser_set_local_only(GTK_FILE_CHOOSER(key), TRUE);
-    gtk_file_chooser_button_set_title(GTK_FILE_CHOOSER_BUTTON(key), _("Choose your private key…"));
+    nma_cert_chooser_add_to_size_group(NMA_CERT_CHOOSER(ca_cert), labels);
+    nma_cert_chooser_add_to_size_group(NMA_CERT_CHOOSER(cert), labels);
 
     if (s_vpn) {
         value = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_USER_CA);
         if (value && value[0])
-            gtk_file_chooser_set_filename(GTK_FILE_CHOOSER(ca_cert), value);
+            nma_cert_chooser_set_cert(NMA_CERT_CHOOSER(ca_cert), value, NM_SETTING_802_1X_CK_SCHEME_PATH);
 
         value = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_USER_CERT);
         if (value && value[0])
-            gtk_file_chooser_set_filename(GTK_FILE_CHOOSER(cert), value);
+            nma_cert_chooser_set_cert(NMA_CERT_CHOOSER(cert), value, NM_SETTING_802_1X_CK_SCHEME_PATH);
 
         value = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_USER_KEY);
         if (value && value[0])
-            gtk_file_chooser_set_filename(GTK_FILE_CHOOSER(key), value);
+            nma_cert_chooser_set_key(NMA_CERT_CHOOSER(cert), value, NM_SETTING_802_1X_CK_SCHEME_PATH);
     }
-
-    /* Fill in the private key password */
-    widget        = GTK_WIDGET(gtk_builder_get_object(builder, "user_tls_key_pw_entry"));
-    show_password = GTK_WIDGET(gtk_builder_get_object(builder, "show_user_tls_key_pw_check"));
-    g_signal_connect(show_password, "toggled", G_CALLBACK(show_password_cb), widget);
 
     value = nm_setting_vpn_get_secret(s_vpn, NM_L2TP_KEY_USER_CERTPASS);
     if (value)
-        gtk_entry_set_text(GTK_ENTRY(widget), value);
-
-    g_signal_connect(widget, "changed", G_CALLBACK(stuff_changed_cb), user_data);
-
-    nma_utils_setup_password_storage(widget,
-                                     0,
-                                     (NMSetting *) s_vpn,
-                                     NM_L2TP_KEY_USER_CERTPASS,
-                                     TRUE,
-                                     FALSE);
+        nma_cert_chooser_set_key_password(NMA_CERT_CHOOSER(cert), value);
 
     /* Link choosers to the PKCS#12 changer callback */
-    id1 = g_signal_connect(ca_cert, "selection-changed", G_CALLBACK(tls_cert_changed_cb), builder);
-    id2 = g_signal_connect(cert, "selection-changed", G_CALLBACK(tls_cert_changed_cb), builder);
-    id3 = g_signal_connect(key, "selection-changed", G_CALLBACK(tls_cert_changed_cb), builder);
+    id1 = g_signal_connect(ca_cert, "changed", G_CALLBACK(tls_cert_changed_cb), builder);
+    id2 = g_signal_connect(cert, "changed", G_CALLBACK(tls_cert_changed_cb), builder);
 
     /* Store handler id to be able to block the signal in tls_cert_changed_cb() */
     g_object_set_data(G_OBJECT(ca_cert), BLOCK_HANDLER_ID, GSIZE_TO_POINTER(id1));
     g_object_set_data(G_OBJECT(cert), BLOCK_HANDLER_ID, GSIZE_TO_POINTER(id2));
-    g_object_set_data(G_OBJECT(key), BLOCK_HANDLER_ID, GSIZE_TO_POINTER(id3));
-
-    g_signal_connect(G_OBJECT(ca_cert),
-                     "selection-changed",
-                     G_CALLBACK(stuff_changed_cb),
-                     user_data);
-    g_signal_connect(G_OBJECT(cert), "selection-changed", G_CALLBACK(stuff_changed_cb), user_data);
-    g_signal_connect(G_OBJECT(key), "selection-changed", G_CALLBACK(stuff_changed_cb), user_data);
 
     tls_cert_changed_cb(cert, builder);
 }
@@ -650,7 +540,7 @@ init_plugin_ui(L2tpPluginUiWidget *self,
     if (s_vpn) {
         value = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_GATEWAY);
         if (value)
-            gtk_entry_set_text(GTK_ENTRY(widget), value);
+            gtk_editable_set_text(GTK_EDITABLE(widget), value);
     }
     g_signal_connect(G_OBJECT(widget), "changed", G_CALLBACK(stuff_changed_cb), self);
 
@@ -732,9 +622,9 @@ init_plugin_ui(L2tpPluginUiWidget *self,
     if (s_vpn) {
         value = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_EPHEMERAL_PORT);
         if (value && !strcmp(value, "yes")) {
-            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), TRUE);
+            gtk_check_button_set_active(GTK_CHECK_BUTTON(widget), TRUE);
         } else {
-            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(widget), FALSE);
+            gtk_check_button_set_active(GTK_CHECK_BUTTON(widget), FALSE);
         }
     }
     g_signal_connect(G_OBJECT(widget), "toggled", G_CALLBACK(stuff_changed_cb), self);
@@ -808,7 +698,7 @@ update_connection(NMVpnEditor *iface, NMConnection *connection, GError **error)
     g_object_set(s_vpn, NM_SETTING_VPN_SERVICE_TYPE, NM_DBUS_SERVICE_L2TP, NULL);
 
     widget = GTK_WIDGET(gtk_builder_get_object(priv->builder, "gateway_entry"));
-    str    = gtk_entry_get_text(GTK_ENTRY(widget));
+    str    = gtk_editable_get_text(GTK_EDITABLE(widget));
     if (str && str[0])
         nm_setting_vpn_add_data_item(s_vpn, NM_L2TP_KEY_GATEWAY, str);
 
@@ -847,7 +737,7 @@ update_connection(NMVpnEditor *iface, NMConnection *connection, GError **error)
     }
 
     widget = GTK_WIDGET(gtk_builder_get_object(priv->builder, "ephemeral_checkbutton"));
-    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget)))
+    if (gtk_check_button_get_active(GTK_CHECK_BUTTON(widget)))
         nm_setting_vpn_add_data_item(s_vpn, NM_L2TP_KEY_EPHEMERAL_PORT, "yes");
 
     nm_connection_add_setting(connection, NM_SETTING(s_vpn));

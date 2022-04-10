@@ -83,6 +83,7 @@ po/remove-potcdate.sed
 po/remove-potcdate.sin
 
 properties/resources.[ch]
+gtk4/
 
 src/nm-l2tp-pppd-service-dbus.c
 src/nm-l2tp-pppd-service-dbus.h
