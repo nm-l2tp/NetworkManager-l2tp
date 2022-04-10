@@ -12,6 +12,6 @@
 
 #define BLOCK_HANDLER_ID "block-handler-id"
 
-void show_password_cb(GtkToggleButton *togglebutton, GtkEntry *password_entry);
+void show_password_cb(GtkCheckButton *checkbutton, GtkEntry *password_entry);
 
 #endif /* _AUTH_HELPERS_H_ */
