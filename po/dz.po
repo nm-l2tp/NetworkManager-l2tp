@@ -157,7 +157,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:13
 msgid "General"
-msgstr ""
+msgstr "ཡོངས་ཁྱབ།"
 
 #: properties/nm-l2tp-dialog.ui:30
 msgid "_Gateway"
@@ -175,7 +175,7 @@ msgstr "ཝི་པི་ཨེན་བདེན་བཤད་འབད་"
 
 #: properties/nm-l2tp-dialog.ui:77 properties/nm-l2tp-dialog.ui:544
 msgid "Type"
-msgstr ""
+msgstr "དབྱེ་བ།"
 
 #: properties/nm-l2tp-dialog.ui:90 properties/nm-l2tp-dialog.ui:557
 msgid "Select an authentication mode."
@@ -376,7 +376,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1059
 msgid "Default"
-msgstr ""
+msgstr "སྔོན་སྒྲིག"
 
 #: properties/nm-l2tp-dialog.ui:1086
 msgid "L2TP PPP Options"

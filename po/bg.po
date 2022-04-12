@@ -234,11 +234,11 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:460 properties/nm-l2tp-dialog.ui:1104
 msgid "_Cancel"
-msgstr ""
+msgstr "_Отказ"
 
 #: properties/nm-l2tp-dialog.ui:474 properties/nm-l2tp-dialog.ui:1118
 msgid "_Apply"
-msgstr ""
+msgstr "_Прилагане"
 
 #: properties/nm-l2tp-dialog.ui:506
 msgid "_Enable IPsec tunnel to L2TP host"

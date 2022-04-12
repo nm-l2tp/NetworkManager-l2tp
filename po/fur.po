@@ -187,7 +187,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:138 properties/nm-l2tp-dialog.ui:593
 msgid "Sho_w password"
-msgstr ""
+msgstr "Mostre pass_word"
 
 #: properties/nm-l2tp-dialog.ui:155
 msgid "Password passed to PPPD when prompted for it."
@@ -238,7 +238,7 @@ msgstr "A_vanzadis"
 
 #: properties/nm-l2tp-dialog.ui:474 properties/nm-l2tp-dialog.ui:1118
 msgid "_Apply"
-msgstr ""
+msgstr "_Apliche"
 
 #: properties/nm-l2tp-dialog.ui:506
 msgid "_Enable IPsec tunnel to L2TP host"

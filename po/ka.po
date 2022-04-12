@@ -154,7 +154,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:13
 msgid "General"
-msgstr ""
+msgstr "მთავარი"
 
 #: properties/nm-l2tp-dialog.ui:30
 msgid "_Gateway"
@@ -373,7 +373,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1059
 msgid "Default"
-msgstr ""
+msgstr "ნაგულისხმევი"
 
 #: properties/nm-l2tp-dialog.ui:1086
 msgid "L2TP PPP Options"

@@ -239,11 +239,11 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:460 properties/nm-l2tp-dialog.ui:1104
 msgid "_Cancel"
-msgstr ""
+msgstr "ரத்து (_C)"
 
 #: properties/nm-l2tp-dialog.ui:474 properties/nm-l2tp-dialog.ui:1118
 msgid "_Apply"
-msgstr ""
+msgstr "செயல்படுத்து (_A)"
 
 #: properties/nm-l2tp-dialog.ui:506
 msgid "_Enable IPsec tunnel to L2TP host"
