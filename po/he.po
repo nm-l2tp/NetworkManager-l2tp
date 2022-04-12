@@ -85,7 +85,7 @@ msgstr ""
 #: auth-dialog/main.c:552
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
-msgstr ""
+msgstr "עליך להזדהות כדי לגשת אל הרשת הווירטואלית הפרטית „%s”."
 
 #: properties/import-export.c:161 properties/import-export.c:410
 #, c-format
@@ -179,7 +179,7 @@ msgstr "סוג:"
 
 #: properties/nm-l2tp-dialog.ui:90 properties/nm-l2tp-dialog.ui:557
 msgid "Select an authentication mode."
-msgstr ""
+msgstr "נא לבחור את מצב האימות."
 
 #: properties/nm-l2tp-dialog.ui:128
 msgid ""
@@ -487,7 +487,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1475
 msgid "Misc"
-msgstr ""
+msgstr "שונות"
 
 #: properties/nm-l2tp-dialog.ui:1495
 msgid "Send PPP _echo packets"
@@ -548,7 +548,7 @@ msgstr ""
 
 #: properties/nm-l2tp-editor.c:797
 msgid "could not load UI widget"
-msgstr ""
+msgstr "לא ניתן לטעון את וידג׳ט מנשק המשתמש"
 
 #: properties/nm-l2tp-editor-plugin.c:17
 msgid "Layer 2 Tunneling Protocol (L2TP)"
@@ -693,59 +693,59 @@ msgstr ""
 #: shared/nm-utils/nm-shared-utils.c:1146
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr ""
+msgstr "למחלקת העצמים ‚%s’ אין מאפיין בשם ‚%s’"
 
 #: shared/nm-utils/nm-shared-utils.c:1155
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr ""
+msgstr "המאפיין ‚%s’ של מחלקת העצמים ‚%s’ נעול בפני כתיבה"
 
 #: shared/nm-utils/nm-shared-utils.c:1164
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
-msgstr ""
+msgstr "אי אפשר להגדיר את מאפיין הבנייה „%s” לפריט ‚%s’ לאחר הבנייה"
 
 #: shared/nm-utils/nm-shared-utils.c:1175
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
-msgstr ""
+msgstr "‫‚%s::%s’ אינו שם מאפיין תקף, ‚%s’ אינו תת־סוג של GObject"
 
 #: shared/nm-utils/nm-shared-utils.c:1188
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
-msgstr ""
+msgstr "לא ניתן להגדיר מאפיין ‚%s’ מסוג ‚%s’ מערך מסוג ‚%s’"
 
 #: shared/nm-utils/nm-shared-utils.c:1200
 #, c-format
 msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
-msgstr ""
+msgstr "הערך „%s” מסוג ‚%s’ שגוי או שחרג מהתחום למאפיין ‚%s’ מסוג ‚%s’"
 
 #: shared/nm-utils/nm-vpn-plugin-utils.c:53
 #, c-format
 msgid "unable to get editor plugin name: %s"
-msgstr ""
+msgstr "לא ניתן לקבל שם תוסף עורך: %s"
 
 #: shared/nm-utils/nm-vpn-plugin-utils.c:90
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr ""
+msgstr "קובץ תוסף „%s” חסר"
 
 #: shared/nm-utils/nm-vpn-plugin-utils.c:97
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr ""
+msgstr "לא ניתן לטעון תוסף עורך: %s"
 
 #: shared/nm-utils/nm-vpn-plugin-utils.c:107
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr ""
+msgstr "לא ניתן לטעון את היצרן %s מהתוסף: %s"
 
 #: shared/nm-utils/nm-vpn-plugin-utils.c:130
 msgid "unknown error creating editor instance"
-msgstr ""
+msgstr "שגיאה בלתי ידועה ביצירת מופע עורך"
 
 #: src/nm-l2tp-service.c:302
 #, c-format
@@ -774,7 +774,7 @@ msgstr ""
 
 #: src/nm-l2tp-service.c:363
 msgid "No VPN configuration options."
-msgstr ""
+msgstr "אין אפשרויות הגדרת VPN."
 
 #: src/nm-l2tp-service.c:383
 #, c-format
@@ -838,11 +838,11 @@ msgstr ""
 
 #: src/nm-l2tp-service.c:1737
 msgid "Missing VPN username."
-msgstr ""
+msgstr "שם משתמש VPN חסר."
 
 #: src/nm-l2tp-service.c:1746
 msgid "Missing or invalid VPN password."
-msgstr ""
+msgstr "סיסמת VPN חסרה או שגויה."
 
 #: src/nm-l2tp-service.c:1848
 msgid "couldn't convert L2TP VPN gateway IP address."
@@ -882,11 +882,11 @@ msgstr ""
 
 #: src/nm-l2tp-service.c:2315
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr ""
+msgstr "הפעלת תיעוד שגיאות מפורט (עשוי לחשוף סיסמאות)"
 
 #: src/nm-l2tp-service.c:2322
 msgid "D-Bus name to use for this instance"
-msgstr ""
+msgstr "שם D-Bus לשימוש עבור המופע הזה"
 
 #: src/nm-l2tp-service.c:2341
 msgid ""

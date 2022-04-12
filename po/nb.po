@@ -82,6 +82,7 @@ msgstr ""
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr ""
+"Du må autentisere deg for å få tilgang til Virtuelt privat nettverk «%s»."
 
 #: properties/import-export.c:161 properties/import-export.c:410
 #, c-format
@@ -391,6 +392,8 @@ msgid ""
 "Allow/disable authentication methods.\n"
 "config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 msgstr ""
+"Tilat/inaktiver authentiserings metoder.\n"
+"config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 
 #: properties/nm-l2tp-dialog.ui:1234
 msgid "Security and Compression"
@@ -418,6 +421,8 @@ msgid ""
 "Require the use of MPPE, with 40/128-bit encryption or all.\n"
 "config: require-mppe, require-mppe-128 or require-mppe-40"
 msgstr ""
+"Krev anvending av MPPE, med 40/128 biter kryptering eller alle.\n"
+"konfig: require-mppe, require-mppe-128 or require-mppe-40"
 
 #: properties/nm-l2tp-dialog.ui:1331
 msgid "Allow st_ateful encryption"
@@ -428,6 +433,8 @@ msgid ""
 "Allow MPPE to use stateful mode. Stateless mode is still attempted first.\n"
 "config: mppe-stateful (when checked)"
 msgstr ""
+"Tilat MPPE å bruke tilstandbasert modus. Tilstandløs er prøvd først.\n"
+"konfig: mppe-stateful (når tilatt)"
 
 #: properties/nm-l2tp-dialog.ui:1363
 msgid "Allow _BSD data compression"
@@ -438,6 +445,8 @@ msgid ""
 "Allow/disable BSD-Compress compression.\n"
 "config: nobsdcomp (when unchecked)"
 msgstr ""
+"Tillat/inaktiver BSD-datakomprimering.\n"
+"konfig: nobsdcomp (når inaktiv)"
 
 #: properties/nm-l2tp-dialog.ui:1381
 msgid "Allow _Deflate data compression"
@@ -448,6 +457,8 @@ msgid ""
 "Allow/disable Deflate compression.\n"
 "config: nodeflate (when unchecked)"
 msgstr ""
+"Tillat/inaktiver deflate-datakomprimering.\n"
+"konfig: nodeflate (når inaktiv)"
 
 #: properties/nm-l2tp-dialog.ui:1399
 msgid "Use TCP _header compression"
@@ -459,6 +470,9 @@ msgid ""
 "transmit and the receive directions.\n"
 "config: novj (when unchecked)"
 msgstr ""
+"Tillat/inaktiver Van Jackobsen-stil TCP/IP komprimering i både sender og "
+"mottaker retningene.\n"
+"konfig: novj (når inaktiv)"
 
 #: properties/nm-l2tp-dialog.ui:1417
 msgid "Use protocol _field compression negotiation"
@@ -494,6 +508,8 @@ msgid ""
 "Send LCP echo-requests to find out whether peer is alive.\n"
 "config: lcp-echo-failure and lcp-echo-interval"
 msgstr ""
+"Sende LCP ekko forespørsler for å finne ut om motparten er i live.\n"
+"config: lcp-echo-failure and lcp-echo-interval"
 
 #: properties/nm-l2tp-dialog.ui:1518
 msgid "_Multilink PPP MRRU:"
@@ -689,28 +705,32 @@ msgstr ""
 #: shared/nm-utils/nm-shared-utils.c:1146
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr ""
+msgstr "objektklassen «%s». har ingen egenskap med navnet «%s»"
 
 #: shared/nm-utils/nm-shared-utils.c:1155
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr ""
+msgstr "egenskapen «%s» for objektklassen «%s» er ikke skrivbar"
 
 #: shared/nm-utils/nm-shared-utils.c:1164
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
+"egenskapen for «%s» objektet «%s» kan ikke bli oppdatert etter objektet har "
+"blit laget"
 
 #: shared/nm-utils/nm-shared-utils.c:1175
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
 msgstr ""
+"\"%s::%s\" er ikke et gyldig egenskapsnavn; «%s» er ikke ett derivat av "
+"GObject"
 
 #: shared/nm-utils/nm-shared-utils.c:1188
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
-msgstr ""
+msgstr "kan ikke sette egenskapen «%s» av type «%s» fra verdi av typen «%s»"
 
 #: shared/nm-utils/nm-shared-utils.c:1200
 #, c-format
@@ -718,30 +738,32 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
+"verdien av «%s» av type «%s» er ugyldig eller utenfor intervallet for "
+"egenskapen «%s» av type «%s»"
 
 #: shared/nm-utils/nm-vpn-plugin-utils.c:53
 #, c-format
 msgid "unable to get editor plugin name: %s"
-msgstr ""
+msgstr "kan ikke hente navnet for redigering modulen: «%s»"
 
 #: shared/nm-utils/nm-vpn-plugin-utils.c:90
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr ""
+msgstr "finner ikke filen for redigerings modulen «%s»"
 
 #: shared/nm-utils/nm-vpn-plugin-utils.c:97
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr ""
+msgstr "kan ikke laste redigerings modulen: «%s»"
 
 #: shared/nm-utils/nm-vpn-plugin-utils.c:107
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr ""
+msgstr "kan ikke laste fabrikken «%s» fra modulen: «%s»"
 
 #: shared/nm-utils/nm-vpn-plugin-utils.c:130
 msgid "unknown error creating editor instance"
-msgstr ""
+msgstr "ukjent feil ved konstruksjon av redigerings modulen"
 
 #: src/nm-l2tp-service.c:302
 #, c-format
@@ -882,7 +904,7 @@ msgstr "Vis mer feilsøkingsinformasjon (kan eksponere passord)"
 
 #: src/nm-l2tp-service.c:2322
 msgid "D-Bus name to use for this instance"
-msgstr ""
+msgstr "D-Bus navn å bruke for denne instansen"
 
 #: src/nm-l2tp-service.c:2341
 msgid ""

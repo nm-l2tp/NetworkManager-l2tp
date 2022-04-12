@@ -236,7 +236,7 @@ msgstr "Voľby L2TP IPsec"
 
 #: properties/nm-l2tp-dialog.ui:460 properties/nm-l2tp-dialog.ui:1104
 msgid "_Cancel"
-msgstr ""
+msgstr "_Zrušiť"
 
 #: properties/nm-l2tp-dialog.ui:474 properties/nm-l2tp-dialog.ui:1118
 msgid "_Apply"
@@ -514,7 +514,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1570
 msgid "MTU"
-msgstr ""
+msgstr "MTU"
 
 #: properties/nm-l2tp-dialog.ui:1613
 msgid "MRU"

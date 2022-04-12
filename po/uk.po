@@ -242,7 +242,7 @@ msgstr "Додатково"
 
 #: properties/nm-l2tp-dialog.ui:474 properties/nm-l2tp-dialog.ui:1118
 msgid "_Apply"
-msgstr ""
+msgstr "Заст_осувати"
 
 #: properties/nm-l2tp-dialog.ui:506
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -536,7 +536,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1570
 msgid "MTU"
-msgstr ""
+msgstr "MTU"
 
 #: properties/nm-l2tp-dialog.ui:1613
 msgid "MRU"
@@ -903,7 +903,7 @@ msgstr ""
 
 #: src/nm-l2tp-service.c:2308
 msgid "Don't quit when VPN connection terminates"
-msgstr ""
+msgstr "Не виходити, якщо розірвано з'єднання VPN"
 
 #: src/nm-l2tp-service.c:2315
 msgid "Enable verbose debug logging (may expose passwords)"

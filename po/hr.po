@@ -235,11 +235,11 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:460 properties/nm-l2tp-dialog.ui:1104
 msgid "_Cancel"
-msgstr ""
+msgstr "_Odustani"
 
 #: properties/nm-l2tp-dialog.ui:474 properties/nm-l2tp-dialog.ui:1118
 msgid "_Apply"
-msgstr ""
+msgstr "_Primijeni"
 
 #: properties/nm-l2tp-dialog.ui:506
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -896,7 +896,7 @@ msgstr "Pogrešan ili nedostajuć L2TP pristupnik."
 
 #: src/nm-l2tp-service.c:2308
 msgid "Don't quit when VPN connection terminates"
-msgstr ""
+msgstr "Ne zatvaraj kada se VPN povezivanje prekida"
 
 #: src/nm-l2tp-service.c:2315
 msgid "Enable verbose debug logging (may expose passwords)"

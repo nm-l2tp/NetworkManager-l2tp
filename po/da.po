@@ -242,7 +242,7 @@ msgstr "A_vanceret"
 
 #: properties/nm-l2tp-dialog.ui:474 properties/nm-l2tp-dialog.ui:1118
 msgid "_Apply"
-msgstr ""
+msgstr "An_vend"
 
 #: properties/nm-l2tp-dialog.ui:506
 msgid "_Enable IPsec tunnel to L2TP host"

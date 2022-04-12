@@ -245,7 +245,7 @@ msgstr "Gelişmiş"
 
 #: properties/nm-l2tp-dialog.ui:474 properties/nm-l2tp-dialog.ui:1118
 msgid "_Apply"
-msgstr ""
+msgstr "_Uygula"
 
 #: properties/nm-l2tp-dialog.ui:506
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -539,7 +539,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1570
 msgid "MTU"
-msgstr ""
+msgstr "MTU"
 
 #: properties/nm-l2tp-dialog.ui:1613
 msgid "MRU"

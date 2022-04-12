@@ -87,7 +87,7 @@ msgstr ""
 #: auth-dialog/main.c:552
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
-msgstr ""
+msgstr "Dostop do navideznega zasebnega omrežja »%s« zahteva overitev."
 
 #: properties/import-export.c:161 properties/import-export.c:410
 #, c-format
@@ -505,7 +505,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1475
 msgid "Misc"
-msgstr ""
+msgstr "Razno"
 
 #: properties/nm-l2tp-dialog.ui:1495
 msgid "Send PPP _echo packets"
@@ -713,28 +713,28 @@ msgstr ""
 #: shared/nm-utils/nm-shared-utils.c:1146
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr ""
+msgstr "razred predmeta »%s« nima določenega imena lastnosti »%s«"
 
 #: shared/nm-utils/nm-shared-utils.c:1155
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr ""
+msgstr "lastnost »%s« poti datoteke »%s« ni zapisljiva"
 
 #: shared/nm-utils/nm-shared-utils.c:1164
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
-msgstr ""
+msgstr "lastnosti »%s« za predmet »%s« ni mogoče nastaviti po sestavljanju"
 
 #: shared/nm-utils/nm-shared-utils.c:1175
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
-msgstr ""
+msgstr "»%s::%s« ni veljavno ime lastnosti; »%s« ni podvrsta predmeta GObject"
 
 #: shared/nm-utils/nm-shared-utils.c:1188
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
-msgstr ""
+msgstr "ni mogoče nastaviti lastnosti »%s« vrste »%s« za vrednost vrste »%s«"
 
 #: shared/nm-utils/nm-shared-utils.c:1200
 #, c-format
@@ -742,30 +742,32 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
+"vrednost »%s« vrste »%s« ni veljavna ali pa je lastnost »%s« izven obsega za "
+"vrsto »%s«"
 
 #: shared/nm-utils/nm-vpn-plugin-utils.c:53
 #, c-format
 msgid "unable to get editor plugin name: %s"
-msgstr ""
+msgstr "ni mogoče pridobiti imena vstavka urejevalnika: %s"
 
 #: shared/nm-utils/nm-vpn-plugin-utils.c:90
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr ""
+msgstr "manjka datoteka vstavka »%s«"
 
 #: shared/nm-utils/nm-vpn-plugin-utils.c:97
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr ""
+msgstr "ni mogoče naložiti vstavka urejevalnika: %s"
 
 #: shared/nm-utils/nm-vpn-plugin-utils.c:107
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr ""
+msgstr "ni mogoče naložiti vstavka »%s« vmesnika: %s"
 
 #: shared/nm-utils/nm-vpn-plugin-utils.c:130
 msgid "unknown error creating editor instance"
-msgstr ""
+msgstr "neznana napaka pri ustvarjanju okna urejevalnika"
 
 #: src/nm-l2tp-service.c:302
 #, c-format
@@ -906,7 +908,7 @@ msgstr "Omogoči podrobno beleženje razhroščevanja (lahko razkrije gesla)"
 
 #: src/nm-l2tp-service.c:2322
 msgid "D-Bus name to use for this instance"
-msgstr ""
+msgstr "Ime D-Bus za uporabo v programu"
 
 #: src/nm-l2tp-service.c:2341
 msgid ""

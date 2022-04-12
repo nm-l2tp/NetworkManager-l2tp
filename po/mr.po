@@ -512,7 +512,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1570
 msgid "MTU"
-msgstr ""
+msgstr "MTU"
 
 #: properties/nm-l2tp-dialog.ui:1613
 msgid "MRU"

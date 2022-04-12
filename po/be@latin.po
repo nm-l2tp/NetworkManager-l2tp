@@ -51,7 +51,7 @@ msgstr "Spraŭdź VPN"
 #: auth-dialog/main.c:177 properties/nm-l2tp-dialog.ui:194
 #: properties/nm-l2tp-editor.c:572
 msgid "Password"
-msgstr ""
+msgstr "Parol"
 
 #: auth-dialog/main.c:184
 msgid "User Certificate password"
