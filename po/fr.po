@@ -168,7 +168,7 @@ msgstr "Général"
 
 #: properties/nm-l2tp-dialog.ui:30
 msgid "_Gateway"
-msgstr "_Passerelle "
+msgstr "_Passerelle"
 
 #: properties/nm-l2tp-dialog.ui:45
 msgid ""
@@ -216,7 +216,7 @@ msgstr "Nom d'utilisateur :"
 
 #: properties/nm-l2tp-dialog.ui:206
 msgid "NT Domain"
-msgstr "Domaine NT "
+msgstr "Domaine NT"
 
 #: properties/nm-l2tp-dialog.ui:297
 msgid "Use L2TP _ephemeral source port"
@@ -426,7 +426,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1291
 msgid "_Security"
-msgstr "_Sécurité "
+msgstr "_Sécurité"
 
 #: properties/nm-l2tp-dialog.ui:1306
 msgid ""
