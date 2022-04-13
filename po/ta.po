@@ -178,11 +178,11 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:77 properties/nm-l2tp-dialog.ui:544
 msgid "Type"
-msgstr "வகை:"
+msgstr "வகை"
 
 #: properties/nm-l2tp-dialog.ui:90 properties/nm-l2tp-dialog.ui:557
 msgid "Select an authentication mode."
-msgstr "பின்வரும் அங்கீகார முறைகளை அனுமதிக்கவும்:"
+msgstr "பின்வரும் அங்கீகார முறைகளை அனுமதிக்கவும்"
 
 #: properties/nm-l2tp-dialog.ui:128
 msgid ""
@@ -208,11 +208,11 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:182
 msgid "User name"
-msgstr "பயனர் பெயர்:"
+msgstr "பயனர் பெயர்"
 
 #: properties/nm-l2tp-dialog.ui:206
 msgid "NT Domain"
-msgstr "NT செயற்களம்:"
+msgstr "NT செயற்களம்"
 
 #: properties/nm-l2tp-dialog.ui:297
 msgid "Use L2TP _ephemeral source port"

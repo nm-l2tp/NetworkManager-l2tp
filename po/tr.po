@@ -166,7 +166,7 @@ msgstr "Genel"
 
 #: properties/nm-l2tp-dialog.ui:30
 msgid "_Gateway"
-msgstr "_Ağ geçidi:"
+msgstr "_Ağ geçidi"
 
 #: properties/nm-l2tp-dialog.ui:45
 msgid ""
@@ -180,7 +180,7 @@ msgstr "Kullanıcı Kimliği Doğrulama"
 
 #: properties/nm-l2tp-dialog.ui:77 properties/nm-l2tp-dialog.ui:544
 msgid "Type"
-msgstr "Tür:"
+msgstr "Tür"
 
 #: properties/nm-l2tp-dialog.ui:90 properties/nm-l2tp-dialog.ui:557
 msgid "Select an authentication mode."
@@ -210,11 +210,11 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:182
 msgid "User name"
-msgstr "Kullanıcı adı:"
+msgstr "Kullanıcı adı"
 
 #: properties/nm-l2tp-dialog.ui:206
 msgid "NT Domain"
-msgstr "NT Alanı:"
+msgstr "NT Alanı"
 
 #: properties/nm-l2tp-dialog.ui:297
 msgid "Use L2TP _ephemeral source port"
@@ -424,7 +424,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1291
 msgid "_Security"
-msgstr "_Güvenlik:"
+msgstr "_Güvenlik"
 
 #: properties/nm-l2tp-dialog.ui:1306
 msgid ""

@@ -85,7 +85,7 @@ msgstr "_Пароль сертификата пользователя:"
 
 #: auth-dialog/main.c:259
 msgid "_Pre-shared key (PSK):"
-msgstr "_Общий ключ:"
+msgstr "_Общий ключ"
 
 #: auth-dialog/main.c:263
 msgid "_Machine Certificate password:"
@@ -175,7 +175,7 @@ msgstr "Общие"
 
 #: properties/nm-l2tp-dialog.ui:30
 msgid "_Gateway"
-msgstr "_Шлюз:"
+msgstr "_Шлюз"
 
 #: properties/nm-l2tp-dialog.ui:45
 msgid ""
@@ -191,7 +191,7 @@ msgstr "Аутентификация пользователя"
 
 #: properties/nm-l2tp-dialog.ui:77 properties/nm-l2tp-dialog.ui:544
 msgid "Type"
-msgstr "Тип:"
+msgstr "Тип"
 
 #: properties/nm-l2tp-dialog.ui:90 properties/nm-l2tp-dialog.ui:557
 msgid "Select an authentication mode."
@@ -229,7 +229,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:182
 msgid "User name"
-msgstr "Имя пользователя:"
+msgstr "Имя пользователя"
 
 #: properties/nm-l2tp-dialog.ui:206
 msgid "NT Domain"
@@ -292,7 +292,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:624
 msgid "Pre-shared key"
-msgstr "Общий ключ:"
+msgstr "Общий ключ"
 
 #: properties/nm-l2tp-dialog.ui:733
 msgid ""
@@ -479,7 +479,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1291
 msgid "_Security"
-msgstr "_Шифрование:"
+msgstr "_Шифрование"
 
 #: properties/nm-l2tp-dialog.ui:1306
 msgid ""
@@ -603,11 +603,11 @@ msgstr "1400"
 
 #: properties/nm-l2tp-dialog.ui:1570
 msgid "MTU"
-msgstr "MTU:"
+msgstr "MTU"
 
 #: properties/nm-l2tp-dialog.ui:1613
 msgid "MRU"
-msgstr "MRU:"
+msgstr "MRU"
 
 #: properties/nm-l2tp-editor.c:348
 #, c-format

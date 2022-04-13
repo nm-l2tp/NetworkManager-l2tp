@@ -206,7 +206,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:182
 msgid "User name"
-msgstr "Nume de utilizator:"
+msgstr "Nume de utilizator"
 
 #: properties/nm-l2tp-dialog.ui:206
 msgid "NT Domain"
@@ -419,7 +419,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1291
 msgid "_Security"
-msgstr "_Securitate:"
+msgstr "_Securitate"
 
 #: properties/nm-l2tp-dialog.ui:1306
 msgid ""

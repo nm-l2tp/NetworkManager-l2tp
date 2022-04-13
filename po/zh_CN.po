@@ -165,7 +165,7 @@ msgstr "常规"
 
 #: properties/nm-l2tp-dialog.ui:30
 msgid "_Gateway"
-msgstr "网关(_G)："
+msgstr "网关(_G)"
 
 #: properties/nm-l2tp-dialog.ui:45
 msgid ""
@@ -181,7 +181,7 @@ msgstr "用户鉴定"
 
 #: properties/nm-l2tp-dialog.ui:77 properties/nm-l2tp-dialog.ui:544
 msgid "Type"
-msgstr "类型："
+msgstr "类型"
 
 #: properties/nm-l2tp-dialog.ui:90 properties/nm-l2tp-dialog.ui:557
 msgid "Select an authentication mode."
@@ -211,11 +211,11 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:182
 msgid "User name"
-msgstr "用户名："
+msgstr "用户名"
 
 #: properties/nm-l2tp-dialog.ui:206
 msgid "NT Domain"
-msgstr "NT 域："
+msgstr "NT 域"
 
 #: properties/nm-l2tp-dialog.ui:297
 msgid "Use L2TP _ephemeral source port"
@@ -268,7 +268,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:624
 msgid "Pre-shared key"
-msgstr "预共享密钥："
+msgstr "预共享密钥"
 
 #: properties/nm-l2tp-dialog.ui:733
 msgid ""
@@ -423,7 +423,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1291
 msgid "_Security"
-msgstr "安全性(_S)："
+msgstr "安全性(_S)"
 
 #: properties/nm-l2tp-dialog.ui:1306
 msgid ""

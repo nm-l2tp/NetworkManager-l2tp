@@ -173,7 +173,7 @@ msgstr "사용자 인증"
 
 #: properties/nm-l2tp-dialog.ui:77 properties/nm-l2tp-dialog.ui:544
 msgid "Type"
-msgstr "유형:"
+msgstr "유형"
 
 #: properties/nm-l2tp-dialog.ui:90 properties/nm-l2tp-dialog.ui:557
 msgid "Select an authentication mode."
@@ -203,11 +203,11 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:182
 msgid "User name"
-msgstr "사용자 이름:"
+msgstr "사용자 이름"
 
 #: properties/nm-l2tp-dialog.ui:206
 msgid "NT Domain"
-msgstr "NT 도메인:"
+msgstr "NT 도메인"
 
 #: properties/nm-l2tp-dialog.ui:297
 msgid "Use L2TP _ephemeral source port"

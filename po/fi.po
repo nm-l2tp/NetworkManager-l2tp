@@ -162,7 +162,7 @@ msgstr "Yleisasetukset"
 
 #: properties/nm-l2tp-dialog.ui:30
 msgid "_Gateway"
-msgstr "_Yhdyskäytävä:"
+msgstr "_Yhdyskäytävä"
 
 #: properties/nm-l2tp-dialog.ui:45
 msgid ""
@@ -176,7 +176,7 @@ msgstr "Käyttäjän todentaminen"
 
 #: properties/nm-l2tp-dialog.ui:77 properties/nm-l2tp-dialog.ui:544
 msgid "Type"
-msgstr "Tyyppi:"
+msgstr "Tyyppi"
 
 #: properties/nm-l2tp-dialog.ui:90 properties/nm-l2tp-dialog.ui:557
 msgid "Select an authentication mode."
@@ -206,11 +206,11 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:182
 msgid "User name"
-msgstr "Käyttäjätunnus:"
+msgstr "Käyttäjätunnus"
 
 #: properties/nm-l2tp-dialog.ui:206
 msgid "NT Domain"
-msgstr "NT-toimialue:"
+msgstr "NT-toimialue"
 
 #: properties/nm-l2tp-dialog.ui:297
 msgid "Use L2TP _ephemeral source port"
@@ -414,7 +414,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1291
 msgid "_Security"
-msgstr "_Salaus:"
+msgstr "_Salaus"
 
 #: properties/nm-l2tp-dialog.ui:1306
 msgid ""

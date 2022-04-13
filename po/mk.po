@@ -159,7 +159,7 @@ msgstr "Општо"
 
 #: properties/nm-l2tp-dialog.ui:30
 msgid "_Gateway"
-msgstr "_Премин:"
+msgstr "_Премин"
 
 #: properties/nm-l2tp-dialog.ui:45
 msgid ""
@@ -173,7 +173,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:77 properties/nm-l2tp-dialog.ui:544
 msgid "Type"
-msgstr "Тип:"
+msgstr "Тип"
 
 #: properties/nm-l2tp-dialog.ui:90 properties/nm-l2tp-dialog.ui:557
 msgid "Select an authentication mode."
@@ -203,7 +203,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:182
 msgid "User name"
-msgstr "Корисничко име:"
+msgstr "Корисничко име"
 
 #: properties/nm-l2tp-dialog.ui:206
 msgid "NT Domain"

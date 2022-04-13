@@ -173,7 +173,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:77 properties/nm-l2tp-dialog.ui:544
 msgid "Type"
-msgstr "ਟਾਈਪ:"
+msgstr "ਟਾਈਪ"
 
 #: properties/nm-l2tp-dialog.ui:90 properties/nm-l2tp-dialog.ui:557
 msgid "Select an authentication mode."
@@ -203,11 +203,11 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:182
 msgid "User name"
-msgstr "ਯੂਜ਼ਰ ਨਾਂ:"
+msgstr "ਯੂਜ਼ਰ ਨਾਂ"
 
 #: properties/nm-l2tp-dialog.ui:206
 msgid "NT Domain"
-msgstr "NT ਡੋਮੇਨ:"
+msgstr "NT ਡੋਮੇਨ"
 
 #: properties/nm-l2tp-dialog.ui:297
 msgid "Use L2TP _ephemeral source port"
@@ -514,7 +514,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1570
 msgid "MTU"
-msgstr "MTU:"
+msgstr "MTU"
 
 #: properties/nm-l2tp-editor.c:348
 #, c-format

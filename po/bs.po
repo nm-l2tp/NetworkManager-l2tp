@@ -159,7 +159,7 @@ msgstr "Generalno"
 
 #: properties/nm-l2tp-dialog.ui:30
 msgid "_Gateway"
-msgstr "_Mrežni izlaz:"
+msgstr "_Mrežni izlaz"
 
 #: properties/nm-l2tp-dialog.ui:45
 msgid ""
@@ -203,11 +203,11 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:182
 msgid "User name"
-msgstr "Korisničko ime:"
+msgstr "Korisničko ime"
 
 #: properties/nm-l2tp-dialog.ui:206
 msgid "NT Domain"
-msgstr "NT Domena:"
+msgstr "NT Domena"
 
 #: properties/nm-l2tp-dialog.ui:297
 msgid "Use L2TP _ephemeral source port"
@@ -416,7 +416,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1291
 msgid "_Security"
-msgstr "_Bezbijednost:"
+msgstr "_Bezbijednost"
 
 #: properties/nm-l2tp-dialog.ui:1306
 msgid ""

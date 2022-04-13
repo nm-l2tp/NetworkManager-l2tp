@@ -58,7 +58,7 @@ msgstr "Heslo"
 
 #: auth-dialog/main.c:184
 msgid "User Certificate password"
-msgstr "Certifikát CA:"
+msgstr ""
 
 #: auth-dialog/main.c:191 properties/ipsec-dialog.c:539
 msgid "Pre-shared key (PSK)"
@@ -70,7 +70,7 @@ msgstr "Overenie totožnosti počítačom"
 
 #: auth-dialog/main.c:253
 msgid "_User Certificate password:"
-msgstr "Certifikát CA:"
+msgstr ""
 
 #: auth-dialog/main.c:259
 msgid "_Pre-shared key (PSK):"
@@ -161,7 +161,7 @@ msgstr "Všeobecné"
 
 #: properties/nm-l2tp-dialog.ui:30
 msgid "_Gateway"
-msgstr "_Brána:"
+msgstr "_Brána"
 
 #: properties/nm-l2tp-dialog.ui:45
 msgid ""
@@ -175,7 +175,7 @@ msgstr "Overenie totožnosti"
 
 #: properties/nm-l2tp-dialog.ui:77 properties/nm-l2tp-dialog.ui:544
 msgid "Type"
-msgstr "Typ:"
+msgstr "Typ"
 
 #: properties/nm-l2tp-dialog.ui:90 properties/nm-l2tp-dialog.ui:557
 msgid "Select an authentication mode."
@@ -205,11 +205,11 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:182
 msgid "User name"
-msgstr "Meno používateľa:"
+msgstr "Meno používateľa"
 
 #: properties/nm-l2tp-dialog.ui:206
 msgid "NT Domain"
-msgstr "Doména NT:"
+msgstr "Doména NT"
 
 #: properties/nm-l2tp-dialog.ui:297
 msgid "Use L2TP _ephemeral source port"

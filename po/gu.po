@@ -204,11 +204,11 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:182
 msgid "User name"
-msgstr "વપરાશકર્તા નામ:"
+msgstr "વપરાશકર્તા નામ"
 
 #: properties/nm-l2tp-dialog.ui:206
 msgid "NT Domain"
-msgstr "NT ડોમેઇન:"
+msgstr "NT ડોમેઇન"
 
 #: properties/nm-l2tp-dialog.ui:297
 msgid "Use L2TP _ephemeral source port"

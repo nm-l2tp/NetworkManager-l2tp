@@ -172,7 +172,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:77 properties/nm-l2tp-dialog.ui:544
 msgid "Type"
-msgstr "Tipo:"
+msgstr "Tipo"
 
 #: properties/nm-l2tp-dialog.ui:90 properties/nm-l2tp-dialog.ui:557
 msgid "Select an authentication mode."
@@ -202,7 +202,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:182
 msgid "User name"
-msgstr "Uzantonomo:"
+msgstr "Uzantonomo"
 
 #: properties/nm-l2tp-dialog.ui:206
 msgid "NT Domain"
@@ -410,7 +410,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1291
 msgid "_Security"
-msgstr "_Sekureco:"
+msgstr "_Sekureco"
 
 #: properties/nm-l2tp-dialog.ui:1306
 msgid ""
@@ -511,7 +511,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1570
 msgid "MTU"
-msgstr "MTU:"
+msgstr "MTU"
 
 #: properties/nm-l2tp-editor.c:348
 #, c-format

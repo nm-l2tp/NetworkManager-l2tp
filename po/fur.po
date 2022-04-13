@@ -159,7 +159,7 @@ msgstr "Gjenerâl"
 
 #: properties/nm-l2tp-dialog.ui:30
 msgid "_Gateway"
-msgstr "_Gateway:"
+msgstr "_Gateway"
 
 #: properties/nm-l2tp-dialog.ui:45
 msgid ""
@@ -173,7 +173,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:77 properties/nm-l2tp-dialog.ui:544
 msgid "Type"
-msgstr "Gjenar:"
+msgstr "Gjenar"
 
 #: properties/nm-l2tp-dialog.ui:90 properties/nm-l2tp-dialog.ui:557
 msgid "Select an authentication mode."
@@ -203,11 +203,11 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:182
 msgid "User name"
-msgstr "Non utent:"
+msgstr "Non utent"
 
 #: properties/nm-l2tp-dialog.ui:206
 msgid "NT Domain"
-msgstr "Domini NT:"
+msgstr "Domini NT"
 
 #: properties/nm-l2tp-dialog.ui:297
 msgid "Use L2TP _ephemeral source port"
@@ -416,7 +416,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1291
 msgid "_Security"
-msgstr "_Sigurece:"
+msgstr "_Sigurece"
 
 #: properties/nm-l2tp-dialog.ui:1306
 msgid ""

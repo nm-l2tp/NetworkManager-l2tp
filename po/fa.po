@@ -157,7 +157,7 @@ msgstr "عمومی"
 
 #: properties/nm-l2tp-dialog.ui:30
 msgid "_Gateway"
-msgstr "_دروازه:"
+msgstr "_دروازه"
 
 #: properties/nm-l2tp-dialog.ui:45
 msgid ""
@@ -171,11 +171,11 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:77 properties/nm-l2tp-dialog.ui:544
 msgid "Type"
-msgstr "نوع:"
+msgstr "نوع"
 
 #: properties/nm-l2tp-dialog.ui:90 properties/nm-l2tp-dialog.ui:557
 msgid "Select an authentication mode."
-msgstr "اجازه تایید هویت با روش‌های مقابل:"
+msgstr "اجازه تایید هویت با روش‌های مقابل"
 
 #: properties/nm-l2tp-dialog.ui:128
 msgid ""
@@ -201,11 +201,11 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:182
 msgid "User name"
-msgstr "نام‌کاربری:"
+msgstr "نام‌کاربری"
 
 #: properties/nm-l2tp-dialog.ui:206
 msgid "NT Domain"
-msgstr "دامنه NT:"
+msgstr "دامنه NT"
 
 #: properties/nm-l2tp-dialog.ui:297
 msgid "Use L2TP _ephemeral source port"
@@ -384,7 +384,7 @@ msgstr "تایید هویت"
 
 #: properties/nm-l2tp-dialog.ui:1176
 msgid "Allow the following authentication methods:"
-msgstr "اجازه تایید هویت با روش‌های مقابل:"
+msgstr "اجازه تایید هویت با روش‌های مقابل"
 
 #: properties/nm-l2tp-dialog.ui:1195
 msgid ""
@@ -412,7 +412,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1291
 msgid "_Security"
-msgstr "_امنیت:"
+msgstr "_امنیت"
 
 #: properties/nm-l2tp-dialog.ui:1306
 msgid ""

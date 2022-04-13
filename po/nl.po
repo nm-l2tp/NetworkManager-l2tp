@@ -168,7 +168,7 @@ msgstr "Algemeen"
 
 #: properties/nm-l2tp-dialog.ui:30
 msgid "_Gateway"
-msgstr "_Gateway:"
+msgstr "_Gateway"
 
 #: properties/nm-l2tp-dialog.ui:45
 msgid ""
@@ -182,7 +182,7 @@ msgstr "Gebruikercontrole"
 
 #: properties/nm-l2tp-dialog.ui:77 properties/nm-l2tp-dialog.ui:544
 msgid "Type"
-msgstr "Type:"
+msgstr "Type"
 
 #: properties/nm-l2tp-dialog.ui:90 properties/nm-l2tp-dialog.ui:557
 msgid "Select an authentication mode."
@@ -212,11 +212,11 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:182
 msgid "User name"
-msgstr "Gebruikersnaam:"
+msgstr "Gebruikersnaam"
 
 #: properties/nm-l2tp-dialog.ui:206
 msgid "NT Domain"
-msgstr "NT-domein:"
+msgstr "NT-domein"
 
 #: properties/nm-l2tp-dialog.ui:297
 msgid "Use L2TP _ephemeral source port"
@@ -427,7 +427,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1291
 msgid "_Security"
-msgstr "_Beveiliging:"
+msgstr "_Beveiliging"
 
 #: properties/nm-l2tp-dialog.ui:1306
 msgid ""
@@ -544,7 +544,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1570
 msgid "MTU"
-msgstr "MTU:"
+msgstr "MTU"
 
 #: properties/nm-l2tp-editor.c:348
 #, c-format

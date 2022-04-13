@@ -163,7 +163,7 @@ msgstr "Splošno"
 
 #: properties/nm-l2tp-dialog.ui:30
 msgid "_Gateway"
-msgstr "_Prehod:"
+msgstr "_Prehod"
 
 #: properties/nm-l2tp-dialog.ui:45
 msgid ""
@@ -177,7 +177,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:77 properties/nm-l2tp-dialog.ui:544
 msgid "Type"
-msgstr "Vrsta:"
+msgstr "Vrsta"
 
 #: properties/nm-l2tp-dialog.ui:90 properties/nm-l2tp-dialog.ui:557
 msgid "Select an authentication mode."
@@ -207,11 +207,11 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:182
 msgid "User name"
-msgstr "Uporabniško ime:"
+msgstr "Uporabniško ime"
 
 #: properties/nm-l2tp-dialog.ui:206
 msgid "NT Domain"
-msgstr "Domena NT:"
+msgstr "Domena NT"
 
 #: properties/nm-l2tp-dialog.ui:297
 msgid "Use L2TP _ephemeral source port"
@@ -421,7 +421,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1291
 msgid "_Security"
-msgstr "_Varnost:"
+msgstr "_Varnost"
 
 #: properties/nm-l2tp-dialog.ui:1306
 msgid ""

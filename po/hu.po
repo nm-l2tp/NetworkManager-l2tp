@@ -162,7 +162,7 @@ msgstr "Általános"
 
 #: properties/nm-l2tp-dialog.ui:30
 msgid "_Gateway"
-msgstr "Á_tjáró:"
+msgstr "Á_tjáró"
 
 #: properties/nm-l2tp-dialog.ui:45
 msgid ""
@@ -176,7 +176,7 @@ msgstr "Felhasználói hitelesítés"
 
 #: properties/nm-l2tp-dialog.ui:77 properties/nm-l2tp-dialog.ui:544
 msgid "Type"
-msgstr "Típus:"
+msgstr "Típus"
 
 #: properties/nm-l2tp-dialog.ui:90 properties/nm-l2tp-dialog.ui:557
 msgid "Select an authentication mode."
@@ -206,11 +206,11 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:182
 msgid "User name"
-msgstr "Felhasználónév:"
+msgstr "Felhasználónév"
 
 #: properties/nm-l2tp-dialog.ui:206
 msgid "NT Domain"
-msgstr "NT tartomány:"
+msgstr "NT tartomány"
 
 #: properties/nm-l2tp-dialog.ui:297
 msgid "Use L2TP _ephemeral source port"
@@ -419,7 +419,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1291
 msgid "_Security"
-msgstr "Bi_ztonság:"
+msgstr "Bi_ztonság"
 
 #: properties/nm-l2tp-dialog.ui:1306
 msgid ""

@@ -174,11 +174,11 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:77 properties/nm-l2tp-dialog.ui:544
 msgid "Type"
-msgstr "ಬಗೆ:"
+msgstr "ಬಗೆ"
 
 #: properties/nm-l2tp-dialog.ui:90 properties/nm-l2tp-dialog.ui:557
 msgid "Select an authentication mode."
-msgstr "ಈ ಕೆಳಗಿನ ದೃಢೀಕರಣ ವಿಧಾನಗಳನ್ನು ಅನುಮತಿಸು:"
+msgstr "ಈ ಕೆಳಗಿನ ದೃಢೀಕರಣ ವಿಧಾನಗಳನ್ನು ಅನುಮತಿಸು"
 
 #: properties/nm-l2tp-dialog.ui:128
 msgid ""
@@ -204,11 +204,11 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:182
 msgid "User name"
-msgstr "ಬಳಕೆದಾರ ಹೆಸರು:"
+msgstr "ಬಳಕೆದಾರ ಹೆಸರು"
 
 #: properties/nm-l2tp-dialog.ui:206
 msgid "NT Domain"
-msgstr "NT ಡೊಮೈನ್:"
+msgstr "NT ಡೊಮೈನ್"
 
 #: properties/nm-l2tp-dialog.ui:297
 msgid "Use L2TP _ephemeral source port"
@@ -387,7 +387,7 @@ msgstr "ದೃಢೀಕರಣ"
 
 #: properties/nm-l2tp-dialog.ui:1176
 msgid "Allow the following authentication methods:"
-msgstr "ಈ ಕೆಳಗಿನ ದೃಢೀಕರಣ ವಿಧಾನಗಳನ್ನು ಅನುಮತಿಸು:"
+msgstr "ಈ ಕೆಳಗಿನ ದೃಢೀಕರಣ ವಿಧಾನಗಳನ್ನು ಅನುಮತಿಸು"
 
 #: properties/nm-l2tp-dialog.ui:1195
 msgid ""

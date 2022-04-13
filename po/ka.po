@@ -158,7 +158,7 @@ msgstr "მთავარი"
 
 #: properties/nm-l2tp-dialog.ui:30
 msgid "_Gateway"
-msgstr "_კარიბჭე:"
+msgstr "_კარიბჭე"
 
 #: properties/nm-l2tp-dialog.ui:45
 msgid ""
@@ -172,7 +172,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:77 properties/nm-l2tp-dialog.ui:544
 msgid "Type"
-msgstr "ტიპი:"
+msgstr "ტიპი"
 
 #: properties/nm-l2tp-dialog.ui:90 properties/nm-l2tp-dialog.ui:557
 msgid "Select an authentication mode."

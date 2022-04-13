@@ -58,7 +58,7 @@ msgstr "تېرنويې"
 
 #: auth-dialog/main.c:184
 msgid "User Certificate password"
-msgstr ":برېليک CA"
+msgstr ""
 
 #: auth-dialog/main.c:191 properties/ipsec-dialog.c:539
 msgid "Pre-shared key (PSK)"
@@ -70,7 +70,7 @@ msgstr ""
 
 #: auth-dialog/main.c:253
 msgid "_User Certificate password:"
-msgstr ":برېليک CA"
+msgstr ""
 
 #: auth-dialog/main.c:259
 msgid "_Pre-shared key (PSK):"

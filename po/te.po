@@ -176,11 +176,11 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:77 properties/nm-l2tp-dialog.ui:544
 msgid "Type"
-msgstr "రకము:"
+msgstr "రకము"
 
 #: properties/nm-l2tp-dialog.ui:90 properties/nm-l2tp-dialog.ui:557
 msgid "Select an authentication mode."
-msgstr "క్రింది దృవీకరణ పద్దతులను అనుమతించుము:"
+msgstr "క్రింది దృవీకరణ పద్దతులను అనుమతించుము"
 
 #: properties/nm-l2tp-dialog.ui:128
 msgid ""
@@ -206,11 +206,11 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:182
 msgid "User name"
-msgstr "వినియోగదారి నామము:"
+msgstr "వినియోగదారి నామము"
 
 #: properties/nm-l2tp-dialog.ui:206
 msgid "NT Domain"
-msgstr "NT డొమైన్:"
+msgstr "NT డొమైన్"
 
 #: properties/nm-l2tp-dialog.ui:297
 msgid "Use L2TP _ephemeral source port"
@@ -389,7 +389,7 @@ msgstr "ప్రామాణీకరణ"
 
 #: properties/nm-l2tp-dialog.ui:1176
 msgid "Allow the following authentication methods:"
-msgstr "క్రింది దృవీకరణ పద్దతులను అనుమతించుము:"
+msgstr "క్రింది దృవీకరణ పద్దతులను అనుమతించుము"
 
 #: properties/nm-l2tp-dialog.ui:1195
 msgid ""

@@ -150,7 +150,7 @@ msgstr ""
 
 #: properties/ipsec-dialog.c:552 properties/nm-l2tp-editor.c:585
 msgid "Certificates (TLS)"
-msgstr "Chứng nhận:"
+msgstr "Chứng nhận"
 
 #: properties/nm-l2tp-dialog.ui:13
 msgid "General"
@@ -158,7 +158,7 @@ msgstr "Chung"
 
 #: properties/nm-l2tp-dialog.ui:30
 msgid "_Gateway"
-msgstr "Cổn_g ra:"
+msgstr "Cổn_g ra"
 
 #: properties/nm-l2tp-dialog.ui:45
 msgid ""
@@ -172,7 +172,7 @@ msgstr "Xác thực Người dùng"
 
 #: properties/nm-l2tp-dialog.ui:77 properties/nm-l2tp-dialog.ui:544
 msgid "Type"
-msgstr "Kiểu :"
+msgstr "Kiểu"
 
 #: properties/nm-l2tp-dialog.ui:90 properties/nm-l2tp-dialog.ui:557
 msgid "Select an authentication mode."
@@ -410,7 +410,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1291
 msgid "_Security"
-msgstr "_An ninh:"
+msgstr "_An ninh"
 
 #: properties/nm-l2tp-dialog.ui:1306
 msgid ""

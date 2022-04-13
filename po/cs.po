@@ -164,7 +164,7 @@ msgstr "Obecné"
 
 #: properties/nm-l2tp-dialog.ui:30
 msgid "_Gateway"
-msgstr "_Brána:"
+msgstr "_Brána"
 
 #: properties/nm-l2tp-dialog.ui:45
 msgid ""
@@ -178,7 +178,7 @@ msgstr "Ověření totožnosti uživatele"
 
 #: properties/nm-l2tp-dialog.ui:77 properties/nm-l2tp-dialog.ui:544
 msgid "Type"
-msgstr "Typ:"
+msgstr "Typ"
 
 #: properties/nm-l2tp-dialog.ui:90 properties/nm-l2tp-dialog.ui:557
 msgid "Select an authentication mode."
@@ -208,11 +208,11 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:182
 msgid "User name"
-msgstr "Uživatelské jméno:"
+msgstr "Uživatelské jméno"
 
 #: properties/nm-l2tp-dialog.ui:206
 msgid "NT Domain"
-msgstr "Doména NT:"
+msgstr "Doména NT"
 
 #: properties/nm-l2tp-dialog.ui:297
 msgid "Use L2TP _ephemeral source port"
@@ -421,7 +421,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1291
 msgid "_Security"
-msgstr "_Bezpečnost:"
+msgstr "_Bezpečnost"
 
 #: properties/nm-l2tp-dialog.ui:1306
 msgid ""

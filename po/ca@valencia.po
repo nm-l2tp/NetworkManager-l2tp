@@ -161,7 +161,7 @@ msgstr "General"
 
 #: properties/nm-l2tp-dialog.ui:30
 msgid "_Gateway"
-msgstr "Pas_sarel·la:"
+msgstr "Pas_sarel·la"
 
 #: properties/nm-l2tp-dialog.ui:45
 msgid ""
@@ -209,7 +209,7 @@ msgstr "Nom d'usuari:"
 
 #: properties/nm-l2tp-dialog.ui:206
 msgid "NT Domain"
-msgstr "Domini NT:"
+msgstr "Domini NT"
 
 #: properties/nm-l2tp-dialog.ui:297
 msgid "Use L2TP _ephemeral source port"
