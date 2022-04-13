@@ -132,12 +132,12 @@ msgstr ""
 #: properties/import-export.c:331
 #, c-format
 msgid "Error parsing property '%s' value '%s'."
-msgstr "Ошибка разбора файла PKCS#12 «%s»."
+msgstr ""
 
 #: properties/import-export.c:343
 #, c-format
 msgid "Error parsing property '%s': %s."
-msgstr "Ошибка разбора файла PKCS#12 «%s»."
+msgstr ""
 
 #: properties/import-export.c:377
 msgid "does not look like a L2TP VPN connection (parse failed)"
