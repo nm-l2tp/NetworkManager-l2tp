@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: NetworkManager-l2tp master\n"
 "Report-Msgid-Bugs-To: https://gitlab.freedesktop.org/NetworkManager/"
 "NetworkManager/issues\n"
-"POT-Creation-Date: 2022-04-11 22:16+1000\n"
+"POT-Creation-Date: 2022-04-16 09:33+1000\n"
 "PO-Revision-Date: 2018-07-07 23:22+0800\n"
 "Last-Translator: Dingzhong Chen <wsxy162@gmail.com>\n"
 "Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
@@ -57,7 +57,7 @@ msgstr ""
 msgid "Authenticate VPN"
 msgstr "验证 VPN"
 
-#: auth-dialog/main.c:177 properties/nm-l2tp-dialog.ui:194
+#: auth-dialog/main.c:177 properties/nm-l2tp-dialog.ui:193
 #: properties/nm-l2tp-editor.c:572
 msgid "Password"
 msgstr "密码"
@@ -159,15 +159,15 @@ msgstr ""
 msgid "Certificates (TLS)"
 msgstr "证书（TLS)"
 
-#: properties/nm-l2tp-dialog.ui:13
+#: properties/nm-l2tp-dialog.ui:16
 msgid "General"
 msgstr "常规"
 
-#: properties/nm-l2tp-dialog.ui:30
+#: properties/nm-l2tp-dialog.ui:32
 msgid "_Gateway"
 msgstr "网关(_G)"
 
-#: properties/nm-l2tp-dialog.ui:45
+#: properties/nm-l2tp-dialog.ui:46
 msgid ""
 "L2TP server IP or name.\n"
 "config: xl2tpd lns parameter"
@@ -175,33 +175,33 @@ msgstr ""
 "L2TP 服务器 IP 或名称。\n"
 "配置：xl2tpd lns parameter"
 
-#: properties/nm-l2tp-dialog.ui:59
+#: properties/nm-l2tp-dialog.ui:61
 msgid "User Authentication"
 msgstr "用户鉴定"
 
-#: properties/nm-l2tp-dialog.ui:77 properties/nm-l2tp-dialog.ui:544
+#: properties/nm-l2tp-dialog.ui:77 properties/nm-l2tp-dialog.ui:577
 msgid "Type"
 msgstr "类型"
 
-#: properties/nm-l2tp-dialog.ui:90 properties/nm-l2tp-dialog.ui:557
+#: properties/nm-l2tp-dialog.ui:89 properties/nm-l2tp-dialog.ui:589
 msgid "Select an authentication mode."
 msgstr "选择验证模式。"
 
-#: properties/nm-l2tp-dialog.ui:128
+#: properties/nm-l2tp-dialog.ui:127
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
 "DOMAIN\\username, where DOMAIN is the value from this text entry box."
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:138 properties/nm-l2tp-dialog.ui:593
+#: properties/nm-l2tp-dialog.ui:137 properties/nm-l2tp-dialog.ui:625
 msgid "Sho_w password"
 msgstr "显示密码(_W)"
 
-#: properties/nm-l2tp-dialog.ui:155
+#: properties/nm-l2tp-dialog.ui:154
 msgid "Password passed to PPPD when prompted for it."
 msgstr "当被提示时传递给 PPPD 的密码。"
 
-#: properties/nm-l2tp-dialog.ui:168
+#: properties/nm-l2tp-dialog.ui:167
 msgid ""
 "Username passed to PPPD when prompted for it. If omitted, use the name of "
 "the system user that activates the connection.\n"
@@ -209,93 +209,97 @@ msgid ""
 "config: auth-user-pass"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:182
+#: properties/nm-l2tp-dialog.ui:181
 msgid "User name"
 msgstr "用户名"
 
-#: properties/nm-l2tp-dialog.ui:206
+#: properties/nm-l2tp-dialog.ui:205
 msgid "NT Domain"
 msgstr "NT 域"
 
-#: properties/nm-l2tp-dialog.ui:297
+#: properties/nm-l2tp-dialog.ui:308
 msgid "Use L2TP _ephemeral source port"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:301
+#: properties/nm-l2tp-dialog.ui:312
 msgid ""
 "Do not use UDP port 1701 for L2TP source port even if it is free,\n"
 "will use an ephemeral port (i.e. random high port) instead.\n"
 "May be required to allow multiple L2TP clients behind same NAT."
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:350
+#: properties/nm-l2tp-dialog.ui:361
 msgid "_IPsec Settings..."
 msgstr "IPsec 设置(_I)…"
 
-#: properties/nm-l2tp-dialog.ui:395
+#: properties/nm-l2tp-dialog.ui:406
 msgid "PPP Se_ttings..."
 msgstr "PPP 设置(_T)…"
 
-#: properties/nm-l2tp-dialog.ui:443
+#: properties/nm-l2tp-dialog.ui:454
 msgid "L2TP IPsec Options"
 msgstr "L2TP IPsec 选项"
 
-#: properties/nm-l2tp-dialog.ui:460 properties/nm-l2tp-dialog.ui:1104
+#: properties/nm-l2tp-dialog.ui:469
+msgid "IPsec Properties"
+msgstr ""
+
+#: properties/nm-l2tp-dialog.ui:477 properties/nm-l2tp-dialog.ui:1169
 msgid "_Cancel"
 msgstr "取消(_C)"
 
-#: properties/nm-l2tp-dialog.ui:474 properties/nm-l2tp-dialog.ui:1118
+#: properties/nm-l2tp-dialog.ui:485 properties/nm-l2tp-dialog.ui:1177
 msgid "_Apply"
 msgstr "应用(_A)"
 
-#: properties/nm-l2tp-dialog.ui:506
+#: properties/nm-l2tp-dialog.ui:539
 msgid "_Enable IPsec tunnel to L2TP host"
 msgstr "启用到 L2TP 主机的 IPsec 隧道(_E)"
 
-#: properties/nm-l2tp-dialog.ui:510
+#: properties/nm-l2tp-dialog.ui:543
 msgid "config: ipsec-enabled"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:525
+#: properties/nm-l2tp-dialog.ui:560
 msgid "Machine Authentication"
 msgstr "机器鉴定"
 
-#: properties/nm-l2tp-dialog.ui:610
+#: properties/nm-l2tp-dialog.ui:642
 msgid ""
 "Pre-shared key (PSK) secret.\n"
 "config: ipsec-psk"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:624
+#: properties/nm-l2tp-dialog.ui:656
 msgid "Pre-shared key"
 msgstr "预共享密钥"
 
-#: properties/nm-l2tp-dialog.ui:733
+#: properties/nm-l2tp-dialog.ui:781
 msgid ""
 "Optional. A list of proposals for IKE - Main Mode. The format is “enc-integ-"
 "group,enc-integ-group, …”.\n"
 "config: ipsec-ike <proposals>"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:746
+#: properties/nm-l2tp-dialog.ui:794
 msgid ""
 "Optional. A list of proposals for ESP - Quick Mode. The format is “enc-integ,"
 "enc-integ, …”.\n"
 "config: ipsec-esp <proposals>"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:764
+#: properties/nm-l2tp-dialog.ui:812
 msgid ""
 "How long the keying channel of a connection should last before being "
 "renegotiated. \n"
 "config: ipsec-ikelifetime <lifetime>"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:781 properties/nm-l2tp-dialog.ui:821
+#: properties/nm-l2tp-dialog.ui:829 properties/nm-l2tp-dialog.ui:869
 msgid "(HH:MM)"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:804
+#: properties/nm-l2tp-dialog.ui:852
 msgid ""
 "How long a particular instance of a connection (a set of encryption/"
 "authentication keys for user packets) should last, from successful "
@@ -303,15 +307,15 @@ msgid ""
 "config: ipsec-salifetime <lifetime>"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:837
+#: properties/nm-l2tp-dialog.ui:885
 msgid "Phase1 Lifetime:"
 msgstr "Phase1 周期："
 
-#: properties/nm-l2tp-dialog.ui:852
+#: properties/nm-l2tp-dialog.ui:900
 msgid "Phase2 Lifetime:"
 msgstr "Phase2 周期："
 
-#: properties/nm-l2tp-dialog.ui:869
+#: properties/nm-l2tp-dialog.ui:917
 msgid ""
 "Optional. How the IPsec server should be identified for authentication. "
 "Sometimes referred to as Peer ID or Gateway ID, also referred to as rightid "
@@ -321,82 +325,86 @@ msgid ""
 "ipsec.secrets: <ID>"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:883
+#: properties/nm-l2tp-dialog.ui:931
 msgid "Phase1 Algorithms:"
 msgstr "Phase1 算法："
 
-#: properties/nm-l2tp-dialog.ui:898
+#: properties/nm-l2tp-dialog.ui:946
 msgid "Phase2 Algorithms:"
 msgstr "Phase2 算法："
 
-#: properties/nm-l2tp-dialog.ui:913
+#: properties/nm-l2tp-dialog.ui:961
 msgid "Remote ID:"
 msgstr "远程 ID："
 
-#: properties/nm-l2tp-dialog.ui:936
+#: properties/nm-l2tp-dialog.ui:999
 msgid "_Enforce UDP encapsulation"
 msgstr "强制 UDP 封装"
 
-#: properties/nm-l2tp-dialog.ui:940
+#: properties/nm-l2tp-dialog.ui:1003
 msgid ""
 "Some firewalls block ESP traffic. Enforcing UDP capsulation even if no NAT "
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:955
+#: properties/nm-l2tp-dialog.ui:1018
 msgid "Use IP c_ompression"
 msgstr "使用 IP 压缩"
 
-#: properties/nm-l2tp-dialog.ui:959
+#: properties/nm-l2tp-dialog.ui:1022
 msgid ""
 "IPComp compresses raw IP packets before they get encrypted. This saves some "
 "bandwidth, but uses more processing power.\n"
 "config: ipsec-ipcomp <yes/no>"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:974
+#: properties/nm-l2tp-dialog.ui:1037
 msgid "Use IKEv_2 key exchange"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:978
+#: properties/nm-l2tp-dialog.ui:1041
 msgid ""
 "Use IKEv2 key exchange\n"
 "config: ipsec-ikev2 <yes/no>"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:993
+#: properties/nm-l2tp-dialog.ui:1056
 msgid "Disable _PFS"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:997
+#: properties/nm-l2tp-dialog.ui:1060
 msgid ""
 "Disable perfect forward secrecy. Enable this option only if the server "
 "doesn’t support PFS.\n"
 "config: ipsec-pfs <no/yes>"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:1016
+#: properties/nm-l2tp-dialog.ui:1079
 msgid "Ad_vanced"
 msgstr "高级(_V)"
 
-#: properties/nm-l2tp-dialog.ui:1059
+#: properties/nm-l2tp-dialog.ui:1118
 msgid "Default"
 msgstr "默认"
 
-#: properties/nm-l2tp-dialog.ui:1086
+#: properties/nm-l2tp-dialog.ui:1145
 msgid "L2TP PPP Options"
 msgstr "L2TP PPP 选项"
 
-#: properties/nm-l2tp-dialog.ui:1154
+#: properties/nm-l2tp-dialog.ui:1161
+msgid "PPP Properties"
+msgstr ""
+
+#: properties/nm-l2tp-dialog.ui:1234
 msgid "Authentication"
 msgstr "身份验证"
 
-#: properties/nm-l2tp-dialog.ui:1176
+#: properties/nm-l2tp-dialog.ui:1256
 msgid "Allow the following authentication methods:"
 msgstr "允许以下认证方法:"
 
-#: properties/nm-l2tp-dialog.ui:1195
+#: properties/nm-l2tp-dialog.ui:1275
 msgid ""
 "Allow/disable authentication methods.\n"
 "config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
@@ -404,15 +412,15 @@ msgstr ""
 "允许/禁用认证方式。\n"
 "配置：refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 
-#: properties/nm-l2tp-dialog.ui:1234
+#: properties/nm-l2tp-dialog.ui:1314
 msgid "Security and Compression"
 msgstr "安全性及压缩"
 
-#: properties/nm-l2tp-dialog.ui:1261
+#: properties/nm-l2tp-dialog.ui:1341
 msgid "Use _Point-to-Point encryption (MPPE)"
 msgstr "使用点到点加密(MPPE)(_P)"
 
-#: properties/nm-l2tp-dialog.ui:1265
+#: properties/nm-l2tp-dialog.ui:1345
 msgid ""
 "Note: MPPE encryption is only available with MSCHAP authentication methods. "
 "To enable this checkbox, select one or more of the MSCHAP authentication "
@@ -421,11 +429,11 @@ msgstr ""
 "注意：MPPE 加密仅在使用 MSCHAP 认证方式时可用。要启用此选项，请选择 MSCHAP 认"
 "证方式之中的一个或多个：MSCHAP 或 MSCHAPv2"
 
-#: properties/nm-l2tp-dialog.ui:1291
+#: properties/nm-l2tp-dialog.ui:1371
 msgid "_Security"
 msgstr "安全性(_S)"
 
-#: properties/nm-l2tp-dialog.ui:1306
+#: properties/nm-l2tp-dialog.ui:1386
 msgid ""
 "Require the use of MPPE, with 40/128-bit encryption or all.\n"
 "config: require-mppe, require-mppe-128 or require-mppe-40"
@@ -433,11 +441,11 @@ msgstr ""
 "需要使用 40/128 位或全部加密的 MPPE 。\n"
 "配置：require-mppe， require-mppe-128 或 require-mppe-40"
 
-#: properties/nm-l2tp-dialog.ui:1331
+#: properties/nm-l2tp-dialog.ui:1411
 msgid "Allow st_ateful encryption"
 msgstr "允许有状态的加密(_A)"
 
-#: properties/nm-l2tp-dialog.ui:1335
+#: properties/nm-l2tp-dialog.ui:1415
 msgid ""
 "Allow MPPE to use stateful mode. Stateless mode is still attempted first.\n"
 "config: mppe-stateful (when checked)"
@@ -445,11 +453,11 @@ msgstr ""
 "允许 MPPE 使用有状态模式。无状态模式仍会优先尝试。\n"
 "配置：mppe-stateful (选中时)"
 
-#: properties/nm-l2tp-dialog.ui:1363
+#: properties/nm-l2tp-dialog.ui:1443
 msgid "Allow _BSD data compression"
 msgstr "允许 _BSD 数据压缩"
 
-#: properties/nm-l2tp-dialog.ui:1367
+#: properties/nm-l2tp-dialog.ui:1447
 msgid ""
 "Allow/disable BSD-Compress compression.\n"
 "config: nobsdcomp (when unchecked)"
@@ -457,11 +465,11 @@ msgstr ""
 "允许/禁用 BSD-Compress 压缩。\n"
 "配置：nobsdcomp (未选中时)"
 
-#: properties/nm-l2tp-dialog.ui:1381
+#: properties/nm-l2tp-dialog.ui:1461
 msgid "Allow _Deflate data compression"
 msgstr "允许 _Deflate 数据压缩"
 
-#: properties/nm-l2tp-dialog.ui:1385
+#: properties/nm-l2tp-dialog.ui:1465
 msgid ""
 "Allow/disable Deflate compression.\n"
 "config: nodeflate (when unchecked)"
@@ -469,11 +477,11 @@ msgstr ""
 "允许/禁用 Deflate 压缩\n"
 "配置：nodeflate (未选中时)"
 
-#: properties/nm-l2tp-dialog.ui:1399
+#: properties/nm-l2tp-dialog.ui:1479
 msgid "Use TCP _header compression"
 msgstr "使用 TCP 头压缩(_H)"
 
-#: properties/nm-l2tp-dialog.ui:1403
+#: properties/nm-l2tp-dialog.ui:1483
 msgid ""
 "Allow/disable Van Jacobson style TCP/IP header compression in both the "
 "transmit and the receive directions.\n"
@@ -482,11 +490,11 @@ msgstr ""
 "允许/禁用在发送和接收方向启用 Van Jacobson 样式的 TCP/IP 头压缩。\n"
 "配置：novj (未选中时)"
 
-#: properties/nm-l2tp-dialog.ui:1417
+#: properties/nm-l2tp-dialog.ui:1497
 msgid "Use protocol _field compression negotiation"
 msgstr "使用协议字段压缩协商(_F)"
 
-#: properties/nm-l2tp-dialog.ui:1421
+#: properties/nm-l2tp-dialog.ui:1501
 msgid ""
 "Allow protocol field compression negotiation in both the receive and the "
 "transmit direction.\n"
@@ -495,11 +503,11 @@ msgstr ""
 "允许/禁用在发送和接收方向使用协议字段压缩协商。\n"
 "配置：nopcomp (未选中时)"
 
-#: properties/nm-l2tp-dialog.ui:1435
+#: properties/nm-l2tp-dialog.ui:1515
 msgid "Use _Address/Control compression"
 msgstr "使用地址/控制压缩(_A)"
 
-#: properties/nm-l2tp-dialog.ui:1439
+#: properties/nm-l2tp-dialog.ui:1519
 msgid ""
 "Use Address/Control compression in both directions (send and receive).\n"
 "config: noaccomp (when unchecked)"
@@ -507,15 +515,15 @@ msgstr ""
 "在两个方向(发送和接收)都使用地址/控制压缩。\n"
 "配置：noaccomp (未选中时)"
 
-#: properties/nm-l2tp-dialog.ui:1475
+#: properties/nm-l2tp-dialog.ui:1555
 msgid "Misc"
 msgstr "杂项"
 
-#: properties/nm-l2tp-dialog.ui:1495
+#: properties/nm-l2tp-dialog.ui:1575
 msgid "Send PPP _echo packets"
 msgstr "发送 PPP 回响包(_E)"
 
-#: properties/nm-l2tp-dialog.ui:1499
+#: properties/nm-l2tp-dialog.ui:1579
 msgid ""
 "Send LCP echo-requests to find out whether peer is alive.\n"
 "config: lcp-echo-failure and lcp-echo-interval"
@@ -523,26 +531,26 @@ msgstr ""
 "发送 LCP echo-requests 来检查端点是否存活。\n"
 "配置：lcp-echo-failure 和 lcp-echo-interval"
 
-#: properties/nm-l2tp-dialog.ui:1518
+#: properties/nm-l2tp-dialog.ui:1598
 msgid "_Multilink PPP MRRU:"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:1522 properties/nm-l2tp-dialog.ui:1538
+#: properties/nm-l2tp-dialog.ui:1602 properties/nm-l2tp-dialog.ui:1618
 msgid ""
 "Try to negotiate a PPP Multilink on a single connection.\n"
 "config: mrru"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:1542 properties/nm-l2tp-dialog.ui:1585
-#: properties/nm-l2tp-dialog.ui:1628
+#: properties/nm-l2tp-dialog.ui:1622 properties/nm-l2tp-dialog.ui:1665
+#: properties/nm-l2tp-dialog.ui:1708
 msgid "1400"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:1570
+#: properties/nm-l2tp-dialog.ui:1650
 msgid "MTU"
 msgstr "MTU"
 
-#: properties/nm-l2tp-dialog.ui:1613
+#: properties/nm-l2tp-dialog.ui:1693
 msgid "MRU"
 msgstr ""
 
