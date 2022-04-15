@@ -243,7 +243,7 @@ msgstr "Options IPsec L2TP"
 
 #: properties/nm-l2tp-dialog.ui:460 properties/nm-l2tp-dialog.ui:1104
 msgid "_Cancel"
-msgstr "Avancé"
+msgstr "A_nnuler"
 
 #: properties/nm-l2tp-dialog.ui:474 properties/nm-l2tp-dialog.ui:1118
 msgid "_Apply"
@@ -379,7 +379,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1016
 msgid "Ad_vanced"
-msgstr "Avancé"
+msgstr "A_vancé"
 
 #: properties/nm-l2tp-dialog.ui:1059
 msgid "Default"

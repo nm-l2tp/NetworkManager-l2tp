@@ -237,7 +237,7 @@ msgstr "L2TP:n IPsec-valinnat"
 
 #: properties/nm-l2tp-dialog.ui:460 properties/nm-l2tp-dialog.ui:1104
 msgid "_Cancel"
-msgstr "_Lisäasetukset"
+msgstr "_Peru"
 
 #: properties/nm-l2tp-dialog.ui:474 properties/nm-l2tp-dialog.ui:1118
 msgid "_Apply"

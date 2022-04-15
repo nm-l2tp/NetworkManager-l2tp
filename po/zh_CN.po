@@ -242,7 +242,7 @@ msgstr "L2TP IPsec 选项"
 
 #: properties/nm-l2tp-dialog.ui:460 properties/nm-l2tp-dialog.ui:1104
 msgid "_Cancel"
-msgstr "高级"
+msgstr "取消(_C)"
 
 #: properties/nm-l2tp-dialog.ui:474 properties/nm-l2tp-dialog.ui:1118
 msgid "_Apply"
@@ -378,7 +378,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1016
 msgid "Ad_vanced"
-msgstr "高级"
+msgstr "高级(_V)"
 
 #: properties/nm-l2tp-dialog.ui:1059
 msgid "Default"

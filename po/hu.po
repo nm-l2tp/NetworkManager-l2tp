@@ -237,7 +237,7 @@ msgstr "L2TP IPsec beállítások"
 
 #: properties/nm-l2tp-dialog.ui:460 properties/nm-l2tp-dialog.ui:1104
 msgid "_Cancel"
-msgstr "Spe_ciális"
+msgstr "Mé_gse"
 
 #: properties/nm-l2tp-dialog.ui:474 properties/nm-l2tp-dialog.ui:1118
 msgid "_Apply"
@@ -373,7 +373,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1016
 msgid "Ad_vanced"
-msgstr "Spe_ciális"
+msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1059
 msgid "Default"

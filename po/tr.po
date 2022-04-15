@@ -241,7 +241,7 @@ msgstr "L2TP IPsec Seçenekleri"
 
 #: properties/nm-l2tp-dialog.ui:460 properties/nm-l2tp-dialog.ui:1104
 msgid "_Cancel"
-msgstr "Gelişmiş"
+msgstr "_İptal Et"
 
 #: properties/nm-l2tp-dialog.ui:474 properties/nm-l2tp-dialog.ui:1118
 msgid "_Apply"
@@ -377,7 +377,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1016
 msgid "Ad_vanced"
-msgstr "Gelişmiş"
+msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1059
 msgid "Default"

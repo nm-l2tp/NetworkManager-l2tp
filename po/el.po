@@ -235,7 +235,7 @@ msgstr "Επιλογές L2TP IPsec"
 
 #: properties/nm-l2tp-dialog.ui:460 properties/nm-l2tp-dialog.ui:1104
 msgid "_Cancel"
-msgstr "Για προ_χωρημένους"
+msgstr "_Ακύρωση"
 
 #: properties/nm-l2tp-dialog.ui:474 properties/nm-l2tp-dialog.ui:1118
 msgid "_Apply"

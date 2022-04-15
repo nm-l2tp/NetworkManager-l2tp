@@ -238,7 +238,7 @@ msgstr "L2TP IPsec parinktys"
 
 #: properties/nm-l2tp-dialog.ui:460 properties/nm-l2tp-dialog.ui:1104
 msgid "_Cancel"
-msgstr "Išplė_stiniai"
+msgstr "_Atsisakyti"
 
 #: properties/nm-l2tp-dialog.ui:474 properties/nm-l2tp-dialog.ui:1118
 msgid "_Apply"
