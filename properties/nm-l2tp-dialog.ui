@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.2 -->
+<!-- Generated with glade 3.38.2 -->
 <interface>
-  <requires lib="gtk+" version="3.14"/>
+  <requires lib="gtk+" version="3.16"/>
+  <!-- n-columns=2 n-rows=7 -->
   <object class="GtkGrid" id="l2tp-vbox">
     <property name="visible">True</property>
+    <property name="can_focus">False</property>
     <property name="row_spacing">6</property>
     <property name="column_spacing">6</property>
     <child>
       <object class="GtkLabel" id="label22">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="margin_bottom">6</property>
         <property name="label" translatable="yes">General</property>
         <property name="xalign">0</property>
-        <property name="margin_bottom">6</property>
         <attributes>
           <attribute name="weight" value="bold"/>
         </attributes>
@@ -35,7 +37,6 @@
       <packing>
         <property name="left_attach">0</property>
         <property name="top_attach">1</property>
-        <property name="width">1</property>
       </packing>
     </child>
     <child>
@@ -49,17 +50,16 @@ config: xl2tpd lns parameter</property>
       <packing>
         <property name="left_attach">1</property>
         <property name="top_attach">1</property>
-        <property name="width">1</property>
       </packing>
     </child>
     <child>
       <object class="GtkLabel" id="label25">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="label" translatable="yes">User Authentication</property>
-        <property name="xalign">0</property>
         <property name="margin_top">12</property>
         <property name="margin_bottom">6</property>
+        <property name="label" translatable="yes">User Authentication</property>
+        <property name="xalign">0</property>
         <attributes>
           <attribute name="weight" value="bold"/>
         </attributes>
@@ -80,7 +80,6 @@ config: xl2tpd lns parameter</property>
       <packing>
         <property name="left_attach">0</property>
         <property name="top_attach">3</property>
-        <property name="width">1</property>
       </packing>
     </child>
     <child>
@@ -99,7 +98,6 @@ config: xl2tpd lns parameter</property>
       <packing>
         <property name="left_attach">1</property>
         <property name="top_attach">3</property>
-        <property name="width">1</property>
       </packing>
     </child>
     <child>
@@ -116,6 +114,7 @@ config: xl2tpd lns parameter</property>
             <property name="orientation">vertical</property>
             <property name="spacing">6</property>
             <child>
+              <!-- n-columns=3 n-rows=4 -->
               <object class="GtkGrid" id="grid5">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -214,6 +213,18 @@ config: auth-user-pass</property>
                 <child>
                   <placeholder/>
                 </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -248,12 +259,12 @@ config: auth-user-pass</property>
                 <property name="flags">13</property>
                 <property name="title">CA</property>
                 <property name="visible">True</property>
-                <property name="can-focus">False</property>
+                <property name="can_focus">False</property>
               </object>
               <packing>
-               <property name="expand">False</property>
-               <property name="fill">True</property>
-               <property name="position">0</property>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
               </packing>
             </child>
             <child>
@@ -261,12 +272,12 @@ config: auth-user-pass</property>
                 <property name="flags">4</property>
                 <property name="title">User</property>
                 <property name="visible">True</property>
-                <property name="can-focus">False</property>
+                <property name="can_focus">False</property>
               </object>
               <packing>
-               <property name="expand">False</property>
-               <property name="fill">True</property>
-               <property name="position">1</property>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
               </packing>
             </child>
           </object>
@@ -442,9 +453,6 @@ May be required to allow multiple L2TP clients behind same NAT.</property>
     <property name="can_focus">False</property>
     <property name="title" translatable="yes">L2TP IPsec Options</property>
     <property name="destroy_with_parent">True</property>
-    <child type="titlebar">
-      <placeholder/>
-    </child>
     <child internal-child="vbox">
       <object class="GtkBox" id="dialog-vbox1">
         <property name="visible">True</property>
@@ -458,10 +466,10 @@ May be required to allow multiple L2TP clients behind same NAT.</property>
             <child>
               <object class="GtkButton" id="ipsec_cancel_button">
                 <property name="label" translatable="yes">_Cancel</property>
-                <property name="use-underline">True</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="use_underline">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -472,10 +480,10 @@ May be required to allow multiple L2TP clients behind same NAT.</property>
             <child>
               <object class="GtkButton" id="ipsec_ok_button">
                 <property name="label" translatable="yes">_Apply</property>
-                <property name="use-underline">True</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="use_underline">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -492,15 +500,16 @@ May be required to allow multiple L2TP clients behind same NAT.</property>
           </packing>
         </child>
         <child>
+          <!-- n-columns=2 n-rows=5 -->
           <object class="GtkGrid">
             <property name="visible">True</property>
-            <property name="can-focus">False</property>
-            <property name="margin-start">6</property>
-            <property name="margin-end">6</property>
-            <property name="margin-top">6</property>
-            <property name="margin-bottom">6</property>
-            <property name="row-spacing">6</property>
-            <property name="column-spacing">6</property>
+            <property name="can_focus">False</property>
+            <property name="margin_start">6</property>
+            <property name="margin_end">6</property>
+            <property name="margin_top">6</property>
+            <property name="margin_bottom">6</property>
+            <property name="row_spacing">6</property>
+            <property name="column_spacing">6</property>
             <child>
               <object class="GtkCheckButton" id="ipsec_check">
                 <property name="label" translatable="yes">_Enable IPsec tunnel to L2TP host</property>
@@ -522,11 +531,11 @@ May be required to allow multiple L2TP clients behind same NAT.</property>
               <object class="GtkLabel" id="machine_auth_label">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="margin_top">12</property>
+                <property name="margin_bottom">6</property>
                 <property name="label" translatable="yes">Machine Authentication</property>
                 <property name="single_line_mode">True</property>
                 <property name="xalign">0</property>
-                <property name="margin_top">12</property>
-                <property name="margin_bottom">6</property>
                 <attributes>
                   <attribute name="weight" value="bold"/>
                 </attributes>
@@ -547,7 +556,6 @@ May be required to allow multiple L2TP clients behind same NAT.</property>
               <packing>
                 <property name="left_attach">0</property>
                 <property name="top_attach">2</property>
-                <property name="width">1</property>
               </packing>
             </child>
             <child>
@@ -566,7 +574,6 @@ May be required to allow multiple L2TP clients behind same NAT.</property>
               <packing>
                 <property name="left_attach">1</property>
                 <property name="top_attach">2</property>
-                <property name="width">1</property>
               </packing>
             </child>
             <child>
@@ -583,6 +590,7 @@ May be required to allow multiple L2TP clients behind same NAT.</property>
                     <property name="orientation">vertical</property>
                     <property name="spacing">6</property>
                     <child>
+                      <!-- n-columns=3 n-rows=3 -->
                       <object class="GtkGrid" id="grid4">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
@@ -632,6 +640,21 @@ config: ipsec-psk</property>
                         <child>
                           <placeholder/>
                         </child>
+                        <child>
+                          <placeholder/>
+                        </child>
+                        <child>
+                          <placeholder/>
+                        </child>
+                        <child>
+                          <placeholder/>
+                        </child>
+                        <child>
+                          <placeholder/>
+                        </child>
+                        <child>
+                          <placeholder/>
+                        </child>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -666,7 +689,7 @@ config: ipsec-psk</property>
                         <property name="flags">13</property>
                         <property name="title">CA</property>
                         <property name="visible">True</property>
-                        <property name="can-focus">False</property>
+                        <property name="can_focus">False</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -679,7 +702,7 @@ config: ipsec-psk</property>
                         <property name="flags">4</property>
                         <property name="title">Machine</property>
                         <property name="visible">True</property>
-                        <property name="can-focus">False</property>
+                        <property name="can_focus">False</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -722,6 +745,7 @@ config: ipsec-psk</property>
                     <property name="orientation">vertical</property>
                     <property name="spacing">2</property>
                     <child>
+                      <!-- n-columns=3 n-rows=5 -->
                       <object class="GtkGrid" id="grid2">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
@@ -923,6 +947,21 @@ ipsec.secrets: &lt;ID&gt;</property>
                             <property name="top_attach">0</property>
                           </packing>
                         </child>
+                        <child>
+                          <placeholder/>
+                        </child>
+                        <child>
+                          <placeholder/>
+                        </child>
+                        <child>
+                          <placeholder/>
+                        </child>
+                        <child>
+                          <placeholder/>
+                        </child>
+                        <child>
+                          <placeholder/>
+                        </child>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -1086,9 +1125,6 @@ config: ipsec-pfs &lt;no/yes&gt;</property>
     <property name="title" translatable="yes">L2TP PPP Options</property>
     <property name="destroy_with_parent">True</property>
     <property name="icon_name">stock-preferences</property>
-    <child type="titlebar">
-      <placeholder/>
-    </child>
     <child internal-child="vbox">
       <object class="GtkBox" id="dialog-vbox2">
         <property name="visible">True</property>
@@ -1102,10 +1138,10 @@ config: ipsec-pfs &lt;no/yes&gt;</property>
             <child>
               <object class="GtkButton" id="cancel_button1">
                 <property name="label" translatable="yes">_Cancel</property>
-                <property name="use-underline">True</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
+                <property name="use_underline">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1116,10 +1152,10 @@ config: ipsec-pfs &lt;no/yes&gt;</property>
             <child>
               <object class="GtkButton" id="ok_button1">
                 <property name="label" translatable="yes">_Apply</property>
-                <property name="use-underline">True</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
+                <property name="use_underline">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
