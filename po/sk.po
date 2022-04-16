@@ -376,7 +376,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1079
 msgid "Ad_vanced"
-msgstr ""
+msgstr "_Rozšírené"
 
 #: properties/nm-l2tp-dialog.ui:1118
 msgid "Default"
@@ -562,7 +562,7 @@ msgstr ""
 
 #: properties/nm-l2tp-editor-plugin.c:18
 msgid "Compatible with Microsoft and other L2TP VPN servers."
-msgstr ""
+msgstr "Kompatibilná so servermi spoločnosti Microsoft a inými L2TP VPN."
 
 #: properties/ppp-dialog.c:176
 msgid "All Available (Default)"

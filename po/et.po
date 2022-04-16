@@ -376,7 +376,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1079
 msgid "Ad_vanced"
-msgstr ""
+msgstr "_Täpsemalt"
 
 #: properties/nm-l2tp-dialog.ui:1118
 msgid "Default"

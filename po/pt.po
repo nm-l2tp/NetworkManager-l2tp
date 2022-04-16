@@ -722,28 +722,33 @@ msgstr ""
 #: shared/nm-utils/nm-shared-utils.c:1146
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr ""
+msgstr "a classe de objeto '%s' não possui uma propriedade chamada '%s'"
 
 #: shared/nm-utils/nm-shared-utils.c:1155
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr ""
+msgstr "a propriedade '%s' da classe de objeto '%s' não é gravável"
 
 #: shared/nm-utils/nm-shared-utils.c:1164
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
+"a propriedade de construtor '%s' para objeto '%s' não pode ser definido após "
+"construção"
 
 #: shared/nm-utils/nm-shared-utils.c:1175
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
 msgstr ""
+"'%s:%s' não é um nome de propriedade válida; '%s' não é um subtipo de GObject"
 
 #: shared/nm-utils/nm-shared-utils.c:1188
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
 msgstr ""
+"não foi possível definir a propriedade '%s' de tipo '%s' a partir do valor "
+"de tipo '%s'"
 
 #: shared/nm-utils/nm-shared-utils.c:1200
 #, c-format
@@ -751,6 +756,8 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
+"o valor '%s' de tipo '%s' é inválido ou fora do intervalo da propriedade "
+"'%s' de tipo '%s'"
 
 #: shared/nm-utils/nm-vpn-plugin-utils.c:53
 #, c-format
