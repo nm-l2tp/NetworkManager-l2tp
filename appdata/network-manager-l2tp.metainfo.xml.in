@@ -5,6 +5,7 @@
   <project_license>GPL-2.0+</project_license>
   <metadata_license>CC0-1.0</metadata_license>
   <extends>nm-connection-editor.desktop</extends>
+  <extends>org.gnome.Settings.desktop</extends>
   <extends>gnome-control-center.desktop</extends>
   <name>L2TP VPN Client</name>
   <summary>Client for L2TP based virtual private networks</summary>
