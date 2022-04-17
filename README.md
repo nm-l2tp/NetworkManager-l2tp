@@ -43,8 +43,8 @@ please visit the Wiki :
 ## Table of Contents
 
 - [Building](#building)
-    - [Debian 10 and Ubuntu 20.04](#debian-10-and-ubuntu-2004-amd64-ie-x86-64)
-    - [Fedora 35](#fedora-35-x86-64)
+    - [Debian 11 and Ubuntu 22.04](#debian-11-and-ubuntu-2204-amd64-ie-x86-64)
+    - [Fedora 36](#fedora-36-x86-64)
     - [Red Hat Enterprise Linux 8](#red-hat-enterprise-linux-8-x86-64)
     - [openSUSE Tumbleweed](#opensuse-tumbleweed-x86-64)
 - [VPN connection profile files](#vpn-connection-profile-files)
@@ -85,22 +85,22 @@ need to be set to the Libreswan NSS database location if it is not located in
 libreswan < 3.30 or libreswan packages built with `USE_DH2=true` i.e. have
 modp1024 support.
 
-#### Debian 10 and Ubuntu 20.04 (AMD64, i.e. x86-64)
+#### Debian 11 and Ubuntu 22.04 (AMD64, i.e. x86-64)
 
     ./configure \
       --disable-static --prefix=/usr \
       --sysconfdir=/etc --libdir=/usr/lib/x86_64-linux-gnu \
       --libexecdir=/usr/lib/NetworkManager \
       --runstatedir=/run \
-      --enable-libreswan-dh2 \
-      --with-pppd-plugin-dir=/usr/lib/pppd/2.4.7
+      --with-pppd-plugin-dir=/usr/lib/pppd/2.4.9
 
-#### Fedora 35 (x86-64)
+#### Fedora 36 (x86-64)
 
     ./configure \
       --disable-static --prefix=/usr \
       --sysconfdir=/etc --libdir=/usr/lib64 \
-      --localstatedir=/var \
+      --runstatedir=/run \
+      --with-gtk4 \
       --with-pppd-plugin-dir=/usr/lib64/pppd/2.4.9
 
 #### Red Hat Enterprise Linux 8 (x86-64)
