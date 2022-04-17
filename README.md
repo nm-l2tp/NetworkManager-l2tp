@@ -63,6 +63,7 @@ please visit the Wiki :
     - [Debian and Ubuntu](#debian-and-ubuntu-2)
     - [Fedora and Red Hat Enterprise Linux](#fedora-and-red-hat-enterprise-linux-2)
     - [openSUSE](#opensuse-2)
+- [Libreswan no longer supports IKEv1 packets by default](#libreswan-no-longer-supports-ikev1-packets-by-default)
 - [Issue with blacklisting of L2TP kernel modules](#issue-with-blacklisting-of-l2tp-kernel-modules)
 - [L2TP connection issues with UDP source port 1701](#l2tp-connection-issues-with-udp-source-port-1701)
   - [Unable to establish L2TP connection without UDP source port 1701](#unable-to-establish-l2tp-connection-without-udp-source-port-1701)
@@ -256,6 +257,18 @@ and LEVEL is: -1|0|1|2|3|4
 
 #### openSUSE
     sudo CHARONDEBUG="knl 1, ike 2, esp 2, lib 1, cfg 3" /usr/lib/nm-l2tp-service --debug
+
+## Libreswan no longer supports IKEv1 packets by default
+
+On some later Linux distributions, Libreswan no longer supports IKEv1 packets
+by default, the following error occurs if this is the case :
+
+```
+failed to add IKEv1 connection: global ikev1-policy does not allow IKEv1 connections
+```
+
+To re-enable IKEv1, add `ikev1-policy=accept` to the `config setup` section of
+`/etc/ipsec.conf`
 
 ## Issue with blacklisting of L2TP kernel modules
 
