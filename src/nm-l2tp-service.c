@@ -946,9 +946,7 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         }
 
         write_config_option(fd, "  left=%%defaultroute\n");
-        if (use_ephemeral_port) {
-            write_config_option(fd, "  leftprotoport=udp/%%any\n");
-        } else {
+        if (!use_ephemeral_port) {
             write_config_option(fd, "  leftprotoport=udp/l2tp\n");
         }
         if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN
