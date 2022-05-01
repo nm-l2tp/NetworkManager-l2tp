@@ -1803,7 +1803,10 @@ handle_set_ip4_config(NMDBusL2tpPpp *        object,
     /* Insert the external VPN gateway into the table, which the pppd plugin
      * simply doesn't know about.
      */
-    g_variant_builder_add(&builder, "{sv}", NM_L2TP_KEY_GATEWAY, g_variant_new_uint32(priv->naddr));
+    g_variant_builder_add(&builder,
+                          "{sv}",
+                          NM_VPN_PLUGIN_CONFIG_EXT_GATEWAY,
+                          g_variant_new_uint32(priv->naddr));
     new_config = g_variant_builder_end(&builder);
     g_variant_ref_sink(new_config);
 
