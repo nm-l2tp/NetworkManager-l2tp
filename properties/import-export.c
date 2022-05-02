@@ -220,9 +220,8 @@ import_ip4(GKeyFile *keyfile, NMSettingIPConfig *s_ip4, GError **error)
     if (g_key_file_has_key(keyfile, IP4_SECTION, NM_SETTING_IP_CONFIG_ROUTES, error)) {
         char **        routes;
         gsize          length;
-        struct in_addr dest, next_hop = {
-                                 0,
-                             };
+        struct in_addr dest = {0};
+        struct in_addr next_hop = {0};
 
         routes = g_key_file_get_string_list(keyfile,
                                             IP4_SECTION,
@@ -252,7 +251,7 @@ import_ip4(GKeyFile *keyfile, NMSettingIPConfig *s_ip4, GError **error)
             *(ptr) = '\0'; /* terminate dest_s */
             ptr++;
 
-            if (!inet_aton(dest_s, &dest)) {
+            if (!inet_pton(AF_INET, dest_s, &dest)) {
                 ip4_route_import_error(error,
                                        _("Property '%s' value '%s' can't be parsed as IP address."),
                                        dest_s,
@@ -290,7 +289,7 @@ import_ip4(GKeyFile *keyfile, NMSettingIPConfig *s_ip4, GError **error)
                     *ptr = '\0'; /* terminate next_hop */
                     ptr++;
                 }
-                if (!inet_aton(next_hop_s, &next_hop)) {
+                if (!inet_pton(AF_INET, next_hop_s, &next_hop)) {
                     ip4_route_import_error(
                         error,
                         _("Property '%s' value '%s' can't be parsed as IP address."),
