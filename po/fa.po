@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-l2tp master\n"
+"Project-Id-Version: NetworkManager-l2tp main\n"
 "Report-Msgid-Bugs-To: https://gitlab.freedesktop.org/NetworkManager/"
 "NetworkManager/issues\n"
-"POT-Creation-Date: 2022-04-16 09:33+1000\n"
+"POT-Creation-Date: 2022-05-02 16:00+1000\n"
 "PO-Revision-Date: 2010-10-20 23:48+0330\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: Persian\n"
@@ -17,31 +17,31 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: appdata/network-manager-l2tp.metainfo.xml.in:9
+#: appdata/network-manager-l2tp.metainfo.xml.in:10
 msgid "L2TP VPN Client"
 msgstr ""
 
-#: appdata/network-manager-l2tp.metainfo.xml.in:10
+#: appdata/network-manager-l2tp.metainfo.xml.in:11
 msgid "Client for L2TP based virtual private networks"
 msgstr ""
 
-#: appdata/network-manager-l2tp.metainfo.xml.in:22
+#: appdata/network-manager-l2tp.metainfo.xml.in:23
 msgid "Support for configuring L2TP based virtual private network connections."
 msgstr ""
 
-#: appdata/network-manager-l2tp.metainfo.xml.in:23
+#: appdata/network-manager-l2tp.metainfo.xml.in:24
 msgid "Compatible with L2TP and L2TP over IPsec services."
 msgstr ""
 
-#: appdata/network-manager-l2tp.metainfo.xml.in:32
+#: appdata/network-manager-l2tp.metainfo.xml.in:33
 msgid "The IPsec options dialog"
 msgstr ""
 
-#: appdata/network-manager-l2tp.metainfo.xml.in:37
+#: appdata/network-manager-l2tp.metainfo.xml.in:38
 msgid "The PPP options dialog"
 msgstr ""
 
-#: appdata/network-manager-l2tp.metainfo.xml.in:46
+#: appdata/network-manager-l2tp.metainfo.xml.in:47
 msgid "The NetworkManager-L2TP Developers"
 msgstr ""
 
@@ -83,7 +83,7 @@ msgstr ""
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr ""
 
-#: properties/import-export.c:161 properties/import-export.c:410
+#: properties/import-export.c:161 properties/import-export.c:409
 #, c-format
 msgid "Required property %s missing"
 msgstr ""
@@ -93,57 +93,57 @@ msgstr ""
 msgid "Property %s value '%s' can't be parsed as boolean."
 msgstr ""
 
-#: properties/import-export.c:247
+#: properties/import-export.c:246
 #, c-format
 msgid "Property '%s' value '%s' couldn't find netmask."
 msgstr ""
 
-#: properties/import-export.c:257 properties/import-export.c:296
+#: properties/import-export.c:256 properties/import-export.c:295
 #, c-format
 msgid "Property '%s' value '%s' can't be parsed as IP address."
 msgstr ""
 
-#: properties/import-export.c:274
+#: properties/import-export.c:273
 #, c-format
 msgid "Property '%s' value '%s' can't be parsed as IP netmask."
 msgstr ""
 
-#: properties/import-export.c:321
+#: properties/import-export.c:320
 #, c-format
 msgid "Property '%s' value '%s' can't be parsed as route metric."
 msgstr ""
 
-#: properties/import-export.c:331
+#: properties/import-export.c:330
 #, c-format
 msgid "Error parsing property '%s' value '%s'."
 msgstr ""
 
-#: properties/import-export.c:343
+#: properties/import-export.c:342
 #, c-format
 msgid "Error parsing property '%s': %s."
 msgstr ""
 
-#: properties/import-export.c:377
+#: properties/import-export.c:376
 msgid "does not look like a L2TP VPN connection (parse failed)"
 msgstr ""
 
-#: properties/import-export.c:428
+#: properties/import-export.c:427
 #, c-format
 msgid "Property %s can't be parsed as integer."
 msgstr ""
 
-#: properties/import-export.c:446
+#: properties/import-export.c:445
 #, c-format
 msgid ""
 "Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."
 msgstr ""
 
-#: properties/import-export.c:615
+#: properties/import-export.c:614
 #, c-format
 msgid "Missing required property '%s'"
 msgstr ""
 
-#: properties/import-export.c:642
+#: properties/import-export.c:641
 msgid "Couldn't open file for writing."
 msgstr ""
 
@@ -809,91 +809,91 @@ msgstr ""
 msgid "Could not write ipsec config"
 msgstr ""
 
-#: src/nm-l2tp-service.c:984
+#: src/nm-l2tp-service.c:982
 msgid "Machine certificate file not supplied"
 msgstr ""
 
-#: src/nm-l2tp-service.c:1098
+#: src/nm-l2tp-service.c:1096
 msgid "Could not write kl2tpd config."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1118
+#: src/nm-l2tp-service.c:1116
 msgid "Could not write xl2tpd config."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1156
+#: src/nm-l2tp-service.c:1154
 msgid "Could not write ppp options."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1440 src/nm-l2tp-service.c:1468
+#: src/nm-l2tp-service.c:1438 src/nm-l2tp-service.c:1466
 msgid "Could not start the ipsec service."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1446 src/nm-l2tp-service.c:1479
+#: src/nm-l2tp-service.c:1444 src/nm-l2tp-service.c:1477
 msgid "Could not restart the ipsec service."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1609
+#: src/nm-l2tp-service.c:1608
 msgid "Could not find kl2tpd or xl2tpd binaries."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1719
+#: src/nm-l2tp-service.c:1718
 msgid "Missing or invalid VPN user certificate password."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1737
+#: src/nm-l2tp-service.c:1736
 msgid "Missing VPN username."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1746
+#: src/nm-l2tp-service.c:1745
 msgid "Missing or invalid VPN password."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1848
+#: src/nm-l2tp-service.c:1850
 msgid "couldn't convert L2TP VPN gateway IP address."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1861
+#: src/nm-l2tp-service.c:1863
 msgid "couldn't look up L2TP VPN gateway IP address "
 msgstr ""
 
-#: src/nm-l2tp-service.c:1879
+#: src/nm-l2tp-service.c:1881
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr ""
 
-#: src/nm-l2tp-service.c:1907
+#: src/nm-l2tp-service.c:1909
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 
-#: src/nm-l2tp-service.c:1915
+#: src/nm-l2tp-service.c:1917
 msgid "Openswan is no longer supported, use Libreswan or strongSwan."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1918
+#: src/nm-l2tp-service.c:1920
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1930
+#: src/nm-l2tp-service.c:1932
 msgid "could not retrieve connection UUID"
 msgstr ""
 
-#: src/nm-l2tp-service.c:1938
+#: src/nm-l2tp-service.c:1940
 msgid "Invalid or missing L2TP gateway."
 msgstr ""
 
-#: src/nm-l2tp-service.c:2308
+#: src/nm-l2tp-service.c:2310
 msgid "Don't quit when VPN connection terminates"
 msgstr ""
 
-#: src/nm-l2tp-service.c:2315
+#: src/nm-l2tp-service.c:2317
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr ""
 
-#: src/nm-l2tp-service.c:2322
+#: src/nm-l2tp-service.c:2324
 msgid "D-Bus name to use for this instance"
 msgstr ""
 
-#: src/nm-l2tp-service.c:2341
+#: src/nm-l2tp-service.c:2343
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."

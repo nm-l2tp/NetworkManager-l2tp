@@ -1,4 +1,4 @@
-# translation of NetworkManager-l2tp.master.ru.po to Russian
+# translation of NetworkManager-l2tp.main.ru.po to Russian
 # Russian translation of NetworkManager-l2tp
 # Copyright (C) Free Software Foundation, 2005
 # This file is distributed under the same license as NetworkManager-l2tp.
@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: NetworkManager-l2tp trunk\n"
 "Report-Msgid-Bugs-To: https://gitlab.freedesktop.org/NetworkManager/"
 "NetworkManager/issues\n"
-"POT-Creation-Date: 2022-04-16 09:33+1000\n"
+"POT-Creation-Date: 2022-05-02 16:00+1000\n"
 "PO-Revision-Date: 2021-11-22 09:54+0300\n"
 "Last-Translator: Sergey Kazorin <translation-team@basealt.ru>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
@@ -24,37 +24,37 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 19.12.3\n"
 
-#: appdata/network-manager-l2tp.metainfo.xml.in:9
+#: appdata/network-manager-l2tp.metainfo.xml.in:10
 msgid "L2TP VPN Client"
 msgstr "Клиент L2TP VPN"
 
-#: appdata/network-manager-l2tp.metainfo.xml.in:10
+#: appdata/network-manager-l2tp.metainfo.xml.in:11
 msgid "Client for L2TP based virtual private networks"
 msgstr "Клиент для виртуальных частных сетей на основе протокола L2TP"
 
-#: appdata/network-manager-l2tp.metainfo.xml.in:22
+#: appdata/network-manager-l2tp.metainfo.xml.in:23
 msgid "Support for configuring L2TP based virtual private network connections."
 msgstr ""
 "Помощь в настройке параметров соединений виртуальных частных сетей наоснове "
 "протокола L2TP."
 
-#: appdata/network-manager-l2tp.metainfo.xml.in:23
+#: appdata/network-manager-l2tp.metainfo.xml.in:24
 msgid "Compatible with L2TP and L2TP over IPsec services."
 msgstr "Совместим со службами L2TP и L2TP через IPsec."
 
-#: appdata/network-manager-l2tp.metainfo.xml.in:32
+#: appdata/network-manager-l2tp.metainfo.xml.in:33
 msgid "The IPsec options dialog"
 msgstr "Диалоговое окно настройки параметров IPsec"
 
-#: appdata/network-manager-l2tp.metainfo.xml.in:37
+#: appdata/network-manager-l2tp.metainfo.xml.in:38
 msgid "The PPP options dialog"
 msgstr "Диалоговое окно настройки параметров PPP"
 
-#: appdata/network-manager-l2tp.metainfo.xml.in:46
+#: appdata/network-manager-l2tp.metainfo.xml.in:47
 msgid "The NetworkManager-L2TP Developers"
 msgstr "Разработчики NetworkManager-L2TP"
 
@@ -96,7 +96,7 @@ msgstr "_Пароль сертификата компьютера:"
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr "Для доступа к виртуальной частной сети «%s» требуется аутентификация."
 
-#: properties/import-export.c:161 properties/import-export.c:410
+#: properties/import-export.c:161 properties/import-export.c:409
 #, c-format
 msgid "Required property %s missing"
 msgstr "Отсутствует необходимое свойство %s"
@@ -107,48 +107,48 @@ msgid "Property %s value '%s' can't be parsed as boolean."
 msgstr ""
 "Свойство %s, значение «%s» — не удалось обработать как логическое значение."
 
-#: properties/import-export.c:247
+#: properties/import-export.c:246
 #, c-format
 msgid "Property '%s' value '%s' couldn't find netmask."
 msgstr "Свойство «%s», значение «%s» — не удалось найти маску сети."
 
-#: properties/import-export.c:257 properties/import-export.c:296
+#: properties/import-export.c:256 properties/import-export.c:295
 #, c-format
 msgid "Property '%s' value '%s' can't be parsed as IP address."
 msgstr "Свойство «%s», значение «%s» — не удалось обработать как IP-адрес."
 
-#: properties/import-export.c:274
+#: properties/import-export.c:273
 #, c-format
 msgid "Property '%s' value '%s' can't be parsed as IP netmask."
 msgstr ""
 "Свойство «%s», значение «%s» — не удалось обработать как IP-адрес маски сети."
 
-#: properties/import-export.c:321
+#: properties/import-export.c:320
 #, c-format
 msgid "Property '%s' value '%s' can't be parsed as route metric."
 msgstr ""
 "Свойство «%s», значение «%s» — не удалось обработать как метрику маршрута."
 
-#: properties/import-export.c:331
+#: properties/import-export.c:330
 #, c-format
 msgid "Error parsing property '%s' value '%s'."
 msgstr ""
 
-#: properties/import-export.c:343
+#: properties/import-export.c:342
 #, c-format
 msgid "Error parsing property '%s': %s."
 msgstr ""
 
-#: properties/import-export.c:377
+#: properties/import-export.c:376
 msgid "does not look like a L2TP VPN connection (parse failed)"
 msgstr "не является соединением L2TP VPN (обработать не удалось)"
 
-#: properties/import-export.c:428
+#: properties/import-export.c:427
 #, c-format
 msgid "Property %s can't be parsed as integer."
 msgstr "Свойство %s не удалось обработать как целочисленное значение."
 
-#: properties/import-export.c:446
+#: properties/import-export.c:445
 #, c-format
 msgid ""
 "Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."
@@ -156,12 +156,12 @@ msgstr ""
 "Свойство %s не удалось обработать как логическое значение. Допускаются "
 "только значения «истина» и «ложь»."
 
-#: properties/import-export.c:615
+#: properties/import-export.c:614
 #, c-format
 msgid "Missing required property '%s'"
 msgstr "Отсутствует требуемый параметр «%s»."
 
-#: properties/import-export.c:642
+#: properties/import-export.c:641
 msgid "Couldn't open file for writing."
 msgstr "Не удалось открыть файл для записи."
 
@@ -904,96 +904,96 @@ msgstr "Не предоставлен файл закрытого ключа к�
 msgid "Could not write ipsec config"
 msgstr "Не удалось записать конфигурацию ipsec"
 
-#: src/nm-l2tp-service.c:984
+#: src/nm-l2tp-service.c:982
 msgid "Machine certificate file not supplied"
 msgstr "Не предоставлен сертификат компьютера"
 
-#: src/nm-l2tp-service.c:1098
+#: src/nm-l2tp-service.c:1096
 msgid "Could not write kl2tpd config."
 msgstr "Не удалось записать конфигурацию xl2tpd."
 
-#: src/nm-l2tp-service.c:1118
+#: src/nm-l2tp-service.c:1116
 msgid "Could not write xl2tpd config."
 msgstr "Не удалось записать конфигурацию xl2tpd."
 
-#: src/nm-l2tp-service.c:1156
+#: src/nm-l2tp-service.c:1154
 msgid "Could not write ppp options."
 msgstr "Не удалось записать параметры ppp."
 
-#: src/nm-l2tp-service.c:1440 src/nm-l2tp-service.c:1468
+#: src/nm-l2tp-service.c:1438 src/nm-l2tp-service.c:1466
 msgid "Could not start the ipsec service."
 msgstr "Не удалось запустить службу ipsec."
 
-#: src/nm-l2tp-service.c:1446 src/nm-l2tp-service.c:1479
+#: src/nm-l2tp-service.c:1444 src/nm-l2tp-service.c:1477
 msgid "Could not restart the ipsec service."
 msgstr "Не удалось перезапустить службу ipsec."
 
-#: src/nm-l2tp-service.c:1609
+#: src/nm-l2tp-service.c:1608
 msgid "Could not find kl2tpd or xl2tpd binaries."
 msgstr "Не удалось найти двоичные файлы kl2tpd или xl2tpd."
 
-#: src/nm-l2tp-service.c:1719
+#: src/nm-l2tp-service.c:1718
 msgid "Missing or invalid VPN user certificate password."
 msgstr "Отсутствует или недопустим пароль сертификата пользователя VPN."
 
-#: src/nm-l2tp-service.c:1737
+#: src/nm-l2tp-service.c:1736
 msgid "Missing VPN username."
 msgstr "Отсутствует имя пользователя VPN."
 
-#: src/nm-l2tp-service.c:1746
+#: src/nm-l2tp-service.c:1745
 msgid "Missing or invalid VPN password."
 msgstr "Отсутствует или недопустим пароль VPN."
 
-#: src/nm-l2tp-service.c:1848
+#: src/nm-l2tp-service.c:1850
 msgid "couldn't convert L2TP VPN gateway IP address."
 msgstr "не удалось преобразовать IP-адрес шлюза L2TP VPN."
 
-#: src/nm-l2tp-service.c:1861
+#: src/nm-l2tp-service.c:1863
 msgid "couldn't look up L2TP VPN gateway IP address "
 msgstr "не удалось найти IP-адрес шлюза L2TP VPN"
 
-#: src/nm-l2tp-service.c:1879
+#: src/nm-l2tp-service.c:1881
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr "не возвращены используемые адреса для шлюза L2TP VPN"
 
-#: src/nm-l2tp-service.c:1907
+#: src/nm-l2tp-service.c:1909
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 "Не удалось найти двоичный файл ipsec. Было ли установлено приложение "
 "Libreswan или strongSwan?"
 
-#: src/nm-l2tp-service.c:1915
+#: src/nm-l2tp-service.c:1917
 msgid "Openswan is no longer supported, use Libreswan or strongSwan."
 msgstr ""
 "Приложение Openswan больше не поддерживается, пользуйтесь приложениями "
 "Libreswan или strongSwan."
 
-#: src/nm-l2tp-service.c:1918
+#: src/nm-l2tp-service.c:1920
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr "Не удалось обнаружить ни Libreswan, ни strongSwan."
 
-#: src/nm-l2tp-service.c:1930
+#: src/nm-l2tp-service.c:1932
 msgid "could not retrieve connection UUID"
 msgstr "не удалось получить идентификатор UUID подключения"
 
-#: src/nm-l2tp-service.c:1938
+#: src/nm-l2tp-service.c:1940
 msgid "Invalid or missing L2TP gateway."
 msgstr "Шлюз L2TP недействителен или отсутствует."
 
-#: src/nm-l2tp-service.c:2308
+#: src/nm-l2tp-service.c:2310
 msgid "Don't quit when VPN connection terminates"
 msgstr "Не завершать работу при отключении VPN"
 
-#: src/nm-l2tp-service.c:2315
+#: src/nm-l2tp-service.c:2317
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr ""
 "Включить ведение подробного журнала отладки (могут отображаться пароли)"
 
-#: src/nm-l2tp-service.c:2322
+#: src/nm-l2tp-service.c:2324
 msgid "D-Bus name to use for this instance"
 msgstr "Имя D-Bus для использования в этом экземпляре"
 
-#: src/nm-l2tp-service.c:2341
+#: src/nm-l2tp-service.c:2343
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
