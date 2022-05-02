@@ -1,4 +1,14 @@
 ==========================================================
+NetworkManager-l2tp-1.20.4
+Overview of changes since NetworkManager-l2tp-1.20.2
+==========================================================
+
+Changes:
+* Security fix for properly detecting that strongswan CHILD_SA connection
+  has been estabilished.
+* Fix for libreswan cannot route template policy error.
+
+==========================================================
 NetworkManager-l2tp-1.20.2
 Overview of changes since NetworkManager-l2tp-1.20.0
 ==========================================================
