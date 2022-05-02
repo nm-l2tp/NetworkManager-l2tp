@@ -1,8 +1,8 @@
 AC_PREREQ(2.59)
 
 AC_INIT(NetworkManager-l2tp,
-        1.0.12,
-        https://github.com/nm-l2tp/network-manager-l2tp/issues,
+        1.0.14,
+        https://github.com/nm-l2tp/NetworkManager-l2tp/issues,
         NetworkManager-l2tp)
 AM_INIT_AUTOMAKE([1.9 foreign no-dist-gzip dist-bzip2 subdir-objects])
 AM_MAINTAINER_MODE
