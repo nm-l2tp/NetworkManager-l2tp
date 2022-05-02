@@ -1,4 +1,4 @@
-# Basque translation of network-manager-l2tp.
+# Basque translation of NetworkManager-l2tp.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
@@ -7,18 +7,18 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-l2tp master\n"
+"Project-Id-Version: NetworkManager-l2tp main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-04 19:48+1000\n"
-"PO-Revision-Date: 2014-11-19 16:39+0100\n"
+"POT-Creation-Date: 2022-05-02 12:00+1000\n"
+"PO-Revision-Date: 2015-02-07 18:01+0100\n"
 "Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@zundan.com>\n"
 "Language-Team: Basque <librezale@librezale.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.10\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.4\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
 msgid "L2TP VPN Client"
@@ -124,7 +124,7 @@ msgstr ""
 #: ../properties/nm-l2tp-editor.c:549
 #, c-format
 msgid "could not load UI widget"
-msgstr ""
+msgstr "ezin izan da interfazearen trepeta kargatu"
 
 #: ../properties/nm-l2tp-editor-plugin.c:34
 msgid "Layer 2 Tunneling Protocol (L2TP)"
@@ -194,136 +194,136 @@ msgstr "ezin da %s fabrika kargatu pluginetik: %s"
 msgid "unknown error creating editor instance"
 msgstr "errore ezezaguna editore-instantzia sortzean"
 
-#: ../src/nm-l2tp-service.c:279
+#: ../src/nm-l2tp-service.c:288
 #, c-format
 msgid "invalid gateway '%s'"
 msgstr "Baliogabeko '%s' atebidea"
 
-#: ../src/nm-l2tp-service.c:293
+#: ../src/nm-l2tp-service.c:302
 #, c-format
 msgid "invalid integer property '%s'"
 msgstr "baliogabeko '%s' propietatearen zenbaki osokoa"
 
-#: ../src/nm-l2tp-service.c:303
+#: ../src/nm-l2tp-service.c:312
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr "baliogabeko '%s' propietatearen boolearra (ez bai/ez)"
 
-#: ../src/nm-l2tp-service.c:310
+#: ../src/nm-l2tp-service.c:319
 #, c-format
 msgid "unhandled property '%s' type %s"
 msgstr "kudeatu gabeko '%s' propietatearen '%s' mota"
 
-#: ../src/nm-l2tp-service.c:321
+#: ../src/nm-l2tp-service.c:330
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "'%s' propietatea baliogabea edo ez dago onartuta"
 
-#: ../src/nm-l2tp-service.c:339
+#: ../src/nm-l2tp-service.c:348
 msgid "No VPN configuration options."
 msgstr "Ez dago VPNaren konfigurazioaren aukerarik."
 
-#: ../src/nm-l2tp-service.c:359
+#: ../src/nm-l2tp-service.c:368
 #, c-format
 msgid "Missing required option '%s'."
 msgstr "Beharrezko '%s' aukera falta da."
 
-#: ../src/nm-l2tp-service.c:379
+#: ../src/nm-l2tp-service.c:388
 msgid "No VPN secrets!"
 msgstr "Ez dago VPNaren ezkutukorik."
 
-#: ../src/nm-l2tp-service.c:628
+#: ../src/nm-l2tp-service.c:637
 #, c-format
 msgid "Could not open %s for writing: %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:635
+#: ../src/nm-l2tp-service.c:644
 #, c-format
 msgid "Could not append \"include ipsec.d/ipsec.nm-l2tp.secrets\" to %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:651
+#: ../src/nm-l2tp-service.c:660
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:691
+#: ../src/nm-l2tp-service.c:700
 msgid "Could not write ipsec config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:815
+#: ../src/nm-l2tp-service.c:824
 msgid "Could not write xl2tpd config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:857
+#: ../src/nm-l2tp-service.c:866
 msgid "Could not write ppp options."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1015 ../src/nm-l2tp-service.c:1040
+#: ../src/nm-l2tp-service.c:1024 ../src/nm-l2tp-service.c:1049
 msgid "Could not start the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1021 ../src/nm-l2tp-service.c:1048
+#: ../src/nm-l2tp-service.c:1030 ../src/nm-l2tp-service.c:1057
 msgid "Could not restart the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1159
+#: ../src/nm-l2tp-service.c:1168
 msgid "Could not find the xl2tpd binary."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1225
+#: ../src/nm-l2tp-service.c:1234
 msgid "Missing VPN username."
 msgstr "VPN-aren erabiltzaile-izena falta da."
 
-#: ../src/nm-l2tp-service.c:1234
+#: ../src/nm-l2tp-service.c:1243
 msgid "Missing or invalid VPN password."
 msgstr "VPN-aren pasahitza falta da, edo baliogabea da."
 
-#: ../src/nm-l2tp-service.c:1337
+#: ../src/nm-l2tp-service.c:1346
 msgid "couldn't convert L2TP VPN gateway IP address."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1350
+#: ../src/nm-l2tp-service.c:1359
 msgid "couldn't look up L2TP VPN gateway IP address "
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1369
+#: ../src/nm-l2tp-service.c:1378
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1404
+#: ../src/nm-l2tp-service.c:1413
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1410
+#: ../src/nm-l2tp-service.c:1419
 msgid "Openswan is no longer supported, use Libreswan or strongSwan."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1412
+#: ../src/nm-l2tp-service.c:1421
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1421
+#: ../src/nm-l2tp-service.c:1430
 msgid "could not retrieve connection UUID"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1429
+#: ../src/nm-l2tp-service.c:1438
 msgid "Invalid or missing L2TP gateway."
 msgstr "L2TP-ren atebidea falta da, edo baliogabea da."
 
-#: ../src/nm-l2tp-service.c:1723
+#: ../src/nm-l2tp-service.c:1732
 msgid "Don't quit when VPN connection terminates"
 msgstr "Ez irten VPNaren konexioa amaitzean"
 
-#: ../src/nm-l2tp-service.c:1724
+#: ../src/nm-l2tp-service.c:1733
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Gaitu arazketaren erregistro xehea (pasahitzak erakuts ditzake)"
 
-#: ../src/nm-l2tp-service.c:1725
+#: ../src/nm-l2tp-service.c:1734
 msgid "D-Bus name to use for this instance"
 msgstr "Instantzia honetan erabiliko den D-Bus izena"
 
-#: ../src/nm-l2tp-service.c:1746
+#: ../src/nm-l2tp-service.c:1755
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
@@ -398,11 +398,11 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:19
 msgid "Machine Authentication"
-msgstr ""
+msgstr "Makinaren autentifikazioa"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "Sho_w password"
-msgstr ""
+msgstr "Erakutsi _pasahitza"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid ""
@@ -447,10 +447,6 @@ msgstr ""
 msgid "(HH:MM)"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:33
-msgid "Phase_2 Lifetime:"
-msgstr ""
-
 #: ../properties/nm-l2tp-dialog.ui.h:34
 msgid ""
 "How long a particular instance of a connection (a set of encryption/"
@@ -465,7 +461,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:37
 msgid "Remote ID:"
-msgstr ""
+msgstr "Urrutiko ID:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:38
 msgid ""
@@ -476,10 +472,6 @@ msgid ""
 "parsing.\n"
 "config: ipsec-remote-id <rightid>\n"
 "ipsec.secrets: <ID>"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:41
-msgid "Phase_1 Lifetime:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:42
@@ -527,7 +519,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:54
 msgid "Ad_vanced"
-msgstr "Aurreratua"
+msgstr "_Aurreratua"
 
 #: ../properties/nm-l2tp-dialog.ui.h:55
 msgid "Default"
@@ -674,7 +666,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:89
 msgid "Misc"
-msgstr ""
+msgstr "Hainbat"
 
 #: ../properties/nm-l2tp-dialog.ui.h:90
 msgid "MTU :"

@@ -1,22 +1,23 @@
-# Croatian translation for network-manager-l2tp
-# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
-# This file is distributed under the same license as the network-manager-l2tp package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+# Croatian translation for NetworkManager-l2tp.
+# Copyright (C) 2018 NetworkManager-l2tp's COPYRIGHT HOLDER
+# This file is distributed under the same license as the NetworkManager-l2tp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-l2tp\n"
+"Project-Id-Version: NetworkManager-l2tp main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-04 19:48+1000\n"
-"PO-Revision-Date: 2017-05-09 23:43+0200\n"
-"Last-Translator: gogo <trebelnik2@gmail.com>\n"
+"POT-Creation-Date: 2022-05-02 12:00+1000\n"
+"PO-Revision-Date: 2018-09-19 15:23+0200\n"
+"Last-Translator: \n"
 "Language-Team: Croatian <hr@li.org>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-04-09 22:48+0000\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 2.1.1\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
 msgid "L2TP VPN Client"
@@ -46,17 +47,9 @@ msgstr ""
 msgid "The NetworkManager-L2TP Developers"
 msgstr ""
 
-#. Otherwise, we have no saved password, or the password flags indicated
-#. * that the password should never be saved.
-#.
-#: ../auth-dialog/main.c:146
-#, c-format
-msgid "You need to authenticate to access the Virtual Private Network '%s'."
-msgstr ""
-
 #: ../auth-dialog/main.c:155 ../auth-dialog/main.c:176
 msgid "Authenticate VPN"
-msgstr "Ovjeri VPM"
+msgstr "Ovjeri VPN"
 
 #: ../auth-dialog/main.c:157 ../properties/nm-l2tp-dialog.ui.h:12
 msgid "Password:"
@@ -194,136 +187,136 @@ msgstr "nemoguče učitavanje tvorničkog %s iz priključka: %s"
 msgid "unknown error creating editor instance"
 msgstr "nepoznata greška stvaranja primjerka uređivača"
 
-#: ../src/nm-l2tp-service.c:279
+#: ../src/nm-l2tp-service.c:288
 #, c-format
 msgid "invalid gateway '%s'"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:293
+#: ../src/nm-l2tp-service.c:302
 #, c-format
 msgid "invalid integer property '%s'"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:303
+#: ../src/nm-l2tp-service.c:312
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:310
+#: ../src/nm-l2tp-service.c:319
 #, c-format
 msgid "unhandled property '%s' type %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:321
+#: ../src/nm-l2tp-service.c:330
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:339
+#: ../src/nm-l2tp-service.c:348
 msgid "No VPN configuration options."
 msgstr "Nema mogućnosti VPN podešavanja."
 
-#: ../src/nm-l2tp-service.c:359
+#: ../src/nm-l2tp-service.c:368
 #, c-format
 msgid "Missing required option '%s'."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:379
+#: ../src/nm-l2tp-service.c:388
 msgid "No VPN secrets!"
 msgstr "Nema VPN tajni!"
 
-#: ../src/nm-l2tp-service.c:628
+#: ../src/nm-l2tp-service.c:637
 #, c-format
 msgid "Could not open %s for writing: %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:635
+#: ../src/nm-l2tp-service.c:644
 #, c-format
 msgid "Could not append \"include ipsec.d/ipsec.nm-l2tp.secrets\" to %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:651
+#: ../src/nm-l2tp-service.c:660
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:691
+#: ../src/nm-l2tp-service.c:700
 msgid "Could not write ipsec config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:815
+#: ../src/nm-l2tp-service.c:824
 msgid "Could not write xl2tpd config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:857
+#: ../src/nm-l2tp-service.c:866
 msgid "Could not write ppp options."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1015 ../src/nm-l2tp-service.c:1040
+#: ../src/nm-l2tp-service.c:1024 ../src/nm-l2tp-service.c:1049
 msgid "Could not start the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1021 ../src/nm-l2tp-service.c:1048
+#: ../src/nm-l2tp-service.c:1030 ../src/nm-l2tp-service.c:1057
 msgid "Could not restart the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1159
+#: ../src/nm-l2tp-service.c:1168
 msgid "Could not find the xl2tpd binary."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1225
+#: ../src/nm-l2tp-service.c:1234
 msgid "Missing VPN username."
 msgstr "Nedostaje VPN korisničko ime."
 
-#: ../src/nm-l2tp-service.c:1234
+#: ../src/nm-l2tp-service.c:1243
 msgid "Missing or invalid VPN password."
 msgstr "VPN lozinka nedostaje ili je neispravna."
 
-#: ../src/nm-l2tp-service.c:1337
+#: ../src/nm-l2tp-service.c:1346
 msgid "couldn't convert L2TP VPN gateway IP address."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1350
+#: ../src/nm-l2tp-service.c:1359
 msgid "couldn't look up L2TP VPN gateway IP address "
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1369
+#: ../src/nm-l2tp-service.c:1378
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1404
+#: ../src/nm-l2tp-service.c:1413
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1410
+#: ../src/nm-l2tp-service.c:1419
 msgid "Openswan is no longer supported, use Libreswan or strongSwan."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1412
+#: ../src/nm-l2tp-service.c:1421
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1421
+#: ../src/nm-l2tp-service.c:1430
 msgid "could not retrieve connection UUID"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1429
+#: ../src/nm-l2tp-service.c:1438
 msgid "Invalid or missing L2TP gateway."
 msgstr "Pogrešan ili nedostajuć L2TP pristupnik."
 
-#: ../src/nm-l2tp-service.c:1723
+#: ../src/nm-l2tp-service.c:1732
 msgid "Don't quit when VPN connection terminates"
-msgstr ""
+msgstr "Ne zatvaraj kada se VPN povezivanje prekida"
 
-#: ../src/nm-l2tp-service.c:1724
+#: ../src/nm-l2tp-service.c:1733
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Omogući opširno zapisivanje otklanjanja grešaka (može otkriti lozinke)"
 
-#: ../src/nm-l2tp-service.c:1725
+#: ../src/nm-l2tp-service.c:1734
 msgid "D-Bus name to use for this instance"
 msgstr "D-Bus naziv za korištenje s ovim primjerkom"
 
-#: ../src/nm-l2tp-service.c:1746
+#: ../src/nm-l2tp-service.c:1755
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
@@ -402,7 +395,7 @@ msgstr "Autorizacija uređaja"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "Sho_w password"
-msgstr ""
+msgstr "Pri_kaži lozinku"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid ""
@@ -447,10 +440,6 @@ msgstr ""
 msgid "(HH:MM)"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:33
-msgid "Phase_2 Lifetime:"
-msgstr ""
-
 #: ../properties/nm-l2tp-dialog.ui.h:34
 msgid ""
 "How long a particular instance of a connection (a set of encryption/"
@@ -476,10 +465,6 @@ msgid ""
 "parsing.\n"
 "config: ipsec-remote-id <rightid>\n"
 "ipsec.secrets: <ID>"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:41
-msgid "Phase_1 Lifetime:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:42
@@ -527,7 +512,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:54
 msgid "Ad_vanced"
-msgstr ""
+msgstr "_Napredno"
 
 #: ../properties/nm-l2tp-dialog.ui.h:55
 msgid "Default"

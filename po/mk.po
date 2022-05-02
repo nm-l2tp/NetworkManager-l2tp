@@ -1,15 +1,16 @@
-# translation of NetworkManager-l2tp.HEAD.po to Macedonian
+# translation of NetworkManager-l2tp.main.po to Macedonian
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Jovan Naumovski <jovan@lugola.net>, 2007.
+# Arangel Angov <arangel@linux.net.mk>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-l2tp.HEAD\n"
+"Project-Id-Version: NetworkManager-l2tp.main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-04 19:48+1000\n"
-"PO-Revision-Date: 2007-01-12 20:55+0100\n"
-"Last-Translator: Jovan Naumovski <jovan@lugola.net>\n"
+"POT-Creation-Date: 2022-05-02 12:00+1000\n"
+"PO-Revision-Date: 2007-12-02 18:53+0100\n"
+"Last-Translator: Arangel Angov <arangel@linux.net.mk>\n"
 "Language-Team: Macedonian <ossm-members@hedona.on.net.mk>\n"
 "Language: mk\n"
 "MIME-Version: 1.0\n"
@@ -57,11 +58,7 @@ msgstr ""
 
 #: ../auth-dialog/main.c:155 ../auth-dialog/main.c:176
 msgid "Authenticate VPN"
-msgstr "Потврди автентичност на VPN"
-
-#: ../auth-dialog/main.c:157 ../properties/nm-l2tp-dialog.ui.h:12
-msgid "Password:"
-msgstr ""
+msgstr "Потврди автентичност за виртуелна приватна мрежа"
 
 #: ../properties/ppp-dialog.c:172
 msgid "All Available (Default)"
@@ -77,23 +74,23 @@ msgstr ""
 
 #: ../properties/ppp-dialog.c:289
 msgid "PAP"
-msgstr ""
+msgstr "PAP"
 
 #: ../properties/ppp-dialog.c:302
 msgid "CHAP"
-msgstr ""
+msgstr "CHAP"
 
 #: ../properties/ppp-dialog.c:314
 msgid "MSCHAP"
-msgstr ""
+msgstr "MSCHAP"
 
 #: ../properties/ppp-dialog.c:326
 msgid "MSCHAPv2"
-msgstr ""
+msgstr "MSCHAPv2"
 
 #: ../properties/ppp-dialog.c:339
 msgid "EAP"
-msgstr ""
+msgstr "EAP"
 
 #: ../properties/nm-l2tp-editor.c:148
 #, c-format
@@ -190,136 +187,136 @@ msgstr ""
 msgid "unknown error creating editor instance"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:279
+#: ../src/nm-l2tp-service.c:288
 #, c-format
 msgid "invalid gateway '%s'"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:293
+#: ../src/nm-l2tp-service.c:302
 #, c-format
 msgid "invalid integer property '%s'"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:303
+#: ../src/nm-l2tp-service.c:312
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:310
+#: ../src/nm-l2tp-service.c:319
 #, c-format
 msgid "unhandled property '%s' type %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:321
+#: ../src/nm-l2tp-service.c:330
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:339
+#: ../src/nm-l2tp-service.c:348
 msgid "No VPN configuration options."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:359
+#: ../src/nm-l2tp-service.c:368
 #, c-format
 msgid "Missing required option '%s'."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:379
+#: ../src/nm-l2tp-service.c:388
 msgid "No VPN secrets!"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:628
+#: ../src/nm-l2tp-service.c:637
 #, c-format
 msgid "Could not open %s for writing: %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:635
+#: ../src/nm-l2tp-service.c:644
 #, c-format
 msgid "Could not append \"include ipsec.d/ipsec.nm-l2tp.secrets\" to %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:651
+#: ../src/nm-l2tp-service.c:660
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:691
+#: ../src/nm-l2tp-service.c:700
 msgid "Could not write ipsec config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:815
+#: ../src/nm-l2tp-service.c:824
 msgid "Could not write xl2tpd config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:857
+#: ../src/nm-l2tp-service.c:866
 msgid "Could not write ppp options."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1015 ../src/nm-l2tp-service.c:1040
+#: ../src/nm-l2tp-service.c:1024 ../src/nm-l2tp-service.c:1049
 msgid "Could not start the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1021 ../src/nm-l2tp-service.c:1048
+#: ../src/nm-l2tp-service.c:1030 ../src/nm-l2tp-service.c:1057
 msgid "Could not restart the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1159
+#: ../src/nm-l2tp-service.c:1168
 msgid "Could not find the xl2tpd binary."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1225
+#: ../src/nm-l2tp-service.c:1234
 msgid "Missing VPN username."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1234
+#: ../src/nm-l2tp-service.c:1243
 msgid "Missing or invalid VPN password."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1337
+#: ../src/nm-l2tp-service.c:1346
 msgid "couldn't convert L2TP VPN gateway IP address."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1350
+#: ../src/nm-l2tp-service.c:1359
 msgid "couldn't look up L2TP VPN gateway IP address "
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1369
+#: ../src/nm-l2tp-service.c:1378
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1404
+#: ../src/nm-l2tp-service.c:1413
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1410
+#: ../src/nm-l2tp-service.c:1419
 msgid "Openswan is no longer supported, use Libreswan or strongSwan."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1412
+#: ../src/nm-l2tp-service.c:1421
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1421
+#: ../src/nm-l2tp-service.c:1430
 msgid "could not retrieve connection UUID"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1429
+#: ../src/nm-l2tp-service.c:1438
 msgid "Invalid or missing L2TP gateway."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1723
+#: ../src/nm-l2tp-service.c:1732
 msgid "Don't quit when VPN connection terminates"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1724
+#: ../src/nm-l2tp-service.c:1733
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1725
+#: ../src/nm-l2tp-service.c:1734
 msgid "D-Bus name to use for this instance"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1746
+#: ../src/nm-l2tp-service.c:1755
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
@@ -327,7 +324,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
 msgid "General"
-msgstr ""
+msgstr "Општо"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Gateway:"
@@ -347,10 +344,6 @@ msgstr ""
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
 "DOMAIN\\username, where DOMAIN is the value from this text entry box."
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:7
-msgid "Show password"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
@@ -398,7 +391,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "Sho_w password"
-msgstr ""
+msgstr "П_окажи лозинка"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid ""
@@ -527,7 +520,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:55
 msgid "Default"
-msgstr ""
+msgstr "Стандардно"
 
 #: ../properties/nm-l2tp-dialog.ui.h:56
 msgid "L2TP PPP Options"
@@ -584,7 +577,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:70
 msgid "Allow _BSD data compression"
-msgstr ""
+msgstr "Дозволи _BSD компресија на податоци"
 
 #: ../properties/nm-l2tp-dialog.ui.h:71
 msgid ""
@@ -594,7 +587,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:73
 msgid "Allow _Deflate data compression"
-msgstr ""
+msgstr "Дозволи _Deflate компресија на податоци"
 
 #: ../properties/nm-l2tp-dialog.ui.h:74
 msgid ""
@@ -604,7 +597,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:76
 msgid "Use TCP _header compression"
-msgstr ""
+msgstr "Користи компресија на TCP _заглавијата"
 
 #: ../properties/nm-l2tp-dialog.ui.h:77
 msgid ""
@@ -640,7 +633,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:86
 msgid "Send PPP _echo packets"
-msgstr ""
+msgstr "Испрати PPP _echo пакети"
 
 #: ../properties/nm-l2tp-dialog.ui.h:87
 msgid ""

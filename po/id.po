@@ -1,22 +1,22 @@
-# Indonesian translation of network-manager-l2tp.
-# Copyright (C) 2009 THE network-manager-l2tp'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the network-manager-l2tp package.
-# Andika Triwidada <andika@gmail.com>, 2009, 2010, 2011, 2012.
-#
+# Indonesian translation of NetworkManager-l2tp
+# # Copyright (C) 2009 THE NetworkManager-l2tp'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the NetworkManager-l2tp package.
+# Andika Triwidada <andika@gmail.com>, 2009-2013, 2017.
+# Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2017, 2018, 2019.
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-l2tp master\n"
+"Project-Id-Version: NetworkManager-l2tp main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-04 19:48+1000\n"
-"PO-Revision-Date: 2017-04-08 16:26+0700\n"
-"Last-Translator: Andika Triwidada <atriwidada@gnome.org>\n"
-"Language-Team: Indonesian Translator <gnome@i15n.org>\n"
+"POT-Creation-Date: 2022-05-02 12:00+1000\n"
+"PO-Revision-Date: 2020-08-16 14:41+0700\n"
+"Last-Translator: Andika Triwidada <andika@gmail.com>\n"
+"Language-Team: GNOME Indonesian Translation Team <gnome@i15n.org>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 1.6.10\n"
+"Plural-Forms: nplurals=2; plural=n!=1;\n"
+"X-Generator: Poedit 2.4.1\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
 msgid "L2TP VPN Client"
@@ -56,7 +56,7 @@ msgstr "Anda perlu berotentikasi untuk mengakses Virtual Private Network '%s'."
 
 #: ../auth-dialog/main.c:155 ../auth-dialog/main.c:176
 msgid "Authenticate VPN"
-msgstr "Otentikasikan VPN"
+msgstr "Autentikasikan VPN"
 
 #: ../auth-dialog/main.c:157 ../properties/nm-l2tp-dialog.ui.h:12
 msgid "Password:"
@@ -140,21 +140,21 @@ msgstr "kelas objek '%s' tidak punya properti bernama '%s'"
 #: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr "properti \"%s\" dengan kelas objek \"%s\"' tidak dapat ditulisi"
+msgstr "properti '%s' dari kelas objek '%s' tak dapat ditulisi"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1179
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
-"properti construct \"%s\" bagi objek '%s' tak dapat ditata setelah konstruksi"
+"properti construct \"%s\" bagi objek '%s' tidak bisa ditata setelah "
+"konstruksi"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1187
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
 msgstr ""
-"'%s::%s' bukat suatu nama properti yang valid; '%s' bukat suatu sub tipe "
-"GObject"
+"'%s::%s' bukan nama properti yang valid; '%s' bukan suatu sub tipe GObject"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1196
 #, c-format
@@ -167,163 +167,163 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
-"nilai \"%s\" dengan tipe '%s' tidak valid atau di luar jangkauan bagi "
-"properti '%s' bertipe '%s'"
+"nilai \"%s\" bertipe '%s' tak valid atau di luar jangkauan bagi properti "
+"'%s' bertipe '%s'"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
 #, c-format
 msgid "unable to get editor plugin name: %s"
-msgstr ""
+msgstr "tidak bisa memperoleh nama pengaya penyunting: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr "kurang berkas pengaya \"%s\""
+msgstr "berkas plugin \"%s\" kurang"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:109
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr "tidak bisa memuat pengaya penyunting: %s"
+msgstr "tak bisa memuat plugin penyunting: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:118
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr "tidak bisa memuat pabrik %s dari pengaya: %s"
+msgstr "tak bisa memuat pabrik %s dari plugin: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:144
 msgid "unknown error creating editor instance"
-msgstr "galat tidak dikenal saat membuat instansi penyunting"
+msgstr "galat tak dikenal saat membuat instansi penyunting"
 
-#: ../src/nm-l2tp-service.c:279
+#: ../src/nm-l2tp-service.c:288
 #, c-format
 msgid "invalid gateway '%s'"
 msgstr "gateway '%s' tak valid"
 
-#: ../src/nm-l2tp-service.c:293
+#: ../src/nm-l2tp-service.c:302
 #, c-format
 msgid "invalid integer property '%s'"
 msgstr "properti integer '%s' tak valid"
 
-#: ../src/nm-l2tp-service.c:303
+#: ../src/nm-l2tp-service.c:312
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr "properti bool '%s' tak valid (bukan yes atau no)"
 
-#: ../src/nm-l2tp-service.c:310
+#: ../src/nm-l2tp-service.c:319
 #, c-format
 msgid "unhandled property '%s' type %s"
 msgstr "properti '%s' jenis %s tak ditangani"
 
-#: ../src/nm-l2tp-service.c:321
+#: ../src/nm-l2tp-service.c:330
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "properti '%s' tak valid atau tak didukung"
 
-#: ../src/nm-l2tp-service.c:339
+#: ../src/nm-l2tp-service.c:348
 msgid "No VPN configuration options."
 msgstr "Tak ada opsi konfigurasi VPN."
 
-#: ../src/nm-l2tp-service.c:359
+#: ../src/nm-l2tp-service.c:368
 #, c-format
 msgid "Missing required option '%s'."
 msgstr "Kehilangan opsi '%s' yang diperlukan."
 
-#: ../src/nm-l2tp-service.c:379
+#: ../src/nm-l2tp-service.c:388
 msgid "No VPN secrets!"
 msgstr "Tak ada rahasia VPN!"
 
-#: ../src/nm-l2tp-service.c:628
+#: ../src/nm-l2tp-service.c:637
 #, c-format
 msgid "Could not open %s for writing: %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:635
+#: ../src/nm-l2tp-service.c:644
 #, c-format
 msgid "Could not append \"include ipsec.d/ipsec.nm-l2tp.secrets\" to %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:651
+#: ../src/nm-l2tp-service.c:660
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:691
+#: ../src/nm-l2tp-service.c:700
 msgid "Could not write ipsec config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:815
+#: ../src/nm-l2tp-service.c:824
 msgid "Could not write xl2tpd config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:857
+#: ../src/nm-l2tp-service.c:866
 msgid "Could not write ppp options."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1015 ../src/nm-l2tp-service.c:1040
+#: ../src/nm-l2tp-service.c:1024 ../src/nm-l2tp-service.c:1049
 msgid "Could not start the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1021 ../src/nm-l2tp-service.c:1048
+#: ../src/nm-l2tp-service.c:1030 ../src/nm-l2tp-service.c:1057
 msgid "Could not restart the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1159
+#: ../src/nm-l2tp-service.c:1168
 msgid "Could not find the xl2tpd binary."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1225
+#: ../src/nm-l2tp-service.c:1234
 msgid "Missing VPN username."
 msgstr "Nama pengguna VPN hilang."
 
-#: ../src/nm-l2tp-service.c:1234
+#: ../src/nm-l2tp-service.c:1243
 msgid "Missing or invalid VPN password."
 msgstr "Sandi VPN hilang atau tak valid."
 
-#: ../src/nm-l2tp-service.c:1337
+#: ../src/nm-l2tp-service.c:1346
 msgid "couldn't convert L2TP VPN gateway IP address."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1350
+#: ../src/nm-l2tp-service.c:1359
 msgid "couldn't look up L2TP VPN gateway IP address "
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1369
+#: ../src/nm-l2tp-service.c:1378
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1404
+#: ../src/nm-l2tp-service.c:1413
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1410
+#: ../src/nm-l2tp-service.c:1419
 msgid "Openswan is no longer supported, use Libreswan or strongSwan."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1412
+#: ../src/nm-l2tp-service.c:1421
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1421
+#: ../src/nm-l2tp-service.c:1430
 msgid "could not retrieve connection UUID"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1429
+#: ../src/nm-l2tp-service.c:1438
 msgid "Invalid or missing L2TP gateway."
 msgstr "Gateway L2TP tak valid atau hilang."
 
-#: ../src/nm-l2tp-service.c:1723
+#: ../src/nm-l2tp-service.c:1732
 msgid "Don't quit when VPN connection terminates"
 msgstr "Jangan keluar ketika koneksi VPN diputus"
 
-#: ../src/nm-l2tp-service.c:1724
+#: ../src/nm-l2tp-service.c:1733
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Aktifkan log pengawakutuan verbose (mungkin mengungkap sandi)"
 
-#: ../src/nm-l2tp-service.c:1725
+#: ../src/nm-l2tp-service.c:1734
 msgid "D-Bus name to use for this instance"
 msgstr "Nama D-Bus untuk dipakai bagi instansi ini"
 
-#: ../src/nm-l2tp-service.c:1746
+#: ../src/nm-l2tp-service.c:1755
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
@@ -402,7 +402,7 @@ msgstr "Pengesahan Mesin"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "Sho_w password"
-msgstr ""
+msgstr "Tampilkan _sandi"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid ""
@@ -447,10 +447,6 @@ msgstr ""
 msgid "(HH:MM)"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:33
-msgid "Phase_2 Lifetime:"
-msgstr ""
-
 #: ../properties/nm-l2tp-dialog.ui.h:34
 msgid ""
 "How long a particular instance of a connection (a set of encryption/"
@@ -476,10 +472,6 @@ msgid ""
 "parsing.\n"
 "config: ipsec-remote-id <rightid>\n"
 "ipsec.secrets: <ID>"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:41
-msgid "Phase_1 Lifetime:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:42
@@ -539,7 +531,7 @@ msgstr "Opsi L2TP PPP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:57
 msgid "Authentication"
-msgstr "Otentikasi"
+msgstr "Autentikasi"
 
 #: ../properties/nm-l2tp-dialog.ui.h:58
 msgid "Allow the following authentication methods:"

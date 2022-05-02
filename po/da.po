@@ -1,27 +1,25 @@
-# Danish translation of network-manager-l2tp.
-# Copyright (C) 2017 network-manager-l2tp og nedenstående oversættere.
-# This file is distributed under the same license as the network-manager-l2tp package.
+# Danish translation of NetworkManager-l2tp
+# Copyright (C) 2005-2020
+# This file is distributed under the same license as the NetworkManager-l2tp package.
 # David Zeuthen <davidz@redhat.com>, 2005.
 # Lasse Bang Mikkelsen <lbm@fatalerror.dk>, 2006, 07.
 # Mads Bille Lundby <lundbymads@gmail.com>, 2009.
-# Kim Iskov <kimiskov@gmail.com>, 2010.
-# Joe Hansen <joedalton2@yahoo.dk>, 2011, 2012.
-# Alan Mortensen <alanmortensen.am@gmail.com>, 2017.
+# Alan Mortensen <alanmortensen.am@gmail.com>, 2017-20.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-l2tp\n"
+"Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-04 19:48+1000\n"
-"PO-Revision-Date: 2017-02-25 19:30+0100\n"
+"POT-Creation-Date: 2022-05-02 12:00+1000\n"
+"PO-Revision-Date: 2020-03-29 14:28+0200\n"
 "Last-Translator: Alan Mortensen <alanmortensen.am@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
 msgid "L2TP VPN Client"
@@ -63,7 +61,7 @@ msgstr ""
 
 #: ../auth-dialog/main.c:155 ../auth-dialog/main.c:176
 msgid "Authenticate VPN"
-msgstr "Godkend VPN"
+msgstr "VPN-godkendelse"
 
 #: ../auth-dialog/main.c:157 ../properties/nm-l2tp-dialog.ui.h:12
 msgid "Password:"
@@ -139,213 +137,212 @@ msgstr ""
 msgid "Compatible with Microsoft and other L2TP VPN servers."
 msgstr "Kompatibel med Microsoft og andre L2TP-VPN-servere."
 
-# streng også i modulet applet
+# streng findes også i applet
 #: ../shared/nm-utils/nm-shared-utils.c:1165
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr "objektklassen \"%s\" har ingen egenskab ved navn \"%s\""
+msgstr "objektklassen “%s” har ingen egenskab ved navn “%s”"
 
-# streng også i modulet applet
+# streng findes også i applet
 #: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr "egenskaben \"%s\" for objektklassen \"%s\" er skrivebeskyttet"
+msgstr "egenskaben “%s” for objektklassen “%s” er skrivebeskyttet"
 
-# streng også i modulet applet
+# streng findes også i applet
 #: ../shared/nm-utils/nm-shared-utils.c:1179
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
-"construct-egenskaben \"%s\" for objektet \"%s\" kan ikke angives efter "
+"construct-egenskaben “%s” for objektet “%s” kan ikke angives efter "
 "konstruktion"
 
-# streng også i modulet applet
+# streng findes også i applet
 #: ../shared/nm-utils/nm-shared-utils.c:1187
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
 msgstr ""
-"\"%s::%s\" er ikke et gyldigt egenskabsnavn; \"%s\" er ikke en undertype af "
-"GObjekt"
+"“%s::%s” er ikke et gyldigt egenskabsnavn; “%s” er ikke en GObjekt-undertype"
 
-# streng også i modulet applet
+# streng findes også i applet
 #: ../shared/nm-utils/nm-shared-utils.c:1196
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
 msgstr ""
-"kan ikke angive egenskaben \"%s\" af type \"%s\" ud fra værdien af typen \"%s"
-"\""
+"kan ikke angive egenskaben “%s” af type “%s” ud fra værdien af typen “%s”"
 
-# streng også i modulet applet
+# streng findes også i applet
 #: ../shared/nm-utils/nm-shared-utils.c:1207
 #, c-format
 msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
-"værdien \"%s\" af typen \"%s\" er ugyldig eller uden for intervallet for "
-"egenskaben \"%s\" af typen \"%s\""
+"værdien “%s” af typen “%s” er ugyldig eller uden for intervallet for "
+"egenskaben “%s” af typen “%s”"
 
-# streng også i modulet vpnc
+# streng findes også i vpnc
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
 #, c-format
 msgid "unable to get editor plugin name: %s"
-msgstr "kan ikke hente navnet på udvidelsesmodulet til redigering: %s"
+msgstr "kan ikke finde navnet på udvidelsesmodul til redigering: %s"
 
-# streng også i modulet vpnc
+# streng findes også i vpnc
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr "manglende udvidelsesmodulfil \"%s\""
+msgstr "manglende udvidelsesmodulfil “%s”"
 
-# streng også i modulet vpnc
+# streng findes også i vpnc
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:109
 #, c-format
 msgid "cannot load editor plugin: %s"
 msgstr "kan ikke indlæse udvidelsesmodul til redigering: %s"
 
-# streng også i modulet vpnc
+# streng findes også i vpnc
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:118
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
 msgstr "kan ikke indlæse fabrikken %s fra udvidelsesmodul: %s"
 
-# streng også i modulet vpnc
+# streng findes også i vpnc
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:144
 msgid "unknown error creating editor instance"
 msgstr "ukendt fejl i forsøget på at danne redigeringsinstans"
 
-#: ../src/nm-l2tp-service.c:279
+#: ../src/nm-l2tp-service.c:288
 #, c-format
 msgid "invalid gateway '%s'"
 msgstr "ugyldigt adgangspunkt \"%s\""
 
-#: ../src/nm-l2tp-service.c:293
+#: ../src/nm-l2tp-service.c:302
 #, c-format
 msgid "invalid integer property '%s'"
 msgstr "ugyldig heltalsegenskab \"%s\""
 
-#: ../src/nm-l2tp-service.c:303
+#: ../src/nm-l2tp-service.c:312
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr "ugyldig boolesk egenskab \"%s\" (ikke ja eller nej)"
 
-#: ../src/nm-l2tp-service.c:310
+#: ../src/nm-l2tp-service.c:319
 #, c-format
 msgid "unhandled property '%s' type %s"
 msgstr "egenskab \"%s\" type %s er ikke håndteret"
 
-#: ../src/nm-l2tp-service.c:321
+#: ../src/nm-l2tp-service.c:330
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "egenskab \"%s\" er ugyldig eller ikke understøttet"
 
-#: ../src/nm-l2tp-service.c:339
+# streng findes også i vpnc
+#: ../src/nm-l2tp-service.c:348
 msgid "No VPN configuration options."
 msgstr "Ingen indstillinger for VPN-konfiguration."
 
-#: ../src/nm-l2tp-service.c:359
+#: ../src/nm-l2tp-service.c:368
 #, c-format
 msgid "Missing required option '%s'."
 msgstr "Mangler krævet indstilling \"%s\"."
 
-#: ../src/nm-l2tp-service.c:379
+#: ../src/nm-l2tp-service.c:388
 msgid "No VPN secrets!"
 msgstr "Ingen VPN-hemmeligheder!"
 
-#: ../src/nm-l2tp-service.c:628
+#: ../src/nm-l2tp-service.c:637
 #, c-format
 msgid "Could not open %s for writing: %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:635
+#: ../src/nm-l2tp-service.c:644
 #, c-format
 msgid "Could not append \"include ipsec.d/ipsec.nm-l2tp.secrets\" to %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:651
+#: ../src/nm-l2tp-service.c:660
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:691
+#: ../src/nm-l2tp-service.c:700
 msgid "Could not write ipsec config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:815
+#: ../src/nm-l2tp-service.c:824
 msgid "Could not write xl2tpd config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:857
+#: ../src/nm-l2tp-service.c:866
 msgid "Could not write ppp options."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1015 ../src/nm-l2tp-service.c:1040
+#: ../src/nm-l2tp-service.c:1024 ../src/nm-l2tp-service.c:1049
 msgid "Could not start the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1021 ../src/nm-l2tp-service.c:1048
+#: ../src/nm-l2tp-service.c:1030 ../src/nm-l2tp-service.c:1057
 msgid "Could not restart the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1159
+#: ../src/nm-l2tp-service.c:1168
 msgid "Could not find the xl2tpd binary."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1225
+#: ../src/nm-l2tp-service.c:1234
 msgid "Missing VPN username."
 msgstr "Manglende VPN-brugernavn."
 
-#: ../src/nm-l2tp-service.c:1234
+#: ../src/nm-l2tp-service.c:1243
 msgid "Missing or invalid VPN password."
 msgstr "Manglende eller ugyldig VPN-adgangskode."
 
-#: ../src/nm-l2tp-service.c:1337
+#: ../src/nm-l2tp-service.c:1346
 msgid "couldn't convert L2TP VPN gateway IP address."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1350
+#: ../src/nm-l2tp-service.c:1359
 msgid "couldn't look up L2TP VPN gateway IP address "
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1369
+#: ../src/nm-l2tp-service.c:1378
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1404
+#: ../src/nm-l2tp-service.c:1413
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1410
+#: ../src/nm-l2tp-service.c:1419
 msgid "Openswan is no longer supported, use Libreswan or strongSwan."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1412
+#: ../src/nm-l2tp-service.c:1421
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1421
+#: ../src/nm-l2tp-service.c:1430
 msgid "could not retrieve connection UUID"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1429
+#: ../src/nm-l2tp-service.c:1438
 msgid "Invalid or missing L2TP gateway."
 msgstr "Ugyldig eller manglende L2TP-gateway."
 
-#: ../src/nm-l2tp-service.c:1723
+#: ../src/nm-l2tp-service.c:1732
 msgid "Don't quit when VPN connection terminates"
 msgstr "Afslut ikke når VPN-forbindelse afslutter"
 
-#: ../src/nm-l2tp-service.c:1724
+#: ../src/nm-l2tp-service.c:1733
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr "Aktiver uddybende fejlsøgningslog (kan afsløre adgangskoder)"
+msgstr "Aktivér udførlig fejlsøgningslogning (kan afsløre adgangskoder)"
 
 # streng findes også i vpnc
-#: ../src/nm-l2tp-service.c:1725
+#: ../src/nm-l2tp-service.c:1734
 msgid "D-Bus name to use for this instance"
 msgstr "Navn på D-Bus der skal bruges i dette tilfælde"
 
-#: ../src/nm-l2tp-service.c:1746
+#: ../src/nm-l2tp-service.c:1755
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
@@ -424,7 +421,7 @@ msgstr "Computergodkendelse"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "Sho_w password"
-msgstr ""
+msgstr "_Vis adgangskode"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid ""
@@ -469,10 +466,6 @@ msgstr ""
 msgid "(HH:MM)"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:33
-msgid "Phase_2 Lifetime:"
-msgstr ""
-
 #: ../properties/nm-l2tp-dialog.ui.h:34
 msgid ""
 "How long a particular instance of a connection (a set of encryption/"
@@ -498,10 +491,6 @@ msgid ""
 "parsing.\n"
 "config: ipsec-remote-id <rightid>\n"
 "ipsec.secrets: <ID>"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:41
-msgid "Phase_1 Lifetime:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:42
@@ -696,7 +685,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:89
 msgid "Misc"
-msgstr "Diverse"
+msgstr "Div."
 
 #: ../properties/nm-l2tp-dialog.ui.h:90
 msgid "MTU :"

@@ -1,26 +1,26 @@
-# Slovenian translations for network-manager-l2tp.
-# Copyright (C) 2009 network-manager-l2tp's COPYRIGHT HOLDER
-# This file is distributed under the same license as the network-manager-l2tp package.
+# Slovenian translations for NetworkManager-l2tp.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the NetworkManager-l2tp package.
 #
-# Matej Urbančič <mateju@svn.gnome.org>, 2009 - 2010.
+# Matic Žgur <mr.zgur@gmail.com>, 2007.
+# Matej Urbančič <mateju@svn.gnome.org>, 2009-2013.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-l2tp master\n"
+"Project-Id-Version: NetworkManager-l2tp main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-04 19:48+1000\n"
-"PO-Revision-Date: 2012-02-29 14:27+0100\n"
+"POT-Creation-Date: 2022-05-02 12:00+1000\n"
+"PO-Revision-Date: 2014-08-06 14:40+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
-"X-Poedit-Country: SLOVENIA\n"
-"X-Poedit-Language: Slovenian\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || "
+"n%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
 msgid "L2TP VPN Client"
@@ -139,28 +139,28 @@ msgstr "Združljivo z Microsoftovim in drugimi L2TP VPN strežniki."
 #: ../shared/nm-utils/nm-shared-utils.c:1165
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr ""
+msgstr "razred predmeta »%s« nima določenega imena lastnosti »%s«"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr ""
+msgstr "lastnost »%s« poti datoteke »%s« ni zapisljiva"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1179
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
-msgstr ""
+msgstr "lastnosti »%s« za predmet »%s« ni mogoče nastaviti po sestavljanju"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1187
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
-msgstr ""
+msgstr "»%s::%s« ni veljavno ime lastnosti; »%s« ni podvrsta predmeta GObject"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1196
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
-msgstr ""
+msgstr "ni mogoče nastaviti lastnosti »%s« vrste »%s« za vrednost vrste »%s«"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1207
 #, c-format
@@ -168,161 +168,163 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
+"vrednost »%s« vrste »%s« ni veljavna ali pa je lastnost »%s« izven obsega za "
+"vrsto »%s«"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
 #, c-format
 msgid "unable to get editor plugin name: %s"
-msgstr ""
+msgstr "ni mogoče pridobiti imena vstavka urejevalnika: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr ""
+msgstr "manjka datoteka vstavka »%s«"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:109
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr ""
+msgstr "ni mogoče naložiti vstavka urejevalnika: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:118
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr ""
+msgstr "ni mogoče naložiti vstavka »%s« vmesnika: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:144
 msgid "unknown error creating editor instance"
-msgstr ""
+msgstr "neznana napaka pri ustvarjanju okna urejevalnika"
 
-#: ../src/nm-l2tp-service.c:279
+#: ../src/nm-l2tp-service.c:288
 #, c-format
 msgid "invalid gateway '%s'"
 msgstr "neveljaven prehod '%s'"
 
-#: ../src/nm-l2tp-service.c:293
+#: ../src/nm-l2tp-service.c:302
 #, c-format
 msgid "invalid integer property '%s'"
 msgstr "neveljavna lastnost celega števila '%s'"
 
-#: ../src/nm-l2tp-service.c:303
+#: ../src/nm-l2tp-service.c:312
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr "neveljavna logična lastnost '%s' (ni vrednost da oziroma ne)"
 
-#: ../src/nm-l2tp-service.c:310
+#: ../src/nm-l2tp-service.c:319
 #, c-format
 msgid "unhandled property '%s' type %s"
 msgstr "neupravljana lastnost  '%s' vrste %s"
 
-#: ../src/nm-l2tp-service.c:321
+#: ../src/nm-l2tp-service.c:330
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "lastnost  '%s' ni veljavna ali pa ni podprta"
 
-#: ../src/nm-l2tp-service.c:339
+#: ../src/nm-l2tp-service.c:348
 msgid "No VPN configuration options."
 msgstr "Ni možnosti nastavitev VPN"
 
-#: ../src/nm-l2tp-service.c:359
+#: ../src/nm-l2tp-service.c:368
 #, c-format
 msgid "Missing required option '%s'."
 msgstr "Manjka zahtevana možnost '%s'."
 
-#: ../src/nm-l2tp-service.c:379
+#: ../src/nm-l2tp-service.c:388
 msgid "No VPN secrets!"
 msgstr "Ni skrivnih podatkov VPN!"
 
-#: ../src/nm-l2tp-service.c:628
+#: ../src/nm-l2tp-service.c:637
 #, c-format
 msgid "Could not open %s for writing: %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:635
+#: ../src/nm-l2tp-service.c:644
 #, c-format
 msgid "Could not append \"include ipsec.d/ipsec.nm-l2tp.secrets\" to %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:651
+#: ../src/nm-l2tp-service.c:660
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:691
+#: ../src/nm-l2tp-service.c:700
 msgid "Could not write ipsec config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:815
+#: ../src/nm-l2tp-service.c:824
 msgid "Could not write xl2tpd config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:857
+#: ../src/nm-l2tp-service.c:866
 msgid "Could not write ppp options."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1015 ../src/nm-l2tp-service.c:1040
+#: ../src/nm-l2tp-service.c:1024 ../src/nm-l2tp-service.c:1049
 msgid "Could not start the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1021 ../src/nm-l2tp-service.c:1048
+#: ../src/nm-l2tp-service.c:1030 ../src/nm-l2tp-service.c:1057
 msgid "Could not restart the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1159
+#: ../src/nm-l2tp-service.c:1168
 msgid "Could not find the xl2tpd binary."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1225
+#: ../src/nm-l2tp-service.c:1234
 msgid "Missing VPN username."
 msgstr "Manjka uporabniško ime VPN."
 
-#: ../src/nm-l2tp-service.c:1234
+#: ../src/nm-l2tp-service.c:1243
 msgid "Missing or invalid VPN password."
 msgstr "Geslo VPN manjka ali pa ni veljavno."
 
-#: ../src/nm-l2tp-service.c:1337
+#: ../src/nm-l2tp-service.c:1346
 msgid "couldn't convert L2TP VPN gateway IP address."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1350
+#: ../src/nm-l2tp-service.c:1359
 msgid "couldn't look up L2TP VPN gateway IP address "
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1369
+#: ../src/nm-l2tp-service.c:1378
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1404
+#: ../src/nm-l2tp-service.c:1413
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1410
+#: ../src/nm-l2tp-service.c:1419
 msgid "Openswan is no longer supported, use Libreswan or strongSwan."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1412
+#: ../src/nm-l2tp-service.c:1421
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1421
+#: ../src/nm-l2tp-service.c:1430
 msgid "could not retrieve connection UUID"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1429
+#: ../src/nm-l2tp-service.c:1438
 msgid "Invalid or missing L2TP gateway."
 msgstr "Prehod L2TP manjka ali pa ni veljaven."
 
-#: ../src/nm-l2tp-service.c:1723
+#: ../src/nm-l2tp-service.c:1732
 msgid "Don't quit when VPN connection terminates"
 msgstr "Ne končaj, ko se povezava VPN zaustavi"
 
-#: ../src/nm-l2tp-service.c:1724
+#: ../src/nm-l2tp-service.c:1733
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Omogoči podrobno beleženje razhroščevanja (lahko razkrije gesla)"
 
-#: ../src/nm-l2tp-service.c:1725
+#: ../src/nm-l2tp-service.c:1734
 msgid "D-Bus name to use for this instance"
-msgstr ""
+msgstr "Ime D-Bus za uporabo v programu"
 
-#: ../src/nm-l2tp-service.c:1746
+#: ../src/nm-l2tp-service.c:1755
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
@@ -397,11 +399,11 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:19
 msgid "Machine Authentication"
-msgstr ""
+msgstr "Overitev naprave"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "Sho_w password"
-msgstr ""
+msgstr "Pokaži _geslo"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid ""
@@ -446,10 +448,6 @@ msgstr ""
 msgid "(HH:MM)"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:33
-msgid "Phase_2 Lifetime:"
-msgstr ""
-
 #: ../properties/nm-l2tp-dialog.ui.h:34
 msgid ""
 "How long a particular instance of a connection (a set of encryption/"
@@ -464,7 +462,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:37
 msgid "Remote ID:"
-msgstr ""
+msgstr "Oddaljeni ID:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:38
 msgid ""
@@ -475,10 +473,6 @@ msgid ""
 "parsing.\n"
 "config: ipsec-remote-id <rightid>\n"
 "ipsec.secrets: <ID>"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:41
-msgid "Phase_1 Lifetime:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:42
@@ -526,7 +520,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:54
 msgid "Ad_vanced"
-msgstr "Napredno"
+msgstr "_Napredno"
 
 #: ../properties/nm-l2tp-dialog.ui.h:55
 msgid "Default"
@@ -673,7 +667,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:89
 msgid "Misc"
-msgstr ""
+msgstr "Razno"
 
 #: ../properties/nm-l2tp-dialog.ui.h:90
 msgid "MTU :"

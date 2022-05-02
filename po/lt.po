@@ -1,24 +1,24 @@
 # Lithuanian translation of NetworkManager-l2tp.
-# Copyright (C) 2008 Free Software Foundation, Inc.
-# This file is distributed under the same license as the NetworkManager package.
-# Žygimantas Beručka <zygis@gnome.org>, 2008.
-# Aurimas Černius <aurisc4@gmail.com>, 2015, 2016, 2017.
+# Copyright © 2008, 2010 Free Software Foundation, Inc.
+# This file is distributed under the same license as NetworkManager-l2tp.
+# Žygimantas Beručka <zygis@gnome.org>, 2008, 2010.
+# Aurimas Černius <aurisc4@gmail.com>, 2010-2020.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-l2tp HEAD\n"
+"Project-Id-Version: NetworkManager-l2tp main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-04 19:48+1000\n"
-"PO-Revision-Date: 2017-03-13 23:50+0200\n"
+"POT-Creation-Date: 2022-05-02 12:00+1000\n"
+"PO-Revision-Date: 2020-09-06 22:56+0300\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Gtranslator 2.91.7\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"(n%100<10 || n%100>=20) ? 1 : 2)\n"
+"X-Generator: Gtranslator 3.36.0\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
 msgid "L2TP VPN Client"
@@ -139,20 +139,20 @@ msgstr "Suderinama su Microsoft ir kitais L2TP VPN serveriais."
 #: ../shared/nm-utils/nm-shared-utils.c:1165
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr "objekto klasė „%s“ neturi savybės pavadinimu „%s“"
+msgstr "objekto klasė „%s“ neturi savybės „%s“"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr "savybė „%s“, kuri priklauso klasei „%s“, nėra skirta rašymui"
+msgstr "savybė „%s“ objekto klasėje „%s“ nėra rašoma"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1179
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
-"konstruktoriaus savybė „%s“, kuri priklauso objektui „%s“, negali būti "
-"nustatyta po sukonstravimo"
+"konstruktoriaus savybė „%s“ objekte „%s“ negali būti nustatyta po "
+"sukonstravimo"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1187
 #, c-format
@@ -162,9 +162,7 @@ msgstr "„%s::%s“ nėra tinkamas savybės pavadinimas; „%s“ nėra GObject
 #: ../shared/nm-utils/nm-shared-utils.c:1196
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
-msgstr ""
-"nepavyko nustatyti savybės „%s“, priklausančios tipui „%s“, į „%s“ tipo "
-"reikšmę"
+msgstr "nepavyksta nustatyti savybės „%s“ tipe „%s“ į „%s“ tipo vertę"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1207
 #, c-format
@@ -172,8 +170,8 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
-"reikšmė „%s“, kuri priklauso tipui „%s“, yra netinkama arba už savybės „%s“, "
-"priklausančios tipui „%s“, ribų"
+"vertė „%s“, kurios tipas „%s“, yra netinkama arba už galimų ribų savybei "
+"„%s“, kurios tipas „%s“"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
 #, c-format
@@ -183,7 +181,7 @@ msgstr "nepavyksta gauti redaktoriaus įskiepio pavadinimo: %s"
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr "trūksta „%s“ įskiepio failo"
+msgstr "trūksta įskiepio failo „%s“"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:109
 #, c-format
@@ -193,142 +191,142 @@ msgstr "nepavyksta įkelti redaktoriaus įskiepio: %s"
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:118
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr "nepavyksta įkelti %s gamyklos iš įskiepio: %s"
+msgstr "nepavyksta įkelti gamyklos %s iš įskiepio: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:144
 msgid "unknown error creating editor instance"
-msgstr "nežinoma klaida kuriant redaktoriaus vienetą"
+msgstr "nežinoma klaida kuriant redaktoriaus egzempliorių"
 
-#: ../src/nm-l2tp-service.c:279
+#: ../src/nm-l2tp-service.c:288
 #, c-format
 msgid "invalid gateway '%s'"
 msgstr "netinkamas kelvedys „%s“"
 
-#: ../src/nm-l2tp-service.c:293
+#: ../src/nm-l2tp-service.c:302
 #, c-format
 msgid "invalid integer property '%s'"
 msgstr "netinkama skaitinė savybė „%s“"
 
-#: ../src/nm-l2tp-service.c:303
+#: ../src/nm-l2tp-service.c:312
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr "netinkama loginė savybė „%s“ (ne taip arba ne)"
 
-#: ../src/nm-l2tp-service.c:310
+#: ../src/nm-l2tp-service.c:319
 #, c-format
 msgid "unhandled property '%s' type %s"
 msgstr "neapdorotas savybės „%s“ tipas %s"
 
-#: ../src/nm-l2tp-service.c:321
+#: ../src/nm-l2tp-service.c:330
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "savybė „%s“ netinkama arba nepalaikoma"
 
-#: ../src/nm-l2tp-service.c:339
+#: ../src/nm-l2tp-service.c:348
 msgid "No VPN configuration options."
 msgstr "Nėra VPN konfigūracijos parametrų."
 
-#: ../src/nm-l2tp-service.c:359
+#: ../src/nm-l2tp-service.c:368
 #, c-format
 msgid "Missing required option '%s'."
 msgstr "Trūksta būtino parametro „%s“."
 
-#: ../src/nm-l2tp-service.c:379
+#: ../src/nm-l2tp-service.c:388
 msgid "No VPN secrets!"
 msgstr "Nėra VPN paslapčių!"
 
-#: ../src/nm-l2tp-service.c:628
+#: ../src/nm-l2tp-service.c:637
 #, c-format
 msgid "Could not open %s for writing: %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:635
+#: ../src/nm-l2tp-service.c:644
 #, c-format
 msgid "Could not append \"include ipsec.d/ipsec.nm-l2tp.secrets\" to %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:651
+#: ../src/nm-l2tp-service.c:660
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:691
+#: ../src/nm-l2tp-service.c:700
 msgid "Could not write ipsec config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:815
+#: ../src/nm-l2tp-service.c:824
 msgid "Could not write xl2tpd config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:857
+#: ../src/nm-l2tp-service.c:866
 msgid "Could not write ppp options."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1015 ../src/nm-l2tp-service.c:1040
+#: ../src/nm-l2tp-service.c:1024 ../src/nm-l2tp-service.c:1049
 msgid "Could not start the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1021 ../src/nm-l2tp-service.c:1048
+#: ../src/nm-l2tp-service.c:1030 ../src/nm-l2tp-service.c:1057
 msgid "Could not restart the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1159
+#: ../src/nm-l2tp-service.c:1168
 msgid "Could not find the xl2tpd binary."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1225
+#: ../src/nm-l2tp-service.c:1234
 msgid "Missing VPN username."
 msgstr "Trūksta VPN naudotojo vardo."
 
-#: ../src/nm-l2tp-service.c:1234
+#: ../src/nm-l2tp-service.c:1243
 msgid "Missing or invalid VPN password."
 msgstr "Nėra arba netinkamas VPN slaptažodis."
 
-#: ../src/nm-l2tp-service.c:1337
+#: ../src/nm-l2tp-service.c:1346
 msgid "couldn't convert L2TP VPN gateway IP address."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1350
+#: ../src/nm-l2tp-service.c:1359
 msgid "couldn't look up L2TP VPN gateway IP address "
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1369
+#: ../src/nm-l2tp-service.c:1378
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1404
+#: ../src/nm-l2tp-service.c:1413
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1410
+#: ../src/nm-l2tp-service.c:1419
 msgid "Openswan is no longer supported, use Libreswan or strongSwan."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1412
+#: ../src/nm-l2tp-service.c:1421
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1421
+#: ../src/nm-l2tp-service.c:1430
 msgid "could not retrieve connection UUID"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1429
+#: ../src/nm-l2tp-service.c:1438
 msgid "Invalid or missing L2TP gateway."
 msgstr "Netinkamas arba trūkstamas L2TP tinklų sietuvas."
 
-#: ../src/nm-l2tp-service.c:1723
+#: ../src/nm-l2tp-service.c:1732
 msgid "Don't quit when VPN connection terminates"
 msgstr "Neužverti kai VPN ryšys baigiasi"
 
-#: ../src/nm-l2tp-service.c:1724
+#: ../src/nm-l2tp-service.c:1733
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Įjungti išsamų derinimo žurnalą (gali parodyti slaptažodžius)"
 
-#: ../src/nm-l2tp-service.c:1725
+#: ../src/nm-l2tp-service.c:1734
 msgid "D-Bus name to use for this instance"
-msgstr "D-Bus vardas, naudojamas šiam vienetui"
+msgstr "D-Bus pavadinimas, kurį naudoti šiam egzemplioriui"
 
-#: ../src/nm-l2tp-service.c:1746
+#: ../src/nm-l2tp-service.c:1755
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
@@ -403,11 +401,11 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:19
 msgid "Machine Authentication"
-msgstr ""
+msgstr "Kompiuterio tapatybės nustatymas"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "Sho_w password"
-msgstr ""
+msgstr "R_odyti slaptažodį"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid ""
@@ -452,10 +450,6 @@ msgstr ""
 msgid "(HH:MM)"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:33
-msgid "Phase_2 Lifetime:"
-msgstr ""
-
 #: ../properties/nm-l2tp-dialog.ui.h:34
 msgid ""
 "How long a particular instance of a connection (a set of encryption/"
@@ -470,7 +464,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:37
 msgid "Remote ID:"
-msgstr ""
+msgstr "Nuotolinis ID:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:38
 msgid ""
@@ -481,10 +475,6 @@ msgid ""
 "parsing.\n"
 "config: ipsec-remote-id <rightid>\n"
 "ipsec.secrets: <ID>"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:41
-msgid "Phase_1 Lifetime:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:42

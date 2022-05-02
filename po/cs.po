@@ -1,17 +1,17 @@
 # Czech translation of NetworkManager-l2tp.
-# Copyright (C) 2008 the author(s) of NetworkManager-l2tp.
+# Copyright (C) 2008, 2009, 2010 the author(s) of NetworkManager-l2tp.
 # This file is distributed under the same license as the NetworkManager-l2tp package.
 #
 # Jakub Friedl <jfriedl@suse.cz>, 2006.
 # Jiří Eischmann <jiri@eischmann.cz>, 2008.
-# Zdeněk Hataš <zdenek.hatas@gmail.com>, 2009 - 2016.
+# Zdeněk Hataš <zdenek.hatas@gmail.com>, 2009 - 2019
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-04 19:48+1000\n"
-"PO-Revision-Date: 2016-10-17 10:59+0200\n"
+"POT-Creation-Date: 2022-05-02 12:00+1000\n"
+"PO-Revision-Date: 2019-03-05 16:31+0100\n"
 "Last-Translator: Zdeněk Hataš <zdenek.hatas@gmail.com>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -19,7 +19,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Poedit 2.0.6\n"
+"X-Poedit-Bookmarks: 35,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
 msgid "L2TP VPN Client"
@@ -59,7 +61,7 @@ msgstr "Pro přístup k virtuální privátní síti '%s' musíte provést auten
 
 #: ../auth-dialog/main.c:155 ../auth-dialog/main.c:176
 msgid "Authenticate VPN"
-msgstr "Autentizovat VPN"
+msgstr "Ověřování VPN"
 
 #: ../auth-dialog/main.c:157 ../properties/nm-l2tp-dialog.ui.h:12
 msgid "Password:"
@@ -138,7 +140,7 @@ msgstr "Kompatibilní s L2TP VPN servery od Microsoftu a ostatních."
 #: ../shared/nm-utils/nm-shared-utils.c:1165
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr "objektová třída „%s“ nemá vlastnost s názvem „%s„“"
+msgstr "objektová třída „%s“ nemá vlastnost s názvem „%s“"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
@@ -150,12 +152,12 @@ msgstr "vlastnost „%s“ objektové třídy „%s“ není zapisovatelná"
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
-"konstrukce vlastnosti „%s“ pro objekt „%s“ nemůže být nastavena po vytvoření"
+"vytvoření vlastnosti „%s“ objektu „%s“ nemůže být nastaveno po vytvoření"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1187
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
-msgstr "„%s::%s“ není název vlastnosti; „%s“ není podtyp objektu GObject"
+msgstr "„%s::%s“ není platný název vlastnosti; „%s“ není podtyp GObject"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1196
 #, c-format
@@ -168,7 +170,8 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
-"hodnota „%s“ typu „%s“ je neplatná nebo mimo rozsah vlastnosti „%s“ typu „%s“"
+"hodnota „%s“ typu „%s“ je neplatná nebo mimo rozmezí pro vlastnost „%s“ u "
+"typu „%s“"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
 #, c-format
@@ -178,152 +181,152 @@ msgstr "nelze zjistit název zásuvného modulu editoru: %s"
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr "chybějící soubor zásuvného modulu „%s“"
+msgstr "chybí souboer se zásuvným modulem „%s“"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:109
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr "nelze nahrát editor zásuvného modulu: %s"
+msgstr "nelze načíst zásuvný modul edotoru: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:118
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr "nelze nahrát generátor %s ze zásuvného modulu: %s"
+msgstr "nelze načíst generátor %s ze zásuvného modulu: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:144
 msgid "unknown error creating editor instance"
-msgstr "neznámá chyba vytváření instance editoru"
+msgstr "neznámá chyba při vytváření instance editoru"
 
-#: ../src/nm-l2tp-service.c:279
+#: ../src/nm-l2tp-service.c:288
 #, c-format
 msgid "invalid gateway '%s'"
 msgstr "neplatná brána „%s“"
 
-#: ../src/nm-l2tp-service.c:293
+#: ../src/nm-l2tp-service.c:302
 #, c-format
 msgid "invalid integer property '%s'"
 msgstr "neplatná číselná vlastnost „%s“"
 
-#: ../src/nm-l2tp-service.c:303
+#: ../src/nm-l2tp-service.c:312
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr "neplatná pravdivostní vlastnost „%s“ (není ano či ne)"
 
-#: ../src/nm-l2tp-service.c:310
+#: ../src/nm-l2tp-service.c:319
 #, c-format
 msgid "unhandled property '%s' type %s"
 msgstr "neošetřená vlastnost „%s“ typu %s"
 
-#: ../src/nm-l2tp-service.c:321
+#: ../src/nm-l2tp-service.c:330
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "vlastnost „%s“ není platná nebo podporovaná"
 
-#: ../src/nm-l2tp-service.c:339
+#: ../src/nm-l2tp-service.c:348
 msgid "No VPN configuration options."
 msgstr "Žádné volby nastavení VPN."
 
-#: ../src/nm-l2tp-service.c:359
+#: ../src/nm-l2tp-service.c:368
 #, c-format
 msgid "Missing required option '%s'."
 msgstr "Chybí požadovaná volba „%s“."
 
-#: ../src/nm-l2tp-service.c:379
+#: ../src/nm-l2tp-service.c:388
 msgid "No VPN secrets!"
 msgstr "Žádná hesla VPN!"
 
-#: ../src/nm-l2tp-service.c:628
+#: ../src/nm-l2tp-service.c:637
 #, c-format
 msgid "Could not open %s for writing: %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:635
+#: ../src/nm-l2tp-service.c:644
 #, c-format
 msgid "Could not append \"include ipsec.d/ipsec.nm-l2tp.secrets\" to %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:651
+#: ../src/nm-l2tp-service.c:660
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:691
+#: ../src/nm-l2tp-service.c:700
 msgid "Could not write ipsec config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:815
+#: ../src/nm-l2tp-service.c:824
 msgid "Could not write xl2tpd config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:857
+#: ../src/nm-l2tp-service.c:866
 msgid "Could not write ppp options."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1015 ../src/nm-l2tp-service.c:1040
+#: ../src/nm-l2tp-service.c:1024 ../src/nm-l2tp-service.c:1049
 msgid "Could not start the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1021 ../src/nm-l2tp-service.c:1048
+#: ../src/nm-l2tp-service.c:1030 ../src/nm-l2tp-service.c:1057
 msgid "Could not restart the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1159
+#: ../src/nm-l2tp-service.c:1168
 msgid "Could not find the xl2tpd binary."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1225
+#: ../src/nm-l2tp-service.c:1234
 msgid "Missing VPN username."
 msgstr "Chybí jméno uživatele VPN."
 
-#: ../src/nm-l2tp-service.c:1234
+#: ../src/nm-l2tp-service.c:1243
 msgid "Missing or invalid VPN password."
 msgstr "Chybějící nebo neplatné heslo pro VPN."
 
-#: ../src/nm-l2tp-service.c:1337
+#: ../src/nm-l2tp-service.c:1346
 msgid "couldn't convert L2TP VPN gateway IP address."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1350
+#: ../src/nm-l2tp-service.c:1359
 msgid "couldn't look up L2TP VPN gateway IP address "
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1369
+#: ../src/nm-l2tp-service.c:1378
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1404
+#: ../src/nm-l2tp-service.c:1413
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1410
+#: ../src/nm-l2tp-service.c:1419
 msgid "Openswan is no longer supported, use Libreswan or strongSwan."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1412
+#: ../src/nm-l2tp-service.c:1421
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1421
+#: ../src/nm-l2tp-service.c:1430
 msgid "could not retrieve connection UUID"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1429
+#: ../src/nm-l2tp-service.c:1438
 msgid "Invalid or missing L2TP gateway."
 msgstr "Neplatná nebo chybějící brána L2TP."
 
-#: ../src/nm-l2tp-service.c:1723
+#: ../src/nm-l2tp-service.c:1732
 msgid "Don't quit when VPN connection terminates"
 msgstr "Neukončovat při uzavření spojení VPN"
 
-#: ../src/nm-l2tp-service.c:1724
+#: ../src/nm-l2tp-service.c:1733
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Povolit podrobný ladicí výpis (může prozradit hesla)"
 
-#: ../src/nm-l2tp-service.c:1725
+#: ../src/nm-l2tp-service.c:1734
 msgid "D-Bus name to use for this instance"
-msgstr "Název použitý v D-Bus pro tuto instanci"
+msgstr "Název použitý pro tuto instanci v D-Bus"
 
-#: ../src/nm-l2tp-service.c:1746
+#: ../src/nm-l2tp-service.c:1755
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
@@ -402,7 +405,7 @@ msgstr "Ověření totožnosti počítače"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "Sho_w password"
-msgstr ""
+msgstr "_Zobrazit heslo"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid ""
@@ -447,10 +450,6 @@ msgstr ""
 msgid "(HH:MM)"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:33
-msgid "Phase_2 Lifetime:"
-msgstr ""
-
 #: ../properties/nm-l2tp-dialog.ui.h:34
 msgid ""
 "How long a particular instance of a connection (a set of encryption/"
@@ -476,10 +475,6 @@ msgid ""
 "parsing.\n"
 "config: ipsec-remote-id <rightid>\n"
 "ipsec.secrets: <ID>"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:41
-msgid "Phase_1 Lifetime:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:42

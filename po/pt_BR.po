@@ -1,29 +1,31 @@
 # Brazilian Portuguese translation of NetworkManager-l2tp.
-# Copyright (C) 2007-2016 Free Software Foundation, Inc.
-# This file is distributed under the same license as the NetworkManager-l2tp package.
-# Raphael Higino <In Memoriam>, 2007.
+# Copyright (C) 2020 Free Software Foundation, Inc.
+# This file is distributed under the same license as NetworkManager-l2tp.
+# Raphael Higino <In Memoriam>, 2004-2007.
+# Washington Lins <washington-lins@uol.com.br>, 2007.
 # Luiz Armesto <luiz.armesto@gmail.com>, 2007.
-# Fabrício Godoy <skarllot@gmail.com>, 2008.
-# Vladimir Melo <vmelo@gnome.org>, 2008.
 # Henrique P Machado <zehrique@gmail.com>, 2008.
-# Og Maciel <ogmaciel@gnome.org>, 2009, 2010.
-# Djavan Fagundes <djavan@comum.org>, 2011.
-# Rafael Fontenelle <rafaelff@gnome.org>, 2012, 2016, 2017.
-# Freire de Almeida <laudivan@riseup.net>, 2016.
+# Fábio Nogueira <deb-user-ba@ubuntu.com>, 2008.
+# Og Maciel <ogmaciel@gnome.org>, 2009.
+# Antonio Fernandes C. Neto <fernandesn@gnome.org>, 2010, 2011.
+# Enrico Nicoletto <liverig@gmail.com>, 2013.
+# Rafael Fontenelle <rafaelff@gnome.org>, 2012-2020.
+# Henrique Machado Campos <henriquecamposrj@gmail.com>, 2020.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-04 19:48+1000\n"
-"PO-Revision-Date: 2017-02-06 14:41-0200\n"
-"Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
+"POT-Creation-Date: 2022-05-02 12:00+1000\n"
+"PO-Revision-Date: 2020-09-10 21:37-0300\n"
+"Last-Translator: Henrique Machado Campos <henriquecamposrj@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Virtaal 1.0.0-beta1\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"X-Generator: Gtranslator 3.36.0\n"
 "X-Project-Style: gnome\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
@@ -144,32 +146,33 @@ msgstr "Compatível com servidores Microsoft e outros L2TP VPN."
 #: ../shared/nm-utils/nm-shared-utils.c:1165
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr "classe de objeto “%s” possui nenhuma propriedade chamada “%s”"
+msgstr "a classe de objeto “%s” não possui uma propriedade chamada “%s”"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr "propriedade “%s” de classe de objeto “%s” não pode ser escrita"
+msgstr "a propriedade “%s” da classe de objeto “%s” não pode ser escrita"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1179
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
-"propriedade do construct “%s” para objeto “%s” não pode ser definido após "
+"propriedade de construtor “%s” para objeto “%s” não pode ser definido após "
 "construção"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1187
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
 msgstr ""
-"“%s::%s” não é um nome de propriedade válida; “%s” não é um subtipo GObject"
+"“%s::%s” não é um nome de propriedade válido; “%s” não é um subtipo de "
+"GObject"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1196
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
 msgstr ""
-"não foi possível definir a propriedade “%s” do tipo “%s” a partir do valor "
+"não foi possível definir a propriedade “%s” de tipo “%s” a partir do valor "
 "de tipo “%s”"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1207
@@ -178,13 +181,13 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
-"valor “%s” do tipo “%s” é inválido ou está fora do intervalo para "
-"propriedade “%s” do tipo “%s”"
+"o valor “%s” de tipo “%s” é inválido ou fora do intervalo da propriedade "
+"“%s” de tipo “%s”"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
 #, c-format
 msgid "unable to get editor plugin name: %s"
-msgstr "não pôde obter nome do plug-in do editor: %s"
+msgstr "não foi possível obter o nome do plug-in do editor %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
@@ -194,9 +197,8 @@ msgstr "faltando arquivo de plug-in “%s”"
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:109
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr "não pôde carregar o editor do editos: %s"
+msgstr "não foi possível carregar o plug-in do editor: %s"
 
-# Fiquei na dúvida quanto a usar fábrica na tradução.
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:118
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
@@ -206,136 +208,136 @@ msgstr "não foi possível carregar fábrica %s do plug-in: %s"
 msgid "unknown error creating editor instance"
 msgstr "erro desconhecido ao criar instância do editor"
 
-#: ../src/nm-l2tp-service.c:279
+#: ../src/nm-l2tp-service.c:288
 #, c-format
 msgid "invalid gateway '%s'"
 msgstr "gateway \"%s\" inválido"
 
-#: ../src/nm-l2tp-service.c:293
+#: ../src/nm-l2tp-service.c:302
 #, c-format
 msgid "invalid integer property '%s'"
 msgstr "propriedade do inteiro \"%s\" inválido"
 
-#: ../src/nm-l2tp-service.c:303
+#: ../src/nm-l2tp-service.c:312
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr "propriedade do booleano \"%s\" inválido (não sim ou não)"
 
-#: ../src/nm-l2tp-service.c:310
+#: ../src/nm-l2tp-service.c:319
 #, c-format
 msgid "unhandled property '%s' type %s"
 msgstr "propriedade \"%s\" não-manipulada, tipo %s"
 
-#: ../src/nm-l2tp-service.c:321
+#: ../src/nm-l2tp-service.c:330
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "propriedade \"%s\" inválida ou sem suporte"
 
-#: ../src/nm-l2tp-service.c:339
+#: ../src/nm-l2tp-service.c:348
 msgid "No VPN configuration options."
-msgstr "Sem opções de configuração de VPN."
+msgstr "Sem opções de configurações de VPN."
 
-#: ../src/nm-l2tp-service.c:359
+#: ../src/nm-l2tp-service.c:368
 #, c-format
 msgid "Missing required option '%s'."
 msgstr "Faltando opção \"%s\" necessária."
 
-#: ../src/nm-l2tp-service.c:379
+#: ../src/nm-l2tp-service.c:388
 msgid "No VPN secrets!"
 msgstr "Nenhum segredo de VPN!"
 
-#: ../src/nm-l2tp-service.c:628
+#: ../src/nm-l2tp-service.c:637
 #, c-format
 msgid "Could not open %s for writing: %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:635
+#: ../src/nm-l2tp-service.c:644
 #, c-format
 msgid "Could not append \"include ipsec.d/ipsec.nm-l2tp.secrets\" to %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:651
+#: ../src/nm-l2tp-service.c:660
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:691
+#: ../src/nm-l2tp-service.c:700
 msgid "Could not write ipsec config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:815
+#: ../src/nm-l2tp-service.c:824
 msgid "Could not write xl2tpd config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:857
+#: ../src/nm-l2tp-service.c:866
 msgid "Could not write ppp options."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1015 ../src/nm-l2tp-service.c:1040
+#: ../src/nm-l2tp-service.c:1024 ../src/nm-l2tp-service.c:1049
 msgid "Could not start the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1021 ../src/nm-l2tp-service.c:1048
+#: ../src/nm-l2tp-service.c:1030 ../src/nm-l2tp-service.c:1057
 msgid "Could not restart the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1159
+#: ../src/nm-l2tp-service.c:1168
 msgid "Could not find the xl2tpd binary."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1225
+#: ../src/nm-l2tp-service.c:1234
 msgid "Missing VPN username."
 msgstr "Faltando nome de usuário VPN."
 
-#: ../src/nm-l2tp-service.c:1234
+#: ../src/nm-l2tp-service.c:1243
 msgid "Missing or invalid VPN password."
 msgstr "Senha VPN inválida ou faltando."
 
-#: ../src/nm-l2tp-service.c:1337
+#: ../src/nm-l2tp-service.c:1346
 msgid "couldn't convert L2TP VPN gateway IP address."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1350
+#: ../src/nm-l2tp-service.c:1359
 msgid "couldn't look up L2TP VPN gateway IP address "
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1369
+#: ../src/nm-l2tp-service.c:1378
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1404
+#: ../src/nm-l2tp-service.c:1413
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1410
+#: ../src/nm-l2tp-service.c:1419
 msgid "Openswan is no longer supported, use Libreswan or strongSwan."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1412
+#: ../src/nm-l2tp-service.c:1421
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1421
+#: ../src/nm-l2tp-service.c:1430
 msgid "could not retrieve connection UUID"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1429
+#: ../src/nm-l2tp-service.c:1438
 msgid "Invalid or missing L2TP gateway."
 msgstr "Gateway L2TP inválido ou faltando."
 
-#: ../src/nm-l2tp-service.c:1723
+#: ../src/nm-l2tp-service.c:1732
 msgid "Don't quit when VPN connection terminates"
 msgstr "Não sair até que a conexão com a VPN tenha terminado"
 
-#: ../src/nm-l2tp-service.c:1724
+#: ../src/nm-l2tp-service.c:1733
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr "Habilitar registro de depuração detalhado (pode expôr senhas)"
+msgstr "Habilitar registros detalhados para depuração (pode expor senhas)"
 
-#: ../src/nm-l2tp-service.c:1725
+#: ../src/nm-l2tp-service.c:1734
 msgid "D-Bus name to use for this instance"
-msgstr "Nome D-Bus a ser usado para essa instância"
+msgstr "Nome D-Bus a ser usado para esta instância"
 
-#: ../src/nm-l2tp-service.c:1746
+#: ../src/nm-l2tp-service.c:1755
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
@@ -410,11 +412,11 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:19
 msgid "Machine Authentication"
-msgstr ""
+msgstr "Autenticação por máquina"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "Sho_w password"
-msgstr ""
+msgstr "_Mostrar senha"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid ""
@@ -459,10 +461,6 @@ msgstr ""
 msgid "(HH:MM)"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:33
-msgid "Phase_2 Lifetime:"
-msgstr ""
-
 #: ../properties/nm-l2tp-dialog.ui.h:34
 msgid ""
 "How long a particular instance of a connection (a set of encryption/"
@@ -477,7 +475,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:37
 msgid "Remote ID:"
-msgstr ""
+msgstr "ID remoto:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:38
 msgid ""
@@ -488,10 +486,6 @@ msgid ""
 "parsing.\n"
 "config: ipsec-remote-id <rightid>\n"
 "ipsec.secrets: <ID>"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:41
-msgid "Phase_1 Lifetime:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:42
