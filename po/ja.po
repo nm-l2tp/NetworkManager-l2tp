@@ -7,9 +7,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-l2tp master\n"
+"Project-Id-Version: NetworkManager-l2tp main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-03 07:48+1000\n"
+"POT-Creation-Date: 2022-05-02 14:00+1000\n"
 "PO-Revision-Date: 2020-05-10 21:00+0900\n"
 "Last-Translator: sicklylife <translation@sicklylife.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
@@ -118,6 +118,16 @@ msgstr ""
 msgid "Property '%s' value '%s' can't be parsed as route metric."
 msgstr ""
 
+#: ../properties/import-export.c:342
+#, c-format
+msgid "Error parsing property '%s' value '%s'."
+msgstr "対処できない %s 型パラメーターの %s"
+
+#: ../properties/import-export.c:364
+#, c-format
+msgid "Error parsing property '%s': %s."
+msgstr "対処できない %s 型パラメーターの %s"
+
 #: ../properties/import-export.c:399
 #, c-format
 msgid "does not look like a L2TP VPN connection (parse failed)"
@@ -133,6 +143,11 @@ msgstr ""
 msgid ""
 "Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."
 msgstr ""
+
+#: ../properties/import-export.c:700
+#, c-format
+msgid "Missing required property '%s'"
+msgstr "必須オプション %s が不足しています。"
 
 #: ../properties/import-export.c:730
 #, c-format
@@ -718,14 +733,6 @@ msgid ""
 "authentication keys for user packets) should last, from successful "
 "negotiation to expiry.\n"
 "config: ipsec-salifetime <lifetime>"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:47
-msgid "Phase_1 Lifetime:"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:48
-msgid "Phase_2 Lifetime:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:49

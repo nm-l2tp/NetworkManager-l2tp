@@ -6,9 +6,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-l2tp master\n"
+"Project-Id-Version: NetworkManager-l2tp main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-03 07:48+1000\n"
+"POT-Creation-Date: 2022-05-02 14:00+1000\n"
 "PO-Revision-Date: 2010-10-02 10:52+0300\n"
 "Last-Translator: Krasimir Chonov <mk2616@abv.bg>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
@@ -617,10 +617,6 @@ msgstr "Сертификат на сертифициращата организ�
 msgid "Certificate authority (CA) file in PEM, DER or PKCS#12 format"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:18
-msgid "Certificate:"
-msgstr ""
-
 #: ../properties/nm-l2tp-dialog.ui.h:19
 msgid "Certificate file in PEM, DER or PKCS#12 format"
 msgstr ""
@@ -644,6 +640,10 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Type:"
 msgstr "Вид:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:25
+msgid "Select an authentication mode."
+msgstr "Разрешаване на следните методи за идентификация"
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid "_IPsec Settings..."
@@ -791,7 +791,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "Ad_vanced"
-msgstr ""
+msgstr "_Допълнителни"
 
 #: ../properties/nm-l2tp-dialog.ui.h:66
 msgid "Default"

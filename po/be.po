@@ -2,9 +2,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-l2tp.master\n"
+"Project-Id-Version: NetworkManager-l2tp.main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-03 07:48+1000\n"
+"POT-Creation-Date: 2022-05-02 14:00+1000\n"
 "PO-Revision-Date: 2011-09-11 17:34+0300\n"
 "Last-Translator: Yuri Matsuk <yuri@matsuk.net>\n"
 "Language-Team: Belarusian <i18n-bel-gnome@googlegroups.com>\n"
@@ -12,8 +12,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: UTF-8\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
 msgid "L2TP VPN Client"
@@ -51,8 +51,16 @@ msgstr "Ідэнтыфікацыя VPN"
 msgid "Password"
 msgstr "Пароль"
 
+#: ../auth-dialog/main.c:171
+msgid "User Certificate password"
+msgstr ""
+
 #: ../auth-dialog/main.c:178
 msgid "Machine Certificate password"
+msgstr ""
+
+#: ../auth-dialog/main.c:227
+msgid "_User Certificate password:"
 msgstr ""
 
 #: ../auth-dialog/main.c:233
@@ -219,23 +227,23 @@ msgstr ""
 
 #: ../properties/ppp-dialog.c:275
 msgid "PAP"
-msgstr ""
+msgstr "PAP"
 
 #: ../properties/ppp-dialog.c:288
 msgid "CHAP"
-msgstr ""
+msgstr "CHAP"
 
 #: ../properties/ppp-dialog.c:300
 msgid "MSCHAP"
-msgstr ""
+msgstr "MSCHAP"
 
 #: ../properties/ppp-dialog.c:312
 msgid "MSCHAPv2"
-msgstr ""
+msgstr "MSCHAPv2"
 
 #: ../properties/ppp-dialog.c:325
 msgid "EAP"
-msgstr ""
+msgstr "EAP"
 
 #: ../shared/nm-l2tp-crypto-nss.c:45
 #, c-format
@@ -347,28 +355,34 @@ msgstr ""
 #: ../shared/nm-utils/nm-shared-utils.c:1150
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr ""
+msgstr "клас аб’екта \"%s\" не мае ўласцівасці з назвай \"%s\""
 
 #: ../shared/nm-utils/nm-shared-utils.c:1157
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr ""
+msgstr "уласцівасць \"%s\" класа аб’екта \"%s\" недаступная для запісу"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1164
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
+"уласцівасць стварэння \"%s\" для аб’екта \"%s\" не можа быць вызначаная "
+"пасля стварэння"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
 msgstr ""
+"\"%s::%s\" - непрыдатная назва для ўласцівасці; \"%s\" не ёсць падтыпам "
+"GObject"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1181
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
 msgstr ""
+"не атрымалася вызначыць уласцівасць \"%s\" тыпу \"%s\" са значэння тыпу "
+"\"%s\""
 
 #: ../shared/nm-utils/nm-shared-utils.c:1192
 #, c-format
@@ -376,6 +390,8 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
+"значэнне \"%sд тыпу \"%s\" непрыдатнае альбо знаходзіцца па-за дыяпазонам "
+"для ўласцівасці \"%s\" тыпу \"%s\""
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:53
 #, c-format
@@ -559,11 +575,19 @@ msgid ""
 "config: xl2tpd lns parameter"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:5
+msgid "User Authentication"
+msgstr "Ідэнтыфікацыя"
+
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
 "DOMAIN\\username, where DOMAIN is the value from this text entry box."
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:7
+msgid "Sho_w password"
+msgstr "_Паказаць пароль"
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Password passed to PPPD when prompted for it."
@@ -782,6 +806,10 @@ msgstr "Прадвызначаны"
 msgid "L2TP PPP Options"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:68
+msgid "Authentication"
+msgstr "Ідэнтыфікацыя"
+
 #: ../properties/nm-l2tp-dialog.ui.h:69
 msgid "Allow the following authentication methods:"
 msgstr ""
@@ -807,10 +835,6 @@ msgid ""
 "methods: MSCHAP or MSCHAPv2."
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:75
-msgid "_Security:"
-msgstr ""
-
 #: ../properties/nm-l2tp-dialog.ui.h:76
 msgid ""
 "Require the use of MPPE, with 40/128-bit encryption or all.\n"
@@ -829,7 +853,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:81
 msgid "Allow _BSD data compression"
-msgstr ""
+msgstr "_Дазволіць BSD-сцісканне даных"
 
 #: ../properties/nm-l2tp-dialog.ui.h:82
 msgid ""
@@ -839,7 +863,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:84
 msgid "Allow _Deflate data compression"
-msgstr ""
+msgstr "Даз_воліць Deflate-сцісканне даных"
 
 #: ../properties/nm-l2tp-dialog.ui.h:85
 msgid ""
@@ -849,7 +873,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:87
 msgid "Use TCP _header compression"
-msgstr ""
+msgstr "Сціскаць TCP-_загалоўкі"
 
 #: ../properties/nm-l2tp-dialog.ui.h:88
 msgid ""
@@ -885,7 +909,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:97
 msgid "Send PPP _echo packets"
-msgstr ""
+msgstr "Пасылаць р_эхавыя PPP-пакеты"
 
 #: ../properties/nm-l2tp-dialog.ui.h:98
 msgid ""

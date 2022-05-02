@@ -13,9 +13,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-l2tp master\n"
+"Project-Id-Version: NetworkManager-l2tp main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-03 07:48+1000\n"
+"POT-Creation-Date: 2022-05-02 14:00+1000\n"
 "PO-Revision-Date: 2020-02-04 14:54+0100\n"
 "Last-Translator: Guillaume Bernard <filorin@gmx.com>\n"
 "Language-Team: français <gnomefr@traduc.org>\n"
@@ -127,6 +127,16 @@ msgstr ""
 msgid "Property '%s' value '%s' can't be parsed as route metric."
 msgstr ""
 
+#: ../properties/import-export.c:342
+#, c-format
+msgid "Error parsing property '%s' value '%s'."
+msgstr "propriété « %s » de type « %s » non gérée"
+
+#: ../properties/import-export.c:364
+#, c-format
+msgid "Error parsing property '%s': %s."
+msgstr "propriété « %s » de type « %s » non gérée"
+
 #: ../properties/import-export.c:399
 #, c-format
 msgid "does not look like a L2TP VPN connection (parse failed)"
@@ -142,6 +152,11 @@ msgstr ""
 msgid ""
 "Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."
 msgstr ""
+
+#: ../properties/import-export.c:700
+#, c-format
+msgid "Missing required property '%s'"
+msgstr "Option obligatoire « %s » manquante."
 
 #: ../properties/import-export.c:730
 #, c-format
@@ -729,14 +744,6 @@ msgid ""
 "config: ipsec-salifetime <lifetime>"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:47
-msgid "Phase_1 Lifetime:"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:48
-msgid "Phase_2 Lifetime:"
-msgstr ""
-
 #: ../properties/nm-l2tp-dialog.ui.h:49
 msgid "Remote ID:"
 msgstr "Identifiant distant:"
@@ -796,7 +803,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "Ad_vanced"
-msgstr "Avancé"
+msgstr "A_vancé"
 
 #: ../properties/nm-l2tp-dialog.ui.h:66
 msgid "Default"

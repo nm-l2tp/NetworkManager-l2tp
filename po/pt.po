@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.26\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-03 07:48+1000\n"
+"POT-Creation-Date: 2022-05-02 14:00+1000\n"
 "PO-Revision-Date: 2015-11-13 08:24+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Pedro Albuquerque\n"
@@ -123,6 +123,16 @@ msgstr ""
 msgid "Property '%s' value '%s' can't be parsed as route metric."
 msgstr ""
 
+#: ../properties/import-export.c:342
+#, c-format
+msgid "Error parsing property '%s' value '%s'."
+msgstr "propriedade \"%s\" de tipo %s não gerida"
+
+#: ../properties/import-export.c:364
+#, c-format
+msgid "Error parsing property '%s': %s."
+msgstr "propriedade \"%s\" de tipo %s não gerida"
+
 #: ../properties/import-export.c:399
 #, c-format
 msgid "does not look like a L2TP VPN connection (parse failed)"
@@ -138,6 +148,11 @@ msgstr ""
 msgid ""
 "Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."
 msgstr ""
+
+#: ../properties/import-export.c:700
+#, c-format
+msgid "Missing required property '%s'"
+msgstr "Opção necessária \"%s\" em falta."
 
 #: ../properties/import-export.c:730
 #, c-format
@@ -348,28 +363,33 @@ msgstr ""
 #: ../shared/nm-utils/nm-shared-utils.c:1150
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr ""
+msgstr "a classe de objeto '%s' não possui uma propriedade chamada '%s'"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1157
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr ""
+msgstr "a propriedade '%s' da classe de objeto '%s' não é gravável"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1164
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
+"a propriedade de construtor '%s' para objeto '%s' não pode ser definido após "
+"construção"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
 msgstr ""
+"'%s:%s' não é um nome de propriedade válida; '%s' não é um subtipo de GObject"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1181
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
 msgstr ""
+"não foi possível definir a propriedade '%s' de tipo '%s' a partir do valor "
+"de tipo '%s'"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1192
 #, c-format
@@ -377,6 +397,8 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
+"o valor '%s' de tipo '%s' é inválido ou fora do intervalo da propriedade "
+"'%s' de tipo '%s'"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:53
 #, c-format
@@ -717,14 +739,6 @@ msgid ""
 "config: ipsec-salifetime <lifetime>"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:47
-msgid "Phase_1 Lifetime:"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:48
-msgid "Phase_2 Lifetime:"
-msgstr ""
-
 #: ../properties/nm-l2tp-dialog.ui.h:49
 msgid "Remote ID:"
 msgstr "ID Remoto:"
@@ -784,7 +798,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "Ad_vanced"
-msgstr "Avançado"
+msgstr "A_vançado"
 
 #: ../properties/nm-l2tp-dialog.ui.h:66
 msgid "Default"

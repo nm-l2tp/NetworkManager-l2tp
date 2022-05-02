@@ -1,4 +1,4 @@
-# translation of NetworkManager-l2tp.master.te.po to Telugu
+# translation of NetworkManager-l2tp.main.te.po to Telugu
 # Telugu translation of NetworkManager-l2tp.
 # Copyright (C) 2009 NetworkManager-l2tp's COPYRIGHT HOLDER
 # This file is distributed under the same license as the NetworkManager-l2tp package.
@@ -6,9 +6,9 @@
 # Krishna Babu K <kkrothap@redhat.com>, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-l2tp.master.te\n"
+"Project-Id-Version: NetworkManager-l2tp.main.te\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-03 07:48+1000\n"
+"POT-Creation-Date: 2022-05-02 14:00+1000\n"
 "PO-Revision-Date: 2009-10-27 19:25+0530\n"
 "Last-Translator: Krishna Babu K <kkrothap@redhat.com>\n"
 "Language-Team: Telugu <en@li.org>\n"
@@ -619,10 +619,6 @@ msgstr "CA దృవీకరణపత్రము:"
 msgid "Certificate authority (CA) file in PEM, DER or PKCS#12 format"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:18
-msgid "Certificate:"
-msgstr ""
-
 #: ../properties/nm-l2tp-dialog.ui.h:19
 msgid "Certificate file in PEM, DER or PKCS#12 format"
 msgstr ""
@@ -646,6 +642,10 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Type:"
 msgstr "రకము:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:25
+msgid "Select an authentication mode."
+msgstr "క్రింది దృవీకరణ పద్దతులను అనుమతించుము"
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid "_IPsec Settings..."
@@ -793,7 +793,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "Ad_vanced"
-msgstr ""
+msgstr "అధునాతన... (_v)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:66
 msgid "Default"
@@ -809,7 +809,7 @@ msgstr "ప్రామాణీకరణ"
 
 #: ../properties/nm-l2tp-dialog.ui.h:69
 msgid "Allow the following authentication methods:"
-msgstr "క్రింది దృవీకరణ పద్దతులను అనుమతించుము:"
+msgstr "క్రింది దృవీకరణ పద్దతులను అనుమతించుము"
 
 #: ../properties/nm-l2tp-dialog.ui.h:70
 msgid ""

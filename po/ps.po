@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp.head\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-03 07:48+1000\n"
+"POT-Creation-Date: 2022-05-02 14:00+1000\n"
 "PO-Revision-Date: 2008-08-19 09:14-0800\n"
 "Last-Translator: Zabeeh Khan <zabeehkhan@gmail.com>\n"
 "Language-Team: Pashto <pathanisation@googlegroups.com>\n"
@@ -54,8 +54,16 @@ msgstr "اوڅاریز ځاني ځال کرول"
 msgid "Password"
 msgstr "تېرنويې"
 
+#: ../auth-dialog/main.c:171
+msgid "User Certificate password"
+msgstr ""
+
 #: ../auth-dialog/main.c:178
 msgid "Machine Certificate password"
+msgstr ""
+
+#: ../auth-dialog/main.c:227
+msgid "_User Certificate password:"
 msgstr ""
 
 #: ../auth-dialog/main.c:233
@@ -561,11 +569,19 @@ msgid ""
 "config: xl2tpd lns parameter"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:5
+msgid "User Authentication"
+msgstr "اوڅاریز ځاني ځال کرول"
+
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
 "DOMAIN\\username, where DOMAIN is the value from this text entry box."
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:7
+msgid "Sho_w password"
+msgstr "تېرنويې"
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Password passed to PPPD when prompted for it."
@@ -606,6 +622,10 @@ msgstr "وګړيزه کيلۍ:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Private Key in PEM, DER or PKCS#8 format"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:22
+msgid "Private Key Password:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:23
@@ -775,6 +795,10 @@ msgstr "تلواله"
 #: ../properties/nm-l2tp-dialog.ui.h:67
 msgid "L2TP PPP Options"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:68
+msgid "Authentication"
+msgstr "اوڅاریز ځاني ځال کرول"
 
 #: ../properties/nm-l2tp-dialog.ui.h:69
 msgid "Allow the following authentication methods:"

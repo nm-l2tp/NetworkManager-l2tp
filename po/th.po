@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-03 07:48+1000\n"
+"POT-Creation-Date: 2022-05-02 14:00+1000\n"
 "PO-Revision-Date: 2007-02-02 20:53+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <l10n.opentle.org>\n"
@@ -167,6 +167,10 @@ msgstr ""
 
 #: ../properties/ipsec-dialog.c:559
 msgid "Pre-shared key (PSK)"
+msgstr ""
+
+#: ../properties/ipsec-dialog.c:568 ../properties/nm-l2tp-editor.c:676
+msgid "Certificates (TLS)"
 msgstr ""
 
 #: ../properties/nm-l2tp-editor.c:406
@@ -603,6 +607,10 @@ msgstr "รหัสผ่าน:"
 msgid "NT Domain:"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:16
+msgid "CA Certificate:"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "Certificate authority (CA) file in PEM, DER or PKCS#12 format"
 msgstr ""
@@ -621,6 +629,10 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Private Key in PEM, DER or PKCS#8 format"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:22
+msgid "Private Key Password:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:23

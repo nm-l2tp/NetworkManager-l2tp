@@ -1,13 +1,13 @@
-# translation of NetworkManager-l2tp.master.mr.po to marathi
+# translation of NetworkManager-l2tp.main.mr.po to marathi
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Sandeep Shedmake <sandeep.shedmake@gmail.com>, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-l2tp.master.mr\n"
+"Project-Id-Version: NetworkManager-l2tp.main.mr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-03 07:48+1000\n"
+"POT-Creation-Date: 2022-05-02 14:00+1000\n"
 "PO-Revision-Date: 2009-06-09 14:53+0530\n"
 "Last-Translator: Sandeep Shedmake <sandeep.shedmake@gmail.com>\n"
 "Language-Team: marathi\n"
@@ -616,10 +616,6 @@ msgstr "CA प्रमाणपत्र:"
 msgid "Certificate authority (CA) file in PEM, DER or PKCS#12 format"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:18
-msgid "Certificate:"
-msgstr ""
-
 #: ../properties/nm-l2tp-dialog.ui.h:19
 msgid "Certificate file in PEM, DER or PKCS#12 format"
 msgstr ""
@@ -643,6 +639,10 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Type:"
 msgstr "प्रकार:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:25
+msgid "Select an authentication mode."
+msgstr "खालिल ओळख पटवा पद्धती स्वीकारा"
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid "_IPsec Settings..."
@@ -790,7 +790,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "Ad_vanced"
-msgstr ""
+msgstr "प्रगत (_v)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:66
 msgid "Default"
@@ -806,7 +806,7 @@ msgstr "ओळख पटवा"
 
 #: ../properties/nm-l2tp-dialog.ui.h:69
 msgid "Allow the following authentication methods:"
-msgstr "खालिल ओळख पटवा पद्धती स्वीकारा:"
+msgstr "खालिल ओळख पटवा पद्धती स्वीकारा"
 
 #: ../properties/nm-l2tp-dialog.ui.h:70
 msgid ""

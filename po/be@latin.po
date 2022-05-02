@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-03 07:48+1000\n"
+"POT-Creation-Date: 2022-05-02 14:00+1000\n"
 "PO-Revision-Date: 2007-04-15 22:03+0300\n"
 "Last-Translator: Ihar Hrachyshka <ihar.hrachyshka@gmail.com>\n"
 "Language-Team: Belarusian Latin <i18n@mova.org>\n"
@@ -10,8 +10,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Poedit-Language: Belarusian\n"
 "X-Poedit-Country: BELARUS\n"
 
@@ -49,7 +49,7 @@ msgstr "Spraŭdź VPN"
 
 #: ../auth-dialog/main.c:164 ../properties/nm-l2tp-editor.c:667
 msgid "Password"
-msgstr ""
+msgstr "Parol"
 
 #: ../auth-dialog/main.c:171
 msgid "User Certificate password"
@@ -791,7 +791,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "Ad_vanced"
-msgstr ""
+msgstr "_Asablivaje"
 
 #: ../properties/nm-l2tp-dialog.ui.h:66
 msgid "Default"

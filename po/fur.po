@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-l2tp master\n"
+"Project-Id-Version: NetworkManager-l2tp main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-03 07:48+1000\n"
+"POT-Creation-Date: 2022-05-02 14:00+1000\n"
 "PO-Revision-Date: 2019-02-12 11:23+0100\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <fur@li.org>\n"
@@ -588,7 +588,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:7
 msgid "Sho_w password"
-msgstr ""
+msgstr "Mostre pass_word"
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Password passed to PPPD when prompted for it."
@@ -615,16 +615,8 @@ msgstr "Password:"
 msgid "NT Domain:"
 msgstr "Domini NT:"
 
-#: ../properties/nm-l2tp-dialog.ui.h:16
-msgid "CA Certificate:"
-msgstr ""
-
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "Certificate authority (CA) file in PEM, DER or PKCS#12 format"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:18
-msgid "Certificate:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:19
@@ -732,14 +724,6 @@ msgid ""
 "authentication keys for user packets) should last, from successful "
 "negotiation to expiry.\n"
 "config: ipsec-salifetime <lifetime>"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:47
-msgid "Phase_1 Lifetime:"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:48
-msgid "Phase_2 Lifetime:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:49

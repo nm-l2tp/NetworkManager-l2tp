@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-03 07:48+1000\n"
+"POT-Creation-Date: 2022-05-02 14:00+1000\n"
 "PO-Revision-Date: 2012-09-14 05:46+0000\n"
 "Last-Translator: Cédric VALMARY (Tot en òc) <cvalmary@yahoo.fr>\n"
 "Language-Team: Occitan (post 1500) <oc@li.org>\n"
@@ -118,6 +118,16 @@ msgstr ""
 msgid "Property '%s' value '%s' can't be parsed as route metric."
 msgstr ""
 
+#: ../properties/import-export.c:342
+#, c-format
+msgid "Error parsing property '%s' value '%s'."
+msgstr "proprietat « %s » de tipe « %s » pas gerida"
+
+#: ../properties/import-export.c:364
+#, c-format
+msgid "Error parsing property '%s': %s."
+msgstr "proprietat « %s » de tipe « %s » pas gerida"
+
 #: ../properties/import-export.c:399
 #, c-format
 msgid "does not look like a L2TP VPN connection (parse failed)"
@@ -133,6 +143,11 @@ msgstr ""
 msgid ""
 "Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."
 msgstr ""
+
+#: ../properties/import-export.c:700
+#, c-format
+msgid "Missing required property '%s'"
+msgstr "Opcion obligatòria « %s » mancanta."
 
 #: ../properties/import-export.c:730
 #, c-format
@@ -343,12 +358,12 @@ msgstr ""
 #: ../shared/nm-utils/nm-shared-utils.c:1150
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr ""
+msgstr "L’objècte de a classa « %s » pas cap de proprietat apelada « %s »"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1157
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr ""
+msgstr "La proprietat « %s » de la classa objècte « %s » es pas enregistrabla"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1164
 #, c-format
@@ -623,10 +638,6 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:23
 msgid "Password for private key or PCKS#12 certificate"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:24
-msgid "Type:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:25

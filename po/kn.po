@@ -1,4 +1,4 @@
-# translation of NetworkManager-l2tp.master.kn.po to Kannada
+# translation of NetworkManager-l2tp.main.kn.po to Kannada
 # Kannada translation of NetworkManager-l2tp.
 # Copyright (C) 2009 NetworkManager-l2tp's COPYRIGHT HOLDER
 # This file is distributed under the same license as the NetworkManager-l2tp package.
@@ -6,9 +6,9 @@
 # Shankar Prasad <svenkate@redhat.com>, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-l2tp.master.kn\n"
+"Project-Id-Version: NetworkManager-l2tp.main.kn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-03 07:48+1000\n"
+"POT-Creation-Date: 2022-05-02 14:00+1000\n"
 "PO-Revision-Date: 2009-10-30 12:23+0530\n"
 "Last-Translator: Shankar Prasad <svenkate@redhat.com>\n"
 "Language-Team: Kannada <en@li.org>\n"
@@ -617,10 +617,6 @@ msgstr "CA ಪ್ರಮಾಣಪತ್ರ:"
 msgid "Certificate authority (CA) file in PEM, DER or PKCS#12 format"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:18
-msgid "Certificate:"
-msgstr ""
-
 #: ../properties/nm-l2tp-dialog.ui.h:19
 msgid "Certificate file in PEM, DER or PKCS#12 format"
 msgstr ""
@@ -644,6 +640,10 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Type:"
 msgstr "ಬಗೆ:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:25
+msgid "Select an authentication mode."
+msgstr "ಈ ಕೆಳಗಿನ ದೃಢೀಕರಣ ವಿಧಾನಗಳನ್ನು ಅನುಮತಿಸು"
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid "_IPsec Settings..."
@@ -791,7 +791,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "Ad_vanced"
-msgstr ""
+msgstr "ಸುಧಾರಿತ(_v)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:66
 msgid "Default"
@@ -807,7 +807,7 @@ msgstr "ದೃಢೀಕರಣ"
 
 #: ../properties/nm-l2tp-dialog.ui.h:69
 msgid "Allow the following authentication methods:"
-msgstr "ಈ ಕೆಳಗಿನ ದೃಢೀಕರಣ ವಿಧಾನಗಳನ್ನು ಅನುಮತಿಸು:"
+msgstr "ಈ ಕೆಳಗಿನ ದೃಢೀಕರಣ ವಿಧಾನಗಳನ್ನು ಅನುಮತಿಸು"
 
 #: ../properties/nm-l2tp-dialog.ui.h:70
 msgid ""

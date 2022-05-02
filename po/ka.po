@@ -1,11 +1,11 @@
-# translation of NetworkManager-l2tp.master.po to Georgian
+# translation of NetworkManager-l2tp.main.po to Georgian
 # Vladimer Sichinava ვლადიმერ სიჭინავა <vsichi@gnome.org>, 2007.
 # Malkhaz Barkalaya მალზახ ბარკალაია <malxaz@gmail.com>
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-l2tp.master\n"
+"Project-Id-Version: NetworkManager-l2tp.main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-03 07:48+1000\n"
+"POT-Creation-Date: 2022-05-02 14:00+1000\n"
 "PO-Revision-Date: 2007-03-07 01:02+0100\n"
 "Last-Translator: Vladimer Sichinava ვლადიმერ სიჭინავა <vsichi@gnome.org>\n"
 "Language-Team: Georgian <http://mail.gnome.org/mailman/listinfo/gnome-ge-"
@@ -556,7 +556,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
 msgid "General"
-msgstr ""
+msgstr "მთავარი"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Gateway:"
@@ -793,7 +793,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:66
 msgid "Default"
-msgstr ""
+msgstr "ნაგულისხმევი"
 
 #: ../properties/nm-l2tp-dialog.ui.h:67
 msgid "L2TP PPP Options"

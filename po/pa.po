@@ -5,9 +5,9 @@
 # A S Alam <aalam@users.sf.net>, 2009, 2010, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-l2tp master\n"
+"Project-Id-Version: NetworkManager-l2tp main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-03 07:48+1000\n"
+"POT-Creation-Date: 2022-05-02 14:00+1000\n"
 "PO-Revision-Date: 2012-08-19 15:58+0530\n"
 "Last-Translator: A S Alam <aalam@users.sf.net>\n"
 "Language-Team: Punjabi/Panjabi <kde-i18n-doc@kde.org>\n"
@@ -118,6 +118,16 @@ msgstr ""
 msgid "Property '%s' value '%s' can't be parsed as route metric."
 msgstr ""
 
+#: ../properties/import-export.c:342
+#, c-format
+msgid "Error parsing property '%s' value '%s'."
+msgstr "ਨਾ-ਹੈਂਡਲ ਵਿਸ਼ੇਸ਼ਤਾ '%s' ਕਿਸਮ %s"
+
+#: ../properties/import-export.c:364
+#, c-format
+msgid "Error parsing property '%s': %s."
+msgstr "ਨਾ-ਹੈਂਡਲ ਵਿਸ਼ੇਸ਼ਤਾ '%s' ਕਿਸਮ %s"
+
 #: ../properties/import-export.c:399
 #, c-format
 msgid "does not look like a L2TP VPN connection (parse failed)"
@@ -133,6 +143,11 @@ msgstr ""
 msgid ""
 "Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."
 msgstr ""
+
+#: ../properties/import-export.c:700
+#, c-format
+msgid "Missing required property '%s'"
+msgstr "ਲੋੜੀਦੀ ਚੋਣ '%s' ਗੁੰਮ ਹੈ।"
 
 #: ../properties/import-export.c:730
 #, c-format
@@ -601,10 +616,6 @@ msgstr "CA ਸਰਟੀਫਕੇਟ:"
 msgid "Certificate authority (CA) file in PEM, DER or PKCS#12 format"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:18
-msgid "Certificate:"
-msgstr ""
-
 #: ../properties/nm-l2tp-dialog.ui.h:19
 msgid "Certificate file in PEM, DER or PKCS#12 format"
 msgstr ""
@@ -779,7 +790,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "Ad_vanced"
-msgstr ""
+msgstr "ਮਾਹਰ(_v)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:66
 msgid "Default"

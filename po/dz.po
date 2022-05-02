@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: networkmanager-openvpn.networkmamager-0-6-0=release.pot\n"
+"Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-03 07:48+1000\n"
+"POT-Creation-Date: 2022-05-02 14:00+1000\n"
 "PO-Revision-Date: 2007-03-19 15:41+0530\n"
 "Last-Translator: sonam pelden <sonaa_peldn@yahoo.com>\n"
 "Language-Team: Dzongkha <pgeyleg@dit.gov.bt>\n"
@@ -232,7 +232,7 @@ msgstr ""
 
 #: ../properties/ppp-dialog.c:275
 msgid "PAP"
-msgstr ""
+msgstr "པི་ཨེ་པི་"
 
 #: ../properties/ppp-dialog.c:288
 msgid "CHAP"
@@ -240,7 +240,7 @@ msgstr ""
 
 #: ../properties/ppp-dialog.c:300
 msgid "MSCHAP"
-msgstr ""
+msgstr "MSCHAP"
 
 #: ../properties/ppp-dialog.c:312
 msgid "MSCHAPv2"
@@ -559,7 +559,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
 msgid "General"
-msgstr ""
+msgstr "ཡོངས་ཁྱབ།"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Gateway:"
@@ -571,11 +571,19 @@ msgid ""
 "config: xl2tpd lns parameter"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:5
+msgid "User Authentication"
+msgstr "ཝི་པི་ཨེན་བདེན་བཤད་འབད་"
+
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
 "DOMAIN\\username, where DOMAIN is the value from this text entry box."
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:7
+msgid "Sho_w password"
+msgstr "ཆོག་ཡིག་"
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Password passed to PPPD when prompted for it."
@@ -628,10 +636,6 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:23
 msgid "Password for private key or PCKS#12 certificate"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:24
-msgid "Type:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:25
@@ -788,7 +792,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:66
 msgid "Default"
-msgstr ""
+msgstr "སྔོན་སྒྲིག"
 
 #: ../properties/nm-l2tp-dialog.ui.h:67
 msgid "L2TP PPP Options"

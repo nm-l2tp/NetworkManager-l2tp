@@ -1,4 +1,4 @@
-# translation of NetworkManager-l2tp.master.ta.po to Tamil
+# translation of NetworkManager-l2tp.main.ta.po to Tamil
 # Tamil translation of NetworkManager-l2tp.
 # Copyright (C) 2009 NetworkManager-l2tp's COPYRIGHT HOLDER
 # This file is distributed under the same license as the NetworkManager-l2tp package.
@@ -7,9 +7,9 @@
 # I. Felix <ifelix@redhat.com>, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-l2tp.master.ta\n"
+"Project-Id-Version: NetworkManager-l2tp.main.ta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-03 07:48+1000\n"
+"POT-Creation-Date: 2022-05-02 14:00+1000\n"
 "PO-Revision-Date: 2009-10-30 12:25+0530\n"
 "Last-Translator: I. Felix <ifelix@redhat.com>\n"
 "Language-Team: Tamil <fedora-trans-ta@redhat.com>\n"
@@ -621,10 +621,6 @@ msgstr "CA சான்றிதழ்:"
 msgid "Certificate authority (CA) file in PEM, DER or PKCS#12 format"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:18
-msgid "Certificate:"
-msgstr ""
-
 #: ../properties/nm-l2tp-dialog.ui.h:19
 msgid "Certificate file in PEM, DER or PKCS#12 format"
 msgstr ""
@@ -648,6 +644,10 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Type:"
 msgstr "வகை:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:25
+msgid "Select an authentication mode."
+msgstr "பின்வரும் அங்கீகார முறைகளை அனுமதிக்கவும்"
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid "_IPsec Settings..."
@@ -795,7 +795,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "Ad_vanced"
-msgstr ""
+msgstr "கூடுதல் (_v)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:66
 msgid "Default"

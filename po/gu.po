@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-03 07:48+1000\n"
+"POT-Creation-Date: 2022-05-02 14:00+1000\n"
 "PO-Revision-Date: 2011-02-18 11:13+0530\n"
 "Last-Translator: Sweta Kothari <swkothar@redhat.com>\n"
 "Language-Team: Gujarati\n"
@@ -613,10 +613,6 @@ msgstr "NT ડોમેઇન:"
 msgid "Certificate authority (CA) file in PEM, DER or PKCS#12 format"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:18
-msgid "Certificate:"
-msgstr ""
-
 #: ../properties/nm-l2tp-dialog.ui.h:19
 msgid "Certificate file in PEM, DER or PKCS#12 format"
 msgstr ""
@@ -629,12 +625,12 @@ msgstr ""
 msgid "Private Key in PEM, DER or PKCS#8 format"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:23
-msgid "Password for private key or PCKS#12 certificate"
+#: ../properties/nm-l2tp-dialog.ui.h:22
+msgid "Private Key Password:"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:24
-msgid "Type:"
+#: ../properties/nm-l2tp-dialog.ui.h:23
+msgid "Password for private key or PCKS#12 certificate"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:25
@@ -787,7 +783,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "Ad_vanced"
-msgstr ""
+msgstr "ઉન્નત (_v)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:66
 msgid "Default"

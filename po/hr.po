@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-l2tp master\n"
+"Project-Id-Version: NetworkManager-l2tp main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-03 07:48+1000\n"
+"POT-Creation-Date: 2022-05-02 14:00+1000\n"
 "PO-Revision-Date: 2018-09-19 15:23+0200\n"
 "Last-Translator: \n"
 "Language-Team: Croatian <hr@li.org>\n"
@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Poedit 2.1.1\n"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
@@ -545,7 +545,7 @@ msgstr "Pogrešan ili nedostajuć L2TP pristupnik."
 
 #: ../src/nm-l2tp-service.c:2132
 msgid "Don't quit when VPN connection terminates"
-msgstr ""
+msgstr "Ne zatvaraj kada se VPN povezivanje prekida"
 
 #: ../src/nm-l2tp-service.c:2133
 msgid "Enable verbose debug logging (may expose passwords)"
@@ -613,10 +613,6 @@ msgstr "Lozinka:"
 #: ../properties/nm-l2tp-dialog.ui.h:15
 msgid "NT Domain:"
 msgstr "NT domena:"
-
-#: ../properties/nm-l2tp-dialog.ui.h:16
-msgid "CA Certificate:"
-msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "Certificate authority (CA) file in PEM, DER or PKCS#12 format"
@@ -733,14 +729,6 @@ msgid ""
 "config: ipsec-salifetime <lifetime>"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:47
-msgid "Phase_1 Lifetime:"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:48
-msgid "Phase_2 Lifetime:"
-msgstr ""
-
 #: ../properties/nm-l2tp-dialog.ui.h:49
 msgid "Remote ID:"
 msgstr "Udaljeni ID:"
@@ -800,7 +788,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "Ad_vanced"
-msgstr ""
+msgstr "_Napredno"
 
 #: ../properties/nm-l2tp-dialog.ui.h:66
 msgid "Default"

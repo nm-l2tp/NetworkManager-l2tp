@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-03 07:48+1000\n"
+"POT-Creation-Date: 2022-05-02 14:00+1000\n"
 "PO-Revision-Date: 2011-03-15 08:45+0300\n"
 "Last-Translator: Mattias Põldaru <mahfiaz@gmail.com>\n"
 "Language-Team: Estonian <gnome-et@linux.ee>\n"
@@ -119,6 +119,16 @@ msgstr ""
 #, c-format
 msgid "Property '%s' value '%s' can't be parsed as route metric."
 msgstr ""
+
+#: ../properties/import-export.c:342
+#, c-format
+msgid "Error parsing property '%s' value '%s'."
+msgstr "'%s' omadus (liik %s) jäeti kasutamata"
+
+#: ../properties/import-export.c:364
+#, c-format
+msgid "Error parsing property '%s': %s."
+msgstr "'%s' omadus (liik %s) jäeti kasutamata"
 
 #: ../properties/import-export.c:399
 #, c-format
@@ -680,7 +690,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid "Phase2 Algorithms:"
-msgstr "Faas 2 algoritmid:"
+msgstr "Faas2 algoritmid:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:37
 msgid ""
@@ -698,7 +708,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:41
 msgid "Phase1 Algorithms:"
-msgstr "Faas 1 algoritmid:"
+msgstr "Faas1 algoritmid:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:42
 msgid ""
@@ -717,14 +727,6 @@ msgid ""
 "authentication keys for user packets) should last, from successful "
 "negotiation to expiry.\n"
 "config: ipsec-salifetime <lifetime>"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:47
-msgid "Phase_1 Lifetime:"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:48
-msgid "Phase_2 Lifetime:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:49
@@ -786,7 +788,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "Ad_vanced"
-msgstr ""
+msgstr "_Täpsemalt"
 
 #: ../properties/nm-l2tp-dialog.ui.h:66
 msgid "Default"

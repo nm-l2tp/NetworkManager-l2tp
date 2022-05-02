@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp NETWORKMANAGER_0_7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-03 07:48+1000\n"
+"POT-Creation-Date: 2022-05-02 14:00+1000\n"
 "PO-Revision-Date: 2012-08-05 21:52+0200\n"
 "Last-Translator: Daniel Șerbănescu <daniel@serbanescu.dk>\n"
 "Language-Team: Gnome Romanian Translation Team\n"
@@ -546,7 +546,7 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1804
 msgid "Invalid or missing L2TP gateway."
-msgstr ""
+msgstr "Gateway L2TP nevalid sau care lipsește."
 
 #: ../src/nm-l2tp-service.c:2132
 msgid "Don't quit when VPN connection terminates"
@@ -738,14 +738,6 @@ msgid ""
 "config: ipsec-salifetime <lifetime>"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:47
-msgid "Phase_1 Lifetime:"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:48
-msgid "Phase_2 Lifetime:"
-msgstr ""
-
 #: ../properties/nm-l2tp-dialog.ui.h:49
 msgid "Remote ID:"
 msgstr "ID distant:"
@@ -805,7 +797,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "Ad_vanced"
-msgstr ""
+msgstr "A_vansat"
 
 #: ../properties/nm-l2tp-dialog.ui.h:66
 msgid "Default"

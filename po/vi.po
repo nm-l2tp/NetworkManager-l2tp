@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-03 07:48+1000\n"
+"POT-Creation-Date: 2022-05-02 14:00+1000\n"
 "PO-Revision-Date: 2008-06-06 14:34+0930\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
@@ -51,7 +51,7 @@ msgstr "Xác thực VPN"
 
 #: ../auth-dialog/main.c:164 ../properties/nm-l2tp-editor.c:667
 msgid "Password"
-msgstr ""
+msgstr "Mật khẩu"
 
 #: ../auth-dialog/main.c:171
 msgid "User Certificate password"
@@ -117,6 +117,16 @@ msgstr ""
 msgid "Property '%s' value '%s' can't be parsed as route metric."
 msgstr ""
 
+#: ../properties/import-export.c:342
+#, c-format
+msgid "Error parsing property '%s' value '%s'."
+msgstr "chưa xử lí thuộc tính '%s' kiểu %s"
+
+#: ../properties/import-export.c:364
+#, c-format
+msgid "Error parsing property '%s': %s."
+msgstr "chưa xử lí thuộc tính '%s' kiểu %s"
+
 #: ../properties/import-export.c:399
 #, c-format
 msgid "does not look like a L2TP VPN connection (parse failed)"
@@ -158,6 +168,10 @@ msgstr ""
 #: ../properties/ipsec-dialog.c:559
 msgid "Pre-shared key (PSK)"
 msgstr ""
+
+#: ../properties/ipsec-dialog.c:568 ../properties/nm-l2tp-editor.c:676
+msgid "Certificates (TLS)"
+msgstr "Chứng nhận"
 
 #: ../properties/nm-l2tp-editor.c:406
 #, c-format
@@ -611,6 +625,10 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Private Key in PEM, DER or PKCS#8 format"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:22
+msgid "Private Key Password:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:23

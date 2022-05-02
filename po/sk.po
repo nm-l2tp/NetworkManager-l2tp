@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-03 07:48+1000\n"
+"POT-Creation-Date: 2022-05-02 14:00+1000\n"
 "PO-Revision-Date: 2020-09-07 16:03+0200\n"
 "Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -53,6 +53,18 @@ msgstr "Overenie totožnosti VPN"
 #: ../auth-dialog/main.c:164 ../properties/nm-l2tp-editor.c:667
 msgid "Password"
 msgstr "Heslo"
+
+#: ../auth-dialog/main.c:171
+msgid "User Certificate password"
+msgstr ""
+
+#: ../auth-dialog/main.c:178
+msgid "Machine Certificate password"
+msgstr "Overenie totožnosti počítačom"
+
+#: ../auth-dialog/main.c:227
+msgid "_User Certificate password:"
+msgstr ""
 
 #: ../auth-dialog/main.c:233
 msgid "_Machine Certificate password:"
@@ -205,7 +217,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-editor-plugin.c:23
 msgid "Compatible with Microsoft and other L2TP VPN servers."
-msgstr ""
+msgstr "Kompatibilná so servermi spoločnosti Microsoft a inými L2TP VPN."
 
 #: ../properties/ppp-dialog.c:158
 msgid "All Available (Default)"
@@ -560,11 +572,19 @@ msgid ""
 "config: xl2tpd lns parameter"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:5
+msgid "User Authentication"
+msgstr "Overenie totožnosti"
+
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
 "DOMAIN\\username, where DOMAIN is the value from this text entry box."
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:7
+msgid "Sho_w password"
+msgstr "Z_obraziť heslo"
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Password passed to PPPD when prompted for it."
@@ -710,14 +730,6 @@ msgid ""
 "config: ipsec-salifetime <lifetime>"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:47
-msgid "Phase_1 Lifetime:"
-msgstr ""
-
-#: ../properties/nm-l2tp-dialog.ui.h:48
-msgid "Phase_2 Lifetime:"
-msgstr ""
-
 #: ../properties/nm-l2tp-dialog.ui.h:49
 msgid "Remote ID:"
 msgstr "Vzdialené ID:"
@@ -777,11 +789,11 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "Ad_vanced"
-msgstr ""
+msgstr "_Rozšírené"
 
 #: ../properties/nm-l2tp-dialog.ui.h:66
 msgid "Default"
-msgstr ""
+msgstr "Predvolené"
 
 #: ../properties/nm-l2tp-dialog.ui.h:67
 msgid "L2TP PPP Options"
@@ -838,7 +850,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:81
 msgid "Allow _BSD data compression"
-msgstr ""
+msgstr "Povoliť kompresiu dát _BSD"
 
 #: ../properties/nm-l2tp-dialog.ui.h:82
 msgid ""
@@ -848,7 +860,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:84
 msgid "Allow _Deflate data compression"
-msgstr ""
+msgstr "Povoliť kompresiu dát _Deflate"
 
 #: ../properties/nm-l2tp-dialog.ui.h:85
 msgid ""
@@ -858,7 +870,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:87
 msgid "Use TCP _header compression"
-msgstr ""
+msgstr "Použiť kompresiu _hlavičky TCP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:88
 msgid ""
@@ -894,7 +906,7 @@ msgstr "Odozva"
 
 #: ../properties/nm-l2tp-dialog.ui.h:97
 msgid "Send PPP _echo packets"
-msgstr ""
+msgstr "Posielať pakety _echo cez PPP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:98
 msgid ""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: or\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-03 07:48+1000\n"
+"POT-Creation-Date: 2022-05-02 14:00+1000\n"
 "PO-Revision-Date: 2011-03-04 17:49+0530\n"
 "Last-Translator: Manoj Kumar Giri <mgiri@redhat.com>\n"
 "Language-Team: Oriya <oriya-it@googlegroups.com>\n"
@@ -231,23 +231,23 @@ msgstr ""
 
 #: ../properties/ppp-dialog.c:275
 msgid "PAP"
-msgstr ""
+msgstr "PAP"
 
 #: ../properties/ppp-dialog.c:288
 msgid "CHAP"
-msgstr ""
+msgstr "CHAP"
 
 #: ../properties/ppp-dialog.c:300
 msgid "MSCHAP"
-msgstr ""
+msgstr "MSCHAP"
 
 #: ../properties/ppp-dialog.c:312
 msgid "MSCHAPv2"
-msgstr ""
+msgstr "MSCHAPv2"
 
 #: ../properties/ppp-dialog.c:325
 msgid "EAP"
-msgstr ""
+msgstr "EAP"
 
 #: ../shared/nm-l2tp-crypto-nss.c:45
 #, c-format
@@ -558,7 +558,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
 msgid "General"
-msgstr ""
+msgstr "ସାଧାରଣ"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Gateway:"
@@ -570,11 +570,19 @@ msgid ""
 "config: xl2tpd lns parameter"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:5
+msgid "User Authentication"
+msgstr "ବୈଧିକରଣ"
+
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
 "DOMAIN\\username, where DOMAIN is the value from this text entry box."
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:7
+msgid "Sho_w password"
+msgstr "ପ୍ରବେଶ ସଙ୍କେତ ଦର୍ଶାନ୍ତୁ (_w)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Password passed to PPPD when prompted for it."
@@ -592,10 +600,6 @@ msgstr ""
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "User name:"
 msgstr "ଚାଳକ ନାମ:"
-
-#: ../properties/nm-l2tp-dialog.ui.h:14
-msgid "Password:"
-msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:15
 msgid "NT Domain:"
@@ -791,7 +795,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:66
 msgid "Default"
-msgstr ""
+msgstr "ପୂର୍ବନିର୍ଦ୍ଧାରିତ"
 
 #: ../properties/nm-l2tp-dialog.ui.h:67
 msgid "L2TP PPP Options"
@@ -848,7 +852,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:81
 msgid "Allow _BSD data compression"
-msgstr ""
+msgstr "BSD ତଥ୍ୟ ସଙ୍କୋଚନକୁ ଅନୁମତି ଦିଅନ୍ତୁ (_B)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:82
 msgid ""
@@ -858,7 +862,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:84
 msgid "Allow _Deflate data compression"
-msgstr ""
+msgstr "ମୂଲ୍ୟ ହ୍ରାସକାରୀ ତଥ୍ୟ ସଙ୍କୋଚନକୁ ଅନୁମତି ଦିଅନ୍ତୁ (_D)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:85
 msgid ""
@@ -868,7 +872,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:87
 msgid "Use TCP _header compression"
-msgstr ""
+msgstr "TCP ଶୀର୍ଷକ ସଙ୍କୋଚନକୁ ବ୍ୟବହାର କରନ୍ତୁ (_h)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:88
 msgid ""
@@ -904,7 +908,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:97
 msgid "Send PPP _echo packets"
-msgstr ""
+msgstr "PPP ପ୍ରତିଧ୍ୱନି ପ୍ୟାକେଟଗୁଡ଼ିକୁ ପଠାନ୍ତୁ (_e)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:98
 msgid ""

@@ -1,4 +1,4 @@
-# translation of NetworkManager-l2tp.master.po to Macedonian
+# translation of NetworkManager-l2tp.main.po to Macedonian
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
@@ -6,9 +6,9 @@
 # Arangel Angov <arangel@linux.net.mk>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-l2tp.master\n"
+"Project-Id-Version: NetworkManager-l2tp.main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-03 07:48+1000\n"
+"POT-Creation-Date: 2022-05-02 14:00+1000\n"
 "PO-Revision-Date: 2007-12-02 18:53+0100\n"
 "Last-Translator: Arangel Angov <arangel@linux.net.mk>\n"
 "Language-Team: Macedonian <ossm-members@hedona.on.net.mk>\n"
@@ -52,7 +52,7 @@ msgstr "Потврди автентичност за виртуелна прив
 
 #: ../auth-dialog/main.c:164 ../properties/nm-l2tp-editor.c:667
 msgid "Password"
-msgstr ""
+msgstr "Лозинка"
 
 #: ../auth-dialog/main.c:171
 msgid "User Certificate password"
@@ -630,6 +630,10 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid "Private Key in PEM, DER or PKCS#8 format"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:22
+msgid "Private Key Password:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:23

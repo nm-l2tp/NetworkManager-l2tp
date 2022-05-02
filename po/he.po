@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-03 07:48+1000\n"
+"POT-Creation-Date: 2022-05-02 14:00+1000\n"
 "PO-Revision-Date: 2011-01-23 12:50+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <sh.yaron@gmail.com>\n"
@@ -75,7 +75,7 @@ msgstr ""
 #: ../auth-dialog/main.c:469
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
-msgstr ""
+msgstr "עליך להזדהות כדי לגשת אל הרשת הווירטואלית הפרטית „%s”."
 
 #: ../properties/auth-helpers.c:76
 msgid "DER, PEM, or PKCS#12 certificates (*der, *.pem, *.crt, *.cer, *.p12)"
@@ -208,7 +208,7 @@ msgstr ""
 #: ../properties/nm-l2tp-editor.c:866
 #, c-format
 msgid "could not load UI widget"
-msgstr ""
+msgstr "לא ניתן לטעון את וידג׳ט מנשק המשתמש"
 
 #: ../properties/nm-l2tp-editor-plugin.c:22
 msgid "Layer 2 Tunneling Protocol (L2TP)"
@@ -360,59 +360,59 @@ msgstr ""
 #: ../shared/nm-utils/nm-shared-utils.c:1150
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr ""
+msgstr "למחלקת העצמים ‚%s’ אין מאפיין בשם ‚%s’"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1157
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr ""
+msgstr "המאפיין ‚%s’ של מחלקת העצמים ‚%s’ נעול בפני כתיבה"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1164
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
-msgstr ""
+msgstr "אי אפשר להגדיר את מאפיין הבנייה „%s” לפריט ‚%s’ לאחר הבנייה"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
-msgstr ""
+msgstr "‫‚%s::%s’ אינו שם מאפיין תקף, ‚%s’ אינו תת־סוג של GObject"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1181
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
-msgstr ""
+msgstr "לא ניתן להגדיר מאפיין ‚%s’ מסוג ‚%s’ מערך מסוג ‚%s’"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1192
 #, c-format
 msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
-msgstr ""
+msgstr "הערך „%s” מסוג ‚%s’ שגוי או שחרג מהתחום למאפיין ‚%s’ מסוג ‚%s’"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:53
 #, c-format
 msgid "unable to get editor plugin name: %s"
-msgstr ""
+msgstr "לא ניתן לקבל שם תוסף עורך: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:87
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr ""
+msgstr "קובץ תוסף „%s” חסר"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:93
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr ""
+msgstr "לא ניתן לטעון תוסף עורך: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:102
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr ""
+msgstr "לא ניתן לטעון את היצרן %s מהתוסף: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:128
 msgid "unknown error creating editor instance"
-msgstr ""
+msgstr "שגיאה בלתי ידועה ביצירת מופע עורך"
 
 #: ../src/nm-l2tp-service.c:291
 #, c-format
@@ -441,7 +441,7 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:352
 msgid "No VPN configuration options."
-msgstr ""
+msgstr "אין אפשרויות הגדרת VPN."
 
 #: ../src/nm-l2tp-service.c:372
 #, c-format
@@ -501,11 +501,11 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1605
 msgid "Missing VPN username."
-msgstr ""
+msgstr "שם משתמש VPN חסר."
 
 #: ../src/nm-l2tp-service.c:1614
 msgid "Missing or invalid VPN password."
-msgstr ""
+msgstr "סיסמת VPN חסרה או שגויה."
 
 #: ../src/nm-l2tp-service.c:1718
 msgid "couldn't convert L2TP VPN gateway IP address."
@@ -545,11 +545,11 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:2133
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr ""
+msgstr "הפעלת תיעוד שגיאות מפורט (עשוי לחשוף סיסמאות)"
 
 #: ../src/nm-l2tp-service.c:2134
 msgid "D-Bus name to use for this instance"
-msgstr ""
+msgstr "שם D-Bus לשימוש עבור המופע הזה"
 
 #: ../src/nm-l2tp-service.c:2155
 msgid ""
@@ -630,6 +630,10 @@ msgstr ""
 msgid "Private Key in PEM, DER or PKCS#8 format"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:22
+msgid "Private Key Password:"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:23
 msgid "Password for private key or PCKS#12 certificate"
 msgstr ""
@@ -640,7 +644,7 @@ msgstr "סוג:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:25
 msgid "Select an authentication mode."
-msgstr ""
+msgstr "נא לבחור את מצב האימות."
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid "_IPsec Settings..."
@@ -788,7 +792,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "Ad_vanced"
-msgstr ""
+msgstr "מ_תקדם"
 
 #: ../properties/nm-l2tp-dialog.ui.h:66
 msgid "Default"
@@ -917,7 +921,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:100
 msgid "Misc"
-msgstr ""
+msgstr "שונות"
 
 #: ../properties/nm-l2tp-dialog.ui.h:101
 msgid "MTU :"
