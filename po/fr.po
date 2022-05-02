@@ -1,25 +1,30 @@
 # French translation of NetworkManager-l2tp.
-# Copyright (C) 2007-2012 Free Software Foundation, Inc.
-# This file is distributed under the same license as the evolution package.
+# Copyright (C) 2006-2012 The GNOME Foundation.
+# This file is distributed under the same license as the NetworkManager-l2tp package
 #
+# Haïkel Guémar <karlthered@gmail.com>, 2006.
 # Jonathan Ernst <jonathan@ernstfamily.ch>, 2007.
+# Stéphane Raimbault <stephane.raimbault@gmail.com>, 2007-2008.
 # Robert-André Mauchin <zebob.m@pengzone.org>, 2007-2008.
-# Claude Paroz <claude@2xlibre.net>, 2009-2011.
-# Bruno Brouard <annoa.b@gmail.com>, 2012
+# Claude Paroz <claude@2xlibre.net>, 2009.
+# Nicolas Repentin <nicolas@shivaserv.fr>, 2010.
+# Bruno Brouard <annoa.b@gmail.com>, 2011-2012.
+# Guillaume Bernard <filorin@gmx.com>, 2014.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-l2tp\n"
+"Project-Id-Version: NetworkManager-l2tp main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-28 19:06+1000\n"
-"PO-Revision-Date: 2012-05-16 23:49+0200\n"
-"Last-Translator: Bruno Brouard <annoa.b@gmail.com>\n"
-"Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
+"POT-Creation-Date: 2022-05-02 10:00+1000\n"
+"PO-Revision-Date: 2020-02-04 14:54+0100\n"
+"Last-Translator: Guillaume Bernard <filorin@gmx.com>\n"
+"Language-Team: français <gnomefr@traduc.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n>1;\n"
+"X-Generator: Poedit 2.2.1\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. Otherwise, we have no saved password, or the password flags indicated
 #. * that the password should never be saved.
@@ -121,7 +126,7 @@ msgstr ""
 #: ../properties/import-export.c:343
 #, c-format
 msgid "Error parsing property '%s' value '%s'."
-msgstr ""
+msgstr "propriété « %s » de type « %s » non gérée"
 
 #: ../properties/import-export.c:385
 #, c-format
@@ -142,7 +147,7 @@ msgstr ""
 #: ../properties/import-export.c:627
 #, c-format
 msgid "Missing required property '%s'"
-msgstr ""
+msgstr "Option obligatoire « %s » manquante."
 
 #: ../properties/import-export.c:657
 #, c-format
@@ -270,7 +275,7 @@ msgstr "Forcer l'encapsulation UDP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
 msgid "Ad_vanced"
-msgstr "Avancé"
+msgstr "A_vancé"
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "_Gateway:"
@@ -445,6 +450,10 @@ msgid ""
 "config: nopcomp (when unchecked)"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:55
+msgid "Use _Address/Control compression"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:56
 msgid ""
 "Use Address/Control compression in both directions (send and receive).\n"
@@ -469,7 +478,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:62
 msgid "Misc"
-msgstr ""
+msgstr "Divers"
 
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid "MTU :"
@@ -508,11 +517,6 @@ msgstr ""
 #, c-format
 msgid "invalid gateway '%s'"
 msgstr "passerelle « %s » non valide"
-
-#: ../src/nm-l2tp-service.c:553
-#, c-format
-msgid "invalid ipsec-gateway-id '%s'"
-msgstr ""
 
 #: ../src/nm-l2tp-service.c:566
 #, c-format
@@ -612,91 +616,91 @@ msgid "Timeout trying to establish IPsec connection"
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:1042
-msgid "Libreswan IPsec tunnel is up."
+msgid "Libreswan IPsec connection is up."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1053
-msgid "strongSwan IPsec tunnel is up."
+#: ../src/nm-l2tp-service.c:1054
+msgid "strongSwan IPsec connection is up."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1066
-msgid "Could not establish IPsec tunnel."
+#: ../src/nm-l2tp-service.c:1067
+msgid "Could not establish IPsec connection."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1084
+#: ../src/nm-l2tp-service.c:1085
 msgid "Could not find the xl2tpd binary."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1105
+#: ../src/nm-l2tp-service.c:1106
 #, c-format
 msgid "xl2tpd started with pid %d"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1165
+#: ../src/nm-l2tp-service.c:1166
 msgid "Can-not create new test socket"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1237
+#: ../src/nm-l2tp-service.c:1238
 #, c-format
 msgid "Could not open %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1253
+#: ../src/nm-l2tp-service.c:1254
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1288
+#: ../src/nm-l2tp-service.c:1289
 msgid "Could not write ipsec config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1352
+#: ../src/nm-l2tp-service.c:1353
 msgid "Could not write xl2tpd config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1402
+#: ../src/nm-l2tp-service.c:1403
 msgid "Could not write ppp options."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1604
+#: ../src/nm-l2tp-service.c:1605
 #, c-format
 msgid "ipsec enable flag: %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1608
+#: ../src/nm-l2tp-service.c:1609
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1614
+#: ../src/nm-l2tp-service.c:1615
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1634
+#: ../src/nm-l2tp-service.c:1635
 msgid "Could not start pppd plugin helper service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1641
+#: ../src/nm-l2tp-service.c:1642
 msgid "could not retrieve connection UUID"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1665
+#: ../src/nm-l2tp-service.c:1666
 msgid "starting ipsec"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1733
+#: ../src/nm-l2tp-service.c:1734
 #, c-format
 msgid "Terminated l2tp daemon with PID %d."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1880
+#: ../src/nm-l2tp-service.c:1881
 msgid "Don't quit when VPN connection terminates"
 msgstr "Ne pas quitter lorsque la connexion VPN se termine"
 
-#: ../src/nm-l2tp-service.c:1881
+#: ../src/nm-l2tp-service.c:1882
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr "Activer le débogage verbeux (des mots de passe peuvent apparaître)"
+msgstr "Activer le débogage verbeux (peut afficher des mots de passe)"
 
-#: ../src/nm-l2tp-service.c:1904
+#: ../src/nm-l2tp-service.c:1905
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."

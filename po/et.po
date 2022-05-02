@@ -1,19 +1,19 @@
-# GNOME NetworkManager - L2TP klient
+# GNOME NetworkManager-l2tp klient
 #
 # Copyright (C) 2007 The GNOME Project.
 # This file is distributed under the same license as the NetworkManager-l2tp package.
 #
 # Priit Laes <amd store20 com>, 2007.
 # Ivar Smolin <okul linux ee>, 2007.
-# Mattias Põldaru <mahfiaz gmail.com>, 2007-2010.
+# Mattias Põldaru <mahfiaz gmail com>, 2007-2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-28 19:06+1000\n"
-"PO-Revision-Date: 2010-03-10 06:41+0300\n"
-"Last-Translator: Mattias Põldaru <mahfiaz gmail com>\n"
+"POT-Creation-Date: 2022-05-02 10:00+1000\n"
+"PO-Revision-Date: 2011-03-15 08:45+0300\n"
+"Last-Translator: Mattias Põldaru <mahfiaz@gmail.com>\n"
 "Language-Team: Estonian <gnome-et@linux.ee>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
@@ -114,7 +114,7 @@ msgstr ""
 #: ../properties/import-export.c:343
 #, c-format
 msgid "Error parsing property '%s' value '%s'."
-msgstr ""
+msgstr "'%s' omadus (liik %s) jäeti kasutamata"
 
 #: ../properties/import-export.c:385
 #, c-format
@@ -251,11 +251,11 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:9
 msgid "Phase2 Algorithms:"
-msgstr "Faas 2 algoritmid:"
+msgstr "Faas2 algoritmid:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:10
 msgid "Phase1 Algorithms:"
-msgstr "Faas 1 algoritmid:"
+msgstr "Faas1 algoritmid:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:11
 msgid "_Enforce UDP encapsulation"
@@ -263,7 +263,7 @@ msgstr "UDP kapseldus jõuga"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
 msgid "Ad_vanced"
-msgstr ""
+msgstr "_Täpsemalt"
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "_Gateway:"
@@ -419,6 +419,10 @@ msgid ""
 "config: nopcomp (when unchecked)"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:55
+msgid "Use _Address/Control compression"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:56
 msgid ""
 "Use Address/Control compression in both directions (send and receive).\n"
@@ -494,21 +498,21 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:576
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
-msgstr ""
+msgstr "sobimatu tõeväärtusomaduse '%s' väärtus (ei olnud yes või no)"
 
 #: ../src/nm-l2tp-service.c:583
 #, c-format
 msgid "unhandled property '%s' type %s"
-msgstr ""
+msgstr "'%s' omadus (liik %s) jäeti kasutamata"
 
 #: ../src/nm-l2tp-service.c:594
 #, c-format
 msgid "property '%s' invalid or not supported"
-msgstr ""
+msgstr "omadus '%s' on sobimatu või pole toetatud"
 
 #: ../src/nm-l2tp-service.c:608
 msgid "No VPN configuration options."
-msgstr ""
+msgstr "VPNi seadistuse valikuid pole."
 
 #: ../src/nm-l2tp-service.c:625
 #, c-format
@@ -584,91 +588,91 @@ msgid "Timeout trying to establish IPsec connection"
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:1042
-msgid "Libreswan IPsec tunnel is up."
+msgid "Libreswan IPsec connection is up."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1053
-msgid "strongSwan IPsec tunnel is up."
+#: ../src/nm-l2tp-service.c:1054
+msgid "strongSwan IPsec connection is up."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1066
-msgid "Could not establish IPsec tunnel."
+#: ../src/nm-l2tp-service.c:1067
+msgid "Could not establish IPsec connection."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1084
+#: ../src/nm-l2tp-service.c:1085
 msgid "Could not find the xl2tpd binary."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1105
+#: ../src/nm-l2tp-service.c:1106
 #, c-format
 msgid "xl2tpd started with pid %d"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1165
+#: ../src/nm-l2tp-service.c:1166
 msgid "Can-not create new test socket"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1237
+#: ../src/nm-l2tp-service.c:1238
 #, c-format
 msgid "Could not open %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1253
+#: ../src/nm-l2tp-service.c:1254
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1288
+#: ../src/nm-l2tp-service.c:1289
 msgid "Could not write ipsec config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1352
+#: ../src/nm-l2tp-service.c:1353
 msgid "Could not write xl2tpd config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1402
+#: ../src/nm-l2tp-service.c:1403
 msgid "Could not write ppp options."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1604
+#: ../src/nm-l2tp-service.c:1605
 #, c-format
 msgid "ipsec enable flag: %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1608
+#: ../src/nm-l2tp-service.c:1609
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1614
+#: ../src/nm-l2tp-service.c:1615
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1634
+#: ../src/nm-l2tp-service.c:1635
 msgid "Could not start pppd plugin helper service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1641
+#: ../src/nm-l2tp-service.c:1642
 msgid "could not retrieve connection UUID"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1665
+#: ../src/nm-l2tp-service.c:1666
 msgid "starting ipsec"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1733
+#: ../src/nm-l2tp-service.c:1734
 #, c-format
 msgid "Terminated l2tp daemon with PID %d."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1880
+#: ../src/nm-l2tp-service.c:1881
 msgid "Don't quit when VPN connection terminates"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1881
+#: ../src/nm-l2tp-service.c:1882
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1904
+#: ../src/nm-l2tp-service.c:1905
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."

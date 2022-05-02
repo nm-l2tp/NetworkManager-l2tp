@@ -1,18 +1,17 @@
 # Japanese message catalog for NetworkManager-l2tp
-# Copyright (C) 2006,2007,2011 THE NetworkManager-l2tp's COPYRIGHT HOLDER
-# This file is distributed under the same license as the NetworkManager-openvpn package.
+# Copyright (C) 2006-2007, 2013, 2020 THE NetworkManager-l2tp's COPYRIGHT HOLDER
+# This file is distributed under the same license as the NetworkManager-l2tp package.
 # Satoru SATOH <ss@gnome.gr.jp>, 2006, 2007.
-# Hajime Taira <htaira@redhat.com>, 2011.
-# NISHIBORI Kiyotaka <ml.nishibori.kiyotaka@gmail.com>, 2011.
-# OKANO Takayoshi <kano@na.rim.or.jp>, 2011.
+# Hajime Taira <htaira@redhat.com>, 2013.
+# sicklylife <translation@sicklylife.jp>, 2020.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-l2tp master\n"
+"Project-Id-Version: NetworkManager-l2tp main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-28 19:06+1000\n"
-"PO-Revision-Date: 2012-01-01 19:56+0900\n"
-"Last-Translator: Jiro Matsuzawa <jmatsuzawa@src.gnome.org>\n"
+"POT-Creation-Date: 2022-05-02 10:00+1000\n"
+"PO-Revision-Date: 2020-05-10 21:00+0900\n"
+"Last-Translator: sicklylife <translation@sicklylife.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -29,7 +28,7 @@ msgstr "仮想プライベートネットワーク %s にアクセスするに�
 
 #: ../auth-dialog/main.c:168 ../auth-dialog/main.c:188
 msgid "Authenticate VPN"
-msgstr "認証 VPN"
+msgstr "VPN 認証"
 
 #: ../auth-dialog/main.c:170 ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Password:"
@@ -117,7 +116,7 @@ msgstr ""
 #: ../properties/import-export.c:343
 #, c-format
 msgid "Error parsing property '%s' value '%s'."
-msgstr ""
+msgstr "対処できない %s 型パラメーターの %s"
 
 #: ../properties/import-export.c:385
 #, c-format
@@ -138,7 +137,7 @@ msgstr ""
 #: ../properties/import-export.c:627
 #, c-format
 msgid "Missing required property '%s'"
-msgstr ""
+msgstr "必須オプション %s が不足しています。"
 
 #: ../properties/import-export.c:657
 #, c-format
@@ -418,6 +417,10 @@ msgid ""
 "config: nopcomp (when unchecked)"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:55
+msgid "Use _Address/Control compression"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:56
 msgid ""
 "Use Address/Control compression in both directions (send and receive).\n"
@@ -480,11 +483,6 @@ msgstr ""
 msgid "invalid gateway '%s'"
 msgstr "無効なゲートウェイ %s"
 
-#: ../src/nm-l2tp-service.c:553
-#, c-format
-msgid "invalid ipsec-gateway-id '%s'"
-msgstr ""
-
 #: ../src/nm-l2tp-service.c:566
 #, c-format
 msgid "invalid integer property '%s'"
@@ -508,7 +506,7 @@ msgstr "パラメーター %s は無効かサポートされていません。"
 
 #: ../src/nm-l2tp-service.c:608
 msgid "No VPN configuration options."
-msgstr "VPN 構成オプションがありません。"
+msgstr "VPN 設定オプションがありません。"
 
 #: ../src/nm-l2tp-service.c:625
 #, c-format
@@ -584,91 +582,91 @@ msgid "Timeout trying to establish IPsec connection"
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:1042
-msgid "Libreswan IPsec tunnel is up."
+msgid "Libreswan IPsec connection is up."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1053
-msgid "strongSwan IPsec tunnel is up."
+#: ../src/nm-l2tp-service.c:1054
+msgid "strongSwan IPsec connection is up."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1066
-msgid "Could not establish IPsec tunnel."
+#: ../src/nm-l2tp-service.c:1067
+msgid "Could not establish IPsec connection."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1084
+#: ../src/nm-l2tp-service.c:1085
 msgid "Could not find the xl2tpd binary."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1105
+#: ../src/nm-l2tp-service.c:1106
 #, c-format
 msgid "xl2tpd started with pid %d"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1165
+#: ../src/nm-l2tp-service.c:1166
 msgid "Can-not create new test socket"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1237
+#: ../src/nm-l2tp-service.c:1238
 #, c-format
 msgid "Could not open %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1253
+#: ../src/nm-l2tp-service.c:1254
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1288
+#: ../src/nm-l2tp-service.c:1289
 msgid "Could not write ipsec config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1352
+#: ../src/nm-l2tp-service.c:1353
 msgid "Could not write xl2tpd config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1402
+#: ../src/nm-l2tp-service.c:1403
 msgid "Could not write ppp options."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1604
+#: ../src/nm-l2tp-service.c:1605
 #, c-format
 msgid "ipsec enable flag: %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1608
+#: ../src/nm-l2tp-service.c:1609
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1614
+#: ../src/nm-l2tp-service.c:1615
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1634
+#: ../src/nm-l2tp-service.c:1635
 msgid "Could not start pppd plugin helper service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1641
+#: ../src/nm-l2tp-service.c:1642
 msgid "could not retrieve connection UUID"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1665
+#: ../src/nm-l2tp-service.c:1666
 msgid "starting ipsec"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1733
+#: ../src/nm-l2tp-service.c:1734
 #, c-format
 msgid "Terminated l2tp daemon with PID %d."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1880
+#: ../src/nm-l2tp-service.c:1881
 msgid "Don't quit when VPN connection terminates"
 msgstr "VPN 接続が切断された時に終了しないでください。"
 
-#: ../src/nm-l2tp-service.c:1881
+#: ../src/nm-l2tp-service.c:1882
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr "詳細なデバッグ情報の保存を有効にする。(パスワードも含まれます。)"
+msgstr "詳細なデバッグ情報の保存を有効にする (パスワードも含まれます)"
 
-#: ../src/nm-l2tp-service.c:1904
+#: ../src/nm-l2tp-service.c:1905
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."

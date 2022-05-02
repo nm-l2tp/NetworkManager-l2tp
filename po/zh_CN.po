@@ -1,23 +1,28 @@
-# Simplified Chinese translation of network-manager-l2tp
-# Copyright (C) 2009, 2010 Free software Foundation, Inc.
-# This file is distributed under the same license as the network-manager-l2tp package.
+# Chinese (China) translation for NetworkManager-l2tp.
+# Copyright (C) 2009-2018 NetworkManager-l2tp's COPYRIGHT HOLDER
+# This file is distributed under the same license as the NetworkManager-l2tp package.
 # Wei Mingzhi <whistler@openoffice.org>, 2009.
-# Aron Xu <aronxu@gnome.org>, 2010.
-# YunQiang Su <wzssyqa@gmail.com>, 2011.
+# Aron Xu <happyaron.xu@gmail.com>, 2009.
+# du baodao <centerpoint@139.com>, 2010.
+# Lele Long <schemacs@gmail.com>, 2011.
+# Dingzhong Chen <wsxy162@gmail.com>, 2016, 2018.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-l2tp master\n"
+"Project-Id-Version: NetworkManager-l2tp main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-28 19:06+1000\n"
-"PO-Revision-Date: 2011-11-27 18:26+0800\n"
-"Last-Translator: YunQiang Su <wzssyqa@gmail.com>\n"
-"Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
+"POT-Creation-Date: 2022-05-02 10:00+1000\n"
+"PO-Revision-Date: 2018-07-07 23:22+0800\n"
+"Last-Translator: Dingzhong Chen <wsxy162@gmail.com>\n"
+"Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Language: zh_CN\n"
+"X-Source-Language: C\n"
+"X-Generator: Gtranslator 2.91.7\n"
 
 #. Otherwise, we have no saved password, or the password flags indicated
 #. * that the password should never be saved.
@@ -29,7 +34,7 @@ msgstr "您需要进行身份验证才能访问虚拟专用网络 '%s'。"
 
 #: ../auth-dialog/main.c:168 ../auth-dialog/main.c:188
 msgid "Authenticate VPN"
-msgstr "认证 VPN"
+msgstr "验证 VPN"
 
 #: ../auth-dialog/main.c:170 ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Password:"
@@ -104,6 +109,11 @@ msgstr "属性 '%s' 的值 '%s' 无法解析成 IP 地址"
 msgid "Property '%s' value '%s' couldn't find netmask."
 msgstr "属性 '%s' 的值 '%s' 无法找到网络掩码"
 
+#: ../properties/import-export.c:288
+#, c-format
+msgid "Property '%s' value '%s' can't be parsed as IP netmask."
+msgstr ""
+
 #: ../properties/import-export.c:333
 #, c-format
 msgid "Property '%s' value '%s' can't be parsed as route metric."
@@ -112,7 +122,7 @@ msgstr "属性 '%s' 的值 '%s' 无法解析成路由跃点数"
 #: ../properties/import-export.c:343
 #, c-format
 msgid "Error parsing property '%s' value '%s'."
-msgstr "解析属性 '%s' 值 '%s' 时出错"
+msgstr "无法处理的属性“%s”类型 %s"
 
 #: ../properties/import-export.c:385
 #, c-format
@@ -133,7 +143,7 @@ msgstr "属性 %s 无法解析成布尔值。只允许 'true' 和 'false'。"
 #: ../properties/import-export.c:627
 #, c-format
 msgid "Missing required property '%s'"
-msgstr "缺失需要的属性 '%s'"
+msgstr "缺少需要的选项“%s”。"
 
 #: ../properties/import-export.c:657
 #, c-format
@@ -261,7 +271,7 @@ msgstr "强制 UDP 封装"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
 msgid "Ad_vanced"
-msgstr "高级"
+msgstr "高级(_V)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "_Gateway:"
@@ -331,7 +341,7 @@ msgstr "L2TP PPP 选项"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid "Authentication"
-msgstr "认证"
+msgstr "身份验证"
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
 msgid "Allow the following authentication methods:"
@@ -466,7 +476,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:62
 msgid "Misc"
-msgstr ""
+msgstr "杂项"
 
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid "MTU :"
@@ -609,87 +619,83 @@ msgid "Timeout trying to establish IPsec connection"
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:1042
-msgid "Libreswan IPsec tunnel is up."
+msgid "Libreswan IPsec connection is up."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1053
-msgid "strongSwan IPsec tunnel is up."
+#: ../src/nm-l2tp-service.c:1054
+msgid "strongSwan IPsec connection is up."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1066
-msgid "Could not establish IPsec tunnel."
+#: ../src/nm-l2tp-service.c:1067
+msgid "Could not establish IPsec connection."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1084
-msgid "Could not find the xl2tpd binary."
-msgstr ""
-
-#: ../src/nm-l2tp-service.c:1105
+#: ../src/nm-l2tp-service.c:1106
 #, c-format
 msgid "xl2tpd started with pid %d"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1165
+#: ../src/nm-l2tp-service.c:1166
 msgid "Can-not create new test socket"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1237
+#: ../src/nm-l2tp-service.c:1238
 #, c-format
 msgid "Could not open %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1253
+#: ../src/nm-l2tp-service.c:1254
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1288
-msgid "Could not write ipsec config."
-msgstr ""
-
-#: ../src/nm-l2tp-service.c:1352
+#: ../src/nm-l2tp-service.c:1353
 msgid "Could not write xl2tpd config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1402
+#: ../src/nm-l2tp-service.c:1403
 msgid "Could not write ppp options."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1604
+#: ../src/nm-l2tp-service.c:1605
 #, c-format
 msgid "ipsec enable flag: %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1608
+#: ../src/nm-l2tp-service.c:1609
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1614
+#: ../src/nm-l2tp-service.c:1615
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1634
+#: ../src/nm-l2tp-service.c:1635
 msgid "Could not start pppd plugin helper service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1665
+#: ../src/nm-l2tp-service.c:1642
+msgid "could not retrieve connection UUID"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1666
 msgid "starting ipsec"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1733
+#: ../src/nm-l2tp-service.c:1734
 #, c-format
 msgid "Terminated l2tp daemon with PID %d."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1880
+#: ../src/nm-l2tp-service.c:1881
 msgid "Don't quit when VPN connection terminates"
 msgstr "在 VPN 连接终止时不退出"
 
-#: ../src/nm-l2tp-service.c:1881
+#: ../src/nm-l2tp-service.c:1882
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr "启用详细的调试记录(可能暴露密码)"
+msgstr "启用详细的调试日志记录（可能暴露密码）"
 
-#: ../src/nm-l2tp-service.c:1904
+#: ../src/nm-l2tp-service.c:1905
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."

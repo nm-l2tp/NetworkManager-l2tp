@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-28 19:06+1000\n"
+"POT-Creation-Date: 2022-05-02 10:00+1000\n"
 "PO-Revision-Date: 2012-09-14 05:46+0000\n"
 "Last-Translator: Cédric VALMARY (Tot en òc) <cvalmary@yahoo.fr>\n"
 "Language-Team: Occitan (post 1500) <oc@li.org>\n"
@@ -114,6 +114,11 @@ msgstr ""
 msgid "Property '%s' value '%s' can't be parsed as route metric."
 msgstr ""
 
+#: ../properties/import-export.c:343
+#, c-format
+msgid "Error parsing property '%s' value '%s'."
+msgstr "proprietat « %s » de tipe « %s » pas gerida"
+
 #: ../properties/import-export.c:385
 #, c-format
 msgid "does not look like a L2TP VPN connection (parse failed)"
@@ -129,6 +134,11 @@ msgstr ""
 msgid ""
 "Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."
 msgstr ""
+
+#: ../properties/import-export.c:627
+#, c-format
+msgid "Missing required property '%s'"
+msgstr "Opcion obligatòria « %s » mancanta."
 
 #: ../properties/import-export.c:657
 #, c-format
@@ -420,6 +430,23 @@ msgstr ""
 msgid "Use protocol _field compression negotiation"
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:53
+msgid ""
+"Allow protocol field compression negotiation in both the receive and the "
+"transmit direction.\n"
+"config: nopcomp (when unchecked)"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:55
+msgid "Use _Address/Control compression"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:56
+msgid ""
+"Use Address/Control compression in both directions (send and receive).\n"
+"config: noaccomp (when unchecked)"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:58
 msgid "Echo"
 msgstr "Resson"
@@ -576,91 +603,91 @@ msgid "Timeout trying to establish IPsec connection"
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:1042
-msgid "Libreswan IPsec tunnel is up."
+msgid "Libreswan IPsec connection is up."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1053
-msgid "strongSwan IPsec tunnel is up."
+#: ../src/nm-l2tp-service.c:1054
+msgid "strongSwan IPsec connection is up."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1066
-msgid "Could not establish IPsec tunnel."
+#: ../src/nm-l2tp-service.c:1067
+msgid "Could not establish IPsec connection."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1084
+#: ../src/nm-l2tp-service.c:1085
 msgid "Could not find the xl2tpd binary."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1105
+#: ../src/nm-l2tp-service.c:1106
 #, c-format
 msgid "xl2tpd started with pid %d"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1165
+#: ../src/nm-l2tp-service.c:1166
 msgid "Can-not create new test socket"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1237
+#: ../src/nm-l2tp-service.c:1238
 #, c-format
 msgid "Could not open %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1253
+#: ../src/nm-l2tp-service.c:1254
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1288
+#: ../src/nm-l2tp-service.c:1289
 msgid "Could not write ipsec config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1352
+#: ../src/nm-l2tp-service.c:1353
 msgid "Could not write xl2tpd config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1402
+#: ../src/nm-l2tp-service.c:1403
 msgid "Could not write ppp options."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1604
+#: ../src/nm-l2tp-service.c:1605
 #, c-format
 msgid "ipsec enable flag: %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1608
+#: ../src/nm-l2tp-service.c:1609
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1614
+#: ../src/nm-l2tp-service.c:1615
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1634
+#: ../src/nm-l2tp-service.c:1635
 msgid "Could not start pppd plugin helper service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1641
+#: ../src/nm-l2tp-service.c:1642
 msgid "could not retrieve connection UUID"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1665
+#: ../src/nm-l2tp-service.c:1666
 msgid "starting ipsec"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1733
+#: ../src/nm-l2tp-service.c:1734
 #, c-format
 msgid "Terminated l2tp daemon with PID %d."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1880
+#: ../src/nm-l2tp-service.c:1881
 msgid "Don't quit when VPN connection terminates"
 msgstr "Quitar pas quend la connexion VPN s'acaba"
 
-#: ../src/nm-l2tp-service.c:1881
+#: ../src/nm-l2tp-service.c:1882
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Activar lo desbugatge verbós (de senhals pòdon aparéisser)"
 
-#: ../src/nm-l2tp-service.c:1904
+#: ../src/nm-l2tp-service.c:1905
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."

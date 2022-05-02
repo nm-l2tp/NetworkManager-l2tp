@@ -1,17 +1,22 @@
+# Bosnian translation for bosnianuniversetranslation
+# Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
+# This file is distributed under the same license as the bosnianuniversetranslation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-l2tp\n"
+"Project-Id-Version: bosnianuniversetranslation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-28 19:06+1000\n"
-"PO-Revision-Date: 2015-02-04 16:06+0000\n"
-"Last-Translator: Samir Ribić <Unknown>\n"
+"POT-Creation-Date: 2022-05-02 10:00+1000\n"
+"PO-Revision-Date: 2015-03-02 14:49+0100\n"
+"Last-Translator: Samir Ribić <megaribi@epn.ba>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
 "Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-02-05 06:50+0000\n"
-"X-Generator: Launchpad (build 17331)\n"
+"X-Launchpad-Export-Date: 2015-02-05 06:51+0000\n"
+"X-Generator: Poedit 1.7.4\n"
 
 #. Otherwise, we have no saved password, or the password flags indicated
 #. * that the password should never be saved.
@@ -109,6 +114,11 @@ msgstr ""
 msgid "Property '%s' value '%s' can't be parsed as route metric."
 msgstr ""
 
+#: ../properties/import-export.c:343
+#, c-format
+msgid "Error parsing property '%s' value '%s'."
+msgstr "neobrađeno svojstvo '%s' tipa %s"
+
 #: ../properties/import-export.c:385
 #, c-format
 msgid "does not look like a L2TP VPN connection (parse failed)"
@@ -124,6 +134,11 @@ msgstr ""
 msgid ""
 "Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."
 msgstr ""
+
+#: ../properties/import-export.c:627
+#, c-format
+msgid "Missing required property '%s'"
+msgstr "Nedostaje potebna opcija '%s'."
 
 #: ../properties/import-export.c:657
 #, c-format
@@ -162,11 +177,6 @@ msgstr ""
 #: ../properties/nm-l2tp.c:598
 #, c-format
 msgid "Couldn't load builder file: %s"
-msgstr ""
-
-#: ../properties/nm-l2tp.c:602
-#, c-format
-msgid "could not load required resources at %s"
 msgstr ""
 
 #: ../properties/nm-l2tp.c:612
@@ -220,7 +230,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:3
 msgid "General"
-msgstr "Opšte"
+msgstr "Generalno"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
 msgid "Gateway ID:"
@@ -239,11 +249,11 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:9
 msgid "Phase2 Algorithms:"
-msgstr "Faza2Algoritmi;:"
+msgstr "Algoritmi faze 2:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:10
 msgid "Phase1 Algorithms:"
-msgstr "Faza1Algoritmi;:"
+msgstr "Algoritmi faze 1:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:11
 msgid "_Enforce UDP encapsulation"
@@ -251,7 +261,7 @@ msgstr "Prisiljeno UDP učahurivanje podataka"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
 msgid "Ad_vanced"
-msgstr ""
+msgstr "_Napredno"
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "_Gateway:"
@@ -317,7 +327,7 @@ msgstr "Opcije provjere pošte"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid "Authentication"
-msgstr "Provjera autentičnosti"
+msgstr "Autentifikacija"
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
 msgid "Allow the following authentication methods:"
@@ -414,6 +424,23 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:52
 msgid "Use protocol _field compression negotiation"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:53
+msgid ""
+"Allow protocol field compression negotiation in both the receive and the "
+"transmit direction.\n"
+"config: nopcomp (when unchecked)"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:55
+msgid "Use _Address/Control compression"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:56
+msgid ""
+"Use Address/Control compression in both directions (send and receive).\n"
+"config: noaccomp (when unchecked)"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:58
@@ -572,91 +599,91 @@ msgid "Timeout trying to establish IPsec connection"
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:1042
-msgid "Libreswan IPsec tunnel is up."
+msgid "Libreswan IPsec connection is up."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1053
-msgid "strongSwan IPsec tunnel is up."
+#: ../src/nm-l2tp-service.c:1054
+msgid "strongSwan IPsec connection is up."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1066
-msgid "Could not establish IPsec tunnel."
+#: ../src/nm-l2tp-service.c:1067
+msgid "Could not establish IPsec connection."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1084
+#: ../src/nm-l2tp-service.c:1085
 msgid "Could not find the xl2tpd binary."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1105
+#: ../src/nm-l2tp-service.c:1106
 #, c-format
 msgid "xl2tpd started with pid %d"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1165
+#: ../src/nm-l2tp-service.c:1166
 msgid "Can-not create new test socket"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1237
+#: ../src/nm-l2tp-service.c:1238
 #, c-format
 msgid "Could not open %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1253
+#: ../src/nm-l2tp-service.c:1254
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1288
+#: ../src/nm-l2tp-service.c:1289
 msgid "Could not write ipsec config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1352
+#: ../src/nm-l2tp-service.c:1353
 msgid "Could not write xl2tpd config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1402
+#: ../src/nm-l2tp-service.c:1403
 msgid "Could not write ppp options."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1604
+#: ../src/nm-l2tp-service.c:1605
 #, c-format
 msgid "ipsec enable flag: %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1608
+#: ../src/nm-l2tp-service.c:1609
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1614
+#: ../src/nm-l2tp-service.c:1615
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1634
+#: ../src/nm-l2tp-service.c:1635
 msgid "Could not start pppd plugin helper service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1641
+#: ../src/nm-l2tp-service.c:1642
 msgid "could not retrieve connection UUID"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1665
+#: ../src/nm-l2tp-service.c:1666
 msgid "starting ipsec"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1733
+#: ../src/nm-l2tp-service.c:1734
 #, c-format
 msgid "Terminated l2tp daemon with PID %d."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1880
+#: ../src/nm-l2tp-service.c:1881
 msgid "Don't quit when VPN connection terminates"
 msgstr "Ne izlazi kada se VPN konekcija prekida"
 
-#: ../src/nm-l2tp-service.c:1881
+#: ../src/nm-l2tp-service.c:1882
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Omogući detaljno praćenje grešaka (može otkriti lozinke)"
 
-#: ../src/nm-l2tp-service.c:1904
+#: ../src/nm-l2tp-service.c:1905
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."

@@ -1,23 +1,24 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# Alexandru Palcuie <palcuiealex@yahoo.com>, 2010.
-# Lucian Adrian Grijincu <lucian.grijincu@gmail.com>, 2010.
+# Romanian translation for NetworkManager-l2tp.
+# Copyright (C) 2011 NetworkManager-l2tp's COPYRIGHT HOLDER
+# This file is distributed under the same license as the NetworkManager-l2tp package.#
+# Dobre Alin <kenzy.bratianu@gmail.com>, 2011.
+# Daniel Șerbănescu <daniel@serbanescu.dk>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: NetworkManager-l2tp NETWORKMANAGER_0_7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-28 19:06+1000\n"
-"PO-Revision-Date: 2010-11-27 14:19+0300\n"
-"Last-Translator: Lucian Adrian Grijincu <lucian.grijincu@gmail.com>\n"
-"Language-Team: Romanian Gnome Team <gnomero-list@lists.sourceforge.net>\n"
+"POT-Creation-Date: 2022-05-02 10:00+1000\n"
+"PO-Revision-Date: 2012-08-05 21:52+0200\n"
+"Last-Translator: Daniel Șerbănescu <daniel@serbanescu.dk>\n"
+"Language-Team: Gnome Romanian Translation Team\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2);;\n"
-"X-Generator: Virtaal 0.6.1\n"
+"X-Generator: Virtaal 0.7.0\n"
+"X-Project-Style: gnome\n"
 
 #. Otherwise, we have no saved password, or the password flags indicated
 #. * that the password should never be saved.
@@ -30,7 +31,7 @@ msgstr ""
 
 #: ../auth-dialog/main.c:168 ../auth-dialog/main.c:188
 msgid "Authenticate VPN"
-msgstr "Autentifică VPN"
+msgstr "Autentificare VPN"
 
 #: ../auth-dialog/main.c:170 ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Password:"
@@ -39,6 +40,14 @@ msgstr "Parolă:"
 #: ../auth-dialog/vpn-password-dialog.c:102
 msgid "_Password:"
 msgstr "_Parolă:"
+
+#: ../auth-dialog/vpn-password-dialog.c:104
+msgid "_Secondary Password:"
+msgstr ""
+
+#: ../auth-dialog/vpn-password-dialog.c:107
+msgid "_Tertiary Password:"
+msgstr ""
 
 #: ../properties/advanced-dialog.c:188
 msgid "All Available (Default)"
@@ -216,7 +225,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
 msgid "L2TP IPsec Options"
-msgstr ""
+msgstr "Opțiuni L2TP IPsec"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -224,7 +233,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:3
 msgid "General"
-msgstr "General"
+msgstr "Generale"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid ""
@@ -251,7 +260,7 @@ msgstr "Impune încapsularea UDP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
 msgid "Ad_vanced"
-msgstr ""
+msgstr "A_vansat"
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "_Gateway:"
@@ -311,7 +320,7 @@ msgstr "Implicit"
 
 #: ../properties/nm-l2tp-dialog.ui.h:29
 msgid "L2TP PPP Options"
-msgstr ""
+msgstr "Opțiuni L2TP PPP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid "Authentication"
@@ -326,6 +335,8 @@ msgid ""
 "Allow/disable authentication methods.\n"
 "config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 msgstr ""
+"Permite/Dezactivează metodele de autentificare.\n"
+"config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 
 #: ../properties/nm-l2tp-dialog.ui.h:34
 msgid "Security and Compression"
@@ -354,6 +365,8 @@ msgid ""
 "Require the use of MPPE, with 40/128-bit encryption or all.\n"
 "config: require-mppe, require-mppe-128 or require-mppe-40"
 msgstr ""
+"Necesită utilizarea de MPPE, cu criptarea 40/128-bit sau toate.\n"
+"config: require-mppe, require-mppe-128 sau require-mppe-40"
 
 #: ../properties/nm-l2tp-dialog.ui.h:40
 msgid "Allow st_ateful encryption"
@@ -364,6 +377,9 @@ msgid ""
 "Allow MPPE to use stateful mode. Stateless mode is still attempted first.\n"
 "config: mppe-stateful (when checked)"
 msgstr ""
+"Permite MPPE să utilizeze modul de stare. Modul fără stare este încă "
+"încercat mai întâi.\n"
+"config: mppe-stateful (când este verificat)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:43
 msgid "Allow _BSD data compression"
@@ -374,6 +390,8 @@ msgid ""
 "Allow/disable BSD-Compress compression.\n"
 "config: nobsdcomp (when unchecked)"
 msgstr ""
+"Permite/dezactivează compresia Compresie-BDS.\n"
+"config: nobsdcomp (când nu este verificat)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:46
 msgid "Allow _Deflate data compression"
@@ -384,6 +402,8 @@ msgid ""
 "Allow/disable Deflate compression.\n"
 "config: nodeflate (when unchecked)"
 msgstr ""
+"Permite/dezactivează compresia Deflate.\n"
+"config: nodeflate (când nu este verificată)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:49
 msgid "Use TCP _header compression"
@@ -395,6 +415,9 @@ msgid ""
 "transmit and the receive directions.\n"
 "config: novj (when unchecked)"
 msgstr ""
+"Permite/dezactivează compresia de antet TCP/IP în stil Van Jacobson în "
+"amândouă direcțiile de transmitere și de primire.\n"
+"config: novj (când nu este verificat)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:52
 msgid "Use protocol _field compression negotiation"
@@ -405,6 +428,10 @@ msgid ""
 "Allow protocol field compression negotiation in both the receive and the "
 "transmit direction.\n"
 "config: nopcomp (when unchecked)"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:55
+msgid "Use _Address/Control compression"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:56
@@ -426,10 +453,12 @@ msgid ""
 "Send LCP echo-requests to find out whether peer is alive.\n"
 "config: lcp-echo-failure and lcp-echo-interval"
 msgstr ""
+"Trimite cererile echo LCP pentru a găsi dacă partenerul este viu.\n"
+"config: lcp-echo-failure și lcp-echo-interval"
 
 #: ../properties/nm-l2tp-dialog.ui.h:62
 msgid "Misc"
-msgstr ""
+msgstr "Diverse"
 
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid "MTU :"
@@ -445,11 +474,11 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:225
 msgid "Missing VPN username."
-msgstr ""
+msgstr "Lipsește numele de utilizator VPN."
 
 #: ../src/nm-l2tp-service.c:231
 msgid "Missing or invalid VPN password."
-msgstr ""
+msgstr "Parolă VPN care lipsește sau care nu este validă."
 
 #: ../src/nm-l2tp-service.c:273
 #, c-format
@@ -496,7 +525,7 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:608
 msgid "No VPN configuration options."
-msgstr ""
+msgstr "Nu există opțiuni de configurare VPN."
 
 #: ../src/nm-l2tp-service.c:625
 #, c-format
@@ -572,91 +601,91 @@ msgid "Timeout trying to establish IPsec connection"
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:1042
-msgid "Libreswan IPsec tunnel is up."
+msgid "Libreswan IPsec connection is up."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1053
-msgid "strongSwan IPsec tunnel is up."
+#: ../src/nm-l2tp-service.c:1054
+msgid "strongSwan IPsec connection is up."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1066
-msgid "Could not establish IPsec tunnel."
+#: ../src/nm-l2tp-service.c:1067
+msgid "Could not establish IPsec connection."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1084
+#: ../src/nm-l2tp-service.c:1085
 msgid "Could not find the xl2tpd binary."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1105
+#: ../src/nm-l2tp-service.c:1106
 #, c-format
 msgid "xl2tpd started with pid %d"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1165
+#: ../src/nm-l2tp-service.c:1166
 msgid "Can-not create new test socket"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1237
+#: ../src/nm-l2tp-service.c:1238
 #, c-format
 msgid "Could not open %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1253
+#: ../src/nm-l2tp-service.c:1254
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1288
+#: ../src/nm-l2tp-service.c:1289
 msgid "Could not write ipsec config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1352
+#: ../src/nm-l2tp-service.c:1353
 msgid "Could not write xl2tpd config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1402
+#: ../src/nm-l2tp-service.c:1403
 msgid "Could not write ppp options."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1604
+#: ../src/nm-l2tp-service.c:1605
 #, c-format
 msgid "ipsec enable flag: %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1608
+#: ../src/nm-l2tp-service.c:1609
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1614
+#: ../src/nm-l2tp-service.c:1615
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1634
+#: ../src/nm-l2tp-service.c:1635
 msgid "Could not start pppd plugin helper service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1641
+#: ../src/nm-l2tp-service.c:1642
 msgid "could not retrieve connection UUID"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1665
+#: ../src/nm-l2tp-service.c:1666
 msgid "starting ipsec"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1733
+#: ../src/nm-l2tp-service.c:1734
 #, c-format
 msgid "Terminated l2tp daemon with PID %d."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1880
+#: ../src/nm-l2tp-service.c:1881
 msgid "Don't quit when VPN connection terminates"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1881
+#: ../src/nm-l2tp-service.c:1882
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr ""
+msgstr "Activează înregistrarea de depanare detaliată (poate expune parole)"
 
-#: ../src/nm-l2tp-service.c:1904
+#: ../src/nm-l2tp-service.c:1905
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."

@@ -1,27 +1,31 @@
-# translation of network-manager-l2tp.master.ru.po to Russian
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the NetworkManager package.
+# translation of NetworkManager-l2tp.main.ru.po to Russian
+# Russian translation of NetworkManager-l2tp
+# Copyright (C) Free Software Foundation, 2005
+# This file is distributed under the same license as NetworkManager-l2tp.
 #
+#
+# Maxim Dziumanenko <dziumanenko@gmail.com>, 2005-2007.
 # Leonid Kanter <leon@asplinux.ru>, 2007, 2008.
 # Артём Попов <artfwo@gmail.com>, 2009.
 # Yuri Kozlov <yuray@komyakino.ru>, 2010, 2011.
-# Stas Solovey <whats_up@tut.by>, 2015.
-#
+# Stas Solovey <whats_up@tut.by>, 2011.
+# Виктор <victorr2007@yandex.ru>, 2018.
+# Sergey Kazorin <translation-team@basealt.ru>, 2021.
 msgid ""
 msgstr ""
-"Project-Id-Version: ru\n"
+"Project-Id-Version: NetworkManager-l2tp trunk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-28 19:06+1000\n"
-"PO-Revision-Date: 2015-07-27 23:28+0300\n"
-"Last-Translator: Stas Solovey <whats_up@tut.by>\n"
-"Language-Team: Русский <gnome-cyr@gnome.org>\n"
+"POT-Creation-Date: 2022-05-02 10:00+1000\n"
+"PO-Revision-Date: 2021-11-22 09:54+0300\n"
+"Last-Translator: Sergey Kazorin <translation-team@basealt.ru>\n"
+"Language-Team: Russian <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
-"X-Generator: Gtranslator 2.91.7\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 19.12.3\n"
 
 #. Otherwise, we have no saved password, or the password flags indicated
 #. * that the password should never be saved.
@@ -57,15 +61,15 @@ msgstr "По_казывать пароли"
 
 #: ../properties/advanced-dialog.c:188
 msgid "All Available (Default)"
-msgstr "Любое доступное (по умолчанию)"
+msgstr "Любой доступный (по умолчанию)"
 
 #: ../properties/advanced-dialog.c:192
 msgid "128-bit (most secure)"
-msgstr "128 бит (самое защищённое)"
+msgstr "128-бит (самый защищённый)"
 
 #: ../properties/advanced-dialog.c:201
 msgid "40-bit (less secure)"
-msgstr "40 бит (менее защищённое)"
+msgstr "40-бит (менее защищённый)"
 
 #: ../properties/advanced-dialog.c:305
 msgid "PAP"
@@ -90,30 +94,36 @@ msgstr "EAP"
 #: ../properties/import-export.c:172 ../properties/import-export.c:420
 #, c-format
 msgid "Required property %s missing"
-msgstr "Отсутствует обязательный параметр %s"
+msgstr "Отсутствует необходимое свойство %s"
 
 #: ../properties/import-export.c:193
 #, c-format
 msgid "Property %s value '%s' can't be parsed as boolean."
-msgstr "Не могу преобразовать параметр '%s' со значением '%s' как булево."
+msgstr ""
+"Свойство %s, значение «%s» — не удалось обработать как логическое значение."
 
 #: ../properties/import-export.c:216 ../properties/import-export.c:271
 #: ../properties/import-export.c:309
 #, c-format
 msgid "Property '%s' value '%s' can't be parsed as IP address."
-msgstr "Не могу преобразовать параметр '%s' со значением '%s' как IP адрес."
+msgstr "Свойство «%s», значение «%s» — не удалось обработать как IP-адрес."
 
 #: ../properties/import-export.c:261
 #, c-format
 msgid "Property '%s' value '%s' couldn't find netmask."
-msgstr "Не могу найти сетевую маску у параметра '%s' со значением '%s'."
+msgstr "Свойство «%s», значение «%s» — не удалось найти маску сети."
+
+#: ../properties/import-export.c:288
+#, c-format
+msgid "Property '%s' value '%s' can't be parsed as IP netmask."
+msgstr ""
+"Свойство «%s», значение «%s» — не удалось обработать как IP-адрес маски сети."
 
 #: ../properties/import-export.c:333
 #, c-format
 msgid "Property '%s' value '%s' can't be parsed as route metric."
 msgstr ""
-"Не могу преобразовать параметр '%s' со значением '%s' как метрику "
-"маршрутизации."
+"Свойство «%s», значение «%s» — не удалось обработать как метрику маршрута."
 
 #: ../properties/import-export.c:343
 #, c-format
@@ -123,34 +133,34 @@ msgstr "Не могу преобразовать параметр '%s' со зн
 #: ../properties/import-export.c:385
 #, c-format
 msgid "does not look like a L2TP VPN connection (parse failed)"
-msgstr "не похоже на L2TP VPN подключение (ошибка разбора)"
+msgstr "не является соединением L2TP VPN (обработать не удалось)"
 
 #: ../properties/import-export.c:438
 #, c-format
 msgid "Property %s can't be parsed as integer."
-msgstr "Не могу преобразовать параметр %s в целое число."
+msgstr "Свойство %s не удалось обработать как целочисленное значение."
 
 #: ../properties/import-export.c:455
 #, c-format
 msgid ""
 "Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."
 msgstr ""
-"Не могу преобразовать параметр %s в булево. Разрешены только 'true' и "
-"'false'."
+"Свойство %s не удалось обработать как логическое значение. Допускаются "
+"только значения «истина» и «ложь»."
 
 #: ../properties/import-export.c:627
 #, c-format
 msgid "Missing required property '%s'"
-msgstr "Отсутствует обязательный параметр '%s'"
+msgstr "Отсутствует требуемый параметр «%s»."
 
 #: ../properties/import-export.c:657
 #, c-format
 msgid "Couldn't open file for writing."
-msgstr "Не могу открыть файл для записи."
+msgstr "Не удалось открыть файл для записи."
 
 #: ../properties/nm-l2tp.c:57
 msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr "Layer 2 Tunneling Protocol (L2TP)"
+msgstr "Туннельный протокол второго уровня (L2TP)"
 
 #: ../properties/nm-l2tp.c:214
 #, c-format
@@ -160,7 +170,7 @@ msgstr "%s: при чтении дополнительных настроек п
 #: ../properties/nm-l2tp.c:238
 #, c-format
 msgid "%s: error reading ipsec settings: %s"
-msgstr "%s: при чтении настроек ipsec произошла ошибка: %s"
+msgstr "%s: при чтении параметров ipsec произошла ошибка: %s"
 
 #: ../properties/nm-l2tp.c:258
 #, c-format
@@ -170,12 +180,12 @@ msgstr "%s: не удалось создать диалог Дополнител
 #: ../properties/nm-l2tp.c:287
 #, c-format
 msgid "%s: failed to create the IPsec dialog!"
-msgstr "%s: не удалось создать диалог настроек IPsec!"
+msgstr "%s: не удалось создать диалоговое окно параметров IPsec!"
 
 #: ../properties/nm-l2tp.c:586
 #, c-format
 msgid "could not create l2tp object"
-msgstr "не могу создать l2tp объект"
+msgstr "не удалось создать l2tp-объект"
 
 #: ../properties/nm-l2tp.c:598
 #, c-format
@@ -190,7 +200,7 @@ msgstr "не могу загрузить требуемые ресурсы из 
 #: ../properties/nm-l2tp.c:612
 #, c-format
 msgid "could not load UI widget"
-msgstr "не могу загрузить виджет"
+msgstr "не удалось загрузить виджет интерфейса пользователя"
 
 #: ../properties/nm-l2tp.c:711
 #, c-format
@@ -230,15 +240,15 @@ msgstr "Пароль не требуется"
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
 msgid "L2TP IPsec Options"
-msgstr "Параметры L2TP"
+msgstr "Параметры L2TP IPsec"
 
 #: ../properties/nm-l2tp-dialog.ui.h:2
 msgid "_Enable IPsec tunnel to L2TP host"
-msgstr "Включить IPsec туннель к L2TP хосту"
+msgstr "_Подключить туннель IPsec к серверу L2TP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:3
 msgid "General"
-msgstr "Основное"
+msgstr "Общие"
 
 #: ../properties/nm-l2tp-dialog.ui.h:4
 msgid "Gateway ID:"
@@ -251,10 +261,6 @@ msgid ""
 "ipsec.secrets: ID"
 msgstr ""
 
-#: ../properties/nm-l2tp-dialog.ui.h:8
-msgid "Pre-shared key:"
-msgstr ""
-
 #: ../properties/nm-l2tp-dialog.ui.h:9
 msgid "Phase2 Algorithms:"
 msgstr "Алгоритмы фазы 2:"
@@ -265,11 +271,11 @@ msgstr "Алгоритмы фазы 1:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:11
 msgid "_Enforce UDP encapsulation"
-msgstr "Принудительная инкапсуляция в UDP"
+msgstr "_Принудительная инкапсуляция в UDP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:12
 msgid "Ad_vanced"
-msgstr "Дополнительно"
+msgstr "_Дополнительно"
 
 #: ../properties/nm-l2tp-dialog.ui.h:13
 msgid "_Gateway:"
@@ -280,8 +286,8 @@ msgid ""
 "L2TP server IP or name.\n"
 "config: xl2tpd lns parameter"
 msgstr ""
-"IP адрес или доменное имя L2TP сервера.\n"
-"опция конфигурации: xl2tpd lns параметр"
+"IP-адрес или доменное имя L2TP сервера.\n"
+"настройка конфигурации: xl2tpd lns parameter"
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
 msgid "Optional"
@@ -302,7 +308,7 @@ msgstr "Показать пароль"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "Password passed to PPPD when prompted for it."
-msgstr "Пароль, передаваемый PPPD, если будет запрошен."
+msgstr "Пароль, передаваемый PPPD в ответ на запрос."
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid ""
@@ -323,11 +329,11 @@ msgstr "NT-домен:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid "_IPsec Settings..."
-msgstr "Настройки IPsec"
+msgstr "_Параметры IPsec..."
 
 #: ../properties/nm-l2tp-dialog.ui.h:27
 msgid "PPP Se_ttings..."
-msgstr "Настройки PPP"
+msgstr "Параметры PPP..."
 
 #: ../properties/nm-l2tp-dialog.ui.h:28
 msgid "Default"
@@ -335,7 +341,7 @@ msgstr "По умолчанию"
 
 #: ../properties/nm-l2tp-dialog.ui.h:29
 msgid "L2TP PPP Options"
-msgstr "Параметры PPP"
+msgstr "Параметры L2TP PPP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid "Authentication"
@@ -350,8 +356,9 @@ msgid ""
 "Allow/disable authentication methods.\n"
 "config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 msgstr ""
-"Разрешить/запретить методы аутентификации.\n"
-"config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
+"Включить/отключить методы аутентификации.\n"
+"настройка конфигурации: refuse-pap, refuse-chap, refuse-mschap, refuse-"
+"mschap-v2, refuse-eap"
 
 #: ../properties/nm-l2tp-dialog.ui.h:34
 msgid "Security and Compression"
@@ -367,9 +374,9 @@ msgid ""
 "To enable this checkbox, select one or more of the MSCHAP authentication "
 "methods: MSCHAP or MSCHAPv2."
 msgstr ""
-"Замечание: Шифрование MPPE доступно только с методами аутентификации MSCHAP. "
-"Чтобы включить данный пункт, выберите один или более методов аутентификации "
-"MSCHAP: MSCHAP или MSCHAPv2."
+"Примечание: Шифрование MPPE использует только методы аутентификации MSCHAP. "
+"Чтобы включить этот параметр, выберите один или несколько методов "
+"аутентификации MSCHAP: MSCHAP или MSCHAPv2."
 
 #: ../properties/nm-l2tp-dialog.ui.h:37
 msgid "_Security:"
@@ -380,25 +387,25 @@ msgid ""
 "Require the use of MPPE, with 40/128-bit encryption or all.\n"
 "config: require-mppe, require-mppe-128 or require-mppe-40"
 msgstr ""
-"Требуется использовать MPPE с 40- или 128-битным шифрованием.\n"
-"config: require-mppe, require-mppe-128 или require-mppe-40"
+"Использовать шифрование MPPE с 40- или 128-битным ключом.\n"
+"настройка конфигурации: require-mppe, require-mppe-128 или require-mppe-40"
 
 #: ../properties/nm-l2tp-dialog.ui.h:40
 msgid "Allow st_ateful encryption"
-msgstr "Включить _Stateful Encryption"
+msgstr "Включить _шифрование с сохранением состояния"
 
 #: ../properties/nm-l2tp-dialog.ui.h:41
 msgid ""
 "Allow MPPE to use stateful mode. Stateless mode is still attempted first.\n"
 "config: mppe-stateful (when checked)"
 msgstr ""
-"Разрешить MPPE использовать контекстный (stateful) режим. Сначала "
-"производится попытка использовать простой (stateless) режим.\n"
-"config: mppe-stateful (если не выбрано)"
+"Разрешить MPPE использовать режим с сохранением состояния. При этом сначала "
+"будет предприниматься попытка использовать режим без сохранения состояния.\n"
+"настройка конфигурации: mppe-stateful (если отмечено)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:43
 msgid "Allow _BSD data compression"
-msgstr "Использовать для данных сжатие _BSD"
+msgstr "Разрешить сжатие данных _BSD"
 
 #: ../properties/nm-l2tp-dialog.ui.h:44
 msgid ""
@@ -406,11 +413,11 @@ msgid ""
 "config: nobsdcomp (when unchecked)"
 msgstr ""
 "Разрешить/запретить сжатие BSD-Compress.\n"
-"config: nobsdcomp (если не выбрано)"
+"настройка конфигурации: nobsdcomp (если не отмечено)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:46
 msgid "Allow _Deflate data compression"
-msgstr "Использовать для данных сжатие _Deflate"
+msgstr "Разрешить сжатие данных _Deflate"
 
 #: ../properties/nm-l2tp-dialog.ui.h:47
 msgid ""
@@ -418,7 +425,7 @@ msgid ""
 "config: nodeflate (when unchecked)"
 msgstr ""
 "Разрешить/запретить сжатие Deflate.\n"
-"config: nodeflate (если не выбрано)"
+"настройка конфигурации: nodeflate (если не отмечено)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:49
 msgid "Use TCP _header compression"
@@ -430,13 +437,13 @@ msgid ""
 "transmit and the receive directions.\n"
 "config: novj (when unchecked)"
 msgstr ""
-"Разрешить/запретить сжатие заголовков TCP/IP по методу Ван Якобсона в "
-"направлениях передачи и приёма.\n"
-"config: novj (если не выбрано)"
+"Разрешить/запретить сжатие заголовков TCP/IP по методу Ван Якобсонав обоих "
+"направлениях — передачи и приёма.\n"
+"настройка конфигурации: novj (если не отмечено)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:52
 msgid "Use protocol _field compression negotiation"
-msgstr "Использовать protocol _field compression negotiation"
+msgstr "Использовать согласование сжатия _поля протокола"
 
 #: ../properties/nm-l2tp-dialog.ui.h:53
 msgid ""
@@ -444,22 +451,22 @@ msgid ""
 "transmit direction.\n"
 "config: nopcomp (when unchecked)"
 msgstr ""
-"Разрешить protocol field compression negotiation в обоих направлениях - "
-"прием и отправка.\n"
-"опция конфигурации: nopcomp (когда не отмечена)"
+"Разрешить согласование сжатия поля протокола в обоих направлениях —приёма и "
+"передачи.\n"
+"настройка конфигурации: nopcomp (если не отмечено)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:55
 msgid "Use _Address/Control compression"
-msgstr "Использовать сжатие Address/Control"
+msgstr "Использовать с_жатие полей «адрес»/«управление»"
 
 #: ../properties/nm-l2tp-dialog.ui.h:56
 msgid ""
 "Use Address/Control compression in both directions (send and receive).\n"
 "config: noaccomp (when unchecked)"
 msgstr ""
-"Использовать Address/Control сжатие в обоих направлениях - прием и "
-"отправка.\n"
-"опция конфигурации: noacomp (когда не отмечена)"
+"Использовать сжатие полей «адрес»/«управление» в обоих направлениях\n"
+"— передачи и приёма.\n"
+"настройка конфигурации: noacomp (если не отмечено)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:58
 msgid "Echo"
@@ -474,12 +481,12 @@ msgid ""
 "Send LCP echo-requests to find out whether peer is alive.\n"
 "config: lcp-echo-failure and lcp-echo-interval"
 msgstr ""
-"Посылать эхо-запросы LCP, чтобы проверить состояние узла.\n"
-"config: lcp-echo-failure и lcp-echo-interval"
+"Посылать эхо-запросы LCP для проверки состояния узла.\n"
+"настройка конфигурации: lcp-echo-failure и lcp-echo-interval"
 
 #: ../properties/nm-l2tp-dialog.ui.h:62
 msgid "Misc"
-msgstr "Прочее"
+msgstr "Прочие"
 
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid "MTU :"
@@ -499,7 +506,7 @@ msgstr "Отсутствует имя пользователя VPN."
 
 #: ../src/nm-l2tp-service.c:231
 msgid "Missing or invalid VPN password."
-msgstr "Пароль VPN отсутствует или неверный."
+msgstr "Отсутствует или недопустим пароль VPN."
 
 #: ../src/nm-l2tp-service.c:273
 #, c-format
@@ -517,32 +524,27 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:544
 #, c-format
 msgid "invalid gateway '%s'"
-msgstr "неверный шлюз «%s»"
-
-#: ../src/nm-l2tp-service.c:553
-#, c-format
-msgid "invalid ipsec-gateway-id '%s'"
-msgstr ""
+msgstr "недопустимый шлюз «%s»"
 
 #: ../src/nm-l2tp-service.c:566
 #, c-format
 msgid "invalid integer property '%s'"
-msgstr "«%s» неверно для целочисленного свойства"
+msgstr "недопустимое целочисленное свойство «%s»"
 
 #: ../src/nm-l2tp-service.c:576
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
-msgstr "«%s» неверно для логического свойства (не «да» или «нет»)"
+msgstr "недопустимое логическое свойство «%s» (отлично от «да» или «нет») "
 
 #: ../src/nm-l2tp-service.c:583
 #, c-format
 msgid "unhandled property '%s' type %s"
-msgstr "свойство «%s» имеет необрабатываемый тип %s"
+msgstr "необработанное свойство «%s» типа %s"
 
 #: ../src/nm-l2tp-service.c:594
 #, c-format
 msgid "property '%s' invalid or not supported"
-msgstr "свойство «%s» неверно или не поддерживается"
+msgstr "свойство «%s» недопустимо или не поддерживается"
 
 #: ../src/nm-l2tp-service.c:608
 msgid "No VPN configuration options."
@@ -580,26 +582,6 @@ msgstr ""
 msgid "pppd timeout. Looks like pppd didn't initialize our dbus module"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:788
-#, c-format
-msgid "couldn't convert L2TP VPN gateway IP address '%s' (%d)"
-msgstr ""
-
-#: ../src/nm-l2tp-service.c:806
-#, c-format
-msgid "couldn't look up L2TP VPN gateway IP address '%s' (%d)"
-msgstr ""
-
-#: ../src/nm-l2tp-service.c:830
-#, c-format
-msgid "no usable addresses returned for L2TP VPN gateway '%s'"
-msgstr ""
-
-#: ../src/nm-l2tp-service.c:841
-#, c-format
-msgid "no usable addresses returned for L2TP VPN gateway '%s' (%d)"
-msgstr ""
-
 #: ../src/nm-l2tp-service.c:846
 #, c-format
 msgid "Use '%s' as a gateway"
@@ -607,11 +589,11 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:936 ../src/nm-l2tp-service.c:961
 msgid "Could not start the ipsec service."
-msgstr ""
+msgstr "Не удалось запустить службу ipsec."
 
 #: ../src/nm-l2tp-service.c:942 ../src/nm-l2tp-service.c:969
 msgid "Could not restart the ipsec service."
-msgstr ""
+msgstr "Не удалось перезапустить службу ipsec."
 
 #: ../src/nm-l2tp-service.c:1019
 msgid "IPsec service is not ready."
@@ -622,90 +604,76 @@ msgid "Timeout trying to establish IPsec connection"
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:1042
-msgid "Libreswan IPsec tunnel is up."
+msgid "Libreswan IPsec connection is up."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1053
-msgid "strongSwan IPsec tunnel is up."
+#: ../src/nm-l2tp-service.c:1054
+msgid "strongSwan IPsec connection is up."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1066
-msgid "Could not establish IPsec tunnel."
-msgstr ""
-
-#: ../src/nm-l2tp-service.c:1084
-msgid "Could not find the xl2tpd binary."
-msgstr ""
-
-#: ../src/nm-l2tp-service.c:1105
+#: ../src/nm-l2tp-service.c:1106
 #, c-format
 msgid "xl2tpd started with pid %d"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1165
+#: ../src/nm-l2tp-service.c:1166
 msgid "Can-not create new test socket"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1237
-#, c-format
-msgid "Could not open %s"
-msgstr ""
-
-#: ../src/nm-l2tp-service.c:1253
+#: ../src/nm-l2tp-service.c:1254
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
-msgstr ""
+msgstr "Не удалось записать %s/ipsec.nm-l2tp.secrets"
 
-#: ../src/nm-l2tp-service.c:1288
-msgid "Could not write ipsec config."
-msgstr ""
-
-#: ../src/nm-l2tp-service.c:1352
+#: ../src/nm-l2tp-service.c:1353
 msgid "Could not write xl2tpd config."
-msgstr ""
+msgstr "Не удалось записать конфигурацию xl2tpd."
 
-#: ../src/nm-l2tp-service.c:1402
+#: ../src/nm-l2tp-service.c:1403
 msgid "Could not write ppp options."
-msgstr ""
+msgstr "Не удалось записать параметры ppp."
 
-#: ../src/nm-l2tp-service.c:1604
+#: ../src/nm-l2tp-service.c:1605
 #, c-format
 msgid "ipsec enable flag: %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1608
+#: ../src/nm-l2tp-service.c:1609
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
+"Не удалось найти двоичный файл ipsec. Было ли установлено приложение "
+"Libreswan или strongSwan?"
 
-#: ../src/nm-l2tp-service.c:1614
+#: ../src/nm-l2tp-service.c:1615
 msgid "Neither Libreswan nor strongSwan were found."
-msgstr ""
+msgstr "Не удалось обнаружить ни Libreswan, ни strongSwan."
 
-#: ../src/nm-l2tp-service.c:1634
-msgid "Could not start pppd plugin helper service."
-msgstr ""
+#: ../src/nm-l2tp-service.c:1642
+msgid "could not retrieve connection UUID"
+msgstr "не удалось получить идентификатор UUID подключения"
 
-#: ../src/nm-l2tp-service.c:1665
+#: ../src/nm-l2tp-service.c:1666
 msgid "starting ipsec"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1733
+#: ../src/nm-l2tp-service.c:1734
 #, c-format
 msgid "Terminated l2tp daemon with PID %d."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1880
+#: ../src/nm-l2tp-service.c:1881
 msgid "Don't quit when VPN connection terminates"
 msgstr "Не завершать работу при отключении VPN"
 
-#: ../src/nm-l2tp-service.c:1881
+#: ../src/nm-l2tp-service.c:1882
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr "Включить подробный режим отладки (могут отображаться пароли)"
+msgstr ""
+"Включить ведение подробного журнала отладки (могут отображаться пароли)"
 
-#: ../src/nm-l2tp-service.c:1904
+#: ../src/nm-l2tp-service.c:1905
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
 msgstr ""
-"nm-l2tp-service предоставляет возможности L2TP VPN с опциональной поддержкой "
-"IPsec для NetworkManager."
+"служба nm-l2tp обеспечивает возможность работы L2TP VPN с дополнительной "
+"поддержкой IPsec для NetworkManager."
