@@ -1,4 +1,14 @@
 ==========================================================
+NetworkManager-l2tp-1.2.20
+Overview of changes since network-manager-l2tp-1.2.18
+==========================================================
+
+* Security fix for properly detecting strongswan CHILD_SA connection was
+  estabilished.
+* Update translations by merging from various sources.
+
+
+==========================================================
 NetworkManager-l2tp-1.2.18
 Overview of changes since network-manager-l2tp-1.2.16
 ==========================================================
