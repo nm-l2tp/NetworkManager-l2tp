@@ -1,13 +1,5 @@
 # NetworkMananger-l2tp
 
-----
-If you wish to distribute NetworkManager-l2tp 1.8.6 binaries for a Linux
-distribution, please note that there is a GPL/OpenSSL license conflict
-with OpenSSL < 3.0.0 on Linux distibutions that do not consider OpenSSL
-(or LibreSSL) to be a "System Library". See release notes for further details:
-* https://github.com/nm-l2tp/NetworkManager-l2tp/releases
-----
-
 NetworkManager-l2tp is a VPN plugin for NetworkManager 1.8 and later which
 provides support for L2TP and L2TP/IPsec (i.e. L2TP over IPsec) connections.
 
@@ -25,15 +17,14 @@ For machine authentication it supports either:
 * Pre-shared key (PSK).
 * TLS certificates.
 
-For TLS user certificate support, the ppp package has to have the EAP-TLS patch
-for pppd applied to the ppp source code (which many Linux distributions already
-do) :
+For TLS user certificate support, ppp >= 2.4.9 is required or the EAP-TLS
+patch for pppd needs to be applied to the ppp source code for older versions :
 
 * https://www.nikhef.nl/~janjust/ppp/
 
-The configure script will attempt to determine if the EAP-TLS patch for pppd
-has been applied and will disable the build time TLS user certificate support
-if it can not detect it has been applied.
+The configure script will attempt to determine if pppd EAP-TLS support is
+available and will disable the build time TLS user certificate support if it
+can not be detected.
 
 This VPN plugin auto detects the following TLS certificate and private key file
 formats by looking at the file contents and not the file extension :
