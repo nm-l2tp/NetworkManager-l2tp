@@ -1123,7 +1123,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 			if (!WEXITSTATUS (status)) {
 				if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
 					rc = TRUE;
-					_LOGI ("Libreswan IPsec tunnel is up.");
+					g_message("Libreswan IPsec connection is up.");
 				} else {
 					/* Do not trust exit status of strongSwan 'ipsec up' command.
 					   explictly check if connection is established.
@@ -1131,10 +1131,10 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 					*/
 					snprintf (cmdbuf, sizeof(cmdbuf), "%s status '%s'", priv->ipsec_binary_path, priv->uuid);
 					if (g_spawn_command_line_sync(cmdbuf, &output, NULL, NULL, NULL)) {
-						rc = output && strstr (output, "ESTABLISHED");
+						rc = output && strstr (output, "ESTABLISHED") && strstr(output, "INSTALLED, TRANSPORT");
 						g_free (output);
 						if (rc) {
-							_LOGI ("strongSwan IPsec tunnel is up.");
+							g_message("strongSwan IPsec connection is up.");
 						}
 					}
 				}
@@ -1147,7 +1147,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 			snprintf (cmdbuf, sizeof(cmdbuf), "%s stop", priv->ipsec_binary_path);
 			sys = system (cmdbuf);
 		}
-		_LOGW ("Could not establish IPsec tunnel.");
+		g_message("Could not establish IPsec connection.");
 	}
 
 	return rc;
