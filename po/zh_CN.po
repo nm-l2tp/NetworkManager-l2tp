@@ -154,6 +154,10 @@ msgstr "无法打开文件来写入"
 msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr "第2层隧道协议 (L2TP)"
 
+#: ../properties/nm-l2tp.c:58
+msgid "Compatible with L2TP VPN servers."
+msgstr ""
+
 #: ../properties/nm-l2tp.c:214
 #, c-format
 msgid "%s: error reading advanced settings: %s"
@@ -630,6 +634,10 @@ msgstr ""
 msgid "Could not establish IPsec connection."
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:1085
+msgid "Could not find the xl2tpd binary."
+msgstr ""
+
 #: ../src/nm-l2tp-service.c:1106
 #, c-format
 msgid "xl2tpd started with pid %d"
@@ -647,6 +655,10 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:1254
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1289
+msgid "Could not write ipsec config."
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:1353

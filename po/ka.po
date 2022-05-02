@@ -29,12 +29,24 @@ msgstr "საჭიროა აუთენტიკაცია VPN ‘%s’-
 msgid "Authenticate VPN"
 msgstr "VPN-ავტორიზაცია"
 
+#: ../auth-dialog/main.c:170 ../properties/nm-l2tp-dialog.ui.h:24
+msgid "Password:"
+msgstr ""
+
+#: ../auth-dialog/vpn-password-dialog.c:102
+msgid "_Password:"
+msgstr ""
+
 #: ../auth-dialog/vpn-password-dialog.c:104
 msgid "_Secondary Password:"
 msgstr ""
 
 #: ../auth-dialog/vpn-password-dialog.c:107
 msgid "_Tertiary Password:"
+msgstr ""
+
+#: ../auth-dialog/vpn-password-dialog.c:252
+msgid "Sh_ow passwords"
 msgstr ""
 
 #: ../properties/advanced-dialog.c:188
@@ -276,6 +288,10 @@ msgid ""
 "Append the domain name <domain> to the local host name for authentication "
 "purposes.\n"
 "config: domain <domain>"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:19
+msgid "Show password"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:20

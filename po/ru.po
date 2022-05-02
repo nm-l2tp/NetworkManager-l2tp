@@ -162,6 +162,10 @@ msgstr "Не удалось открыть файл для записи."
 msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr "Туннельный протокол второго уровня (L2TP)"
 
+#: ../properties/nm-l2tp.c:58
+msgid "Compatible with L2TP VPN servers."
+msgstr ""
+
 #: ../properties/nm-l2tp.c:214
 #, c-format
 msgid "%s: error reading advanced settings: %s"
@@ -259,6 +263,10 @@ msgid ""
 "Optional, how the IPsec server should be identified for authentication.\n"
 "config: ipsec rightid\n"
 "ipsec.secrets: ID"
+msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:8
+msgid "Pre-shared key:"
 msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:9
@@ -526,6 +534,11 @@ msgstr ""
 msgid "invalid gateway '%s'"
 msgstr "недопустимый шлюз «%s»"
 
+#: ../src/nm-l2tp-service.c:553
+#, c-format
+msgid "invalid ipsec-gateway-id '%s'"
+msgstr ""
+
 #: ../src/nm-l2tp-service.c:566
 #, c-format
 msgid "invalid integer property '%s'"
@@ -582,6 +595,26 @@ msgstr ""
 msgid "pppd timeout. Looks like pppd didn't initialize our dbus module"
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:788
+#, c-format
+msgid "couldn't convert L2TP VPN gateway IP address '%s' (%d)"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:806
+#, c-format
+msgid "couldn't look up L2TP VPN gateway IP address '%s' (%d)"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:830
+#, c-format
+msgid "no usable addresses returned for L2TP VPN gateway '%s'"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:841
+#, c-format
+msgid "no usable addresses returned for L2TP VPN gateway '%s' (%d)"
+msgstr ""
+
 #: ../src/nm-l2tp-service.c:846
 #, c-format
 msgid "Use '%s' as a gateway"
@@ -611,6 +644,10 @@ msgstr ""
 msgid "strongSwan IPsec connection is up."
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:1085
+msgid "Could not find the xl2tpd binary."
+msgstr ""
+
 #: ../src/nm-l2tp-service.c:1106
 #, c-format
 msgid "xl2tpd started with pid %d"
@@ -620,10 +657,19 @@ msgstr ""
 msgid "Can-not create new test socket"
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:1238
+#, c-format
+msgid "Could not open %s"
+msgstr ""
+
 #: ../src/nm-l2tp-service.c:1254
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr "Не удалось записать %s/ipsec.nm-l2tp.secrets"
+
+#: ../src/nm-l2tp-service.c:1289
+msgid "Could not write ipsec config."
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1353
 msgid "Could not write xl2tpd config."
@@ -647,6 +693,10 @@ msgstr ""
 #: ../src/nm-l2tp-service.c:1615
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr "Не удалось обнаружить ни Libreswan, ни strongSwan."
+
+#: ../src/nm-l2tp-service.c:1635
+msgid "Could not start pppd plugin helper service."
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:1642
 msgid "could not retrieve connection UUID"

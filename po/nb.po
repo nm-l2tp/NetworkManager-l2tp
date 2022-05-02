@@ -147,6 +147,10 @@ msgstr ""
 msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr ""
 
+#: ../properties/nm-l2tp.c:58
+msgid "Compatible with L2TP VPN servers."
+msgstr ""
+
 #: ../properties/nm-l2tp.c:214
 #, c-format
 msgid "%s: error reading advanced settings: %s"
@@ -499,6 +503,11 @@ msgstr ""
 #, c-format
 msgid "invalid gateway '%s'"
 msgstr "ugyldig gateway «%s»"
+
+#: ../src/nm-l2tp-service.c:553
+#, c-format
+msgid "invalid ipsec-gateway-id '%s'"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:566
 #, c-format

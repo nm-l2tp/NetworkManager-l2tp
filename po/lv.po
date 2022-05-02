@@ -152,6 +152,10 @@ msgstr ""
 msgid "Layer 2 Tunneling Protocol (L2TP)"
 msgstr ""
 
+#: ../properties/nm-l2tp.c:58
+msgid "Compatible with L2TP VPN servers."
+msgstr ""
+
 #: ../properties/nm-l2tp.c:214
 #, c-format
 msgid "%s: error reading advanced settings: %s"
@@ -180,6 +184,11 @@ msgstr ""
 #: ../properties/nm-l2tp.c:598
 #, c-format
 msgid "Couldn't load builder file: %s"
+msgstr ""
+
+#: ../properties/nm-l2tp.c:602
+#, c-format
+msgid "could not load required resources at %s"
 msgstr ""
 
 #: ../properties/nm-l2tp.c:612
@@ -500,6 +509,11 @@ msgstr ""
 #, c-format
 msgid "invalid gateway '%s'"
 msgstr "nederīga vārteja “%s”"
+
+#: ../src/nm-l2tp-service.c:553
+#, c-format
+msgid "invalid ipsec-gateway-id '%s'"
+msgstr ""
 
 #: ../src/nm-l2tp-service.c:566
 #, c-format
