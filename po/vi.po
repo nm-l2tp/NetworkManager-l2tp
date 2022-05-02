@@ -57,6 +57,10 @@ msgstr "Bạn cần phải xác thực để truy cập đến Mạng Riêng Ả
 msgid "Authenticate VPN"
 msgstr "Xác thực VPN"
 
+#: ../auth-dialog/main.c:157 ../properties/nm-l2tp-dialog.ui.h:12
+msgid "Password:"
+msgstr "Mật khẩu:"
+
 #: ../properties/ppp-dialog.c:172
 msgid "All Available (Default)"
 msgstr ""
@@ -552,6 +556,10 @@ msgid ""
 "methods: MSCHAP or MSCHAPv2."
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:64
+msgid "_Security:"
+msgstr "_An ninh:"
+
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid ""
 "Require the use of MPPE, with 40/128-bit encryption or all.\n"
@@ -622,7 +630,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:85
 msgid "Echo"
-msgstr ""
+msgstr "Vang"
 
 #: ../properties/nm-l2tp-dialog.ui.h:86
 msgid "Send PPP _echo packets"

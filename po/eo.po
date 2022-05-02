@@ -634,7 +634,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:85
 msgid "Echo"
-msgstr ""
+msgstr "Eĥo"
 
 #: ../properties/nm-l2tp-dialog.ui.h:86
 msgid "Send PPP _echo packets"

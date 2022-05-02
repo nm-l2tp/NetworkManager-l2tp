@@ -57,6 +57,10 @@ msgstr "คุณจะต้องยืนยันตัวบุคคลเ
 msgid "Authenticate VPN"
 msgstr "ยืนยันตัวบุคคลกับ VPN"
 
+#: ../auth-dialog/main.c:157 ../properties/nm-l2tp-dialog.ui.h:12
+msgid "Password:"
+msgstr "รหัสผ่าน:"
+
 #: ../properties/ppp-dialog.c:172
 msgid "All Available (Default)"
 msgstr ""
@@ -556,6 +560,10 @@ msgid ""
 "methods: MSCHAP or MSCHAPv2."
 msgstr ""
 
+#: ../properties/nm-l2tp-dialog.ui.h:64
+msgid "_Security:"
+msgstr "การรักษา_ความปลอดภัย:"
+
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid ""
 "Require the use of MPPE, with 40/128-bit encryption or all.\n"
@@ -626,7 +634,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:85
 msgid "Echo"
-msgstr ""
+msgstr "การสะท้อนข้อมูล"
 
 #: ../properties/nm-l2tp-dialog.ui.h:86
 msgid "Send PPP _echo packets"

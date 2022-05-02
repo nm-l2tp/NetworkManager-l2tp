@@ -60,6 +60,10 @@ msgstr ""
 msgid "Authenticate VPN"
 msgstr "Потврди автентичност за виртуелна приватна мрежа"
 
+#: ../auth-dialog/main.c:157 ../properties/nm-l2tp-dialog.ui.h:12
+msgid "Password:"
+msgstr "Лозинка:"
+
 #: ../properties/ppp-dialog.c:172
 msgid "All Available (Default)"
 msgstr ""
@@ -629,7 +633,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:85
 msgid "Echo"
-msgstr ""
+msgstr "Echo"
 
 #: ../properties/nm-l2tp-dialog.ui.h:86
 msgid "Send PPP _echo packets"

@@ -244,6 +244,10 @@ msgstr ""
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr ""
 
+#: ../src/nm-l2tp-service.c:700
+msgid "Could not write ipsec config."
+msgstr ""
+
 #: ../src/nm-l2tp-service.c:824
 msgid "Could not write xl2tpd config."
 msgstr ""
@@ -258,6 +262,10 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:1030 ../src/nm-l2tp-service.c:1057
 msgid "Could not restart the ipsec service."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1168
+msgid "Could not find the xl2tpd binary."
 msgstr ""
 
 #: ../src/nm-l2tp-service.c:1234

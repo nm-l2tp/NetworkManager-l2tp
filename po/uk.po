@@ -233,7 +233,7 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:388
 msgid "No VPN secrets!"
-msgstr ""
+msgstr "Немає реєстраційних даних VPN!"
 
 #: ../src/nm-l2tp-service.c:637
 #, c-format

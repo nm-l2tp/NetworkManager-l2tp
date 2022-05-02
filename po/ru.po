@@ -376,6 +376,13 @@ msgstr "Показать пароль"
 msgid "Password passed to PPPD when prompted for it."
 msgstr "Пароль, передаваемый PPPD в ответ на запрос."
 
+#: ../properties/nm-l2tp-dialog.ui.h:9
+msgid ""
+"Username passed to PPPD when prompted for it. If omitted, use the name of "
+"the system user that activates the connection.\n"
+"config: ppp name parameter"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:11
 msgid "User name:"
 msgstr "Имя пользователя:"
@@ -419,6 +426,10 @@ msgid ""
 msgstr ""
 "Секрет общего ключа.\n"
 "настройка конфигурации: ipsec-psk"
+
+#: ../properties/nm-l2tp-dialog.ui.h:23
+msgid "Pre-shared key:"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Phase2 Algorithms:"
@@ -473,9 +484,24 @@ msgstr ""
 "истечения срока действия.\n"
 "настройка конфигурации: ipsec-salifetime <lifetime>"
 
+#: ../properties/nm-l2tp-dialog.ui.h:36
+msgid "100"
+msgstr ""
+
 #: ../properties/nm-l2tp-dialog.ui.h:37
 msgid "Remote ID:"
 msgstr "Удалённый ID:"
+
+#: ../properties/nm-l2tp-dialog.ui.h:38
+msgid ""
+"Optional. How the IPsec server should be identified for authentication. "
+"Sometimes referred to as IPsec identifier, Peer ID and Gateway ID. Also "
+"referred to as rightid by strongSwan, Libreswan, Openswan and FreeS/WAN. See "
+"strongSwan or Libreswan documentation for leftid/rightid syntax and identity "
+"parsing.\n"
+"config: ipsec-remote-id <rightid>\n"
+"ipsec.secrets: <ID>"
+msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:42
 msgid "_Enforce UDP encapsulation"

@@ -236,7 +236,7 @@ msgstr ""
 
 #: ../src/nm-l2tp-service.c:388
 msgid "No VPN secrets!"
-msgstr ""
+msgstr "Nu există secrete VPN!"
 
 #: ../src/nm-l2tp-service.c:637
 #, c-format
