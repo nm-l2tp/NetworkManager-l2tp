@@ -10,7 +10,7 @@
  * (C) Copyright 2011 Geo Carncross <geocar@gmail.com>
  * (C) Copyright 2012 Sergey Prokhorov <me@seriyps.ru>
  * (C) Copyright 2014 Nathan Dorfman <ndorf@rtfm.net>
- * (C) Copyright 2016 - 2020 Douglas Kosovic <doug@uq.edu.au>
+ * (C) Copyright 2016 - 2022 Douglas Kosovic <doug@uq.edu.au>
  */
 
 #include "nm-default.h"
@@ -1456,7 +1456,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 			if (!WEXITSTATUS (status)) {
 				if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
 					rc = TRUE;
-					_LOGI ("Libreswan IPsec tunnel is up.");
+					g_message("Libreswan IPsec connection is up.");
 				} else {
 					/* Do not trust exit status of strongSwan 'ipsec up' command.
 					   explictly check if connection is established.
@@ -1464,10 +1464,10 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 					*/
 					snprintf (cmdbuf, sizeof(cmdbuf), "%s status '%s'", priv->ipsec_binary_path, priv->uuid);
 					if (g_spawn_command_line_sync(cmdbuf, &output, NULL, NULL, NULL)) {
-						rc = output && strstr (output, "ESTABLISHED");
+						rc = output && strstr (output, "ESTABLISHED") && strstr(output, "INSTALLED, TRANSPORT");
 						g_free (output);
 						if (rc) {
-							_LOGI ("strongSwan IPsec tunnel is up.");
+							g_message("strongSwan IPsec connection is up.");
 						}
 					}
 				}
@@ -1480,7 +1480,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 			snprintf (cmdbuf, sizeof(cmdbuf), "%s stop", priv->ipsec_binary_path);
 			sys = system (cmdbuf);
 		}
-		_LOGW ("Could not establish IPsec tunnel.");
+		g_message("Could not establish IPsec connection.");
 	}
 
 	return rc;
