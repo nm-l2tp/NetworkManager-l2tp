@@ -41,6 +41,8 @@ static const char *ipsec_keys[] = {NM_L2TP_KEY_IPSEC_ENABLE,
                                    NM_L2TP_KEY_IPSEC_IPCOMP,
                                    NM_L2TP_KEY_IPSEC_IKEV2,
                                    NM_L2TP_KEY_IPSEC_PFS,
+                                   NM_L2TP_KEY_IPSEC_PSK "-flags",
+                                   NM_L2TP_KEY_MACHINE_CERTPASS "-flags",
                                    NULL};
 
 static void
@@ -788,6 +790,12 @@ ipsec_dialog_new_hash_from_dialog(GtkWidget *dialog, GError **error)
     value  = gtk_editable_get_text(GTK_EDITABLE(widget));
     if (value && *value) {
         g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_PSK), g_strdup(value));
+    }
+    pw_flags = nma_utils_menu_to_secret_flags(widget);
+    if (pw_flags != NM_SETTING_SECRET_FLAG_NONE) {
+        g_hash_table_insert(hash,
+                            g_strdup(NM_L2TP_KEY_IPSEC_PSK "-flags"),
+                            g_strdup_printf("%d", pw_flags));
     }
 
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "machine_ca_chooser"));
