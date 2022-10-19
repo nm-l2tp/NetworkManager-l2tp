@@ -27,7 +27,7 @@ check_ipsec_daemon(const char *path)
         if (strstr(output, " strongSwan "))
             return NM_L2TP_IPSEC_DAEMON_STRONGSWAN;
 
-        if (strstr(output, " Libreswan "))
+        if (strstr(output, " Libreswan ") || strstr(output, "Libreswan ") == output)
             return NM_L2TP_IPSEC_DAEMON_LIBRESWAN;
 
         if (strstr(output, " Openswan "))
