@@ -24,13 +24,13 @@ check_ipsec_daemon(const char *path)
         if (!output)
             return NM_L2TP_IPSEC_DAEMON_UNKNOWN;
 
-        if (strstr(output, " strongSwan "))
+        if (strstr(output, "strongSwan") != NULL)
             return NM_L2TP_IPSEC_DAEMON_STRONGSWAN;
 
-        if (strstr(output, " Libreswan "))
+        if (strstr(output, "Libreswan") != NULL)
             return NM_L2TP_IPSEC_DAEMON_LIBRESWAN;
 
-        if (strstr(output, " Openswan "))
+        if (strstr(output, "Openswan") != NULL)
             return NM_L2TP_IPSEC_DAEMON_OPENSWAN;
     }
     return NM_L2TP_IPSEC_DAEMON_UNKNOWN;
