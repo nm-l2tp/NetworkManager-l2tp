@@ -36,8 +36,6 @@ AC_PROG_INSTALL
 LT_INIT
 AC_PATH_PROG(GLIB_COMPILE_RESOURCES, glib-compile-resources)
 
-AC_USE_SYSTEM_EXTENSIONS
-
 AC_CHECK_PROG([has_file], file, yes, no)
 if test x$has_file = xno ; then
 	AC_MSG_ERROR(["file" utility not found.])
