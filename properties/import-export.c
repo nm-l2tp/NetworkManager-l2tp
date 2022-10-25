@@ -552,7 +552,7 @@ export_ip4(NMSettingIPConfig *s_ip4, GKeyFile *keyfile, GError **error)
                                    NM_SETTING_IP_CONFIG_ROUTES,
                                    (const gchar *const *) routes,
                                    num_routes);
-        for (i = 0; i < num_dns; i++)
+        for (i = 0; i < num_routes; i++)
             g_free(routes[i]);
     }
 
