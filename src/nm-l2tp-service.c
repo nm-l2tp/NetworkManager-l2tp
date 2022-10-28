@@ -89,8 +89,8 @@ typedef struct {
     (G_TYPE_INSTANCE_GET_PRIVATE((o), NM_TYPE_L2TP_PLUGIN, NML2tpPluginPrivate))
 
 #define NM_L2TP_PPPD_PLUGIN       PLUGINDIR "/nm-l2tp-pppd-plugin.so"
-#define NM_L2TP_WAIT_IPSEC        10000 /* 10 seconds */
-#define NM_L2TP_WAIT_PPPD         14000 /* 14 seconds */
+#define NM_L2TP_WAIT_IPSEC        16000 /* 16 seconds */
+#define NM_L2TP_WAIT_PPPD         16000 /* 16 seconds */
 #define L2TP_SERVICE_SECRET_TRIES "l2tp-service-secret-tries"
 
 /* Default Phase 1 (Main Mode) and Phase 2 (Quick Mode) proposals which are a
