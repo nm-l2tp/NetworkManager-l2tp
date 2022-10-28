@@ -82,7 +82,7 @@ msgstr ""
 #: auth-dialog/main.c:552
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
-msgstr ""
+msgstr "VPN \"%s\"-თან წვდომისთვის საჭიროა ავთენტიკაცია."
 
 #: properties/import-export.c:161 properties/import-export.c:409
 #, c-format
@@ -150,7 +150,7 @@ msgstr ""
 
 #: properties/ipsec-dialog.c:554 properties/nm-l2tp-editor.c:585
 msgid "Certificates (TLS)"
-msgstr ""
+msgstr "სერტიფიკატები (TLS)"
 
 #: properties/nm-l2tp-dialog.ui:16
 msgid "General"
@@ -176,7 +176,7 @@ msgstr "ტიპი"
 
 #: properties/nm-l2tp-dialog.ui:89 properties/nm-l2tp-dialog.ui:589
 msgid "Select an authentication mode."
-msgstr ""
+msgstr "აირჩიეთ ავთენტიკაციის რეჟიმი."
 
 #: properties/nm-l2tp-dialog.ui:127
 msgid ""
@@ -186,7 +186,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:137 properties/nm-l2tp-dialog.ui:625
 msgid "Sho_w password"
-msgstr ""
+msgstr "პაროლის _ჩვენება"
 
 #: properties/nm-l2tp-dialog.ui:154
 msgid "Password passed to PPPD when prompted for it."
@@ -202,11 +202,11 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:181
 msgid "User name"
-msgstr ""
+msgstr "მომხმარებელი"
 
 #: properties/nm-l2tp-dialog.ui:205
 msgid "NT Domain"
-msgstr ""
+msgstr "NT დომენი"
 
 #: properties/nm-l2tp-dialog.ui:308
 msgid "Use L2TP _ephemeral source port"
@@ -237,11 +237,11 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:477 properties/nm-l2tp-dialog.ui:1169
 msgid "_Cancel"
-msgstr ""
+msgstr "_გაუქმება"
 
 #: properties/nm-l2tp-dialog.ui:485 properties/nm-l2tp-dialog.ui:1177
 msgid "_Apply"
-msgstr ""
+msgstr "_გადატარება"
 
 #: properties/nm-l2tp-dialog.ui:539
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -403,7 +403,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1314
 msgid "Security and Compression"
-msgstr ""
+msgstr "უსაფრთხოება და შეკუმშვა"
 
 #: properties/nm-l2tp-dialog.ui:1341
 msgid "Use _Point-to-Point encryption (MPPE)"
@@ -490,7 +490,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1555
 msgid "Misc"
-msgstr ""
+msgstr "სხვანი"
 
 #: properties/nm-l2tp-dialog.ui:1575
 msgid "Send PPP _echo packets"
@@ -519,7 +519,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1650
 msgid "MTU"
-msgstr ""
+msgstr "MTU"
 
 #: properties/nm-l2tp-dialog.ui:1693
 msgid "MRU"
@@ -563,35 +563,35 @@ msgstr ""
 
 #: properties/ppp-dialog.c:176
 msgid "All Available (Default)"
-msgstr ""
+msgstr "ყველა ხელმისაწვდომი (ნაგულისხმები)"
 
 #: properties/ppp-dialog.c:180
 msgid "128-bit (most secure)"
-msgstr ""
+msgstr "128-ბიტიანი (ყველაზე დაცული)"
 
 #: properties/ppp-dialog.c:189
 msgid "40-bit (less secure)"
-msgstr ""
+msgstr "40-ბიტიანი (ნაკლებად დაცული)"
 
 #: properties/ppp-dialog.c:295
 msgid "PAP"
-msgstr ""
+msgstr "PAP"
 
 #: properties/ppp-dialog.c:313
 msgid "CHAP"
-msgstr ""
+msgstr "CHAP"
 
 #: properties/ppp-dialog.c:330
 msgid "MSCHAP"
-msgstr ""
+msgstr "MSCHAP"
 
 #: properties/ppp-dialog.c:347
 msgid "MSCHAPv2"
-msgstr ""
+msgstr "MSCHAPv2"
 
 #: properties/ppp-dialog.c:365
 msgid "EAP"
-msgstr ""
+msgstr "EAP"
 
 #: shared/nm-l2tp-crypto-nss.c:45
 #, c-format
@@ -696,28 +696,31 @@ msgstr ""
 #: shared/nm-utils/nm-shared-utils.c:1146
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr ""
+msgstr "ობიექტის კლასს '%s ' თვისება სახელით'%s' არ გააჩნია"
 
 #: shared/nm-utils/nm-shared-utils.c:1155
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr ""
+msgstr "თვისება '%s' ობიექტის კლასისთვის '%s' ჩაწერადი არაა"
 
 #: shared/nm-utils/nm-shared-utils.c:1164
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
+"აგებული თვისების \"%s\" დაყენება ობიექტის (\"%s\") აგების შემდეგ შეუძლებელია"
 
 #: shared/nm-utils/nm-shared-utils.c:1175
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
 msgstr ""
+"'%s::%s' თვისების სწორ სახელს არ წარმოადგენს; '%s' GObject-ის ქვეტიპი არაა"
 
 #: shared/nm-utils/nm-shared-utils.c:1188
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
 msgstr ""
+"თვისების (%s) ტიპისთვის '%s' ტიპის '%s' მნიშვნელობიდან დაყენების შეცდომა"
 
 #: shared/nm-utils/nm-shared-utils.c:1200
 #, c-format
@@ -725,30 +728,32 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
+"მნიშვნელობა '%s' ტიპისთვის '%s' არასწორია ან დიაპაზონს გარეთაა თვისებისთვის "
+"'%s' ტიპისთვის '%s'"
 
 #: shared/nm-utils/nm-vpn-plugin-utils.c:53
 #, c-format
 msgid "unable to get editor plugin name: %s"
-msgstr ""
+msgstr "რედაქტორი დამატების სახელის მიღების პრობლემა: %s"
 
 #: shared/nm-utils/nm-vpn-plugin-utils.c:90
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr ""
+msgstr "აკლია დამატების ფაილი \"%s\""
 
 #: shared/nm-utils/nm-vpn-plugin-utils.c:97
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr ""
+msgstr "რედაქტორის დამატების ჩატვირთვა შეუძლებელია: %s"
 
 #: shared/nm-utils/nm-vpn-plugin-utils.c:107
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr ""
+msgstr "დამატებიდან ქარხნის (%s) ჩატვირთვა შეუძლებელია: %s"
 
 #: shared/nm-utils/nm-vpn-plugin-utils.c:130
 msgid "unknown error creating editor instance"
-msgstr ""
+msgstr "უცნობ შეცდომა რედაქტორის ასლის შექმნისას"
 
 #: src/nm-l2tp-service.c:302
 #, c-format
@@ -777,7 +782,7 @@ msgstr ""
 
 #: src/nm-l2tp-service.c:363
 msgid "No VPN configuration options."
-msgstr ""
+msgstr "VPN-ის მორგების გარეშე."
 
 #: src/nm-l2tp-service.c:383
 #, c-format
@@ -841,11 +846,11 @@ msgstr ""
 
 #: src/nm-l2tp-service.c:1741
 msgid "Missing VPN username."
-msgstr ""
+msgstr "აკლია VPN-ის მომხმარებლის სახელი."
 
 #: src/nm-l2tp-service.c:1750
 msgid "Missing or invalid VPN password."
-msgstr ""
+msgstr "ნაკლული ან არასწორი VPN-ის პაროლი."
 
 #: src/nm-l2tp-service.c:1855
 msgid "couldn't convert L2TP VPN gateway IP address."
@@ -889,7 +894,7 @@ msgstr ""
 
 #: src/nm-l2tp-service.c:2329
 msgid "D-Bus name to use for this instance"
-msgstr ""
+msgstr "ამ გაშვებული ასლისთვის გამოყენებული D-Bus -ის სახელი"
 
 #: src/nm-l2tp-service.c:2348
 msgid ""
