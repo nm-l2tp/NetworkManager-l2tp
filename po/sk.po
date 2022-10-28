@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: https://gitlab.freedesktop.org/NetworkManager/"
 "NetworkManager/issues\n"
-"POT-Creation-Date: 2022-05-02 16:00+1000\n"
+"POT-Creation-Date: 2022-10-28 21:00+1000\n"
 "PO-Revision-Date: 2020-09-07 16:03+0200\n"
 "Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -60,7 +60,7 @@ msgstr "Heslo"
 msgid "User Certificate password"
 msgstr ""
 
-#: auth-dialog/main.c:191 properties/ipsec-dialog.c:539
+#: auth-dialog/main.c:191 properties/ipsec-dialog.c:541
 msgid "Pre-shared key (PSK)"
 msgstr ""
 
@@ -151,7 +151,7 @@ msgstr ""
 msgid "Couldn't open file for writing."
 msgstr ""
 
-#: properties/ipsec-dialog.c:552 properties/nm-l2tp-editor.c:585
+#: properties/ipsec-dialog.c:554 properties/nm-l2tp-editor.c:585
 msgid "Certificates (TLS)"
 msgstr "Certifikáty (TLS)"
 
@@ -787,114 +787,114 @@ msgstr "Žiadne voľby konfigurácie siete VPN."
 msgid "Missing required option '%s'."
 msgstr ""
 
-#: src/nm-l2tp-service.c:708
+#: src/nm-l2tp-service.c:709
 #, c-format
 msgid "Could not open %s for writing: %s"
 msgstr ""
 
-#: src/nm-l2tp-service.c:718
+#: src/nm-l2tp-service.c:719
 #, c-format
 msgid "Could not append \"include ipsec.d/ipsec.nm-l2tp.secrets\" to %s"
 msgstr ""
 
-#: src/nm-l2tp-service.c:736
+#: src/nm-l2tp-service.c:737
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr ""
 
-#: src/nm-l2tp-service.c:774
+#: src/nm-l2tp-service.c:775
 msgid "Machine private key file not supplied"
 msgstr ""
 
-#: src/nm-l2tp-service.c:891
+#: src/nm-l2tp-service.c:892
 msgid "Could not write ipsec config"
 msgstr ""
 
-#: src/nm-l2tp-service.c:982
+#: src/nm-l2tp-service.c:983
 msgid "Machine certificate file not supplied"
 msgstr ""
 
-#: src/nm-l2tp-service.c:1096
+#: src/nm-l2tp-service.c:1097
 msgid "Could not write kl2tpd config."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1116
+#: src/nm-l2tp-service.c:1117
 msgid "Could not write xl2tpd config."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1154
+#: src/nm-l2tp-service.c:1159
 msgid "Could not write ppp options."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1438 src/nm-l2tp-service.c:1466
+#: src/nm-l2tp-service.c:1443 src/nm-l2tp-service.c:1471
 msgid "Could not start the ipsec service."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1444 src/nm-l2tp-service.c:1477
+#: src/nm-l2tp-service.c:1449 src/nm-l2tp-service.c:1482
 msgid "Could not restart the ipsec service."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1608
+#: src/nm-l2tp-service.c:1613
 msgid "Could not find kl2tpd or xl2tpd binaries."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1718
+#: src/nm-l2tp-service.c:1723
 msgid "Missing or invalid VPN user certificate password."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1736
+#: src/nm-l2tp-service.c:1741
 msgid "Missing VPN username."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1745
+#: src/nm-l2tp-service.c:1750
 msgid "Missing or invalid VPN password."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1850
+#: src/nm-l2tp-service.c:1855
 msgid "couldn't convert L2TP VPN gateway IP address."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1863
+#: src/nm-l2tp-service.c:1868
 msgid "couldn't look up L2TP VPN gateway IP address "
 msgstr ""
 
-#: src/nm-l2tp-service.c:1881
+#: src/nm-l2tp-service.c:1886
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr ""
 
-#: src/nm-l2tp-service.c:1909
+#: src/nm-l2tp-service.c:1914
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 
-#: src/nm-l2tp-service.c:1917
+#: src/nm-l2tp-service.c:1922
 msgid "Openswan is no longer supported, use Libreswan or strongSwan."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1920
+#: src/nm-l2tp-service.c:1925
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1932
+#: src/nm-l2tp-service.c:1937
 msgid "could not retrieve connection UUID"
 msgstr ""
 
-#: src/nm-l2tp-service.c:1940
+#: src/nm-l2tp-service.c:1945
 msgid "Invalid or missing L2TP gateway."
 msgstr ""
 
-#: src/nm-l2tp-service.c:2310
+#: src/nm-l2tp-service.c:2315
 msgid "Don't quit when VPN connection terminates"
 msgstr ""
 
-#: src/nm-l2tp-service.c:2317
+#: src/nm-l2tp-service.c:2322
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Povolí podrobný záznam ladenia (môže odkryť heslá)"
 
-#: src/nm-l2tp-service.c:2324
+#: src/nm-l2tp-service.c:2329
 msgid "D-Bus name to use for this instance"
 msgstr "Názov zbernice D-Bus, ktorá sa má použiť pre túto inštanciu"
 
-#: src/nm-l2tp-service.c:2343
+#: src/nm-l2tp-service.c:2348
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."

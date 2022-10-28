@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: NetworkManager-l2tp trunk\n"
 "Report-Msgid-Bugs-To: https://gitlab.freedesktop.org/NetworkManager/"
 "NetworkManager/issues\n"
-"POT-Creation-Date: 2022-05-02 16:00+1000\n"
+"POT-Creation-Date: 2022-10-28 21:00+1000\n"
 "PO-Revision-Date: 2021-11-22 09:54+0300\n"
 "Last-Translator: Sergey Kazorin <translation-team@basealt.ru>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
@@ -71,7 +71,7 @@ msgstr "Пароль"
 msgid "User Certificate password"
 msgstr "Пароль сертификата пользователя"
 
-#: auth-dialog/main.c:191 properties/ipsec-dialog.c:539
+#: auth-dialog/main.c:191 properties/ipsec-dialog.c:541
 msgid "Pre-shared key (PSK)"
 msgstr "Общий ключ"
 
@@ -165,7 +165,7 @@ msgstr "Отсутствует требуемый параметр «%s»."
 msgid "Couldn't open file for writing."
 msgstr "Не удалось открыть файл для записи."
 
-#: properties/ipsec-dialog.c:552 properties/nm-l2tp-editor.c:585
+#: properties/ipsec-dialog.c:554 properties/nm-l2tp-editor.c:585
 msgid "Certificates (TLS)"
 msgstr "Сертификаты (TLS)"
 
@@ -881,119 +881,119 @@ msgstr "Нет параметров настройки VPN."
 msgid "Missing required option '%s'."
 msgstr "Отсутствует требуемый параметр «%s»."
 
-#: src/nm-l2tp-service.c:708
+#: src/nm-l2tp-service.c:709
 #, c-format
 msgid "Could not open %s for writing: %s"
 msgstr "Не удалось открыть %s для записи: %s"
 
-#: src/nm-l2tp-service.c:718
+#: src/nm-l2tp-service.c:719
 #, c-format
 msgid "Could not append \"include ipsec.d/ipsec.nm-l2tp.secrets\" to %s"
 msgstr "Не удалось присоединить «include ipsec.d/ipsec.nm-l2tp.secrets» к %s"
 
-#: src/nm-l2tp-service.c:736
+#: src/nm-l2tp-service.c:737
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr "Не удалось записать %s/ipsec.nm-l2tp.secrets"
 
-#: src/nm-l2tp-service.c:774
+#: src/nm-l2tp-service.c:775
 msgid "Machine private key file not supplied"
 msgstr "Не предоставлен файл закрытого ключа компьютера"
 
-#: src/nm-l2tp-service.c:891
+#: src/nm-l2tp-service.c:892
 msgid "Could not write ipsec config"
 msgstr "Не удалось записать конфигурацию ipsec"
 
-#: src/nm-l2tp-service.c:982
+#: src/nm-l2tp-service.c:983
 msgid "Machine certificate file not supplied"
 msgstr "Не предоставлен сертификат компьютера"
 
-#: src/nm-l2tp-service.c:1096
+#: src/nm-l2tp-service.c:1097
 msgid "Could not write kl2tpd config."
 msgstr "Не удалось записать конфигурацию xl2tpd."
 
-#: src/nm-l2tp-service.c:1116
+#: src/nm-l2tp-service.c:1117
 msgid "Could not write xl2tpd config."
 msgstr "Не удалось записать конфигурацию xl2tpd."
 
-#: src/nm-l2tp-service.c:1154
+#: src/nm-l2tp-service.c:1159
 msgid "Could not write ppp options."
 msgstr "Не удалось записать параметры ppp."
 
-#: src/nm-l2tp-service.c:1438 src/nm-l2tp-service.c:1466
+#: src/nm-l2tp-service.c:1443 src/nm-l2tp-service.c:1471
 msgid "Could not start the ipsec service."
 msgstr "Не удалось запустить службу ipsec."
 
-#: src/nm-l2tp-service.c:1444 src/nm-l2tp-service.c:1477
+#: src/nm-l2tp-service.c:1449 src/nm-l2tp-service.c:1482
 msgid "Could not restart the ipsec service."
 msgstr "Не удалось перезапустить службу ipsec."
 
-#: src/nm-l2tp-service.c:1608
+#: src/nm-l2tp-service.c:1613
 msgid "Could not find kl2tpd or xl2tpd binaries."
 msgstr "Не удалось найти двоичные файлы kl2tpd или xl2tpd."
 
-#: src/nm-l2tp-service.c:1718
+#: src/nm-l2tp-service.c:1723
 msgid "Missing or invalid VPN user certificate password."
 msgstr "Отсутствует или недопустим пароль сертификата пользователя VPN."
 
-#: src/nm-l2tp-service.c:1736
+#: src/nm-l2tp-service.c:1741
 msgid "Missing VPN username."
 msgstr "Отсутствует имя пользователя VPN."
 
-#: src/nm-l2tp-service.c:1745
+#: src/nm-l2tp-service.c:1750
 msgid "Missing or invalid VPN password."
 msgstr "Отсутствует или недопустим пароль VPN."
 
-#: src/nm-l2tp-service.c:1850
+#: src/nm-l2tp-service.c:1855
 msgid "couldn't convert L2TP VPN gateway IP address."
 msgstr "не удалось преобразовать IP-адрес шлюза L2TP VPN."
 
-#: src/nm-l2tp-service.c:1863
+#: src/nm-l2tp-service.c:1868
 msgid "couldn't look up L2TP VPN gateway IP address "
 msgstr "не удалось найти IP-адрес шлюза L2TP VPN"
 
-#: src/nm-l2tp-service.c:1881
+#: src/nm-l2tp-service.c:1886
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr "не возвращены используемые адреса для шлюза L2TP VPN"
 
-#: src/nm-l2tp-service.c:1909
+#: src/nm-l2tp-service.c:1914
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 "Не удалось найти двоичный файл ipsec. Было ли установлено приложение "
 "Libreswan или strongSwan?"
 
-#: src/nm-l2tp-service.c:1917
+#: src/nm-l2tp-service.c:1922
 msgid "Openswan is no longer supported, use Libreswan or strongSwan."
 msgstr ""
 "Приложение Openswan больше не поддерживается, пользуйтесь приложениями "
 "Libreswan или strongSwan."
 
-#: src/nm-l2tp-service.c:1920
+#: src/nm-l2tp-service.c:1925
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr "Не удалось обнаружить ни Libreswan, ни strongSwan."
 
-#: src/nm-l2tp-service.c:1932
+#: src/nm-l2tp-service.c:1937
 msgid "could not retrieve connection UUID"
 msgstr "не удалось получить идентификатор UUID подключения"
 
-#: src/nm-l2tp-service.c:1940
+#: src/nm-l2tp-service.c:1945
 msgid "Invalid or missing L2TP gateway."
 msgstr "Шлюз L2TP недействителен или отсутствует."
 
-#: src/nm-l2tp-service.c:2310
+#: src/nm-l2tp-service.c:2315
 msgid "Don't quit when VPN connection terminates"
 msgstr "Не завершать работу при отключении VPN"
 
-#: src/nm-l2tp-service.c:2317
+#: src/nm-l2tp-service.c:2322
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr ""
 "Включить ведение подробного журнала отладки (могут отображаться пароли)"
 
-#: src/nm-l2tp-service.c:2324
+#: src/nm-l2tp-service.c:2329
 msgid "D-Bus name to use for this instance"
 msgstr "Имя D-Bus для использования в этом экземпляре"
 
-#: src/nm-l2tp-service.c:2343
+#: src/nm-l2tp-service.c:2348
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
