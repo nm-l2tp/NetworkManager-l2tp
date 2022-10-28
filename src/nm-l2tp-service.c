@@ -592,6 +592,7 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
     g_autofree char *      rundir;
     char                   errorbuf[128];
     gint                   fd = -1;
+    gint64                 max_retries;
     FILE *                 fp;
     struct in_addr         naddr;
     int                    port;
@@ -1120,6 +1121,10 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         write_config_option(fd, "access control = yes\n");
 
         write_config_option(fd, "port = %d\n", port);
+        if (getenv("NM_L2TP_XL2TPD_MAX_RETRIES")) {
+            max_retries = strtol(getenv("NM_L2TP_XL2TPD_MAX_RETRIES"), NULL, 10);
+            write_config_option(fd, "max retries = %ld\n", max_retries);
+        }
         if (_LOGD_enabled()) {
             /* write_config_option (fd, "debug network = yes\n"); */
             write_config_option(fd, "debug state = yes\n");
