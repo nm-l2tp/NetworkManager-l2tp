@@ -1,4 +1,19 @@
 ==========================================================
+NetworkManager-l2tp-1.20.6
+Overview of changes since NetworkManager-l2tp-1.20.4
+==========================================================
+
+Changes:
+* Fix for Libreswan 4.9 and later detection.
+* Fix for ipsec-psk-flags setting not being saved.
+* Fix out-of-bounds access in export_ip4.
+* Add getenv NM_L2TP_XL2TPD_MAX_RETRIES to allow setting the xl2tpd
+  max retries value with an env variable.
+* Drop unused ChangeLog file.
+* Increase IPsec and L2TP daemon wait timeouts for better debugging.
+* Update Georgian (ka) translation.
+
+==========================================================
 NetworkManager-l2tp-1.20.4
 Overview of changes since NetworkManager-l2tp-1.20.2
 ==========================================================
