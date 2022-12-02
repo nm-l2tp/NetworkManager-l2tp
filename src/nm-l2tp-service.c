@@ -1164,11 +1164,6 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
 
     write_config_option(fd, "ipparam nm-l2tp-service-%s\n", priv->uuid);
 
-    /* pass gateway IP address to nm-l2tp-pppd-plugin via ipcp_wantoptions[0].hisaddr,
-       but let pppd use the remote IP address being offered by the peer using IPCP */
-    write_config_option(fd, ":%s\n", priv->saddr);
-    write_config_option(fd, "ipcp-accept-remote\n");
-
     write_config_option(fd, "nodetach\n");
 
     s_ip4 = nm_connection_get_setting_ip4_config(priv->connection);
