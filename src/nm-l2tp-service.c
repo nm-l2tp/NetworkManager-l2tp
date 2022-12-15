@@ -600,6 +600,7 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
     gboolean               use_ephemeral_port;
     gboolean               use_ikev2;
     gboolean               tls_need_password;
+    gboolean               is_local_set          = FALSE;
     g_autofree char *      pwd_base64            = NULL;
     const char *           tls_key_filename      = NULL;
     const char *           tls_cert_filename     = NULL;
@@ -1166,10 +1167,56 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
 
     write_config_option(fd, "nodetach\n");
 
+    /* Any IPv4 configuration options */
     s_ip4 = nm_connection_get_setting_ip4_config(priv->connection);
-    if (!nm_setting_ip_config_get_ignore_auto_dns(s_ip4)) {
-        write_config_option(fd, "usepeerdns\n");
+    if (s_ip4) {
+
+        value = nm_setting_ip_config_get_method (s_ip4);
+        if (nm_streq0(value, NM_SETTING_IP4_CONFIG_METHOD_MANUAL)) {
+            const char *ipv4_str = NULL;
+            const char *gway_str = NULL;
+            const char *mask_str = NULL;
+            char buf[NM_UTILS_INET_ADDRSTRLEN];
+            NMIPAddress *ipv4 = NULL;
+
+            // IF <local:remote> is specified, the IPCP negotiation will fail unless
+            //   - ipcp-accept-local, and/or
+            //   - ipcp-accept-remote
+            // is specified. That depends on the server, but in any case allow it.
+            //
+            // The "manual" option is really just a suggestion. "auto" is the default.
+
+            ipv4 = nm_setting_ip_config_get_address(s_ip4, 0);
+            if (ipv4) {
+                int prefix = nm_ip_address_get_prefix(ipv4);
+                ipv4_str = nm_ip_address_get_address(ipv4);
+                mask_str = nm_utils_inet4_ntop(nm_utils_ip4_prefix_to_netmask(prefix), buf);
+
+                gway_str = nm_setting_ip_config_get_gateway(s_ip4);
+                if (ipv4_str && gway_str) {
+                    write_config_option(fd, "%s:%s\n", ipv4_str, gway_str);
+                    if (mask_str) {
+                        write_config_option(fd, "netmask %s\n", mask_str);
+                    }
+                    write_config_option(fd, "ipcp-accept-local\n");
+                    write_config_option(fd, "ipcp-accept-remote\n");
+                    is_local_set = TRUE;
+                }
+            }
+        }
+        if (nm_streq (value, NM_SETTING_IP4_CONFIG_METHOD_DISABLED)) {
+            write_config_option(fd, "noip\n");
+        } else {
+            if (!nm_setting_ip_config_get_ignore_auto_dns(s_ip4)) {
+                write_config_option(fd, "usepeerdns\n");
+            }
+        }
     }
+
+    if (!is_local_set) {
+        write_config_option(fd, "noipdefault\n");
+    }
+    is_local_set = FALSE;
 
     write_config_option(fd, "noipdefault\n");
     write_config_option(fd, "nodefaultroute\n");
