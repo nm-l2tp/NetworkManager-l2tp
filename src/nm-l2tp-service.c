@@ -1218,7 +1218,6 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
     }
     is_local_set = FALSE;
 
-    write_config_option(fd, "noipdefault\n");
     write_config_option(fd, "nodefaultroute\n");
 
     /* Don't need to auth the L2TP server */
