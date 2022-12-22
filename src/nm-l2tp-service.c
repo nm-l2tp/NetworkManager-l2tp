@@ -2341,12 +2341,14 @@ main(int argc, char *argv[])
 {
     NML2tpPlugin *   plugin;
     GMainLoop *      main_loop;
-    gboolean         persist       = FALSE;
-    GOptionContext * opt_ctx       = NULL;
-    GError *         error         = NULL;
-    g_autofree char *bus_name_free = NULL;
+    gboolean         persist               = FALSE;
+    GOptionContext * opt_ctx               = NULL;
+    GError *         error                 = NULL;
+    g_autofree char *bus_name_free         = NULL;
     const char *     bus_name;
     char             sbuf[30];
+    char *           l2tp_ppp_module[]     = { "/sbin/modprobe", "l2tp_ppp", NULL };
+    char *           l2tp_netlink_module[] = { "/sbin/modprobe", "l2tp_netlink", NULL };
 
     GOptionEntry options[] = {{"persist",
                                0,
@@ -2423,6 +2425,22 @@ main(int argc, char *argv[])
 
     if (!persist)
         g_signal_connect(plugin, "quit", G_CALLBACK(quit_mainloop), main_loop);
+
+    /* Fedora and RHEL have moved the L2TP kernel modules to the
+     * 'kernel-modules-extra' package and blacklisted all modules from
+     * the 'kernel-modules-extra' package by default.
+     * Load the L2TP modules now. Ignore errors.
+     * https://access.redhat.com/articles/3760101
+     */
+    if (!g_spawn_sync(NULL, l2tp_ppp_module, NULL, 0, NULL, NULL, NULL, NULL, NULL, &error)) {
+        _LOGW("modprobing l2tp_ppp failed: %s", error->message);
+        g_error_free(error);
+    }
+
+    if (!g_spawn_sync(NULL, l2tp_netlink_module, NULL, 0, NULL, NULL, NULL, NULL, NULL, &error)) {
+        _LOGW("modprobing l2tp_netlink failed: %s", error->message);
+        g_error_free(error);
+    }
 
     g_main_loop_run(main_loop);
 
