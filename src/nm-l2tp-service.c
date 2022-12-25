@@ -1144,13 +1144,13 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
             char buf[NM_UTILS_INET_ADDRSTRLEN];
             NMIPAddress *ipv4 = NULL;
 
-            // IF <local:remote> is specified, the IPCP negotiation will fail unless
-            //   - ipcp-accept-local, and/or
-            //   - ipcp-accept-remote
-            // is specified. That depends on the server, but in any case allow it.
-            //
-            // The "manual" option is really just a suggestion. "auto" is the default.
-
+            /* If <local:remote> is specified, the IPCP negotiation will fail unless
+             *   - ipcp-accept-local, and/or
+             *   - ipcp-accept-remote
+             * is specified. That depends on the server, but in any case allow it.
+             *
+             * The "manual" option is really just a suggestion. "auto" is the default.
+             */
             ipv4 = nm_setting_ip_config_get_address(s_ip4, 0);
             if (ipv4) {
                 int prefix = nm_ip_address_get_prefix(ipv4);
