@@ -22,30 +22,6 @@
 #define PEM_ECDSA_KEY_BEGIN "-----BEGIN EC PRIVATE KEY-----"
 #define PEM_ENCRYPTED       "Proc-Type: 4,ENCRYPTED"
 
-static gboolean initialized = FALSE;
-
-gboolean
-crypto_init_openssl(void)
-{
-    if (initialized)
-        return TRUE;
-
-    OpenSSL_add_all_algorithms();
-    ERR_load_crypto_strings();
-
-    initialized = TRUE;
-    return TRUE;
-}
-
-void
-crypto_deinit_openssl(void)
-{
-    if (initialized) {
-        EVP_cleanup();
-        initialized = FALSE;
-    }
-}
-
 static GByteArray *
 file_to_g_byte_array(const char *filename, GError **error)
 {
@@ -69,10 +45,6 @@ crypto_file_format(const char *filename, gboolean *out_need_password, GError **e
     X509_SIG *             p8;
     PKCS8_PRIV_KEY_INFO *  p8inf;
     PKCS12 *               p12;
-    RSA *                  rsa;
-    DSA *                  dsa;
-    EC_KEY *               ecdsa;
-    gsize                  taglen = 0;
 
     if (out_need_password != NULL) {
         *out_need_password = FALSE;
@@ -159,93 +131,6 @@ crypto_file_format(const char *filename, gboolean *out_need_password, GError **e
         goto out;
     }
 
-    /* try unencrypted traditional OpenSSL RSA PrivateKey PEM */
-    BIO_reset(in);
-    rsa = PEM_read_bio_RSAPrivateKey(in, NULL, NULL, "");
-    if (rsa) {
-        RSA_free(rsa);
-        file_format = NM_L2TP_CRYPTO_FILE_FORMAT_RSA_PKEY_PEM;
-        goto out;
-    }
-
-#ifndef OPENSSL_NO_DSA
-    /* try unencrypted traditional OpenSSL DSA PrivateKey PEM */
-    BIO_reset(in);
-    dsa = PEM_read_bio_DSAPrivateKey(in, NULL, NULL, "");
-    if (dsa) {
-        DSA_free(dsa);
-        file_format = NM_L2TP_CRYPTO_FILE_FORMAT_DSA_PKEY_PEM;
-        goto out;
-    }
-#endif
-
-#ifndef OPENSSL_NO_EC
-    /* try unencrypted traditional OpenSSL ECDSA PrivateKey PEM */
-    BIO_reset(in);
-    ecdsa = PEM_read_bio_ECPrivateKey(in, NULL, NULL, "");
-    if (ecdsa) {
-        EC_KEY_free(ecdsa);
-        file_format = NM_L2TP_CRYPTO_FILE_FORMAT_ECDSA_PKEY_PEM;
-        goto out;
-    }
-#endif
-
-    /* try encrypted traditional OpenSSL RSA, DSA and ECDA PrivateKeys PEM */
-    if (array->len > 80) {
-        if (memcmp(array->data, PEM_RSA_KEY_BEGIN, taglen = strlen(PEM_RSA_KEY_BEGIN)) == 0)
-            file_format = NM_L2TP_CRYPTO_FILE_FORMAT_RSA_PKEY_PEM;
-        else if (memcmp(array->data, PEM_DSA_KEY_BEGIN, taglen = strlen(PEM_DSA_KEY_BEGIN)) == 0)
-            file_format = NM_L2TP_CRYPTO_FILE_FORMAT_DSA_PKEY_PEM;
-        else if (memcmp(array->data, PEM_ECDSA_KEY_BEGIN, taglen = strlen(PEM_ECDSA_KEY_BEGIN))
-                 == 0)
-            file_format = NM_L2TP_CRYPTO_FILE_FORMAT_ECDSA_PKEY_PEM;
-
-        if (file_format != NM_L2TP_CRYPTO_FILE_FORMAT_UNKNOWN) {
-            if (memcmp(array->data + taglen + 1, PEM_ENCRYPTED, strlen(PEM_ENCRYPTED)) == 0
-                || memcmp(array->data + taglen + 2, PEM_ENCRYPTED, strlen(PEM_ENCRYPTED)) == 0) {
-                if (out_need_password != NULL)
-                    *out_need_password = TRUE;
-            }
-        }
-    }
-
-    /**
-     * Note: There is no such thing as encrypted traditional OpenSSL
-     * DER PrivateKeys, as OpenSSL never provided functions in the API.
-     * For DER there is only unencrypted traditional OpenSSL PrivateKeys.
-     **/
-
-    /* try traditional OpenSSL RSA PrivateKey DER */
-    BIO_reset(in);
-    rsa = d2i_RSAPrivateKey_bio(in, NULL);
-    if (rsa) {
-        RSA_free(rsa);
-        file_format = NM_L2TP_CRYPTO_FILE_FORMAT_RSA_PKEY_DER;
-        goto out;
-    }
-
-#ifndef OPENSSL_NO_DSA
-    /* try traditional OpenSSL DSA PrivateKey DER */
-    BIO_reset(in);
-    dsa = d2i_DSAPrivateKey_bio(in, NULL);
-    if (dsa) {
-        DSA_free(dsa);
-        file_format = NM_L2TP_CRYPTO_FILE_FORMAT_DSA_PKEY_DER;
-        goto out;
-    }
-#endif
-
-#ifndef OPENSSL_NO_EC
-    /* try DER ECDSA */
-    BIO_reset(in);
-    ecdsa = d2i_ECPrivateKey_bio(in, NULL);
-    if (ecdsa) {
-        EC_KEY_free(ecdsa);
-        file_format = NM_L2TP_CRYPTO_FILE_FORMAT_ECDSA_PKEY_DER;
-        goto out;
-    }
-#endif
-
 out:
     BIO_free(in);
     g_byte_array_free(array, TRUE);
@@ -312,6 +197,15 @@ crypto_pkcs12_get_subject_name(const char * p12_filename,
     PKCS12_free(p12);
     sk_X509_pop_free(ca, X509_free);
     EVP_PKEY_free(pkey);
+
+    if (cert == NULL) {
+        g_set_error(error,
+                    NM_CRYPTO_ERROR,
+                    NM_CRYPTO_ERROR_DECRYPTION_FAILED,
+                    _("Error obtaining certificate from PKCS#12 file '%s'."),
+                    p12_filename);
+        return;
+    }
 
     name = X509_get_subject_name(cert);
     if (name == NULL) {
@@ -634,16 +528,17 @@ crypto_pkcs12_to_pem_files(const char *p12_filename,
     }
     PKCS12_free(p12);
 
-    if (pkey) {
-        if ((fp = g_fopen(pkey_out_filename, "w")) == NULL) {
-            g_set_error(error,
-                        G_FILE_ERROR,
-                        g_file_error_from_errno(errno),
-                        _("Could not write '%s' : %s"),
-                        pkey_out_filename,
-                        g_strerror(errno));
-            return FALSE;
-        }
+    if ((fp = g_fopen(pkey_out_filename, "w")) == NULL) {
+        g_set_error(error,
+                    G_FILE_ERROR,
+                    g_file_error_from_errno(errno),
+                    _("Could not write '%s' : %s"),
+                    pkey_out_filename,
+                    g_strerror(errno));
+         return FALSE;
+    }
+
+    if (fp && pkey) {
         if (password && strlen(password) == 0)
             password = NULL;
         if (password)
@@ -658,7 +553,7 @@ crypto_pkcs12_to_pem_files(const char *p12_filename,
             PEM_write_PKCS8PrivateKey(fp, pkey, NULL, NULL, 0, NULL, NULL);
     }
 
-    if (cert) {
+    if (fp && cert) {
         if ((fp = g_freopen(cert_out_filename, "w", fp)) == NULL) {
             g_set_error(error,
                         G_FILE_ERROR,
@@ -671,7 +566,7 @@ crypto_pkcs12_to_pem_files(const char *p12_filename,
         PEM_write_X509(fp, cert);
     }
 
-    if (ca && sk_X509_num(ca)) {
+    if (fp && ca && sk_X509_num(ca)) {
         if ((fp = g_freopen(ca_out_filename, "w", fp)) == NULL) {
             g_set_error(error,
                         G_FILE_ERROR,

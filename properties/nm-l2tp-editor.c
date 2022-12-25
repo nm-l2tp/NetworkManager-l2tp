@@ -102,8 +102,6 @@ tls_cert_changed_cb(GtkWidget *chooser, gpointer user_data)
      * connection (CA cert, cert, private key).
      **/
 
-    crypto_init_openssl();
-
     fname = nma_cert_chooser_get_cert(this, NULL);
     if (fname)
         dirname = g_path_get_dirname(fname);
@@ -164,7 +162,6 @@ tls_cert_changed_cb(GtkWidget *chooser, gpointer user_data)
     g_free(ca_cert_fname);
     g_free(cert_fname);
     g_free(key_fname);
-    crypto_deinit_openssl();
 }
 
 static void

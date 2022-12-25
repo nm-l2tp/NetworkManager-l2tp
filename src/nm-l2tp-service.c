@@ -666,7 +666,6 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
     value = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_USER_AUTH_TYPE);
     if (nm_streq0(value, NM_L2TP_AUTHTYPE_TLS)) {
         priv->user_authtype = TLS_AUTH;
-        crypto_init_openssl();
     }
 
     /**
@@ -681,7 +680,6 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
             tls_key_filename  = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_MACHINE_KEY);
             tls_cert_filename = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_MACHINE_CERT);
             tls_ca_filename   = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_MACHINE_CA);
-            crypto_init_openssl();
         }
 
         if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_STRONGSWAN
@@ -703,7 +701,6 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
                     if (!has_include_ipsec_secrets(ipsec_secrets_file)) {
                         fd = open(ipsec_secrets_file, O_CREAT | O_WRONLY, S_IRUSR | S_IWUSR);
                         if (fd == -1) {
-                            crypto_deinit_openssl();
                             errsv = errno;
                             snprintf(errorbuf,
                                      sizeof(errorbuf),
@@ -714,7 +711,6 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
                         }
                         fp = fdopen(fd, "a");
                         if (fp == NULL) {
-                            crypto_deinit_openssl();
                             snprintf(errorbuf,
                                      sizeof(errorbuf),
                                      _("Could not append \"include ipsec.d/ipsec.nm-l2tp.secrets\" "
@@ -737,7 +733,6 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
                          sizeof(errorbuf),
                          _("Could not write %s/ipsec.nm-l2tp.secrets"),
                          ipsec_conf_dir);
-                crypto_deinit_openssl();
                 return nm_l2tp_ipsec_error(error, errorbuf);
             }
 
@@ -772,14 +767,12 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
             } else { /* TLS_AUTH */
                 if (!tls_key_filename) {
                     close(fd);
-                    crypto_deinit_openssl();
                     return nm_l2tp_ipsec_error(error, _("Machine private key file not supplied"));
                 }
                 tls_key_fileformat =
                     crypto_file_format(tls_key_filename, &tls_need_password, &config_error);
                 if (config_error) {
                     close(fd);
-                    crypto_deinit_openssl();
                     g_propagate_error(error, config_error);
                     return FALSE;
                 }
@@ -792,23 +785,6 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
                 case NM_L2TP_CRYPTO_FILE_FORMAT_PKCS8_DER:
                 case NM_L2TP_CRYPTO_FILE_FORMAT_PKCS8_PEM:
                     write_config_option(fd, ": PKCS8");
-                    break;
-
-                case NM_L2TP_CRYPTO_FILE_FORMAT_RSA_PKEY_DER:
-                case NM_L2TP_CRYPTO_FILE_FORMAT_RSA_PKEY_PEM:
-                    write_config_option(fd, ": RSA");
-                    break;
-
-                case NM_L2TP_CRYPTO_FILE_FORMAT_DSA_PKEY_DER:
-                case NM_L2TP_CRYPTO_FILE_FORMAT_DSA_PKEY_PEM:
-                    /* strongSwan no longer supports DSA,
-                       we let strongSwan produce an error message */
-                    write_config_option(fd, ": DSA");
-                    break;
-
-                case NM_L2TP_CRYPTO_FILE_FORMAT_ECDSA_PKEY_DER:
-                case NM_L2TP_CRYPTO_FILE_FORMAT_ECDSA_PKEY_PEM:
-                    write_config_option(fd, ": ECDSA");
                     break;
 
                 default:
@@ -837,7 +813,6 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
             crypto_init_nss(NM_IPSEC_NSS_DIR, &config_error);
             if (config_error) {
                 close(fd);
-                crypto_deinit_openssl();
                 g_propagate_error(error, config_error);
                 return FALSE;
             }
@@ -845,7 +820,6 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
             if (config_error) {
                 close(fd);
                 crypto_deinit_nss(NULL);
-                crypto_deinit_openssl();
                 g_propagate_error(error, config_error);
                 return FALSE;
             }
@@ -867,7 +841,6 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
             }
             if (config_error) {
                 crypto_deinit_nss(NULL);
-                crypto_deinit_openssl();
                 g_propagate_error(error, config_error);
                 return FALSE;
             }
@@ -875,7 +848,6 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
             g_byte_array_free(p12_array, TRUE);
             if (config_error) {
                 crypto_deinit_nss(NULL);
-                crypto_deinit_openssl();
                 g_propagate_error(error, config_error);
                 return FALSE;
             }
@@ -889,7 +861,6 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         fd       = open(filename, O_RDWR | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
         g_free(filename);
         if (fd == -1) {
-            crypto_deinit_openssl();
             return nm_l2tp_ipsec_error(error, _("Could not write ipsec config"));
         }
 
@@ -917,7 +888,6 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
                 tls_ca_fileformat = crypto_file_format(tls_ca_filename, NULL, &config_error);
                 if (config_error) {
                     close(fd);
-                    crypto_deinit_openssl();
                     g_propagate_error(error, config_error);
                     return FALSE;
                 }
@@ -966,7 +936,6 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
                     &config_error);
                 if (config_error) {
                     close(fd);
-                    crypto_deinit_openssl();
                     g_propagate_error(error, config_error);
                     return FALSE;
                 }
@@ -980,7 +949,6 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
             } else {
                 if (!tls_key_filename) {
                     close(fd);
-                    crypto_deinit_openssl();
                     return nm_l2tp_ipsec_error(error, _("Machine certificate file not supplied"));
                 }
                 write_config_option(fd, "  leftcert=\"%s\"\n", tls_cert_filename);
@@ -1094,7 +1062,6 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         g_free(filename);
 
         if (fd == -1) {
-            crypto_deinit_openssl();
             return nm_l2tp_ipsec_error(error, _("Could not write kl2tpd config."));
         }
 
@@ -1114,7 +1081,6 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         g_free(filename);
 
         if (fd == -1) {
-            crypto_deinit_openssl();
             return nm_l2tp_ipsec_error(error, _("Could not write xl2tpd config."));
         }
 
@@ -1156,7 +1122,6 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
     g_free(filename);
 
     if (fd == -1) {
-        crypto_deinit_openssl();
         return nm_l2tp_ipsec_error(error, _("Could not write ppp options."));
     }
 
@@ -1243,7 +1208,6 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         tls_key_fileformat = crypto_file_format(tls_key_filename, &tls_need_password, error);
         if (*error) {
             close(fd);
-            crypto_deinit_openssl();
             return FALSE;
         }
         if (tls_need_password)
@@ -1266,19 +1230,14 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
                                        error);
             if (*error) {
                 close(fd);
-                crypto_deinit_openssl();
                 return FALSE;
             }
         } else {
             switch (tls_key_fileformat) {
             case NM_L2TP_CRYPTO_FILE_FORMAT_PKCS8_DER:
-            case NM_L2TP_CRYPTO_FILE_FORMAT_RSA_PKEY_DER:
-            case NM_L2TP_CRYPTO_FILE_FORMAT_DSA_PKEY_DER:
-            case NM_L2TP_CRYPTO_FILE_FORMAT_ECDSA_PKEY_DER:
                 crypto_pkey_der_to_pem_file(tls_key_filename, value, tls_key_out_filename, error);
                 if (*error) {
                     close(fd);
-                    crypto_deinit_openssl();
                     return FALSE;
                 }
                 break;
@@ -1291,14 +1250,12 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
             tls_cert_fileformat = crypto_file_format(tls_cert_filename, NULL, error);
             if (*error) {
                 close(fd);
-                crypto_deinit_openssl();
                 return FALSE;
             }
             if (tls_cert_fileformat == NM_L2TP_CRYPTO_FILE_FORMAT_X509_DER) {
                 crypto_x509_der_to_pem_file(tls_cert_filename, tls_cert_out_filename, error);
                 if (*error) {
                     close(fd);
-                    crypto_deinit_openssl();
                     return FALSE;
                 }
             } else {
@@ -1310,14 +1267,12 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
                 tls_ca_fileformat = crypto_file_format(tls_ca_filename, NULL, error);
                 if (*error) {
                     close(fd);
-                    crypto_deinit_openssl();
                     return FALSE;
                 }
                 if (tls_ca_fileformat == NM_L2TP_CRYPTO_FILE_FORMAT_X509_DER) {
                     crypto_x509_der_to_pem_file(tls_ca_filename, tls_ca_out_filename, error);
                     if (*error) {
                         close(fd);
-                        crypto_deinit_openssl();
                         return FALSE;
                     }
                 } else {
@@ -1420,7 +1375,6 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
     }
 
     close(fd);
-    crypto_deinit_openssl();
     return TRUE;
 }
 
@@ -1742,9 +1696,6 @@ handle_need_secrets(NMDBusL2tpPpp *object, GDBusMethodInvocation *invocation, gp
         switch (tls_key_fileformat) {
         case NM_L2TP_CRYPTO_FILE_FORMAT_PKCS12:
         case NM_L2TP_CRYPTO_FILE_FORMAT_PKCS8_DER:
-        case NM_L2TP_CRYPTO_FILE_FORMAT_RSA_PKEY_DER:
-        case NM_L2TP_CRYPTO_FILE_FORMAT_DSA_PKEY_DER:
-        case NM_L2TP_CRYPTO_FILE_FORMAT_ECDSA_PKEY_DER:
             key_filename = g_strdup_printf(RUNSTATEDIR "/nm-l2tp-%s/key.pem", priv->uuid);
             break;
 

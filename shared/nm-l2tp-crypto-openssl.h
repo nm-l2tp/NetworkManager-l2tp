@@ -13,16 +13,7 @@ typedef enum {
     NM_L2TP_CRYPTO_FILE_FORMAT_X509_PEM,
     NM_L2TP_CRYPTO_FILE_FORMAT_PKCS8_DER,
     NM_L2TP_CRYPTO_FILE_FORMAT_PKCS8_PEM,
-    NM_L2TP_CRYPTO_FILE_FORMAT_RSA_PKEY_DER,
-    NM_L2TP_CRYPTO_FILE_FORMAT_RSA_PKEY_PEM,
-    NM_L2TP_CRYPTO_FILE_FORMAT_DSA_PKEY_DER,
-    NM_L2TP_CRYPTO_FILE_FORMAT_DSA_PKEY_PEM,
-    NM_L2TP_CRYPTO_FILE_FORMAT_ECDSA_PKEY_DER,
-    NM_L2TP_CRYPTO_FILE_FORMAT_ECDSA_PKEY_PEM,
 } NML2tpCryptoFileFormat;
-
-gboolean crypto_init_openssl(void);
-void     crypto_deinit_openssl(void);
 
 NML2tpCryptoFileFormat
 crypto_file_format(const char *filename, gboolean *out_need_password, GError **error);
