@@ -1,4 +1,19 @@
 ==========================================================
+NetworkManager-l2tp-1.20.8
+Overview of changes since NetworkManager-l2tp-1.20.6
+==========================================================
+
+Changes:
+* Fix padding of PPP Options dialog.
+* Undo PTP peer & ext GW routing prevention workaround first introduced
+  with NetworkManager-l2tp 1.8.4 as workaround no longer works with
+  NetworkManager 1.36. The actial fix should be done in NetworkManager.
+* Add support for Manual IPv4 configuration options:
+  Address, Netmask and Gateway.
+* Remove deprecated OpenSSL 3 related code
+* Load L2TP kernel modules if NM_L2TP_MODPROBE env variable set.
+
+==========================================================
 NetworkManager-l2tp-1.20.6
 Overview of changes since NetworkManager-l2tp-1.20.4
 ==========================================================
