@@ -1314,8 +1314,8 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         value = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_USER);
         if (!value || !*value)
             value = nm_setting_vpn_get_user_name(s_vpn);
-        if (!value || !*value) {
-            write_config_option(fd, "name %s\n", value);
+        if (value && *value) {
+            write_config_option(fd, "user %s\n", value);
         }
         for (int i = 0; ppp_auth_options[i].name; i++) {
             value = nm_setting_vpn_get_data_item(s_vpn, ppp_auth_options[i].name);
