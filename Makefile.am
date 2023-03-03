@@ -99,7 +99,7 @@ src_nm_l2tp_service_SOURCES = \
 	shared/nm-l2tp-crypto-nss.c \
 	shared/utils.h \
 	shared/utils.c \
-	src/nm-ppp-status.h \
+	src/nm-l2tp-pppd-status.h \
 	src/nm-l2tp-service.h \
 	src/nm-l2tp-service.c
 src_nm_l2tp_service_CPPFLAGS = $(src_cppflags) $(NSS_CFLAGS) $(OPENSSL_CFLAGS)
@@ -118,7 +118,8 @@ pppd_plugin_LTLIBRARIES = src/nm-l2tp-pppd-plugin.la
 src_nm_l2tp_pppd_plugin_la_SOURCES = \
 	$(shared_sources) \
 	src/nm-l2tp-pppd-plugin.c \
-	src/nm-ppp-status.h
+	src/nm-l2tp-pppd-compat.h \
+	src/nm-l2tp-pppd-status.h
 src_nm_l2tp_pppd_plugin_la_CPPFLAGS = $(src_cppflags)
 src_nm_l2tp_pppd_plugin_la_LDFLAGS = \
 	-module -avoid-version

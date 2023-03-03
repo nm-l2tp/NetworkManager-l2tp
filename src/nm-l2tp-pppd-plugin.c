@@ -9,8 +9,6 @@
 #include <config.h>
 #define ___CONFIG_H__
 
-#include "nm-default.h"
-
 #include <string.h>
 #include <stdlib.h>
 #include <sys/socket.h>
@@ -18,10 +16,11 @@
 #include <arpa/inet.h>
 #include <dlfcn.h>
 
-#include "nm-l2tp-service.h"
-#include "nm-ppp-status.h"
+#include "nm-l2tp-pppd-status.h"
 #include "nm-l2tp-pppd-compat.h"
 
+#include "nm-default.h"
+#include "nm-l2tp-service.h"
 #include "nm-utils/nm-shared-utils.h"
 #include "nm-utils/nm-vpn-plugin-macros.h"
 
