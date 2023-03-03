@@ -36,7 +36,7 @@
 #include <arpa/inet.h>
 #include <netdb.h>
 
-#include "nm-ppp-status.h"
+#include "nm-l2tp-pppd-status.h"
 #include "nm-l2tp-pppd-service-dbus.h"
 #include "nm-utils/nm-shared-utils.h"
 #include "nm-utils/nm-secret-utils.h"
