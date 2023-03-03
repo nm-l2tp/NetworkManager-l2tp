@@ -33,7 +33,10 @@ dnl
 AC_PROG_CC
 AM_PROG_CC_C_O
 AC_PROG_INSTALL
+AC_PROG_CPP
+AC_PROG_EGREP
 AC_PATH_PROG(GLIB_COMPILE_RESOURCES, glib-compile-resources)
+PKG_PROG_PKG_CONFIG()
 
 AC_CHECK_PROG([has_file], file, yes, no)
 if test x$has_file = xno ; then
@@ -49,24 +52,63 @@ dnl
 dnl Required headers
 dnl
 AC_HEADER_STDC
-AC_CHECK_HEADERS(fcntl.h paths.h sys/ioctl.h sys/time.h syslog.h unistd.h)
+AC_CHECK_HEADERS([
+	fcntl.h
+	paths.h
+	stdarg.h
+	stdbool.h
+	sys/ioctl.h
+	sys/time.h
+	syslog.h
+	unistd.h
+	])
 
 AC_CHECK_HEADERS(pppd/pppd.h,,
   AC_MSG_ERROR(couldn't find pppd.h. pppd development headers are required.))
+
+dnl
+dnl Check the presense of other pppd/*.h files
+AC_CHECK_HEADERS([
+    pppd/chap.h
+    pppd/chap-new.h
+    pppd/chap_ms.h
+    ])
+
+dnl
+dnl Versions >= 2.5.0 will have pkg-config support
+PKG_CHECK_EXISTS([pppd],
+    [AS_VAR_SET([pppd_pkgconfig_support],[yes])])
+
+dnl
+dnl Get the version of pppd using pkg-config, assume 2.4.9 if not present
+PPPD_VERSION=2.4.9
+if test x"$pppd_pkgconfig_support" = xyes; then
+    PPPD_VERSION=`$PKG_CONFIG --modversion pppd`
+fi
 
 AC_ARG_WITH([pppd-plugin-dir], AS_HELP_STRING([--with-pppd-plugin-dir=DIR], [path to the pppd plugins directory]))
 
 if test -n "$with_pppd_plugin_dir" ; then
 	PPPD_PLUGIN_DIR="$with_pppd_plugin_dir"
 else
-	PPPD_PLUGIN_DIR="${libdir}/pppd/2.4.9"
+	PPPD_PLUGIN_DIR="${libdir}/pppd/$PPPD_VERSION"
 fi
 AC_SUBST(PPPD_PLUGIN_DIR)
+
+dnl The version of pppd dictates what code can be included, i.e. enable use of
+dnl   #if WITH_PPP_VERSION >= PPP_VERSION(2,5,0) in the code
+AC_DEFINE_UNQUOTED([PPP_VERSION(x,y,z)],
+    [((x & 0xFF) << 16 | (y & 0xFF) << 8 | (z & 0xFF) << 0)],
+    [Macro to help determine the particular version of pppd])
+PPP_VERSION=$(echo $PPPD_VERSION | sed -e "s/\./\,/g")
+AC_DEFINE_UNQUOTED(WITH_PPP_VERSION, PPP_VERSION($PPP_VERSION),
+    [The real version of pppd represented as an int])
 
 AC_MSG_CHECKING(whether EAP-TLS patch has been applied to pppd)
 AC_EGREP_CPP(eaptls_passwd_hook, [
 #define USE_EAPTLS
 #include <pppd/pppd.h>
+#include <pppd/eap.h>
 ], [have_eap_tls=yes] , [have_eap_tls=no])
 
 if test "x${have_eap_tls}" = "xno"; then

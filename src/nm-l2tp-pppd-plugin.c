@@ -9,11 +9,6 @@
 #include <config.h>
 #define ___CONFIG_H__
 
-/* pppd headers *sigh* */
-#include <pppd/pppd.h>
-#include <pppd/fsm.h>
-#include <pppd/ipcp.h>
-
 #include "nm-default.h"
 
 #include <string.h>
@@ -25,13 +20,14 @@
 
 #include "nm-l2tp-service.h"
 #include "nm-ppp-status.h"
+#include "nm-l2tp-pppd-compat.h"
 
 #include "nm-utils/nm-shared-utils.h"
 #include "nm-utils/nm-vpn-plugin-macros.h"
 
 int plugin_init(void);
 
-char pppd_version[] = VERSION;
+char pppd_version[] = PPPD_VERSION;
 
 /*****************************************************************************/
 
@@ -146,7 +142,7 @@ nm_phasechange(void *data, int arg)
 static void
 nm_ip_up(void *data, int arg)
 {
-    guint32         pppd_made_up_address = htonl (0x0a404040 + ifunit);
+    guint32         pppd_made_up_address = htonl (0x0a404040 + ppp_ifunit());
     ipcp_options    opts                 = ipcp_gotoptions[0];
     ipcp_options    peer_opts            = ipcp_hisoptions[0];
     GVariantBuilder builder;
@@ -166,7 +162,7 @@ nm_ip_up(void *data, int arg)
     g_variant_builder_add(&builder,
                           "{sv}",
                           NM_VPN_PLUGIN_IP4_CONFIG_TUNDEV,
-                          g_variant_new_string(ifname));
+                          g_variant_new_string(ppp_ifname()));
 
     g_variant_builder_add(&builder,
                           "{sv}",
@@ -343,12 +339,18 @@ plugin_init(void)
     chap_check_hook  = get_chap_check;
     pap_passwd_hook  = get_credentials;
     pap_check_hook   = get_pap_check;
-#ifdef USE_EAPTLS
+#if defined(USE_EAPTLS) || defined(PPP_WITH_EAPTLS)
     eaptls_passwd_hook = get_credentials;
 #endif
 
+#if WITH_PPP_VERSION < PPP_VERSION(2,5,0)
     add_notifier(&phasechange, nm_phasechange, NULL);
     add_notifier(&ip_up_notifier, nm_ip_up, NULL);
     add_notifier(&exitnotify, nm_exit_notify, NULL);
+#else
+    ppp_add_notify(NF_PHASE_CHANGE, nm_phasechange, NULL);
+    ppp_add_notify(NF_IP_UP, nm_ip_up, NULL);
+    ppp_add_notify(NF_EXIT, nm_exit_notify, NULL);
+#endif
     return 0;
 }
