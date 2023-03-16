@@ -60,7 +60,7 @@ Changes:
 * deprecated libnm-glib/libnm-util code removed and
   --with-libnm-glib configure option removed.
 * Honors $CHARONDEBUG and $PLUTODEBUG even without --debug.
-* Sourcecode reformated with clang-format.
+* Sourcecode reformatted with clang-format.
 * intltool for i18n build support no longer required.
 * Updated translations.
 
