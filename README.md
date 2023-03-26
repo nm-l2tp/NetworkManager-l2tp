@@ -1,4 +1,4 @@
-# NetworkMananger-l2tp
+# NetworkManager-l2tp
 
 NetworkManager-l2tp is a VPN plugin for NetworkManager 1.20 and later which
 provides support for L2TP and L2TP/IPsec (i.e. L2TP over IPsec) connections.
@@ -13,7 +13,7 @@ For IPsec support, it uses either of the following :
 * strongSwan ( https://www.strongswan.org )
 
 For user authentication it supports either:
-* username/pasword credentials.
+* username/password credentials.
 * TLS certificates.
 
 For machine authentication it supports either:
@@ -211,7 +211,7 @@ issue the following to see more log output:
 
 ### Libreswan Custom Debugging
 
-The Libreswan debugging can be cutomized by setting the `PLUTODEBUG` env
+The Libreswan debugging can be customized by setting the `PLUTODEBUG` env
 variable which corresponds to the `plutodebug` ipsec.conf config section option.
 The syntax for `PLUTODEBUG` is a white-space separated list of the following
 format :

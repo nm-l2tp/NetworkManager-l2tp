@@ -642,7 +642,7 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         }
     }
 
-    /* Map depricated Gateway ID to Remote ID */
+    /* Map deprecated Gateway ID to Remote ID */
     value = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_IPSEC_GATEWAY_ID);
     if (value) {
         nm_setting_vpn_add_data_item(s_vpn, NM_L2TP_KEY_IPSEC_REMOTE_ID, value);
@@ -1563,7 +1563,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
                     g_message("Libreswan IPsec connection is up.");
                 } else {
                     /* Do not trust exit status of strongSwan 'ipsec up' command.
-                       explictly check if connection is established.
+                       explicitly check if connection is established.
                        strongSwan bug #1449.
                      */
                     snprintf(cmdbuf,
