@@ -197,7 +197,7 @@ fi
 AM_CONDITIONAL(WITH_GNOME, test "$with_gnome" != no)
 
 AC_ARG_WITH(gtk4, AS_HELP_STRING([--with-gtk4], [Build NetworkManager-l2tp with libnma-gtk4 support]), [], [with_gtk4_specified=no])
-if test "$with_gtk4_specified" == no; then
+if test "$with_gtk4_specified" = no; then
 	with_gtk4=no
 fi
 if test "$with_gtk4" != yes; then
@@ -256,7 +256,7 @@ NM_LD_GC
 
 NM_PLUGIN_DIR="$libdir/NetworkManager"
 AC_SUBST(NM_PLUGIN_DIR)
-if test x"$enable_absolute_paths" == x"yes"; then
+if test x"$enable_absolute_paths" = x"yes"; then
 	NM_PLUGIN_DIR_NAME_FILE="$NM_PLUGIN_DIR/"
 else
 	enable_absolute_paths=no
