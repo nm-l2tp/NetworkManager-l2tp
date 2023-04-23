@@ -160,6 +160,14 @@ crypto_pkcs12_get_subject_name(const char * p12_filename,
     (*out_subject_name_str)  = NULL;
     (*out_subject_name_asn1) = NULL;
 
+    if (p12_filename == NULL) {
+        g_set_error(error,
+                    NM_CRYPTO_ERROR,
+                    NM_CRYPTO_ERROR_INVALID_DATA,
+                    _("PKCS#12 filename is NULL"));
+        return;
+    }
+
     if (!(array = file_to_g_byte_array(p12_filename, error))) {
         return;
     }
@@ -295,6 +303,14 @@ crypto_create_pkcs12_data(const char *pkey_filename,
     unsigned char *ptr      = NULL;
     unsigned char *p12bytes = NULL;
 
+    if (pkey_filename == NULL) {
+        g_set_error(error,
+                    NM_CRYPTO_ERROR,
+                    NM_CRYPTO_ERROR_INVALID_DATA,
+                    _("private key filename is NULL"));
+        return NULL;
+    }
+
     /* Process private key file */
     if (!(array = file_to_g_byte_array(pkey_filename, error))) {
         return NULL;
@@ -316,6 +332,14 @@ crypto_create_pkcs12_data(const char *pkey_filename,
     }
     BIO_free(in);
     g_byte_array_free(array, TRUE);
+
+    if (cert_filename == NULL) {
+        g_set_error(error,
+                    NM_CRYPTO_ERROR,
+                    NM_CRYPTO_ERROR_INVALID_DATA,
+                    _("X.509 certificate filename is NULL"));
+        return NULL;
+    }
 
     /* Process X509 certificate file */
     if (!(array = file_to_g_byte_array(cert_filename, error))) {
@@ -413,6 +437,14 @@ crypto_decrypt_pkcs12_data(const char *p12_filename,
     unsigned char *ptr      = NULL;
     unsigned char *p12bytes = NULL;
 
+    if (p12_filename == NULL) {
+        g_set_error(error,
+                    NM_CRYPTO_ERROR,
+                    NM_CRYPTO_ERROR_INVALID_DATA,
+                    _("PKCS#12 filename is NULL"));
+        return NULL;
+    }
+
     if (!(array = file_to_g_byte_array(p12_filename, error))) {
         return NULL;
     }
@@ -492,6 +524,14 @@ crypto_pkcs12_to_pem_files(const char *p12_filename,
     STACK_OF(X509) *ca = NULL;
     PKCS12 *p12        = NULL;
     FILE *  fp         = NULL;
+
+    if (p12_filename == NULL) {
+        g_set_error(error,
+                    NM_CRYPTO_ERROR,
+                    NM_CRYPTO_ERROR_INVALID_DATA,
+                    _("PKCS#12 filename is NULL"));
+        return FALSE;
+    }
 
     if (!(array = file_to_g_byte_array(p12_filename, error))) {
         return FALSE;
@@ -598,6 +638,14 @@ crypto_x509_der_to_pem_file(const char *cert_filename,
     X509 *      x  = NULL;
     FILE *      fp = NULL;
 
+    if (cert_filename == NULL) {
+        g_set_error(error,
+                    NM_CRYPTO_ERROR,
+                    NM_CRYPTO_ERROR_INVALID_DATA,
+                    _("X.509 certificate filename is NULL"));
+        return FALSE;
+    }
+
     if (!(array = file_to_g_byte_array(cert_filename, error))) {
         return FALSE;
     }
@@ -646,6 +694,14 @@ crypto_pkey_der_to_pem_file(const char *pkey_filename,
     BIO *       in   = NULL;
     EVP_PKEY *  pkey = NULL;
     FILE *      fp   = NULL;
+
+    if (pkey_filename == NULL) {
+        g_set_error(error,
+                    NM_CRYPTO_ERROR,
+                    NM_CRYPTO_ERROR_INVALID_DATA,
+                    _("Private key filename is NULL"));
+        return FALSE;
+    }
 
     if (!(array = file_to_g_byte_array(pkey_filename, error))) {
         return FALSE;
