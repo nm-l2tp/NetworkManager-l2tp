@@ -438,7 +438,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1447
 msgid "Allow _BSD data compression"
-msgstr ""
+msgstr "_BSD მონაცემების შეკუმშვა"
 
 #: properties/nm-l2tp-dialog.ui:1451
 msgid ""
@@ -448,7 +448,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1465
 msgid "Allow _Deflate data compression"
-msgstr ""
+msgstr "_Deflate მონაცემების შეკუმშვა"
 
 #: properties/nm-l2tp-dialog.ui:1469
 msgid ""
