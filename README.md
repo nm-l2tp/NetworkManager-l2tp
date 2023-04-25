@@ -40,36 +40,6 @@ For details on pre-built packages, known issues and build dependencies,
 please visit the Wiki :
 * https://github.com/nm-l2tp/NetworkManager-l2tp/wiki
 
-## Table of Contents
-
-- [Building](#building)
-    - [Debian 11 and Ubuntu 22.04](#debian-11-and-ubuntu-2204-amd64-ie-x86-64)
-    - [Fedora 36](#fedora-36-x86-64)
-    - [Red Hat Enterprise Linux 8](#red-hat-enterprise-linux-8-x86-64)
-    - [openSUSE Tumbleweed](#opensuse-tumbleweed-x86-64)
-- [VPN connection profile files](#vpn-connection-profile-files)
-- [Run-time generated files](#run-time-generated-files)
-- [Password protecting the libreswan NSS database](#password-protecting-the-libreswan-nss-database)
-- [Debugging](#debugging)
-  - [Increase Debugging Output](#increase-debugging-output)
-    - [Debian and Ubuntu](#debian-and-ubuntu)
-    - [Fedora and Red Hat Enterprise Linux](#fedora-and-red-hat-enterprise-linux)
-    - [openSUSE](#opensuse)
-  - [Libreswan Custom Debugging](#libreswan-custom-debugging)
-    - [Debian and Ubuntu](#debian-and-ubuntu-1)
-    - [Fedora and Red Hat Enterprise Linux](#fedora-and-red-hat-enterprise-linux-1)
-    - [openSUSE](#opensuse-1)
-  - [strongSwan Custom Debugging](#strongswan-custom-debugging)
-    - [Debian and Ubuntu](#debian-and-ubuntu-2)
-    - [Fedora and Red Hat Enterprise Linux](#fedora-and-red-hat-enterprise-linux-2)
-    - [openSUSE](#opensuse-2)
-- [Libreswan no longer supports IKEv1 packets by default](#libreswan-no-longer-supports-ikev1-packets-by-default)
-- [Issue with blacklisting of L2TP kernel modules](#issue-with-blacklisting-of-l2tp-kernel-modules)
-- [L2TP connection issues with UDP source port 1701](#l2tp-connection-issues-with-udp-source-port-1701)
-  - [Unable to establish L2TP connection without UDP source port 1701](#unable-to-establish-l2tp-connection-without-udp-source-port-1701)
-  - [Unable to establish L2TP connection with UDP source port 1701](#unable-to-establish-l2tp-connection-with-udp-source-port-1701)
-- [IPsec IKEv1 weak legacy algorithms and backwards compatibility](#ipsec-ikev1-weak-legacy-algorithms-and-backwards-compatibility)
-
 ## Building
 
     ./autogen.sh
