@@ -47,9 +47,9 @@ please visit the Wiki :
     make
 
 The default ./configure settings aren't reasonable and should be explicitly
-overridden with ./configure arguments. In the configure examples below, for
-your needs, you may need to change the `--with-pppd-plugin-dir` value to an
-appropriate directory that exists, similarly `--with-nm-ipsec-nss-dir` may
+overridden with ./configure arguments. In the configure examples below, if you
+have pppd < 2.5.0 you may need to use `--with-pppd-plugin-dir` and set it to
+an appropriate directory that exists, similarly `--with-nm-ipsec-nss-dir` may
 need to be set to the Libreswan NSS database location if it is not located in
 `/var/lib/ipsec/nss`. The `--enable-libreswan-dh2` switch can be used with
 libreswan < 3.30 or libreswan packages built with `USE_DH2=true` i.e. have
