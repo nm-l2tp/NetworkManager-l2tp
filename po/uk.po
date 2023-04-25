@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: https://gitlab.freedesktop.org/NetworkManager/"
 "NetworkManager/issues\n"
-"POT-Creation-Date: 2022-10-28 21:00+1000\n"
+"POT-Creation-Date: 2023-04-25 20:00+1000\n"
 "PO-Revision-Date: 2020-09-17 14:13+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -54,7 +54,7 @@ msgid "Authenticate VPN"
 msgstr "Розпізнавання у VPN"
 
 #: auth-dialog/main.c:177 properties/nm-l2tp-dialog.ui:193
-#: properties/nm-l2tp-editor.c:572
+#: properties/nm-l2tp-editor.c:569
 msgid "Password"
 msgstr "Пароль"
 
@@ -62,7 +62,7 @@ msgstr "Пароль"
 msgid "User Certificate password"
 msgstr ""
 
-#: auth-dialog/main.c:191 properties/ipsec-dialog.c:541
+#: auth-dialog/main.c:191 properties/ipsec-dialog.c:538
 msgid "Pre-shared key (PSK)"
 msgstr ""
 
@@ -153,7 +153,7 @@ msgstr ""
 msgid "Couldn't open file for writing."
 msgstr ""
 
-#: properties/ipsec-dialog.c:554 properties/nm-l2tp-editor.c:585
+#: properties/ipsec-dialog.c:551 properties/nm-l2tp-editor.c:582
 msgid "Certificates (TLS)"
 msgstr "Сертифікати (TLS)"
 
@@ -392,15 +392,15 @@ msgstr "Параметри PPP L2TP"
 msgid "PPP Properties"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:1234
+#: properties/nm-l2tp-dialog.ui:1238
 msgid "Authentication"
 msgstr "Розпізнавання"
 
-#: properties/nm-l2tp-dialog.ui:1256
+#: properties/nm-l2tp-dialog.ui:1260
 msgid "Allow the following authentication methods:"
 msgstr "Дозволити наступні методи автентифікації:"
 
-#: properties/nm-l2tp-dialog.ui:1275
+#: properties/nm-l2tp-dialog.ui:1279
 msgid ""
 "Allow/disable authentication methods.\n"
 "config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
@@ -409,15 +409,15 @@ msgstr ""
 "Файл налаштувань: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, "
 "refuse-eap"
 
-#: properties/nm-l2tp-dialog.ui:1314
+#: properties/nm-l2tp-dialog.ui:1318
 msgid "Security and Compression"
 msgstr "Шифрування та стиснення"
 
-#: properties/nm-l2tp-dialog.ui:1341
+#: properties/nm-l2tp-dialog.ui:1345
 msgid "Use _Point-to-Point encryption (MPPE)"
 msgstr "Використовувати шифрування _MPPE"
 
-#: properties/nm-l2tp-dialog.ui:1345
+#: properties/nm-l2tp-dialog.ui:1349
 msgid ""
 "Note: MPPE encryption is only available with MSCHAP authentication methods. "
 "To enable this checkbox, select one or more of the MSCHAP authentication "
@@ -427,11 +427,11 @@ msgstr ""
 "Щоб увімкнути цей пункт, виберіть один чи кілька методів автентифікації "
 "MSCHAP: MSCHAP чи MSCHAPv2."
 
-#: properties/nm-l2tp-dialog.ui:1371
+#: properties/nm-l2tp-dialog.ui:1375
 msgid "_Security"
 msgstr "_Шифрування"
 
-#: properties/nm-l2tp-dialog.ui:1386
+#: properties/nm-l2tp-dialog.ui:1390
 msgid ""
 "Require the use of MPPE, with 40/128-bit encryption or all.\n"
 "config: require-mppe, require-mppe-128 or require-mppe-40"
@@ -439,11 +439,11 @@ msgstr ""
 "Вимагати використання MPPE із 40/128-бітовим шифруванням або з обома.\n"
 "Файл налаштувань: require-mppe, require-mppe-128 або require-mppe-40"
 
-#: properties/nm-l2tp-dialog.ui:1411
+#: properties/nm-l2tp-dialog.ui:1415
 msgid "Allow st_ateful encryption"
 msgstr "Увімкнути _Stateful Encryption"
 
-#: properties/nm-l2tp-dialog.ui:1415
+#: properties/nm-l2tp-dialog.ui:1419
 msgid ""
 "Allow MPPE to use stateful mode. Stateless mode is still attempted first.\n"
 "config: mppe-stateful (when checked)"
@@ -452,11 +452,11 @@ msgstr ""
 "спочатку буде встановлено режим без збереження стану.\n"
 "Файл налаштувань: mppe-stateful (якщо позначено)"
 
-#: properties/nm-l2tp-dialog.ui:1443
+#: properties/nm-l2tp-dialog.ui:1447
 msgid "Allow _BSD data compression"
 msgstr "Увімкнути стиснення _BSD"
 
-#: properties/nm-l2tp-dialog.ui:1447
+#: properties/nm-l2tp-dialog.ui:1451
 msgid ""
 "Allow/disable BSD-Compress compression.\n"
 "config: nobsdcomp (when unchecked)"
@@ -464,11 +464,11 @@ msgstr ""
 "Дозволити або вимкнути стискання BSC-Compress.\n"
 "Файл налаштувань: nobsdcomp (якщо не позначено)"
 
-#: properties/nm-l2tp-dialog.ui:1461
+#: properties/nm-l2tp-dialog.ui:1465
 msgid "Allow _Deflate data compression"
 msgstr "Увімкнути стиснення _Deflate"
 
-#: properties/nm-l2tp-dialog.ui:1465
+#: properties/nm-l2tp-dialog.ui:1469
 msgid ""
 "Allow/disable Deflate compression.\n"
 "config: nodeflate (when unchecked)"
@@ -476,11 +476,11 @@ msgstr ""
 "Дозволити або вимкнути стискання DEFLATE.\n"
 "Файл налаштувань: nodeflate (якщо не позначено)"
 
-#: properties/nm-l2tp-dialog.ui:1479
+#: properties/nm-l2tp-dialog.ui:1483
 msgid "Use TCP _header compression"
 msgstr "Використовувати стиснення _заголовків TCP"
 
-#: properties/nm-l2tp-dialog.ui:1483
+#: properties/nm-l2tp-dialog.ui:1487
 msgid ""
 "Allow/disable Van Jacobson style TCP/IP header compression in both the "
 "transmit and the receive directions.\n"
@@ -490,36 +490,36 @@ msgstr ""
 "обох напрямках (передавання і отримання даних).\n"
 "Файл налаштувань: novj (якщо не позначено)"
 
-#: properties/nm-l2tp-dialog.ui:1497
+#: properties/nm-l2tp-dialog.ui:1501
 msgid "Use protocol _field compression negotiation"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:1501
+#: properties/nm-l2tp-dialog.ui:1505
 msgid ""
 "Allow protocol field compression negotiation in both the receive and the "
 "transmit direction.\n"
 "config: nopcomp (when unchecked)"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:1515
+#: properties/nm-l2tp-dialog.ui:1519
 msgid "Use _Address/Control compression"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:1519
+#: properties/nm-l2tp-dialog.ui:1523
 msgid ""
 "Use Address/Control compression in both directions (send and receive).\n"
 "config: noaccomp (when unchecked)"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:1555
+#: properties/nm-l2tp-dialog.ui:1559
 msgid "Misc"
 msgstr "Інше"
 
-#: properties/nm-l2tp-dialog.ui:1575
+#: properties/nm-l2tp-dialog.ui:1579
 msgid "Send PPP _echo packets"
 msgstr "Надсилати _echo-пакети PPP"
 
-#: properties/nm-l2tp-dialog.ui:1579
+#: properties/nm-l2tp-dialog.ui:1583
 msgid ""
 "Send LCP echo-requests to find out whether peer is alive.\n"
 "config: lcp-echo-failure and lcp-echo-interval"
@@ -527,54 +527,54 @@ msgstr ""
 "Надсилати луна-запити LCP для визначення працездатності вузла зв’язку.\n"
 "Файл налаштувань: lcp-echo-failure і lcp-echo-interval"
 
-#: properties/nm-l2tp-dialog.ui:1598
+#: properties/nm-l2tp-dialog.ui:1602
 msgid "_Multilink PPP MRRU:"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:1602 properties/nm-l2tp-dialog.ui:1618
+#: properties/nm-l2tp-dialog.ui:1606 properties/nm-l2tp-dialog.ui:1622
 msgid ""
 "Try to negotiate a PPP Multilink on a single connection.\n"
 "config: mrru"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:1622 properties/nm-l2tp-dialog.ui:1665
-#: properties/nm-l2tp-dialog.ui:1708
+#: properties/nm-l2tp-dialog.ui:1626 properties/nm-l2tp-dialog.ui:1669
+#: properties/nm-l2tp-dialog.ui:1712
 msgid "1400"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:1650
+#: properties/nm-l2tp-dialog.ui:1654
 msgid "MTU"
 msgstr "MTU"
 
-#: properties/nm-l2tp-dialog.ui:1693
+#: properties/nm-l2tp-dialog.ui:1697
 msgid "MRU"
 msgstr ""
 
-#: properties/nm-l2tp-editor.c:348
+#: properties/nm-l2tp-editor.c:345
 #, c-format
 msgid "%s: error reading ppp settings: %s"
 msgstr ""
 
-#: properties/nm-l2tp-editor.c:372
+#: properties/nm-l2tp-editor.c:369
 #, c-format
 msgid "%s: error reading ipsec settings: %s"
 msgstr ""
 
-#: properties/nm-l2tp-editor.c:406
+#: properties/nm-l2tp-editor.c:403
 #, c-format
 msgid "%s: failed to create the PPP dialog!"
 msgstr ""
 
-#: properties/nm-l2tp-editor.c:450
+#: properties/nm-l2tp-editor.c:447
 #, c-format
 msgid "%s: failed to create the IPsec dialog!"
 msgstr ""
 
-#: properties/nm-l2tp-editor.c:778
+#: properties/nm-l2tp-editor.c:775
 msgid "could not create l2tp object"
 msgstr ""
 
-#: properties/nm-l2tp-editor.c:797
+#: properties/nm-l2tp-editor.c:794
 msgid "could not load UI widget"
 msgstr "не вдалося завантажити віджет інтерфейсу користувача"
 
@@ -673,49 +673,71 @@ msgstr ""
 msgid "Couldn't import NSS PKCS#12 data: %d"
 msgstr ""
 
-#: shared/nm-l2tp-crypto-openssl.c:289 shared/nm-l2tp-crypto-openssl.c:532
-#: shared/nm-l2tp-crypto-openssl.c:612
+#: shared/nm-l2tp-crypto-openssl.c:167 shared/nm-l2tp-crypto-openssl.c:444
+#: shared/nm-l2tp-crypto-openssl.c:532
+msgid "PKCS#12 filename not specified"
+msgstr ""
+
+#: shared/nm-l2tp-crypto-openssl.c:182 shared/nm-l2tp-crypto-openssl.c:458
+#: shared/nm-l2tp-crypto-openssl.c:546
 #, c-format
 msgid "Error loading PKCS#12 file '%s'."
 msgstr ""
 
-#: shared/nm-l2tp-crypto-openssl.c:307 shared/nm-l2tp-crypto-openssl.c:550
-#: shared/nm-l2tp-crypto-openssl.c:630
+#: shared/nm-l2tp-crypto-openssl.c:200 shared/nm-l2tp-crypto-openssl.c:476
+#: shared/nm-l2tp-crypto-openssl.c:564
 #, c-format
 msgid "Error parsing PKCS#12 file '%s'."
 msgstr ""
 
-#: shared/nm-l2tp-crypto-openssl.c:321
+#: shared/nm-l2tp-crypto-openssl.c:213
+#, c-format
+msgid "Error obtaining certificate from PKCS#12 file '%s'."
+msgstr ""
+
+#: shared/nm-l2tp-crypto-openssl.c:223
 #, c-format
 msgid "Error obtaining Subject Name for PKCS#12 file '%s'."
 msgstr ""
 
-#: shared/nm-l2tp-crypto-openssl.c:342
+#: shared/nm-l2tp-crypto-openssl.c:244
 #, c-format
 msgid "Error obtaining ASN1 Subject Name for PKCS#12 file '%s'."
 msgstr ""
 
-#: shared/nm-l2tp-crypto-openssl.c:416 shared/nm-l2tp-crypto-openssl.c:766
+#: shared/nm-l2tp-crypto-openssl.c:310
+msgid "Private key filename filename not specified"
+msgstr ""
+
+#: shared/nm-l2tp-crypto-openssl.c:326 shared/nm-l2tp-crypto-openssl.c:717
 #, c-format
 msgid "Error decrypting private key file '%s'."
 msgstr ""
 
-#: shared/nm-l2tp-crypto-openssl.c:437 shared/nm-l2tp-crypto-openssl.c:466
-#: shared/nm-l2tp-crypto-openssl.c:717
+#: shared/nm-l2tp-crypto-openssl.c:340 shared/nm-l2tp-crypto-openssl.c:645
+msgid "X.509 certificate filename not specified"
+msgstr ""
+
+#: shared/nm-l2tp-crypto-openssl.c:355 shared/nm-l2tp-crypto-openssl.c:384
+#: shared/nm-l2tp-crypto-openssl.c:660
 #, c-format
 msgid "Error decrypting X.509 certificate file '%s'."
 msgstr ""
 
-#: shared/nm-l2tp-crypto-openssl.c:490 shared/nm-l2tp-crypto-openssl.c:573
+#: shared/nm-l2tp-crypto-openssl.c:408 shared/nm-l2tp-crypto-openssl.c:499
 #, c-format
 msgid "Error creating PKCS#12 data: %s"
 msgstr ""
 
-#: shared/nm-l2tp-crypto-openssl.c:642 shared/nm-l2tp-crypto-openssl.c:666
-#: shared/nm-l2tp-crypto-openssl.c:679 shared/nm-l2tp-crypto-openssl.c:730
-#: shared/nm-l2tp-crypto-openssl.c:780
+#: shared/nm-l2tp-crypto-openssl.c:575 shared/nm-l2tp-crypto-openssl.c:601
+#: shared/nm-l2tp-crypto-openssl.c:614 shared/nm-l2tp-crypto-openssl.c:673
+#: shared/nm-l2tp-crypto-openssl.c:731
 #, c-format
 msgid "Could not write '%s' : %s"
+msgstr ""
+
+#: shared/nm-l2tp-crypto-openssl.c:702
+msgid "Private key filename not specified"
 msgstr ""
 
 #: shared/nm-utils/nm-shared-utils.c:1146
@@ -814,114 +836,114 @@ msgstr "Немає параметрів налаштування VPN."
 msgid "Missing required option '%s'."
 msgstr ""
 
-#: src/nm-l2tp-service.c:709
+#: src/nm-l2tp-service.c:707
 #, c-format
 msgid "Could not open %s for writing: %s"
 msgstr ""
 
-#: src/nm-l2tp-service.c:719
+#: src/nm-l2tp-service.c:716
 #, c-format
 msgid "Could not append \"include ipsec.d/ipsec.nm-l2tp.secrets\" to %s"
 msgstr ""
 
-#: src/nm-l2tp-service.c:737
+#: src/nm-l2tp-service.c:734
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr ""
 
-#: src/nm-l2tp-service.c:775
+#: src/nm-l2tp-service.c:770
 msgid "Machine private key file not supplied"
 msgstr ""
 
-#: src/nm-l2tp-service.c:892
+#: src/nm-l2tp-service.c:864
 msgid "Could not write ipsec config"
 msgstr ""
 
-#: src/nm-l2tp-service.c:983
+#: src/nm-l2tp-service.c:952
 msgid "Machine certificate file not supplied"
 msgstr ""
 
-#: src/nm-l2tp-service.c:1097
+#: src/nm-l2tp-service.c:1065
 msgid "Could not write kl2tpd config."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1117
+#: src/nm-l2tp-service.c:1084
 msgid "Could not write xl2tpd config."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1159
+#: src/nm-l2tp-service.c:1125
 msgid "Could not write ppp options."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1443 src/nm-l2tp-service.c:1471
+#: src/nm-l2tp-service.c:1438 src/nm-l2tp-service.c:1466
 msgid "Could not start the ipsec service."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1449 src/nm-l2tp-service.c:1482
+#: src/nm-l2tp-service.c:1444 src/nm-l2tp-service.c:1477
 msgid "Could not restart the ipsec service."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1613
+#: src/nm-l2tp-service.c:1608
 msgid "Could not find kl2tpd or xl2tpd binaries."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1723
+#: src/nm-l2tp-service.c:1715
 msgid "Missing or invalid VPN user certificate password."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1741
+#: src/nm-l2tp-service.c:1733
 msgid "Missing VPN username."
 msgstr "Пропущено ім'я користувача VPN."
 
-#: src/nm-l2tp-service.c:1750
+#: src/nm-l2tp-service.c:1742
 msgid "Missing or invalid VPN password."
 msgstr "Не вказано пароль VPN або вказано некоректний пароль."
 
-#: src/nm-l2tp-service.c:1855
+#: src/nm-l2tp-service.c:1847
 msgid "couldn't convert L2TP VPN gateway IP address."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1868
+#: src/nm-l2tp-service.c:1860
 msgid "couldn't look up L2TP VPN gateway IP address "
 msgstr ""
 
-#: src/nm-l2tp-service.c:1886
+#: src/nm-l2tp-service.c:1878
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr ""
 
-#: src/nm-l2tp-service.c:1914
+#: src/nm-l2tp-service.c:1906
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 
-#: src/nm-l2tp-service.c:1922
+#: src/nm-l2tp-service.c:1914
 msgid "Openswan is no longer supported, use Libreswan or strongSwan."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1925
+#: src/nm-l2tp-service.c:1917
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1937
+#: src/nm-l2tp-service.c:1929
 msgid "could not retrieve connection UUID"
 msgstr ""
 
-#: src/nm-l2tp-service.c:1945
+#: src/nm-l2tp-service.c:1937
 msgid "Invalid or missing L2TP gateway."
 msgstr "Некоректний шлюз L2TP або шлюз не вказано."
 
-#: src/nm-l2tp-service.c:2315
+#: src/nm-l2tp-service.c:2309
 msgid "Don't quit when VPN connection terminates"
 msgstr "Не виходити, якщо розірвано з'єднання VPN"
 
-#: src/nm-l2tp-service.c:2322
+#: src/nm-l2tp-service.c:2316
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Увімкнути докладний журнал діагностики (можливе виведення паролів)"
 
-#: src/nm-l2tp-service.c:2329
+#: src/nm-l2tp-service.c:2323
 msgid "D-Bus name to use for this instance"
 msgstr "Назва D-Bus для використання для цього екземпляра"
 
-#: src/nm-l2tp-service.c:2348
+#: src/nm-l2tp-service.c:2342
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
