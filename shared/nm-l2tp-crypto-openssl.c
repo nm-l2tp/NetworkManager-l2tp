@@ -164,7 +164,7 @@ crypto_pkcs12_get_subject_name(const char * p12_filename,
         g_set_error(error,
                     NM_CRYPTO_ERROR,
                     NM_CRYPTO_ERROR_INVALID_DATA,
-                    _("PKCS#12 filename is NULL"));
+                    _("PKCS#12 filename not specified"));
         return;
     }
 
@@ -307,7 +307,7 @@ crypto_create_pkcs12_data(const char *pkey_filename,
         g_set_error(error,
                     NM_CRYPTO_ERROR,
                     NM_CRYPTO_ERROR_INVALID_DATA,
-                    _("private key filename is NULL"));
+                    _("Private key filename filename not specified"));
         return NULL;
     }
 
@@ -337,7 +337,7 @@ crypto_create_pkcs12_data(const char *pkey_filename,
         g_set_error(error,
                     NM_CRYPTO_ERROR,
                     NM_CRYPTO_ERROR_INVALID_DATA,
-                    _("X.509 certificate filename is NULL"));
+                    _("X.509 certificate filename not specified"));
         return NULL;
     }
 
@@ -441,7 +441,7 @@ crypto_decrypt_pkcs12_data(const char *p12_filename,
         g_set_error(error,
                     NM_CRYPTO_ERROR,
                     NM_CRYPTO_ERROR_INVALID_DATA,
-                    _("PKCS#12 filename is NULL"));
+                    _("PKCS#12 filename not specified"));
         return NULL;
     }
 
@@ -529,7 +529,7 @@ crypto_pkcs12_to_pem_files(const char *p12_filename,
         g_set_error(error,
                     NM_CRYPTO_ERROR,
                     NM_CRYPTO_ERROR_INVALID_DATA,
-                    _("PKCS#12 filename is NULL"));
+                    _("PKCS#12 filename not specified"));
         return FALSE;
     }
 
@@ -642,7 +642,7 @@ crypto_x509_der_to_pem_file(const char *cert_filename,
         g_set_error(error,
                     NM_CRYPTO_ERROR,
                     NM_CRYPTO_ERROR_INVALID_DATA,
-                    _("X.509 certificate filename is NULL"));
+                    _("X.509 certificate filename not specified"));
         return FALSE;
     }
 
@@ -699,7 +699,7 @@ crypto_pkey_der_to_pem_file(const char *pkey_filename,
         g_set_error(error,
                     NM_CRYPTO_ERROR,
                     NM_CRYPTO_ERROR_INVALID_DATA,
-                    _("Private key filename is NULL"));
+                    _("Private key filename not specified"));
         return FALSE;
     }
 
