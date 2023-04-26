@@ -1,4 +1,16 @@
 ==========================================================
+NetworkManager-l2tp-1.20.10
+Overview of changes since NetworkManager-l2tp-1.20.8
+==========================================================
+
+Changes:
+* Fix missing ppp user option.
+* Add support for compiling against pppd-2.5.0.
+* Add error output for missing TLS filenames.
+* Remove bashisms in configure script.
+* Spell checked code with CSpell.
+
+==========================================================
 NetworkManager-l2tp-1.20.8
 Overview of changes since NetworkManager-l2tp-1.20.6
 ==========================================================
