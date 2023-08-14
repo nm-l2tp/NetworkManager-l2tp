@@ -93,11 +93,6 @@ modp1024 support.
       --enable-libreswan-dh2 \
       --with-pppd-plugin-dir=/usr/lib64/pppd/2.4.9
 
-## VPN connection profile files
-
-VPN connection profile files (along with other NetworkManager profile files)
-are stored under `/etc/NetworkManager/system-connections/`
-
 ## Run-time generated files
 
 The following files located under `/var/run` assume `--localstatedir=/var` or
