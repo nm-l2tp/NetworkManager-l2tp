@@ -202,6 +202,7 @@ static const ValidProperty valid_properties[] = {
     {NM_L2TP_KEY_IPSEC_IPCOMP, G_TYPE_BOOLEAN, FALSE},
     {NM_L2TP_KEY_IPSEC_IKEV2, G_TYPE_BOOLEAN, FALSE},
     {NM_L2TP_KEY_IPSEC_PFS, G_TYPE_BOOLEAN, FALSE},
+    {NM_L2TP_KEY_IPSEC_LEFT, G_TYPE_STRING, FALSE},
     {NM_L2TP_KEY_PASSWORD "-flags", G_TYPE_UINT, FALSE},
     {NM_L2TP_KEY_USER_CERTPASS "-flags", G_TYPE_UINT, FALSE},
     {NM_L2TP_KEY_IPSEC_PSK "-flags", G_TYPE_UINT, FALSE},
@@ -917,7 +918,8 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
             write_config_option(fd, "  authby=secret\n");
         }
 
-        write_config_option(fd, "  left=%%defaultroute\n");
+        value = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_IPSEC_LEFT);
+        write_config_option(fd, "  left=%s\n", value ? value : "%defaultroute");
         if (!use_ephemeral_port) {
             write_config_option(fd, "  leftprotoport=udp/l2tp\n");
         }

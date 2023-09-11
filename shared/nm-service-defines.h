@@ -66,6 +66,7 @@
 #define NM_L2TP_KEY_IPSEC_IPCOMP      "ipsec-ipcomp"
 #define NM_L2TP_KEY_IPSEC_IKEV2       "ipsec-ikev2"
 #define NM_L2TP_KEY_IPSEC_PFS         "ipsec-pfs"
+#define NM_L2TP_KEY_IPSEC_LEFT        "ipsec-left"
 
 /* Internal auth-dialog -> service token indicating that no secrets are required
  * for the connection if X.509 private keys are used with no password protection.

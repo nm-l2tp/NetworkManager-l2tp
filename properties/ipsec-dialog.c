@@ -41,6 +41,7 @@ static const char *ipsec_keys[] = {NM_L2TP_KEY_IPSEC_ENABLE,
                                    NM_L2TP_KEY_IPSEC_IPCOMP,
                                    NM_L2TP_KEY_IPSEC_IKEV2,
                                    NM_L2TP_KEY_IPSEC_PFS,
+                                   NM_L2TP_KEY_IPSEC_LEFT,
                                    NM_L2TP_KEY_IPSEC_PSK "-flags",
                                    NM_L2TP_KEY_MACHINE_CERTPASS "-flags",
                                    NULL};
