@@ -1198,9 +1198,15 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         write_config_option(fd, "mrru %s\n", value);
     }
 
-    /* pppd and xl2tpd on Linux require this option to support Android and iOS clients,
-       and pppd on Linux clients won't work without the same option */
-    write_config_option(fd, "noccp\n");
+    if (!nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_REQUIRE_MPPE) &&
+        !nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_REQUIRE_MPPE_40) &&
+        !nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_REQUIRE_MPPE_128)) {
+
+        /* pppd and xl2tpd on Linux servers require noccp option to support Android and iOS clients,
+           so conversely to improve compatibility for Linux clients, we'll also use noccp, except when
+           using MPPE, as negotiations of MPPE happens within the Compression Control Protocol (CCP) */
+        write_config_option(fd, "noccp\n");
+    }
 
     if (priv->user_authtype == TLS_AUTH) {
         /* EAP-TLS patch for pppd only supports PEM keys & certs, so do conversion if necessary */
