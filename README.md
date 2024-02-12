@@ -55,6 +55,14 @@ need to be set to the Libreswan NSS database location if it is not located in
 libreswan < 3.30 or libreswan packages built with `USE_DH2=true` i.e. have
 modp1024 support.
 
+#### Debian 13 and Ubuntu 24.04 (AMD64, i.e. x86-64)
+
+    ./configure \
+      --disable-static --prefix=/usr \
+      --sysconfdir=/etc --libdir=/usr/lib/x86_64-linux-gnu \
+      --runstatedir=/run \
+      --with-gtk4
+
 #### Debian 11 and Ubuntu 22.04 (AMD64, i.e. x86-64)
 
     ./configure \
@@ -64,14 +72,13 @@ modp1024 support.
       --runstatedir=/run \
       --with-pppd-plugin-dir=/usr/lib/pppd/2.4.9
 
-#### Fedora 36 (x86-64)
+#### Fedora 39 and later (x86-64)
 
     ./configure \
       --disable-static --prefix=/usr \
       --sysconfdir=/etc --libdir=/usr/lib64 \
       --runstatedir=/run \
-      --with-gtk4 \
-      --with-pppd-plugin-dir=/usr/lib64/pppd/2.4.9
+      --with-gtk4
 
 #### Red Hat Enterprise Linux 8 (x86-64)
 
@@ -91,7 +98,7 @@ modp1024 support.
       --libexecdir=/usr/lib \
       --localstatedir=/var \
       --enable-libreswan-dh2 \
-      --with-pppd-plugin-dir=/usr/lib64/pppd/2.4.9
+      --with-gtk4
 
 ## Run-time generated files
 
