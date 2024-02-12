@@ -1,4 +1,15 @@
 ==========================================================
+NetworkManager-l2tp-1.20.12
+Overview of changes since NetworkManager-l2tp-1.20.10
+==========================================================
+
+Changes:
+* Add support for usernames that contain a space
+* Do not use noccp ppp option with MPPEA
+* Determine correct local IP address for IPSec
+* Update Georgian (ka) translation.
+
+==========================================================
 NetworkManager-l2tp-1.20.10
 Overview of changes since NetworkManager-l2tp-1.20.8
 ==========================================================
