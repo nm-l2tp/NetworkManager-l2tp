@@ -921,7 +921,11 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
             write_config_option(fd, "  authby=secret\n");
         }
 
-        write_config_option(fd, "  left=%s\n", priv->slocaladdr);
+        if (priv->slocaladdr) {
+            write_config_option(fd, "  left=%s\n", priv->slocaladdr);
+        } else {
+            write_config_option(fd, "  left=%%defaultroute\n");
+        }
         if (!use_ephemeral_port) {
             write_config_option(fd, "  leftprotoport=udp/l2tp\n");
         }
@@ -1993,7 +1997,7 @@ real_connect(NMVpnServicePlugin *plugin, NMConnection *connection, GError **erro
         return FALSE;
 
     if (!get_localaddr(NM_L2TP_PLUGIN (plugin), error))
-        return FALSE;
+        priv->slocaladdr = NULL;
 
     if (!nm_l2tp_properties_validate(s_vpn, error))
         return FALSE;
