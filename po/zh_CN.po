@@ -879,7 +879,7 @@ msgstr "无法打开%s进行书写：%s"
 #: src/nm-l2tp-service.c:716
 #, c-format
 msgid "Could not append \"include ipsec.d/ipsec.nm-l2tp.secrets\" to %s"
-msgstr "无法将 "include ipsec.d/ipsec.nm-l2tp.secrets" 添加到 %s"
+msgstr "无法将 \"include ipsec.d/ipsec.nm-l2tp.secrets\" 添加到 %s"
 
 #: src/nm-l2tp-service.c:734
 #, c-format
