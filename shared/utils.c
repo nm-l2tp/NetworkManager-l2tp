@@ -36,6 +36,26 @@ check_ipsec_daemon(const char *path)
     return NM_L2TP_IPSEC_DAEMON_UNKNOWN;
 }
 
+
+gboolean
+require_libreswan_ipsec_auto(const char *path)
+{
+    const char *     argv[] = {path, "--help", NULL};
+    g_autofree char *output = NULL;
+
+    if (path == NULL)
+        return FALSE;
+
+    if (g_spawn_sync(NULL, (char **) argv, NULL, 0, NULL, NULL, &output, NULL, NULL, NULL)) {
+        if (!output)
+            return FALSE;
+
+        if (strstr(output, "\tauto\n") != NULL)
+            return TRUE;
+    }
+    return FALSE;
+}
+
 const char *
 nm_find_ipsec(void)
 {

@@ -24,6 +24,8 @@ typedef enum {
 
 NML2tpIpsecDaemon check_ipsec_daemon(const char *path);
 
+gboolean require_libreswan_ipsec_auto(const char *path);
+
 const char *nm_find_ipsec(void);
 
 const char *nm_find_l2tpd(NML2tpL2tpDaemon *l2tp_daemon);
