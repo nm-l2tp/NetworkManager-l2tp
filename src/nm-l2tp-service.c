@@ -83,6 +83,9 @@ typedef struct {
     /* IP of L2TP gateway in numeric and string format */
     guint32 naddr;
     char *  saddr;
+
+    /* Local IP route to the L2TP gateway */
+    char *  slocaladdr;
 } NML2tpPluginPrivate;
 
 #define NM_L2TP_PLUGIN_GET_PRIVATE(o) \
@@ -917,7 +920,11 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
             write_config_option(fd, "  authby=secret\n");
         }
 
-        write_config_option(fd, "  left=%%defaultroute\n");
+        if (priv->slocaladdr) {
+            write_config_option(fd, "  left=%s\n", priv->slocaladdr);
+        } else {
+            write_config_option(fd, "  left=%%defaultroute\n");
+        }
         if (!use_ephemeral_port) {
             write_config_option(fd, "  leftprotoport=udp/l2tp\n");
         }
@@ -1194,9 +1201,15 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         write_config_option(fd, "mrru %s\n", value);
     }
 
-    /* pppd and xl2tpd on Linux require this option to support Android and iOS clients,
-       and pppd on Linux clients won't work without the same option */
-    write_config_option(fd, "noccp\n");
+    if (!nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_REQUIRE_MPPE) &&
+        !nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_REQUIRE_MPPE_40) &&
+        !nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_REQUIRE_MPPE_128)) {
+
+        /* pppd and xl2tpd on Linux servers require noccp option to support Android and iOS clients,
+           so conversely to improve compatibility for Linux clients, we'll also use noccp, except when
+           using MPPE, as negotiations of MPPE happens within the Compression Control Protocol (CCP) */
+        write_config_option(fd, "noccp\n");
+    }
 
     if (priv->user_authtype == TLS_AUTH) {
         /* EAP-TLS patch for pppd only supports PEM keys & certs, so do conversion if necessary */
@@ -1315,7 +1328,7 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         if (!value || !*value)
             value = nm_setting_vpn_get_user_name(s_vpn);
         if (value && *value) {
-            write_config_option(fd, "user %s\n", value);
+            write_config_option(fd, "user \"%s\"\n", value);
         }
         for (int i = 0; ppp_auth_options[i].name; i++) {
             value = nm_setting_vpn_get_data_item(s_vpn, ppp_auth_options[i].name);
@@ -1887,6 +1900,42 @@ lookup_gateway(NML2tpPlugin *self, const char *src, GError **error)
 }
 
 static gboolean
+get_localaddr (NML2tpPlugin *self,
+               GError **error)
+{
+    NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (self);
+    char abuf[INET_ADDRSTRLEN+1] = {};
+    struct sockaddr_in addr = {};
+    socklen_t alen = sizeof(addr);
+    int fd;
+
+    fd = socket(AF_INET, SOCK_DGRAM, 0);
+    if (fd < 0) {
+        return nm_l2tp_ipsec_error(error, _("couldn't determine local IP to contact L2TP VPN gateway"));
+    }
+
+    addr.sin_family = AF_INET;
+    addr.sin_port = htons(1701);
+    addr.sin_addr.s_addr = priv->naddr;
+
+    if (0 != connect (fd, &addr, sizeof(addr))) {
+        close (fd);
+        return nm_l2tp_ipsec_error(error, _("unable to connect to L2TP VPN gateway"));
+    }
+
+    memset( &addr, 0, sizeof(addr));
+    if (0 != getsockname( fd, &addr, &alen)) {
+        close (fd);
+        return nm_l2tp_ipsec_error(error, _("failed to get local IP"));
+    }
+
+    priv->slocaladdr = g_strdup (inet_ntop (AF_INET, &addr.sin_addr.s_addr, abuf, alen-1));
+    close(fd);
+
+    return TRUE;
+}
+
+static gboolean
 real_connect(NMVpnServicePlugin *plugin, NMConnection *connection, GError **error)
 {
     NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE(plugin);
@@ -1947,6 +1996,9 @@ real_connect(NMVpnServicePlugin *plugin, NMConnection *connection, GError **erro
      */
     if (!lookup_gateway(NM_L2TP_PLUGIN(plugin), gwaddr, error))
         return FALSE;
+
+    if (!get_localaddr(NM_L2TP_PLUGIN (plugin), error))
+        priv->slocaladdr = NULL;
 
     if (!nm_l2tp_properties_validate(s_vpn, error))
         return FALSE;
@@ -2093,6 +2145,10 @@ real_disconnect(NMVpnServicePlugin *plugin, GError **err)
     if (priv->saddr) {
         g_free(priv->saddr);
         priv->saddr = NULL;
+    }
+    if (priv->slocaladdr) {
+        g_free (priv->slocaladdr);
+        priv->slocaladdr = NULL;
     }
 
     if (!gl.debug) {
