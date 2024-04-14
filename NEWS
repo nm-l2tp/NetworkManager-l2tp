@@ -1,4 +1,14 @@
 ==========================================================
+NetworkManager-l2tp-1.20.14
+Overview of changes since NetworkManager-l2tp-1.20.12
+==========================================================
+
+Changes:
+* Libreswan 5.0 compatibility
+* get_localaddr() for non-ephemeral source port fallback
+* Update Chinese (zh_CN) translation.
+
+==========================================================
 NetworkManager-l2tp-1.20.12
 Overview of changes since NetworkManager-l2tp-1.20.10
 ==========================================================
