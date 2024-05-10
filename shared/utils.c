@@ -50,7 +50,7 @@ require_libreswan_ipsec_auto(const char *path)
         if (!output)
             return FALSE;
 
-        if (strstr(output, "\tauto\n") != NULL)
+        if (strstr(output, "\tauto\t") != NULL || strstr(output, "\tauto\n") != NULL)
             return TRUE;
     }
     return FALSE;
