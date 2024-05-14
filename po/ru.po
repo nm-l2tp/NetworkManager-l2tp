@@ -781,12 +781,6 @@ msgstr "Ошибка загрузки файла PKCS#12 «%s»."
 msgid "Error parsing PKCS#12 file '%s'."
 msgstr "Ошибка разбора файла PKCS#12 «%s»."
 
-#: shared/nm-l2tp-crypto-openssl.c:213
-#, fuzzy, c-format
-#| msgid "Error obtaining Subject Name for PKCS#12 file '%s'."
-msgid "Error obtaining certificate from PKCS#12 file '%s'."
-msgstr "Ошибка получения имени субъекта для файла PKCS#12 «%s»."
-
 #: shared/nm-l2tp-crypto-openssl.c:223
 #, c-format
 msgid "Error obtaining Subject Name for PKCS#12 file '%s'."
@@ -797,22 +791,10 @@ msgstr "Ошибка получения имени субъекта для фа�
 msgid "Error obtaining ASN1 Subject Name for PKCS#12 file '%s'."
 msgstr "Ошибка получения имени субъекта в формате ASN1 для файла PKCS#12 «%s»."
 
-#: shared/nm-l2tp-crypto-openssl.c:310
-#, fuzzy
-#| msgid "Machine private key file not supplied"
-msgid "Private key filename filename not specified"
-msgstr "Не предоставлен файл закрытого ключа компьютера"
-
 #: shared/nm-l2tp-crypto-openssl.c:326 shared/nm-l2tp-crypto-openssl.c:717
 #, c-format
 msgid "Error decrypting private key file '%s'."
 msgstr "Ошибка расшифровки файла закрытого ключа «%s»."
-
-#: shared/nm-l2tp-crypto-openssl.c:340 shared/nm-l2tp-crypto-openssl.c:645
-#, fuzzy
-#| msgid "Machine certificate file not supplied"
-msgid "X.509 certificate filename not specified"
-msgstr "Не предоставлен сертификат компьютера"
 
 #: shared/nm-l2tp-crypto-openssl.c:355 shared/nm-l2tp-crypto-openssl.c:384
 #: shared/nm-l2tp-crypto-openssl.c:660
@@ -831,12 +813,6 @@ msgstr "Ошибка создания данных PKCS#12: %s"
 #, c-format
 msgid "Could not write '%s' : %s"
 msgstr "Не удалось записать «%s»: %s"
-
-#: shared/nm-l2tp-crypto-openssl.c:702
-#, fuzzy
-#| msgid "Machine private key file not supplied"
-msgid "Private key filename not specified"
-msgstr "Не предоставлен файл закрытого ключа компьютера"
 
 #: shared/nm-utils/nm-shared-utils.c:1146
 #, c-format
@@ -1007,18 +983,6 @@ msgstr "не удалось найти IP-адрес шлюза L2TP VPN"
 
 #: src/nm-l2tp-service.c:1893
 msgid "no usable addresses returned for L2TP VPN gateway "
-msgstr "не возвращены используемые адреса для шлюза L2TP VPN"
-
-#: src/nm-l2tp-service.c:1914
-#, fuzzy
-#| msgid "couldn't convert L2TP VPN gateway IP address."
-msgid "couldn't determine local IP to contact L2TP VPN gateway"
-msgstr "не удалось преобразовать IP-адрес шлюза L2TP VPN."
-
-#: src/nm-l2tp-service.c:1923
-#, fuzzy
-#| msgid "no usable addresses returned for L2TP VPN gateway "
-msgid "unable to connect to L2TP VPN gateway"
 msgstr "не возвращены используемые адреса для шлюза L2TP VPN"
 
 #: src/nm-l2tp-service.c:1929

@@ -358,30 +358,6 @@ msgstr "Phase1 周期："
 msgid "Phase2 Lifetime:"
 msgstr "Phase2 周期："
 
-#: properties/nm-l2tp-dialog.ui:917
-#, fuzzy
-#| msgid ""
-#| "Optional. How the IPsec server should be identified for authentication. "
-#| "Sometimes referred to as Peer ID or Gateway ID, also referred to as "
-#| "rightid by strongSwan, Libreswan, Openswan and FreeS/WAN. See strongSwan "
-#| "or Libreswan documentation for leftid/rightid syntax and identity "
-#| "parsing.\n"
-#| "配置: ipsec-remote-id <rightid>\n"
-#| "ipsec.secrets: <ID>"
-msgid ""
-"Optional. How the IPsec server should be identified for authentication. "
-"Sometimes referred to as Peer ID or Gateway ID, also referred to as rightid "
-"by strongSwan, Libreswan, Openswan and FreeS/WAN. See strongSwan or "
-"Libreswan documentation for leftid/rightid syntax and identity parsing.\n"
-"config: ipsec-remote-id <rightid>\n"
-"ipsec.secrets: <ID>"
-msgstr ""
-"可选的。如何识别IPsec服务器以进行身份验证。有时称为对等ID或网关ID，也称为"
-"rightid由strongSwan, Libreswan, Openswan和FreeS/WAN提供。参见strongSwan或关于"
-"leftid/rightid语法和身份解析的Libreswan文档。\n"
-"config: ipsec-remote-id <rightid>\n"
-"ipsec.secrets: < ID > "
-
 #: properties/nm-l2tp-dialog.ui:931
 msgid "Phase1 Algorithms:"
 msgstr "Phase1 算法："
@@ -974,18 +950,6 @@ msgstr "无法查找L2TP VPN网关IP地址"
 
 #: src/nm-l2tp-service.c:1893
 msgid "no usable addresses returned for L2TP VPN gateway "
-msgstr "L2TP VPN网关没有返回可用地址"
-
-#: src/nm-l2tp-service.c:1914
-#, fuzzy
-#| msgid "couldn't convert L2TP VPN gateway IP address."
-msgid "couldn't determine local IP to contact L2TP VPN gateway"
-msgstr "无法转换L2TP VPN的网关IP地址。"
-
-#: src/nm-l2tp-service.c:1923
-#, fuzzy
-#| msgid "no usable addresses returned for L2TP VPN gateway "
-msgid "unable to connect to L2TP VPN gateway"
 msgstr "L2TP VPN网关没有返回可用地址"
 
 #: src/nm-l2tp-service.c:1929

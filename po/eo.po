@@ -545,12 +545,6 @@ msgstr ""
 msgid "MTU"
 msgstr "MTU"
 
-#: properties/nm-l2tp-dialog.ui:1697
-#, fuzzy
-#| msgid "MTU"
-msgid "MRU"
-msgstr "MTU"
-
 #: properties/nm-l2tp-editor.c:345
 #, c-format
 msgid "%s: error reading ppp settings: %s"

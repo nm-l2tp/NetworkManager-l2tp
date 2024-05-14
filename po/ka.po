@@ -1000,19 +1000,6 @@ msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr ""
 "გამოყენებადი IP მისამართი არ დაბრუნებულა L2TP VPN ნაგულისხმევი რაუტერისთვის "
 
-#: src/nm-l2tp-service.c:1914
-#, fuzzy
-#| msgid "couldn't convert L2TP VPN gateway IP address."
-msgid "couldn't determine local IP to contact L2TP VPN gateway"
-msgstr "შეცდომა L2TP VPN ნაგულისხმევი რაუტერის IP მისამართის გადაყვანისას."
-
-#: src/nm-l2tp-service.c:1923
-#, fuzzy
-#| msgid "no usable addresses returned for L2TP VPN gateway "
-msgid "unable to connect to L2TP VPN gateway"
-msgstr ""
-"გამოყენებადი IP მისამართი არ დაბრუნებულა L2TP VPN ნაგულისხმევი რაუტერისთვის "
-
 #: src/nm-l2tp-service.c:1929
 msgid "failed to get local IP"
 msgstr ""
