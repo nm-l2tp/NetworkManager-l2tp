@@ -47,7 +47,7 @@ msgstr ""
 
 #: appdata/network-manager-l2tp.metainfo.xml.in:17
 msgid "connection"
-msgstr ""
+msgstr "连接"
 
 #: appdata/network-manager-l2tp.metainfo.xml.in:18
 msgid "VPN"
@@ -357,6 +357,16 @@ msgstr "Phase1 周期："
 #: properties/nm-l2tp-dialog.ui:900
 msgid "Phase2 Lifetime:"
 msgstr "Phase2 周期："
+
+#: properties/nm-l2tp-dialog.ui:917
+msgid ""
+"Optional. How the IPsec server should be identified for authentication. "
+"Sometimes referred to as Peer ID or Gateway ID, also referred to as rightid "
+"by strongSwan, Libreswan, Openswan and FreeS/WAN. See strongSwan or "
+"Libreswan documentation for leftid/rightid syntax and identity parsing.\n"
+"config: ipsec-remote-id <rightid>\n"
+"ipsec.secrets: <ID>"
+msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:931
 msgid "Phase1 Algorithms:"

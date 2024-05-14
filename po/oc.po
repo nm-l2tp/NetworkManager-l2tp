@@ -41,7 +41,7 @@ msgstr ""
 
 #: appdata/network-manager-l2tp.metainfo.xml.in:17
 msgid "connection"
-msgstr ""
+msgstr "connexion"
 
 #: appdata/network-manager-l2tp.metainfo.xml.in:18
 msgid "VPN"
@@ -776,16 +776,22 @@ msgstr "La proprietat « %s » de la classa objècte « %s » es pas enregis
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
+"la proprietat de construcion « %s » per l’objècte « %s » se pòt pas definir "
+"aprèp construccion"
 
 #: shared/nm-utils/nm-shared-utils.c:1175
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
 msgstr ""
+"« %s::%s » es pas un nom de proprietat valido ; « %s » es pas un jos tipe "
+"GObject"
 
 #: shared/nm-utils/nm-shared-utils.c:1188
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
 msgstr ""
+"definisson impossibla de la proprietat « %s » de tipe « %s » a partir de la "
+"valor de tipe « %s »"
 
 #: shared/nm-utils/nm-shared-utils.c:1200
 #, c-format
@@ -793,6 +799,8 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
+"la valor « %s » de tipe « %s » es invalida o fòra plaja per la proprietat "
+"« %s » de tipe « %s »"
 
 #: shared/nm-utils/nm-vpn-plugin-utils.c:53
 #, c-format

@@ -49,7 +49,7 @@ msgstr ""
 
 #: appdata/network-manager-l2tp.metainfo.xml.in:17
 msgid "connection"
-msgstr ""
+msgstr "connexion"
 
 #: appdata/network-manager-l2tp.metainfo.xml.in:18
 msgid "VPN"

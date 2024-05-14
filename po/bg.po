@@ -45,7 +45,7 @@ msgstr ""
 
 #: appdata/network-manager-l2tp.metainfo.xml.in:18
 msgid "VPN"
-msgstr ""
+msgstr "ВЧМ"
 
 #: appdata/network-manager-l2tp.metainfo.xml.in:19
 msgid "L2TP"
