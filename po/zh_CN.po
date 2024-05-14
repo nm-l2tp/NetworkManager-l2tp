@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: NetworkManager-l2tp main\n"
 "Report-Msgid-Bugs-To: https://gitlab.freedesktop.org/NetworkManager/"
 "NetworkManager/issues\n"
-"POT-Creation-Date: 2023-04-25 20:00+1000\n"
+"POT-Creation-Date: 2024-05-14 16:00+1000\n"
 "PO-Revision-Date: 2018-07-07 23:22+0800\n"
 "Last-Translator: Dingzhong Chen <wsxy162@gmail.com>\n"
 "Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
@@ -32,6 +32,30 @@ msgstr "L2TP VPN客户端"
 #: appdata/network-manager-l2tp.metainfo.xml.in:11
 msgid "Client for L2TP based virtual private networks"
 msgstr "基于L2TP的虚拟专用网客户端"
+
+#: appdata/network-manager-l2tp.metainfo.xml.in:14
+msgid "network"
+msgstr ""
+
+#: appdata/network-manager-l2tp.metainfo.xml.in:15
+msgid "manager"
+msgstr ""
+
+#: appdata/network-manager-l2tp.metainfo.xml.in:16
+msgid "NetworkManager"
+msgstr ""
+
+#: appdata/network-manager-l2tp.metainfo.xml.in:17
+msgid "connection"
+msgstr ""
+
+#: appdata/network-manager-l2tp.metainfo.xml.in:18
+msgid "VPN"
+msgstr ""
+
+#: appdata/network-manager-l2tp.metainfo.xml.in:19
+msgid "L2TP"
+msgstr ""
 
 #: appdata/network-manager-l2tp.metainfo.xml.in:23
 msgid "Support for configuring L2TP based virtual private network connections."
@@ -144,8 +168,7 @@ msgstr "属性%s不能解析为整数。"
 #, c-format
 msgid ""
 "Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."
-msgstr ""
-"属性%s不能解析为布尔值。只允许“真”和“假”。"
+msgstr "属性%s不能解析为布尔值。只允许“真”和“假”。"
 
 #: properties/import-export.c:614
 #, c-format
@@ -193,8 +216,8 @@ msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
 "DOMAIN\\username, where DOMAIN is the value from this text entry box."
 msgstr ""
-"使用低级登录名格式进行用户身份验证，即。"
-"DOMAIN\\用户名，其中DOMAIN是这个文本输入框中的值。"
+"使用低级登录名格式进行用户身份验证，即。DOMAIN\\用户名，其中DOMAIN是这个文本"
+"输入框中的值。"
 
 #: properties/nm-l2tp-dialog.ui:137 properties/nm-l2tp-dialog.ui:625
 msgid "Sho_w password"
@@ -323,7 +346,8 @@ msgid ""
 "negotiation to expiry.\n"
 "config: ipsec-salifetime <lifetime>"
 msgstr ""
-"一个特定的连接实例（用户数据包的一组加密/身份验证密钥）应该持续多长时间，从成功协商到过期。\n"
+"一个特定的连接实例（用户数据包的一组加密/身份验证密钥）应该持续多长时间，从成"
+"功协商到过期。\n"
 "配置：ipsec-salifetime <lifetime>"
 
 #: properties/nm-l2tp-dialog.ui:885
@@ -335,18 +359,26 @@ msgid "Phase2 Lifetime:"
 msgstr "Phase2 周期："
 
 #: properties/nm-l2tp-dialog.ui:917
+#, fuzzy
+#| msgid ""
+#| "Optional. How the IPsec server should be identified for authentication. "
+#| "Sometimes referred to as Peer ID or Gateway ID, also referred to as "
+#| "rightid by strongSwan, Libreswan, Openswan and FreeS/WAN. See strongSwan "
+#| "or Libreswan documentation for leftid/rightid syntax and identity "
+#| "parsing.\n"
+#| "配置: ipsec-remote-id <rightid>\n"
+#| "ipsec.secrets: <ID>"
 msgid ""
 "Optional. How the IPsec server should be identified for authentication. "
 "Sometimes referred to as Peer ID or Gateway ID, also referred to as rightid "
 "by strongSwan, Libreswan, Openswan and FreeS/WAN. See strongSwan or "
 "Libreswan documentation for leftid/rightid syntax and identity parsing.\n"
-"配置: ipsec-remote-id <rightid>\n"
+"config: ipsec-remote-id <rightid>\n"
 "ipsec.secrets: <ID>"
 msgstr ""
-"可选的。如何识别IPsec服务器以进行身份验证。"
-"有时称为对等ID或网关ID，也称为rightid"
-"由strongSwan, Libreswan, Openswan和FreeS/WAN提供。参见strongSwan或"
-"关于leftid/rightid语法和身份解析的Libreswan文档。\n"
+"可选的。如何识别IPsec服务器以进行身份验证。有时称为对等ID或网关ID，也称为"
+"rightid由strongSwan, Libreswan, Openswan和FreeS/WAN提供。参见strongSwan或关于"
+"leftid/rightid语法和身份解析的Libreswan文档。\n"
 "config: ipsec-remote-id <rightid>\n"
 "ipsec.secrets: < ID > "
 
@@ -372,7 +404,8 @@ msgid ""
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
-"有些防火墙会阻挡ESP流量。即使在没有检测到NAT情况时，强制执行UDP封装也可能有所帮助。\n"
+"有些防火墙会阻挡ESP流量。即使在没有检测到NAT情况时，强制执行UDP封装也可能有所"
+"帮助。\n"
 "配置：ipsec-forceencaps <是/否>"
 
 #: properties/nm-l2tp-dialog.ui:1018
@@ -385,7 +418,8 @@ msgid ""
 "bandwidth, but uses more processing power.\n"
 "config: ipsec-ipcomp <yes/no>"
 msgstr ""
-"IPComp在原始IP数据包被加密之前对其进行压缩。这样可以节省一些带宽，但会使用更多的处理能力。\n"
+"IPComp在原始IP数据包被加密之前对其进行压缩。这样可以节省一些带宽，但会使用更"
+"多的处理能力。\n"
 "配置：ipsec-ipcomp <是/否>"
 
 #: properties/nm-l2tp-dialog.ui:1037
@@ -396,9 +430,7 @@ msgstr "使用IKEv2密钥交换"
 msgid ""
 "Use IKEv2 key exchange\n"
 "config: ipsec-ikev2 <yes/no>"
-msgstr ""
-"使用IKEv2密钥交换"
-"配置：ipsec-ikev2 <是/否>"
+msgstr "使用IKEv2密钥交换配置：ipsec-ikev2 <是/否>"
 
 #: properties/nm-l2tp-dialog.ui:1056
 msgid "Disable _PFS"
@@ -572,9 +604,7 @@ msgstr "多链路PPP MRRU："
 msgid ""
 "Try to negotiate a PPP Multilink on a single connection.\n"
 "config: mrru"
-msgstr ""
-"尝试在单个连接上协商 PPP Multilink。"
-"配置：mrru"
+msgstr "尝试在单个连接上协商 PPP Multilink。配置：mrru"
 
 #: properties/nm-l2tp-dialog.ui:1626 properties/nm-l2tp-dialog.ui:1669
 #: properties/nm-l2tp-dialog.ui:1712
@@ -837,148 +867,164 @@ msgstr "无法加载来自插件的工厂（factory）%s：%s"
 msgid "unknown error creating editor instance"
 msgstr "创建编辑器实例时出现未知错误"
 
-#: src/nm-l2tp-service.c:302
+#: src/nm-l2tp-service.c:305
 #, c-format
 msgid "invalid gateway '%s'"
 msgstr "无效的网关“%s”"
 
-#: src/nm-l2tp-service.c:316
+#: src/nm-l2tp-service.c:319
 #, c-format
 msgid "invalid integer property '%s'"
 msgstr "无效的整型属性“%s”"
 
-#: src/nm-l2tp-service.c:326
+#: src/nm-l2tp-service.c:329
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr "无效的布尔型属性“%s”(不是 yes 或 no)"
 
-#: src/nm-l2tp-service.c:333
+#: src/nm-l2tp-service.c:336
 #, c-format
 msgid "unhandled property '%s' type %s"
 msgstr "无法处理的属性“%s”类型 %s"
 
-#: src/nm-l2tp-service.c:345
+#: src/nm-l2tp-service.c:348
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "属性“%s”无效或不支持"
 
-#: src/nm-l2tp-service.c:363
+#: src/nm-l2tp-service.c:366
 msgid "No VPN configuration options."
 msgstr "没有 VPN 配置选项。"
 
-#: src/nm-l2tp-service.c:383
+#: src/nm-l2tp-service.c:386
 #, c-format
 msgid "Missing required option '%s'."
 msgstr "缺少需要的选项“%s”。"
 
-#: src/nm-l2tp-service.c:707
+#: src/nm-l2tp-service.c:710
 #, c-format
 msgid "Could not open %s for writing: %s"
 msgstr "无法打开%s进行书写：%s"
 
-#: src/nm-l2tp-service.c:716
+#: src/nm-l2tp-service.c:719
 #, c-format
 msgid "Could not append \"include ipsec.d/ipsec.nm-l2tp.secrets\" to %s"
 msgstr "无法将 \"include ipsec.d/ipsec.nm-l2tp.secrets\" 添加到 %s"
 
-#: src/nm-l2tp-service.c:734
+#: src/nm-l2tp-service.c:737
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr "无法写入%s/ipsec.nm-l2tp.secrets"
 
-#: src/nm-l2tp-service.c:770
+#: src/nm-l2tp-service.c:773
 msgid "Machine private key file not supplied"
 msgstr "未提供机器私钥文件"
 
-#: src/nm-l2tp-service.c:864
+#: src/nm-l2tp-service.c:867
 msgid "Could not write ipsec config"
 msgstr "无法写入ipsec配置"
 
-#: src/nm-l2tp-service.c:952
+#: src/nm-l2tp-service.c:959
 msgid "Machine certificate file not supplied"
 msgstr "未提供机器证书文件"
 
-#: src/nm-l2tp-service.c:1065
+#: src/nm-l2tp-service.c:1072
 msgid "Could not write kl2tpd config."
 msgstr "无法创建 l2tp 对象"
 
-#: src/nm-l2tp-service.c:1084
+#: src/nm-l2tp-service.c:1091
 msgid "Could not write xl2tpd config."
 msgstr "无法写入xl2tpd配置。"
 
-#: src/nm-l2tp-service.c:1125
+#: src/nm-l2tp-service.c:1132
 msgid "Could not write ppp options."
 msgstr "无法写入ppp选项。"
 
-#: src/nm-l2tp-service.c:1438 src/nm-l2tp-service.c:1466
+#: src/nm-l2tp-service.c:1452 src/nm-l2tp-service.c:1480
 msgid "Could not start the ipsec service."
 msgstr "无法启动ipsec服务。"
 
-#: src/nm-l2tp-service.c:1444 src/nm-l2tp-service.c:1477
+#: src/nm-l2tp-service.c:1458 src/nm-l2tp-service.c:1491
 msgid "Could not restart the ipsec service."
 msgstr "无法重新启动ipsec服务。"
 
-#: src/nm-l2tp-service.c:1608
+#: src/nm-l2tp-service.c:1623
 msgid "Could not find kl2tpd or xl2tpd binaries."
 msgstr "找不到kl2tpd或xl2tpd二进制文件。"
 
-#: src/nm-l2tp-service.c:1715
+#: src/nm-l2tp-service.c:1730
 msgid "Missing or invalid VPN user certificate password."
 msgstr "VPN用户证书密码缺失或无效。"
 
-#: src/nm-l2tp-service.c:1733
+#: src/nm-l2tp-service.c:1748
 msgid "Missing VPN username."
 msgstr "缺少 VPN 用户名。"
 
-#: src/nm-l2tp-service.c:1742
+#: src/nm-l2tp-service.c:1757
 msgid "Missing or invalid VPN password."
 msgstr "VPN 密码缺失或无效。"
 
-#: src/nm-l2tp-service.c:1847
+#: src/nm-l2tp-service.c:1862
 msgid "couldn't convert L2TP VPN gateway IP address."
 msgstr "无法转换L2TP VPN的网关IP地址。"
 
-#: src/nm-l2tp-service.c:1860
+#: src/nm-l2tp-service.c:1875
 msgid "couldn't look up L2TP VPN gateway IP address "
 msgstr "无法查找L2TP VPN网关IP地址"
 
-#: src/nm-l2tp-service.c:1878
+#: src/nm-l2tp-service.c:1893
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr "L2TP VPN网关没有返回可用地址"
 
-#: src/nm-l2tp-service.c:1906
+#: src/nm-l2tp-service.c:1914
+#, fuzzy
+#| msgid "couldn't convert L2TP VPN gateway IP address."
+msgid "couldn't determine local IP to contact L2TP VPN gateway"
+msgstr "无法转换L2TP VPN的网关IP地址。"
+
+#: src/nm-l2tp-service.c:1923
+#, fuzzy
+#| msgid "no usable addresses returned for L2TP VPN gateway "
+msgid "unable to connect to L2TP VPN gateway"
+msgstr "L2TP VPN网关没有返回可用地址"
+
+#: src/nm-l2tp-service.c:1929
+msgid "failed to get local IP"
+msgstr ""
+
+#: src/nm-l2tp-service.c:1957
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr "找不到ipsec二进制文件。Libreswan或strongSwan安装了吗?"
 
-#: src/nm-l2tp-service.c:1914
+#: src/nm-l2tp-service.c:1965
 msgid "Openswan is no longer supported, use Libreswan or strongSwan."
 msgstr "Openswan不再受支持，请使用Libreswan或strongSwan。"
 
-#: src/nm-l2tp-service.c:1917
+#: src/nm-l2tp-service.c:1968
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr "Libreswan和strongSwan都没有找到。"
 
-#: src/nm-l2tp-service.c:1929
+#: src/nm-l2tp-service.c:1980
 msgid "could not retrieve connection UUID"
 msgstr "无法检索连接UUID"
 
-#: src/nm-l2tp-service.c:1937
+#: src/nm-l2tp-service.c:1988
 msgid "Invalid or missing L2TP gateway."
 msgstr "L2TP 网关缺失或无效。"
 
-#: src/nm-l2tp-service.c:2309
+#: src/nm-l2tp-service.c:2367
 msgid "Don't quit when VPN connection terminates"
 msgstr "在 VPN 连接终止时不退出"
 
-#: src/nm-l2tp-service.c:2316
+#: src/nm-l2tp-service.c:2374
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "启用详细的调试日志记录（可能暴露密码）"
 
-#: src/nm-l2tp-service.c:2323
+#: src/nm-l2tp-service.c:2381
 msgid "D-Bus name to use for this instance"
 msgstr "此实例使用的 D-Bus 名称"
 
-#: src/nm-l2tp-service.c:2342
+#: src/nm-l2tp-service.c:2400
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."

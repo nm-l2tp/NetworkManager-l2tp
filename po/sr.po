@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: NetworkManager-l2tp main\n"
 "Report-Msgid-Bugs-To: https://gitlab.freedesktop.org/NetworkManager/"
 "NetworkManager/issues\n"
-"POT-Creation-Date: 2023-04-25 20:00+1000\n"
+"POT-Creation-Date: 2024-05-14 16:00+1000\n"
 "PO-Revision-Date: 2019-09-16 08:47+0200\n"
 "Last-Translator: Марко М. Костић <marko.m.kostic@gmail.com>\n"
 "Language-Team: српски <gnome-sr@googlegroups.org>\n"
@@ -28,6 +28,30 @@ msgstr ""
 
 #: appdata/network-manager-l2tp.metainfo.xml.in:11
 msgid "Client for L2TP based virtual private networks"
+msgstr ""
+
+#: appdata/network-manager-l2tp.metainfo.xml.in:14
+msgid "network"
+msgstr ""
+
+#: appdata/network-manager-l2tp.metainfo.xml.in:15
+msgid "manager"
+msgstr ""
+
+#: appdata/network-manager-l2tp.metainfo.xml.in:16
+msgid "NetworkManager"
+msgstr ""
+
+#: appdata/network-manager-l2tp.metainfo.xml.in:17
+msgid "connection"
+msgstr ""
+
+#: appdata/network-manager-l2tp.metainfo.xml.in:18
+msgid "VPN"
+msgstr ""
+
+#: appdata/network-manager-l2tp.metainfo.xml.in:19
+msgid "L2TP"
 msgstr ""
 
 #: appdata/network-manager-l2tp.metainfo.xml.in:23
@@ -547,6 +571,12 @@ msgstr ""
 msgid "MTU"
 msgstr "МТУ"
 
+#: properties/nm-l2tp-dialog.ui:1697
+#, fuzzy
+#| msgid "MTU"
+msgid "MRU"
+msgstr "МТУ"
+
 #: properties/nm-l2tp-editor.c:345
 #, c-format
 msgid "%s: error reading ppp settings: %s"
@@ -796,149 +826,161 @@ msgstr "не могу да учитам погон „%s“ из прикључ�
 msgid "unknown error creating editor instance"
 msgstr "непозната грешка приликом стварања примерка уређивача"
 
-#: src/nm-l2tp-service.c:302
+#: src/nm-l2tp-service.c:305
 #, c-format
 msgid "invalid gateway '%s'"
 msgstr "неисправан мрежни пролаз „%s“"
 
-#: src/nm-l2tp-service.c:316
+#: src/nm-l2tp-service.c:319
 #, c-format
 msgid "invalid integer property '%s'"
 msgstr "неисправно својство целог броја „%s“"
 
-#: src/nm-l2tp-service.c:326
+#: src/nm-l2tp-service.c:329
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr "неисправно логичко својство „%s“ (није „да“ или „не“)"
 
-#: src/nm-l2tp-service.c:333
+#: src/nm-l2tp-service.c:336
 #, c-format
 msgid "unhandled property '%s' type %s"
 msgstr "неруковано својство „%s“ врсте %s"
 
-#: src/nm-l2tp-service.c:345
+#: src/nm-l2tp-service.c:348
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "својство „%s“ је неисправно или није подржано"
 
-#: src/nm-l2tp-service.c:363
+#: src/nm-l2tp-service.c:366
 msgid "No VPN configuration options."
 msgstr "Нема опција ВПН подешавања."
 
-#: src/nm-l2tp-service.c:383
+#: src/nm-l2tp-service.c:386
 #, c-format
 msgid "Missing required option '%s'."
 msgstr "Недостаје затражена опција „%s“."
 
-#: src/nm-l2tp-service.c:707
+#: src/nm-l2tp-service.c:710
 #, c-format
 msgid "Could not open %s for writing: %s"
 msgstr ""
 
-#: src/nm-l2tp-service.c:716
+#: src/nm-l2tp-service.c:719
 #, c-format
 msgid "Could not append \"include ipsec.d/ipsec.nm-l2tp.secrets\" to %s"
 msgstr ""
 
-#: src/nm-l2tp-service.c:734
+#: src/nm-l2tp-service.c:737
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr ""
 
-#: src/nm-l2tp-service.c:770
+#: src/nm-l2tp-service.c:773
 msgid "Machine private key file not supplied"
 msgstr ""
 
-#: src/nm-l2tp-service.c:864
+#: src/nm-l2tp-service.c:867
 msgid "Could not write ipsec config"
 msgstr ""
 
-#: src/nm-l2tp-service.c:952
+#: src/nm-l2tp-service.c:959
 msgid "Machine certificate file not supplied"
 msgstr ""
 
-#: src/nm-l2tp-service.c:1065
+#: src/nm-l2tp-service.c:1072
 msgid "Could not write kl2tpd config."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1084
+#: src/nm-l2tp-service.c:1091
 msgid "Could not write xl2tpd config."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1125
+#: src/nm-l2tp-service.c:1132
 msgid "Could not write ppp options."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1438 src/nm-l2tp-service.c:1466
+#: src/nm-l2tp-service.c:1452 src/nm-l2tp-service.c:1480
 msgid "Could not start the ipsec service."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1444 src/nm-l2tp-service.c:1477
+#: src/nm-l2tp-service.c:1458 src/nm-l2tp-service.c:1491
 msgid "Could not restart the ipsec service."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1608
+#: src/nm-l2tp-service.c:1623
 msgid "Could not find kl2tpd or xl2tpd binaries."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1715
+#: src/nm-l2tp-service.c:1730
 msgid "Missing or invalid VPN user certificate password."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1733
+#: src/nm-l2tp-service.c:1748
 msgid "Missing VPN username."
 msgstr "Недостаје ВПН корисничко име."
 
-#: src/nm-l2tp-service.c:1742
+#: src/nm-l2tp-service.c:1757
 msgid "Missing or invalid VPN password."
 msgstr "Недостаје или је неисправна ВПН лозинка."
 
-#: src/nm-l2tp-service.c:1847
+#: src/nm-l2tp-service.c:1862
 msgid "couldn't convert L2TP VPN gateway IP address."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1860
+#: src/nm-l2tp-service.c:1875
 msgid "couldn't look up L2TP VPN gateway IP address "
 msgstr ""
 
-#: src/nm-l2tp-service.c:1878
+#: src/nm-l2tp-service.c:1893
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr ""
 
-#: src/nm-l2tp-service.c:1906
-msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
-msgstr ""
-
 #: src/nm-l2tp-service.c:1914
-msgid "Openswan is no longer supported, use Libreswan or strongSwan."
+msgid "couldn't determine local IP to contact L2TP VPN gateway"
 msgstr ""
 
-#: src/nm-l2tp-service.c:1917
-msgid "Neither Libreswan nor strongSwan were found."
+#: src/nm-l2tp-service.c:1923
+msgid "unable to connect to L2TP VPN gateway"
 msgstr ""
 
 #: src/nm-l2tp-service.c:1929
+msgid "failed to get local IP"
+msgstr ""
+
+#: src/nm-l2tp-service.c:1957
+msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
+msgstr ""
+
+#: src/nm-l2tp-service.c:1965
+msgid "Openswan is no longer supported, use Libreswan or strongSwan."
+msgstr ""
+
+#: src/nm-l2tp-service.c:1968
+msgid "Neither Libreswan nor strongSwan were found."
+msgstr ""
+
+#: src/nm-l2tp-service.c:1980
 msgid "could not retrieve connection UUID"
 msgstr ""
 
-#: src/nm-l2tp-service.c:1937
+#: src/nm-l2tp-service.c:1988
 msgid "Invalid or missing L2TP gateway."
 msgstr "Неисправан или недостаје ППТП мрежни пролаз."
 
-#: src/nm-l2tp-service.c:2309
+#: src/nm-l2tp-service.c:2367
 msgid "Don't quit when VPN connection terminates"
 msgstr "Не прекида када се завршава ВПН веза"
 
-#: src/nm-l2tp-service.c:2316
+#: src/nm-l2tp-service.c:2374
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr ""
 "Укључује опширно записивање зарад исправљања грешака (може да изложи лозинке)"
 
-#: src/nm-l2tp-service.c:2323
+#: src/nm-l2tp-service.c:2381
 msgid "D-Bus name to use for this instance"
 msgstr "Назив Д-сабирнице који ће се користити за овај примерак"
 
-#: src/nm-l2tp-service.c:2342
+#: src/nm-l2tp-service.c:2400
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."

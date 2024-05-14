@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: NetworkManager-l2tp trunk\n"
 "Report-Msgid-Bugs-To: https://gitlab.freedesktop.org/NetworkManager/"
 "NetworkManager/issues\n"
-"POT-Creation-Date: 2023-04-25 20:00+1000\n"
+"POT-Creation-Date: 2024-05-14 16:00+1000\n"
 "PO-Revision-Date: 2021-11-22 09:54+0300\n"
 "Last-Translator: Sergey Kazorin <translation-team@basealt.ru>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
@@ -35,6 +35,30 @@ msgstr "Клиент L2TP VPN"
 #: appdata/network-manager-l2tp.metainfo.xml.in:11
 msgid "Client for L2TP based virtual private networks"
 msgstr "Клиент для виртуальных частных сетей на основе протокола L2TP"
+
+#: appdata/network-manager-l2tp.metainfo.xml.in:14
+msgid "network"
+msgstr ""
+
+#: appdata/network-manager-l2tp.metainfo.xml.in:15
+msgid "manager"
+msgstr ""
+
+#: appdata/network-manager-l2tp.metainfo.xml.in:16
+msgid "NetworkManager"
+msgstr ""
+
+#: appdata/network-manager-l2tp.metainfo.xml.in:17
+msgid "connection"
+msgstr ""
+
+#: appdata/network-manager-l2tp.metainfo.xml.in:18
+msgid "VPN"
+msgstr ""
+
+#: appdata/network-manager-l2tp.metainfo.xml.in:19
+msgid "L2TP"
+msgstr ""
 
 #: appdata/network-manager-l2tp.metainfo.xml.in:23
 msgid "Support for configuring L2TP based virtual private network connections."
@@ -757,6 +781,12 @@ msgstr "Ошибка загрузки файла PKCS#12 «%s»."
 msgid "Error parsing PKCS#12 file '%s'."
 msgstr "Ошибка разбора файла PKCS#12 «%s»."
 
+#: shared/nm-l2tp-crypto-openssl.c:213
+#, fuzzy, c-format
+#| msgid "Error obtaining Subject Name for PKCS#12 file '%s'."
+msgid "Error obtaining certificate from PKCS#12 file '%s'."
+msgstr "Ошибка получения имени субъекта для файла PKCS#12 «%s»."
+
 #: shared/nm-l2tp-crypto-openssl.c:223
 #, c-format
 msgid "Error obtaining Subject Name for PKCS#12 file '%s'."
@@ -767,10 +797,22 @@ msgstr "Ошибка получения имени субъекта для фа�
 msgid "Error obtaining ASN1 Subject Name for PKCS#12 file '%s'."
 msgstr "Ошибка получения имени субъекта в формате ASN1 для файла PKCS#12 «%s»."
 
+#: shared/nm-l2tp-crypto-openssl.c:310
+#, fuzzy
+#| msgid "Machine private key file not supplied"
+msgid "Private key filename filename not specified"
+msgstr "Не предоставлен файл закрытого ключа компьютера"
+
 #: shared/nm-l2tp-crypto-openssl.c:326 shared/nm-l2tp-crypto-openssl.c:717
 #, c-format
 msgid "Error decrypting private key file '%s'."
 msgstr "Ошибка расшифровки файла закрытого ключа «%s»."
+
+#: shared/nm-l2tp-crypto-openssl.c:340 shared/nm-l2tp-crypto-openssl.c:645
+#, fuzzy
+#| msgid "Machine certificate file not supplied"
+msgid "X.509 certificate filename not specified"
+msgstr "Не предоставлен сертификат компьютера"
 
 #: shared/nm-l2tp-crypto-openssl.c:355 shared/nm-l2tp-crypto-openssl.c:384
 #: shared/nm-l2tp-crypto-openssl.c:660
@@ -789,6 +831,12 @@ msgstr "Ошибка создания данных PKCS#12: %s"
 #, c-format
 msgid "Could not write '%s' : %s"
 msgstr "Не удалось записать «%s»: %s"
+
+#: shared/nm-l2tp-crypto-openssl.c:702
+#, fuzzy
+#| msgid "Machine private key file not supplied"
+msgid "Private key filename not specified"
+msgstr "Не предоставлен файл закрытого ключа компьютера"
 
 #: shared/nm-utils/nm-shared-utils.c:1146
 #, c-format
@@ -852,153 +900,169 @@ msgstr "невозможно загрузить фабрику %s из моду�
 msgid "unknown error creating editor instance"
 msgstr "неизвестная ошибка создания экземпляра редактора"
 
-#: src/nm-l2tp-service.c:302
+#: src/nm-l2tp-service.c:305
 #, c-format
 msgid "invalid gateway '%s'"
 msgstr "недопустимый шлюз «%s»"
 
-#: src/nm-l2tp-service.c:316
+#: src/nm-l2tp-service.c:319
 #, c-format
 msgid "invalid integer property '%s'"
 msgstr "недопустимое целочисленное свойство «%s»"
 
-#: src/nm-l2tp-service.c:326
+#: src/nm-l2tp-service.c:329
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr "недопустимое логическое свойство «%s» (отлично от «да» или «нет») "
 
-#: src/nm-l2tp-service.c:333
+#: src/nm-l2tp-service.c:336
 #, c-format
 msgid "unhandled property '%s' type %s"
 msgstr "необработанное свойство «%s» типа %s"
 
-#: src/nm-l2tp-service.c:345
+#: src/nm-l2tp-service.c:348
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "свойство «%s» недопустимо или не поддерживается"
 
-#: src/nm-l2tp-service.c:363
+#: src/nm-l2tp-service.c:366
 msgid "No VPN configuration options."
 msgstr "Нет параметров настройки VPN."
 
-#: src/nm-l2tp-service.c:383
+#: src/nm-l2tp-service.c:386
 #, c-format
 msgid "Missing required option '%s'."
 msgstr "Отсутствует требуемый параметр «%s»."
 
-#: src/nm-l2tp-service.c:707
+#: src/nm-l2tp-service.c:710
 #, c-format
 msgid "Could not open %s for writing: %s"
 msgstr "Не удалось открыть %s для записи: %s"
 
-#: src/nm-l2tp-service.c:716
+#: src/nm-l2tp-service.c:719
 #, c-format
 msgid "Could not append \"include ipsec.d/ipsec.nm-l2tp.secrets\" to %s"
 msgstr "Не удалось присоединить «include ipsec.d/ipsec.nm-l2tp.secrets» к %s"
 
-#: src/nm-l2tp-service.c:734
+#: src/nm-l2tp-service.c:737
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr "Не удалось записать %s/ipsec.nm-l2tp.secrets"
 
-#: src/nm-l2tp-service.c:770
+#: src/nm-l2tp-service.c:773
 msgid "Machine private key file not supplied"
 msgstr "Не предоставлен файл закрытого ключа компьютера"
 
-#: src/nm-l2tp-service.c:864
+#: src/nm-l2tp-service.c:867
 msgid "Could not write ipsec config"
 msgstr "Не удалось записать конфигурацию ipsec"
 
-#: src/nm-l2tp-service.c:952
+#: src/nm-l2tp-service.c:959
 msgid "Machine certificate file not supplied"
 msgstr "Не предоставлен сертификат компьютера"
 
-#: src/nm-l2tp-service.c:1065
+#: src/nm-l2tp-service.c:1072
 msgid "Could not write kl2tpd config."
 msgstr "Не удалось записать конфигурацию xl2tpd."
 
-#: src/nm-l2tp-service.c:1084
+#: src/nm-l2tp-service.c:1091
 msgid "Could not write xl2tpd config."
 msgstr "Не удалось записать конфигурацию xl2tpd."
 
-#: src/nm-l2tp-service.c:1125
+#: src/nm-l2tp-service.c:1132
 msgid "Could not write ppp options."
 msgstr "Не удалось записать параметры ppp."
 
-#: src/nm-l2tp-service.c:1438 src/nm-l2tp-service.c:1466
+#: src/nm-l2tp-service.c:1452 src/nm-l2tp-service.c:1480
 msgid "Could not start the ipsec service."
 msgstr "Не удалось запустить службу ipsec."
 
-#: src/nm-l2tp-service.c:1444 src/nm-l2tp-service.c:1477
+#: src/nm-l2tp-service.c:1458 src/nm-l2tp-service.c:1491
 msgid "Could not restart the ipsec service."
 msgstr "Не удалось перезапустить службу ipsec."
 
-#: src/nm-l2tp-service.c:1608
+#: src/nm-l2tp-service.c:1623
 msgid "Could not find kl2tpd or xl2tpd binaries."
 msgstr "Не удалось найти двоичные файлы kl2tpd или xl2tpd."
 
-#: src/nm-l2tp-service.c:1715
+#: src/nm-l2tp-service.c:1730
 msgid "Missing or invalid VPN user certificate password."
 msgstr "Отсутствует или недопустим пароль сертификата пользователя VPN."
 
-#: src/nm-l2tp-service.c:1733
+#: src/nm-l2tp-service.c:1748
 msgid "Missing VPN username."
 msgstr "Отсутствует имя пользователя VPN."
 
-#: src/nm-l2tp-service.c:1742
+#: src/nm-l2tp-service.c:1757
 msgid "Missing or invalid VPN password."
 msgstr "Отсутствует или недопустим пароль VPN."
 
-#: src/nm-l2tp-service.c:1847
+#: src/nm-l2tp-service.c:1862
 msgid "couldn't convert L2TP VPN gateway IP address."
 msgstr "не удалось преобразовать IP-адрес шлюза L2TP VPN."
 
-#: src/nm-l2tp-service.c:1860
+#: src/nm-l2tp-service.c:1875
 msgid "couldn't look up L2TP VPN gateway IP address "
 msgstr "не удалось найти IP-адрес шлюза L2TP VPN"
 
-#: src/nm-l2tp-service.c:1878
+#: src/nm-l2tp-service.c:1893
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr "не возвращены используемые адреса для шлюза L2TP VPN"
 
-#: src/nm-l2tp-service.c:1906
+#: src/nm-l2tp-service.c:1914
+#, fuzzy
+#| msgid "couldn't convert L2TP VPN gateway IP address."
+msgid "couldn't determine local IP to contact L2TP VPN gateway"
+msgstr "не удалось преобразовать IP-адрес шлюза L2TP VPN."
+
+#: src/nm-l2tp-service.c:1923
+#, fuzzy
+#| msgid "no usable addresses returned for L2TP VPN gateway "
+msgid "unable to connect to L2TP VPN gateway"
+msgstr "не возвращены используемые адреса для шлюза L2TP VPN"
+
+#: src/nm-l2tp-service.c:1929
+msgid "failed to get local IP"
+msgstr ""
+
+#: src/nm-l2tp-service.c:1957
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 "Не удалось найти двоичный файл ipsec. Было ли установлено приложение "
 "Libreswan или strongSwan?"
 
-#: src/nm-l2tp-service.c:1914
+#: src/nm-l2tp-service.c:1965
 msgid "Openswan is no longer supported, use Libreswan or strongSwan."
 msgstr ""
 "Приложение Openswan больше не поддерживается, пользуйтесь приложениями "
 "Libreswan или strongSwan."
 
-#: src/nm-l2tp-service.c:1917
+#: src/nm-l2tp-service.c:1968
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr "Не удалось обнаружить ни Libreswan, ни strongSwan."
 
-#: src/nm-l2tp-service.c:1929
+#: src/nm-l2tp-service.c:1980
 msgid "could not retrieve connection UUID"
 msgstr "не удалось получить идентификатор UUID подключения"
 
-#: src/nm-l2tp-service.c:1937
+#: src/nm-l2tp-service.c:1988
 msgid "Invalid or missing L2TP gateway."
 msgstr "Шлюз L2TP недействителен или отсутствует."
 
-#: src/nm-l2tp-service.c:2309
+#: src/nm-l2tp-service.c:2367
 msgid "Don't quit when VPN connection terminates"
 msgstr "Не завершать работу при отключении VPN"
 
-#: src/nm-l2tp-service.c:2316
+#: src/nm-l2tp-service.c:2374
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr ""
 "Включить ведение подробного журнала отладки (могут отображаться пароли)"
 
-#: src/nm-l2tp-service.c:2323
+#: src/nm-l2tp-service.c:2381
 msgid "D-Bus name to use for this instance"
 msgstr "Имя D-Bus для использования в этом экземпляре"
 
-#: src/nm-l2tp-service.c:2342
+#: src/nm-l2tp-service.c:2400
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
