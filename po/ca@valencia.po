@@ -280,7 +280,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:560
 msgid "Machine Authentication"
-msgstr ""
+msgstr "Autenticació de la màquina"
 
 #: properties/nm-l2tp-dialog.ui:642
 msgid ""
@@ -353,7 +353,7 @@ msgstr "Algorismes de la fase 2:"
 
 #: properties/nm-l2tp-dialog.ui:961
 msgid "Remote ID:"
-msgstr ""
+msgstr "ID remot:"
 
 #: properties/nm-l2tp-dialog.ui:999
 msgid "_Enforce UDP encapsulation"

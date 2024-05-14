@@ -174,7 +174,7 @@ msgstr ""
 
 #: properties/ipsec-dialog.c:551 properties/nm-l2tp-editor.c:582
 msgid "Certificates (TLS)"
-msgstr ""
+msgstr "Atestiloj (TLS)"
 
 #: properties/nm-l2tp-dialog.ui:16
 msgid "General"
@@ -200,7 +200,7 @@ msgstr "Tipo"
 
 #: properties/nm-l2tp-dialog.ui:89 properties/nm-l2tp-dialog.ui:589
 msgid "Select an authentication mode."
-msgstr ""
+msgstr "Elektu aŭtentikigreĝimon."
 
 #: properties/nm-l2tp-dialog.ui:127
 msgid ""
@@ -253,7 +253,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:454
 msgid "L2TP IPsec Options"
-msgstr ""
+msgstr "L2TP IPsec Opcioj"
 
 #: properties/nm-l2tp-dialog.ui:469
 msgid "IPsec Properties"
@@ -277,7 +277,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:560
 msgid "Machine Authentication"
-msgstr ""
+msgstr "Maŝina Aŭtentigo"
 
 #: properties/nm-l2tp-dialog.ui:642
 msgid ""
@@ -324,11 +324,11 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:885
 msgid "Phase1 Lifetime:"
-msgstr ""
+msgstr "Fazo 1 Vivdaŭro:"
 
 #: properties/nm-l2tp-dialog.ui:900
 msgid "Phase2 Lifetime:"
-msgstr ""
+msgstr "Fazo 2 Vivdaŭro:"
 
 #: properties/nm-l2tp-dialog.ui:917
 msgid ""
@@ -342,15 +342,15 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:931
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "Algoritmoj de Fazo 1:"
 
 #: properties/nm-l2tp-dialog.ui:946
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "Algoritmoj de Fazo 2:"
 
 #: properties/nm-l2tp-dialog.ui:961
 msgid "Remote ID:"
-msgstr ""
+msgstr "Fora ID:"
 
 #: properties/nm-l2tp-dialog.ui:999
 msgid "_Enforce UDP encapsulation"
@@ -405,7 +405,7 @@ msgstr "Defaŭlte"
 
 #: properties/nm-l2tp-dialog.ui:1145
 msgid "L2TP PPP Options"
-msgstr ""
+msgstr "L2TP PPP-Ebloj"
 
 #: properties/nm-l2tp-dialog.ui:1161
 msgid "PPP Properties"

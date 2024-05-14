@@ -254,7 +254,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:454
 msgid "L2TP IPsec Options"
-msgstr ""
+msgstr "L2TP IPsec Опции"
 
 #: properties/nm-l2tp-dialog.ui:469
 msgid "IPsec Properties"
@@ -278,7 +278,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:560
 msgid "Machine Authentication"
-msgstr ""
+msgstr "Удостоверяване на машината"
 
 #: properties/nm-l2tp-dialog.ui:642
 msgid ""
@@ -325,11 +325,11 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:885
 msgid "Phase1 Lifetime:"
-msgstr ""
+msgstr "Фаза1 Продължителност:"
 
 #: properties/nm-l2tp-dialog.ui:900
 msgid "Phase2 Lifetime:"
-msgstr ""
+msgstr "Фаза2 Продължителност:"
 
 #: properties/nm-l2tp-dialog.ui:917
 msgid ""
@@ -343,15 +343,15 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:931
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "Алгоритми фаза1:"
 
 #: properties/nm-l2tp-dialog.ui:946
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "Алгоритми фаза2:"
 
 #: properties/nm-l2tp-dialog.ui:961
 msgid "Remote ID:"
-msgstr ""
+msgstr "Отдалечено ID:"
 
 #: properties/nm-l2tp-dialog.ui:999
 msgid "_Enforce UDP encapsulation"
@@ -406,7 +406,7 @@ msgstr "Стандартно"
 
 #: properties/nm-l2tp-dialog.ui:1145
 msgid "L2TP PPP Options"
-msgstr ""
+msgstr "L2TP PPP Опции"
 
 #: properties/nm-l2tp-dialog.ui:1161
 msgid "PPP Properties"

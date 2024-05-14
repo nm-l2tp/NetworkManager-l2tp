@@ -256,7 +256,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:454
 msgid "L2TP IPsec Options"
-msgstr ""
+msgstr "אפשרויות IPsec של L2TP"
 
 #: properties/nm-l2tp-dialog.ui:469
 msgid "IPsec Properties"
@@ -327,11 +327,11 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:885
 msgid "Phase1 Lifetime:"
-msgstr ""
+msgstr "זמן החיים של שלב1 (Phase1):"
 
 #: properties/nm-l2tp-dialog.ui:900
 msgid "Phase2 Lifetime:"
-msgstr ""
+msgstr "זמן החיים של שלב2 (Phase2):"
 
 #: properties/nm-l2tp-dialog.ui:917
 msgid ""
@@ -345,11 +345,11 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:931
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "אלגוריתם לשלב1 (Phase1):"
 
 #: properties/nm-l2tp-dialog.ui:946
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "אלגוריתם לשלב2 (Phase2):"
 
 #: properties/nm-l2tp-dialog.ui:961
 msgid "Remote ID:"
@@ -408,7 +408,7 @@ msgstr "בררת מחדל"
 
 #: properties/nm-l2tp-dialog.ui:1145
 msgid "L2TP PPP Options"
-msgstr ""
+msgstr "אפשרויות PPP של L2TP"
 
 #: properties/nm-l2tp-dialog.ui:1161
 msgid "PPP Properties"
