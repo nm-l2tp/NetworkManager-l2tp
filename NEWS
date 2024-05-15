@@ -1,4 +1,17 @@
 ==========================================================
+NetworkManager-l2tp-1.20.16
+Overview of changes since NetworkManager-l2tp-1.20.14
+==========================================================
+
+Changes:
+* Libreswan 4.15 compatibility.
+  Previous Libreswan 5.0 compatibility changes involving
+  "auto" command detection broke with Libreswan 4.15, but
+  not earlier version.
+* Merge translations from KDE Frameworks 6 plasma-nm
+* Merge translations from NetworkManager and libnma
+
+==========================================================
 NetworkManager-l2tp-1.20.14
 Overview of changes since NetworkManager-l2tp-1.20.12
 ==========================================================
