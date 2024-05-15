@@ -63,7 +63,7 @@ modp1024 support.
       --runstatedir=/run \
       --with-gtk4
 
-#### Debian 11 and Ubuntu 22.04 (AMD64, i.e. x86-64)
+#### Debian 12 and Ubuntu 22.04 (AMD64, i.e. x86-64)
 
     ./configure \
       --disable-static --prefix=/usr \
@@ -128,7 +128,6 @@ libreswan >= 4.0 default NSS database location is `/var/lib/ipsec/nss/` and
 for all versions of libreswan on Debian/Ubuntu. Older libreswan versions often
 use `/etc/ipsec.d/` such as on older version of RHEL/Fedora/CentOS.
 
-
 The default libreswan package install for most Linux distributions uses an
 empty password. It is up to the administrator to decide on whether to use a
 password or not. However, a non-empty database password must be provided when
@@ -161,11 +160,11 @@ To increase debugging output, issue the following on the command line, it
 will also prevent the run-time generated config files from being deleted after
 the VPN connection is disconnected :
 
-#### Debian and Ubuntu
+#### Debian < 13 and Ubuntu < 24.04
     sudo killall -TERM nm-l2tp-service
     sudo /usr/lib/NetworkManager/nm-l2tp-service --debug
 
-#### Fedora and Red Hat Enterprise Linux
+#### Debian, Ubuntu, Fedora and Red Hat Enterprise Linux
     sudo killall -TERM nm-l2tp-service
     sudo /usr/libexec/nm-l2tp-service --debug
 
@@ -197,10 +196,10 @@ the command-line :
 
 *Examples:*
 
-#### Debian and Ubuntu
+#### Debian < 13 and Ubuntu < 24.04
     sudo PLUTODEBUG="all proposal-parser" /usr/lib/NetworkManager/nm-l2tp-service --debug
 
-#### Fedora and Red Hat Enterprise Linux
+#### Debian, Ubuntu, Fedora and Red Hat Enterprise Linux
     sudo PLUTODEBUG="all proposal-parser" /usr/libexec/nm-l2tp-service --debug
 
 #### openSUSE
@@ -221,10 +220,10 @@ and LEVEL is: -1|0|1|2|3|4
 
 *Examples:*
 
-#### Debian and Ubuntu
+#### Debian < 13 and Ubuntu < 24.04
     sudo CHARONDEBUG="knl 1, ike 2, esp 2, lib 1, cfg 3" /usr/lib/NetworkManager/nm-l2tp-service --debug
 
-#### Fedora and Red Hat Enterprise Linux
+#### Debian, Ubuntu, Fedora and Red Hat Enterprise Linux
     sudo CHARONDEBUG="knl 1, ike 2, esp 2, lib 1, cfg 3" /usr/libexec/nm-l2tp-service --debug
 
 #### openSUSE
@@ -232,15 +231,16 @@ and LEVEL is: -1|0|1|2|3|4
 
 ## Libreswan no longer supports IKEv1 packets by default
 
-On some later Linux distributions, Libreswan no longer supports IKEv1 packets
-by default, the following error occurs if this is the case :
+Libreswan 5.0 and later, along with earlier versions of Libreswan on some
+Linux distros, no longer support IKEv1 packets by default, the following
+error occurs if this is the case :
 
 ```
 failed to add IKEv1 connection: global ikev1-policy does not allow IKEv1 connections
 ```
 
-To re-enable IKEv1, add `ikev1-policy=accept` to the `config setup` section of
-`/etc/ipsec.conf`
+To re-enable IKEv1, uncomment or add `ikev1-policy=accept` to the
+`config setup` section of `/etc/ipsec.conf`
 
 ## Issue with blacklisting of L2TP kernel modules
 
