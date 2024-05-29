@@ -52,27 +52,14 @@ dnl
 dnl Required headers
 dnl
 AC_HEADER_STDC
-AC_CHECK_HEADERS([
-	fcntl.h
-	paths.h
-	stdarg.h
-	stdbool.h
-	sys/ioctl.h
-	sys/time.h
-	syslog.h
-	unistd.h
-	])
+AC_CHECK_HEADERS([fcntl.h paths.h stdarg.h stdbool.h sys/ioctl.h sys/time.h syslog.h unistd.h])
 
 AC_CHECK_HEADERS(pppd/pppd.h,,
   AC_MSG_ERROR(couldn't find pppd.h. pppd development headers are required.))
 
 dnl
 dnl Check the presense of other pppd/*.h files
-AC_CHECK_HEADERS([
-    pppd/chap.h
-    pppd/chap-new.h
-    pppd/chap_ms.h
-    ])
+AC_CHECK_HEADERS([pppd/chap.h pppd/chap-new.h pppd/chap_ms.h])
 
 dnl
 dnl Versions >= 2.5.0 will have pkg-config support
