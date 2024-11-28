@@ -877,6 +877,7 @@ nm_vpn_editor_factory_l2tp(NMVpnEditorPlugin *editor_plugin,
 {
     g_return_val_if_fail(!error || !*error, NULL);
 
+    g_type_ensure (NMA_TYPE_CERT_CHOOSER);
     return nm_vpn_plugin_ui_widget_interface_new(connection, error);
 }
 

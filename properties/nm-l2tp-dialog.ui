@@ -255,7 +255,7 @@ config: auth-user-pass</property>
             <property name="orientation">vertical</property>
             <property name="spacing">6</property>
             <child>
-              <object class="NmaCertChooser" id="user_ca_chooser">
+              <object class="NMACertChooser" id="user_ca_chooser">
                 <property name="flags">13</property>
                 <property name="title">CA</property>
                 <property name="visible">True</property>
@@ -268,7 +268,7 @@ config: auth-user-pass</property>
               </packing>
             </child>
             <child>
-              <object class="NmaCertChooser" id="user_cert_chooser">
+              <object class="NMACertChooser" id="user_cert_chooser">
                 <property name="flags">4</property>
                 <property name="title">User</property>
                 <property name="visible">True</property>
@@ -709,7 +709,7 @@ config: ipsec-psk</property>
                     <property name="orientation">vertical</property>
                     <property name="spacing">6</property>
                     <child>
-                      <object class="NmaCertChooser" id="machine_ca_chooser">
+                      <object class="NMACertChooser" id="machine_ca_chooser">
                         <property name="flags">13</property>
                         <property name="title">CA</property>
                         <property name="visible">True</property>
@@ -722,7 +722,7 @@ config: ipsec-psk</property>
                       </packing>
                     </child>
                     <child>
-                      <object class="NmaCertChooser" id="machine_cert_chooser">
+                      <object class="NMACertChooser" id="machine_cert_chooser">
                         <property name="flags">4</property>
                         <property name="title">Machine</property>
                         <property name="visible">True</property>
