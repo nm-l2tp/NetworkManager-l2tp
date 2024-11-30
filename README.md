@@ -100,6 +100,13 @@ modp1024 support.
       --enable-libreswan-dh2 \
       --with-gtk4
 
+## VPN connection profile files
+
+VPN connection profile files will be one of the following, with the latter
+used when Netplan integration is enabled in NetworkManager:
+- /etc/NetworkManager/system-connections/*.nmconnection
+- /etc/netplan/90-NM-*.yaml
+
 ## Run-time generated files
 
 The following files located under `/var/run` assume `--localstatedir=/var` or
