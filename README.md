@@ -29,13 +29,6 @@ The configure script will attempt to determine if pppd EAP-TLS support is
 available and will disable the build time TLS user certificate support if it
 can not be detected.
 
-This VPN plugin auto detects the following TLS certificate and private key file
-formats by looking at the file contents and not the file extension :
-* PKCS#12 certificates.
-* X509 certificates (PEM or DER).
-* PKCS#8 private keys (PEM or DER)
-* traditional OpenSSL RSA, DSA and ECDSA private keys (PEM or DER).
-
 For details on pre-built packages, known issues and build dependencies,
 please visit the Wiki :
 * https://github.com/nm-l2tp/NetworkManager-l2tp/wiki
