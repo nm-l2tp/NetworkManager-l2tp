@@ -10,7 +10,7 @@
  * (C) Copyright 2011 Geo Carncross <geocar@gmail.com>
  * (C) Copyright 2012 Sergey Prokhorov <me@seriyps.ru>
  * (C) Copyright 2014 Nathan Dorfman <ndorf@rtfm.net>
- * (C) Copyright 2016 - 2020 Douglas Kosovic <doug@uq.edu.au>
+ * (C) Copyright 2016 - 2024 Douglas Kosovic <doug@uq.edu.au>
  */
 
 #include "nm-default.h"
@@ -2419,7 +2419,7 @@ main(int argc, char *argv[])
                                                 LOG_DEBUG,
                                                 gl.debug ? LOG_INFO : LOG_NOTICE);
 
-    _LOGD("nm-l2tp-service (version " DIST_VERSION ") starting...");
+    g_message("nm-l2tp-service (version " DIST_VERSION ") starting...");
     _LOGD(" uses%s --bus-name \"%s\"", bus_name_free ? "" : " default", bus_name);
 
     setenv("NM_VPN_LOG_LEVEL", nm_sprintf_buf(sbuf, "%d", gl.log_level), TRUE);
