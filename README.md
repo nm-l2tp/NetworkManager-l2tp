@@ -143,13 +143,7 @@ password is stored:
 For Systemd based Linux distributions logging goes to the Systemd journal
 which can be viewed by issuing the following :
 
-    journalctl --no-hostname _SYSTEMD_UNIT=NetworkManager.service + SYSLOG_IDENTIFIER=pppd
-
-if using go-l2tp's kl2tpd, it is recommended to issue the following :
-
-    journalctl --no-hostname _SYSTEMD_UNIT=NetworkManager.service + _COMM=kl2tpd + SYSLOG_IDENTIFIER=pppd
-
-For some versions of Fedora, libreswan logging also goes to `/var/log/pluto.log`.
+    journalctl --no-hostname _COMM=nm-l2tp-service _COMM=ipsec _COMM=pluto _COMM=charon _COMM=kl2tpd _COMM=xl2tpd _COMM=pppd
 
 For non-Systemd based Linux distributions, view the appropriate system log
 file which is most likely located under `/var/log/`.
