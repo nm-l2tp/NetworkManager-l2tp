@@ -77,8 +77,11 @@ ipsec_dialog_new_hash_from_connection(NMConnection *connection, GError **error)
     }
 
     flags = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_IPSEC_PSK "-flags");
-    if (flags)
+    if (flags) {
         g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_PSK "-flags"), g_strdup(flags));
+    } else if (secret) {
+        g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_PSK "-flags"), g_strdup("0"));
+    }
 
     /* IPsec certificate password is special */
     secret = nm_setting_vpn_get_secret(s_vpn, NM_L2TP_KEY_MACHINE_CERTPASS);
@@ -87,8 +90,11 @@ ipsec_dialog_new_hash_from_connection(NMConnection *connection, GError **error)
     }
 
     flags = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_MACHINE_CERTPASS "-flags");
-    if (flags)
+    if (flags) {
         g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_MACHINE_CERTPASS "-flags"), g_strdup(flags));
+    } else if (secret) {
+        g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_MACHINE_CERTPASS "-flags"), g_strdup("0"));
+    }
 
     return hash;
 }
@@ -787,9 +793,7 @@ ipsec_dialog_new_hash_from_dialog(GtkWidget *dialog, GError **error)
     value  = gtk_editable_get_text(GTK_EDITABLE(widget));
     if (value && *value) {
         g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_PSK), g_strdup(value));
-    }
-    pw_flags = nma_utils_menu_to_secret_flags(widget);
-    if (pw_flags != NM_SETTING_SECRET_FLAG_NONE) {
+        pw_flags = nma_utils_menu_to_secret_flags(widget);
         g_hash_table_insert(hash,
                             g_strdup(NM_L2TP_KEY_IPSEC_PSK "-flags"),
                             g_strdup_printf("%d", pw_flags));
@@ -813,9 +817,7 @@ ipsec_dialog_new_hash_from_dialog(GtkWidget *dialog, GError **error)
     value  = nma_cert_chooser_get_key_password(NMA_CERT_CHOOSER(widget));
     if (value && *value) {
         g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_MACHINE_CERTPASS), g_strdup(value));
-    }
-    pw_flags = nma_cert_chooser_get_key_password_flags(NMA_CERT_CHOOSER(widget));
-    if (pw_flags != NM_SETTING_SECRET_FLAG_NONE) {
+        pw_flags = nma_cert_chooser_get_key_password_flags(NMA_CERT_CHOOSER(widget));
         g_hash_table_insert(hash,
                             g_strdup(NM_L2TP_KEY_MACHINE_CERTPASS "-flags"),
                             g_strdup_printf("%d", pw_flags));

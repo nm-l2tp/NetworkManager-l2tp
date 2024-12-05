@@ -10,6 +10,8 @@
 
 #include "nm-l2tp-editor.h"
 
+#include "nm-utils/nm-shared-utils.h"
+
 #include <ctype.h>
 #include <gtk/gtk.h>
 #include <nma-cert-chooser.h>
@@ -642,6 +644,7 @@ static void
 copy_hash_pair(gpointer key, gpointer data, gpointer user_data)
 {
     NMSettingVpn *s_vpn = NM_SETTING_VPN(user_data);
+    NMSettingSecretFlags pw_flags;
     const char *  value = (const char *) data;
 
     g_return_if_fail(value && value[0]);
@@ -655,6 +658,14 @@ copy_hash_pair(gpointer key, gpointer data, gpointer user_data)
         nm_setting_vpn_add_secret(s_vpn, (const char *) key, value);
     } else {
         nm_setting_vpn_add_data_item(s_vpn, (const char *) key, value);
+    }
+
+    if (!strcmp(key, NM_L2TP_KEY_IPSEC_PSK "-flags")) {
+        pw_flags = _nm_utils_ascii_str_to_int64(value, 10, 0, 0xFFFF, NM_SETTING_SECRET_FLAG_NONE);
+        nm_setting_set_secret_flags(NM_SETTING(s_vpn), NM_L2TP_KEY_IPSEC_PSK, pw_flags, NULL);
+    } else if (!strcmp(key, NM_L2TP_KEY_MACHINE_CERTPASS "-flags")) {
+        pw_flags = _nm_utils_ascii_str_to_int64(value, 10, 0, 0xFFFF, NM_SETTING_SECRET_FLAG_NONE);
+        nm_setting_set_secret_flags(NM_SETTING(s_vpn), NM_L2TP_KEY_MACHINE_CERTPASS, pw_flags, NULL);
     }
 }
 
@@ -710,12 +721,6 @@ update_connection(NMVpnEditor *iface, NMConnection *connection, GError **error)
         g_free(auth_type);
     }
 
-    if (priv->ppp)
-        g_hash_table_foreach(priv->ppp, copy_hash_pair, s_vpn);
-
-    if (priv->ipsec)
-        g_hash_table_foreach(priv->ipsec, copy_hash_pair, s_vpn);
-
     /* Default to agent-owned secrets for new connections */
     if (priv->new_connection) {
         if (nm_setting_vpn_get_secret(s_vpn, NM_L2TP_KEY_PASSWORD)) {
@@ -731,7 +736,27 @@ update_connection(NMVpnEditor *iface, NMConnection *connection, GError **error)
                                         NM_SETTING_SECRET_FLAG_AGENT_OWNED,
                                         NULL);
         }
+
+        if (nm_setting_vpn_get_secret(s_vpn, NM_L2TP_KEY_IPSEC_PSK)) {
+            nm_setting_set_secret_flags(NM_SETTING(s_vpn),
+                                        NM_L2TP_KEY_PASSWORD,
+                                        NM_SETTING_SECRET_FLAG_AGENT_OWNED,
+                                        NULL);
+        }
+
+        if (nm_setting_vpn_get_secret(s_vpn, NM_L2TP_KEY_USER_CERTPASS)) {
+            nm_setting_set_secret_flags(NM_SETTING(s_vpn),
+                                        NM_L2TP_KEY_MACHINE_CERTPASS,
+                                        NM_SETTING_SECRET_FLAG_AGENT_OWNED,
+                                        NULL);
+        }
     }
+
+    if (priv->ppp)
+        g_hash_table_foreach(priv->ppp, copy_hash_pair, s_vpn);
+
+    if (priv->ipsec)
+        g_hash_table_foreach(priv->ipsec, copy_hash_pair, s_vpn);
 
     widget = GTK_WIDGET(gtk_builder_get_object(priv->builder, "ephemeral_checkbutton"));
     if (gtk_check_button_get_active(GTK_CHECK_BUTTON(widget)))
