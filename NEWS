@@ -1,4 +1,17 @@
 ==========================================================
+NetworkManager-l2tp-1.20.18
+Overview of changes since NetworkManager-l2tp-1.20.16
+==========================================================
+
+Changes:
+* validation of properties fix.
+* cinnamon-control-center compatibilty fix.
+* The starting message for nm-l2tp-service, which includes
+  the version number, is now visible in journalctl output
+  even when not in debug mode.
+* Fix autoconf 2.69 syntax error for configure.ac.
+
+==========================================================
 NetworkManager-l2tp-1.20.16
 Overview of changes since NetworkManager-l2tp-1.20.14
 ==========================================================
