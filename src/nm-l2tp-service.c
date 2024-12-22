@@ -1507,8 +1507,6 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         sys = 0;
     }
 
-    /* spawn ipsec script asynchronously as it sometimes doesn't exit */
-    pid_ipsec_up = 0;
     if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
         require_ipsec_auto = require_libreswan_ipsec_auto(priv->ipsec_binary_path);
         if (require_ipsec_auto) {
@@ -1532,25 +1530,28 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         }
         g_message("%s", cmdbuf);
         sys = system(cmdbuf);
-    }
-    if (!sys) {
-       if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN && require_ipsec_auto) {
-            argv[0] = priv->ipsec_binary_path;
-            argv[1] = "auto";
-            argv[2] = "--up";
-            argv[3] = priv->uuid;
-            argv[4] = NULL;
-            g_message("%s %s %s %s",argv[0], argv[1], argv[2], argv[3]);
-        } else { /* libreswan >= 5.0 and strongswan */
-            argv[0] = priv->ipsec_binary_path;
-            argv[1] = "up";
-            argv[2] = priv->uuid;
-            argv[3] = NULL;
-            argv[4] = NULL;
-            g_message("%s %s %s",argv[0], argv[1], argv[2]);
+        if (sys) {
+            return nm_l2tp_ipsec_error(error, _("Could not add ipsec connection."));
         }
     }
 
+    /* spawn ipsec script asynchronously as it sometimes doesn't exit */
+    pid_ipsec_up = 0;
+    if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN && require_ipsec_auto) {
+        argv[0] = priv->ipsec_binary_path;
+        argv[1] = "auto";
+        argv[2] = "--up";
+        argv[3] = priv->uuid;
+        argv[4] = NULL;
+        g_message("%s %s %s %s",argv[0], argv[1], argv[2], argv[3]);
+    } else { /* libreswan >= 5.0 and strongswan */
+        argv[0] = priv->ipsec_binary_path;
+        argv[1] = "up";
+        argv[2] = priv->uuid;
+        argv[3] = NULL;
+        argv[4] = NULL;
+        g_message("%s %s %s",argv[0], argv[1], argv[2]);
+    }
     if (!g_spawn_async(NULL,
                        argv,
                        NULL,
