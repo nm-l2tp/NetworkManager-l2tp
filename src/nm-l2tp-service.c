@@ -1444,6 +1444,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
 
     if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
         snprintf(cmdbuf, sizeof(cmdbuf), "%s status > /dev/null", priv->ipsec_binary_path);
+        g_message(cmdbuf);
         sys = system(cmdbuf);
         if (sys == 1) {
             snprintf(cmdbuf, sizeof(cmdbuf), "%s start", priv->ipsec_binary_path);
@@ -1453,6 +1454,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
             }
         } else {
             snprintf(cmdbuf, sizeof(cmdbuf), "%s restart", priv->ipsec_binary_path);
+            g_message(cmdbuf);
             sys = system(cmdbuf);
             if (sys) {
                 return nm_l2tp_ipsec_error(error, _("Could not restart the ipsec service."));
@@ -1467,6 +1469,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         }
     } else { /* strongswan */
         snprintf(cmdbuf, sizeof(cmdbuf), "%s status > /dev/null", priv->ipsec_binary_path);
+        g_message(cmdbuf);
         sys = system(cmdbuf);
         if (sys == 3) {
             snprintf(cmdbuf,
@@ -1475,6 +1478,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
                      " --conf " RUNSTATEDIR "/nm-l2tp-%s/ipsec.conf --debug",
                      priv->ipsec_binary_path,
                      priv->uuid);
+            g_message(cmdbuf);
             sys = system(cmdbuf);
             if (sys) {
                 return nm_l2tp_ipsec_error(error, _("Could not start the ipsec service."));
@@ -1486,6 +1490,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
                      " --conf " RUNSTATEDIR "/nm-l2tp-%s/ipsec.conf --debug",
                      priv->ipsec_binary_path,
                      priv->uuid);
+            g_message(cmdbuf);
             sys = system(cmdbuf);
             if (sys) {
                 return nm_l2tp_ipsec_error(error, _("Could not restart the ipsec service."));
@@ -1493,6 +1498,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         }
         /* wait for strongSwan to get ready before performing an up operation  */
         snprintf(cmdbuf, sizeof(cmdbuf), "%s rereadsecrets", priv->ipsec_binary_path);
+        g_message(cmdbuf);
         sys = system(cmdbuf);
         for (retry = 0; retry < 5 && sys != 0; retry++) {
             sleep(1);
@@ -1524,6 +1530,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
                      priv->uuid,
                      priv->uuid);
         }
+        g_message(cmdbuf);
         sys = system(cmdbuf);
     }
     if (!sys) {
@@ -1533,11 +1540,14 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
             argv[2] = "--up";
             argv[3] = priv->uuid;
             argv[4] = NULL;
+            g_message("%s %s %s %s",argv[0], argv[1], argv[2], argv[3]);
         } else { /* libreswan >= 5.0 and strongswan */
             argv[0] = priv->ipsec_binary_path;
             argv[1] = "up";
             argv[2] = priv->uuid;
             argv[3] = NULL;
+            argv[4] = NULL;
+            g_message("%s %s %s",argv[0], argv[1], argv[2]);
         }
     }
 
@@ -1630,6 +1640,10 @@ nm_l2tp_start_l2tpd_binary(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **e
         g_ptr_array_add(
             l2tpd_argv,
             (gpointer) g_strdup_printf(RUNSTATEDIR "/nm-l2tp-%s/kl2tpd.conf", priv->uuid));
+        g_message("%s %s %s",
+                  (char *) l2tpd_argv->pdata[0],
+                  (char *) l2tpd_argv->pdata[1],
+                  (char *) l2tpd_argv->pdata[2]);
     } else {
         g_ptr_array_add(l2tpd_argv, (gpointer) g_strdup(l2tpd_binary));
         g_ptr_array_add(l2tpd_argv, (gpointer) g_strdup("-D"));
@@ -1645,6 +1659,15 @@ nm_l2tp_start_l2tpd_binary(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **e
         g_ptr_array_add(
             l2tpd_argv,
             (gpointer) g_strdup_printf(RUNSTATEDIR "/nm-l2tp-%s/xl2tpd.pid", priv->uuid));
+        g_message("%s %s %s %s %s %s %s %s",
+                  (char *) l2tpd_argv->pdata[0],
+                  (char *) l2tpd_argv->pdata[1],
+                  (char *) l2tpd_argv->pdata[2],
+                  (char *) l2tpd_argv->pdata[3],
+                  (char *) l2tpd_argv->pdata[4],
+                  (char *) l2tpd_argv->pdata[5],
+                  (char *) l2tpd_argv->pdata[6],
+                  (char *) l2tpd_argv->pdata[7]);
     }
     g_ptr_array_add(l2tpd_argv, NULL);
 
