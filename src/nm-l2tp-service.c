@@ -592,7 +592,7 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
     const char *           value;
     char *                 filename;
     g_autofree char *      friendly_name = NULL;
-    g_autofree char *      rundir;
+    g_autofree char *      rundir = NULL;
     char                   errorbuf[128];
     gint                   fd = -1;
     gint64                 max_retries;
