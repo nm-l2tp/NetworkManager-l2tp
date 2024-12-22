@@ -1444,7 +1444,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
 
     if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
         snprintf(cmdbuf, sizeof(cmdbuf), "%s status > /dev/null", priv->ipsec_binary_path);
-        g_message(cmdbuf);
+        g_message("%s", cmdbuf);
         sys = system(cmdbuf);
         if (sys == 1) {
             snprintf(cmdbuf, sizeof(cmdbuf), "%s start", priv->ipsec_binary_path);
@@ -1454,7 +1454,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
             }
         } else {
             snprintf(cmdbuf, sizeof(cmdbuf), "%s restart", priv->ipsec_binary_path);
-            g_message(cmdbuf);
+            g_message("%s", cmdbuf);
             sys = system(cmdbuf);
             if (sys) {
                 return nm_l2tp_ipsec_error(error, _("Could not restart the ipsec service."));
@@ -1469,7 +1469,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         }
     } else { /* strongswan */
         snprintf(cmdbuf, sizeof(cmdbuf), "%s status > /dev/null", priv->ipsec_binary_path);
-        g_message(cmdbuf);
+        g_message("%s", cmdbuf);
         sys = system(cmdbuf);
         if (sys == 3) {
             snprintf(cmdbuf,
@@ -1478,7 +1478,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
                      " --conf " RUNSTATEDIR "/nm-l2tp-%s/ipsec.conf --debug",
                      priv->ipsec_binary_path,
                      priv->uuid);
-            g_message(cmdbuf);
+            g_message("%s", cmdbuf);
             sys = system(cmdbuf);
             if (sys) {
                 return nm_l2tp_ipsec_error(error, _("Could not start the ipsec service."));
@@ -1490,7 +1490,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
                      " --conf " RUNSTATEDIR "/nm-l2tp-%s/ipsec.conf --debug",
                      priv->ipsec_binary_path,
                      priv->uuid);
-            g_message(cmdbuf);
+            g_message("%s", cmdbuf);
             sys = system(cmdbuf);
             if (sys) {
                 return nm_l2tp_ipsec_error(error, _("Could not restart the ipsec service."));
@@ -1498,7 +1498,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         }
         /* wait for strongSwan to get ready before performing an up operation  */
         snprintf(cmdbuf, sizeof(cmdbuf), "%s rereadsecrets", priv->ipsec_binary_path);
-        g_message(cmdbuf);
+        g_message("%s", cmdbuf);
         sys = system(cmdbuf);
         for (retry = 0; retry < 5 && sys != 0; retry++) {
             sleep(1);
@@ -1530,7 +1530,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
                      priv->uuid,
                      priv->uuid);
         }
-        g_message(cmdbuf);
+        g_message("%s", cmdbuf);
         sys = system(cmdbuf);
     }
     if (!sys) {
