@@ -31,6 +31,7 @@ stamp-*
 auth-dialog/nm-l2tp-auth-dialog
 appdata/network-manager-l2tp.metainfo.xml
 
+m4/build-to-host.m4
 m4/codeset.m4
 m4/extern-inline.m4
 m4/fcntl-o.m4
