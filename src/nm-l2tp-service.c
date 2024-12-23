@@ -1443,11 +1443,12 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
     gboolean             require_ipsec_auto = FALSE;
 
     if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
-        snprintf(cmdbuf, sizeof(cmdbuf), "%s status > /dev/null", priv->ipsec_binary_path);
+        snprintf(cmdbuf, sizeof(cmdbuf), "%s status > /dev/null 2>&1", priv->ipsec_binary_path);
         g_message("%s", cmdbuf);
         sys = system(cmdbuf);
-        if (sys == 1) {
+        if (sys == 8448) {
             snprintf(cmdbuf, sizeof(cmdbuf), "%s start", priv->ipsec_binary_path);
+            g_message("%s", cmdbuf);
             sys = system(cmdbuf);
             if (sys) {
                 return nm_l2tp_ipsec_error(error, _("Could not start the ipsec service."));
@@ -1461,17 +1462,17 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
             }
         }
         /* wait for Libreswan to get ready before performing an up operation */
-        snprintf(cmdbuf, sizeof(cmdbuf), "%s status > /dev/null", priv->ipsec_binary_path);
+        snprintf(cmdbuf, sizeof(cmdbuf), "%s status > /dev/null 2>&1", priv->ipsec_binary_path);
         sys = system(cmdbuf);
         for (retry = 0; retry < 5 && sys != 0; retry++) {
             sleep(1);
             sys = system(cmdbuf);
         }
     } else { /* strongswan */
-        snprintf(cmdbuf, sizeof(cmdbuf), "%s status > /dev/null", priv->ipsec_binary_path);
+        snprintf(cmdbuf, sizeof(cmdbuf), "%s status > /dev/null 2>&1", priv->ipsec_binary_path);
         g_message("%s", cmdbuf);
         sys = system(cmdbuf);
-        if (sys == 3) {
+        if (sys == 768) {
             snprintf(cmdbuf,
                      sizeof(cmdbuf),
                      "%s start "
@@ -1498,7 +1499,6 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         }
         /* wait for strongSwan to get ready before performing an up operation  */
         snprintf(cmdbuf, sizeof(cmdbuf), "%s rereadsecrets", priv->ipsec_binary_path);
-        g_message("%s", cmdbuf);
         sys = system(cmdbuf);
         for (retry = 0; retry < 5 && sys != 0; retry++) {
             sleep(1);
