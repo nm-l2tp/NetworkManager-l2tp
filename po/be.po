@@ -105,6 +105,8 @@ msgstr ""
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr ""
+"Каб атрымаць доступ да віртуальнай прыватнай сеткі «%s», патрабуецца "
+"аўтэнтыфікацыя."
 
 #: properties/import-export.c:161 properties/import-export.c:409
 #, c-format
@@ -581,19 +583,19 @@ msgstr ""
 
 #: properties/nm-l2tp-editor-plugin.c:18
 msgid "Compatible with Microsoft and other L2TP VPN servers."
-msgstr ""
+msgstr "Сумяшчальны з серверамі Microsoft і іншымі серверамі L2TP VPN."
 
 #: properties/ppp-dialog.c:176
 msgid "All Available (Default)"
-msgstr ""
+msgstr "Усе даступныя (прадвызначана)"
 
 #: properties/ppp-dialog.c:180
 msgid "128-bit (most secure)"
-msgstr ""
+msgstr "128-біт (найбольш бяспечнае)"
 
 #: properties/ppp-dialog.c:189
 msgid "40-bit (less secure)"
-msgstr ""
+msgstr "40-біт (найменш бяспечнае)"
 
 #: properties/ppp-dialog.c:295
 msgid "PAP"
@@ -781,26 +783,26 @@ msgstr ""
 #: shared/nm-utils/nm-vpn-plugin-utils.c:53
 #, c-format
 msgid "unable to get editor plugin name: %s"
-msgstr ""
+msgstr "немагчыма атрымаць назву ўбудовы рэдактара: %s"
 
 #: shared/nm-utils/nm-vpn-plugin-utils.c:90
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr ""
+msgstr "адсутнічае файл убудовы «%s»"
 
 #: shared/nm-utils/nm-vpn-plugin-utils.c:97
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr ""
+msgstr "немагчыма загрузіць убудову рэдактара: %s"
 
 #: shared/nm-utils/nm-vpn-plugin-utils.c:107
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr ""
+msgstr "немагчыма загрузіць фабрыку %s з убудовы: %s"
 
 #: shared/nm-utils/nm-vpn-plugin-utils.c:130
 msgid "unknown error creating editor instance"
-msgstr ""
+msgstr "невядомая памылка падчас стварэння экзэмпляра рэдактара"
 
 #: src/nm-l2tp-service.c:306
 #, c-format
@@ -897,11 +899,11 @@ msgstr ""
 
 #: src/nm-l2tp-service.c:1773
 msgid "Missing VPN username."
-msgstr ""
+msgstr "Адсутнічае імя карыстальніка VPN."
 
 #: src/nm-l2tp-service.c:1782
 msgid "Missing or invalid VPN password."
-msgstr ""
+msgstr "Пароль VPN адсутнічае або памылковы."
 
 #: src/nm-l2tp-service.c:1887
 msgid "couldn't convert L2TP VPN gateway IP address."
@@ -945,7 +947,7 @@ msgstr ""
 
 #: src/nm-l2tp-service.c:2015
 msgid "Invalid or missing L2TP gateway."
-msgstr ""
+msgstr "Шлюз L2TP памылковы або адсутнічае."
 
 #: src/nm-l2tp-service.c:2394
 msgid "Don't quit when VPN connection terminates"
@@ -958,7 +960,7 @@ msgstr ""
 
 #: src/nm-l2tp-service.c:2408
 msgid "D-Bus name to use for this instance"
-msgstr ""
+msgstr "Назва D-Bus для выкарыстання ў гэтым экзэмпляры"
 
 #: src/nm-l2tp-service.c:2427
 msgid ""

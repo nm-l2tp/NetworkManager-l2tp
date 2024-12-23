@@ -600,7 +600,7 @@ msgstr ""
 
 #: properties/nm-l2tp-editor.c:800
 msgid "could not create l2tp object"
-msgstr ""
+msgstr "No se pudo crear el objeto l2tp"
 
 #: properties/nm-l2tp-editor.c:819
 msgid "could not load UI widget"

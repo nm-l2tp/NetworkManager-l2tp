@@ -600,7 +600,7 @@ msgstr ""
 
 #: properties/nm-l2tp-editor.c:819
 msgid "could not load UI widget"
-msgstr ""
+msgstr "Gradnika uporabniškega vmesnika ni bilo mogoče naložiti"
 
 #: properties/nm-l2tp-editor-plugin.c:17
 msgid "Layer 2 Tunneling Protocol (L2TP)"

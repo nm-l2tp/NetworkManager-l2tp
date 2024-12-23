@@ -592,7 +592,7 @@ msgstr ""
 
 #: properties/nm-l2tp-editor.c:800
 msgid "could not create l2tp object"
-msgstr ""
+msgstr "αδυναμία δημιουργίας αντικειμένου l2tp"
 
 #: properties/nm-l2tp-editor.c:819
 msgid "could not load UI widget"

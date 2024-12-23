@@ -597,7 +597,7 @@ msgstr ""
 
 #: properties/nm-l2tp-editor.c:800
 msgid "could not create l2tp object"
-msgstr ""
+msgstr "не могу да направим л2тп објекат"
 
 #: properties/nm-l2tp-editor.c:819
 msgid "could not load UI widget"
@@ -609,7 +609,7 @@ msgstr ""
 
 #: properties/nm-l2tp-editor-plugin.c:18
 msgid "Compatible with Microsoft and other L2TP VPN servers."
-msgstr "Сагласно са Мајкрософтовим и другим ППТП ВПН серверима."
+msgstr "Сагласно са Мајкрософтовим и другим Л2ТП ВПН серверима."
 
 #: properties/ppp-dialog.c:176
 msgid "All Available (Default)"
@@ -967,7 +967,7 @@ msgstr ""
 
 #: src/nm-l2tp-service.c:2015
 msgid "Invalid or missing L2TP gateway."
-msgstr "Неисправан или недостаје ППТП мрежни пролаз."
+msgstr "Неисправан или недостаје Л2ТП мрежни пролаз."
 
 #: src/nm-l2tp-service.c:2394
 msgid "Don't quit when VPN connection terminates"
