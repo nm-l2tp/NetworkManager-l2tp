@@ -70,6 +70,7 @@ typedef enum { PASSWORD_AUTH, TLS_AUTH, PSK_AUTH } NML2tpAuthType;
 typedef struct {
     GPid              pid_l2tpd;
     gboolean          ipsec_up;
+    gboolean          libreswan_5_or_later;
     guint32           ppp_timeout_handler;
     NMConnection *    connection;
     NMDBusL2tpPpp *   dbus_skeleton;
@@ -975,7 +976,9 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
             write_config_option(fd, "  rightrsasigkey=%%cert\n");
         }
 
-        write_config_option(fd, "  keyingtries=%%forever\n");
+        if (!priv->libreswan_5_or_later) {
+            write_config_option(fd, "  keyingtries=%%forever\n");
+        }
 
         use_ikev2 = FALSE;
         value     = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_IPSEC_IKEV2);
@@ -1031,13 +1034,13 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
             write_config_option(fd, "  compress=%s\n", value);
 
         if (use_ikev2) {
-            if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
+            if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN && !priv->libreswan_5_or_later) {
                 write_config_option(fd, "  ikev2=yes\n");
             } else {
                 write_config_option(fd, "  keyexchange=ikev2\n");
             }
         } else {
-            if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
+            if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN && !priv->libreswan_5_or_later) {
                 write_config_option(fd, "  ikev2=no\n");
             } else {
                 write_config_option(fd, "  keyexchange=ikev1\n");
@@ -1440,7 +1443,6 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
     gchar *              argv[5];
     GPid                 pid_ipsec_up;
     pid_t                wpid;
-    gboolean             require_ipsec_auto = FALSE;
 
     if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
         snprintf(cmdbuf, sizeof(cmdbuf), "%s status > /dev/null 2>&1", priv->ipsec_binary_path);
@@ -1508,8 +1510,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
     }
 
     if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
-        require_ipsec_auto = require_libreswan_ipsec_auto(priv->ipsec_binary_path);
-        if (require_ipsec_auto) {
+        if (!priv->libreswan_5_or_later) {
             snprintf(cmdbuf,
                      sizeof(cmdbuf),
                      "%s auto"
@@ -1537,7 +1538,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
 
     /* spawn ipsec script asynchronously as it sometimes doesn't exit */
     pid_ipsec_up = 0;
-    if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN && require_ipsec_auto) {
+    if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN && !priv->libreswan_5_or_later) {
         argv[0] = priv->ipsec_binary_path;
         argv[1] = "auto";
         argv[2] = "--up";
@@ -1992,6 +1993,8 @@ real_connect(NMVpnServicePlugin *plugin, NMConnection *connection, GError **erro
             return nm_l2tp_ipsec_error(error, _("Neither Libreswan nor strongSwan were found."));
         }
     }
+
+    priv->libreswan_5_or_later = libreswan_5_or_later(priv->ipsec_binary_path);
 
     priv->l2tp_daemon = NM_L2TP_L2TP_DAEMON_UNKNOWN;
     nm_find_l2tpd(&(priv->l2tp_daemon));

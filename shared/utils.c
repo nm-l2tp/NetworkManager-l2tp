@@ -3,7 +3,7 @@
  * Dan Williams <dcbw@redhat.com>
  *
  * (C) Copyright 2010 Red Hat, Inc.
- * (C) Copyright 2019 Douglas Kosovic <doug@uq.edu.au>
+ * (C) Copyright 2024 Douglas Kosovic <doug@uq.edu.au>
  */
 
 #include "nm-default.h"
@@ -38,7 +38,7 @@ check_ipsec_daemon(const char *path)
 
 
 gboolean
-require_libreswan_ipsec_auto(const char *path)
+libreswan_5_or_later(const char *path)
 {
     const char *     argv[] = {path, "--help", NULL};
     g_autofree char *output = NULL;
@@ -50,10 +50,11 @@ require_libreswan_ipsec_auto(const char *path)
         if (!output)
             return FALSE;
 
+        /* libreswan 5.0 and later do not have tha auto command */
         if (strstr(output, "\tauto\t") != NULL || strstr(output, "\tauto\n") != NULL)
-            return TRUE;
+            return FALSE;
     }
-    return FALSE;
+    return TRUE;
 }
 
 const char *
