@@ -1,11 +1,32 @@
 ==========================================================
+NetworkManager-l2tp-1.20.20
+Overview of changes since NetworkManager-l2tp-1.20.18
+==========================================================
+
+Changes:
+* ipsec, xl2tpd & kl2tpd command-line debugging output
+  added.
+* Fixes for gcc -Werror=format-security errors.
+* Silence gcc -Wmaybe-uninitialized warning.
+* No longer ignore libreswan failed to add connection
+  errors, such as:
+    global ikev1-policy does not allow IKEv1 connections.
+* Fix for libreswan 5.x deprecation warnings when using
+  libreswan 5.x:
+  - ikev2=no has been replaced by keyexchange=ikev1.
+  - keyingtries=0 ignored, UP connection will attempt
+    to establish until marked DOWN.
+* Merge translations from from NetworkManager-openvpn and
+  NetworkManager-pptp.
+
+==========================================================
 NetworkManager-l2tp-1.20.18
 Overview of changes since NetworkManager-l2tp-1.20.16
 ==========================================================
 
 Changes:
 * validation of properties fix.
-* cinnamon-control-center compatibilty fix.
+* cinnamon-control-center compatibility fix.
 * The starting message for nm-l2tp-service, which includes
   the version number, is now visible in journalctl output
   even when not in debug mode.
