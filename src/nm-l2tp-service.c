@@ -730,7 +730,7 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
             }
 
             filename = g_strdup_printf("%s/ipsec.nm-l2tp.secrets", ipsec_conf_dir);
-            fd       = open(filename, O_RDWR | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+            fd       = open(filename, O_RDWR | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP);
             g_free(filename);
             if (fd == -1) {
                 snprintf(errorbuf,
