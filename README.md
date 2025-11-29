@@ -236,6 +236,12 @@ failed to add IKEv1 connection: global ikev1-policy does not allow IKEv1 connect
 To re-enable IKEv1, uncomment or add `ikev1-policy=accept` to the
 `config setup` section of `/etc/ipsec.conf`
 
+With Libreswan >= 5.0, the re-enabling of IKEv1 can be achieved by issuing:
+
+```
+sudo sed -e 's/#ikev1-policy=accept/ikev1-policy=accept/' -i /etc/ipsec.conf
+```
+
 ## Issue with blacklisting of L2TP kernel modules
 
 go-l2tp's kl2tpd requires `l2tp_ppp` and `l2tp_netlink` kernel modules which
