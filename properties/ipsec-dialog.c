@@ -791,12 +791,12 @@ ipsec_dialog_new_hash_from_dialog(GtkWidget *dialog, GError **error)
 
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "ipsec_psk_entry"));
     value  = gtk_editable_get_text(GTK_EDITABLE(widget));
-    if (value && *value) {
+    pw_flags = nma_utils_menu_to_secret_flags(widget);
+    g_hash_table_insert(hash,
+                        g_strdup(NM_L2TP_KEY_IPSEC_PSK "-flags"),
+                        g_strdup_printf("%d", pw_flags));
+    if (value && *value && (pw_flags == NM_SETTING_SECRET_FLAG_NONE || pw_flags == NM_SETTING_SECRET_FLAG_AGENT_OWNED)) {
         g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_PSK), g_strdup(value));
-        pw_flags = nma_utils_menu_to_secret_flags(widget);
-        g_hash_table_insert(hash,
-                            g_strdup(NM_L2TP_KEY_IPSEC_PSK "-flags"),
-                            g_strdup_printf("%d", pw_flags));
     }
 
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "machine_ca_chooser"));
@@ -815,12 +815,12 @@ ipsec_dialog_new_hash_from_dialog(GtkWidget *dialog, GError **error)
         g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_MACHINE_KEY), g_strdup(value));
     }
     value  = nma_cert_chooser_get_key_password(NMA_CERT_CHOOSER(widget));
-    if (value && *value) {
+    pw_flags = nma_cert_chooser_get_key_password_flags(NMA_CERT_CHOOSER(widget));
+    g_hash_table_insert(hash,
+                        g_strdup(NM_L2TP_KEY_MACHINE_CERTPASS "-flags"),
+                        g_strdup_printf("%d", pw_flags));
+    if (value && *value && (pw_flags == NM_SETTING_SECRET_FLAG_NONE || pw_flags == NM_SETTING_SECRET_FLAG_AGENT_OWNED)) {
         g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_MACHINE_CERTPASS), g_strdup(value));
-        pw_flags = nma_cert_chooser_get_key_password_flags(NMA_CERT_CHOOSER(widget));
-        g_hash_table_insert(hash,
-                            g_strdup(NM_L2TP_KEY_MACHINE_CERTPASS "-flags"),
-                            g_strdup_printf("%d", pw_flags));
     }
 
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "ipsec_phase1_entry"));
