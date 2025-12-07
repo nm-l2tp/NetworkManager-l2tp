@@ -190,14 +190,14 @@ eui_finish(const char *vpn_name,
                            existing_psk ? existing_psk : "",
                            _("Pre-shared key (PSK)"),
                            TRUE,
-                           need_psk && allow_interaction);
+                           need_psk && allow_interaction && existing_psk == NULL);
 
     keyfile_add_entry_info(keyfile,
                            NM_L2TP_KEY_MACHINE_CERTPASS,
                            existing_machine_certpass ? existing_machine_certpass : "",
                            _("Machine Certificate password"),
                            TRUE,
-                           need_machine_certpass && allow_interaction);
+                           need_machine_certpass && allow_interaction && existing_machine_certpass == NULL);
 
     keyfile_print_stdout(keyfile);
     g_key_file_unref(keyfile);
