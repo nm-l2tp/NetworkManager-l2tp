@@ -21,6 +21,7 @@ typedef struct _L2tpPluginUiClass L2tpPluginUiClass;
 
 struct _L2tpPluginUi {
     GObject parent;
+    char *module_path;
 };
 
 struct _L2tpPluginUiClass {
