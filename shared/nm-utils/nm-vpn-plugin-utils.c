@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: LGPL-2.1-or-later */
 /*
- * Copyright (C) 2016,2018 Red Hat, Inc.
+ * Copyright 2016,2018,2024 Red Hat, Inc.
  */
 
 #include "nm-default.h"
@@ -11,58 +11,84 @@
 
 /*****************************************************************************/
 
+char *
+nm_vpn_plugin_utils_get_editor_module_path(const char *module_name, GError **error)
+{
+    gs_free char *module_path = NULL;
+    gs_free char *dirname     = NULL;
+    Dl_info       plugin_info;
+
+    g_return_val_if_fail(module_name, NULL);
+    g_return_val_if_fail(!error || !*error, NULL);
+
+    /*
+     * Look for the editor from the same directory this plugin is in.
+     * Ideally, we'd get our .so name from the NMVpnEditorPlugin if it
+     * would just have a property with it...
+     */
+    if (!dladdr(nm_vpn_plugin_utils_load_editor, &plugin_info)) {
+        /* Really a "can not happen" scenario. */
+        g_set_error(error,
+                    NM_VPN_PLUGIN_ERROR,
+                    NM_VPN_PLUGIN_ERROR_FAILED,
+                    _("unable to get editor plugin name: %s"),
+                    dlerror());
+    }
+
+    dirname     = g_path_get_dirname(plugin_info.dli_fname);
+    module_path = g_build_filename(dirname, module_name, NULL);
+
+    if (!g_file_test(module_path, G_FILE_TEST_EXISTS)) {
+        g_set_error(error,
+                    G_FILE_ERROR,
+                    G_FILE_ERROR_NOENT,
+                    _("missing plugin file \"%s\""),
+                    module_path);
+        return NULL;
+    }
+
+    return g_steal_pointer(&module_path);
+}
+
 NMVpnEditor *
-nm_vpn_plugin_utils_load_editor(const char *                  module_name,
+nm_vpn_plugin_utils_load_editor(const char *                  module_path,
                                 const char *                  factory_name,
                                 NMVpnPluginUtilsEditorFactory editor_factory,
                                 NMVpnEditorPlugin *           editor_plugin,
                                 NMConnection *                connection,
                                 gpointer                      user_data,
                                 GError **                     error)
-
 {
+    gs_free char *compat_module_path = NULL;
     static struct {
         gpointer factory;
         void *   dl_module;
-        char *   module_name;
+        char *   module_path;
         char *   factory_name;
     } cached = {0};
     NMVpnEditor * editor;
-    gs_free char *module_path = NULL;
-    gs_free char *dirname     = NULL;
-    Dl_info       plugin_info;
 
-    g_return_val_if_fail(module_name, NULL);
+    g_return_val_if_fail(module_path, NULL);
     g_return_val_if_fail(factory_name && factory_name[0], NULL);
     g_return_val_if_fail(editor_factory, NULL);
     g_return_val_if_fail(NM_IS_VPN_EDITOR_PLUGIN(editor_plugin), NULL);
     g_return_val_if_fail(NM_IS_CONNECTION(connection), NULL);
     g_return_val_if_fail(!error || !*error, NULL);
 
-    if (!g_path_is_absolute(module_name)) {
-        /*
-         * Load an editor from the same directory this plugin is in.
-         * Ideally, we'd get our .so name from the NMVpnEditorPlugin if it
-         * would just have a property with it...
-         */
-        if (!dladdr(nm_vpn_plugin_utils_load_editor, &plugin_info)) {
-            /* Really a "can not happen" scenario. */
-            g_set_error(error,
-                        NM_VPN_PLUGIN_ERROR,
-                        NM_VPN_PLUGIN_ERROR_FAILED,
-                        _("unable to get editor plugin name: %s"),
-                        dlerror());
-        }
-
-        dirname     = g_path_get_dirname(plugin_info.dli_fname);
-        module_path = g_build_filename(dirname, module_name, NULL);
-    } else {
-        module_path = g_strdup(module_name);
+    if (!g_path_is_absolute(module_path)) {
+        /* This presumably means the VPN plugin factory() didn't verify that the plugin is there.
+         * Now it might be too late to do so. */
+        g_warning("VPN plugin bug: load_editor() argument not an absolute path. Continuing...");
+        compat_module_path = nm_vpn_plugin_utils_get_editor_module_path(module_path, error);
+        if (compat_module_path == NULL)
+            return NULL;
+        else
+            module_path = compat_module_path;
     }
 
-    /* we really expect this function to be called with unchanging @module_name
+    /* we really expect this function to be called with unchanging @module_path
      * and @factory_name. And we only want to load the module once, hence it would
-     * be more complicated to accept changing @module_name/@factory_name arguments.
+     * be more complicated to accept changing @module_path/@factory_name arguments.
      *
      * The reason for only loading once is that due to glib types, we cannot create a
      * certain type-name more then once, so loading the same module or another version
@@ -70,12 +96,12 @@ nm_vpn_plugin_utils_load_editor(const char *                  module_name,
      * name.
      *
      * Only support loading once, any future calls will reuse the handle. To simplify
-     * that, we enforce that the @factory_name and @module_name is the same. */
+     * that, we enforce that the @factory_name and @module_path is the same. */
     if (cached.factory) {
         g_return_val_if_fail(cached.dl_module, NULL);
         g_return_val_if_fail(cached.factory_name && nm_streq0(cached.factory_name, factory_name),
                              NULL);
-        g_return_val_if_fail(cached.module_name && nm_streq0(cached.module_name, module_name),
+        g_return_val_if_fail(cached.module_path && nm_streq0(cached.module_path, module_path),
                              NULL);
     } else {
         gpointer factory;
@@ -83,14 +109,6 @@ nm_vpn_plugin_utils_load_editor(const char *                  module_name,
 
         dl_module = dlopen(module_path, RTLD_LAZY | RTLD_LOCAL);
         if (!dl_module) {
-            if (!g_file_test(module_path, G_FILE_TEST_EXISTS)) {
-                g_set_error(error,
-                            G_FILE_ERROR,
-                            G_FILE_ERROR_NOENT,
-                            _("missing plugin file \"%s\""),
-                            module_path);
-                return NULL;
-            }
             g_set_error(error,
                         NM_VPN_PLUGIN_ERROR,
                         NM_VPN_PLUGIN_ERROR_FAILED,
@@ -117,7 +135,7 @@ nm_vpn_plugin_utils_load_editor(const char *                  module_name,
          * Thus we just leak the dl_module handle indefinitely. */
         cached.factory      = factory;
         cached.dl_module    = dl_module;
-        cached.module_name  = g_strdup(module_name);
+        cached.module_path  = g_strdup(module_path);
         cached.factory_name = g_strdup(factory_name);
     }
 
