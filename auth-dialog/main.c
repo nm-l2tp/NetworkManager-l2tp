@@ -501,6 +501,7 @@ main(int argc, char *argv[])
         {"external-ui-mode", 0, 0, G_OPTION_ARG_NONE, &external_ui_mode, "External UI mode", NULL},
         {NULL}};
 
+    setlocale (LC_ALL, "");
     bindtextdomain(GETTEXT_PACKAGE, NULL);
     bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
     textdomain(GETTEXT_PACKAGE);
