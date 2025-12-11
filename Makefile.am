@@ -280,6 +280,22 @@ auth_dialog_nm_l2tp_auth_dialog_SOURCES = \
 	shared/nm-utils/nm-secret-utils.c \
 	shared/nm-utils/nm-secret-utils.h \
 	auth-dialog/main.c
+if WITH_GTK4
+auth_dialog_nm_l2tp_auth_dialog_CFLAGS = \
+	$(GLIB_CFLAGS) \
+	$(GTK4_CFLAGS) \
+	$(LIBNM_CFLAGS) \
+	$(LIBNMA_GTK4_CFLAGS) \
+	$(LIBSECRET_CFLAGS) \
+	$(OPENSSL_CFLAGS)
+auth_dialog_nm_l2tp_auth_dialog_LDADD = \
+	$(GLIB_LIBS) \
+	$(GTK4_LIBS) \
+	$(LIBNM_LIBS) \
+	$(LIBNMA_GTK4_LIBS) \
+	$(LIBSECRET_LIBS) \
+	$(OPENSSL_LIBS)
+else
 auth_dialog_nm_l2tp_auth_dialog_CFLAGS = \
 	$(GLIB_CFLAGS) \
 	$(GTK_CFLAGS) \
@@ -287,9 +303,6 @@ auth_dialog_nm_l2tp_auth_dialog_CFLAGS = \
 	$(LIBNMA_CFLAGS) \
 	$(LIBSECRET_CFLAGS) \
 	$(OPENSSL_CFLAGS)
-auth_dialog_nm_l2tp_auth_dialog_CPPFLAGS = \
-	-DNETWORKMANAGER_COMPILATION=NM_NETWORKMANAGER_COMPILATION_DEFAULT \
-	-I$(top_srcdir)/shared
 auth_dialog_nm_l2tp_auth_dialog_LDADD = \
 	$(GLIB_LIBS) \
 	$(GTK_LIBS) \
@@ -297,6 +310,10 @@ auth_dialog_nm_l2tp_auth_dialog_LDADD = \
 	$(LIBNMA_LIBS) \
 	$(LIBSECRET_LIBS) \
 	$(OPENSSL_LIBS)
+endif
+auth_dialog_nm_l2tp_auth_dialog_CPPFLAGS = \
+	-DNETWORKMANAGER_COMPILATION=NM_NETWORKMANAGER_COMPILATION_DEFAULT \
+	-I$(top_srcdir)/shared
 
 ###############################################################################
 
