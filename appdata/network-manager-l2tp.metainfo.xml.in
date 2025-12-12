@@ -2,7 +2,7 @@
 <!-- Copyright Lubomir Rintel 2016 -->
 <component type="addon">
   <id>network-manager-l2tp</id>
-  <project_license>GPL-2.0+</project_license>
+  <project_license>GPL-2.0-or-later</project_license>
   <metadata_license>CC0-1.0</metadata_license>
   <extends>nm-connection-editor.desktop</extends>
   <extends>org.gnome.Settings.desktop</extends>
@@ -29,12 +29,12 @@
       <image width="800" height="608">https://raw.githubusercontent.com/nm-l2tp/NetworkManager-l2tp/1.20.20/appdata/l2tp.png</image>
     </screenshot>
 
-    <screenshot type="default">
+    <screenshot>
       <caption>The IPsec options dialog</caption>
       <image width="800" height="595">https://raw.githubusercontent.com/nm-l2tp/NetworkManager-l2tp/1.20.20/appdata/l2tp-ipsec.png</image>
     </screenshot>
 
-    <screenshot type="default">
+    <screenshot>
       <caption>The PPP options dialog</caption>
       <image width="800" height="738">https://raw.githubusercontent.com/nm-l2tp/NetworkManager-l2tp/1.20.20/appdata/l2tp-ppp.png</image>
     </screenshot>
@@ -44,5 +44,7 @@
   <url type="bugtracker">https://github.com/nm-l2tp/NetworkManager-l2tp/issues</url>
   <update_contact>doug@uq.edu.au</update_contact>
   <translation type="gettext">NetworkManager-l2tp</translation>
-  <developer_name>The NetworkManager-L2TP Developers</developer_name>
+  <developer>
+    <name>The NetworkManager-L2TP Developers</name>
+  </developer>
 </component>
