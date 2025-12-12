@@ -1,4 +1,22 @@
 ==========================================================
+NetworkManager-l2tp-1.20.22
+Overview of changes since NetworkManager-l2tp-1.20.20
+==========================================================
+
+Changes:
+* Add group read permission to /etc/ipsec.d/ipsec.nm-l2tp.secrets.
+  Required when Gentoo strongswan package is built with the "non-root" local
+  USE flag, otherwise charon daemon does not have the privileges to read
+  the ipsec.nm-l2tp.secrets file.
+* Stored PSK is no longer visible in auth-dialog.
+* Stored machine certificate passphrase is no longer visible in auth-dialog.
+* Check the presence of the L2TP editor plugin and provide feedback via the
+  capabilities.
+* Wide character password fix.
+* Port auth-dialog Gtk4
+* Update and improve zh_TW Traditional Chinese locale.
+
+==========================================================
 NetworkManager-l2tp-1.20.20
 Overview of changes since NetworkManager-l2tp-1.20.18
 ==========================================================
