@@ -2,6 +2,7 @@
 name=l2tp
 service=org.freedesktop.NetworkManager.l2tp
 program=@LIBEXECDIR@/nm-l2tp-service
+supports-safe-private-file-access=true
 
 [libnm]
 plugin=@PLUGINDIR@/libnm-vpn-plugin-l2tp.so

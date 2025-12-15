@@ -10,7 +10,7 @@
  * (C) Copyright 2011 Geo Carncross <geocar@gmail.com>
  * (C) Copyright 2012 Sergey Prokhorov <me@seriyps.ru>
  * (C) Copyright 2014 Nathan Dorfman <ndorf@rtfm.net>
- * (C) Copyright 2016 - 2024 Douglas Kosovic <doug@uq.edu.au>
+ * (C) Copyright 2016 - 2025 Douglas Kosovic <doug@uq.edu.au>
  */
 
 #include "nm-default.h"
@@ -76,6 +76,8 @@ typedef struct {
     NMDBusL2tpPpp *   dbus_skeleton;
     char              ipsec_binary_path[256];
     char *            uuid;
+    char *            private_user;
+    GPtrArray *       tmp_file_paths;
     NML2tpAuthType    user_authtype;
     NML2tpAuthType    machine_authtype;
     NML2tpIpsecDaemon ipsec_daemon;
@@ -222,6 +224,37 @@ static ValidProperty valid_secrets[] = {{NM_L2TP_KEY_PASSWORD, G_TYPE_STRING, FA
                                         {NM_L2TP_KEY_MACHINE_CERTPASS, G_TYPE_STRING, FALSE},
                                         {NM_L2TP_KEY_NOSECRET, G_TYPE_STRING, FALSE},
                                         {NULL}};
+
+static const char *
+get_connection_permission_user(NMConnection *connection)
+{
+    NMSettingConnection *s_con;
+    const char *ptype;
+    const char *pitem;
+    const char *pdetail;
+    guint num_perms;
+    guint i;
+
+    s_con = nm_connection_get_setting_connection(connection);
+
+    if (!s_con)
+        return NULL;
+
+    num_perms = nm_setting_connection_get_num_permissions(s_con);
+
+    if (num_perms == 0)
+        return NULL;
+
+    for (i = 0; i < num_perms; i++) {
+        if (!nm_setting_connection_get_permission(s_con, i, &ptype, &pitem, &pdetail))
+            continue;
+
+        if (nm_streq0(ptype, "user"))
+            return pitem;
+    }
+
+    return NULL;
+}
 
 static gboolean
 nm_l2tp_ipsec_error(GError **error, const char *msg)
@@ -684,6 +717,36 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
             tls_key_filename  = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_MACHINE_KEY);
             tls_cert_filename = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_MACHINE_CERT);
             tls_ca_filename   = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_MACHINE_CA);
+
+            if (tls_key_filename) {
+                char *copied_file = nm_utils_copy_cert_as_user(tls_key_filename, priv->private_user, error);
+                if (*error) {
+                   close(fd);
+                   return FALSE;
+                }
+                g_ptr_array_add(priv->tmp_file_paths, copied_file);
+                tls_key_filename = copied_file;
+            }
+
+            if (tls_cert_filename) {
+                char *copied_file = nm_utils_copy_cert_as_user(tls_cert_filename, priv->private_user, error);
+                if (*error) {
+                   close(fd);
+                   return FALSE;
+                }
+                g_ptr_array_add(priv->tmp_file_paths, copied_file);
+                tls_cert_filename = copied_file;
+            }
+
+            if (tls_ca_filename) {
+                char *copied_file = nm_utils_copy_cert_as_user(tls_ca_filename, priv->private_user, error);
+                if (*error) {
+                   close(fd);
+                   return FALSE;
+                }
+                g_ptr_array_add(priv->tmp_file_paths, copied_file);
+                tls_ca_filename = copied_file;
+            }
         }
 
         if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_STRONGSWAN
@@ -739,6 +802,7 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
                          ipsec_conf_dir);
                 return nm_l2tp_ipsec_error(error, errorbuf);
             }
+            g_ptr_array_add(priv->tmp_file_paths, g_strdup(filename));
 
             if (priv->machine_authtype == PSK_AUTH) {
                 value = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_IPSEC_REMOTE_ID);
@@ -867,6 +931,7 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         if (fd == -1) {
             return nm_l2tp_ipsec_error(error, _("Could not write ipsec config"));
         }
+        g_ptr_array_add(priv->tmp_file_paths, g_strdup(filename));
 
         /* IPsec config section */
         write_config_option(fd, "config setup\n");
@@ -1093,6 +1158,7 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         if (fd == -1) {
             return nm_l2tp_ipsec_error(error, _("Could not write xl2tpd config."));
         }
+        g_ptr_array_add(priv->tmp_file_paths, g_strdup(filename));
 
         write_config_option(fd, "[global]\n");
         write_config_option(fd, "access control = yes\n");
@@ -1134,6 +1200,7 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
     if (fd == -1) {
         return nm_l2tp_ipsec_error(error, _("Could not write ppp options."));
     }
+    g_ptr_array_add(priv->tmp_file_paths, g_strdup(filename));
 
     if (_LOGD_enabled())
         write_config_option(fd, "debug\n");
@@ -1221,6 +1288,36 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         tls_cert_filename = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_USER_CERT);
         tls_ca_filename   = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_USER_CA);
 
+        if (tls_key_filename) {
+            char *copied_file = nm_utils_copy_cert_as_user(tls_key_filename, priv->private_user, error);
+            if (*error) {
+                close(fd);
+                return FALSE;
+            }
+            g_ptr_array_add(priv->tmp_file_paths, copied_file);
+            tls_key_filename = copied_file;
+        }
+
+        if (tls_cert_filename) {
+            char *copied_file = nm_utils_copy_cert_as_user(tls_cert_filename, priv->private_user, error);
+            if (*error) {
+                close(fd);
+                return FALSE;
+            }
+            g_ptr_array_add(priv->tmp_file_paths, copied_file);
+            tls_cert_filename = copied_file;
+        }
+
+        if (tls_ca_filename) {
+            char *copied_file = nm_utils_copy_cert_as_user(tls_ca_filename, priv->private_user, error);
+            if (*error) {
+                close(fd);
+                return FALSE;
+            }
+            g_ptr_array_add(priv->tmp_file_paths, copied_file);
+            tls_ca_filename = copied_file;
+        }
+
         tls_key_fileformat = crypto_file_format(tls_key_filename, &tls_need_password, error);
         if (*error) {
             close(fd);
@@ -1237,6 +1334,9 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         unlink(tls_key_out_filename);
         unlink(tls_cert_out_filename);
         unlink(tls_ca_out_filename);
+        g_ptr_array_add(priv->tmp_file_paths, g_strdup(tls_key_out_filename));
+        g_ptr_array_add(priv->tmp_file_paths, g_strdup(tls_cert_out_filename));
+        g_ptr_array_add(priv->tmp_file_paths, g_strdup(tls_ca_out_filename));
         if (tls_key_fileformat == NM_L2TP_CRYPTO_FILE_FORMAT_PKCS12) {
             crypto_pkcs12_to_pem_files(tls_cert_filename,
                                        value,
@@ -1968,9 +2068,15 @@ real_connect(NMVpnServicePlugin *plugin, NMConnection *connection, GError **erro
     const char *         gwaddr;
     const char *         value;
     const char *         uuid;
+    const char *         private_user;
 
     s_vpn = nm_connection_get_setting_vpn(connection);
     g_assert(s_vpn);
+
+    /* Clear any previous tmp file paths */
+    if (priv->tmp_file_paths) {
+        g_ptr_array_set_size(priv->tmp_file_paths, 0);
+    }
 
     value = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_IPSEC_ENABLE);
     _LOGI("ipsec enable flag: %s", value ? value : "(null)");
@@ -2009,6 +2115,14 @@ real_connect(NMVpnServicePlugin *plugin, NMConnection *connection, GError **erro
 
     g_free(priv->uuid);
     priv->uuid = g_strdup(uuid);
+
+    private_user = get_connection_permission_user(priv->connection);
+    if (!(private_user && *private_user)) {
+        return nm_l2tp_ipsec_error(error, _("could not retrieve connection setting's user"));
+    }
+
+    g_free(priv->private_user);
+    priv->private_user = g_strdup(private_user);
 
     gwaddr = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_GATEWAY);
     if (!gwaddr || !strlen(gwaddr)) {
@@ -2148,6 +2262,7 @@ static gboolean
 real_disconnect(NMVpnServicePlugin *plugin, GError **err)
 {
     char *               filename;
+    guint                i;
     NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE(plugin);
 
     if (priv->pid_l2tpd) {
@@ -2179,38 +2294,10 @@ real_disconnect(NMVpnServicePlugin *plugin, GError **err)
     }
 
     if (!gl.debug) {
-        /* Clean up config files */
-        filename = g_strdup_printf(NM_IPSEC_SECRETS_DIR "/ipsec.nm-l2tp.secrets");
-        unlink(filename);
-        g_free(filename);
-
-        filename = g_strdup_printf("/etc/strongswan/ipsec.d/ipsec.nm-l2tp.secrets");
-        unlink(filename);
-        g_free(filename);
-
-        filename = g_strdup_printf(RUNSTATEDIR "/nm-l2tp-%s/kl2tpd.conf", priv->uuid);
-        unlink(filename);
-        g_free(filename);
-
-        filename = g_strdup_printf(RUNSTATEDIR "/nm-l2tp-%s/xl2tpd.conf", priv->uuid);
-        unlink(filename);
-        g_free(filename);
-
-        filename = g_strdup_printf(RUNSTATEDIR "/nm-l2tp-%s/xl2tpd-control", priv->uuid);
-        unlink(filename);
-        g_free(filename);
-
-        filename = g_strdup_printf(RUNSTATEDIR "/nm-l2tp-%s/xl2tpd.pid", priv->uuid);
-        unlink(filename);
-        g_free(filename);
-
-        filename = g_strdup_printf(RUNSTATEDIR "/nm-l2tp-%s/ppp-options", priv->uuid);
-        unlink(filename);
-        g_free(filename);
-
-        filename = g_strdup_printf(RUNSTATEDIR "/nm-l2tp-%s/ipsec.conf", priv->uuid);
-        unlink(filename);
-        g_free(filename);
+        /* Clean up config and certificate files */
+        for (i = 0; i < priv->tmp_file_paths->len; i++) {
+            unlink((const char *) priv->tmp_file_paths->pdata[i]);
+        }
 
         filename = g_strdup_printf(RUNSTATEDIR "/nm-l2tp-%s", priv->uuid);
         rmdir(filename);
@@ -2269,12 +2356,21 @@ dispose(GObject *object)
         priv->saddr = NULL;
     }
 
+    if (priv->tmp_file_paths) {
+        g_ptr_array_free(priv->tmp_file_paths, TRUE);
+        priv->tmp_file_paths = NULL;
+    }
+
     G_OBJECT_CLASS(nm_l2tp_plugin_parent_class)->dispose(object);
 }
 
 static void
 nm_l2tp_plugin_init(NML2tpPlugin *plugin)
-{}
+{
+    NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE(plugin);
+
+    priv->tmp_file_paths = g_ptr_array_new_with_free_func(g_free);
+}
 
 static void
 nm_l2tp_plugin_class_init(NML2tpPluginClass *l2tp_class)
