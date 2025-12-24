@@ -2117,10 +2117,6 @@ real_connect(NMVpnServicePlugin *plugin, NMConnection *connection, GError **erro
     priv->uuid = g_strdup(uuid);
 
     private_user = get_connection_permission_user(priv->connection);
-    if (!(private_user && *private_user)) {
-        return nm_l2tp_ipsec_error(error, _("could not retrieve connection setting's user"));
-    }
-
     g_free(priv->private_user);
     priv->private_user = g_strdup(private_user);
 
