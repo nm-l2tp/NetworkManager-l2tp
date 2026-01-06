@@ -485,6 +485,7 @@ export_ip4(NMSettingIPConfig *s_ip4, GKeyFile *keyfile, GError **error)
     guint32     num_dns;
     guint32     num_dns_searches;
     guint32     num_routes;
+    NMTernary   send_hostname;
     int         i;
 
     str_val = nm_setting_ip_config_get_method(s_ip4);
@@ -562,8 +563,12 @@ export_ip4(NMSettingIPConfig *s_ip4, GKeyFile *keyfile, GError **error)
     bool_val = nm_setting_ip_config_get_ignore_auto_dns(s_ip4);
     g_key_file_set_boolean(keyfile, IP4_SECTION, NM_SETTING_IP_CONFIG_IGNORE_AUTO_DNS, bool_val);
 
-    bool_val = nm_setting_ip_config_get_dhcp_send_hostname(s_ip4);
-    g_key_file_set_boolean(keyfile, IP4_SECTION, NM_SETTING_IP_CONFIG_DHCP_SEND_HOSTNAME, bool_val);
+    send_hostname = nm_setting_ip_config_get_dhcp_send_hostname_v2(s_ip4);
+    bool_val      = (send_hostname != NM_TERNARY_FALSE);
+    g_key_file_set_boolean(keyfile,
+                           IP4_SECTION,
+                           NM_SETTING_IP_CONFIG_DHCP_SEND_HOSTNAME,
+                           bool_val);
 
     bool_val = nm_setting_ip_config_get_never_default(s_ip4);
     g_key_file_set_boolean(keyfile, IP4_SECTION, NM_SETTING_IP_CONFIG_NEVER_DEFAULT, bool_val);
