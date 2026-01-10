@@ -239,7 +239,7 @@ To re-enable IKEv1, uncomment or add `ikev1-policy=accept` to the
 With Libreswan >= 5.0, the re-enabling of IKEv1 can be achieved by issuing:
 
 ```
-sudo sed -e 's/#ikev1-policy=accept/ikev1-policy=accept/' -i /etc/ipsec.conf
+sudo sed -e 's/#ikev1-policy=.*/ikev1-policy=accept/' -i /etc/ipsec.conf
 ```
 
 ## Issue with blacklisting of L2TP kernel modules
