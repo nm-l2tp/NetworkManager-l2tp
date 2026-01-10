@@ -1716,7 +1716,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
             snprintf(cmdbuf, sizeof(cmdbuf), "%s stop", priv->ipsec_binary_path);
             sys = system(cmdbuf);
         }
-        g_message("Could not establish IPsec connection.");
+        return nm_l2tp_ipsec_error(error, _("Could not establish IPsec connection."));
     }
 
     return rc;
