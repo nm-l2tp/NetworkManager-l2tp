@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: NetworkManager-l2tp main\n"
 "Report-Msgid-Bugs-To: https://gitlab.freedesktop.org/NetworkManager/"
 "NetworkManager/issues\n"
-"POT-Creation-Date: 2024-12-23 17:30+1000\n"
+"POT-Creation-Date: 2026-01-10 12:00+1000\n"
 "PO-Revision-Date: 2020-09-06 22:56+0300\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
@@ -69,44 +69,44 @@ msgstr ""
 msgid "The PPP options dialog"
 msgstr ""
 
-#: appdata/network-manager-l2tp.metainfo.xml.in:47
+#: appdata/network-manager-l2tp.metainfo.xml.in:48
 msgid "The NetworkManager-L2TP Developers"
 msgstr ""
 
-#: auth-dialog/main.c:172 auth-dialog/main.c:243
+#: auth-dialog/main.c:177 auth-dialog/main.c:248
 msgid "Authenticate VPN"
 msgstr "Nustatyti tapatybę VPN"
 
-#: auth-dialog/main.c:177 properties/nm-l2tp-dialog.ui:193
+#: auth-dialog/main.c:182 properties/nm-l2tp-dialog.ui:193
 #: properties/nm-l2tp-editor.c:571
 msgid "Password"
 msgstr "Slaptažodis"
 
-#: auth-dialog/main.c:184
+#: auth-dialog/main.c:189
 msgid "User Certificate password"
 msgstr ""
 
-#: auth-dialog/main.c:191 properties/ipsec-dialog.c:544
+#: auth-dialog/main.c:196 properties/ipsec-dialog.c:544
 msgid "Pre-shared key (PSK)"
 msgstr ""
 
-#: auth-dialog/main.c:198
+#: auth-dialog/main.c:203
 msgid "Machine Certificate password"
 msgstr ""
 
-#: auth-dialog/main.c:253
+#: auth-dialog/main.c:258
 msgid "_User Certificate password:"
 msgstr ""
 
-#: auth-dialog/main.c:259
+#: auth-dialog/main.c:264
 msgid "_Pre-shared key (PSK):"
 msgstr ""
 
-#: auth-dialog/main.c:263
+#: auth-dialog/main.c:268
 msgid "_Machine Certificate password:"
 msgstr ""
 
-#: auth-dialog/main.c:552
+#: auth-dialog/main.c:565
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr ""
@@ -168,12 +168,12 @@ msgid ""
 "Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."
 msgstr ""
 
-#: properties/import-export.c:614
+#: properties/import-export.c:619
 #, c-format
 msgid "Missing required property '%s'"
 msgstr "Trūksta būtino parametro „%s“."
 
-#: properties/import-export.c:641
+#: properties/import-export.c:646
 msgid "Couldn't open file for writing."
 msgstr ""
 
@@ -303,8 +303,8 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:794
 msgid ""
-"Optional. A list of proposals for ESP - Quick Mode. The format is “enc-integ,"
-"enc-integ, …”.\n"
+"Optional. A list of proposals for ESP - Quick Mode. The format is “enc-"
+"integ,enc-integ, …”.\n"
 "config: ipsec-esp <proposals>"
 msgstr ""
 
@@ -800,188 +800,192 @@ msgstr ""
 "vertė „%s“, kurios tipas „%s“, yra netinkama arba už galimų ribų savybei "
 "„%s“, kurios tipas „%s“"
 
-#: shared/nm-utils/nm-vpn-plugin-utils.c:53
+#: shared/nm-utils/nm-vpn-plugin-utils.c:34
 #, c-format
 msgid "unable to get editor plugin name: %s"
 msgstr "nepavyksta gauti redaktoriaus įskiepio pavadinimo: %s"
 
-#: shared/nm-utils/nm-vpn-plugin-utils.c:90
+#: shared/nm-utils/nm-vpn-plugin-utils.c:45
 #, c-format
 msgid "missing plugin file \"%s\""
 msgstr "trūksta įskiepio failo „%s“"
 
-#: shared/nm-utils/nm-vpn-plugin-utils.c:97
+#: shared/nm-utils/nm-vpn-plugin-utils.c:115
 #, c-format
 msgid "cannot load editor plugin: %s"
 msgstr "nepavyksta įkelti redaktoriaus įskiepio: %s"
 
-#: shared/nm-utils/nm-vpn-plugin-utils.c:107
+#: shared/nm-utils/nm-vpn-plugin-utils.c:125
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
 msgstr "nepavyksta įkelti gamyklos %s iš įskiepio: %s"
 
-#: shared/nm-utils/nm-vpn-plugin-utils.c:130
+#: shared/nm-utils/nm-vpn-plugin-utils.c:148
 msgid "unknown error creating editor instance"
 msgstr "nežinoma klaida kuriant redaktoriaus egzempliorių"
 
-#: src/nm-l2tp-service.c:306
+#: src/nm-l2tp-service.c:339
 #, c-format
 msgid "invalid gateway '%s'"
 msgstr "netinkamas kelvedys „%s“"
 
-#: src/nm-l2tp-service.c:320
+#: src/nm-l2tp-service.c:353
 #, c-format
 msgid "invalid integer property '%s'"
 msgstr "netinkama skaitinė savybė „%s“"
 
-#: src/nm-l2tp-service.c:330
+#: src/nm-l2tp-service.c:363
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr "netinkama loginė savybė „%s“ (ne taip arba ne)"
 
-#: src/nm-l2tp-service.c:337
+#: src/nm-l2tp-service.c:370
 #, c-format
 msgid "unhandled property '%s' type %s"
 msgstr "neapdorotas savybės „%s“ tipas %s"
 
-#: src/nm-l2tp-service.c:349
+#: src/nm-l2tp-service.c:382
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "savybė „%s“ netinkama arba nepalaikoma"
 
-#: src/nm-l2tp-service.c:367
+#: src/nm-l2tp-service.c:400
 msgid "No VPN configuration options."
 msgstr "Nėra VPN konfigūracijos parametrų."
 
-#: src/nm-l2tp-service.c:387
+#: src/nm-l2tp-service.c:420
 #, c-format
 msgid "Missing required option '%s'."
 msgstr "Trūksta būtino parametro „%s“."
 
-#: src/nm-l2tp-service.c:711
+#: src/nm-l2tp-service.c:774
 #, c-format
 msgid "Could not open %s for writing: %s"
 msgstr ""
 
-#: src/nm-l2tp-service.c:720
+#: src/nm-l2tp-service.c:783
 #, c-format
 msgid "Could not append \"include ipsec.d/ipsec.nm-l2tp.secrets\" to %s"
 msgstr ""
 
-#: src/nm-l2tp-service.c:738
+#: src/nm-l2tp-service.c:801
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr ""
 
-#: src/nm-l2tp-service.c:774
+#: src/nm-l2tp-service.c:838
 msgid "Machine private key file not supplied"
 msgstr ""
 
-#: src/nm-l2tp-service.c:868
+#: src/nm-l2tp-service.c:932
 msgid "Could not write ipsec config"
 msgstr ""
 
-#: src/nm-l2tp-service.c:960
+#: src/nm-l2tp-service.c:1025
 msgid "Machine certificate file not supplied"
 msgstr ""
 
-#: src/nm-l2tp-service.c:1075
+#: src/nm-l2tp-service.c:1140
 msgid "Could not write kl2tpd config."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1094
+#: src/nm-l2tp-service.c:1159
 msgid "Could not write xl2tpd config."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1135
+#: src/nm-l2tp-service.c:1201
 msgid "Could not write ppp options."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1456 src/nm-l2tp-service.c:1487
+#: src/nm-l2tp-service.c:1556 src/nm-l2tp-service.c:1587
 msgid "Could not start the ipsec service."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1463 src/nm-l2tp-service.c:1499
+#: src/nm-l2tp-service.c:1563 src/nm-l2tp-service.c:1599
 msgid "Could not restart the ipsec service."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1535
+#: src/nm-l2tp-service.c:1635
 msgid "Could not add ipsec connection."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1635
+#: src/nm-l2tp-service.c:1719
+msgid "Could not establish IPsec connection."
+msgstr ""
+
+#: src/nm-l2tp-service.c:1735
 msgid "Could not find kl2tpd or xl2tpd binaries."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1755
+#: src/nm-l2tp-service.c:1855
 msgid "Missing or invalid VPN user certificate password."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1773
+#: src/nm-l2tp-service.c:1873
 msgid "Missing VPN username."
 msgstr "Trūksta VPN naudotojo vardo."
 
-#: src/nm-l2tp-service.c:1782
+#: src/nm-l2tp-service.c:1882
 msgid "Missing or invalid VPN password."
 msgstr "Nėra arba netinkamas VPN slaptažodis."
 
-#: src/nm-l2tp-service.c:1887
+#: src/nm-l2tp-service.c:1987
 msgid "couldn't convert L2TP VPN gateway IP address."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1900
+#: src/nm-l2tp-service.c:2000
 msgid "couldn't look up L2TP VPN gateway IP address "
 msgstr ""
 
-#: src/nm-l2tp-service.c:1918
+#: src/nm-l2tp-service.c:2018
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr ""
 
-#: src/nm-l2tp-service.c:1939
+#: src/nm-l2tp-service.c:2039
 msgid "couldn't determine local IP to contact L2TP VPN gateway"
 msgstr ""
 
-#: src/nm-l2tp-service.c:1948
+#: src/nm-l2tp-service.c:2048
 msgid "unable to connect to L2TP VPN gateway"
 msgstr ""
 
-#: src/nm-l2tp-service.c:1954
+#: src/nm-l2tp-service.c:2054
 msgid "failed to get local IP"
 msgstr ""
 
-#: src/nm-l2tp-service.c:1982
+#: src/nm-l2tp-service.c:2088
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 
-#: src/nm-l2tp-service.c:1990
+#: src/nm-l2tp-service.c:2096
 msgid "Openswan is no longer supported, use Libreswan or strongSwan."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1993
+#: src/nm-l2tp-service.c:2099
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
 
-#: src/nm-l2tp-service.c:2007
+#: src/nm-l2tp-service.c:2113
 msgid "could not retrieve connection UUID"
 msgstr ""
 
-#: src/nm-l2tp-service.c:2015
+#: src/nm-l2tp-service.c:2125
 msgid "Invalid or missing L2TP gateway."
 msgstr "Netinkamas arba trūkstamas L2TP tinklų sietuvas."
 
-#: src/nm-l2tp-service.c:2394
+#: src/nm-l2tp-service.c:2486
 msgid "Don't quit when VPN connection terminates"
 msgstr "Neužverti kai VPN ryšys baigiasi"
 
-#: src/nm-l2tp-service.c:2401
+#: src/nm-l2tp-service.c:2493
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Įjungti išsamų derinimo žurnalą (gali parodyti slaptažodžius)"
 
-#: src/nm-l2tp-service.c:2408
+#: src/nm-l2tp-service.c:2500
 msgid "D-Bus name to use for this instance"
 msgstr "D-Bus pavadinimas, kurį naudoti šiam egzemplioriui"
 
-#: src/nm-l2tp-service.c:2427
+#: src/nm-l2tp-service.c:2519
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
