@@ -105,7 +105,7 @@ msgstr ""
 #: auth-dialog/main.c:565
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
-msgstr ""
+msgstr "برای دسترسی به شبکهٔ خصوصی مجازی «%s» نیاز به تایید هویت دارید."
 
 #: properties/import-export.c:161 properties/import-export.c:409
 #, c-format
@@ -897,11 +897,11 @@ msgstr ""
 
 #: src/nm-l2tp-service.c:1873
 msgid "Missing VPN username."
-msgstr ""
+msgstr "نام کاربری وی‌پی‌ان داده نشده."
 
 #: src/nm-l2tp-service.c:1882
 msgid "Missing or invalid VPN password."
-msgstr ""
+msgstr "گذرواژهٔ وی‌پی‌ان داده نشده یا نامعتبر است."
 
 #: src/nm-l2tp-service.c:1987
 msgid "couldn't convert L2TP VPN gateway IP address."

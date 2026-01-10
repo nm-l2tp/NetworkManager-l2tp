@@ -109,6 +109,8 @@ msgstr ""
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr ""
+"Χρειάζεστε πιστοποίηση για να αποκτήσετε πρόσβαση στο Εικονικό Ιδιωτικό "
+"Δίκτυο (VPN) «%s»."
 
 #: properties/import-export.c:161 properties/import-export.c:409
 #, c-format
@@ -764,28 +766,32 @@ msgstr ""
 #: shared/nm-utils/nm-shared-utils.c:1146
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr ""
+msgstr "η κλάση αντικειμένου '%s' δεν έχει ιδιότητα με όνομα '%s'"
 
 #: shared/nm-utils/nm-shared-utils.c:1155
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr ""
+msgstr "η ιδιότητα '%s' της κλάσης αντικειμένου '%s' δεν είναι εγγράψιμη"
 
 #: shared/nm-utils/nm-shared-utils.c:1164
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
+"η ιδιότητα κατασκευής \"%s\" για το αντικείμενο '%s' δεν μπορεί να οριστεί "
+"μετά την κατασκευή"
 
 #: shared/nm-utils/nm-shared-utils.c:1175
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
 msgstr ""
+"το '%s::%s' δεν είναι έγκυρο όνομα ιδιότητας· το '%s' δεν είναι υποτύπος "
+"GObject"
 
 #: shared/nm-utils/nm-shared-utils.c:1188
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
-msgstr ""
+msgstr "αδυναμία ορισμού της ιδιότητας '%s' τύπου '%s' από τιμή τύπου '%s'"
 
 #: shared/nm-utils/nm-shared-utils.c:1200
 #, c-format
@@ -793,30 +799,32 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
+"η τιμή \"%s\" τύπου '%s' είναι άκυρη ή εκτός εύρους για την ιδιότητα '%s' "
+"τύπου '%s'"
 
 #: shared/nm-utils/nm-vpn-plugin-utils.c:34
 #, c-format
 msgid "unable to get editor plugin name: %s"
-msgstr ""
+msgstr "αδυναμία λήψης ονόματος πρόσθετου επεξεργαστή: %s"
 
 #: shared/nm-utils/nm-vpn-plugin-utils.c:45
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr ""
+msgstr "λείπει το αρχείο πρόσθετου \"%s\""
 
 #: shared/nm-utils/nm-vpn-plugin-utils.c:115
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr ""
+msgstr "αδυναμία φόρτωσης πρόσθετου επεξεργαστή: %s"
 
 #: shared/nm-utils/nm-vpn-plugin-utils.c:125
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr ""
+msgstr "αδυναμία φόρτωσης εργοστασίου %s από το πρόσθετο: %s"
 
 #: shared/nm-utils/nm-vpn-plugin-utils.c:148
 msgid "unknown error creating editor instance"
-msgstr ""
+msgstr "άγνωστο σφάλμα κατά τη δημιουργία στιγμιότυπου επεξεργαστή"
 
 #: src/nm-l2tp-service.c:339
 #, c-format
