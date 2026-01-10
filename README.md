@@ -1,7 +1,8 @@
 # NetworkManager-l2tp
 
-NetworkManager-l2tp is a VPN plugin for NetworkManager 1.20 and later which
-provides support for L2TP and L2TP/IPsec (i.e. L2TP over IPsec) connections.
+NetworkManager-l2tp is a VPN plugin for NetworkManager 1.52.2, 1.54.3 or
+1.56.0 and later which provides support for L2TP and L2TP/IPsec (i.e. L2TP
+over IPsec) connections.
 
 For L2TP support, it uses either of the following :
 * kl2tpd from Katalix's go-l2tp project
