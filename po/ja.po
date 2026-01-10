@@ -518,7 +518,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:1559
 msgid "Misc"
-msgstr ""
+msgstr "その他"
 
 #: properties/nm-l2tp-dialog.ui:1579
 msgid "Send PPP _echo packets"
@@ -579,7 +579,7 @@ msgstr ""
 
 #: properties/nm-l2tp-editor.c:819
 msgid "could not load UI widget"
-msgstr ""
+msgstr "UI ウィジェットを読み込めませんでした"
 
 #: properties/nm-l2tp-editor-plugin.c:17
 msgid "Layer 2 Tunneling Protocol (L2TP)"
