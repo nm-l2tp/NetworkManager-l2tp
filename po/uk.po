@@ -849,7 +849,7 @@ msgstr ""
 #: src/nm-l2tp-service.c:382
 #, c-format
 msgid "property '%s' invalid or not supported"
-msgstr ""
+msgstr "властивість «%s» є некоректною або її підтримки не передбачено"
 
 #: src/nm-l2tp-service.c:400
 msgid "No VPN configuration options."
