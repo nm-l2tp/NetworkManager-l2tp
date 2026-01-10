@@ -1,4 +1,19 @@
 ==========================================================
+NetworkManager-l2tp-1.52.0
+Overview of changes since NetworkManager-l2tp-1.20.22
+==========================================================
+
+Changes:
+* Verify file permissions for private connections to
+  prevent unprivileged user from using other user's
+  certs (CVE-2025-9615). Requires NetworkManager 1.52.2,
+  1.54.3 or 1.56.0 and later.
+* Fixes g_dbus_method_invocation_take_error: assertion
+ 'error != NULL' failed warning.
+* Merge translations from NetworkManager-fortisslvpn,
+  NetworkManager-libreswan and NetworkManager-openvpn.
+
+==========================================================
 NetworkManager-l2tp-1.20.22
 Overview of changes since NetworkManager-l2tp-1.20.20
 ==========================================================
