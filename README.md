@@ -21,15 +21,6 @@ For machine authentication it supports either:
 * Pre-shared key (PSK).
 * TLS certificates.
 
-For TLS user certificate support, ppp >= 2.4.9 is required or the EAP-TLS
-patch for pppd needs to be applied to the ppp source code for older versions :
-
-* https://www.nikhef.nl/~janjust/ppp/
-
-The configure script will attempt to determine if pppd EAP-TLS support is
-available and will disable the build time TLS user certificate support if it
-can not be detected.
-
 For details on pre-built packages, known issues and build dependencies,
 please visit the Wiki :
 * https://github.com/nm-l2tp/NetworkManager-l2tp/wiki
