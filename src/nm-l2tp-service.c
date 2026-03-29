@@ -794,15 +794,15 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
 
             filename = g_strdup_printf("%s/ipsec.nm-l2tp.secrets", ipsec_conf_dir);
             fd       = open(filename, O_RDWR | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP);
-            g_free(filename);
             if (fd == -1) {
                 snprintf(errorbuf,
                          sizeof(errorbuf),
                          _("Could not write %s/ipsec.nm-l2tp.secrets"),
                          ipsec_conf_dir);
+                g_free(filename);
                 return nm_l2tp_ipsec_error(error, errorbuf);
             }
-            g_ptr_array_add(priv->tmp_file_paths, g_strdup(filename));
+            g_ptr_array_add(priv->tmp_file_paths, filename);
 
             if (priv->machine_authtype == PSK_AUTH) {
                 value = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_IPSEC_REMOTE_ID);
@@ -927,11 +927,11 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
          **/
         filename = g_strdup_printf("%s/ipsec.conf", rundir);
         fd       = open(filename, O_RDWR | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
-        g_free(filename);
         if (fd == -1) {
+            g_free(filename);
             return nm_l2tp_ipsec_error(error, _("Could not write ipsec config"));
         }
-        g_ptr_array_add(priv->tmp_file_paths, g_strdup(filename));
+        g_ptr_array_add(priv->tmp_file_paths, filename);
 
         /* IPsec config section */
         write_config_option(fd, "config setup\n");
@@ -1153,12 +1153,12 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         /* xl2tpd config */
         filename = g_strdup_printf("%s/xl2tpd.conf", rundir);
         fd = open(filename, O_RDWR | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
-        g_free(filename);
 
         if (fd == -1) {
+            g_free(filename);
             return nm_l2tp_ipsec_error(error, _("Could not write xl2tpd config."));
         }
-        g_ptr_array_add(priv->tmp_file_paths, g_strdup(filename));
+        g_ptr_array_add(priv->tmp_file_paths, filename);
 
         write_config_option(fd, "[global]\n");
         write_config_option(fd, "access control = yes\n");
@@ -1195,12 +1195,12 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
 
     filename = g_strdup_printf("%s/ppp-options", rundir);
     fd       = open(filename, O_RDWR | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
-    g_free(filename);
 
     if (fd == -1) {
+        g_free(filename);
         return nm_l2tp_ipsec_error(error, _("Could not write ppp options."));
     }
-    g_ptr_array_add(priv->tmp_file_paths, g_strdup(filename));
+    g_ptr_array_add(priv->tmp_file_paths, filename);
 
     if (_LOGD_enabled())
         write_config_option(fd, "debug\n");
