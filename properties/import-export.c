@@ -25,13 +25,14 @@
 #define CONN_SECTION "connection"
 #define VPN_SECTION  "vpn"
 #define IP4_SECTION  "ip4"
+#define IP6_SECTION  "ip6"
 
 /*
 [connection]
 name = my-l2tp-connection
 
 [vpn]
-gateway=my.gateway.org (str)
+gateway=vpn.example.org (str)
 user=my_login (str)
 refuse-eap=true (bool)
 refuse-pap=true (bool)
@@ -42,15 +43,25 @@ mru=1200 (int)
 mtu=1200 (int)
 
 ipsec-enabled=true (bool)
-ipsec-gateway-id=192.168.0.1 (str)
+ipsec-gateway-id=vpn.example.org (str)
 ipsec-forceencaps=true (bool)
 
-[ipv4]
+[ip4]
 method = auto (str)
 dns = 192.168.0.1,8.8.8.8 (list)
 dns-search = my_domain1,my_domain2 (list)
 addresses = ???
 routes = 192.168.0.0/24 via 192.168.0.1 metric 1,192.168.1.0/24 via 192.168.0.1 metric 2 (list with custom parser)
+ignore-auto-routes = true (list)
+ignore-auto-dns = true (list)
+???
+
+[ip6]
+method = auto (str)
+dns = 2001:db8::53,2001:4860:4860::8888 (list)
+dns-search = my_domain1,my_domain2 (list)
+addresses = ???
+routes = 2001:db8:1::/64 via 2001:db8::1 metric 1,2001:db8:2::/64 via 2001:db8::1 metric 2 (list with custom parser)
 ignore-auto-routes = true (list)
 ignore-auto-dns = true (list)
 ???
@@ -115,6 +126,17 @@ static VpnImportExportProperty ip4_properties[] = {
     {NM_SETTING_IP_CONFIG_IGNORE_AUTO_ROUTES, G_TYPE_BOOLEAN, FALSE},
     {NM_SETTING_IP_CONFIG_IGNORE_AUTO_DNS, G_TYPE_BOOLEAN, FALSE},
     {NM_SETTING_IP_CONFIG_DHCP_SEND_HOSTNAME, G_TYPE_BOOLEAN, FALSE},
+    {NM_SETTING_IP_CONFIG_NEVER_DEFAULT, G_TYPE_BOOLEAN, FALSE},
+    {NULL, G_TYPE_NONE, FALSE}
+    /* NM_SETTING_IP_CONFIG_DNS */
+    /* NM_SETTING_IP_CONFIG_DNS_SEARCH */
+    /* NM_SETTING_IP_CONFIG_ROUTES */
+};
+
+static VpnImportExportProperty ip6_properties[] = {
+    {NM_SETTING_IP_CONFIG_METHOD, G_TYPE_STRING, TRUE},
+    {NM_SETTING_IP_CONFIG_IGNORE_AUTO_ROUTES, G_TYPE_BOOLEAN, FALSE},
+    {NM_SETTING_IP_CONFIG_IGNORE_AUTO_DNS, G_TYPE_BOOLEAN, FALSE},
     {NM_SETTING_IP_CONFIG_NEVER_DEFAULT, G_TYPE_BOOLEAN, FALSE},
     {NULL, G_TYPE_NONE, FALSE}
     /* NM_SETTING_IP_CONFIG_DNS */
@@ -351,6 +373,208 @@ import_ip4(GKeyFile *keyfile, NMSettingIPConfig *s_ip4, GError **error)
     return TRUE;
 }
 
+static gboolean
+import_ip6(GKeyFile *keyfile, NMSettingIPConfig *s_ip6, GError **error)
+{
+    char *  str_val;
+    int     i;
+    GError *local_error = NULL;
+
+    for (i = 0; ip6_properties[i].name; i++) {
+        VpnImportExportProperty prop = ip6_properties[i];
+        gboolean                bool_val;
+
+        if (!g_key_file_has_key(keyfile, IP6_SECTION, prop.name, error)) {
+            if (!prop.required)
+                continue;
+
+            g_set_error(error,
+                        NMV_EDITOR_PLUGIN_ERROR,
+                        NMV_EDITOR_PLUGIN_ERROR_MISSING_PROPERTY,
+                        _("Required property %s missing"),
+                        prop.name);
+            return FALSE;
+        }
+
+        switch (prop.type) {
+        case G_TYPE_STRING:
+            str_val = g_key_file_get_string(keyfile, IP6_SECTION, prop.name, error);
+            g_object_set(G_OBJECT(s_ip6), prop.name, str_val, NULL);
+            g_free(str_val);
+            break;
+        case G_TYPE_BOOLEAN:
+            bool_val = g_key_file_get_boolean(keyfile, IP6_SECTION, prop.name, error);
+            if (!bool_val && !(*error))
+                continue;
+            if (!bool_val) {
+                g_clear_error(error);
+                str_val = g_key_file_get_string(keyfile, IP6_SECTION, prop.name, error);
+                ip4_import_error(error,
+                                 _("Property %s value '%s' can't be parsed as boolean."),
+                                 prop.name,
+                                 str_val);
+                g_free(str_val);
+                return FALSE;
+            }
+            g_object_set(G_OBJECT(s_ip6), prop.name, bool_val, NULL);
+            break;
+        }
+    }
+
+    if (g_key_file_has_key(keyfile, IP6_SECTION, NM_SETTING_IP_CONFIG_DNS, error)) {
+        char **dnses;
+        gsize  length;
+
+        dnses = g_key_file_get_string_list(keyfile,
+                                           IP6_SECTION,
+                                           NM_SETTING_IP_CONFIG_DNS,
+                                           &length,
+                                           error);
+        for (i = 0; i < length; i++) {
+            nm_setting_ip_config_add_dns(s_ip6, dnses[i]);
+        }
+        g_strfreev(dnses);
+    }
+
+    if (g_key_file_has_key(keyfile, IP6_SECTION, NM_SETTING_IP_CONFIG_DNS_SEARCH, error)) {
+        char **dnses;
+        gsize  length;
+
+        dnses = g_key_file_get_string_list(keyfile,
+                                           IP6_SECTION,
+                                           NM_SETTING_IP_CONFIG_DNS_SEARCH,
+                                           &length,
+                                           error);
+        for (i = 0; i < length; i++)
+            nm_setting_ip_config_add_dns_search(s_ip6, (const char *) dnses[i]);
+        g_strfreev(dnses);
+    }
+
+    if (g_key_file_has_key(keyfile, IP6_SECTION, NM_SETTING_IP_CONFIG_ROUTES, error)) {
+        char **         routes;
+        gsize           length;
+        struct in6_addr dest = IN6ADDR_ANY_INIT;
+        struct in6_addr next_hop = IN6ADDR_ANY_INIT;
+
+        routes = g_key_file_get_string_list(keyfile,
+                                            IP6_SECTION,
+                                            NM_SETTING_IP_CONFIG_ROUTES,
+                                            &length,
+                                            error);
+        for (i = 0; i < length; i++) {
+            NMIPRoute *route;
+            guint32    prefix, metric = -1;
+            char *     ptr, *dest_s, *prefix_s, *next_hop_s = NULL, *metric_s;
+
+            ptr = routes[i];
+
+            dest_s = routes[i];
+            ptr    = index(ptr, '/');
+            if (!ptr) {
+                ip4_route_import_error(error,
+                                       _("Property '%s' value '%s' couldn't find netmask."),
+                                       routes[i],
+                                       routes);
+                return FALSE;
+            }
+            *(ptr) = '\0';
+            ptr++;
+
+            if (!inet_pton(AF_INET6, dest_s, &dest)) {
+                ip4_route_import_error(error,
+                                       _("Property '%s' value '%s' can't be parsed as IP address."),
+                                       dest_s,
+                                       routes);
+                return FALSE;
+            }
+
+            prefix_s = ptr;
+            ptr      = index(ptr, ' ');
+            if (ptr) {
+                *(ptr) = '\0';
+                ptr++;
+            }
+            errno  = 0;
+            prefix = strtol(prefix_s, NULL, 10);
+            if (errno != 0 || prefix > 128) {
+                ip4_route_import_error(error,
+                                       _("Property '%s' value '%s' can't be parsed as IP netmask."),
+                                       prefix_s,
+                                       routes);
+                return FALSE;
+            }
+            while (ptr && *ptr == ' ')
+                ptr++;
+
+            if (ptr && !strncmp(ptr, "via ", 4)) {
+                ptr += 4;
+                while (ptr && *ptr == ' ')
+                    ptr++;
+                next_hop_s = ptr;
+                ptr        = index(ptr, ' ');
+                if (ptr) {
+                    *ptr = '\0';
+                    ptr++;
+                }
+                if (!inet_pton(AF_INET6, next_hop_s, &next_hop)) {
+                    ip4_route_import_error(error,
+                                           _("Property '%s' value '%s' can't be parsed as IP address."),
+                                           next_hop_s,
+                                           routes);
+                    return FALSE;
+                }
+                while (ptr && *ptr == ' ')
+                    ptr++;
+            }
+
+            if (ptr && !strncmp(ptr, "metric ", 7)) {
+                ptr += 7;
+                while (ptr && *ptr == ' ')
+                    ptr++;
+                metric_s = ptr;
+                ptr      = index(ptr, ' ');
+                if (ptr) {
+                    *ptr = '\0';
+                    ptr++;
+                }
+                errno  = 0;
+                metric = strtol(metric_s, NULL, 10);
+                if (errno != 0) {
+                    ip4_route_import_error(error,
+                                           _("Property '%s' value '%s' can't be parsed as route metric."),
+                                           metric_s,
+                                           routes);
+                    return FALSE;
+                }
+                while (ptr && *ptr == ' ')
+                    ptr++;
+            }
+            if (ptr) {
+                ip4_route_import_error(error,
+                                       _("Error parsing property '%s' value '%s'."),
+                                       ptr,
+                                       routes);
+                return FALSE;
+            }
+
+            route = nm_ip_route_new(AF_INET6, dest_s, prefix, next_hop_s, metric, &local_error);
+            if (route) {
+                nm_setting_ip_config_add_route(s_ip6, route);
+                nm_ip_route_unref(route);
+            } else {
+                ip4_route_import_error(error,
+                                       _("Error parsing property '%s': %s."),
+                                       local_error->message,
+                                       routes);
+                g_clear_error(&local_error);
+                return FALSE;
+            }
+        }
+        g_strfreev(routes);
+    }
+    return TRUE;
+}
+
 /**
  * Create new L2TP VPN connection using data from .ini - like file located at #path
  *
@@ -363,6 +587,7 @@ do_import(const char *path, GError **error)
     NMSettingConnection *s_con;
     NMSettingVpn *       s_vpn;
     NMSettingIPConfig *  s_ip4;
+    NMSettingIPConfig *  s_ip6;
 
     GKeyFile *keyfile;
     char *    value;
@@ -387,6 +612,9 @@ do_import(const char *path, GError **error)
 
     s_ip4 = NM_SETTING_IP_CONFIG(nm_setting_ip4_config_new());
     nm_connection_add_setting(connection, NM_SETTING(s_ip4));
+
+    s_ip6 = NM_SETTING_IP_CONFIG(nm_setting_ip6_config_new());
+    nm_connection_add_setting(connection, NM_SETTING(s_ip6));
 
     /* g_message("Start importing L2TP."); */
 
@@ -462,6 +690,12 @@ do_import(const char *path, GError **error)
     }
 
     if (!import_ip4(keyfile, s_ip4, error)) {
+        g_key_file_free(keyfile);
+        g_object_unref(connection);
+        return NULL;
+    }
+
+    if (g_key_file_has_group(keyfile, IP6_SECTION) && !import_ip6(keyfile, s_ip6, error)) {
         g_key_file_free(keyfile);
         g_object_unref(connection);
         return NULL;
@@ -576,6 +810,94 @@ export_ip4(NMSettingIPConfig *s_ip4, GKeyFile *keyfile, GError **error)
     return TRUE;
 }
 
+static gboolean
+export_ip6(NMSettingIPConfig *s_ip6, GKeyFile *keyfile, GError **error)
+{
+    const char *str_val;
+    gboolean    bool_val;
+    guint32     num_dns;
+    guint32     num_dns_searches;
+    guint32     num_routes;
+    int         i;
+
+    str_val = nm_setting_ip_config_get_method(s_ip6);
+    g_key_file_set_string(keyfile, IP6_SECTION, NM_SETTING_IP_CONFIG_METHOD, str_val);
+
+    num_dns = nm_setting_ip_config_get_num_dns(s_ip6);
+    if (num_dns > 0) {
+        gchar *dnses[num_dns];
+
+        for (i = 0; i < num_dns; i++)
+            dnses[i] = g_strdup(nm_setting_ip_config_get_dns(s_ip6, i));
+
+        g_key_file_set_string_list(keyfile,
+                                   IP6_SECTION,
+                                   NM_SETTING_IP_CONFIG_DNS,
+                                   (const gchar *const *) dnses,
+                                   num_dns);
+        for (i = 0; i < num_dns; i++)
+            g_free(dnses[i]);
+    }
+
+    num_dns_searches = nm_setting_ip_config_get_num_dns_searches(s_ip6);
+    if (num_dns_searches > 0) {
+        const char *dnses[num_dns_searches];
+
+        for (i = 0; i < num_dns_searches; i++)
+            dnses[i] = nm_setting_ip_config_get_dns_search(s_ip6, i);
+
+        g_key_file_set_string_list(keyfile,
+                                   IP6_SECTION,
+                                   NM_SETTING_IP_CONFIG_DNS_SEARCH,
+                                   dnses,
+                                   num_dns_searches);
+    }
+
+    num_routes = nm_setting_ip_config_get_num_routes(s_ip6);
+    if (num_routes > 0) {
+        char *     routes[num_routes];
+        NMIPRoute *route;
+
+        for (i = 0; i < num_routes; i++) {
+            GString *route_s;
+            route = nm_setting_ip_config_get_route(s_ip6, i);
+            if (nm_ip_route_get_family(route) != AF_INET6) {
+                g_message("ignoring route #%d of %d: Not a IPv6 route", i, num_routes);
+                continue;
+            }
+            route_s = g_string_new("");
+            g_string_append_printf(route_s,
+                                   "%s/%d",
+                                   nm_ip_route_get_dest(route),
+                                   nm_ip_route_get_prefix(route));
+            if (nm_ip_route_get_next_hop(route))
+                g_string_append_printf(route_s, " via %s", nm_ip_route_get_next_hop(route));
+            if (nm_ip_route_get_metric(route) != -1)
+                g_string_append_printf(route_s, " metric %" PRId64, nm_ip_route_get_metric(route));
+            routes[i] = g_string_free(route_s, FALSE);
+            g_message("export route #%d of %d: %s", i, num_routes, routes[i]);
+        }
+        g_key_file_set_string_list(keyfile,
+                                   IP6_SECTION,
+                                   NM_SETTING_IP_CONFIG_ROUTES,
+                                   (const gchar *const *) routes,
+                                   num_routes);
+        for (i = 0; i < num_routes; i++)
+            g_free(routes[i]);
+    }
+
+    bool_val = nm_setting_ip_config_get_ignore_auto_routes(s_ip6);
+    g_key_file_set_boolean(keyfile, IP6_SECTION, NM_SETTING_IP_CONFIG_IGNORE_AUTO_ROUTES, bool_val);
+
+    bool_val = nm_setting_ip_config_get_ignore_auto_dns(s_ip6);
+    g_key_file_set_boolean(keyfile, IP6_SECTION, NM_SETTING_IP_CONFIG_IGNORE_AUTO_DNS, bool_val);
+
+    bool_val = nm_setting_ip_config_get_never_default(s_ip6);
+    g_key_file_set_boolean(keyfile, IP6_SECTION, NM_SETTING_IP_CONFIG_NEVER_DEFAULT, bool_val);
+
+    return TRUE;
+}
+
 /**
  * Exports L2TP connection #connection to .ini - like file named #path
  *
@@ -587,6 +909,7 @@ do_export(const char *path, NMConnection *connection, GError **error)
     NMSettingConnection *s_con;
     NMSettingVpn *       s_vpn;
     NMSettingIPConfig *  s_ip4;
+    NMSettingIPConfig *  s_ip6;
 
     GKeyFile *export_file;
     FILE *    file;
@@ -598,6 +921,7 @@ do_export(const char *path, NMConnection *connection, GError **error)
     s_con =
         NM_SETTING_CONNECTION(nm_connection_get_setting(connection, NM_TYPE_SETTING_CONNECTION));
     s_ip4 = (NMSettingIPConfig *) nm_connection_get_setting(connection, NM_TYPE_SETTING_IP4_CONFIG);
+    s_ip6 = (NMSettingIPConfig *) nm_connection_get_setting(connection, NM_TYPE_SETTING_IP6_CONFIG);
     s_vpn = (NMSettingVpn *) nm_connection_get_setting(connection, NM_TYPE_SETTING_VPN);
 
     export_file = g_key_file_new();
@@ -638,6 +962,8 @@ do_export(const char *path, NMConnection *connection, GError **error)
     }
 
     export_ip4(s_ip4, export_file, error);
+    if (s_ip6)
+        export_ip6(s_ip6, export_file, error);
 
     if (!(file = fopen(path, "w"))) {
         g_set_error(error,

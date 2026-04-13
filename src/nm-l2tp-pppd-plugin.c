@@ -29,11 +29,14 @@ int plugin_init(void);
 char pppd_version[] = PPPD_VERSION;
 
 /*****************************************************************************/
+typedef void (*protrej_fn)(int unit);
 
 struct {
     int         log_level;
     const char *log_prefix_token;
     GDBusProxy *proxy;
+    bool is_ip6_rej;
+    protrej_fn old_protrej;
 } gl /*lobal*/;
 
 /*****************************************************************************/
@@ -222,6 +225,97 @@ nm_ip_up(void *data, int arg)
                       NULL,
                       NULL);
 }
+static void
+nm_ip6_up(void *data, int arg)
+{
+    ipv6cp_options  opts      = ipv6cp_gotoptions[0];
+    ipv6cp_options  peer_opts = ipv6cp_hisoptions[0];
+    GVariantBuilder builder;
+    guchar          addr[16];
+    guchar          peer_addr[16];
+
+    g_return_if_fail(G_IS_DBUS_PROXY(gl.proxy));
+
+    _LOGI("ip6-up: event");
+
+    if (gl.is_ip6_rej || eui64_iszero(opts.ourid) || eui64_iszero(peer_opts.hisid)) {
+        _LOGI("ip6-up: no IPv6 addresses negotiated");
+        return;
+    }
+
+    if (eui64_equals(opts.ourid, peer_opts.hisid)) {
+        _LOGI("ip6-up: local and remote addresses are equal");
+        return;
+    }
+
+    /* Build link-local addresses from negotiated interface identifiers.
+     * Format: fe80::/64 + 64-bit interface identifier (ourid/hisid).
+     */
+    memset(addr, 0, sizeof(addr));
+    addr[0] = 0xfe;
+    addr[1] = 0x80;
+    memcpy(&addr[8], opts.ourid.e8, 8);
+
+    memset(peer_addr, 0, sizeof(peer_addr));
+    peer_addr[0] = 0xfe;
+    peer_addr[1] = 0x80;
+    memcpy(&peer_addr[8], peer_opts.hisid.e8, 8);
+
+    g_variant_builder_init(&builder, G_VARIANT_TYPE_VARDICT);
+
+    g_variant_builder_add(&builder,
+                          "{sv}",
+                          NM_VPN_PLUGIN_CONFIG_TUNDEV,
+                          g_variant_new_string(ppp_ifname()));
+
+    g_variant_builder_add(&builder,
+                          "{sv}",
+                          NM_VPN_PLUGIN_IP6_CONFIG_ADDRESS,
+                          g_variant_new_fixed_array(G_VARIANT_TYPE_BYTE,
+                                                    addr, 16, 1));
+
+    g_variant_builder_add(&builder,
+                          "{sv}",
+                          NM_VPN_PLUGIN_IP6_CONFIG_PTP,
+                          g_variant_new_fixed_array(G_VARIANT_TYPE_BYTE,
+                                                    peer_addr, 16, 1));
+
+    g_variant_builder_add(&builder,
+                          "{sv}",
+                          NM_VPN_PLUGIN_IP6_CONFIG_PREFIX,
+                          g_variant_new_uint32(128));
+
+    _LOGI("ip6-up: sending Ip6Config to NetworkManager-l2tp...");
+
+    g_dbus_proxy_call(gl.proxy,
+                      "SetIp6Config",
+                      g_variant_new("(a{sv})", &builder),
+                      G_DBUS_CALL_FLAGS_NONE,
+                      -1,
+                      NULL,
+                      NULL,
+                      NULL);
+}
+
+#if WITH_PPP_VERSION < PPP_VERSION(2,5,0)
+static void
+nm_ip6_up_hook(void)
+{
+    nm_ip6_up(NULL, 0);
+}
+#endif
+
+/*
+ * If peer rejected the IPv6CP protocol, then we won't get an ip6_up callback.
+ */
+static void
+nm_ipv6_protrej(int unit)
+{
+    gl.is_ip6_rej = 1;
+    nm_ip6_up(NULL, 0);
+    (*gl.old_protrej)(unit);
+    ipv6cp_protent.protrej = gl.old_protrej;
+}
 
 static int
 get_chap_check(void)
@@ -345,11 +439,17 @@ plugin_init(void)
 #if WITH_PPP_VERSION < PPP_VERSION(2,5,0)
     add_notifier(&phasechange, nm_phasechange, NULL);
     add_notifier(&ip_up_notifier, nm_ip_up, NULL);
+    ipv6_up_hook = nm_ip6_up_hook;
     add_notifier(&exitnotify, nm_exit_notify, NULL);
 #else
     ppp_add_notify(NF_PHASE_CHANGE, nm_phasechange, NULL);
     ppp_add_notify(NF_IP_UP, nm_ip_up, NULL);
+    ppp_add_notify(NF_IPV6_UP, nm_ip6_up, NULL);
     ppp_add_notify(NF_EXIT, nm_exit_notify, NULL);
 #endif
+
+    gl.old_protrej = ipv6cp_protent.protrej;
+    ipv6cp_protent.protrej = nm_ipv6_protrej;
+
     return 0;
 }

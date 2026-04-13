@@ -13,6 +13,11 @@
       <arg name="config" type="a{sv}" direction="in"/>
     </method>
 
+    <method name="SetIp6Config">
+      <annotation name="org.freedesktop.DBus.GLib.CSymbol" value="impl_l2tp_service_set_ip6_config"/>
+      <arg name="config" type="a{sv}" direction="in"/>
+    </method>
+
     <method name="SetState">
       <annotation name="org.freedesktop.DBus.GLib.CSymbol" value="impl_l2tp_service_set_state"/>
       <arg name="state" type="u" direction="in"/>

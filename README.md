@@ -9,6 +9,8 @@ For L2TP support, it uses either of the following :
   ( https://github.com/katalix/go-l2tp )
 * xl2tpd ( https://github.com/xelerance/xl2tpd )
 
+IPv6 functionality requires kl2tpd or an IPv6‑capable fork of xl2tpd.
+
 For IPsec support, it uses either of the following :
 * Libreswan ( https://libreswan.org )
 * strongSwan ( https://www.strongswan.org )

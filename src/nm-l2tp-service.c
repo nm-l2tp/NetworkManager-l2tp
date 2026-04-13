@@ -85,6 +85,9 @@ typedef struct {
 
     /* IP of L2TP gateway in numeric and string format */
     guint32 naddr;
+    gint    naddr_family;
+    struct sockaddr_storage naddr_sockaddr;
+    socklen_t               naddr_sockaddr_len;
     char *  saddr;
 
     /* Local IP route to the L2TP gateway */
@@ -283,21 +286,81 @@ has_include_ipsec_secrets(const char *ipsec_secrets_file)
 }
 
 static gboolean
+validate_dns_name(const char *name)
+{
+    const char *p;
+    const char *label_start;
+    gsize       len;
+
+    if (!name || !name[0])
+        return FALSE;
+
+    len = strlen(name);
+
+    /* Allow a trailing dot for fully-qualified domain names. */
+    if (name[len - 1] == '.') {
+        if (len == 1)
+            return FALSE;
+        len--;
+    }
+
+    if (len > 253)
+        return FALSE;
+
+    label_start = name;
+    for (p = name; (gsize) (p - name) < len; p++) {
+        gsize label_len;
+
+        if (*p != '.')
+            continue;
+
+        label_len = p - label_start;
+        if (label_len < 1 || label_len > 63)
+            return FALSE;
+
+        if (!g_ascii_isalnum(*label_start) || !g_ascii_isalnum(*(p - 1)))
+            return FALSE;
+
+        for (const char *q = label_start; q < p; q++) {
+            if (!g_ascii_isalnum(*q) && *q != '-')
+                return FALSE;
+        }
+
+        label_start = p + 1;
+    }
+
+    /* Validate the final label. */
+    {
+        const char *end = name + len;
+        gsize       label_len = end - label_start;
+
+        if (label_len < 1 || label_len > 63)
+            return FALSE;
+
+        if (!g_ascii_isalnum(*label_start) || !g_ascii_isalnum(*(end - 1)))
+            return FALSE;
+
+        for (const char *q = label_start; q < end; q++) {
+            if (!g_ascii_isalnum(*q) && *q != '-')
+                return FALSE;
+        }
+    }
+
+    return TRUE;
+}
+
+static gboolean
 validate_gateway(const char *gateway)
 {
-    const char *p = gateway;
-
     if (!gateway || !gateway[0])
         return FALSE;
 
-    /* Ensure it's a valid DNS name or IP address */
-    p = gateway;
-    while (*p) {
-        if (!isalnum(*p) && (*p != '-') && (*p != '.'))
-            return FALSE;
-        p++;
-    }
-    return TRUE;
+    /* Accept valid IPv4 and IPv6 literal addresses. */
+    if (g_hostname_is_ip_address(gateway))
+        return TRUE;
+
+    /* Otherwise, require a syntactically valid DNS hostname. */
+    return validate_dns_name(gateway);
 }
 
 typedef struct ValidateInfo {
@@ -440,6 +503,8 @@ nm_l2tp_secrets_validate(NMSettingVpn *s_vpn, GError **error)
     return TRUE;
 }
 
+static gboolean is_ipv4_enabled(NML2tpPlugin *self);
+static gboolean is_ipv6_enabled(NML2tpPlugin *self);
 static void nm_l2tp_stop_ipsec(NML2tpPluginPrivate *priv);
 
 static void
@@ -811,10 +876,11 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
                         write_config_option(fd, "%%any ");
                     }
                     /* Only literal strings starting with @ and IP addresses
-                       are allowed as IDs with IKEv1 PSK */
+                       (IPv4 or IPv6) are allowed as IDs with IKEv1 PSK. */
                     if (value[0] == '@') {
                         write_config_option(fd, "%s ", value);
-                    } else if (inet_pton(AF_INET, value, &naddr)) {
+                    } else if (inet_pton(AF_INET, value, &naddr)
+                               || inet_pton(AF_INET6, value, &naddr)) {
                         write_config_option(fd, "%s ", value);
                     } else {
                         write_config_option(fd, "%%any ");
@@ -1141,9 +1207,16 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         }
 
         write_config_option(fd, "[tunnel.t1]\n");
-        if (!use_ephemeral_port)
-            write_config_option(fd, "local = \"0.0.0.0:1701\"\n");
-        write_config_option(fd, "peer = \"%s:1701\"\n", priv->saddr);
+        if (!use_ephemeral_port) {
+            if (priv->naddr_family == AF_INET6)
+                write_config_option(fd, "local = \"[::]:1701\"\n");
+            else
+                write_config_option(fd, "local = \"0.0.0.0:1701\"\n");
+        }
+        if (priv->naddr_family == AF_INET6)
+            write_config_option(fd, "peer = \"[%s]:1701\"\n", priv->saddr);
+        else
+            write_config_option(fd, "peer = \"%s:1701\"\n", priv->saddr);
         write_config_option(fd, "version = \"l2tpv2\"\n");
         write_config_option(fd, "encap = \"udp\"\n");
         write_config_option(fd, "[tunnel.t1.session.s1]\n");
@@ -1213,7 +1286,7 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
     s_ip4 = nm_connection_get_setting_ip4_config(priv->connection);
     if (s_ip4) {
 
-        value = nm_setting_ip_config_get_method (s_ip4);
+        value = nm_setting_ip_config_get_method(s_ip4);
         if (nm_streq0(value, NM_SETTING_IP4_CONFIG_METHOD_MANUAL)) {
             const char *ipv4_str = NULL;
             const char *gway_str = NULL;
@@ -1246,7 +1319,7 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
                 }
             }
         }
-        if (nm_streq (value, NM_SETTING_IP4_CONFIG_METHOD_DISABLED)) {
+        if (!is_ipv4_enabled(plugin)) {
             write_config_option(fd, "noip\n");
         } else {
             if (!nm_setting_ip_config_get_ignore_auto_dns(s_ip4)) {
@@ -1261,6 +1334,11 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
     is_local_set = FALSE;
 
     write_config_option(fd, "nodefaultroute\n");
+
+    /* Any IPv6 configuration options */
+    if (is_ipv6_enabled(plugin)) {
+        write_config_option(fd, "+ipv6\n");
+    }
 
     /* Don't need to auth the L2TP server */
     write_config_option(fd, "noauth\n");
@@ -1940,10 +2018,12 @@ handle_set_ip4_config(NMDBusL2tpPpp *        object,
     /* Insert the external VPN gateway into the table, which the pppd plugin
      * simply doesn't know about.
      */
-    g_variant_builder_add(&builder,
-                          "{sv}",
-                          NM_VPN_PLUGIN_CONFIG_EXT_GATEWAY,
-                          g_variant_new_uint32(priv->naddr));
+    if (priv->naddr_family == AF_INET) {
+        g_variant_builder_add(&builder,
+                              "{sv}",
+                              NM_VPN_PLUGIN_CONFIG_EXT_GATEWAY,
+                              g_variant_new_uint32(priv->naddr));
+    }
     new_config = g_variant_builder_end(&builder);
     g_variant_ref_sink(new_config);
 
@@ -1955,16 +2035,78 @@ handle_set_ip4_config(NMDBusL2tpPpp *        object,
 }
 
 static gboolean
+handle_set_ip6_config(NMDBusL2tpPpp *        object,
+                      GDBusMethodInvocation *invocation,
+                      GVariant *             arg_config,
+                      gpointer               user_data)
+{
+    NML2tpPlugin *  plugin = NM_L2TP_PLUGIN(user_data);
+    GVariantIter    iter;
+    const char *    key;
+    GVariant *      value;
+    GVariantBuilder builder;
+    GVariant *      new_config;
+
+    remove_timeout_handler(plugin);
+
+    g_variant_builder_init(&builder, G_VARIANT_TYPE("a{sv}"));
+    g_variant_iter_init(&iter, arg_config);
+    while (g_variant_iter_next(&iter, "{&sv}", &key, &value)) {
+        g_variant_builder_add(&builder, "{sv}", key, value);
+        g_variant_unref(value);
+    }
+
+    new_config = g_variant_builder_end(&builder);
+    g_variant_ref_sink(new_config);
+
+    nm_vpn_service_plugin_set_ip6_config(NM_VPN_SERVICE_PLUGIN(plugin), new_config);
+    g_variant_unref(new_config);
+
+    g_dbus_method_invocation_return_value(invocation, NULL);
+    return TRUE;
+}
+
+static gboolean
+is_ipv4_enabled(NML2tpPlugin *self)
+{
+    NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE(self);
+    NMSettingIPConfig *  s_ip4;
+    const char *         method;
+
+    s_ip4 = nm_connection_get_setting_ip4_config(priv->connection);
+    if (!s_ip4)
+        return TRUE;
+
+    method = nm_setting_ip_config_get_method(s_ip4);
+    return !nm_streq0(method, NM_SETTING_IP4_CONFIG_METHOD_DISABLED);
+}
+
+static gboolean
+is_ipv6_enabled(NML2tpPlugin *self)
+{
+    NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE(self);
+    NMSettingIPConfig *  s_ip6;
+    const char *         method;
+
+    s_ip6 = nm_connection_get_setting_ip6_config(priv->connection);
+    if (!s_ip6)
+        return TRUE;
+
+    method = nm_setting_ip_config_get_method(s_ip6);
+    return !nm_streq0(method, NM_SETTING_IP6_CONFIG_METHOD_IGNORE)
+           && !nm_streq0(method, NM_SETTING_IP6_CONFIG_METHOD_DISABLED);
+}
+
+static gboolean
 lookup_gateway(NML2tpPlugin *self, const char *src, GError **error)
 {
-    NML2tpPluginPrivate *priv    = NM_L2TP_PLUGIN_GET_PRIVATE(self);
-    const char *         p       = src;
-    gboolean             is_name = FALSE;
-    struct in_addr       naddr;
+    NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE(self);
     struct addrinfo      hints;
     struct addrinfo *    result = NULL, *rp;
     int                  err;
-    char                 buf[INET_ADDRSTRLEN];
+    gboolean             ipv4_enabled;
+    gboolean             ipv6_enabled;
+    char                 buf[INET6_ADDRSTRLEN];
 
     g_return_val_if_fail(src != NULL, FALSE);
 
@@ -1973,53 +2115,64 @@ lookup_gateway(NML2tpPlugin *self, const char *src, GError **error)
         priv->saddr = NULL;
     }
 
-    while (*p) {
-        if (*p != '.' && !isdigit(*p)) {
-            is_name = TRUE;
-            break;
-        }
-        p++;
+    priv->naddr              = 0;
+    priv->naddr_family       = AF_UNSPEC;
+    priv->naddr_sockaddr_len = 0;
+    memset(&priv->naddr_sockaddr, 0, sizeof(priv->naddr_sockaddr));
+
+    ipv4_enabled = is_ipv4_enabled(self);
+    ipv6_enabled = is_ipv6_enabled(self);
+    if (!ipv4_enabled && !ipv6_enabled) {
+        return nm_l2tp_ipsec_error(error,
+                                   _("IPv4 and IPv6 are both disabled for this connection."));
     }
 
-    if (is_name == FALSE) {
-        errno = 0;
-        if (inet_pton(AF_INET, src, &naddr) <= 0) {
-            return nm_l2tp_ipsec_error(error, _("couldn't convert L2TP VPN gateway IP address."));
-        }
-        priv->naddr = naddr.s_addr;
-        priv->saddr = g_strdup(src);
-        return TRUE;
-    }
-
-    /* It's a hostname, resolve it */
+    /* getaddrinfo(3) applies RFC 6724 address‑selection ordering. */
     memset(&hints, 0, sizeof(hints));
-    hints.ai_family = AF_INET;
+    if (ipv4_enabled && ipv6_enabled) {
+        hints.ai_family = AF_UNSPEC;
+    } else if (ipv4_enabled) {
+        hints.ai_family = AF_INET;
+    } else {
+        hints.ai_family = AF_INET6;
+    }
+    hints.ai_socktype = SOCK_DGRAM;
     hints.ai_flags  = AI_ADDRCONFIG;
     err             = getaddrinfo(src, NULL, &hints, &result);
     if (err != 0) {
         return nm_l2tp_ipsec_error(error, _("couldn't look up L2TP VPN gateway IP address "));
     }
 
-    /* If the hostname resolves to multiple IP addresses, use the first one.
-     * FIXME: maybe we just want to use a random one instead?
-     */
-    memset(&naddr, 0, sizeof(naddr));
+    /* Use the first suitable candidate as ordered by the resolver. */
     for (rp = result; rp; rp = rp->ai_next) {
-        if ((rp->ai_family == AF_INET) && (rp->ai_addrlen == sizeof(struct sockaddr_in))) {
+        if ((rp->ai_family == AF_INET) && (rp->ai_addrlen >= sizeof(struct sockaddr_in))) {
             struct sockaddr_in *inptr = (struct sockaddr_in *) rp->ai_addr;
 
-            memcpy(&naddr, &(inptr->sin_addr), sizeof(struct in_addr));
+            priv->naddr = inptr->sin_addr.s_addr;
+            priv->naddr_family = AF_INET;
+            priv->naddr_sockaddr_len = sizeof(struct sockaddr_in);
+            memcpy(&priv->naddr_sockaddr, inptr, sizeof(struct sockaddr_in));
+            priv->saddr = g_strdup(inet_ntop(AF_INET, &inptr->sin_addr, buf, sizeof(buf)));
+            break;
+        }
+
+        if ((rp->ai_family == AF_INET6) && (rp->ai_addrlen >= sizeof(struct sockaddr_in6))) {
+            struct sockaddr_in6 *in6ptr = (struct sockaddr_in6 *) rp->ai_addr;
+
+            priv->naddr_family = AF_INET6;
+            priv->naddr_sockaddr_len = sizeof(struct sockaddr_in6);
+            memcpy(&priv->naddr_sockaddr, in6ptr, sizeof(struct sockaddr_in6));
+            priv->saddr = g_strdup(inet_ntop(AF_INET6, &in6ptr->sin6_addr, buf, sizeof(buf)));
             break;
         }
     }
     freeaddrinfo(result);
 
-    if (naddr.s_addr == 0) {
+    if (!priv->saddr || priv->naddr_family == AF_UNSPEC) {
         return nm_l2tp_ipsec_error(error, _("no usable addresses returned for L2TP VPN gateway "));
     }
 
-    priv->naddr = naddr.s_addr;
-    priv->saddr = g_strdup(inet_ntop(AF_INET, &naddr, buf, sizeof(buf)));
+    g_message("resolved L2TP gateway '%s' to %s", src, priv->saddr);
 
     return TRUE;
 }
@@ -2029,33 +2182,57 @@ get_localaddr (NML2tpPlugin *self,
                GError **error)
 {
     NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (self);
-    char abuf[INET_ADDRSTRLEN+1] = {};
-    struct sockaddr_in addr = {};
-    socklen_t alen = sizeof(addr);
+    char abuf[INET6_ADDRSTRLEN + 1] = {};
+    struct sockaddr_storage addr = {};
+    socklen_t alen;
     int fd;
 
-    fd = socket(AF_INET, SOCK_DGRAM, 0);
+    if (priv->naddr_family == AF_UNSPEC || priv->naddr_sockaddr_len == 0)
+        return nm_l2tp_ipsec_error(error, _("couldn't determine L2TP VPN gateway address family"));
+
+    fd = socket(priv->naddr_family, SOCK_DGRAM, 0);
     if (fd < 0) {
         return nm_l2tp_ipsec_error(error, _("couldn't determine local IP to contact L2TP VPN gateway"));
     }
 
-    addr.sin_family = AF_INET;
-    addr.sin_port = htons(1701);
-    addr.sin_addr.s_addr = priv->naddr;
+    memcpy(&addr, &priv->naddr_sockaddr, priv->naddr_sockaddr_len);
+    if (priv->naddr_family == AF_INET) {
+        struct sockaddr_in *addr4 = (struct sockaddr_in *) &addr;
+        addr4->sin_port           = htons(1701);
+    } else {
+        struct sockaddr_in6 *addr6 = (struct sockaddr_in6 *) &addr;
+        addr6->sin6_port           = htons(1701);
+    }
 
-    if (0 != connect (fd, &addr, sizeof(addr))) {
+    if (0 != connect(fd, (struct sockaddr *) &addr, priv->naddr_sockaddr_len)) {
         close (fd);
         return nm_l2tp_ipsec_error(error, _("unable to connect to L2TP VPN gateway"));
     }
 
-    memset( &addr, 0, sizeof(addr));
-    if (0 != getsockname( fd, &addr, &alen)) {
+    memset(&addr, 0, sizeof(addr));
+    alen = sizeof(addr);
+    if (0 != getsockname(fd, (struct sockaddr *) &addr, &alen)) {
         close (fd);
         return nm_l2tp_ipsec_error(error, _("failed to get local IP"));
     }
 
-    priv->slocaladdr = g_strdup (inet_ntop (AF_INET, &addr.sin_addr.s_addr, abuf, alen-1));
+    if (priv->slocaladdr) {
+        g_free(priv->slocaladdr);
+        priv->slocaladdr = NULL;
+    }
+
+    if (((struct sockaddr *) &addr)->sa_family == AF_INET) {
+        struct sockaddr_in *addr4 = (struct sockaddr_in *) &addr;
+        priv->slocaladdr = g_strdup(inet_ntop(AF_INET, &addr4->sin_addr, abuf, sizeof(abuf)));
+    } else if (((struct sockaddr *) &addr)->sa_family == AF_INET6) {
+        struct sockaddr_in6 *addr6 = (struct sockaddr_in6 *) &addr;
+        priv->slocaladdr = g_strdup(inet_ntop(AF_INET6, &addr6->sin6_addr, abuf, sizeof(abuf)));
+    }
+
     close(fd);
+
+    if (!priv->slocaladdr)
+        return nm_l2tp_ipsec_error(error, _("failed to format local IP address"));
 
     return TRUE;
 }
@@ -2344,6 +2521,7 @@ dispose(GObject *object)
         g_signal_handlers_disconnect_by_func(skeleton, handle_need_secrets, object);
         g_signal_handlers_disconnect_by_func(skeleton, handle_set_state, object);
         g_signal_handlers_disconnect_by_func(skeleton, handle_set_ip4_config, object);
+        g_signal_handlers_disconnect_by_func(skeleton, handle_set_ip6_config, object);
     }
 
     g_clear_object(&priv->connection);
@@ -2423,6 +2601,10 @@ init_sync(GInitable *object, GCancellable *cancellable, GError **error)
     g_signal_connect(priv->dbus_skeleton,
                      "handle-set-ip4-config",
                      G_CALLBACK(handle_set_ip4_config),
+                     object);
+    g_signal_connect(priv->dbus_skeleton,
+                     "handle-set-ip6-config",
+                     G_CALLBACK(handle_set_ip6_config),
                      object);
 
     g_object_unref(bus);
