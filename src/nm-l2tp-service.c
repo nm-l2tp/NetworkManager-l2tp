@@ -663,32 +663,67 @@ static PPPOpt ppp_options[] = {{NM_L2TP_KEY_REQUIRE_MPPE, G_TYPE_BOOLEAN, "requi
                                {NULL, G_TYPE_NONE, NULL}};
 
 /**
- * Check that specified UDP socket in 0.0.0.0 is not used and we can bind to it.
+ * Check that specified UDP socket is available on both IPv4 and IPv6 wildcard
+ * addresses. On systems without IPv6 support, only the IPv4 check is used.
  **/
 static gboolean
 is_port_free(int port)
 {
-    struct sockaddr_in addr;
-    int                sock;
+    struct sockaddr_in  addr4;
+    struct sockaddr_in6 addr6;
+    int                 sock;
+    int                 on;
+    gboolean            free_v4;
+    gboolean            free_v6;
+
     g_message("Check port %d", port);
+
+    free_v4 = TRUE;
+    free_v6 = TRUE;
+
     sock = socket(AF_INET, SOCK_DGRAM, 0);
-    if (!sock) {
+    if (sock < 0) {
         _LOGW("Can-not create new test socket");
-        return FALSE;
+        free_v4 = FALSE;
+    } else {
+        memset(&addr4, 0, sizeof(addr4));
+        addr4.sin_family      = AF_INET;
+        addr4.sin_port        = htons(port);
+        addr4.sin_addr.s_addr = INADDR_ANY;
+
+        if (bind(sock, (struct sockaddr *) &addr4, sizeof(addr4)) == -1) {
+            g_message("Can't bind to IPv4 port %d", port);
+            free_v4 = FALSE;
+        }
+        close(sock); /* unbind */
     }
 
-    memset(&addr, 0, sizeof(struct sockaddr_in));
-    addr.sin_family      = AF_INET;
-    addr.sin_port        = htons(port);
-    addr.sin_addr.s_addr = INADDR_ANY;
+    sock = socket(AF_INET6, SOCK_DGRAM, 0);
+    if (sock < 0) {
+        if (errno != EAFNOSUPPORT && errno != EPROTONOSUPPORT) {
+            g_message("Can't create IPv6 test socket for port %d", port);
+            free_v6 = FALSE;
+        }
+    } else {
+        on = 1;
+        if (setsockopt(sock, IPPROTO_IPV6, IPV6_V6ONLY, &on, sizeof(on)) == -1) {
+            g_message("Can't set IPv6-only test socket mode for port %d", port);
+            free_v6 = FALSE;
+        } else {
+            memset(&addr6, 0, sizeof(addr6));
+            addr6.sin6_family = AF_INET6;
+            addr6.sin6_port   = htons(port);
+            addr6.sin6_addr   = in6addr_any;
 
-    if (bind(sock, (struct sockaddr *) &addr, sizeof(addr)) == -1) {
-        g_message("Can't bind to port %d", port);
-        return FALSE;
+            if (bind(sock, (struct sockaddr *) &addr6, sizeof(addr6)) == -1) {
+                g_message("Can't bind to IPv6 port %d", port);
+                free_v6 = FALSE;
+            }
+        }
+        close(sock); /* unbind */
     }
-    close(sock); /* unbind */
 
-    return TRUE;
+    return free_v4 && free_v6;
 }
 
 static gboolean
