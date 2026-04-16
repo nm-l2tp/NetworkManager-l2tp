@@ -8,6 +8,11 @@
       <arg name="password" type="s" direction="out"/>
     </method>
 
+    <method name="SetConfig">
+      <annotation name="org.freedesktop.DBus.GLib.CSymbol" value="impl_l2tp_service_set_config"/>
+      <arg name="config" type="a{sv}" direction="in"/>
+    </method>
+
     <method name="SetIp4Config">
       <annotation name="org.freedesktop.DBus.GLib.CSymbol" value="impl_l2tp_service_set_ip4_config"/>
       <arg name="config" type="a{sv}" direction="in"/>

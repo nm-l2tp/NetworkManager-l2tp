@@ -35,6 +35,8 @@ struct {
     int         log_level;
     const char *log_prefix_token;
     GDBusProxy *proxy;
+    bool        has_ip4;
+    bool        has_ip6;
     bool is_ip6_rej;
     protrej_fn old_protrej;
 } gl /*lobal*/;
@@ -59,6 +61,44 @@ struct {
 #define _LOGE(...) _NMLOG(LOG_ERR, __VA_ARGS__)
 
 /*****************************************************************************/
+
+static void
+nm_set_config(gboolean has_ip4, gboolean has_ip6)
+{
+    GVariantBuilder builder;
+
+    g_return_if_fail(G_IS_DBUS_PROXY(gl.proxy));
+
+    g_variant_builder_init(&builder, G_VARIANT_TYPE_VARDICT);
+
+    g_variant_builder_add(&builder,
+                  "{sv}",
+                  NM_VPN_PLUGIN_CONFIG_TUNDEV,
+                  g_variant_new_string(ppp_ifname()));
+
+    g_variant_builder_add(&builder,
+                  "{sv}",
+                  NM_VPN_PLUGIN_CONFIG_HAS_IP4,
+                  g_variant_new_boolean(has_ip4));
+
+    g_variant_builder_add(&builder,
+                  "{sv}",
+                  NM_VPN_PLUGIN_CONFIG_HAS_IP6,
+                  g_variant_new_boolean(has_ip6));
+
+    _LOGI("config: sending Config to NetworkManager-l2tp (IPv4:%s, IPv6:%s)",
+        has_ip4 ? "on" : "off",
+        has_ip6 ? "on" : "off");
+
+    g_dbus_proxy_call(gl.proxy,
+                "SetConfig",
+                g_variant_new("(a{sv})", &builder),
+                G_DBUS_CALL_FLAGS_NONE,
+                -1,
+                NULL,
+                NULL,
+                NULL);
+}
 
 static void
 nm_phasechange(void *data, int arg)
@@ -158,6 +198,9 @@ nm_ip_up(void *data, int arg)
         nm_phasechange(NULL, PHASE_DEAD);
         return;
     }
+
+    gl.has_ip4 = TRUE;
+    nm_set_config(gl.has_ip4, gl.has_ip6);
 
     g_variant_builder_init(&builder, G_VARIANT_TYPE_VARDICT);
 
@@ -260,6 +303,9 @@ nm_ip6_up(void *data, int arg)
     peer_addr[0] = 0xfe;
     peer_addr[1] = 0x80;
     memcpy(&peer_addr[8], peer_opts.hisid.e8, 8);
+
+    gl.has_ip6 = TRUE;
+    nm_set_config(gl.has_ip4, gl.has_ip6);
 
     g_variant_builder_init(&builder, G_VARIANT_TYPE_VARDICT);
 

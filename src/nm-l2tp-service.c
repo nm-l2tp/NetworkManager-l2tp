@@ -2040,6 +2040,60 @@ handle_set_state(NMDBusL2tpPpp *        object,
 }
 
 static gboolean
+handle_set_config(NMDBusL2tpPpp *        object,
+                  GDBusMethodInvocation *invocation,
+                  GVariant *             arg_config,
+                  gpointer               user_data)
+{
+    NML2tpPlugin *       plugin = NM_L2TP_PLUGIN(user_data);
+    NML2tpPluginPrivate *priv   = NM_L2TP_PLUGIN_GET_PRIVATE(plugin);
+    GVariantIter         iter;
+    const char *         key;
+    GVariant *           value;
+    GVariantBuilder      builder;
+    GVariant *           new_config;
+
+    remove_timeout_handler(plugin);
+
+    g_variant_builder_init(&builder, G_VARIANT_TYPE("a{sv}"));
+    g_variant_iter_init(&iter, arg_config);
+    while (g_variant_iter_next(&iter, "{&sv}", &key, &value)) {
+        g_variant_builder_add(&builder, "{sv}", key, value);
+        g_variant_unref(value);
+    }
+
+    /* Insert the external VPN gateway into the generic config, which
+     * NetworkManager consumes for both IPv4 and IPv6 external-gateway routes.
+     */
+    if (priv->naddr_family == AF_INET) {
+        g_variant_builder_add(&builder,
+                              "{sv}",
+                              NM_VPN_PLUGIN_CONFIG_EXT_GATEWAY,
+                              g_variant_new_uint32(priv->naddr));
+    } else if (priv->naddr_family == AF_INET6
+               && priv->naddr_sockaddr_len >= sizeof(struct sockaddr_in6)) {
+        const struct sockaddr_in6 *in6ptr = (const struct sockaddr_in6 *) &priv->naddr_sockaddr;
+
+        g_variant_builder_add(&builder,
+                              "{sv}",
+                              NM_VPN_PLUGIN_CONFIG_EXT_GATEWAY,
+                              g_variant_new_fixed_array(G_VARIANT_TYPE_BYTE,
+                                                        &in6ptr->sin6_addr,
+                                                        sizeof(in6ptr->sin6_addr),
+                                                        1));
+    }
+
+    new_config = g_variant_builder_end(&builder);
+    g_variant_ref_sink(new_config);
+
+    nm_vpn_service_plugin_set_config(NM_VPN_SERVICE_PLUGIN(plugin), new_config);
+    g_variant_unref(new_config);
+
+    g_dbus_method_invocation_return_value(invocation, NULL);
+    return TRUE;
+}
+
+static gboolean
 handle_set_ip4_config(NMDBusL2tpPpp *        object,
                       GDBusMethodInvocation *invocation,
                       GVariant *             arg_config,
@@ -2087,12 +2141,13 @@ handle_set_ip6_config(NMDBusL2tpPpp *        object,
                       GVariant *             arg_config,
                       gpointer               user_data)
 {
-    NML2tpPlugin *  plugin = NM_L2TP_PLUGIN(user_data);
-    GVariantIter    iter;
-    const char *    key;
-    GVariant *      value;
-    GVariantBuilder builder;
-    GVariant *      new_config;
+    NML2tpPlugin *       plugin = NM_L2TP_PLUGIN(user_data);
+    NML2tpPluginPrivate *priv   = NM_L2TP_PLUGIN_GET_PRIVATE(plugin);
+    GVariantIter         iter;
+    const char *         key;
+    GVariant *           value;
+    GVariantBuilder      builder;
+    GVariant *           new_config;
 
     remove_timeout_handler(plugin);
 
@@ -2101,6 +2156,21 @@ handle_set_ip6_config(NMDBusL2tpPpp *        object,
     while (g_variant_iter_next(&iter, "{&sv}", &key, &value)) {
         g_variant_builder_add(&builder, "{sv}", key, value);
         g_variant_unref(value);
+    }
+
+    /* Insert the external VPN gateway into the table, which the pppd plugin
+     * simply doesn't know about.
+     */
+    if (priv->naddr_family == AF_INET6 && priv->naddr_sockaddr_len >= sizeof(struct sockaddr_in6)) {
+        const struct sockaddr_in6 *in6ptr = (const struct sockaddr_in6 *) &priv->naddr_sockaddr;
+
+        g_variant_builder_add(&builder,
+                              "{sv}",
+                              NM_VPN_PLUGIN_CONFIG_EXT_GATEWAY,
+                              g_variant_new_fixed_array(G_VARIANT_TYPE_BYTE,
+                                                        &in6ptr->sin6_addr,
+                                                        sizeof(in6ptr->sin6_addr),
+                                                        1));
     }
 
     new_config = g_variant_builder_end(&builder);
@@ -2575,6 +2645,7 @@ dispose(GObject *object)
             g_dbus_interface_skeleton_unexport(skeleton);
         g_signal_handlers_disconnect_by_func(skeleton, handle_need_secrets, object);
         g_signal_handlers_disconnect_by_func(skeleton, handle_set_state, object);
+        g_signal_handlers_disconnect_by_func(skeleton, handle_set_config, object);
         g_signal_handlers_disconnect_by_func(skeleton, handle_set_ip4_config, object);
         g_signal_handlers_disconnect_by_func(skeleton, handle_set_ip6_config, object);
     }
@@ -2653,6 +2724,10 @@ init_sync(GInitable *object, GCancellable *cancellable, GError **error)
                      G_CALLBACK(handle_need_secrets),
                      object);
     g_signal_connect(priv->dbus_skeleton, "handle-set-state", G_CALLBACK(handle_set_state), object);
+    g_signal_connect(priv->dbus_skeleton,
+                     "handle-set-config",
+                     G_CALLBACK(handle_set_config),
+                     object);
     g_signal_connect(priv->dbus_skeleton,
                      "handle-set-ip4-config",
                      G_CALLBACK(handle_set_ip4_config),
