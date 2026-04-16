@@ -2625,6 +2625,10 @@ state_changed_cb(GObject *object, NMVpnServiceState state, gpointer user_data)
             g_free(priv->saddr);
             priv->saddr = NULL;
         }
+        if (priv->slocaladdr) {
+            g_free(priv->slocaladdr);
+            priv->slocaladdr = NULL;
+        }
         break;
     default:
         break;
@@ -2654,6 +2658,10 @@ dispose(GObject *object)
     if (priv->saddr) {
         g_free(priv->saddr);
         priv->saddr = NULL;
+    }
+    if (priv->slocaladdr) {
+        g_free(priv->slocaladdr);
+        priv->slocaladdr = NULL;
     }
 
     if (priv->tmp_file_paths) {
