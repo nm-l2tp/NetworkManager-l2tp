@@ -215,6 +215,7 @@ static const ValidProperty valid_properties[] = {
     {NM_L2TP_KEY_USER_CERTPASS "-flags", G_TYPE_UINT, FALSE},
     {NM_L2TP_KEY_IPSEC_PSK "-flags", G_TYPE_UINT, FALSE},
     {NM_L2TP_KEY_MACHINE_CERTPASS "-flags", G_TYPE_UINT, FALSE},
+    {NM_L2TP_KEY_IPCP_PEER_IP, G_TYPE_STRING, FALSE},
     {KDE_PLASMA_L2TP_KEY_USE_CERT, G_TYPE_UINT, FALSE},
     {KDE_PLASMA_L2TP_KEY_CERT_CA, G_TYPE_STRING, FALSE},
     {KDE_PLASMA_L2TP_KEY_CERT_PUB, G_TYPE_STRING, FALSE},
@@ -1335,9 +1336,9 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
 
         value = nm_setting_ip_config_get_method(s_ip4);
         if (nm_streq0(value, NM_SETTING_IP4_CONFIG_METHOD_MANUAL)) {
-            const char *ipv4_str = NULL;
-            const char *gway_str = NULL;
-            const char *mask_str = NULL;
+            const char *ipv4_str      = NULL;
+            const char *ipcp_peer_str = NULL;
+            const char *mask_str      = NULL;
             char buf[NM_UTILS_INET_ADDRSTRLEN];
             NMIPAddress *ipv4 = NULL;
 
@@ -1354,9 +1355,16 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
                 ipv4_str = nm_ip_address_get_address(ipv4);
                 mask_str = nm_utils_inet4_ntop(nm_utils_ip4_prefix_to_netmask(prefix), buf);
 
-                gway_str = nm_setting_ip_config_get_gateway(s_ip4);
-                if (ipv4_str && gway_str) {
-                    write_config_option(fd, "%s:%s\n", ipv4_str, gway_str);
+                /* Prefer the dedicated ipcp-peer-ip VPN key so the user can
+                 * suggest an IPCP peer address without also setting ipv4.gateway
+                 * (which would collide with ipv4.never-default).  Fall back to
+                 * ipv4.gateway for backwards compatibility.
+                 */
+                ipcp_peer_str = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_IPCP_PEER_IP);
+                if (!ipcp_peer_str || !ipcp_peer_str[0])
+                    ipcp_peer_str = nm_setting_ip_config_get_gateway(s_ip4);
+                if (ipv4_str && ipcp_peer_str) {
+                    write_config_option(fd, "%s:%s\n", ipv4_str, ipcp_peer_str);
                     if (mask_str) {
                         write_config_option(fd, "netmask %s\n", mask_str);
                     }
@@ -2125,6 +2133,20 @@ handle_set_ip4_config(NMDBusL2tpPpp *        object,
                               NM_VPN_PLUGIN_CONFIG_EXT_GATEWAY,
                               g_variant_new_uint32(priv->naddr));
     }
+
+    /* Honour ipv4.never-default: tell NM not to install a default route through
+     * this VPN when the user has opted out of it on the connection.
+     */
+    {
+        NMSettingIPConfig *s_ip4 = nm_connection_get_setting_ip4_config(priv->connection);
+        if (s_ip4 && nm_setting_ip_config_get_never_default(s_ip4)) {
+            g_variant_builder_add(&builder,
+                                  "{sv}",
+                                  NM_VPN_PLUGIN_IP4_CONFIG_NEVER_DEFAULT,
+                                  g_variant_new_boolean(TRUE));
+        }
+    }
+
     new_config = g_variant_builder_end(&builder);
     g_variant_ref_sink(new_config);
 
