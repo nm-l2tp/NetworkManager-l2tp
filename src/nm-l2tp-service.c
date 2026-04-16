@@ -355,6 +355,17 @@ validate_gateway(const char *gateway)
     if (!gateway || !gateway[0])
         return FALSE;
 
+    /* Accept URI-style bracket notation for IPv6: [2001:db8::1] */
+    if (gateway[0] == '[') {
+        const char *close = strchr(gateway + 1, ']');
+        /* Must end with ']' and nothing after it */
+        if (close && close[1] == '\0') {
+            gs_free char *bare = g_strndup(gateway + 1, close - (gateway + 1));
+            return g_hostname_is_ip_address(bare);
+        }
+        return FALSE;
+    }
+
     /* Accept valid IPv4 and IPv6 literal addresses. */
     if (g_hostname_is_ip_address(gateway))
         return TRUE;
@@ -2243,6 +2254,7 @@ real_connect(NMVpnServicePlugin *plugin, NMConnection *connection, GError **erro
     NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE(plugin);
     NMSettingVpn *       s_vpn;
     const char *         gwaddr;
+    gs_free char *       gwaddr_stripped = NULL;
     const char *         value;
     const char *         uuid;
     const char *         private_user;
@@ -2300,6 +2312,13 @@ real_connect(NMVpnServicePlugin *plugin, NMConnection *connection, GError **erro
     gwaddr = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_GATEWAY);
     if (!gwaddr || !strlen(gwaddr)) {
         return nm_l2tp_ipsec_error(error, _("Invalid or missing L2TP gateway."));
+    }
+
+    /* Strip URI-style bracket notation for IPv6: [2001:db8::1] -> 2001:db8::1 */
+    if (gwaddr[0] == '[') {
+        const char *close = strchr(gwaddr + 1, ']');
+        if (close && close[1] == '\0')
+            gwaddr = gwaddr_stripped = g_strndup(gwaddr + 1, close - (gwaddr + 1));
     }
 
     /* Look up the IP address of the L2TP server; if the server has multiple
