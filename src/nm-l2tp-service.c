@@ -707,7 +707,8 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
     gint                   fd = -1;
     gint64                 max_retries;
     FILE *                 fp;
-    struct in_addr         naddr;
+    struct in_addr         naddr4;
+    struct in6_addr        naddr6;
     int                    port;
     int                    errsv;
     gboolean               use_ephemeral_port;
@@ -890,8 +891,8 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
                        (IPv4 or IPv6) are allowed as IDs with IKEv1 PSK. */
                     if (value[0] == '@') {
                         write_config_option(fd, "%s ", value);
-                    } else if (inet_pton(AF_INET, value, &naddr)
-                               || inet_pton(AF_INET6, value, &naddr)) {
+                    } else if (inet_pton(AF_INET, value, &naddr4)
+                               || inet_pton(AF_INET6, value, &naddr6)) {
                         write_config_option(fd, "%s ", value);
                     } else {
                         write_config_option(fd, "%%any ");
