@@ -67,7 +67,8 @@ ppp_dialog_new_hash_from_connection(NMConnection *connection, GError **error)
     hash = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free);
 
     s_vpn = nm_connection_get_setting_vpn(connection);
-    nm_setting_vpn_foreach_data_item(s_vpn, copy_values, hash);
+    if (s_vpn)
+        nm_setting_vpn_foreach_data_item(s_vpn, copy_values, hash);
     return hash;
 }
 
@@ -451,7 +452,7 @@ ppp_dialog_new(GHashTable *hash, const char *authtype)
                            builder,
                            (GDestroyNotify) g_object_unref);
 
-    g_object_set_data(G_OBJECT(dialog), "auth-type", GINT_TO_POINTER(authtype));
+    g_object_set_data_full(G_OBJECT(dialog), "auth-type", g_strdup(authtype), g_free);
 
     setup_security_combo(builder, hash);
 
@@ -585,7 +586,7 @@ ppp_dialog_new_hash_from_dialog(GtkWidget *dialog, GError **error)
     int           mtu_num;
     int           mru_num;
     int           mrru_num;
-    char *        authtype = NULL;
+    const char *  authtype = NULL;
 
     g_return_val_if_fail(dialog != NULL, NULL);
     if (error)
@@ -645,7 +646,7 @@ ppp_dialog_new_hash_from_dialog(GtkWidget *dialog, GError **error)
     }
 
     authtype = g_object_get_data(G_OBJECT(dialog), "auth-type");
-    if (!strcmp(authtype, NM_L2TP_AUTHTYPE_PASSWORD)) {
+    if (g_strcmp0(authtype, NM_L2TP_AUTHTYPE_PASSWORD) == 0) {
         widget = GTK_WIDGET(gtk_builder_get_object(builder, "ppp_auth_methods"));
         model  = gtk_tree_view_get_model(GTK_TREE_VIEW(widget));
         valid  = gtk_tree_model_get_iter_first(model, &iter);
