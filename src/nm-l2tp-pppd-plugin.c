@@ -119,8 +119,7 @@ nm_phasechange(void *data, int arg)
         gl.has_ip4    = FALSE;
         gl.has_ip6    = FALSE;
         gl.is_ip6_rej = FALSE;
-        if (gl.old_protrej)
-            ipv6cp_protent.protrej = nm_ipv6_protrej;
+        ipv6cp_protent.protrej = nm_ipv6_protrej;
         ppp_status = NM_PPP_STATUS_INITIALIZE;
         ppp_phase  = "initialize";
         break;
@@ -229,18 +228,18 @@ nm_ip_up(void *data, int arg)
         g_variant_builder_add(&builder,
                               "{sv}",
                               NM_VPN_PLUGIN_IP4_CONFIG_PTP,
-                              g_variant_new_uint32 (peer_opts.hisaddr));
+                              g_variant_new_uint32(peer_opts.hisaddr));
     } else if (opts.hisaddr){
         g_variant_builder_add(&builder,
                               "{sv}",
                               NM_VPN_PLUGIN_IP4_CONFIG_PTP,
-                              g_variant_new_uint32 (opts.hisaddr));
+                              g_variant_new_uint32(opts.hisaddr));
     } else if (peer_opts.hisaddr == pppd_made_up_address) {
         /* As a last resort, use the made-up address */
         g_variant_builder_add(&builder,
                               "{sv}",
                               NM_VPN_PLUGIN_IP4_CONFIG_PTP,
-                              g_variant_new_uint32(peer_opts.ouraddr));
+                              g_variant_new_uint32(pppd_made_up_address));
     }
 
     g_variant_builder_add(&builder,
