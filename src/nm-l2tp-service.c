@@ -2060,8 +2060,39 @@ handle_set_config(NMDBusL2tpPpp *        object,
     GVariant *           value;
     GVariantBuilder      builder;
     GVariant *           new_config;
+    guint32              ptp_addr4 = 0;
+    struct in6_addr      ptp_addr6 = {};
+    gboolean             have_ptp6 = FALSE;
 
     remove_timeout_handler(plugin);
+
+    /* Look up the PTP (peer) address that pppd negotiated.
+     * If it equals the L2TP gateway address, providing EXT_GATEWAY would
+     * cause NM to install a host route to the gateway via the tunnel itself,
+     * creating a routing loop.  Suppress EXT_GATEWAY in that case.
+     */
+    if (priv->naddr_family == AF_INET) {
+        GVariant *ptp_val = g_variant_lookup_value(arg_config,
+                                                   NM_VPN_PLUGIN_IP4_CONFIG_PTP,
+                                                   G_VARIANT_TYPE_UINT32);
+        if (ptp_val) {
+            ptp_addr4 = g_variant_get_uint32(ptp_val);
+            g_variant_unref(ptp_val);
+        }
+    } else if (priv->naddr_family == AF_INET6) {
+        GVariant *ptp_val = g_variant_lookup_value(arg_config,
+                                                   NM_VPN_PLUGIN_IP6_CONFIG_PTP,
+                                                   G_VARIANT_TYPE_BYTESTRING);
+        if (ptp_val) {
+            gsize n_elems = 0;
+            const guint8 *data = g_variant_get_fixed_array(ptp_val, &n_elems, 1);
+            if (data && n_elems == sizeof(struct in6_addr)) {
+                memcpy(&ptp_addr6, data, sizeof(struct in6_addr));
+                have_ptp6 = TRUE;
+            }
+            g_variant_unref(ptp_val);
+        }
+    }
 
     g_variant_builder_init(&builder, G_VARIANT_TYPE("a{sv}"));
     g_variant_iter_init(&iter, arg_config);
@@ -2072,23 +2103,34 @@ handle_set_config(NMDBusL2tpPpp *        object,
 
     /* Insert the external VPN gateway into the generic config, which
      * NetworkManager consumes for both IPv4 and IPv6 external-gateway routes.
+     * Skip when EXT_GATEWAY == PTP to avoid a routing loop.
      */
     if (priv->naddr_family == AF_INET) {
-        g_variant_builder_add(&builder,
-                              "{sv}",
-                              NM_VPN_PLUGIN_CONFIG_EXT_GATEWAY,
-                              g_variant_new_uint32(priv->naddr));
+        if (ptp_addr4 != 0 && ptp_addr4 == priv->naddr) {
+            _LOGI("Not sending EXT_GATEWAY: gateway %s matches PPP PTP address; "
+                  "skipping to prevent routing loop", priv->saddr);
+        } else {
+            g_variant_builder_add(&builder,
+                                  "{sv}",
+                                  NM_VPN_PLUGIN_CONFIG_EXT_GATEWAY,
+                                  g_variant_new_uint32(priv->naddr));
+        }
     } else if (priv->naddr_family == AF_INET6
                && priv->naddr_sockaddr_len >= sizeof(struct sockaddr_in6)) {
         const struct sockaddr_in6 *in6ptr = (const struct sockaddr_in6 *) &priv->naddr_sockaddr;
 
-        g_variant_builder_add(&builder,
-                              "{sv}",
-                              NM_VPN_PLUGIN_CONFIG_EXT_GATEWAY,
-                              g_variant_new_fixed_array(G_VARIANT_TYPE_BYTE,
-                                                        &in6ptr->sin6_addr,
-                                                        sizeof(in6ptr->sin6_addr),
-                                                        1));
+        if (have_ptp6 && memcmp(&ptp_addr6, &in6ptr->sin6_addr, sizeof(struct in6_addr)) == 0) {
+            _LOGI("Not sending EXT_GATEWAY: gateway %s matches PPP PTP address; "
+                  "skipping to prevent routing loop", priv->saddr);
+        } else {
+            g_variant_builder_add(&builder,
+                                  "{sv}",
+                                  NM_VPN_PLUGIN_CONFIG_EXT_GATEWAY,
+                                  g_variant_new_fixed_array(G_VARIANT_TYPE_BYTE,
+                                                            &in6ptr->sin6_addr,
+                                                            sizeof(in6ptr->sin6_addr),
+                                                            1));
+        }
     }
 
     new_config = g_variant_builder_end(&builder);
