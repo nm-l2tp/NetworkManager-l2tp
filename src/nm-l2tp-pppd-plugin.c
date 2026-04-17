@@ -117,6 +117,8 @@ nm_phasechange(void *data, int arg)
         gl.has_ip4    = FALSE;
         gl.has_ip6    = FALSE;
         gl.is_ip6_rej = FALSE;
+        if (gl.old_protrej)
+            ipv6cp_protent.protrej = nm_ipv6_protrej;
         ppp_status = NM_PPP_STATUS_INITIALIZE;
         ppp_phase  = "initialize";
         break;
@@ -388,9 +390,10 @@ nm_ip6_up_hook(void)
 static void
 nm_ipv6_protrej(int unit)
 {
-    gl.is_ip6_rej = 1;
+    gl.is_ip6_rej = TRUE;
     nm_ip6_rejected();
-    (*gl.old_protrej)(unit);
+    if (gl.old_protrej)
+        (*gl.old_protrej)(unit);
     ipv6cp_protent.protrej = gl.old_protrej;
 }
 
