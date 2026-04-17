@@ -100,6 +100,8 @@ nm_set_config(gboolean has_ip4, gboolean has_ip6)
                 NULL);
 }
 
+static void nm_ipv6_protrej(int unit);
+
 static void
 nm_phasechange(void *data, int arg)
 {
