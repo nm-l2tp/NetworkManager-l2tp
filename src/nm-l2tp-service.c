@@ -2124,16 +2124,6 @@ handle_set_ip4_config(NMDBusL2tpPpp *        object,
         g_variant_unref(value);
     }
 
-    /* Insert the external VPN gateway into the table, which the pppd plugin
-     * simply doesn't know about.
-     */
-    if (priv->naddr_family == AF_INET) {
-        g_variant_builder_add(&builder,
-                              "{sv}",
-                              NM_VPN_PLUGIN_CONFIG_EXT_GATEWAY,
-                              g_variant_new_uint32(priv->naddr));
-    }
-
     /* Honour ipv4.never-default: tell NM not to install a default route through
      * this VPN when the user has opted out of it on the connection.
      */
@@ -2164,7 +2154,6 @@ handle_set_ip6_config(NMDBusL2tpPpp *        object,
                       gpointer               user_data)
 {
     NML2tpPlugin *       plugin = NM_L2TP_PLUGIN(user_data);
-    NML2tpPluginPrivate *priv   = NM_L2TP_PLUGIN_GET_PRIVATE(plugin);
     GVariantIter         iter;
     const char *         key;
     GVariant *           value;
@@ -2178,21 +2167,6 @@ handle_set_ip6_config(NMDBusL2tpPpp *        object,
     while (g_variant_iter_next(&iter, "{&sv}", &key, &value)) {
         g_variant_builder_add(&builder, "{sv}", key, value);
         g_variant_unref(value);
-    }
-
-    /* Insert the external VPN gateway into the table, which the pppd plugin
-     * simply doesn't know about.
-     */
-    if (priv->naddr_family == AF_INET6 && priv->naddr_sockaddr_len >= sizeof(struct sockaddr_in6)) {
-        const struct sockaddr_in6 *in6ptr = (const struct sockaddr_in6 *) &priv->naddr_sockaddr;
-
-        g_variant_builder_add(&builder,
-                              "{sv}",
-                              NM_VPN_PLUGIN_CONFIG_EXT_GATEWAY,
-                              g_variant_new_fixed_array(G_VARIANT_TYPE_BYTE,
-                                                        &in6ptr->sin6_addr,
-                                                        sizeof(in6ptr->sin6_addr),
-                                                        1));
     }
 
     new_config = g_variant_builder_end(&builder);
