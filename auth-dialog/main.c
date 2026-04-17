@@ -13,6 +13,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <errno.h>
+#include <fcntl.h>
 #include <gtk/gtk.h>
 #include <libsecret/secret.h>
 
@@ -296,9 +297,15 @@ wait_for_quit(void)
     char     c;
     ssize_t  n;
     time_t   start;
+    int      flags;
 
     str   = g_string_sized_new(10);
     start = time(NULL);
+
+    flags = fcntl(0, F_GETFL);
+    if (flags != -1)
+        (void) fcntl(0, F_SETFL, flags | O_NONBLOCK);
+
     do {
         errno = 0;
         n     = read(0, &c, 1);
@@ -311,6 +318,10 @@ wait_for_quit(void)
         } else
             break;
     } while (time(NULL) < start + 20);
+
+    if (flags != -1)
+        (void) fcntl(0, F_SETFL, flags);
+
     g_string_free(str, TRUE);
 }
 
