@@ -531,7 +531,7 @@ ipsec_dialog_new(GHashTable *hash)
     } else {
         authtype = NM_L2TP_AUTHTYPE_PSK;
     }
-    g_object_set_data(G_OBJECT(dialog), "auth-type", GINT_TO_POINTER(authtype));
+    g_object_set_data(G_OBJECT(dialog), "auth-type", (gpointer) authtype);
 
     store = gtk_list_store_new(3, G_TYPE_STRING, G_TYPE_INT, G_TYPE_STRING);
 
@@ -720,7 +720,7 @@ ipsec_dialog_new(GHashTable *hash)
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "pfs_check"));
     if (ipsec_daemon == NM_L2TP_IPSEC_DAEMON_STRONGSWAN) {
         gtk_check_button_set_active(GTK_CHECK_BUTTON(widget), FALSE);
-        gtk_widget_set_sensitive(widget, sensitive);
+        gtk_widget_set_sensitive(widget, FALSE);
         gtk_widget_set_tooltip_text(widget, NULL);
     } else {
         value = g_hash_table_lookup(hash, NM_L2TP_KEY_IPSEC_PFS);
@@ -755,6 +755,7 @@ ipsec_dialog_new_hash_from_dialog(GtkWidget *dialog, GError **error)
     GtkWidget *   widget;
     GtkBuilder *  builder;
     const gchar * value;
+    gchar *       auth_type = NULL;
     GtkTreeModel *model;
     GtkTreeIter   iter;
     guint32       pw_flags;
@@ -781,12 +782,12 @@ ipsec_dialog_new_hash_from_dialog(GtkWidget *dialog, GError **error)
 
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "ipsec_auth_combo"));
     model  = gtk_combo_box_get_model(GTK_COMBO_BOX(widget));
-    value  = NULL;
+    auth_type = NULL;
     if (gtk_combo_box_get_active_iter(GTK_COMBO_BOX(widget), &iter)) {
-        gtk_tree_model_get(model, &iter, COL_AUTH_TYPE, &value, -1);
+        gtk_tree_model_get(model, &iter, COL_AUTH_TYPE, &auth_type, -1);
     }
-    if (value) {
-        g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_MACHINE_AUTH_TYPE), g_strdup(value));
+    if (auth_type) {
+        g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_MACHINE_AUTH_TYPE), auth_type);
     }
 
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "ipsec_psk_entry"));
