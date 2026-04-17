@@ -343,6 +343,34 @@ nm_ip6_up(void *data, int arg)
                       NULL);
 }
 
+static void
+nm_ip6_rejected(void)
+{
+    GVariantBuilder builder;
+
+    g_return_if_fail(G_IS_DBUS_PROXY(gl.proxy));
+
+    gl.has_ip6 = FALSE;
+    nm_set_config(gl.has_ip4, gl.has_ip6);
+
+    g_variant_builder_init(&builder, G_VARIANT_TYPE_VARDICT);
+    g_variant_builder_add(&builder,
+                          "{sv}",
+                          NM_VPN_PLUGIN_CONFIG_TUNDEV,
+                          g_variant_new_string(ppp_ifname()));
+
+    _LOGI("ip6-protrej: sending empty Ip6Config to NetworkManager-l2tp");
+
+    g_dbus_proxy_call(gl.proxy,
+                      "SetIp6Config",
+                      g_variant_new("(a{sv})", &builder),
+                      G_DBUS_CALL_FLAGS_NONE,
+                      -1,
+                      NULL,
+                      NULL,
+                      NULL);
+}
+
 #if WITH_PPP_VERSION < PPP_VERSION(2,5,0)
 static void
 nm_ip6_up_hook(void)
@@ -358,7 +386,7 @@ static void
 nm_ipv6_protrej(int unit)
 {
     gl.is_ip6_rej = 1;
-    nm_ip6_up(NULL, 0);
+    nm_ip6_rejected();
     (*gl.old_protrej)(unit);
     ipv6cp_protent.protrej = gl.old_protrej;
 }
