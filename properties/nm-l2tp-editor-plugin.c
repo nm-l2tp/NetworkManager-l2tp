@@ -195,7 +195,7 @@ G_MODULE_EXPORT NMVpnEditorPlugin *
 nm_vpn_editor_plugin_factory(GError **error)
 {
     L2tpPluginUi *editor_plugin;
-    gpointer gtk3_only_symbol;
+    gpointer gtk3_only_symbol = NULL;
     GModule *self_module;
 
     g_return_val_if_fail (!error || !*error, NULL);
@@ -204,8 +204,11 @@ nm_vpn_editor_plugin_factory(GError **error)
     bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
 
     self_module = g_module_open (NULL, 0);
-    g_module_symbol (self_module, "gtk_container_add", &gtk3_only_symbol);
-    g_module_close (self_module);
+    if (self_module) {
+        if (!g_module_symbol(self_module, "gtk_container_add", &gtk3_only_symbol))
+            gtk3_only_symbol = NULL;
+        g_module_close(self_module);
+    }
 
     editor_plugin = g_object_new (L2TP_TYPE_PLUGIN_UI, NULL);
     editor_plugin->module_path = nm_vpn_plugin_utils_get_editor_module_path
