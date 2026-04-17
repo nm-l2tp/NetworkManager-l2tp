@@ -1271,6 +1271,13 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         write_config_option(fd, "pseudowire = \"ppp\"\n");
         write_config_option(fd, "pppd_args = \"%s/ppp-options\"\n", rundir);
     } else {
+        if (priv->naddr_family == AF_INET6) {
+            _LOGW("xl2tpd does not support IPv6 gateways; use kl2tpd or an IPv6-capable xl2tpd fork");
+            return nm_l2tp_ipsec_error(
+                error,
+                _("xl2tpd does not support IPv6 gateways; use kl2tpd or an IPv6-capable xl2tpd fork."));
+        }
+
         /* xl2tpd config */
         filename = g_strdup_printf("%s/xl2tpd.conf", rundir);
         fd = open(filename, O_RDWR | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
