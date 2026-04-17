@@ -504,14 +504,11 @@ nm_l2tp_properties_validate(NMSettingVpn *s_vpn, GError **error)
 static gboolean
 nm_l2tp_secrets_validate(NMSettingVpn *s_vpn, GError **error)
 {
-    GError *     validate_error = NULL;
-    ValidateInfo info           = {&valid_secrets[0], error, FALSE};
+    ValidateInfo info = {&valid_secrets[0], error, FALSE};
 
     nm_setting_vpn_foreach_secret(s_vpn, validate_one_property, &info);
-    if (validate_error) {
-        g_propagate_error(error, validate_error);
+    if (*error)
         return FALSE;
-    }
     return TRUE;
 }
 
@@ -834,7 +831,6 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
             if (tls_key_filename) {
                 char *copied_file = nm_utils_copy_cert_as_user(tls_key_filename, priv->private_user, error);
                 if (*error) {
-                   close(fd);
                    return FALSE;
                 }
                 g_ptr_array_add(priv->tmp_file_paths, copied_file);
@@ -844,7 +840,6 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
             if (tls_cert_filename) {
                 char *copied_file = nm_utils_copy_cert_as_user(tls_cert_filename, priv->private_user, error);
                 if (*error) {
-                   close(fd);
                    return FALSE;
                 }
                 g_ptr_array_add(priv->tmp_file_paths, copied_file);
@@ -854,7 +849,6 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
             if (tls_ca_filename) {
                 char *copied_file = nm_utils_copy_cert_as_user(tls_ca_filename, priv->private_user, error);
                 if (*error) {
-                   close(fd);
                    return FALSE;
                 }
                 g_ptr_array_add(priv->tmp_file_paths, copied_file);
@@ -1273,9 +1267,6 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
     } else {
         if (priv->naddr_family == AF_INET6) {
             _LOGW("xl2tpd does not support IPv6 gateways; use kl2tpd or an IPv6-capable xl2tpd fork");
-            return nm_l2tp_ipsec_error(
-                error,
-                _("xl2tpd does not support IPv6 gateways; use kl2tpd or an IPv6-capable xl2tpd fork."));
         }
 
         /* xl2tpd config */
@@ -2481,8 +2472,10 @@ real_connect(NMVpnServicePlugin *plugin, NMConnection *connection, GError **erro
     if (!lookup_gateway(NM_L2TP_PLUGIN(plugin), gwaddr, error))
         return FALSE;
 
-    if (!get_localaddr(NM_L2TP_PLUGIN (plugin), error))
+    if (!get_localaddr(NM_L2TP_PLUGIN (plugin), error)) {
         priv->slocaladdr = NULL;
+        g_clear_error(error);
+    }
 
     if (!nm_l2tp_properties_validate(s_vpn, error))
         return FALSE;
