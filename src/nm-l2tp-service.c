@@ -1668,7 +1668,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
     NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE(plugin);
     char                 cmdbuf[256];
     char *               output = NULL;
-    int                  sys    = 0, status, retry;
+    int                  sys    = 0, status, status_rc, retry;
     int                  msec;
     gboolean             rc = FALSE;
     gchar *              argv[5];
@@ -1679,7 +1679,8 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         snprintf(cmdbuf, sizeof(cmdbuf), "%s status > /dev/null 2>&1", priv->ipsec_binary_path);
         g_message("%s", cmdbuf);
         sys = system(cmdbuf);
-        if (sys == 8448) {
+        status_rc = (sys >= 0 && WIFEXITED(sys)) ? WEXITSTATUS(sys) : -1;
+        if (status_rc != 0) {
             snprintf(cmdbuf, sizeof(cmdbuf), "%s start", priv->ipsec_binary_path);
             g_message("%s", cmdbuf);
             sys = system(cmdbuf);
@@ -1697,15 +1698,18 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         /* wait for Libreswan to get ready before performing an up operation */
         snprintf(cmdbuf, sizeof(cmdbuf), "%s status > /dev/null 2>&1", priv->ipsec_binary_path);
         sys = system(cmdbuf);
-        for (retry = 0; retry < 5 && sys != 0; retry++) {
+        status_rc = (sys >= 0 && WIFEXITED(sys)) ? WEXITSTATUS(sys) : -1;
+        for (retry = 0; retry < 5 && status_rc != 0; retry++) {
             sleep(1);
             sys = system(cmdbuf);
+            status_rc = (sys >= 0 && WIFEXITED(sys)) ? WEXITSTATUS(sys) : -1;
         }
     } else { /* strongswan */
         snprintf(cmdbuf, sizeof(cmdbuf), "%s status > /dev/null 2>&1", priv->ipsec_binary_path);
         g_message("%s", cmdbuf);
         sys = system(cmdbuf);
-        if (sys == 768) {
+        status_rc = (sys >= 0 && WIFEXITED(sys)) ? WEXITSTATUS(sys) : -1;
+        if (status_rc != 0) {
             snprintf(cmdbuf,
                      sizeof(cmdbuf),
                      "%s start "
@@ -1733,9 +1737,11 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         /* wait for strongSwan to get ready before performing an up operation  */
         snprintf(cmdbuf, sizeof(cmdbuf), "%s rereadsecrets", priv->ipsec_binary_path);
         sys = system(cmdbuf);
-        for (retry = 0; retry < 5 && sys != 0; retry++) {
+        status_rc = (sys >= 0 && WIFEXITED(sys)) ? WEXITSTATUS(sys) : -1;
+        for (retry = 0; retry < 5 && status_rc != 0; retry++) {
             sleep(1);
             sys = system(cmdbuf);
+            status_rc = (sys >= 0 && WIFEXITED(sys)) ? WEXITSTATUS(sys) : -1;
         }
         sys = 0;
     }
