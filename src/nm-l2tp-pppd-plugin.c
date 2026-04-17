@@ -37,8 +37,8 @@ struct {
     GDBusProxy *proxy;
     bool        has_ip4;
     bool        has_ip6;
-    bool is_ip6_rej;
-    protrej_fn old_protrej;
+    bool        is_ip6_rej;
+    protrej_fn  old_protrej;
 } gl /*lobal*/;
 
 /*****************************************************************************/
@@ -114,6 +114,9 @@ nm_phasechange(void *data, int arg)
         ppp_phase  = "dead";
         break;
     case PHASE_INITIALIZE:
+        gl.has_ip4    = FALSE;
+        gl.has_ip6    = FALSE;
+        gl.is_ip6_rej = FALSE;
         ppp_status = NM_PPP_STATUS_INITIALIZE;
         ppp_phase  = "initialize";
         break;
