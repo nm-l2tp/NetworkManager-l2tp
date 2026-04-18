@@ -2155,6 +2155,7 @@ handle_set_ip4_config(NMDBusL2tpPpp *        object,
 {
     NML2tpPlugin *       plugin = NM_L2TP_PLUGIN(user_data);
     NML2tpPluginPrivate *priv   = NM_L2TP_PLUGIN_GET_PRIVATE(plugin);
+    NMSettingIPConfig   *s_ip4;
     GVariantIter         iter;
     const char *         key;
     GVariant *           value;
@@ -2173,14 +2174,12 @@ handle_set_ip4_config(NMDBusL2tpPpp *        object,
     /* Honour ipv4.never-default: tell NM not to install a default route through
      * this VPN when the user has opted out of it on the connection.
      */
-    {
-        NMSettingIPConfig *s_ip4 = nm_connection_get_setting_ip4_config(priv->connection);
-        if (s_ip4 && nm_setting_ip_config_get_never_default(s_ip4)) {
-            g_variant_builder_add(&builder,
-                                  "{sv}",
-                                  NM_VPN_PLUGIN_IP4_CONFIG_NEVER_DEFAULT,
-                                  g_variant_new_boolean(TRUE));
-        }
+    s_ip4 = nm_connection_get_setting_ip4_config(priv->connection);
+    if (s_ip4 && nm_setting_ip_config_get_never_default(s_ip4)) {
+        g_variant_builder_add(&builder,
+                              "{sv}",
+                              NM_VPN_PLUGIN_IP4_CONFIG_NEVER_DEFAULT,
+                              g_variant_new_boolean(TRUE));
     }
 
     new_config = g_variant_builder_end(&builder);
