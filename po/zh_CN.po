@@ -75,7 +75,7 @@ msgstr "PPP选项对话框"
 
 #: appdata/network-manager-l2tp.metainfo.xml.in:48
 msgid "The NetworkManager-L2TP Developers"
-msgstr "he NetworkManager-L2TP Developers"
+msgstr ""
 
 #: auth-dialog/main.c:178 auth-dialog/main.c:249
 msgid "Authenticate VPN"
