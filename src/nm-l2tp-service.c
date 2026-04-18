@@ -193,6 +193,7 @@ static const ValidProperty valid_properties[] = {
     {NM_L2TP_KEY_NO_ACCOMP, G_TYPE_BOOLEAN, FALSE},
     {NM_L2TP_KEY_LCP_ECHO_FAILURE, G_TYPE_UINT, FALSE},
     {NM_L2TP_KEY_LCP_ECHO_INTERVAL, G_TYPE_UINT, FALSE},
+    {NM_L2TP_KEY_XL2TPD_MAX_RETRIES, G_TYPE_UINT, FALSE},
     {NM_L2TP_KEY_UNIT_NUM, G_TYPE_UINT, FALSE},
     {NM_L2TP_KEY_MACHINE_AUTH_TYPE, G_TYPE_STRING, FALSE},
     {NM_L2TP_KEY_MACHINE_CA, G_TYPE_STRING, FALSE},
@@ -738,7 +739,6 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
     g_autofree char *      rundir = NULL;
     char                   errorbuf[128];
     gint                   fd = -1;
-    gint64                 max_retries;
     FILE *                 fp;
     struct in_addr         naddr4;
     struct in6_addr        naddr6;
@@ -1283,9 +1283,17 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         write_config_option(fd, "access control = yes\n");
 
         write_config_option(fd, "port = %d\n", port);
-        if (getenv("NM_L2TP_XL2TPD_MAX_RETRIES")) {
-            max_retries = strtol(getenv("NM_L2TP_XL2TPD_MAX_RETRIES"), NULL, 10);
-            write_config_option(fd, "max retries = %ld\n", max_retries);
+        value = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_XL2TPD_MAX_RETRIES);
+        if (!(value && *value))
+            value = getenv("NM_L2TP_XL2TPD_MAX_RETRIES");
+        if (value && *value) {
+            long int tmp_int;
+
+            if (str_to_int(value, &tmp_int)) {
+                write_config_option(fd, "max retries = %ld\n", tmp_int);
+            } else {
+                _LOGW("failed to convert xl2tpd max retries value '%s'", value);
+            }
         }
         if (_LOGD_enabled()) {
             /* write_config_option (fd, "debug network = yes\n"); */

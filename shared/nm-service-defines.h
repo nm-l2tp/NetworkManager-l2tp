@@ -48,6 +48,7 @@
 #define NM_L2TP_KEY_MRU               "mru"
 #define NM_L2TP_KEY_LCP_ECHO_FAILURE  "lcp-echo-failure"
 #define NM_L2TP_KEY_LCP_ECHO_INTERVAL "lcp-echo-interval"
+#define NM_L2TP_KEY_XL2TPD_MAX_RETRIES "xl2tpd-max-retries"
 #define NM_L2TP_KEY_UNIT_NUM          "unit"
 #define NM_L2TP_KEY_MACHINE_AUTH_TYPE "machine-auth-type"
 #define NM_L2TP_KEY_MACHINE_CA        "machine-ca"
