@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: NetworkManager-l2tp 0.8.1\n"
 "Report-Msgid-Bugs-To: https://gitlab.freedesktop.org/NetworkManager/"
 "NetworkManager/issues\n"
-"POT-Creation-Date: 2026-01-10 12:00+1000\n"
+"POT-Creation-Date: 2026-04-18 11:12+1000\n"
 "PO-Revision-Date: 2011-01-25 17:31+0800\n"
 "Last-Translator: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>\n"
 "Language-Team: Chinese (traditional) <community@linuxhall.org>\n"
@@ -69,109 +69,111 @@ msgstr "PPP 選項對話方塊"
 msgid "The NetworkManager-L2TP Developers"
 msgstr "NetworkManager-L2TP 開發人員"
 
-#: auth-dialog/main.c:177 auth-dialog/main.c:248
+#: auth-dialog/main.c:178 auth-dialog/main.c:249
 msgid "Authenticate VPN"
 msgstr "VPN 驗證"
 
-#: auth-dialog/main.c:182 properties/nm-l2tp-dialog.ui:193
-#: properties/nm-l2tp-editor.c:571
+#: auth-dialog/main.c:183 properties/nm-l2tp-dialog.ui:193
+#: properties/nm-l2tp-editor.c:577
 msgid "Password"
 msgstr "密碼"
 
-#: auth-dialog/main.c:189
+#: auth-dialog/main.c:190
 msgid "User Certificate password"
 msgstr "使用者憑證密碼"
 
-#: auth-dialog/main.c:196 properties/ipsec-dialog.c:544
+#: auth-dialog/main.c:197 properties/ipsec-dialog.c:544
 msgid "Pre-shared key (PSK)"
 msgstr "預先共用金鑰 (PSK)"
 
-#: auth-dialog/main.c:203
+#: auth-dialog/main.c:204
 msgid "Machine Certificate password"
 msgstr "機器憑證密碼"
 
-#: auth-dialog/main.c:258
+#: auth-dialog/main.c:259
 msgid "_User Certificate password:"
 msgstr "使用者憑證密碼(_U)："
 
-#: auth-dialog/main.c:264
+#: auth-dialog/main.c:265
 msgid "_Pre-shared key (PSK):"
 msgstr "預先共用金鑰 (PSK)(_P)："
 
-#: auth-dialog/main.c:268
+#: auth-dialog/main.c:269
 msgid "_Machine Certificate password:"
 msgstr "機器憑證密碼(_M)："
 
-#: auth-dialog/main.c:565
+#: auth-dialog/main.c:576
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr "您需要進行身份驗證才能存取虛擬私有網路%s」。"
 
-#: properties/import-export.c:161 properties/import-export.c:409
+#: properties/import-export.c:183 properties/import-export.c:394
+#: properties/import-export.c:637
 #, c-format
 msgid "Required property %s missing"
 msgstr "缺少必要的屬性 %s"
 
-#: properties/import-export.c:180
+#: properties/import-export.c:202 properties/import-export.c:413
 #, c-format
 msgid "Property %s value '%s' can't be parsed as boolean."
 msgstr "屬性 %s 的值「%s」無法解析為布林值。"
 
-#: properties/import-export.c:246
+#: properties/import-export.c:268 properties/import-export.c:475
 #, c-format
 msgid "Property '%s' value '%s' couldn't find netmask."
 msgstr "屬性「%s」的值「%s」找不到網路遮罩。"
 
-#: properties/import-export.c:256 properties/import-export.c:295
+#: properties/import-export.c:278 properties/import-export.c:317
+#: properties/import-export.c:485 properties/import-export.c:521
 #, c-format
 msgid "Property '%s' value '%s' can't be parsed as IP address."
 msgstr "屬性「%s」的值「%s」無法解析為 IP 位址。"
 
-#: properties/import-export.c:273
+#: properties/import-export.c:295 properties/import-export.c:501
 #, c-format
 msgid "Property '%s' value '%s' can't be parsed as IP netmask."
 msgstr "屬性「%s」的值「%s」無法解析為 IP 網路遮罩。"
 
-#: properties/import-export.c:320
+#: properties/import-export.c:342 properties/import-export.c:544
 #, c-format
 msgid "Property '%s' value '%s' can't be parsed as route metric."
 msgstr "屬性「%s」的值「%s」無法解析為路由計量。"
 
-#: properties/import-export.c:330
+#: properties/import-export.c:352 properties/import-export.c:554
 #, c-format
 msgid "Error parsing property '%s' value '%s'."
 msgstr "解析屬性「%s」的值「%s」時發生錯誤。"
 
-#: properties/import-export.c:342
+#: properties/import-export.c:364 properties/import-export.c:566
 #, c-format
 msgid "Error parsing property '%s': %s."
 msgstr "解析屬性「%s」時發生錯誤：%s。"
 
-#: properties/import-export.c:376
+#: properties/import-export.c:601
 msgid "does not look like a L2TP VPN connection (parse failed)"
 msgstr "看起來不像是 L2TP VPN 連線（解析失敗）"
 
-#: properties/import-export.c:427
+#: properties/import-export.c:655
 #, c-format
 msgid "Property %s can't be parsed as integer."
 msgstr "屬性 %s 無法解析為整數。"
 
-#: properties/import-export.c:445
+#: properties/import-export.c:673
 #, c-format
 msgid ""
 "Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."
 msgstr "屬性 %s 無法解析為布林值。僅允許「true」和「false」。"
 
-#: properties/import-export.c:619
+#: properties/import-export.c:943
 #, c-format
 msgid "Missing required property '%s'"
 msgstr "缺少必要的屬性「%s」"
 
-#: properties/import-export.c:646
+#: properties/import-export.c:972
 msgid "Couldn't open file for writing."
 msgstr "無法開啟檔案以進行寫入。"
 
-#: properties/ipsec-dialog.c:557 properties/nm-l2tp-editor.c:584
+#: properties/ipsec-dialog.c:557 properties/nm-l2tp-editor.c:590
 msgid "Certificates (TLS)"
 msgstr "憑證 (TLS)"
 
@@ -608,31 +610,31 @@ msgstr "MTU"
 msgid "MRU"
 msgstr "MRU"
 
-#: properties/nm-l2tp-editor.c:347
+#: properties/nm-l2tp-editor.c:350
 #, c-format
 msgid "%s: error reading ppp settings: %s"
 msgstr "%s：讀取 ppp 設定時發生錯誤：%s"
 
-#: properties/nm-l2tp-editor.c:371
+#: properties/nm-l2tp-editor.c:374
 #, c-format
 msgid "%s: error reading ipsec settings: %s"
 msgstr "%s：讀取 ipsec 設定時發生錯誤：%s"
 
-#: properties/nm-l2tp-editor.c:405
+#: properties/nm-l2tp-editor.c:408
 #, c-format
 msgid "%s: failed to create the PPP dialog!"
 msgstr "%s：建立 PPP 對話方塊失敗！"
 
-#: properties/nm-l2tp-editor.c:449
+#: properties/nm-l2tp-editor.c:455
 #, c-format
 msgid "%s: failed to create the IPsec dialog!"
 msgstr "%s：建立 IPsec 對話方塊失敗！"
 
-#: properties/nm-l2tp-editor.c:800
+#: properties/nm-l2tp-editor.c:806
 msgid "could not create l2tp object"
 msgstr "無法建立 l2tp 物件"
 
-#: properties/nm-l2tp-editor.c:819
+#: properties/nm-l2tp-editor.c:825
 msgid "could not load UI widget"
 msgstr "無法載入 UI 小工具"
 
@@ -644,35 +646,35 @@ msgstr "第二層通道協定 (L2TP)"
 msgid "Compatible with Microsoft and other L2TP VPN servers."
 msgstr "與 Microsoft 和其他 L2TP VPN 伺服器相容。"
 
-#: properties/ppp-dialog.c:176
+#: properties/ppp-dialog.c:177
 msgid "All Available (Default)"
 msgstr "所有可用的 (預設)"
 
-#: properties/ppp-dialog.c:180
+#: properties/ppp-dialog.c:181
 msgid "128-bit (most secure)"
 msgstr "128 位元 (最安全)"
 
-#: properties/ppp-dialog.c:189
+#: properties/ppp-dialog.c:190
 msgid "40-bit (less secure)"
 msgstr "40 位元 (較不安全)"
 
-#: properties/ppp-dialog.c:295
+#: properties/ppp-dialog.c:296
 msgid "PAP"
 msgstr "PAP"
 
-#: properties/ppp-dialog.c:313
+#: properties/ppp-dialog.c:314
 msgid "CHAP"
 msgstr "CHAP"
 
-#: properties/ppp-dialog.c:330
+#: properties/ppp-dialog.c:331
 msgid "MSCHAP"
 msgstr "MSCHAP"
 
-#: properties/ppp-dialog.c:347
+#: properties/ppp-dialog.c:348
 msgid "MSCHAPv2"
 msgstr "MSCHAPv2"
 
-#: properties/ppp-dialog.c:365
+#: properties/ppp-dialog.c:366
 msgid "EAP"
 msgstr "EAP"
 
@@ -855,170 +857,164 @@ msgstr "無法從外掛程式載入工廠 %s：%s"
 msgid "unknown error creating editor instance"
 msgstr "建立編輯器執行個體時發生未知錯誤"
 
-#: src/nm-l2tp-service.c:339
+#: src/nm-l2tp-service.c:415
 #, c-format
 msgid "invalid gateway '%s'"
 msgstr "閘道「%s」無效"
 
-#: src/nm-l2tp-service.c:353
+#: src/nm-l2tp-service.c:429
 #, c-format
 msgid "invalid integer property '%s'"
 msgstr "整數屬性「%s」無效"
 
-#: src/nm-l2tp-service.c:363
+#: src/nm-l2tp-service.c:439
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr "布林值屬性「%s」無效（不是 yes 或 no）"
 
-#: src/nm-l2tp-service.c:370
+#: src/nm-l2tp-service.c:446
 #, c-format
 msgid "unhandled property '%s' type %s"
 msgstr "未處理的屬性「%s」類型 %s"
 
-#: src/nm-l2tp-service.c:382
+#: src/nm-l2tp-service.c:458
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "屬性「%s」無效或不支援"
 
-#: src/nm-l2tp-service.c:400
+#: src/nm-l2tp-service.c:476
 msgid "No VPN configuration options."
 msgstr "沒有 VPN 設定選項。"
 
-#: src/nm-l2tp-service.c:420
+#: src/nm-l2tp-service.c:496
 #, c-format
 msgid "Missing required option '%s'."
 msgstr "缺少必要的選項「%s」。"
 
-#: src/nm-l2tp-service.c:774
+#: src/nm-l2tp-service.c:881
 #, c-format
 msgid "Could not open %s for writing: %s"
 msgstr "無法開啟 %s 以進行寫入：%s"
 
-#: src/nm-l2tp-service.c:783
+#: src/nm-l2tp-service.c:890
 #, c-format
 msgid "Could not append \"include ipsec.d/ipsec.nm-l2tp.secrets\" to %s"
 msgstr "無法將「include ipsec.d/ipsec.nm-l2tp.secrets」附加到 %s"
 
-#: src/nm-l2tp-service.c:801
+#: src/nm-l2tp-service.c:907
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr "無法寫入 %s/ipsec.nm-l2tp.secrets"
 
-#: src/nm-l2tp-service.c:838
+#: src/nm-l2tp-service.c:946
 msgid "Machine private key file not supplied"
 msgstr "未提供機器私密金鑰檔案"
 
-#: src/nm-l2tp-service.c:932
+#: src/nm-l2tp-service.c:1040
 msgid "Could not write ipsec config"
 msgstr "無法寫入 ipsec 設定"
 
-#: src/nm-l2tp-service.c:1025
+#: src/nm-l2tp-service.c:1133
 msgid "Machine certificate file not supplied"
 msgstr "未提供機器憑證檔案"
 
-#: src/nm-l2tp-service.c:1140
+#: src/nm-l2tp-service.c:1248
 msgid "Could not write kl2tpd config."
 msgstr "無法寫入 kl2tpd 設定。"
 
-#: src/nm-l2tp-service.c:1159
+#: src/nm-l2tp-service.c:1278
 msgid "Could not write xl2tpd config."
 msgstr "無法寫入 xl2tpd 設定。"
 
-#: src/nm-l2tp-service.c:1201
+#: src/nm-l2tp-service.c:1328
 msgid "Could not write ppp options."
 msgstr "無法寫入 ppp 選項。"
 
-#: src/nm-l2tp-service.c:1556 src/nm-l2tp-service.c:1587
+#: src/nm-l2tp-service.c:1696 src/nm-l2tp-service.c:1730
 msgid "Could not start the ipsec service."
 msgstr "無法啟動 ipsec 服務。"
 
-#: src/nm-l2tp-service.c:1563 src/nm-l2tp-service.c:1599
+#: src/nm-l2tp-service.c:1703 src/nm-l2tp-service.c:1742
 msgid "Could not restart the ipsec service."
 msgstr "無法重新啟動 ipsec 服務。"
 
-#: src/nm-l2tp-service.c:1635
+#: src/nm-l2tp-service.c:1780
 msgid "Could not add ipsec connection."
 msgstr "無法新增 ipsec 連線。"
 
-#: src/nm-l2tp-service.c:1719
-#, fuzzy
-#| msgid "Could not add ipsec connection."
-msgid "Could not establish IPsec connection."
-msgstr "無法新增 ipsec 連線。"
-
-#: src/nm-l2tp-service.c:1735
+#: src/nm-l2tp-service.c:1880
 msgid "Could not find kl2tpd or xl2tpd binaries."
 msgstr "找不到 kl2tpd 或 xl2tpd 執行檔。"
 
-#: src/nm-l2tp-service.c:1855
+#: src/nm-l2tp-service.c:2000
 msgid "Missing or invalid VPN user certificate password."
 msgstr "VPN 使用者憑證密碼遺失或無效。"
 
-#: src/nm-l2tp-service.c:1873
+#: src/nm-l2tp-service.c:2018
 msgid "Missing VPN username."
 msgstr "缺少 VPN 使用者名稱。"
 
-#: src/nm-l2tp-service.c:1882
+#: src/nm-l2tp-service.c:2027
 msgid "Missing or invalid VPN password."
 msgstr "VPN 密碼遺失或無效。"
 
-#: src/nm-l2tp-service.c:1987
-msgid "couldn't convert L2TP VPN gateway IP address."
-msgstr "無法轉換 L2TP VPN 閘道 IP 位址。"
+#: src/nm-l2tp-service.c:2293
+msgid "IPv4 and IPv6 are both disabled for this connection."
+msgstr ""
 
-#: src/nm-l2tp-service.c:2000
+#: src/nm-l2tp-service.c:2309
 msgid "couldn't look up L2TP VPN gateway IP address "
 msgstr "無法查詢 L2TP VPN 閘道 IP 位址"
 
-#: src/nm-l2tp-service.c:2018
+#: src/nm-l2tp-service.c:2338
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr "L2TP VPN 閘道沒有回傳可用的位址"
 
-#: src/nm-l2tp-service.c:2039
+#: src/nm-l2tp-service.c:2361
 msgid "couldn't determine local IP to contact L2TP VPN gateway"
 msgstr "無法判斷用於連線至 L2TP VPN 閘道的本機 IP"
 
-#: src/nm-l2tp-service.c:2048
+#: src/nm-l2tp-service.c:2375
 msgid "unable to connect to L2TP VPN gateway"
 msgstr "無法連線至 L2TP VPN 閘道"
 
-#: src/nm-l2tp-service.c:2054
+#: src/nm-l2tp-service.c:2382
 msgid "failed to get local IP"
 msgstr "無法取得本機 IP"
 
-#: src/nm-l2tp-service.c:2088
+#: src/nm-l2tp-service.c:2432
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr "找不到 ipsec 執行檔。是否已安裝 Libreswan 或 strongSwan？"
 
-#: src/nm-l2tp-service.c:2096
+#: src/nm-l2tp-service.c:2440
 msgid "Openswan is no longer supported, use Libreswan or strongSwan."
 msgstr "已不再支援 Openswan，請使用 Libreswan 或 strongSwan。"
 
-#: src/nm-l2tp-service.c:2099
+#: src/nm-l2tp-service.c:2443
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr "找不到 Libreswan 也找不到 strongSwan。"
 
-#: src/nm-l2tp-service.c:2113
+#: src/nm-l2tp-service.c:2457
 msgid "could not retrieve connection UUID"
 msgstr "無法取得連線 UUID"
 
-#: src/nm-l2tp-service.c:2125
+#: src/nm-l2tp-service.c:2469
 msgid "Invalid or missing L2TP gateway."
 msgstr "L2TP 閘道無效或遺失。"
 
-#: src/nm-l2tp-service.c:2486
+#: src/nm-l2tp-service.c:2857
 msgid "Don't quit when VPN connection terminates"
 msgstr "VPN 連線終止時不要結束"
 
-#: src/nm-l2tp-service.c:2493
+#: src/nm-l2tp-service.c:2864
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "啟用詳細的除錯記錄 (可能會暴露密碼)"
 
-#: src/nm-l2tp-service.c:2500
+#: src/nm-l2tp-service.c:2871
 msgid "D-Bus name to use for this instance"
 msgstr "此執行個體要使用的 D-Bus 名稱"
 
-#: src/nm-l2tp-service.c:2519
+#: src/nm-l2tp-service.c:2890
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
