@@ -162,7 +162,7 @@ PKG_CHECK_MODULES(OPENSSL, [libcrypto >= 1.1.0], [have_crypto_openssl=yes], [hav
 if test "x${have_crypto_openssl}" = "xno"; then
 	AC_MSG_ERROR($OPENSSL_PKG_ERRORS)
 fi
-PKG_CHECK_MODULES(NSS, [nss], [have_crypto_ipsec_nss=yes], [have_crypto_ipsec_nss=yes])
+PKG_CHECK_MODULES(NSS, [nss], [have_crypto_ipsec_nss=yes], [have_crypto_ipsec_nss=no])
 if test "${have_crypto_ipsec_nss}" = "yes"; then
 	# Work around a pkg-config bug (fdo #29801) where exists != usable
 	FOO=`$PKG_CONFIG --cflags --libs nss`
@@ -231,7 +231,7 @@ if test x"$with_gtk4" != xno; then
 fi
 
 # Ensure libnm version has CVE-2025-9615 fix 
-LIBNM_VERSION=$(pkg-config --modversion libnm)
+LIBNM_VERSION=$($PKG_CONFIG --modversion libnm)
 case "$LIBNM_VERSION" in
   1.52.*)
     PKG_CHECK_MODULES(LIBNM, libnm >= 1.52.2)
