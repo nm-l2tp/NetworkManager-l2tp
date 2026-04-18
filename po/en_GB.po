@@ -889,7 +889,7 @@ msgstr ""
 
 #: src/nm-l2tp-service.c:1248
 msgid "Could not write kl2tpd config."
-msgstr "could not create l2tp object"
+msgstr "Could not write kl2tpd config."
 
 #: src/nm-l2tp-service.c:1278
 msgid "Could not write xl2tpd config."
