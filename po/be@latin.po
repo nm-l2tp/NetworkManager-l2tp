@@ -261,11 +261,11 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:477 properties/nm-l2tp-dialog.ui:1169
 msgid "_Cancel"
-msgstr ""
+msgstr "_Skasavać"
 
 #: properties/nm-l2tp-dialog.ui:485 properties/nm-l2tp-dialog.ui:1177
 msgid "_Apply"
-msgstr ""
+msgstr "_Užyć"
 
 #: properties/nm-l2tp-dialog.ui:539
 msgid "_Enable IPsec tunnel to L2TP host"
