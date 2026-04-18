@@ -940,6 +940,10 @@ msgstr "无法重新启动ipsec服务。"
 msgid "Could not add ipsec connection."
 msgstr ""
 
+#: src/nm-l2tp-service.c:1864
+msgid "Could not establish IPsec connection."
+msgstr "无法建立 IPsec 连接。"
+
 #: src/nm-l2tp-service.c:1880
 msgid "Could not find kl2tpd or xl2tpd binaries."
 msgstr "找不到kl2tpd或xl2tpd二进制文件。"
@@ -967,6 +971,10 @@ msgstr "无法查找L2TP VPN网关IP地址"
 #: src/nm-l2tp-service.c:2338
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr "L2TP VPN网关没有返回可用地址"
+
+#: src/nm-l2tp-service.c:2357
+msgid "couldn't determine L2TP VPN gateway address family"
+msgstr "无法确定 L2TP VPN 网关的地址族"
 
 #: src/nm-l2tp-service.c:2361
 msgid "couldn't determine local IP to contact L2TP VPN gateway"

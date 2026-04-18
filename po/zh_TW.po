@@ -942,6 +942,10 @@ msgstr "無法重新啟動 ipsec 服務。"
 msgid "Could not add ipsec connection."
 msgstr "無法新增 ipsec 連線。"
 
+#: src/nm-l2tp-service.c:1864
+msgid "Could not establish IPsec connection."
+msgstr "無法建立 IPsec 連線。"
+
 #: src/nm-l2tp-service.c:1880
 msgid "Could not find kl2tpd or xl2tpd binaries."
 msgstr "找不到 kl2tpd 或 xl2tpd 執行檔。"
@@ -970,6 +974,10 @@ msgstr "無法查詢 L2TP VPN 閘道 IP 位址"
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr "L2TP VPN 閘道沒有回傳可用的位址"
 
+#: src/nm-l2tp-service.c:2357
+msgid "couldn't determine L2TP VPN gateway address family"
+msgstr "無法判斷 L2TP VPN 閘道的位址家族"
+
 #: src/nm-l2tp-service.c:2361
 msgid "couldn't determine local IP to contact L2TP VPN gateway"
 msgstr "無法判斷用於連線至 L2TP VPN 閘道的本機 IP"
@@ -981,6 +989,10 @@ msgstr "無法連線至 L2TP VPN 閘道"
 #: src/nm-l2tp-service.c:2382
 msgid "failed to get local IP"
 msgstr "無法取得本機 IP"
+
+#: src/nm-l2tp-service.c:2401
+msgid "failed to format local IP address"
+msgstr "無法格式化本機 IP 位址"
 
 #: src/nm-l2tp-service.c:2432
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"

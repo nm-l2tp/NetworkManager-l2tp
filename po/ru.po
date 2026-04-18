@@ -980,6 +980,10 @@ msgstr "Не удалось перезапустить службу ipsec."
 msgid "Could not add ipsec connection."
 msgstr ""
 
+#: src/nm-l2tp-service.c:1864
+msgid "Could not establish IPsec connection."
+msgstr "Не удалось установить соединение IPsec."
+
 #: src/nm-l2tp-service.c:1880
 msgid "Could not find kl2tpd or xl2tpd binaries."
 msgstr "Не удалось найти двоичные файлы kl2tpd или xl2tpd."
@@ -1007,6 +1011,10 @@ msgstr "не удалось найти IP-адрес шлюза L2TP VPN"
 #: src/nm-l2tp-service.c:2338
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr "не возвращены используемые адреса для шлюза L2TP VPN"
+
+#: src/nm-l2tp-service.c:2357
+msgid "couldn't determine L2TP VPN gateway address family"
+msgstr "не удалось определить семейство адресов шлюза L2TP VPN"
 
 #: src/nm-l2tp-service.c:2361
 msgid "couldn't determine local IP to contact L2TP VPN gateway"

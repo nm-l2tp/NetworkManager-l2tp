@@ -977,6 +977,10 @@ msgstr "Ipsec-ის სერვისის გადატვირთვა 
 msgid "Could not add ipsec connection."
 msgstr ""
 
+#: src/nm-l2tp-service.c:1864
+msgid "Could not establish IPsec connection."
+msgstr "IPsec კავშირის დამყარება შეუძლებელია."
+
 #: src/nm-l2tp-service.c:1880
 msgid "Could not find kl2tpd or xl2tpd binaries."
 msgstr "შეცდომა kl2tpd ან xl2tpd გამშვები ფაილის მოძებნისას."
@@ -1005,6 +1009,10 @@ msgstr "შეცდომა L2TP VPN ნაგულისხმევი რ�
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr ""
 "გამოყენებადი IP მისამართი არ დაბრუნებულა L2TP VPN ნაგულისხმევი რაუტერისთვის "
+
+#: src/nm-l2tp-service.c:2357
+msgid "couldn't determine L2TP VPN gateway address family"
+msgstr "L2TP VPN კარიბჭის მისამართის ოჯახის დადგენა შეუძლებელია"
 
 #: src/nm-l2tp-service.c:2361
 msgid "couldn't determine local IP to contact L2TP VPN gateway"
