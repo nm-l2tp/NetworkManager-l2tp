@@ -324,13 +324,13 @@ if WITH_GNOME
 appdata_DATA = $(appdata_files)
 
 $(appdata_DATA): $(appdata_in_files)
-	$(AM_V_GEN)$(MSGFMT) --xml --template $< -d $(top_srcdir)/po -o $@
+	$(AM_V_GEN) $(MSGFMT) --xml --template $< -d $(top_srcdir)/po -o $@
 endif
 
 nm-l2tp-service.name: $(srcdir)/nm-l2tp-service.name.in
 	$(AM_V_GEN) sed -e 's|[@]LIBEXECDIR[@]|$(libexecdir)|g' \
 	    -e 's|[@]PLUGINDIR[@]/|@NM_PLUGIN_DIR_NAME_FILE@|g' \
-	    $^ >$@
+	    $< >$@
 
 EXTRA_DIST += \
 	nm-l2tp-service.name.in \
