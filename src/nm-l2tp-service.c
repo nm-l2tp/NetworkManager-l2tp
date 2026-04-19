@@ -2476,11 +2476,11 @@ real_connect(NMVpnServicePlugin *plugin, NMConnection *connection, GError **erro
             gwaddr = gwaddr_stripped = g_strndup(gwaddr + 1, close - (gwaddr + 1));
     }
 
-    /* Look up the IP address of the L2TP server; if the server has multiple
-     * addresses, because we can't get the actual IP used back from xl2tp itself,
-     * we need to do name->addr conversion here and only pass the IP address
-     * down to pppd/l2tp.  If only xl2tp could somehow return the IP address it's
-     * using for the connection, we wouldn't need to do this...
+    /* Look up the IP address of the L2TP/IPsec gateway. We need to do name->addr
+     * conversion here and only pass the IP address down to the daemons because:
+     * - If the server has multiple addresses, we can't reliably determine which IP
+     *   was actually used by the L2TP daemon (xl2tpd/kl2tpd) or IPsec itself
+     * - Both the L2TP and IPsec daemons need the actual IP for proper tunnel setup
      */
     if (!lookup_gateway(NM_L2TP_PLUGIN(plugin), gwaddr, error))
         return FALSE;
