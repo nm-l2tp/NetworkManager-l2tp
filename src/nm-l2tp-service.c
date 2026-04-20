@@ -2165,6 +2165,8 @@ handle_set_ip6_config(NMDBusL2tpPpp *        object,
                       gpointer               user_data)
 {
     NML2tpPlugin *       plugin = NM_L2TP_PLUGIN(user_data);
+    NML2tpPluginPrivate *priv   = NM_L2TP_PLUGIN_GET_PRIVATE(plugin);
+    NMSettingIPConfig *  s_ip6;
     GVariantIter         iter;
     const char *         key;
     GVariant *           value;
@@ -2178,6 +2180,17 @@ handle_set_ip6_config(NMDBusL2tpPpp *        object,
     while (g_variant_iter_next(&iter, "{&sv}", &key, &value)) {
         g_variant_builder_add(&builder, "{sv}", key, value);
         g_variant_unref(value);
+    }
+
+    /* Honour ipv6.never-default: tell NM not to install a default route through
+     * this VPN when the user has opted out of it on the connection.
+     */
+    s_ip6 = nm_connection_get_setting_ip6_config(priv->connection);
+    if (s_ip6 && nm_setting_ip_config_get_never_default(s_ip6)) {
+        g_variant_builder_add(&builder,
+                              "{sv}",
+                              NM_VPN_PLUGIN_IP6_CONFIG_NEVER_DEFAULT,
+                              g_variant_new_boolean(TRUE));
     }
 
     new_config = g_variant_builder_end(&builder);
