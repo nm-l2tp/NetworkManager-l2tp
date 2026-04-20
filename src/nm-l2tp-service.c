@@ -202,6 +202,7 @@ static const ValidProperty valid_properties[] = {
     {NM_L2TP_KEY_IPSEC_ENABLE, G_TYPE_BOOLEAN, FALSE},
     {NM_L2TP_KEY_IPSEC_REMOTE_ID, G_TYPE_STRING, FALSE},
     {NM_L2TP_KEY_IPSEC_GATEWAY_ID, G_TYPE_STRING, FALSE},
+    {NM_L2TP_KEY_IPSEC_GROUP_NAME, G_TYPE_STRING, FALSE},
     /* For legacy purposes, the PSK can also be specified as a non-secret */
     {NM_L2TP_KEY_IPSEC_PSK, G_TYPE_STRING, FALSE},
     {NM_L2TP_KEY_IPSEC_IKE, G_TYPE_STRING, FALSE},
@@ -1101,6 +1102,12 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         }
         if (!use_ephemeral_port) {
             write_config_option(fd, "  leftprotoport=udp/l2tp\n");
+        }
+        if (priv->machine_authtype == PSK_AUTH) {
+            value = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_IPSEC_GROUP_NAME);
+            if (value) {
+                write_config_option(fd, "  leftid=%s\n", value);
+            }
         }
         if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN
             && priv->machine_authtype == TLS_AUTH) {

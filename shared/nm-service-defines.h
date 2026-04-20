@@ -58,6 +58,7 @@
 #define NM_L2TP_KEY_IPSEC_ENABLE      "ipsec-enabled"
 #define NM_L2TP_KEY_IPSEC_REMOTE_ID   "ipsec-remote-id"
 #define NM_L2TP_KEY_IPSEC_GATEWAY_ID  "ipsec-gateway-id" /* deprecated, use ipsec-remote-id */
+#define NM_L2TP_KEY_IPSEC_GROUP_NAME  "ipsec-group-name"
 #define NM_L2TP_KEY_IPSEC_PSK         "ipsec-psk"
 #define NM_L2TP_KEY_IPSEC_IKE         "ipsec-ike"
 #define NM_L2TP_KEY_IPSEC_ESP         "ipsec-esp"

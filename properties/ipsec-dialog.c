@@ -27,6 +27,7 @@
 
 static const char *ipsec_keys[] = {NM_L2TP_KEY_IPSEC_ENABLE,
                                    NM_L2TP_KEY_IPSEC_REMOTE_ID,
+                                   NM_L2TP_KEY_IPSEC_GROUP_NAME,
                                    NM_L2TP_KEY_MACHINE_AUTH_TYPE,
                                    NM_L2TP_KEY_IPSEC_PSK,
                                    NM_L2TP_KEY_MACHINE_CA,
@@ -357,6 +358,22 @@ remote_id_toggled_cb(GtkCheckButton *button, gpointer user_data)
 }
 
 static void
+group_name_toggled_cb(GtkCheckButton *button, gpointer user_data)
+{
+    GtkBuilder *builder = GTK_BUILDER(user_data);
+    GtkWidget * widget;
+    gboolean    sensitive;
+
+    sensitive = gtk_check_button_get_active(GTK_CHECK_BUTTON(button));
+
+    widget = GTK_WIDGET(gtk_builder_get_object(builder, "ipsec_group_name_entry"));
+    gtk_widget_set_sensitive(widget, sensitive);
+    if (!sensitive) {
+        gtk_editable_set_text(GTK_EDITABLE(widget), "");
+    }
+}
+
+static void
 phase1_toggled_cb(GtkCheckButton *button, gpointer user_data)
 {
     GtkBuilder *builder = GTK_BUILDER(user_data);
@@ -588,6 +605,21 @@ ipsec_dialog_new(GHashTable *hash)
     remote_id_toggled_cb(GTK_CHECK_BUTTON(widget), builder);
     g_signal_connect(G_OBJECT(widget), "toggled", G_CALLBACK(remote_id_toggled_cb), builder);
 
+    widget    = GTK_WIDGET(gtk_builder_get_object(builder, "ipsec_group_name_entry"));
+    sensitive = FALSE;
+    if ((value = g_hash_table_lookup(hash, NM_L2TP_KEY_IPSEC_GROUP_NAME))) {
+        gtk_editable_set_text(GTK_EDITABLE(widget), value);
+        sensitive = TRUE;
+        expand    = TRUE;
+    }
+    gtk_widget_set_sensitive(widget, sensitive);
+    tooltip_text = gtk_widget_get_tooltip_text(widget);
+    widget       = GTK_WIDGET(gtk_builder_get_object(builder, "group_name_check"));
+    gtk_check_button_set_active(GTK_CHECK_BUTTON(widget), sensitive);
+    gtk_widget_set_tooltip_text(widget, tooltip_text);
+    group_name_toggled_cb(GTK_CHECK_BUTTON(widget), builder);
+    g_signal_connect(G_OBJECT(widget), "toggled", G_CALLBACK(group_name_toggled_cb), builder);
+
     /* Phase 1 Algorithms: IKE */
     widget    = GTK_WIDGET(gtk_builder_get_object(builder, "ipsec_phase1_entry"));
     sensitive = FALSE;
@@ -778,6 +810,12 @@ ipsec_dialog_new_hash_from_dialog(GtkWidget *dialog, GError **error)
     value  = gtk_editable_get_text(GTK_EDITABLE(widget));
     if (value && *value) {
         g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_REMOTE_ID), g_strdup(value));
+    }
+
+    widget = GTK_WIDGET(gtk_builder_get_object(builder, "ipsec_group_name_entry"));
+    value  = gtk_editable_get_text(GTK_EDITABLE(widget));
+    if (value && *value) {
+        g_hash_table_insert(hash, g_strdup(NM_L2TP_KEY_IPSEC_GROUP_NAME), g_strdup(value));
     }
 
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "ipsec_auth_combo"));

@@ -769,7 +769,7 @@ config: ipsec-psk</property>
                     <property name="orientation">vertical</property>
                     <property name="spacing">2</property>
                     <child>
-                      <!-- n-columns=3 n-rows=5 -->
+                      <!-- n-columns=3 n-rows=6 -->
                       <object class="GtkGrid" id="grid2">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
@@ -784,7 +784,7 @@ config: ipsec-ike &lt;proposals&gt;</property>
                           </object>
                           <packing>
                             <property name="left_attach">1</property>
-                            <property name="top_attach">1</property>
+                            <property name="top_attach">2</property>
                           </packing>
                         </child>
                         <child>
@@ -797,7 +797,7 @@ config: ipsec-esp &lt;proposals&gt;</property>
                           </object>
                           <packing>
                             <property name="left_attach">1</property>
-                            <property name="top_attach">2</property>
+                            <property name="top_attach">3</property>
                           </packing>
                         </child>
                         <child>
@@ -837,7 +837,7 @@ config: ipsec-ikelifetime &lt;lifetime&gt;</property>
                           </object>
                           <packing>
                             <property name="left_attach">1</property>
-                            <property name="top_attach">3</property>
+                            <property name="top_attach">4</property>
                           </packing>
                         </child>
                         <child>
@@ -877,7 +877,7 @@ config: ipsec-salifetime &lt;lifetime&gt;</property>
                           </object>
                           <packing>
                             <property name="left_attach">1</property>
-                            <property name="top_attach">4</property>
+                            <property name="top_attach">5</property>
                           </packing>
                         </child>
                         <child>
@@ -892,7 +892,7 @@ config: ipsec-salifetime &lt;lifetime&gt;</property>
                           </object>
                           <packing>
                             <property name="left_attach">0</property>
-                            <property name="top_attach">3</property>
+                            <property name="top_attach">4</property>
                           </packing>
                         </child>
                         <child>
@@ -907,7 +907,7 @@ config: ipsec-salifetime &lt;lifetime&gt;</property>
                           </object>
                           <packing>
                             <property name="left_attach">0</property>
-                            <property name="top_attach">4</property>
+                            <property name="top_attach">5</property>
                           </packing>
                         </child>
                         <child>
@@ -927,6 +927,21 @@ ipsec.secrets: &lt;ID&gt;</property>
                           </packing>
                         </child>
                         <child>
+                          <object class="GtkEntry" id="ipsec_group_name_entry">
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="tooltip_text" translatable="yes">Optional. Sometimes referred to as IPSec ID, also referred to as leftid by strongSwan, Libreswan, Openswan and FreeS/WAN. See strongSwan or Libreswan documentation for leftid/rightid syntax and identity parsing.
+config: ipsec-group-name &lt;leftid&gt;</property>
+                            <property name="margin_top">1</property>
+                            <property name="margin_bottom">1</property>
+                            <property name="hexpand">True</property>
+                          </object>
+                          <packing>
+                            <property name="left_attach">1</property>
+                            <property name="top_attach">1</property>
+                          </packing>
+                        </child>
+                        <child>
                           <object class="GtkCheckButton" id="phase1_check">
                             <property name="label" translatable="yes">Phase1 Algorithms:</property>
                             <property name="visible">True</property>
@@ -938,7 +953,7 @@ ipsec.secrets: &lt;ID&gt;</property>
                           </object>
                           <packing>
                             <property name="left_attach">0</property>
-                            <property name="top_attach">1</property>
+                            <property name="top_attach">2</property>
                           </packing>
                         </child>
                         <child>
@@ -953,7 +968,7 @@ ipsec.secrets: &lt;ID&gt;</property>
                           </object>
                           <packing>
                             <property name="left_attach">0</property>
-                            <property name="top_attach">2</property>
+                            <property name="top_attach">3</property>
                           </packing>
                         </child>
                         <child>
@@ -969,6 +984,21 @@ ipsec.secrets: &lt;ID&gt;</property>
                           <packing>
                             <property name="left_attach">0</property>
                             <property name="top_attach">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkCheckButton" id="group_name_check">
+                            <property name="label" translatable="yes">Group Name:</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">False</property>
+                            <property name="halign">start</property>
+                            <property name="use_underline">True</property>
+                            <property name="draw_indicator">True</property>
+                          </object>
+                          <packing>
+                            <property name="left_attach">0</property>
+                            <property name="top_attach">1</property>
                           </packing>
                         </child>
                         <child>
