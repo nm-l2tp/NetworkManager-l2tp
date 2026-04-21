@@ -369,6 +369,18 @@ msgstr ""
 "設定：ipsec-remote-id <rightid>\n"
 "ipsec.secrets: <ID>"
 
+#: properties/nm-l2tp-dialog.ui:933
+msgid ""
+"Optional. Sometimes referred to as IPSec ID, also referred to as leftid by "
+"strongSwan, Libreswan, Openswan and FreeS/WAN. See strongSwan or Libreswan "
+"documentation for leftid/rightid syntax and identity parsing.\n"
+"config: ipsec-group-name <leftid>"
+msgstr ""
+"選填。有時稱為 IPSec ID，在 strongSwan、Libreswan、Openswan 與 FreeS/WAN 中也"
+"稱為 leftid。請參閱 strongSwan 或 Libreswan 的文件，以了解 leftid/rightid 語"
+"法與身分解析。\n"
+"設定：ipsec-group-name <leftid>"
+
 #: properties/nm-l2tp-dialog.ui:946
 msgid "Phase1 Algorithms:"
 msgstr "第一階段演算法："
@@ -383,7 +395,7 @@ msgstr "遠端 ID："
 
 #: properties/nm-l2tp-dialog.ui:991
 msgid "Group Name:"
-msgstr ""
+msgstr "群組名稱："
 
 #: properties/nm-l2tp-dialog.ui:1029
 msgid "_Enforce UDP encapsulation"

@@ -371,7 +371,7 @@ msgstr "Identificador remoto:"
 
 #: properties/nm-l2tp-dialog.ui:991
 msgid "Group Name:"
-msgstr ""
+msgstr "Nome do grupo:"
 
 #: properties/nm-l2tp-dialog.ui:1029
 msgid "_Enforce UDP encapsulation"

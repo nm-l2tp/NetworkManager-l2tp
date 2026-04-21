@@ -369,7 +369,7 @@ msgstr "Віддалений ID:"
 
 #: properties/nm-l2tp-dialog.ui:991
 msgid "Group Name:"
-msgstr ""
+msgstr "Назва групи:"
 
 #: properties/nm-l2tp-dialog.ui:1029
 msgid "_Enforce UDP encapsulation"

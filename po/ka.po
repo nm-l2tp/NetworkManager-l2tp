@@ -390,6 +390,19 @@ msgstr ""
 "კონფიგურაცია: ipsec-remote-id <righted>\n"
 "ipsec.secrets: <ID>"
 
+#: properties/nm-l2tp-dialog.ui:933
+msgid ""
+"Optional. Sometimes referred to as IPSec ID, also referred to as leftid by "
+"strongSwan, Libreswan, Openswan and FreeS/WAN. See strongSwan or Libreswan "
+"documentation for leftid/rightid syntax and identity parsing.\n"
+"config: ipsec-group-name <leftid>"
+msgstr ""
+"არასავალდებულოა. ზოგჯერ მას IPSec ID-ს უწოდებენ და strongSwan-ში, Libreswan-"
+"ში, Openswan-ში და FreeS/WAN-ში ასევე leftid-ად მოიხსენიებენ. leftid/rightid "
+"სინტაქსისა და იდენტიფიკატორების დამუშავების შესახებ იხილეთ strongSwan-ის ან "
+"Libreswan-ის დოკუმენტაცია.\n"
+"კონფიგურაცია: ipsec-group-name <leftid>"
+
 #: properties/nm-l2tp-dialog.ui:946
 msgid "Phase1 Algorithms:"
 msgstr "პირველი ფაზის ალგორითმები:"
@@ -404,7 +417,7 @@ msgstr "დაშორებულის ID:"
 
 #: properties/nm-l2tp-dialog.ui:991
 msgid "Group Name:"
-msgstr ""
+msgstr "ჯგუფის სახელი:"
 
 #: properties/nm-l2tp-dialog.ui:1029
 msgid "_Enforce UDP encapsulation"

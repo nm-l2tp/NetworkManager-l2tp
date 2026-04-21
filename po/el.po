@@ -368,7 +368,7 @@ msgstr "Απομακρυσμένο ID:"
 
 #: properties/nm-l2tp-dialog.ui:991
 msgid "Group Name:"
-msgstr ""
+msgstr "Όνομα ομάδας:"
 
 #: properties/nm-l2tp-dialog.ui:1029
 msgid "_Enforce UDP encapsulation"

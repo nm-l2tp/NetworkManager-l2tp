@@ -381,6 +381,18 @@ msgstr ""
 "config: ipsec-remote-id <rightid>\n"
 "ipsec.secrets: <ID>"
 
+#: properties/nm-l2tp-dialog.ui:933
+msgid ""
+"Optional. Sometimes referred to as IPSec ID, also referred to as leftid by "
+"strongSwan, Libreswan, Openswan and FreeS/WAN. See strongSwan or Libreswan "
+"documentation for leftid/rightid syntax and identity parsing.\n"
+"config: ipsec-group-name <leftid>"
+msgstr ""
+"اختياري. يُشار إليه أحيانًا باسم IPSec ID، ويُشار إليه أيضًا باسم leftid في "
+"strongSwan وLibreswan وOpenswan وFreeS/WAN. راجع توثيق strongSwan أو "
+"Libreswan لصياغة leftid/rightid وتحليل الهويات.\n"
+"config: ipsec-group-name <leftid>"
+
 #: properties/nm-l2tp-dialog.ui:946
 msgid "Phase1 Algorithms:"
 msgstr "خوارزميات المرحلة 1:"
@@ -395,7 +407,7 @@ msgstr "المعرّف البعيد:"
 
 #: properties/nm-l2tp-dialog.ui:991
 msgid "Group Name:"
-msgstr ""
+msgstr "اسم المجموعة:"
 
 #: properties/nm-l2tp-dialog.ui:1029
 msgid "_Enforce UDP encapsulation"
