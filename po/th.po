@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: https://gitlab.freedesktop.org/NetworkManager/"
 "NetworkManager/issues\n"
-"POT-Creation-Date: 2026-04-20 23:08+1000\n"
+"POT-Creation-Date: 2026-04-22 07:53+1000\n"
 "PO-Revision-Date: 2007-02-02 20:53+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <l10n.opentle.org>\n"
@@ -51,7 +51,9 @@ msgid "L2TP"
 msgstr ""
 
 #: appdata/network-manager-l2tp.metainfo.xml.in:23
-msgid "Support for configuring L2TP based virtual private network connections."
+msgid ""
+"Support for configuring and managing L2TP based virtual private network "
+"connections in NetworkManager."
 msgstr ""
 
 #: appdata/network-manager-l2tp.metainfo.xml.in:24

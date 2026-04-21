@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: NetworkManager-l2tp main\n"
 "Report-Msgid-Bugs-To: https://gitlab.freedesktop.org/NetworkManager/"
 "NetworkManager/issues\n"
-"POT-Creation-Date: 2026-04-20 23:08+1000\n"
+"POT-Creation-Date: 2026-04-22 07:53+1000\n"
 "PO-Revision-Date: 2020-05-10 21:00+0900\n"
 "Last-Translator: sicklylife <translation@sicklylife.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
@@ -52,8 +52,12 @@ msgid "L2TP"
 msgstr "L2TP"
 
 #: appdata/network-manager-l2tp.metainfo.xml.in:23
-msgid "Support for configuring L2TP based virtual private network connections."
-msgstr "L2TP ベースの仮想プライベートネットワーク接続の設定に対応します。"
+msgid ""
+"Support for configuring and managing L2TP based virtual private network "
+"connections in NetworkManager."
+msgstr ""
+"NetworkManager で L2TP ベースの仮想プライベートネットワーク接続を設定および管"
+"理できます。"
 
 #: appdata/network-manager-l2tp.metainfo.xml.in:24
 msgid "Compatible with L2TP and L2TP over IPsec services."

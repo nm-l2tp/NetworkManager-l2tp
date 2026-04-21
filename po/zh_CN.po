@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: NetworkManager-l2tp main\n"
 "Report-Msgid-Bugs-To: https://gitlab.freedesktop.org/NetworkManager/"
 "NetworkManager/issues\n"
-"POT-Creation-Date: 2026-04-20 23:08+1000\n"
+"POT-Creation-Date: 2026-04-22 07:53+1000\n"
 "PO-Revision-Date: 2018-07-07 23:22+0800\n"
 "Last-Translator: Dingzhong Chen <wsxy162@gmail.com>\n"
 "Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
@@ -58,8 +58,10 @@ msgid "L2TP"
 msgstr ""
 
 #: appdata/network-manager-l2tp.metainfo.xml.in:23
-msgid "Support for configuring L2TP based virtual private network connections."
-msgstr "支持配置基于L2TP的虚拟私网连接。"
+msgid ""
+"Support for configuring and managing L2TP based virtual private network "
+"connections in NetworkManager."
+msgstr "支持在 NetworkManager 中配置和管理基于L2TP的虚拟专用网络连接。"
 
 #: appdata/network-manager-l2tp.metainfo.xml.in:24
 msgid "Compatible with L2TP and L2TP over IPsec services."

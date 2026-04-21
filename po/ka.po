@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: NetworkManager-l2tp 1.20.10\n"
 "Report-Msgid-Bugs-To: https://gitlab.freedesktop.org/NetworkManager/"
 "NetworkManager/issues\n"
-"POT-Creation-Date: 2026-04-20 23:08+1000\n"
+"POT-Creation-Date: 2026-04-22 07:53+1000\n"
 "PO-Revision-Date: 2023-09-07 09:28+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <(nothing)>\n"
@@ -54,9 +54,12 @@ msgid "L2TP"
 msgstr ""
 
 #: appdata/network-manager-l2tp.metainfo.xml.in:23
-msgid "Support for configuring L2TP based virtual private network connections."
+msgid ""
+"Support for configuring and managing L2TP based virtual private network "
+"connections in NetworkManager."
 msgstr ""
-"L2TP-ზე დაფუძნებულ ვირტუალურ კერძო ქსელებთან მიერთების მორგების მხარდაჭერა."
+"NetworkManager-ში L2TP-ზე დაფუძნებულ ვირტუალურ კერძო ქსელებთან მიერთების "
+"მორგებისა და მართვის მხარდაჭერა."
 
 #: appdata/network-manager-l2tp.metainfo.xml.in:24
 msgid "Compatible with L2TP and L2TP over IPsec services."
