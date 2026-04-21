@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: https://gitlab.freedesktop.org/NetworkManager/"
 "NetworkManager/issues\n"
-"POT-Creation-Date: 2026-04-18 11:12+1000\n"
+"POT-Creation-Date: 2026-04-20 23:08+1000\n"
 "PO-Revision-Date: 2020-09-10 21:37-0300\n"
 "Last-Translator: Henrique Machado Campos <henriquecamposrj@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
@@ -94,7 +94,7 @@ msgstr "Senha"
 msgid "User Certificate password"
 msgstr ""
 
-#: auth-dialog/main.c:197 properties/ipsec-dialog.c:544
+#: auth-dialog/main.c:197 properties/ipsec-dialog.c:561
 msgid "Pre-shared key (PSK)"
 msgstr ""
 
@@ -119,73 +119,73 @@ msgstr ""
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr "Você precisa se autenticar para acessar a Rede Privada Virtual “%s”."
 
-#: properties/import-export.c:183 properties/import-export.c:394
-#: properties/import-export.c:637
+#: properties/import-export.c:186 properties/import-export.c:397
+#: properties/import-export.c:640
 #, c-format
 msgid "Required property %s missing"
 msgstr ""
 
-#: properties/import-export.c:202 properties/import-export.c:413
+#: properties/import-export.c:205 properties/import-export.c:416
 #, c-format
 msgid "Property %s value '%s' can't be parsed as boolean."
 msgstr ""
 
-#: properties/import-export.c:268 properties/import-export.c:475
+#: properties/import-export.c:271 properties/import-export.c:478
 #, c-format
 msgid "Property '%s' value '%s' couldn't find netmask."
 msgstr ""
 
-#: properties/import-export.c:278 properties/import-export.c:317
-#: properties/import-export.c:485 properties/import-export.c:521
+#: properties/import-export.c:281 properties/import-export.c:320
+#: properties/import-export.c:488 properties/import-export.c:524
 #, c-format
 msgid "Property '%s' value '%s' can't be parsed as IP address."
 msgstr ""
 
-#: properties/import-export.c:295 properties/import-export.c:501
+#: properties/import-export.c:298 properties/import-export.c:504
 #, c-format
 msgid "Property '%s' value '%s' can't be parsed as IP netmask."
 msgstr ""
 
-#: properties/import-export.c:342 properties/import-export.c:544
+#: properties/import-export.c:345 properties/import-export.c:547
 #, c-format
 msgid "Property '%s' value '%s' can't be parsed as route metric."
 msgstr ""
 
-#: properties/import-export.c:352 properties/import-export.c:554
+#: properties/import-export.c:355 properties/import-export.c:557
 #, c-format
 msgid "Error parsing property '%s' value '%s'."
 msgstr "propriedade \"%s\" não-manipulada, tipo %s"
 
-#: properties/import-export.c:364 properties/import-export.c:566
+#: properties/import-export.c:367 properties/import-export.c:569
 #, c-format
 msgid "Error parsing property '%s': %s."
 msgstr "propriedade \"%s\" não-manipulada, tipo %s"
 
-#: properties/import-export.c:601
+#: properties/import-export.c:604
 msgid "does not look like a L2TP VPN connection (parse failed)"
 msgstr ""
 
-#: properties/import-export.c:655
+#: properties/import-export.c:658
 #, c-format
 msgid "Property %s can't be parsed as integer."
 msgstr ""
 
-#: properties/import-export.c:673
+#: properties/import-export.c:676
 #, c-format
 msgid ""
 "Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."
 msgstr ""
 
-#: properties/import-export.c:943
+#: properties/import-export.c:946
 #, c-format
 msgid "Missing required property '%s'"
 msgstr "Faltando opção \"%s\" necessária."
 
-#: properties/import-export.c:972
+#: properties/import-export.c:975
 msgid "Couldn't open file for writing."
 msgstr ""
 
-#: properties/ipsec-dialog.c:557 properties/nm-l2tp-editor.c:590
+#: properties/ipsec-dialog.c:574 properties/nm-l2tp-editor.c:590
 msgid "Certificates (TLS)"
 msgstr "Certificados (TLS)"
 
@@ -272,11 +272,11 @@ msgstr "Opções de IPsec do L2TP"
 msgid "IPsec Properties"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:477 properties/nm-l2tp-dialog.ui:1169
+#: properties/nm-l2tp-dialog.ui:477 properties/nm-l2tp-dialog.ui:1199
 msgid "_Cancel"
 msgstr "_Cancelar"
 
-#: properties/nm-l2tp-dialog.ui:485 properties/nm-l2tp-dialog.ui:1177
+#: properties/nm-l2tp-dialog.ui:485 properties/nm-l2tp-dialog.ui:1207
 msgid "_Apply"
 msgstr "_Aplicar"
 
@@ -353,86 +353,98 @@ msgid ""
 "ipsec.secrets: <ID>"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:931
+#: properties/nm-l2tp-dialog.ui:933
+msgid ""
+"Optional. Sometimes referred to as IPSec ID, also referred to as leftid by "
+"strongSwan, Libreswan, Openswan and FreeS/WAN. See strongSwan or Libreswan "
+"documentation for leftid/rightid syntax and identity parsing.\n"
+"config: ipsec-group-name <leftid>"
+msgstr ""
+
+#: properties/nm-l2tp-dialog.ui:946
 msgid "Phase1 Algorithms:"
 msgstr "Algoritmos da fase 1:"
 
-#: properties/nm-l2tp-dialog.ui:946
+#: properties/nm-l2tp-dialog.ui:961
 msgid "Phase2 Algorithms:"
 msgstr "Algoritmos da fase 2:"
 
-#: properties/nm-l2tp-dialog.ui:961
+#: properties/nm-l2tp-dialog.ui:976
 msgid "Remote ID:"
 msgstr "ID remoto:"
 
-#: properties/nm-l2tp-dialog.ui:999
+#: properties/nm-l2tp-dialog.ui:991
+msgid "Group Name:"
+msgstr ""
+
+#: properties/nm-l2tp-dialog.ui:1029
 msgid "_Enforce UDP encapsulation"
 msgstr "Forçar encapsulamento UDP"
 
-#: properties/nm-l2tp-dialog.ui:1003
+#: properties/nm-l2tp-dialog.ui:1033
 msgid ""
 "Some firewalls block ESP traffic. Enforcing UDP capsulation even if no NAT "
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:1018
+#: properties/nm-l2tp-dialog.ui:1048
 msgid "Use IP c_ompression"
 msgstr "Usar compressão IP"
 
-#: properties/nm-l2tp-dialog.ui:1022
+#: properties/nm-l2tp-dialog.ui:1052
 msgid ""
 "IPComp compresses raw IP packets before they get encrypted. This saves some "
 "bandwidth, but uses more processing power.\n"
 "config: ipsec-ipcomp <yes/no>"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:1037
+#: properties/nm-l2tp-dialog.ui:1067
 msgid "Use IKEv_2 key exchange"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:1041
+#: properties/nm-l2tp-dialog.ui:1071
 msgid ""
 "Use IKEv2 key exchange\n"
 "config: ipsec-ikev2 <yes/no>"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:1056
+#: properties/nm-l2tp-dialog.ui:1086
 msgid "Disable _PFS"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:1060
+#: properties/nm-l2tp-dialog.ui:1090
 msgid ""
 "Disable perfect forward secrecy. Enable this option only if the server "
 "doesn’t support PFS.\n"
 "config: ipsec-pfs <no/yes>"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:1079
+#: properties/nm-l2tp-dialog.ui:1109
 msgid "Ad_vanced"
 msgstr "A_vançado"
 
-#: properties/nm-l2tp-dialog.ui:1118
+#: properties/nm-l2tp-dialog.ui:1148
 msgid "Default"
 msgstr "Padrão"
 
-#: properties/nm-l2tp-dialog.ui:1145
+#: properties/nm-l2tp-dialog.ui:1175
 msgid "L2TP PPP Options"
 msgstr "Opções de PPP do L2TP"
 
-#: properties/nm-l2tp-dialog.ui:1161
+#: properties/nm-l2tp-dialog.ui:1191
 msgid "PPP Properties"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:1238
+#: properties/nm-l2tp-dialog.ui:1268
 msgid "Authentication"
 msgstr "Autenticação"
 
-#: properties/nm-l2tp-dialog.ui:1260
+#: properties/nm-l2tp-dialog.ui:1290
 msgid "Allow the following authentication methods:"
 msgstr "Permitir os seguintes métodos de autenticação:"
 
-#: properties/nm-l2tp-dialog.ui:1279
+#: properties/nm-l2tp-dialog.ui:1309
 msgid ""
 "Allow/disable authentication methods.\n"
 "config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
@@ -440,15 +452,15 @@ msgstr ""
 "Permitir/desabilitar métodos de autenticação.\n"
 "config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 
-#: properties/nm-l2tp-dialog.ui:1318
+#: properties/nm-l2tp-dialog.ui:1348
 msgid "Security and Compression"
 msgstr "Segurança e compressão"
 
-#: properties/nm-l2tp-dialog.ui:1345
+#: properties/nm-l2tp-dialog.ui:1375
 msgid "Use _Point-to-Point encryption (MPPE)"
 msgstr "Usar criptografia _ponto a ponto (MPPE)"
 
-#: properties/nm-l2tp-dialog.ui:1349
+#: properties/nm-l2tp-dialog.ui:1379
 msgid ""
 "Note: MPPE encryption is only available with MSCHAP authentication methods. "
 "To enable this checkbox, select one or more of the MSCHAP authentication "
@@ -458,11 +470,11 @@ msgstr ""
 "MSCHAP. Para ativar esta opção, selecione um ou mais dos métodos de "
 "autenticação MSCHAP: MSCHAP ou MSCHAPv2."
 
-#: properties/nm-l2tp-dialog.ui:1375
+#: properties/nm-l2tp-dialog.ui:1405
 msgid "_Security"
 msgstr "_Segurança"
 
-#: properties/nm-l2tp-dialog.ui:1390
+#: properties/nm-l2tp-dialog.ui:1420
 msgid ""
 "Require the use of MPPE, with 40/128-bit encryption or all.\n"
 "config: require-mppe, require-mppe-128 or require-mppe-40"
@@ -470,12 +482,12 @@ msgstr ""
 "REquer o usao de MPPE, com criptografia 40/128-bit ou tudo.\n"
 "config: require-mppe, require-mppe-128 or require-mppe-40"
 
-#: properties/nm-l2tp-dialog.ui:1415
+#: properties/nm-l2tp-dialog.ui:1445
 msgid "Allow st_ateful encryption"
 msgstr "Permitir criptogr_afia com monitoração de estado"
 
 # stateful = em estado de conexão (baseei-me em "stateful firewall", do Tanenbaum, Redes de Computadores, 5.ed.)
-#: properties/nm-l2tp-dialog.ui:1419
+#: properties/nm-l2tp-dialog.ui:1449
 msgid ""
 "Allow MPPE to use stateful mode. Stateless mode is still attempted first.\n"
 "config: mppe-stateful (when checked)"
@@ -484,11 +496,11 @@ msgstr ""
 "a primeira tentativa.\n"
 "config: mppe-stateful (quando marcado)"
 
-#: properties/nm-l2tp-dialog.ui:1447
+#: properties/nm-l2tp-dialog.ui:1477
 msgid "Allow _BSD data compression"
 msgstr "Permitir compressão de dados _BSD"
 
-#: properties/nm-l2tp-dialog.ui:1451
+#: properties/nm-l2tp-dialog.ui:1481
 msgid ""
 "Allow/disable BSD-Compress compression.\n"
 "config: nobsdcomp (when unchecked)"
@@ -496,11 +508,11 @@ msgstr ""
 "Permitir/desabilitar compressão com BSD-Compress.\n"
 "config: nobsdcomp (quando desmarcado)"
 
-#: properties/nm-l2tp-dialog.ui:1465
+#: properties/nm-l2tp-dialog.ui:1495
 msgid "Allow _Deflate data compression"
 msgstr "Permitir compressão de dados _Deflate"
 
-#: properties/nm-l2tp-dialog.ui:1469
+#: properties/nm-l2tp-dialog.ui:1499
 msgid ""
 "Allow/disable Deflate compression.\n"
 "config: nodeflate (when unchecked)"
@@ -508,11 +520,11 @@ msgstr ""
 "Permitir/desabilitar compressão com Deflate.\n"
 "config: nodeflate (quando desmarcado)"
 
-#: properties/nm-l2tp-dialog.ui:1483
+#: properties/nm-l2tp-dialog.ui:1513
 msgid "Use TCP _header compression"
 msgstr "Usar compressão de cabeçal_ho TCP"
 
-#: properties/nm-l2tp-dialog.ui:1487
+#: properties/nm-l2tp-dialog.ui:1517
 msgid ""
 "Allow/disable Van Jacobson style TCP/IP header compression in both the "
 "transmit and the receive directions.\n"
@@ -522,36 +534,36 @@ msgstr ""
 "Jacobson em tanto a transmissão quanto na recepção.\n"
 "config: novj (quando desmarcado)"
 
-#: properties/nm-l2tp-dialog.ui:1501
+#: properties/nm-l2tp-dialog.ui:1531
 msgid "Use protocol _field compression negotiation"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:1505
+#: properties/nm-l2tp-dialog.ui:1535
 msgid ""
 "Allow protocol field compression negotiation in both the receive and the "
 "transmit direction.\n"
 "config: nopcomp (when unchecked)"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:1519
+#: properties/nm-l2tp-dialog.ui:1549
 msgid "Use _Address/Control compression"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:1523
+#: properties/nm-l2tp-dialog.ui:1553
 msgid ""
 "Use Address/Control compression in both directions (send and receive).\n"
 "config: noaccomp (when unchecked)"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:1559
+#: properties/nm-l2tp-dialog.ui:1589
 msgid "Misc"
 msgstr "Miscelânea"
 
-#: properties/nm-l2tp-dialog.ui:1579
+#: properties/nm-l2tp-dialog.ui:1609
 msgid "Send PPP _echo packets"
 msgstr "Enviar pacotes PPP de _eco"
 
-#: properties/nm-l2tp-dialog.ui:1583
+#: properties/nm-l2tp-dialog.ui:1613
 msgid ""
 "Send LCP echo-requests to find out whether peer is alive.\n"
 "config: lcp-echo-failure and lcp-echo-interval"
@@ -559,26 +571,26 @@ msgstr ""
 "Enviar echo-requests LCP para encontrar se o par está vivo.\n"
 "config: lcp-echo-failure e lcp-echo-interval"
 
-#: properties/nm-l2tp-dialog.ui:1602
+#: properties/nm-l2tp-dialog.ui:1632
 msgid "_Multilink PPP MRRU:"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:1606 properties/nm-l2tp-dialog.ui:1622
+#: properties/nm-l2tp-dialog.ui:1636 properties/nm-l2tp-dialog.ui:1652
 msgid ""
 "Try to negotiate a PPP Multilink on a single connection.\n"
 "config: mrru"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:1626 properties/nm-l2tp-dialog.ui:1669
-#: properties/nm-l2tp-dialog.ui:1712
+#: properties/nm-l2tp-dialog.ui:1656 properties/nm-l2tp-dialog.ui:1699
+#: properties/nm-l2tp-dialog.ui:1742
 msgid "1400"
 msgstr ""
 
-#: properties/nm-l2tp-dialog.ui:1654
+#: properties/nm-l2tp-dialog.ui:1684
 msgid "MTU"
 msgstr "MTU"
 
-#: properties/nm-l2tp-dialog.ui:1697
+#: properties/nm-l2tp-dialog.ui:1727
 msgid "MRU"
 msgstr ""
 
@@ -602,11 +614,11 @@ msgstr ""
 msgid "%s: failed to create the IPsec dialog!"
 msgstr ""
 
-#: properties/nm-l2tp-editor.c:806
+#: properties/nm-l2tp-editor.c:831
 msgid "could not create l2tp object"
 msgstr ""
 
-#: properties/nm-l2tp-editor.c:825
+#: properties/nm-l2tp-editor.c:850
 msgid "could not load UI widget"
 msgstr "não foi possível carregar widget da UI"
 
@@ -837,176 +849,176 @@ msgstr "não foi possível carregar fábrica %s do plug-in: %s"
 msgid "unknown error creating editor instance"
 msgstr "erro desconhecido ao criar instância do editor"
 
-#: src/nm-l2tp-service.c:415
+#: src/nm-l2tp-service.c:416
 #, c-format
 msgid "invalid gateway '%s'"
 msgstr "gateway \"%s\" inválido"
 
-#: src/nm-l2tp-service.c:429
+#: src/nm-l2tp-service.c:430
 #, c-format
 msgid "invalid integer property '%s'"
 msgstr "propriedade do inteiro \"%s\" inválido"
 
-#: src/nm-l2tp-service.c:439
+#: src/nm-l2tp-service.c:440
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr "propriedade do booleano \"%s\" inválido (não sim ou não)"
 
-#: src/nm-l2tp-service.c:446
+#: src/nm-l2tp-service.c:447
 #, c-format
 msgid "unhandled property '%s' type %s"
 msgstr "propriedade \"%s\" não-manipulada, tipo %s"
 
-#: src/nm-l2tp-service.c:458
+#: src/nm-l2tp-service.c:459
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "propriedade \"%s\" inválida ou sem suporte"
 
-#: src/nm-l2tp-service.c:476
+#: src/nm-l2tp-service.c:477
 msgid "No VPN configuration options."
 msgstr "Sem opções de configurações de VPN."
 
-#: src/nm-l2tp-service.c:496
+#: src/nm-l2tp-service.c:497
 #, c-format
 msgid "Missing required option '%s'."
 msgstr "Faltando opção \"%s\" necessária."
 
-#: src/nm-l2tp-service.c:881
+#: src/nm-l2tp-service.c:882
 #, c-format
 msgid "Could not open %s for writing: %s"
 msgstr ""
 
-#: src/nm-l2tp-service.c:890
+#: src/nm-l2tp-service.c:891
 #, c-format
 msgid "Could not append \"include ipsec.d/ipsec.nm-l2tp.secrets\" to %s"
 msgstr ""
 
-#: src/nm-l2tp-service.c:907
+#: src/nm-l2tp-service.c:908
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr ""
 
-#: src/nm-l2tp-service.c:946
+#: src/nm-l2tp-service.c:947
 msgid "Machine private key file not supplied"
 msgstr ""
 
-#: src/nm-l2tp-service.c:1040
+#: src/nm-l2tp-service.c:1041
 msgid "Could not write ipsec config"
 msgstr ""
 
-#: src/nm-l2tp-service.c:1133
+#: src/nm-l2tp-service.c:1140
 msgid "Machine certificate file not supplied"
 msgstr ""
 
-#: src/nm-l2tp-service.c:1248
+#: src/nm-l2tp-service.c:1255
 msgid "Could not write kl2tpd config."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1278
+#: src/nm-l2tp-service.c:1285
 msgid "Could not write xl2tpd config."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1328
+#: src/nm-l2tp-service.c:1335
 msgid "Could not write ppp options."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1696 src/nm-l2tp-service.c:1730
+#: src/nm-l2tp-service.c:1703 src/nm-l2tp-service.c:1737
 msgid "Could not start the ipsec service."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1703 src/nm-l2tp-service.c:1742
+#: src/nm-l2tp-service.c:1710 src/nm-l2tp-service.c:1749
 msgid "Could not restart the ipsec service."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1780
+#: src/nm-l2tp-service.c:1787
 msgid "Could not add ipsec connection."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1864
+#: src/nm-l2tp-service.c:1871
 msgid "Could not establish IPsec connection."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1880
+#: src/nm-l2tp-service.c:1887
 msgid "Could not find kl2tpd or xl2tpd binaries."
 msgstr ""
 
-#: src/nm-l2tp-service.c:2000
+#: src/nm-l2tp-service.c:2007
 msgid "Missing or invalid VPN user certificate password."
 msgstr ""
 
-#: src/nm-l2tp-service.c:2018
+#: src/nm-l2tp-service.c:2025
 msgid "Missing VPN username."
 msgstr "Faltando nome de usuário VPN."
 
-#: src/nm-l2tp-service.c:2027
+#: src/nm-l2tp-service.c:2034
 msgid "Missing or invalid VPN password."
 msgstr "Senha VPN inválida ou faltando."
 
-#: src/nm-l2tp-service.c:2293
+#: src/nm-l2tp-service.c:2271
 msgid "IPv4 and IPv6 are both disabled for this connection."
 msgstr ""
 
-#: src/nm-l2tp-service.c:2309
+#: src/nm-l2tp-service.c:2287
 msgid "couldn't look up L2TP VPN gateway IP address "
 msgstr ""
 
-#: src/nm-l2tp-service.c:2338
+#: src/nm-l2tp-service.c:2316
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr ""
 
-#: src/nm-l2tp-service.c:2357
+#: src/nm-l2tp-service.c:2335
 msgid "couldn't determine L2TP VPN gateway address family"
 msgstr ""
 
-#: src/nm-l2tp-service.c:2361
+#: src/nm-l2tp-service.c:2339
 msgid "couldn't determine local IP to contact L2TP VPN gateway"
 msgstr ""
 
-#: src/nm-l2tp-service.c:2375
+#: src/nm-l2tp-service.c:2353
 msgid "unable to connect to L2TP VPN gateway"
 msgstr ""
 
-#: src/nm-l2tp-service.c:2382
+#: src/nm-l2tp-service.c:2360
 msgid "failed to get local IP"
 msgstr ""
 
-#: src/nm-l2tp-service.c:2401
+#: src/nm-l2tp-service.c:2379
 msgid "failed to format local IP address"
 msgstr ""
 
-#: src/nm-l2tp-service.c:2432
+#: src/nm-l2tp-service.c:2410
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 
-#: src/nm-l2tp-service.c:2440
+#: src/nm-l2tp-service.c:2418
 msgid "Openswan is no longer supported, use Libreswan or strongSwan."
 msgstr ""
 
-#: src/nm-l2tp-service.c:2443
+#: src/nm-l2tp-service.c:2421
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
 
-#: src/nm-l2tp-service.c:2457
+#: src/nm-l2tp-service.c:2435
 msgid "could not retrieve connection UUID"
 msgstr ""
 
-#: src/nm-l2tp-service.c:2469
+#: src/nm-l2tp-service.c:2447
 msgid "Invalid or missing L2TP gateway."
 msgstr "Gateway L2TP inválido ou faltando."
 
-#: src/nm-l2tp-service.c:2857
+#: src/nm-l2tp-service.c:2835
 msgid "Don't quit when VPN connection terminates"
 msgstr "Não sair até que a conexão com a VPN tenha terminado"
 
-#: src/nm-l2tp-service.c:2864
+#: src/nm-l2tp-service.c:2842
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Habilitar registros detalhados para depuração (pode expor senhas)"
 
-#: src/nm-l2tp-service.c:2871
+#: src/nm-l2tp-service.c:2849
 msgid "D-Bus name to use for this instance"
 msgstr "Nome D-Bus a ser usado para esta instância"
 
-#: src/nm-l2tp-service.c:2890
+#: src/nm-l2tp-service.c:2868
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
