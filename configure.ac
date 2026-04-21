@@ -236,9 +236,6 @@ case "$LIBNM_VERSION" in
   1.54.*)
     PKG_CHECK_MODULES(LIBNM, libnm >= 1.54.3)
     ;;
-  1.55.*)
-    PKG_CHECK_MODULES(LIBNM, libnm >= 1.55.91)
-    ;;
   *)
     PKG_CHECK_MODULES(LIBNM, libnm >= 1.56.0)
     ;;
