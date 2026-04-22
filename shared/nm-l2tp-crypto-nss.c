@@ -193,7 +193,7 @@ crypto_get_password_libreswan_nss(PK11SlotInfo *slot, PRBool retry, void *arg)
 
 /**
  * This callback is called by SEC_PKCS12DecoderValidateBags() each time
- * a nickname collission is detected.
+ * a nickname collision is detected.
  **/
 static SECItem *
 nickname_cb(SECItem *old_nick, PRBool *cancel, void *wincx)

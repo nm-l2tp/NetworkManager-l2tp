@@ -981,7 +981,7 @@ nm_str_realloc(char *str)
     gs_free char *s = str;
 
     /* Returns a new clone of @str and frees @str. The point is that @str
-     * possibly points to a larger chunck of memory. We want to freshly allocate
+     * possibly points to a larger chunk of memory. We want to freshly allocate
      * a buffer.
      *
      * We could use realloc(), but that might not do anything or leave
@@ -1609,7 +1609,7 @@ nm_decode_version(guint version, guint *major, guint *minor, guint *micro)
     })
 
 /* it is "unsafe" because @bufsize must not be a constant expression and
- * there is no check at compiletime. Regardless of that, the buffer size
+ * there is no check at compile time. Regardless of that, the buffer size
  * must not be larger than 300 bytes, as this gets stack allocated. */
 #define nm_sprintf_buf_unsafe_a(bufsize, format, ...)                       \
     ({                                                                      \
