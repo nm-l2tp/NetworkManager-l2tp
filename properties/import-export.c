@@ -24,8 +24,8 @@
 
 #define CONN_SECTION "connection"
 #define VPN_SECTION  "vpn"
-#define IP4_SECTION  "ip4"
-#define IP6_SECTION  "ip6"
+#define IP4_SECTION  "ipv4"
+#define IP6_SECTION  "ipv6"
 
 /*
 [connection]
@@ -46,7 +46,7 @@ ipsec-enabled=true (bool)
 ipsec-gateway-id=vpn.example.org (str)
 ipsec-forceencaps=true (bool)
 
-[ip4]
+[ipv4]
 method = auto (str)
 dns = 192.168.0.1,8.8.8.8 (list)
 dns-search = my_domain1,my_domain2 (list)
@@ -56,7 +56,7 @@ ignore-auto-routes = true (list)
 ignore-auto-dns = true (list)
 ???
 
-[ip6]
+[ipv6]
 method = auto (str)
 dns = 2001:db8::53,2001:4860:4860::8888 (list)
 dns-search = my_domain1,my_domain2 (list)
