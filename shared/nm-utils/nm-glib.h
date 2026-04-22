@@ -163,7 +163,7 @@ __g_type_ensure(GType type)
 
 /*****************************************************************************/
 
-/* Rumtime check for glib version. First do a compile time check which
+/* Runtime check for glib version. First do a compile time check which
  * (if satisfied) shortcuts the runtime check. */
 static inline gboolean
 nm_glib_check_version(guint major, guint minor, guint micro)

@@ -121,7 +121,7 @@ Changes:
 * Fix padding of PPP Options dialog.
 * Undo PTP peer & ext GW routing prevention workaround first introduced
   with NetworkManager-l2tp 1.8.4 as workaround no longer works with
-  NetworkManager 1.36. The actial fix should be done in NetworkManager.
+  NetworkManager 1.36. The actual fix should be done in NetworkManager.
 * Add support for Manual IPv4 configuration options:
   Address, Netmask and Gateway.
 * Remove deprecated OpenSSL 3 related code
@@ -149,7 +149,7 @@ Overview of changes since NetworkManager-l2tp-1.20.2
 
 Changes:
 * Security fix for properly detecting that strongswan CHILD_SA connection
-  has been estabilished.
+  has been established.
 * Fix for libreswan cannot route template policy error.
 
 ==========================================================
@@ -278,9 +278,9 @@ Overview of changes since network-manager-l2tp-1.2.12
     {enc=3DES_CBC integ=HMAC_SHA1_96}
 * Added use IKEv2 key exchange option.
 * Improved debugging output for Libreswan and strongSwan.
-  Libreswan debugging can now be cutomized by setting the `PLUTODEBUG`
+  Libreswan debugging can now be customized by setting the `PLUTODEBUG`
   environment variable.
-  strongSwan debugging can now  be cutomized by setting the `CHARONDEBUG`
+  strongSwan debugging can now  be customized by setting the `CHARONDEBUG`
   environment variable.
 * Gray out "IPsec Settings..." button if no *swan found.
   Also fix crash if "IPsec Settings..." button pressed and no *swan installed.
@@ -368,7 +368,7 @@ This is a new stable release of NetworkManager-l2tp.  Notable changes include:
 * configure --runstatedir support if using Autoconf >= 2.7.0.
 * If "Automatic (VPN) Addresses Only" mode is enabled in the the IPv4
   config settings, do not use the pppd usepeerdns option.
-  i.e. do not overide /etc/resolv.conf.
+  i.e. do not override /etc/resolv.conf.
 
 =======================================================
 NetworkManager-l2tp-1.2.6

@@ -230,7 +230,7 @@ nm_utils_gbytes_equal_mem(GBytes *bytes, gconstpointer mem_data, gsize mem_len)
     gsize         l;
 
     if (!bytes) {
-        /* as a special case, let %NULL GBytes compare idential
+        /* as a special case, let %NULL GBytes compare identical
          * to an empty array. */
         return (mem_len == 0);
     }

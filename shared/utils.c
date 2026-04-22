@@ -50,7 +50,7 @@ libreswan_5_or_later(const char *path)
         if (!output)
             return FALSE;
 
-        /* libreswan 5.0 and later do not have tha auto command */
+        /* libreswan 5.0 and later do not have the auto command */
         if (strstr(output, "\tauto\t") != NULL || strstr(output, "\tauto\n") != NULL)
             return FALSE;
     }

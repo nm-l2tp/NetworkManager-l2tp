@@ -15,7 +15,7 @@ AC_CONFIG_HEADERS([config.h])
 AC_USE_SYSTEM_EXTENSIONS
 
 dnl
-dnl AC_SUBST runstatedir is for autoconf < 2.70 compatibilty
+dnl AC_SUBST runstatedir is for autoconf < 2.70 compatibility
 dnl
 if test "x$runstatedir" = x; then
 	AC_SUBST([runstatedir], ['${localstatedir}/run'])
@@ -57,7 +57,7 @@ AC_CHECK_HEADERS(pppd/pppd.h,,
   AC_MSG_ERROR(couldn't find pppd.h. pppd development headers are required.))
 
 dnl
-dnl Check the presense of other pppd/*.h files
+dnl Check the presence of other pppd/*.h files
 AC_CHECK_HEADERS([pppd/chap.h pppd/chap-new.h pppd/chap_ms.h])
 
 dnl

@@ -195,7 +195,7 @@ the command-line :
 
 ### strongSwan Custom Debugging
 
-The strongSwan debugging can be cutomized by setting the `CHARONDEBUG` env
+The strongSwan debugging can be customized by setting the `CHARONDEBUG` env
 variable which corresponds to the `charondebug` ipsec.conf config section option.
 The syntax for `CHARONDEBUG` is a comma separated list of the following format :
 
