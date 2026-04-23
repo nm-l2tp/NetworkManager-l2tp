@@ -1,4 +1,26 @@
 ==========================================================
+NetworkManager-l2tp-1.52.2
+Overview of changes since NetworkManager-l2tp-1.52.0
+==========================================================
+
+Changes:
+* Add experimental IPv6 support. Requires kl2tpd or an IPv6-capable
+  fork of xl2tpd.
+* Add optional Group Name / IPsec ID field for pre-shared key
+  authentication.
+* Add xl2tpd-max-retries connection setting, while preserving the
+  existing NM_L2TP_XL2TPD_MAX_RETRIES environment variable fallback.
+* Add ipcp-peer-ip connection setting so the IPCP peer address can be
+  set without forcing ipv4.gateway, allowing it to be used with
+  ipv4.never-default.
+* Fix import/export and editor save handling to preserve hidden VPN
+  properties such as xl2tpd-max-retries and ipcp-peer-ip.
+* Fix several service and editor correctness issues, including
+  portable daemon restart detection, auth-dialog timeout handling,
+  memory leaks, a heap use-after-free and pointer ownership bugs.
+* Updated translations.
+
+==========================================================
 NetworkManager-l2tp-1.52.0
 Overview of changes since NetworkManager-l2tp-1.20.22
 ==========================================================
