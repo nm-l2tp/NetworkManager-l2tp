@@ -379,6 +379,65 @@ ipsec_dialog_response_cb(GtkWidget *dialog, gint response, gpointer user_data)
     stuff_changed_cb(NULL, self);
 }
 
+static gboolean
+ipsec_enabled_in_hash(GHashTable *hash)
+{
+    const char *value;
+    const char *ipsec_keys[] = {
+        NM_L2TP_KEY_IPSEC_REMOTE_ID,
+        NM_L2TP_KEY_IPSEC_GROUP_NAME,
+        NM_L2TP_KEY_MACHINE_AUTH_TYPE,
+        NM_L2TP_KEY_IPSEC_PSK,
+        NM_L2TP_KEY_MACHINE_CA,
+        NM_L2TP_KEY_MACHINE_CERT,
+        NM_L2TP_KEY_MACHINE_KEY,
+        NM_L2TP_KEY_IPSEC_IKE,
+        NM_L2TP_KEY_IPSEC_ESP,
+        NM_L2TP_KEY_IPSEC_IKELIFETIME,
+        NM_L2TP_KEY_IPSEC_SALIFETIME,
+        NM_L2TP_KEY_IPSEC_FORCEENCAPS,
+        NM_L2TP_KEY_IPSEC_IPCOMP,
+        NM_L2TP_KEY_IPSEC_IKEV2,
+        NM_L2TP_KEY_IPSEC_PFS,
+        NULL,
+    };
+    const char **key;
+
+    if (!hash)
+        return FALSE;
+
+    value = g_hash_table_lookup(hash, NM_L2TP_KEY_IPSEC_ENABLE);
+    if (value && !strcmp(value, "yes"))
+        return TRUE;
+
+    for (key = ipsec_keys; *key; key++) {
+        value = g_hash_table_lookup(hash, *key);
+        if (value && *value)
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
+static void
+sync_ipsec_enabled_for_ppp(L2tpPluginUiWidgetPrivate *priv)
+{
+    g_return_if_fail(priv != NULL);
+
+    if (!priv->ipsec)
+        return;
+
+    if (!priv->ppp)
+        priv->ppp = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free);
+
+    if (ipsec_enabled_in_hash(priv->ipsec))
+        g_hash_table_insert(priv->ppp,
+                            g_strdup(NM_L2TP_KEY_IPSEC_ENABLE),
+                            g_strdup("yes"));
+    else
+        g_hash_table_remove(priv->ppp, NM_L2TP_KEY_IPSEC_ENABLE);
+}
+
 static void
 ppp_button_clicked_cb(GtkWidget *button, gpointer user_data)
 {
@@ -402,6 +461,8 @@ ppp_button_clicked_cb(GtkWidget *button, gpointer user_data)
     success = gtk_combo_box_get_active_iter(GTK_COMBO_BOX(widget), &iter);
     g_return_if_fail(success == TRUE);
     gtk_tree_model_get(model, &iter, COL_AUTH_TYPE, &authtype, -1);
+
+    sync_ipsec_enabled_for_ppp(priv);
 
     dialog = ppp_dialog_new(priv->ppp, authtype);
     if (!dialog) {
@@ -713,6 +774,23 @@ copy_data_item_if_missing(NMSettingVpn *dest, NMSettingVpn *src, const char *key
         nm_setting_vpn_add_data_item(dest, key, value);
 }
 
+static void
+remove_mppe_items_if_ipsec_enabled(NMSettingVpn *s_vpn)
+{
+    const char *ipsec_enabled;
+
+    g_return_if_fail(s_vpn != NULL);
+
+    ipsec_enabled = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_IPSEC_ENABLE);
+    if (!ipsec_enabled || strcmp(ipsec_enabled, "yes") != 0)
+        return;
+
+    nm_setting_vpn_remove_data_item(s_vpn, NM_L2TP_KEY_REQUIRE_MPPE);
+    nm_setting_vpn_remove_data_item(s_vpn, NM_L2TP_KEY_REQUIRE_MPPE_40);
+    nm_setting_vpn_remove_data_item(s_vpn, NM_L2TP_KEY_REQUIRE_MPPE_128);
+    nm_setting_vpn_remove_data_item(s_vpn, NM_L2TP_KEY_MPPE_STATEFUL);
+}
+
 static gboolean
 update_connection(NMVpnEditor *iface, NMConnection *connection, GError **error)
 {
@@ -785,6 +863,9 @@ update_connection(NMVpnEditor *iface, NMConnection *connection, GError **error)
 
     if (priv->ipsec)
         g_hash_table_foreach(priv->ipsec, copy_hash_pair, s_vpn);
+
+    /* IPsec and MPPE should not be saved together. */
+    remove_mppe_items_if_ipsec_enabled(s_vpn);
 
     widget = GTK_WIDGET(gtk_builder_get_object(priv->builder, "ephemeral_checkbutton"));
     if (gtk_check_button_get_active(GTK_CHECK_BUTTON(widget)))
