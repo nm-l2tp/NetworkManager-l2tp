@@ -379,65 +379,6 @@ ipsec_dialog_response_cb(GtkWidget *dialog, gint response, gpointer user_data)
     stuff_changed_cb(NULL, self);
 }
 
-static gboolean
-ipsec_enabled_in_hash(GHashTable *hash)
-{
-    const char *value;
-    const char *ipsec_keys[] = {
-        NM_L2TP_KEY_IPSEC_REMOTE_ID,
-        NM_L2TP_KEY_IPSEC_GROUP_NAME,
-        NM_L2TP_KEY_MACHINE_AUTH_TYPE,
-        NM_L2TP_KEY_IPSEC_PSK,
-        NM_L2TP_KEY_MACHINE_CA,
-        NM_L2TP_KEY_MACHINE_CERT,
-        NM_L2TP_KEY_MACHINE_KEY,
-        NM_L2TP_KEY_IPSEC_IKE,
-        NM_L2TP_KEY_IPSEC_ESP,
-        NM_L2TP_KEY_IPSEC_IKELIFETIME,
-        NM_L2TP_KEY_IPSEC_SALIFETIME,
-        NM_L2TP_KEY_IPSEC_FORCEENCAPS,
-        NM_L2TP_KEY_IPSEC_IPCOMP,
-        NM_L2TP_KEY_IPSEC_IKEV2,
-        NM_L2TP_KEY_IPSEC_PFS,
-        NULL,
-    };
-    const char **key;
-
-    if (!hash)
-        return FALSE;
-
-    value = g_hash_table_lookup(hash, NM_L2TP_KEY_IPSEC_ENABLE);
-    if (value && !strcmp(value, "yes"))
-        return TRUE;
-
-    for (key = ipsec_keys; *key; key++) {
-        value = g_hash_table_lookup(hash, *key);
-        if (value && *value)
-            return TRUE;
-    }
-
-    return FALSE;
-}
-
-static void
-sync_ipsec_enabled_for_ppp(L2tpPluginUiWidgetPrivate *priv)
-{
-    g_return_if_fail(priv != NULL);
-
-    if (!priv->ipsec)
-        return;
-
-    if (!priv->ppp)
-        priv->ppp = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free);
-
-    if (ipsec_enabled_in_hash(priv->ipsec))
-        g_hash_table_insert(priv->ppp,
-                            g_strdup(NM_L2TP_KEY_IPSEC_ENABLE),
-                            g_strdup("yes"));
-    else
-        g_hash_table_remove(priv->ppp, NM_L2TP_KEY_IPSEC_ENABLE);
-}
-
 static void
 ppp_button_clicked_cb(GtkWidget *button, gpointer user_data)
 {
@@ -451,6 +392,7 @@ ppp_button_clicked_cb(GtkWidget *button, gpointer user_data)
     char *                     authtype = NULL;
     gboolean                   success;
     guint32                    i = 0;
+    const char *               value;
     const char *widgets[] = {"ppp_auth_label", "auth_methods_label", "ppp_auth_methods", NULL};
     root                  = gtk_widget_get_root (priv->widget);
 
@@ -462,7 +404,14 @@ ppp_button_clicked_cb(GtkWidget *button, gpointer user_data)
     g_return_if_fail(success == TRUE);
     gtk_tree_model_get(model, &iter, COL_AUTH_TYPE, &authtype, -1);
 
-    sync_ipsec_enabled_for_ppp(priv);
+    value = g_hash_table_lookup(priv->ipsec, NM_L2TP_KEY_IPSEC_ENABLE);
+    if (value && !strcmp(value, "yes")) {
+        g_hash_table_insert(priv->ppp,
+                            g_strdup(NM_L2TP_KEY_IPSEC_ENABLE),
+                            g_strdup("yes"));
+    } else {
+        g_hash_table_remove(priv->ppp, NM_L2TP_KEY_IPSEC_ENABLE);
+    }
 
     dialog = ppp_dialog_new(priv->ppp, authtype);
     if (!dialog) {
