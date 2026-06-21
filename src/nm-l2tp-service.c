@@ -273,6 +273,20 @@ typedef struct ValidateInfo {
     gboolean             have_items;
 } ValidateInfo;
 
+static gboolean
+string_contains_control_char(const char *value)
+{
+    if (!value)
+        return FALSE;
+
+    for (const char *p = value; *p; p++) {
+        if (g_ascii_iscntrl(*p))
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 static void
 validate_one_property(const char *key, const char *value, gpointer user_data)
 {
@@ -296,6 +310,15 @@ validate_one_property(const char *key, const char *value, gpointer user_data)
             continue;
         switch (prop.type) {
         case G_TYPE_STRING:
+            if (string_contains_control_char(value)) {
+                g_set_error(info->error,
+                            NM_VPN_PLUGIN_ERROR,
+                            NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
+                            _("property '%s' contains a control character"),
+                            prop.name);
+                return;
+            }
+
             if (!strcmp(prop.name, NM_L2TP_KEY_GATEWAY)) {
                 if (validate_gateway(value))
                     return; /* valid */
@@ -306,7 +329,6 @@ validate_one_property(const char *key, const char *value, gpointer user_data)
                             _("invalid gateway '%s'"),
                             value);
             }
-
             return;
         case G_TYPE_UINT:
             errno = 0;
@@ -1331,6 +1353,14 @@ nm_l2tp_config_write(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         if (!value || !*value)
             value = nm_setting_vpn_get_user_name(s_vpn);
         if (value && *value) {
+            if (string_contains_control_char(value)) {
+                g_set_error(error,
+                            NM_VPN_PLUGIN_ERROR,
+                            NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
+                            _("VPN username contains a control character"));
+                close(fd);
+                return FALSE;
+            }
             write_config_option(fd, "user \"%s\"\n", value);
         }
         for (int i = 0; ppp_auth_options[i].name; i++) {
@@ -1777,6 +1807,14 @@ handle_need_secrets(NMDBusL2tpPpp *object, GDBusMethodInvocation *invocation, gp
                                                           NM_VPN_PLUGIN_ERROR,
                                                           NM_VPN_PLUGIN_ERROR_INVALID_CONNECTION,
                                                           _("Missing VPN username."));
+            return FALSE;
+        }
+
+        if (string_contains_control_char(user)) {
+            g_dbus_method_invocation_return_error_literal(invocation,
+                                                          NM_VPN_PLUGIN_ERROR,
+                                                          NM_VPN_PLUGIN_ERROR_INVALID_CONNECTION,
+                                                          _("VPN username contains a control character."));
             return FALSE;
         }
 
