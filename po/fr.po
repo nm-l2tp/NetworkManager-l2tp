@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: NetworkManager-l2tp main\n"
 "Report-Msgid-Bugs-To: https://gitlab.freedesktop.org/NetworkManager/"
 "NetworkManager/issues\n"
-"POT-Creation-Date: 2026-04-22 07:53+1000\n"
+"POT-Creation-Date: 2026-06-24 21:25+1000\n"
 "PO-Revision-Date: 2020-02-04 14:54+0100\n"
 "Last-Translator: Guillaume Bernard <filorin@gmx.com>\n"
 "Language-Team: français <gnomefr@traduc.org>\n"
@@ -88,7 +88,7 @@ msgid "Authenticate VPN"
 msgstr "Authentifier le VPN"
 
 #: auth-dialog/main.c:183 properties/nm-l2tp-dialog.ui:193
-#: properties/nm-l2tp-editor.c:577
+#: properties/nm-l2tp-editor.c:585
 msgid "Password"
 msgstr "Mot de passe"
 
@@ -200,7 +200,7 @@ msgstr "Option obligatoire « %s » manquante."
 msgid "Couldn't open file for writing."
 msgstr "Impossible d'ouvrir le fichier en écriture."
 
-#: properties/ipsec-dialog.c:574 properties/nm-l2tp-editor.c:590
+#: properties/ipsec-dialog.c:574 properties/nm-l2tp-editor.c:598
 msgid "Certificates (TLS)"
 msgstr "Certificats (TLS)"
 
@@ -672,31 +672,31 @@ msgstr "MTU"
 msgid "MRU"
 msgstr "MRU"
 
-#: properties/nm-l2tp-editor.c:350
+#: properties/nm-l2tp-editor.c:353
 #, c-format
 msgid "%s: error reading ppp settings: %s"
 msgstr "%s : erreur lors de la lecture des paramètres PPP : %s"
 
-#: properties/nm-l2tp-editor.c:374
+#: properties/nm-l2tp-editor.c:377
 #, c-format
 msgid "%s: error reading ipsec settings: %s"
 msgstr "%s : erreur lors de la lecture des paramètres IPsec : %s"
 
-#: properties/nm-l2tp-editor.c:408
+#: properties/nm-l2tp-editor.c:416
 #, c-format
 msgid "%s: failed to create the PPP dialog!"
 msgstr "%s : échec de la création de la boîte de dialogue PPP !"
 
-#: properties/nm-l2tp-editor.c:455
+#: properties/nm-l2tp-editor.c:463
 #, c-format
 msgid "%s: failed to create the IPsec dialog!"
 msgstr "%s : échec de la création de la boîte de dialogue IPsec !"
 
-#: properties/nm-l2tp-editor.c:831
+#: properties/nm-l2tp-editor.c:858
 msgid "could not create l2tp object"
 msgstr "impossible de créer l'objet l2tp"
 
-#: properties/nm-l2tp-editor.c:850
+#: properties/nm-l2tp-editor.c:877
 msgid "could not load UI widget"
 msgstr "impossible de charger le composant d'interface"
 
@@ -720,23 +720,23 @@ msgstr "128-bit (le plus sécurisé)"
 msgid "40-bit (less secure)"
 msgstr "40-bit (le moins sécurisé)"
 
-#: properties/ppp-dialog.c:296
+#: properties/ppp-dialog.c:309
 msgid "PAP"
 msgstr "PAP"
 
-#: properties/ppp-dialog.c:314
+#: properties/ppp-dialog.c:327
 msgid "CHAP"
 msgstr "CHAP"
 
-#: properties/ppp-dialog.c:331
+#: properties/ppp-dialog.c:344
 msgid "MSCHAP"
 msgstr "MSCHAP"
 
-#: properties/ppp-dialog.c:348
+#: properties/ppp-dialog.c:361
 msgid "MSCHAPv2"
 msgstr "MSCHAPv2"
 
-#: properties/ppp-dialog.c:366
+#: properties/ppp-dialog.c:379
 msgid "EAP"
 msgstr "EAP"
 
@@ -932,36 +932,36 @@ msgstr "impossible de charger la fabrique %s du plugin : %s"
 msgid "unknown error creating editor instance"
 msgstr "Erreur inconnue lors de la création de l'instance d'éditeur"
 
-#: src/nm-l2tp-service.c:416
+#: src/nm-l2tp-service.c:429
 #, c-format
 msgid "invalid gateway '%s'"
 msgstr "passerelle « %s » non valide"
 
-#: src/nm-l2tp-service.c:430
+#: src/nm-l2tp-service.c:442
 #, c-format
 msgid "invalid integer property '%s'"
 msgstr "propriété nombre entier « %s » non valide"
 
-#: src/nm-l2tp-service.c:440
+#: src/nm-l2tp-service.c:452
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr "propriété booléenne « %s » non valide (ni oui, ni non)"
 
-#: src/nm-l2tp-service.c:447
+#: src/nm-l2tp-service.c:459
 #, c-format
 msgid "unhandled property '%s' type %s"
 msgstr "propriété « %s » de type « %s » non gérée"
 
-#: src/nm-l2tp-service.c:459
+#: src/nm-l2tp-service.c:471
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "propriété « %s » non valide ou non prise en charge"
 
-#: src/nm-l2tp-service.c:477
+#: src/nm-l2tp-service.c:489
 msgid "No VPN configuration options."
 msgstr "Pas d'options de configuration VPN."
 
-#: src/nm-l2tp-service.c:497
+#: src/nm-l2tp-service.c:509
 #, c-format
 msgid "Missing required option '%s'."
 msgstr "Option obligatoire « %s » manquante."
@@ -1005,108 +1005,116 @@ msgstr "Impossible d'écrire la configuration de xl2tpd."
 msgid "Could not write ppp options."
 msgstr "Impossible d'écrire les options PPP."
 
-#: src/nm-l2tp-service.c:1703 src/nm-l2tp-service.c:1737
+#: src/nm-l2tp-service.c:1584
+msgid "VPN username contains a control character"
+msgstr ""
+
+#: src/nm-l2tp-service.c:1711 src/nm-l2tp-service.c:1745
 msgid "Could not start the ipsec service."
 msgstr "Impossible de démarrer le service IPsec."
 
-#: src/nm-l2tp-service.c:1710 src/nm-l2tp-service.c:1749
+#: src/nm-l2tp-service.c:1718 src/nm-l2tp-service.c:1757
 msgid "Could not restart the ipsec service."
 msgstr "Impossible de redémarrer le service IPsec."
 
-#: src/nm-l2tp-service.c:1787
+#: src/nm-l2tp-service.c:1795
 msgid "Could not add ipsec connection."
 msgstr "Impossible d'ajouter la connexion IPsec."
 
-#: src/nm-l2tp-service.c:1871
+#: src/nm-l2tp-service.c:1879
 msgid "Could not establish IPsec connection."
 msgstr "Impossible d'établir la connexion IPsec."
 
-#: src/nm-l2tp-service.c:1887
+#: src/nm-l2tp-service.c:1895
 msgid "Could not find kl2tpd or xl2tpd binaries."
 msgstr "Impossible de trouver les binaires kl2tpd ou xl2tpd."
 
-#: src/nm-l2tp-service.c:2007
+#: src/nm-l2tp-service.c:2015
 msgid "Missing or invalid VPN user certificate password."
 msgstr "Mot de passe du certificat utilisateur VPN manquant ou non valide."
 
-#: src/nm-l2tp-service.c:2025
+#: src/nm-l2tp-service.c:2033
 msgid "Missing VPN username."
 msgstr "Nom d'utilisateur VPN manquant."
 
-#: src/nm-l2tp-service.c:2034
+#: src/nm-l2tp-service.c:2041
+msgid "VPN username contains a control character."
+msgstr ""
+
+#: src/nm-l2tp-service.c:2050
 msgid "Missing or invalid VPN password."
 msgstr "Mot de passe VPN manquant ou non valide."
 
-#: src/nm-l2tp-service.c:2271
+#: src/nm-l2tp-service.c:2287
 msgid "IPv4 and IPv6 are both disabled for this connection."
 msgstr "IPv4 et IPv6 sont tous deux désactivés pour cette connexion."
 
-#: src/nm-l2tp-service.c:2287
+#: src/nm-l2tp-service.c:2303
 msgid "couldn't look up L2TP VPN gateway IP address "
 msgstr "impossible de résoudre l'adresse IP de la passerelle VPN L2TP "
 
-#: src/nm-l2tp-service.c:2316
+#: src/nm-l2tp-service.c:2332
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr "aucune adresse exploitable renvoyée pour la passerelle VPN L2TP "
 
-#: src/nm-l2tp-service.c:2335
+#: src/nm-l2tp-service.c:2351
 msgid "couldn't determine L2TP VPN gateway address family"
 msgstr ""
 "impossible de déterminer la famille d'adresses de la passerelle VPN L2TP"
 
-#: src/nm-l2tp-service.c:2339
+#: src/nm-l2tp-service.c:2355
 msgid "couldn't determine local IP to contact L2TP VPN gateway"
 msgstr ""
 "impossible de déterminer l'adresse IP locale pour contacter la passerelle "
 "VPN L2TP"
 
-#: src/nm-l2tp-service.c:2353
+#: src/nm-l2tp-service.c:2369
 msgid "unable to connect to L2TP VPN gateway"
 msgstr "impossible de se connecter à la passerelle VPN L2TP"
 
-#: src/nm-l2tp-service.c:2360
+#: src/nm-l2tp-service.c:2376
 msgid "failed to get local IP"
 msgstr "échec de l'obtention de l'adresse IP locale"
 
-#: src/nm-l2tp-service.c:2379
+#: src/nm-l2tp-service.c:2395
 msgid "failed to format local IP address"
 msgstr "échec du formatage de l'adresse IP locale"
 
-#: src/nm-l2tp-service.c:2410
+#: src/nm-l2tp-service.c:2426
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 "Impossible de trouver le binaire ipsec. Libreswan ou strongSwan est-il "
 "installé ?"
 
-#: src/nm-l2tp-service.c:2418
+#: src/nm-l2tp-service.c:2434
 msgid "Openswan is no longer supported, use Libreswan or strongSwan."
 msgstr "Openswan n'est plus pris en charge, utilisez Libreswan ou strongSwan."
 
-#: src/nm-l2tp-service.c:2421
+#: src/nm-l2tp-service.c:2437
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr "Ni Libreswan ni strongSwan n'ont été trouvés."
 
-#: src/nm-l2tp-service.c:2435
+#: src/nm-l2tp-service.c:2451
 msgid "could not retrieve connection UUID"
 msgstr "impossible de récupérer l'UUID de la connexion"
 
-#: src/nm-l2tp-service.c:2447
+#: src/nm-l2tp-service.c:2463
 msgid "Invalid or missing L2TP gateway."
 msgstr "Passerelle L2TP non valide ou absente."
 
-#: src/nm-l2tp-service.c:2835
+#: src/nm-l2tp-service.c:2845
 msgid "Don't quit when VPN connection terminates"
 msgstr "Ne pas quitter lorsque la connexion VPN se termine"
 
-#: src/nm-l2tp-service.c:2842
+#: src/nm-l2tp-service.c:2852
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Activer le débogage verbeux (peut afficher des mots de passe)"
 
-#: src/nm-l2tp-service.c:2849
+#: src/nm-l2tp-service.c:2859
 msgid "D-Bus name to use for this instance"
 msgstr "Nom de D-Bus à utiliser pour cette instance"
 
-#: src/nm-l2tp-service.c:2868
+#: src/nm-l2tp-service.c:2878
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
