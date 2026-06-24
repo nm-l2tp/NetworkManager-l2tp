@@ -9,6 +9,7 @@ fixes.
 | ------- | ------------------ |
 | 1.20.x  | :white_check_mark: |
 | 1.8.x   | :white_check_mark: |
+| 1.2.x   | :white_check_mark: |
 | 1.0.x   | :white_check_mark: |
 | < 1.0   | :x:                |
 
