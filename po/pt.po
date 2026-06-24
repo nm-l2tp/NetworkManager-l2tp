@@ -845,6 +845,11 @@ msgstr ""
 msgid "unknown error creating editor instance"
 msgstr ""
 
+#: src/nm-l2tp-service.c:417
+#, c-format
+msgid "property '%s' contains a control character"
+msgstr ""
+
 #: src/nm-l2tp-service.c:429
 #, c-format
 msgid "invalid gateway '%s'"

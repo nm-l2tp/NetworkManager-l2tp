@@ -898,6 +898,11 @@ msgstr "プラグインからファクトリー %s を読み込めません: %s"
 msgid "unknown error creating editor instance"
 msgstr "エディターインスタンスの作成中に不明なエラー"
 
+#: src/nm-l2tp-service.c:417
+#, c-format
+msgid "property '%s' contains a control character"
+msgstr "パラメーター %s に制御文字が含まれています"
+
 #: src/nm-l2tp-service.c:429
 #, c-format
 msgid "invalid gateway '%s'"
@@ -974,7 +979,7 @@ msgstr "ppp オプションを書き込めませんでした。"
 
 #: src/nm-l2tp-service.c:1584
 msgid "VPN username contains a control character"
-msgstr ""
+msgstr "VPN ユーザー名に制御文字が含まれています"
 
 #: src/nm-l2tp-service.c:1711 src/nm-l2tp-service.c:1745
 msgid "Could not start the ipsec service."
@@ -1006,7 +1011,7 @@ msgstr "VPN ユーザー名がありません。"
 
 #: src/nm-l2tp-service.c:2041
 msgid "VPN username contains a control character."
-msgstr ""
+msgstr "VPN ユーザー名に制御文字が含まれています。"
 
 #: src/nm-l2tp-service.c:2050
 msgid "Missing or invalid VPN password."

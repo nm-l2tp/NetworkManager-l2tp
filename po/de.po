@@ -912,6 +912,11 @@ msgstr "Factory %s kann nicht aus Erweiterung geladen werden: %s"
 msgid "unknown error creating editor instance"
 msgstr "Unbekannter Fehler beim Erzeugen der Editor-Instanz"
 
+#: src/nm-l2tp-service.c:417
+#, c-format
+msgid "property '%s' contains a control character"
+msgstr "Eigenschaft »%s« enthält ein Steuerzeichen"
+
 #: src/nm-l2tp-service.c:429
 #, c-format
 msgid "invalid gateway '%s'"
@@ -988,7 +993,7 @@ msgstr "PPP-Optionen konnten nicht geschrieben werden."
 
 #: src/nm-l2tp-service.c:1584
 msgid "VPN username contains a control character"
-msgstr ""
+msgstr "VPN-Benutzername enthält ein Steuerzeichen"
 
 #: src/nm-l2tp-service.c:1711 src/nm-l2tp-service.c:1745
 msgid "Could not start the ipsec service."
@@ -1020,7 +1025,7 @@ msgstr "VPN-Benutzername fehlt."
 
 #: src/nm-l2tp-service.c:2041
 msgid "VPN username contains a control character."
-msgstr ""
+msgstr "VPN-Benutzername enthält ein Steuerzeichen."
 
 #: src/nm-l2tp-service.c:2050
 msgid "Missing or invalid VPN password."

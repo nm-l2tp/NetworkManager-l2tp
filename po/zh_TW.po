@@ -875,6 +875,11 @@ msgstr "無法從外掛程式載入工廠 %s：%s"
 msgid "unknown error creating editor instance"
 msgstr "建立編輯器執行個體時發生未知錯誤"
 
+#: src/nm-l2tp-service.c:417
+#, c-format
+msgid "property '%s' contains a control character"
+msgstr "屬性「%s」包含控制字元"
+
 #: src/nm-l2tp-service.c:429
 #, c-format
 msgid "invalid gateway '%s'"
@@ -950,7 +955,7 @@ msgstr "無法寫入 ppp 選項。"
 
 #: src/nm-l2tp-service.c:1584
 msgid "VPN username contains a control character"
-msgstr ""
+msgstr "VPN 使用者名稱包含控制字元"
 
 #: src/nm-l2tp-service.c:1711 src/nm-l2tp-service.c:1745
 msgid "Could not start the ipsec service."
@@ -982,7 +987,7 @@ msgstr "缺少 VPN 使用者名稱。"
 
 #: src/nm-l2tp-service.c:2041
 msgid "VPN username contains a control character."
-msgstr ""
+msgstr "VPN 使用者名稱包含控制字元。"
 
 #: src/nm-l2tp-service.c:2050
 msgid "Missing or invalid VPN password."

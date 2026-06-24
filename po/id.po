@@ -838,6 +838,11 @@ msgstr "tak bisa memuat pabrik %s dari plugin: %s"
 msgid "unknown error creating editor instance"
 msgstr "galat tak dikenal saat membuat instansi penyunting"
 
+#: src/nm-l2tp-service.c:417
+#, c-format
+msgid "property '%s' contains a control character"
+msgstr ""
+
 #: src/nm-l2tp-service.c:429
 #, c-format
 msgid "invalid gateway '%s'"

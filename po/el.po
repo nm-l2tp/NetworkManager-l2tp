@@ -842,6 +842,11 @@ msgstr "αδυναμία φόρτωσης εργοστασίου %s από το 
 msgid "unknown error creating editor instance"
 msgstr "άγνωστο σφάλμα κατά τη δημιουργία στιγμιότυπου επεξεργαστή"
 
+#: src/nm-l2tp-service.c:417
+#, c-format
+msgid "property '%s' contains a control character"
+msgstr ""
+
 #: src/nm-l2tp-service.c:429
 #, c-format
 msgid "invalid gateway '%s'"

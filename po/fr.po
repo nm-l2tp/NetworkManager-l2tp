@@ -932,6 +932,11 @@ msgstr "impossible de charger la fabrique %s du plugin : %s"
 msgid "unknown error creating editor instance"
 msgstr "Erreur inconnue lors de la création de l'instance d'éditeur"
 
+#: src/nm-l2tp-service.c:417
+#, c-format
+msgid "property '%s' contains a control character"
+msgstr "la propriété « %s » contient un caractère de contrôle"
+
 #: src/nm-l2tp-service.c:429
 #, c-format
 msgid "invalid gateway '%s'"
@@ -1007,7 +1012,7 @@ msgstr "Impossible d'écrire les options PPP."
 
 #: src/nm-l2tp-service.c:1584
 msgid "VPN username contains a control character"
-msgstr ""
+msgstr "le nom d’utilisateur VPN contient un caractère de contrôle"
 
 #: src/nm-l2tp-service.c:1711 src/nm-l2tp-service.c:1745
 msgid "Could not start the ipsec service."
@@ -1039,7 +1044,7 @@ msgstr "Nom d'utilisateur VPN manquant."
 
 #: src/nm-l2tp-service.c:2041
 msgid "VPN username contains a control character."
-msgstr ""
+msgstr "Le nom d’utilisateur VPN contient un caractère de contrôle."
 
 #: src/nm-l2tp-service.c:2050
 msgid "Missing or invalid VPN password."

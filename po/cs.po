@@ -840,6 +840,11 @@ msgstr "nelze načíst generátor %s ze zásuvného modulu: %s"
 msgid "unknown error creating editor instance"
 msgstr "neznámá chyba při vytváření instance editoru"
 
+#: src/nm-l2tp-service.c:417
+#, c-format
+msgid "property '%s' contains a control character"
+msgstr ""
+
 #: src/nm-l2tp-service.c:429
 #, c-format
 msgid "invalid gateway '%s'"
