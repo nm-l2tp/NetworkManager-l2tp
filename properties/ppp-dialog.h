@@ -10,10 +10,10 @@
 
 #include <gtk/gtk.h>
 
-GtkWidget *ppp_dialog_new(GHashTable *hash, const char *authtype);
+GtkWidget *ppp_dialog_new(GHashTable *hash, const char *authtype, gboolean ipsec_enabled);
 
 GHashTable *ppp_dialog_new_hash_from_connection(NMConnection *connection, GError **error);
 
-GHashTable *ppp_dialog_new_hash_from_dialog(GtkWidget *dialog, GError **error);
+GHashTable *ppp_dialog_new_hash_from_dialog(GtkWidget *dialog, gboolean ipsec_enabled, GError **error);
 
 #endif

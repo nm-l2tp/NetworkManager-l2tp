@@ -43,7 +43,6 @@ static const char *ppp_keys[] = {NM_L2TP_KEY_REFUSE_EAP,
                                  NM_L2TP_KEY_LCP_ECHO_INTERVAL,
                                  NM_L2TP_KEY_MTU,
                                  NM_L2TP_KEY_MRU,
-                                 NM_L2TP_KEY_IPSEC_ENABLE,
                                  NULL};
 
 static void
@@ -258,7 +257,7 @@ check_toggled_cb(GtkCellRendererToggle *cell, gchar *path_str, gpointer user_dat
 }
 
 static void
-auth_methods_setup(GtkBuilder *builder, GHashTable *hash)
+auth_methods_setup(GtkBuilder *builder, GHashTable *hash, gboolean ipsec_enabled)
 {
     GtkWidget *            widget;
     GtkListStore *         store;
@@ -272,7 +271,7 @@ auth_methods_setup(GtkBuilder *builder, GHashTable *hash)
     gint                   offset;
     gboolean               mschap_state  = TRUE;
     gboolean               mschap2_state = TRUE;
-    gboolean               ipsec_enabled = FALSE;
+    gboolean               has_ipsec_enabled = FALSE;
 
     store = gtk_list_store_new(4, G_TYPE_STRING, G_TYPE_BOOLEAN, G_TYPE_UINT, G_TYPE_BOOLEAN);
 
@@ -291,13 +290,12 @@ auth_methods_setup(GtkBuilder *builder, GHashTable *hash)
     if (value && !strcmp(value, "yes"))
         use_mppe = TRUE;
 
-    value = g_hash_table_lookup(hash, NM_L2TP_KEY_IPSEC_ENABLE);
-    if (value && !strcmp(value, "yes")) {
-        ipsec_enabled = TRUE;
+    if (ipsec_enabled) {
+        has_ipsec_enabled = TRUE;
         use_mppe      = FALSE;
     }
 
-    g_object_set_data(G_OBJECT(builder), "ipsec-enabled", GINT_TO_POINTER(ipsec_enabled));
+    g_object_set_data(G_OBJECT(builder), "ipsec-enabled", GINT_TO_POINTER(has_ipsec_enabled));
 
     /* PAP */
     value   = g_hash_table_lookup(hash, NM_L2TP_KEY_REFUSE_PAP);
@@ -433,14 +431,13 @@ auth_methods_setup(GtkBuilder *builder, GHashTable *hash)
 }
 
 GtkWidget *
-ppp_dialog_new(GHashTable *hash, const char *authtype)
+ppp_dialog_new(GHashTable *hash, const char *authtype, gboolean ipsec_enabled)
 {
     GtkBuilder *builder;
     GtkWidget * dialog = NULL;
     GtkWidget * widget;
     const char *value;
     gboolean    mppe  = FALSE;
-    gboolean    ipsec_enabled = FALSE;
     GError *    error = NULL;
 
     g_return_val_if_fail(hash != NULL, NULL);
@@ -469,12 +466,9 @@ ppp_dialog_new(GHashTable *hash, const char *authtype)
                            (GDestroyNotify) g_object_unref);
 
     g_object_set_data_full(G_OBJECT(dialog), "auth-type", g_strdup(authtype), g_free);
+    g_object_set_data(G_OBJECT(builder), "ipsec-enabled", GINT_TO_POINTER(ipsec_enabled));
 
     setup_security_combo(builder, hash);
-
-    value = g_hash_table_lookup(hash, NM_L2TP_KEY_IPSEC_ENABLE);
-    if (value && !strcmp(value, "yes"))
-        ipsec_enabled = TRUE;
 
     value = g_hash_table_lookup(hash, NM_L2TP_KEY_REQUIRE_MPPE);
     if (value && !strcmp(value, "yes"))
@@ -541,7 +535,7 @@ ppp_dialog_new(GHashTable *hash, const char *authtype)
             gtk_check_button_set_active(GTK_CHECK_BUTTON(widget), TRUE);
     }
 
-    auth_methods_setup(builder, hash);
+    auth_methods_setup(builder, hash, ipsec_enabled);
 
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "ppp_use_mppe"));
     handle_mppe_changed(widget, TRUE, builder);
@@ -598,7 +592,7 @@ ppp_dialog_new(GHashTable *hash, const char *authtype)
 }
 
 GHashTable *
-ppp_dialog_new_hash_from_dialog(GtkWidget *dialog, GError **error)
+ppp_dialog_new_hash_from_dialog(GtkWidget *dialog, gboolean ipsec_enabled, GError **error)
 {
     GHashTable *  hash;
     GtkWidget *   widget;
@@ -610,7 +604,6 @@ ppp_dialog_new_hash_from_dialog(GtkWidget *dialog, GError **error)
     int           mru_num;
     int           mrru_num;
     const char *  authtype = NULL;
-    gboolean      ipsec_enabled;
 
     g_return_val_if_fail(dialog != NULL, NULL);
     if (error)
@@ -620,8 +613,6 @@ ppp_dialog_new_hash_from_dialog(GtkWidget *dialog, GError **error)
     g_return_val_if_fail(builder != NULL, NULL);
 
     hash = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, g_free);
-
-    ipsec_enabled = GPOINTER_TO_INT(g_object_get_data(G_OBJECT(builder), "ipsec-enabled"));
 
     widget = GTK_WIDGET(gtk_builder_get_object(builder, "ppp_use_mppe"));
     if (!ipsec_enabled && gtk_check_button_get_active(GTK_CHECK_BUTTON(widget))) {

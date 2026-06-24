@@ -336,6 +336,7 @@ ppp_dialog_response_cb(GtkWidget *dialog, gint response, gpointer user_data)
 {
     L2tpPluginUiWidget *       self  = L2TP_PLUGIN_UI_WIDGET(user_data);
     L2tpPluginUiWidgetPrivate *priv  = L2TP_PLUGIN_UI_WIDGET_GET_PRIVATE(self);
+    gboolean                   ipsec_enabled;
     GError *                   error = NULL;
 
     if (response != GTK_RESPONSE_OK) {
@@ -345,7 +346,9 @@ ppp_dialog_response_cb(GtkWidget *dialog, gint response, gpointer user_data)
 
     if (priv->ppp)
         g_hash_table_destroy(priv->ppp);
-    priv->ppp = ppp_dialog_new_hash_from_dialog(dialog, &error);
+
+    ipsec_enabled = priv->ipsec && g_strcmp0(g_hash_table_lookup(priv->ipsec, NM_L2TP_KEY_IPSEC_ENABLE), "yes") == 0;
+    priv->ppp = ppp_dialog_new_hash_from_dialog(dialog, ipsec_enabled, &error);
     if (!priv->ppp) {
         g_message(_("%s: error reading ppp settings: %s"), __func__, error->message);
         g_error_free(error);
@@ -391,6 +394,7 @@ ppp_button_clicked_cb(GtkWidget *button, gpointer user_data)
     GtkTreeIter                iter;
     char *                     authtype = NULL;
     gboolean                   success;
+    gboolean                   ipsec_enabled;
     guint32                    i = 0;
     const char *               value;
     const char *widgets[] = {"ppp_auth_label", "auth_methods_label", "ppp_auth_methods", NULL};
@@ -405,15 +409,9 @@ ppp_button_clicked_cb(GtkWidget *button, gpointer user_data)
     gtk_tree_model_get(model, &iter, COL_AUTH_TYPE, &authtype, -1);
 
     value = g_hash_table_lookup(priv->ipsec, NM_L2TP_KEY_IPSEC_ENABLE);
-    if (value && !strcmp(value, "yes")) {
-        g_hash_table_insert(priv->ppp,
-                            g_strdup(NM_L2TP_KEY_IPSEC_ENABLE),
-                            g_strdup("yes"));
-    } else {
-        g_hash_table_remove(priv->ppp, NM_L2TP_KEY_IPSEC_ENABLE);
-    }
+    ipsec_enabled = value && !strcmp(value, "yes");
 
-    dialog = ppp_dialog_new(priv->ppp, authtype);
+    dialog = ppp_dialog_new(priv->ppp, authtype, ipsec_enabled);
     if (!dialog) {
         g_warning(_("%s: failed to create the PPP dialog!"), __func__);
         g_free(authtype);
@@ -724,14 +722,11 @@ copy_data_item_if_missing(NMSettingVpn *dest, NMSettingVpn *src, const char *key
 }
 
 static void
-remove_mppe_items_if_ipsec_enabled(NMSettingVpn *s_vpn)
+remove_mppe_items_if_ipsec_enabled(NMSettingVpn *s_vpn, gboolean ipsec_enabled)
 {
-    const char *ipsec_enabled;
-
     g_return_if_fail(s_vpn != NULL);
 
-    ipsec_enabled = nm_setting_vpn_get_data_item(s_vpn, NM_L2TP_KEY_IPSEC_ENABLE);
-    if (!ipsec_enabled || strcmp(ipsec_enabled, "yes") != 0)
+    if (!ipsec_enabled)
         return;
 
     nm_setting_vpn_remove_data_item(s_vpn, NM_L2TP_KEY_REQUIRE_MPPE);
@@ -751,6 +746,7 @@ update_connection(NMVpnEditor *iface, NMConnection *connection, GError **error)
     char *                     auth_type;
     const char *               str;
     gboolean                   valid = FALSE;
+    gboolean                   ipsec_enabled;
 
     if (!check_validity(self, error))
         return FALSE;
@@ -814,7 +810,8 @@ update_connection(NMVpnEditor *iface, NMConnection *connection, GError **error)
         g_hash_table_foreach(priv->ipsec, copy_hash_pair, s_vpn);
 
     /* IPsec and MPPE should not be saved together. */
-    remove_mppe_items_if_ipsec_enabled(s_vpn);
+    ipsec_enabled = priv->ipsec && g_strcmp0(g_hash_table_lookup(priv->ipsec, NM_L2TP_KEY_IPSEC_ENABLE), "yes") == 0;
+    remove_mppe_items_if_ipsec_enabled(s_vpn, ipsec_enabled);
 
     widget = GTK_WIDGET(gtk_builder_get_object(priv->builder, "ephemeral_checkbutton"));
     if (gtk_check_button_get_active(GTK_CHECK_BUTTON(widget)))
