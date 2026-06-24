@@ -42,7 +42,7 @@ need to be set to the Libreswan NSS database location if it is not located in
 libreswan < 3.30 or libreswan packages built with `USE_DH2=true` i.e. have
 modp1024 support.
 
-#### Debian 13 and Ubuntu 24.04 (AMD64, i.e. x86-64)
+#### Debian sid and Ubuntu 26.04 (AMD64, i.e. x86-64)
 
     ./configure \
       --disable-static --prefix=/usr \
@@ -50,32 +50,13 @@ modp1024 support.
       --runstatedir=/run \
       --with-gtk4
 
-#### Debian 12 and Ubuntu 22.04 (AMD64, i.e. x86-64)
-
-    ./configure \
-      --disable-static --prefix=/usr \
-      --sysconfdir=/etc --libdir=/usr/lib/x86_64-linux-gnu \
-      --libexecdir=/usr/lib/NetworkManager \
-      --runstatedir=/run \
-      --with-pppd-plugin-dir=/usr/lib/pppd/2.4.9
-
-#### Fedora 39 and later (x86-64)
+#### Fedora 43 and later, Red Hat Enterprise Linux 9 and later (x86-64)
 
     ./configure \
       --disable-static --prefix=/usr \
       --sysconfdir=/etc --libdir=/usr/lib64 \
       --runstatedir=/run \
       --with-gtk4
-
-#### Red Hat Enterprise Linux 8 (x86-64)
-
-    ./configure \
-      --disable-static --prefix=/usr \
-      --sysconfdir=/etc --libdir=/usr/lib64 \
-      --localstatedir=/var \
-      --enable-libreswan-dh2 \
-      --with-nm-ipsec-nss-dir=/etc/ipsec.d \
-      --with-pppd-plugin-dir=/usr/lib64/pppd/2.4.7
 
 #### openSUSE Tumbleweed (x86-64)
 
@@ -147,10 +128,6 @@ file which is most likely located under `/var/log/`.
 To increase debugging output, issue the following on the command line, it
 will also prevent the run-time generated config files from being deleted after
 the VPN connection is disconnected :
-
-#### Debian < 13 and Ubuntu < 24.04
-    sudo killall -TERM nm-l2tp-service
-    sudo /usr/lib/NetworkManager/nm-l2tp-service --debug
 
 #### Debian, Ubuntu, Fedora and Red Hat Enterprise Linux
     sudo killall -TERM nm-l2tp-service
