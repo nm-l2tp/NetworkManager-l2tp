@@ -1007,7 +1007,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	NML2tpPluginPrivate *priv = NM_L2TP_PLUGIN_GET_PRIVATE (plugin);
 	char cmdbuf[256];
 	char *output = NULL;
-	int sys = 0, status, retry;
+	int sys = 0, status, status_rc, retry;
 	int msec;
 	gboolean rc = FALSE;
 	gchar *argv[5];
@@ -1017,7 +1017,8 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 	if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
 		snprintf (cmdbuf, sizeof(cmdbuf), "%s auto --status > /dev/null", priv->ipsec_binary_path);
 		sys = system (cmdbuf);
-		if (sys == 1) {
+		status_rc = (sys >= 0 && WIFEXITED (sys)) ? WEXITSTATUS (sys) : -1;
+		if (status_rc != 0) {
 			snprintf (cmdbuf, sizeof(cmdbuf), "%s start", priv->ipsec_binary_path);
 			sys = system (cmdbuf);
 			if (sys) {
@@ -1033,14 +1034,17 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 		/* wait for Libreswan to get ready before performing an up operation */
 		snprintf (cmdbuf, sizeof(cmdbuf), "%s auto --ready", priv->ipsec_binary_path);
 		sys = system (cmdbuf);
-		for (retry = 0; retry < 5 && sys != 0; retry++) {
+		status_rc = (sys >= 0 && WIFEXITED (sys)) ? WEXITSTATUS (sys) : -1;
+		for (retry = 0; retry < 5 && status_rc != 0; retry++) {
 			sleep (1);
 			sys = system (cmdbuf);
+			status_rc = (sys >= 0 && WIFEXITED (sys)) ? WEXITSTATUS (sys) : -1;
 		}
 	} else {
 		snprintf (cmdbuf, sizeof(cmdbuf), "%s status > /dev/null", priv->ipsec_binary_path);
 		sys = system (cmdbuf);
-		if (sys == 3) {
+		status_rc = (sys >= 0 && WIFEXITED (sys)) ? WEXITSTATUS (sys) : -1;
+		if (status_rc != 0) {
 			snprintf (cmdbuf, sizeof(cmdbuf), "%s start "
 				             " --conf "RUNSTATEDIR"/nm-l2tp-%s/ipsec.conf --debug",
 				             priv->ipsec_binary_path, priv->uuid);
@@ -1060,9 +1064,11 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 		/* wait for strongSwan to get ready before performing an up operation  */
 		snprintf (cmdbuf, sizeof(cmdbuf), "%s rereadsecrets", priv->ipsec_binary_path);
 		sys = system (cmdbuf);
-		for (retry = 0; retry < 5 && sys != 0; retry++) {
+		status_rc = (sys >= 0 && WIFEXITED (sys)) ? WEXITSTATUS (sys) : -1;
+		for (retry = 0; retry < 5 && status_rc != 0; retry++) {
 			sleep (1);
 			sys = system (cmdbuf);
+			status_rc = (sys >= 0 && WIFEXITED (sys)) ? WEXITSTATUS (sys) : -1;
 		}
 	}
 
