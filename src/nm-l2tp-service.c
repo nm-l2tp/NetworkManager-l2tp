@@ -254,6 +254,20 @@ typedef struct ValidateInfo {
 	gboolean have_items;
 } ValidateInfo;
 
+static gboolean
+string_contains_control_char (const char *value)
+{
+	if (!value)
+		return FALSE;
+
+	for (const char *p = value; *p; p++) {
+		if (iscntrl ((unsigned char) *p))
+			return TRUE;
+	}
+
+	return FALSE;
+}
+
 static void
 validate_one_property (const char *key, const char *value, gpointer user_data)
 {
@@ -278,6 +292,14 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 
 		switch (prop.type) {
 		case G_TYPE_STRING:
+			if (string_contains_control_char (value)) {
+				g_set_error (info->error,
+				             NM_VPN_PLUGIN_ERROR,
+				             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
+				             _("property '%s' contains a control character"),
+				             prop.name);
+				return;
+			}
 			if (   !strcmp (prop.name, NM_L2TP_KEY_GATEWAY)) {
 				if ( validate_gateway (value) )
 					return; /* valid */
@@ -902,7 +924,16 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER);
 		if (!value || !*value)
 			value = nm_setting_vpn_get_user_name (s_vpn);
-		if (!value || !*value) {
+		if (value && *value) {
+			if (string_contains_control_char (value)) {
+				g_set_error (error,
+				             NM_VPN_PLUGIN_ERROR,
+				             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
+				             _("property '%s' contains a control character"),
+				             NM_L2TP_KEY_USER);
+				close (fd);
+				return FALSE;
+			}
 			write_config_option (fd, "name %s\n", value);
 		}
 		for (i=0; ppp_auth_options[i].name; i++){
@@ -1238,6 +1269,14 @@ handle_need_secrets (NMDBusL2tpPpp *object,
 		                                               NM_VPN_PLUGIN_ERROR,
 		                                               NM_VPN_PLUGIN_ERROR_INVALID_CONNECTION,
 		                                               _("Missing VPN username."));
+		return FALSE;
+	}
+
+	if (string_contains_control_char (user)) {
+		g_dbus_method_invocation_return_error_literal (invocation,
+		                                               NM_VPN_PLUGIN_ERROR,
+		                                               NM_VPN_PLUGIN_ERROR_INVALID_CONNECTION,
+		                                               _("VPN username contains a control character."));
 		return FALSE;
 	}
 
