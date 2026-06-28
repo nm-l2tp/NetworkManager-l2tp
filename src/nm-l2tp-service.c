@@ -726,14 +726,22 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		if (_LOGD_enabled ()){
 			write_config_option (fd, "config setup\n");
 			if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
-				if (getenv ("PLUTODEBUG")) {
-					write_config_option (fd, "  plutodebug=\"%s\"\n\n", getenv ("PLUTODEBUG"));
+				const char *plutodebug = getenv ("PLUTODEBUG");
+
+				if (plutodebug && !string_contains_control_char (plutodebug)) {
+					write_config_option (fd, "  plutodebug=\"%s\"\n\n", plutodebug);
+				} else if (plutodebug) {
+					_LOGW ("Ignoring PLUTODEBUG environment variable because it contains a control character");
 				} else {
 					write_config_option (fd, "  plutodebug=\"all\"\n\n");
 				}
 			} else if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_STRONGSWAN) {
-				if (getenv ("CHARONDEBUG")) {
-					write_config_option (fd, "  charondebug=\"%s\"\n\n", getenv ("CHARONDEBUG"));
+				const char *charondebug = getenv ("CHARONDEBUG");
+
+				if (charondebug && !string_contains_control_char (charondebug)) {
+					write_config_option (fd, "  charondebug=\"%s\"\n\n", charondebug);
+				} else if (charondebug) {
+					_LOGW ("Ignoring CHARONDEBUG environment variable because it contains a control character");
 				} else {
 					/* Default strongswan debug level is 1 (control), set it to 2 (controlmore) for ike, esp & cfg */
 					write_config_option (fd, "  charondebug=\"ike 2, esp 2, cfg 2\"\n\n");
