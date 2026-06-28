@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-02 12:00+1000\n"
+"POT-Creation-Date: 2026-06-28 22:58+1000\n"
 "PO-Revision-Date: 2020-05-10 21:00+0900\n"
 "Last-Translator: sicklylife <translation@sicklylife.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
@@ -20,11 +20,11 @@ msgstr ""
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
 msgid "L2TP VPN Client"
-msgstr ""
+msgstr "L2TP VPN クライアント"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:2
 msgid "Client for L2TP based virtual private networks"
-msgstr ""
+msgstr "L2TP ベースの仮想プライベートネットワーク用クライアント"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:3
 msgid "Support for configuring L2TP based virtual private network connections."
@@ -32,19 +32,19 @@ msgstr ""
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:4
 msgid "Compatible with L2TP and L2TP over IPsec services."
-msgstr ""
+msgstr "L2TP および IPsec 上の L2TP サービスと互換性があります。"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:5
 msgid "The IPsec options dialog"
-msgstr ""
+msgstr "IPsec オプションダイアログ"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:6
 msgid "The PPP options dialog"
-msgstr ""
+msgstr "PPP オプションダイアログ"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:7
 msgid "The NetworkManager-L2TP Developers"
-msgstr ""
+msgstr "NetworkManager-L2TP 開発者"
 
 #. Otherwise, we have no saved password, or the password flags indicated
 #. * that the password should never be saved.
@@ -97,36 +97,36 @@ msgstr "EAP"
 #: ../properties/nm-l2tp-editor.c:148
 #, c-format
 msgid "%s: error reading ppp settings: %s"
-msgstr ""
+msgstr "%s: PPP 設定の読み込みエラー: %s"
 
 #: ../properties/nm-l2tp-editor.c:172
 #, c-format
 msgid "%s: error reading ipsec settings: %s"
-msgstr ""
+msgstr "%s: IPsec 設定の読み込みエラー: %s"
 
 #: ../properties/nm-l2tp-editor.c:192
 #, c-format
 msgid "%s: failed to create the PPP dialog!"
-msgstr ""
+msgstr "%s: PPP ダイアログの作成に失敗しました。"
 
 #: ../properties/nm-l2tp-editor.c:221
 #, c-format
 msgid "%s: failed to create the IPsec dialog!"
-msgstr ""
+msgstr "%s: IPsec ダイアログの作成に失敗しました。"
 
 #: ../properties/nm-l2tp-editor.c:532
 #, c-format
 msgid "could not create l2tp object"
-msgstr ""
+msgstr "l2tp オブジェクトを作成できませんでした"
 
 #: ../properties/nm-l2tp-editor.c:549
 #, c-format
 msgid "could not load UI widget"
-msgstr ""
+msgstr "UI ウィジェットを読み込めませんでした"
 
 #: ../properties/nm-l2tp-editor-plugin.c:34
 msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr ""
+msgstr "Layer 2 Tunneling Protocol (L2TP)"
 
 #: ../properties/nm-l2tp-editor-plugin.c:35
 msgid "Compatible with Microsoft and other L2TP VPN servers."
@@ -196,141 +196,160 @@ msgstr "プラグインからファクトリー %s を読み込めません: %s"
 msgid "unknown error creating editor instance"
 msgstr "エディターインスタンスの作成中に不明なエラー"
 
-#: ../src/nm-l2tp-service.c:288
+#: ../src/nm-l2tp-service.c:299 ../src/nm-l2tp-service.c:940
+#, c-format
+msgid "property '%s' contains a control character"
+msgstr "パラメーター %s に制御文字が含まれています"
+
+#: ../src/nm-l2tp-service.c:310
 #, c-format
 msgid "invalid gateway '%s'"
 msgstr "無効なゲートウェイ %s"
 
-#: ../src/nm-l2tp-service.c:302
+#: ../src/nm-l2tp-service.c:324
 #, c-format
 msgid "invalid integer property '%s'"
 msgstr "数値型パラメーター %s が無効な数値です。"
 
-#: ../src/nm-l2tp-service.c:312
+#: ../src/nm-l2tp-service.c:334
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr ""
 "ブーリアン型パラメーター %s が無効な値です。(値はyes、noではありません)"
 
-#: ../src/nm-l2tp-service.c:319
+#: ../src/nm-l2tp-service.c:341
 #, c-format
 msgid "unhandled property '%s' type %s"
 msgstr "対処できない %s 型パラメーターの %s"
 
-#: ../src/nm-l2tp-service.c:330
+#: ../src/nm-l2tp-service.c:352
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "パラメーター %s は無効かサポートされていません。"
 
-#: ../src/nm-l2tp-service.c:348
+#: ../src/nm-l2tp-service.c:370
 msgid "No VPN configuration options."
 msgstr "VPN 設定オプションがありません。"
 
-#: ../src/nm-l2tp-service.c:368
+#: ../src/nm-l2tp-service.c:390
 #, c-format
 msgid "Missing required option '%s'."
 msgstr "必須オプション %s が不足しています。"
 
-#: ../src/nm-l2tp-service.c:388
+#: ../src/nm-l2tp-service.c:410
 msgid "No VPN secrets!"
 msgstr "VPN シークレットがありません。"
 
-#: ../src/nm-l2tp-service.c:637
+#: ../src/nm-l2tp-service.c:659
 #, c-format
 msgid "Could not open %s for writing: %s"
-msgstr ""
+msgstr "%s を書き込み用に開けませんでした: %s"
 
-#: ../src/nm-l2tp-service.c:644
+#: ../src/nm-l2tp-service.c:666
 #, c-format
 msgid "Could not append \"include ipsec.d/ipsec.nm-l2tp.secrets\" to %s"
-msgstr ""
+msgstr "\"include ipsec.d/ipsec.nm-l2tp.secrets\" を %s に追記できませんでした"
 
-#: ../src/nm-l2tp-service.c:660
+#: ../src/nm-l2tp-service.c:682
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
-msgstr ""
+msgstr "%s/ipsec.nm-l2tp.secrets に書き込めませんでした"
 
-#: ../src/nm-l2tp-service.c:700
+#: ../src/nm-l2tp-service.c:722
 msgid "Could not write ipsec config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:824
+#: ../src/nm-l2tp-service.c:854
 msgid "Could not write xl2tpd config."
-msgstr ""
+msgstr "xl2tpd 設定を書き込めませんでした。"
 
-#: ../src/nm-l2tp-service.c:866
+#: ../src/nm-l2tp-service.c:896
 msgid "Could not write ppp options."
-msgstr ""
+msgstr "ppp オプションを書き込めませんでした。"
 
-#: ../src/nm-l2tp-service.c:1024 ../src/nm-l2tp-service.c:1049
+#: ../src/nm-l2tp-service.c:1064 ../src/nm-l2tp-service.c:1092
 msgid "Could not start the ipsec service."
-msgstr ""
+msgstr "ipsec サービスを開始できませんでした。"
 
-#: ../src/nm-l2tp-service.c:1030 ../src/nm-l2tp-service.c:1057
+#: ../src/nm-l2tp-service.c:1070 ../src/nm-l2tp-service.c:1100
 msgid "Could not restart the ipsec service."
-msgstr ""
+msgstr "ipsec サービスを再起動できませんでした。"
 
-#: ../src/nm-l2tp-service.c:1168
+#: ../src/nm-l2tp-service.c:1196
+msgid "Could not establish IPsec connection."
+msgstr "IPsec 接続を確立できませんでした。"
+
+#: ../src/nm-l2tp-service.c:1214
 msgid "Could not find the xl2tpd binary."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1234
+#: ../src/nm-l2tp-service.c:1280
 msgid "Missing VPN username."
 msgstr "VPN ユーザー名がありません。"
 
-#: ../src/nm-l2tp-service.c:1243
+#: ../src/nm-l2tp-service.c:1288
+msgid "VPN username contains a control character."
+msgstr "VPN ユーザー名に制御文字が含まれています。"
+
+#: ../src/nm-l2tp-service.c:1297
 msgid "Missing or invalid VPN password."
 msgstr "VPN パスワードが不足しているか、無効です。"
 
-#: ../src/nm-l2tp-service.c:1346
+#: ../src/nm-l2tp-service.c:1400
 msgid "couldn't convert L2TP VPN gateway IP address."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1359
-msgid "couldn't look up L2TP VPN gateway IP address "
-msgstr ""
-
-#: ../src/nm-l2tp-service.c:1378
-msgid "no usable addresses returned for L2TP VPN gateway "
-msgstr ""
-
 #: ../src/nm-l2tp-service.c:1413
+msgid "couldn't look up L2TP VPN gateway IP address "
+msgstr "L2TP VPN ゲートウェイの IP アドレスを名前解決できませんでした "
+
+#: ../src/nm-l2tp-service.c:1432
+msgid "no usable addresses returned for L2TP VPN gateway "
+msgstr "L2TP VPN ゲートウェイに対して使用可能なアドレスが返されませんでした "
+
+#: ../src/nm-l2tp-service.c:1467
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
+"ipsec バイナリーが見つかりませんでした。Libreswan または strongSwan はインス"
+"トールされていますか?"
 
-#: ../src/nm-l2tp-service.c:1419
+#: ../src/nm-l2tp-service.c:1473
 msgid "Openswan is no longer supported, use Libreswan or strongSwan."
 msgstr ""
+"Openswan はもうサポートされていません。Libreswan または strongSwan を使用して"
+"ください。"
 
-#: ../src/nm-l2tp-service.c:1421
+#: ../src/nm-l2tp-service.c:1475
 msgid "Neither Libreswan nor strongSwan were found."
-msgstr ""
+msgstr "Libreswan と strongSwan のどちらも見つかりませんでした。"
 
-#: ../src/nm-l2tp-service.c:1430
+#: ../src/nm-l2tp-service.c:1484
 msgid "could not retrieve connection UUID"
-msgstr ""
+msgstr "接続 UUID を取得できませんでした"
 
-#: ../src/nm-l2tp-service.c:1438
+#: ../src/nm-l2tp-service.c:1492
 msgid "Invalid or missing L2TP gateway."
 msgstr "L2TP ゲートウェイが無効か不足しています。"
 
-#: ../src/nm-l2tp-service.c:1732
+#: ../src/nm-l2tp-service.c:1786
 msgid "Don't quit when VPN connection terminates"
 msgstr "VPN 接続が切断された時に終了しないでください。"
 
-#: ../src/nm-l2tp-service.c:1733
+#: ../src/nm-l2tp-service.c:1787
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "詳細なデバッグ情報の保存を有効にする (パスワードも含まれます)"
 
-#: ../src/nm-l2tp-service.c:1734
+#: ../src/nm-l2tp-service.c:1788
 msgid "D-Bus name to use for this instance"
 msgstr "このインスタンスの D-Bus 名"
 
-#: ../src/nm-l2tp-service.c:1755
+#: ../src/nm-l2tp-service.c:1809
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
 msgstr ""
+"nm-l2tp-service は、任意の IPsec サポート付き L2TP VPN 機能を NetworkManager "
+"に提供します。"
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
 msgid "General"
@@ -345,6 +364,8 @@ msgid ""
 "L2TP server IP or name.\n"
 "config: xl2tpd lns parameter"
 msgstr ""
+"L2TP サーバーの IP アドレスまたは名前。\n"
+"config: xl2tpd の lns パラメーター"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid "User Authentication"
@@ -355,6 +376,8 @@ msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
 "DOMAIN\\username, where DOMAIN is the value from this text entry box."
 msgstr ""
+"ユーザー認証のために旧形式のログオン名、つまり DOMAIN\\username を使用しま"
+"す。ここで DOMAIN はこのテキスト入力欄の値です。"
 
 #: ../properties/nm-l2tp-dialog.ui.h:7
 msgid "Show password"
@@ -362,7 +385,7 @@ msgstr "パスワードを表示します。"
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Password passed to PPPD when prompted for it."
-msgstr ""
+msgstr "要求されたときに PPPD に渡されるパスワードです。"
 
 #: ../properties/nm-l2tp-dialog.ui.h:9
 msgid ""
@@ -381,23 +404,23 @@ msgstr "NT ドメイン:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:14
 msgid "_IPsec Settings..."
-msgstr ""
+msgstr "IPsec 設定(_I)..."
 
 #: ../properties/nm-l2tp-dialog.ui.h:15
 msgid "PPP Se_ttings..."
-msgstr ""
+msgstr "PPP 設定(_T)..."
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
 msgid "L2TP IPsec Options"
-msgstr ""
+msgstr "L2TP IPsec オプション"
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "_Enable IPsec tunnel to L2TP host"
-msgstr ""
+msgstr "L2TP ホストへの IPsec トンネルを有効にする(_E)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "config: ipsec-enabled"
-msgstr ""
+msgstr "config: ipsec-enabled"
 
 #: ../properties/nm-l2tp-dialog.ui.h:19
 msgid "Machine Authentication"
@@ -412,6 +435,8 @@ msgid ""
 "Pre-shared key (PSK) secret.\n"
 "config: ipsec-psk"
 msgstr ""
+"事前共有鍵 (PSK) の秘密情報。\n"
+"config: ipsec-psk"
 
 #: ../properties/nm-l2tp-dialog.ui.h:23
 msgid "Pre-shared key:"
@@ -427,13 +452,19 @@ msgid ""
 "group,enc-integ-group, …”.\n"
 "config: ipsec-ike <proposals>"
 msgstr ""
+"任意。IKE メインモード用の提案一覧です。形式は “enc-integ-group,enc-integ-"
+"group, …” です。\n"
+"config: ipsec-ike <proposals>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:27
 msgid ""
-"Optional. A list of proposals for ESP - Quick Mode. The format is “enc-integ,"
-"enc-integ, …”.\n"
+"Optional. A list of proposals for ESP - Quick Mode. The format is “enc-"
+"integ,enc-integ, …”.\n"
 "config: ipsec-esp <proposals>"
 msgstr ""
+"任意。ESP クイックモード用の提案一覧です。形式は “enc-integ,enc-integ, …” で"
+"す。\n"
+"config: ipsec-esp <proposals>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:29
 msgid "Phase1 Algorithms:"
@@ -445,10 +476,12 @@ msgid ""
 "renegotiated. \n"
 "config: ipsec-ikelifetime <lifetime>"
 msgstr ""
+"接続の鍵交換チャネルを再交渉するまでどのくらい維持するかを指定します。\n"
+"config: ipsec-ikelifetime <lifetime>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
 msgid "(HH:MM)"
-msgstr ""
+msgstr "(HH:MM)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:34
 msgid ""
@@ -457,6 +490,9 @@ msgid ""
 "negotiation to expiry.\n"
 "config: ipsec-salifetime <lifetime>"
 msgstr ""
+"特定の接続インスタンス、つまりユーザーパケット用の暗号化/認証鍵の組が、交渉成"
+"功後から有効期限切れまでどれくらい維持されるかを指定します。\n"
+"config: ipsec-salifetime <lifetime>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid "100"
@@ -479,7 +515,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:42
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "UDP カプセル化を強制する(_E)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:43
 msgid ""
@@ -487,10 +523,13 @@ msgid ""
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
+"一部のファイアウォールは ESP トラフィックを遮断します。NAT 状況が検出されなく"
+"ても UDP カプセル化を強制すると、そのような場合に役立つことがあります。\n"
+"config: ipsec-forceencaps <yes/no>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:45
 msgid "Use IP c_ompression"
-msgstr ""
+msgstr "IP 圧縮を使用する(_O)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:46
 msgid ""
@@ -498,20 +537,25 @@ msgid ""
 "bandwidth, but uses more processing power.\n"
 "config: ipsec-ipcomp <yes/no>"
 msgstr ""
+"IPComp は暗号化される前の生の IP パケットを圧縮します。帯域幅を節約できます"
+"が、より多くの処理能力を消費します。\n"
+"config: ipsec-ipcomp <yes/no>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:48
 msgid "Use IKEv_2 key exchange"
-msgstr ""
+msgstr "IKEv2 鍵交換を使用する(_2)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:49
 msgid ""
 "Use IKEv2 key exchange\n"
 "config: ipsec-ikev2 <yes/no>"
 msgstr ""
+"IKEv2 鍵交換を使用します\n"
+"config: ipsec-ikev2 <yes/no>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:51
 msgid "Disable _PFS"
-msgstr ""
+msgstr "PFS を無効にする(_P)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:52
 msgid ""
@@ -519,6 +563,9 @@ msgid ""
 "doesn’t support PFS.\n"
 "config: ipsec-pfs <no/yes>"
 msgstr ""
+"Perfect Forward Secrecy を無効にします。サーバーが PFS をサポートしない場合に"
+"のみこのオプションを有効にしてください。\n"
+"config: ipsec-pfs <no/yes>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:54
 msgid "Ad_vanced"
@@ -530,7 +577,7 @@ msgstr "デフォルト"
 
 #: ../properties/nm-l2tp-dialog.ui.h:56
 msgid "L2TP PPP Options"
-msgstr ""
+msgstr "L2TP PPP オプション"
 
 #: ../properties/nm-l2tp-dialog.ui.h:57
 msgid "Authentication"
@@ -545,6 +592,8 @@ msgid ""
 "Allow/disable authentication methods.\n"
 "config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 msgstr ""
+"認証方式の有効/無効を切り替えます。\n"
+"config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 
 #: ../properties/nm-l2tp-dialog.ui.h:61
 msgid "Security and Compression"
@@ -573,6 +622,8 @@ msgid ""
 "Require the use of MPPE, with 40/128-bit encryption or all.\n"
 "config: require-mppe, require-mppe-128 or require-mppe-40"
 msgstr ""
+"40/128 ビット暗号化またはその両方で MPPE の使用を必須にします。\n"
+"config: require-mppe, require-mppe-128 or require-mppe-40"
 
 #: ../properties/nm-l2tp-dialog.ui.h:67
 msgid "Allow st_ateful encryption"
@@ -583,6 +634,9 @@ msgid ""
 "Allow MPPE to use stateful mode. Stateless mode is still attempted first.\n"
 "config: mppe-stateful (when checked)"
 msgstr ""
+"MPPE にステートフルモードの使用を許可します。最初にステートレスモードが試行さ"
+"れます。\n"
+"config: mppe-stateful (when checked)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:70
 msgid "Allow _BSD data compression"
@@ -593,6 +647,8 @@ msgid ""
 "Allow/disable BSD-Compress compression.\n"
 "config: nobsdcomp (when unchecked)"
 msgstr ""
+"BSD-Compress 圧縮の有効/無効を切り替えます。\n"
+"config: nobsdcomp (when unchecked)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:73
 msgid "Allow _Deflate data compression"
@@ -603,6 +659,8 @@ msgid ""
 "Allow/disable Deflate compression.\n"
 "config: nodeflate (when unchecked)"
 msgstr ""
+"Deflate 圧縮の有効/無効を切り替えます。\n"
+"config: nodeflate (when unchecked)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:76
 msgid "Use TCP _header compression"
@@ -614,10 +672,13 @@ msgid ""
 "transmit and the receive directions.\n"
 "config: novj (when unchecked)"
 msgstr ""
+"送受信の両方向で Van Jacobson 形式の TCP/IP ヘッダー圧縮の有効/無効を切り替え"
+"ます。\n"
+"config: novj (when unchecked)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:79
 msgid "Use protocol _field compression negotiation"
-msgstr ""
+msgstr "プロトコルフィールド圧縮のネゴシエーションを使用する(_F)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:80
 msgid ""
@@ -625,16 +686,21 @@ msgid ""
 "transmit direction.\n"
 "config: nopcomp (when unchecked)"
 msgstr ""
+"受信方向と送信方向の両方でプロトコルフィールド圧縮のネゴシエーションを許可し"
+"ます。\n"
+"config: nopcomp (when unchecked)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:82
 msgid "Use _Address/Control compression"
-msgstr ""
+msgstr "アドレス/制御圧縮を使用する(_A)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:83
 msgid ""
 "Use Address/Control compression in both directions (send and receive).\n"
 "config: noaccomp (when unchecked)"
 msgstr ""
+"送受信の両方向でアドレス/制御圧縮を使用します。\n"
+"config: noaccomp (when unchecked)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:85
 msgid "Echo"
@@ -649,10 +715,12 @@ msgid ""
 "Send LCP echo-requests to find out whether peer is alive.\n"
 "config: lcp-echo-failure and lcp-echo-interval"
 msgstr ""
+"ピアが生きているか確認するために LCP echo-request を送信します。\n"
+"config: lcp-echo-failure and lcp-echo-interval"
 
 #: ../properties/nm-l2tp-dialog.ui.h:89
 msgid "Misc"
-msgstr ""
+msgstr "その他"
 
 #: ../properties/nm-l2tp-dialog.ui.h:90
 msgid "MTU :"

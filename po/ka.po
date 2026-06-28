@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp.main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-02 12:00+1000\n"
+"POT-Creation-Date: 2026-06-28 22:58+1000\n"
 "PO-Revision-Date: 2007-03-07 01:02+0100\n"
 "Last-Translator: Vladimer Sichinava ვლადიმერ სიჭინავა <vsichi@gnome.org>\n"
 "Language-Team: Georgian <http://mail.gnome.org/mailman/listinfo/gnome-ge-"
@@ -19,11 +19,11 @@ msgstr ""
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:1
 msgid "L2TP VPN Client"
-msgstr ""
+msgstr "L2TP VPN-ის კლიენტი"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:2
 msgid "Client for L2TP based virtual private networks"
-msgstr ""
+msgstr "L2TP ვირტუალური პირადი ქსელების კლიენტი"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:3
 msgid "Support for configuring L2TP based virtual private network connections."
@@ -31,19 +31,19 @@ msgstr ""
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:4
 msgid "Compatible with L2TP and L2TP over IPsec services."
-msgstr ""
+msgstr "თავსებადია L2TP და L2TP IPsec-ის ზემოდან სერვისებთან."
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:5
 msgid "The IPsec options dialog"
-msgstr ""
+msgstr "IPsec-ის პარამეტრების ფანჯარა"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:6
 msgid "The PPP options dialog"
-msgstr ""
+msgstr "PPP-ის პარამეტრების ფანჯარა"
 
 #: ../appdata/network-manager-l2tp.metainfo.xml.in.h:7
 msgid "The NetworkManager-L2TP Developers"
-msgstr ""
+msgstr "NetworkManager-L2TP-ის პროგრამისტები"
 
 #. Otherwise, we have no saved password, or the password flags indicated
 #. * that the password should never be saved.
@@ -59,99 +59,102 @@ msgstr "VPN-ავტორიზაცია"
 
 #: ../properties/ppp-dialog.c:172
 msgid "All Available (Default)"
-msgstr ""
+msgstr "ყველა ხელმისაწვდომი (ნაგულისხმები)"
 
 #: ../properties/ppp-dialog.c:176
 msgid "128-bit (most secure)"
-msgstr ""
+msgstr "128-ბიტიანი (ყველაზე დაცული)"
 
 #: ../properties/ppp-dialog.c:185
 msgid "40-bit (less secure)"
-msgstr ""
+msgstr "40-ბიტიანი (ნაკლებად დაცული)"
 
 #: ../properties/ppp-dialog.c:289
 msgid "PAP"
-msgstr ""
+msgstr "PAP"
 
 #: ../properties/ppp-dialog.c:302
 msgid "CHAP"
-msgstr ""
+msgstr "CHAP"
 
 #: ../properties/ppp-dialog.c:314
 msgid "MSCHAP"
-msgstr ""
+msgstr "MSCHAP"
 
 #: ../properties/ppp-dialog.c:326
 msgid "MSCHAPv2"
-msgstr ""
+msgstr "MSCHAPv2"
 
 #: ../properties/ppp-dialog.c:339
 msgid "EAP"
-msgstr ""
+msgstr "EAP"
 
 #: ../properties/nm-l2tp-editor.c:148
 #, c-format
 msgid "%s: error reading ppp settings: %s"
-msgstr ""
+msgstr "%s: შეცდომა PPP-ის პარამეტრების წაკითხვისას: %s"
 
 #: ../properties/nm-l2tp-editor.c:172
 #, c-format
 msgid "%s: error reading ipsec settings: %s"
-msgstr ""
+msgstr "%s: შეცდომა ipsec-ის პარამეტრების წაკითხვისას: %s"
 
 #: ../properties/nm-l2tp-editor.c:192
 #, c-format
 msgid "%s: failed to create the PPP dialog!"
-msgstr ""
+msgstr "%s: PPP ფანჯრის შექმნა ჩავარდა!"
 
 #: ../properties/nm-l2tp-editor.c:221
 #, c-format
 msgid "%s: failed to create the IPsec dialog!"
-msgstr ""
+msgstr "%s: IPsec ფანჯრის შექმნა ჩავარდა!"
 
 #: ../properties/nm-l2tp-editor.c:532
 #, c-format
 msgid "could not create l2tp object"
-msgstr ""
+msgstr "l2tp ობიექტის შექმნა შეუძლებელია"
 
 #: ../properties/nm-l2tp-editor.c:549
 #, c-format
 msgid "could not load UI widget"
-msgstr ""
+msgstr "ინტერფეისის ვიჯეტის ჩატვირთვა შეუძლებელია"
 
 #: ../properties/nm-l2tp-editor-plugin.c:34
 msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr ""
+msgstr "Layer 2 Tunneling Protocol (L2TP)"
 
 #: ../properties/nm-l2tp-editor-plugin.c:35
 msgid "Compatible with Microsoft and other L2TP VPN servers."
-msgstr ""
+msgstr "თავსებადია Microsoft და სხვა L2TP VPN სერვერებთან."
 
 #: ../shared/nm-utils/nm-shared-utils.c:1165
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr ""
+msgstr "ობიექტის კლასს '%s ' თვისება სახელით'%s' არ გააჩნია"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1172
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr ""
+msgstr "თვისება '%s' ობიექტის კლასისთვის '%s' ჩაწერადი არაა"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1179
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
+"აგებული თვისების \"%s\" დაყენება ობიექტის (\"%s\") აგების შემდეგ შეუძლებელია"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1187
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
 msgstr ""
+"'%s::%s' თვისების სწორ სახელს არ წარმოადგენს; '%s' GObject-ის ქვეტიპი არაა"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1196
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
 msgstr ""
+"თვისების (%s) ტიპისთვის '%s' ტიპის '%s' მნიშვნელობიდან დაყენების შეცდომა"
 
 #: ../shared/nm-utils/nm-shared-utils.c:1207
 #, c-format
@@ -159,165 +162,187 @@ msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
+"მნიშვნელობა '%s' ტიპისთვის '%s' არასწორია ან დიაპაზონს გარეთაა თვისებისთვის "
+"'%s' ტიპისთვის '%s'"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
 #, c-format
 msgid "unable to get editor plugin name: %s"
-msgstr ""
+msgstr "რედაქტორი დამატების სახელის მიღების პრობლემა: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr ""
+msgstr "აკლია დამატების ფაილი \"%s\""
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:109
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr ""
+msgstr "რედაქტორის დამატების ჩატვირთვა შეუძლებელია: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:118
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr ""
+msgstr "დამატებიდან ქარხნის (%s) ჩატვირთვა შეუძლებელია: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:144
 msgid "unknown error creating editor instance"
+msgstr "უცნობ შეცდომა რედაქტორის ასლის შექმნისას"
+
+#: ../src/nm-l2tp-service.c:299 ../src/nm-l2tp-service.c:940
+#, c-format
+msgid "property '%s' contains a control character"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:288
+#: ../src/nm-l2tp-service.c:310
 #, c-format
 msgid "invalid gateway '%s'"
-msgstr ""
+msgstr "არასწორი ნაგულისხმევი რაუტერი '%s'"
 
-#: ../src/nm-l2tp-service.c:302
+#: ../src/nm-l2tp-service.c:324
 #, c-format
 msgid "invalid integer property '%s'"
-msgstr ""
+msgstr "არასწორი მთელი რიცხვითი თვისება '%s'"
 
-#: ../src/nm-l2tp-service.c:312
+#: ../src/nm-l2tp-service.c:334
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
-msgstr ""
+msgstr "\"%s\"-ის არასწორი ბულევური თვისება (არც \"დიახ\", არც \"არა\")"
 
-#: ../src/nm-l2tp-service.c:319
+#: ../src/nm-l2tp-service.c:341
 #, c-format
 msgid "unhandled property '%s' type %s"
-msgstr ""
+msgstr "\"%s\"-ის დაუმუშავებელი თვისება. ტიპი %s"
 
-#: ../src/nm-l2tp-service.c:330
+#: ../src/nm-l2tp-service.c:352
 #, c-format
 msgid "property '%s' invalid or not supported"
-msgstr ""
+msgstr "თვისება %s არასწორი ან მხარდაუჭერელია"
 
-#: ../src/nm-l2tp-service.c:348
+#: ../src/nm-l2tp-service.c:370
 msgid "No VPN configuration options."
-msgstr ""
+msgstr "VPN-ის მორგების გარეშე."
 
-#: ../src/nm-l2tp-service.c:368
+#: ../src/nm-l2tp-service.c:390
 #, c-format
 msgid "Missing required option '%s'."
-msgstr ""
+msgstr "აკლია აუცილებელი პარამეტრი: %s."
 
-#: ../src/nm-l2tp-service.c:388
+#: ../src/nm-l2tp-service.c:410
 msgid "No VPN secrets!"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:637
+#: ../src/nm-l2tp-service.c:659
 #, c-format
 msgid "Could not open %s for writing: %s"
-msgstr ""
+msgstr "'%s'-ის ჩასაწერად გახსნის შეცდომა: %s"
 
-#: ../src/nm-l2tp-service.c:644
+#: ../src/nm-l2tp-service.c:666
 #, c-format
 msgid "Could not append \"include ipsec.d/ipsec.nm-l2tp.secrets\" to %s"
 msgstr ""
+"შეცდომა \"include ipsec.d/ipsec.nm-l2tp.secrets\" სტრიქონის %s-ის ბოლოში "
+"მიწერისას"
 
-#: ../src/nm-l2tp-service.c:660
+#: ../src/nm-l2tp-service.c:682
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
-msgstr ""
+msgstr "შეცდომა %s/ipsec.nm-l2tp.secrets ფაილის ჩაწერისას"
 
-#: ../src/nm-l2tp-service.c:700
+#: ../src/nm-l2tp-service.c:722
 msgid "Could not write ipsec config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:824
+#: ../src/nm-l2tp-service.c:854
 msgid "Could not write xl2tpd config."
-msgstr ""
+msgstr "შეცდომა xl2tpd-ის კონფიგურაციის ჩაწერისას."
 
-#: ../src/nm-l2tp-service.c:866
+#: ../src/nm-l2tp-service.c:896
 msgid "Could not write ppp options."
-msgstr ""
+msgstr "შეცდომა ppp-ის კონფიგურაციის ჩაწერისას."
 
-#: ../src/nm-l2tp-service.c:1024 ../src/nm-l2tp-service.c:1049
+#: ../src/nm-l2tp-service.c:1064 ../src/nm-l2tp-service.c:1092
 msgid "Could not start the ipsec service."
-msgstr ""
+msgstr "შეცდომა ipsec სერვისის გაშვებისას."
 
-#: ../src/nm-l2tp-service.c:1030 ../src/nm-l2tp-service.c:1057
+#: ../src/nm-l2tp-service.c:1070 ../src/nm-l2tp-service.c:1100
 msgid "Could not restart the ipsec service."
-msgstr ""
+msgstr "Ipsec-ის სერვისის გადატვირთვა შეუძლებელია."
 
-#: ../src/nm-l2tp-service.c:1168
+#: ../src/nm-l2tp-service.c:1196
+msgid "Could not establish IPsec connection."
+msgstr "IPsec კავშირის დამყარება შეუძლებელია."
+
+#: ../src/nm-l2tp-service.c:1214
 msgid "Could not find the xl2tpd binary."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1234
+#: ../src/nm-l2tp-service.c:1280
 msgid "Missing VPN username."
+msgstr "აკლია VPN-ის მომხმარებლის სახელი."
+
+#: ../src/nm-l2tp-service.c:1288
+msgid "VPN username contains a control character."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1243
+#: ../src/nm-l2tp-service.c:1297
 msgid "Missing or invalid VPN password."
-msgstr ""
+msgstr "ნაკლული ან არასწორი VPN-ის პაროლი."
 
-#: ../src/nm-l2tp-service.c:1346
+#: ../src/nm-l2tp-service.c:1400
 msgid "couldn't convert L2TP VPN gateway IP address."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1359
+#: ../src/nm-l2tp-service.c:1413
 msgid "couldn't look up L2TP VPN gateway IP address "
-msgstr ""
+msgstr "შეცდომა L2TP VPN ნაგულისხმევი რაუტერის IP მისამართის ამოხსნისას "
 
-#: ../src/nm-l2tp-service.c:1378
+#: ../src/nm-l2tp-service.c:1432
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr ""
+"გამოყენებადი IP მისამართი არ დაბრუნებულა L2TP VPN ნაგულისხმევი რაუტერისთვის "
 
-#: ../src/nm-l2tp-service.c:1413
+#: ../src/nm-l2tp-service.c:1467
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
+"შეუძლებელია გამშვები ფაილის 'ipsec' აღმოჩენა. დარწმუნებული ბრძანდებით, რომ "
+"Libreswan ან strongSwan დაყენებული გაქვთ?"
 
-#: ../src/nm-l2tp-service.c:1419
+#: ../src/nm-l2tp-service.c:1473
 msgid "Openswan is no longer supported, use Libreswan or strongSwan."
-msgstr ""
+msgstr "Openswan მხარდაჭერილი აღარაა. გამოიყენეთ Libreswan ან strongSwan."
 
-#: ../src/nm-l2tp-service.c:1421
+#: ../src/nm-l2tp-service.c:1475
 msgid "Neither Libreswan nor strongSwan were found."
-msgstr ""
+msgstr "არც Libreswan, არც strongSwan აღმოჩენილი არაა."
 
-#: ../src/nm-l2tp-service.c:1430
+#: ../src/nm-l2tp-service.c:1484
 msgid "could not retrieve connection UUID"
-msgstr ""
+msgstr "მიერთების UUID-ის მიღება შეუძლებელია"
 
-#: ../src/nm-l2tp-service.c:1438
+#: ../src/nm-l2tp-service.c:1492
 msgid "Invalid or missing L2TP gateway."
-msgstr ""
+msgstr "L2TP ნაგულისხმევი რაუტერი მიუთითებელი ან არასწორია."
 
-#: ../src/nm-l2tp-service.c:1732
+#: ../src/nm-l2tp-service.c:1786
 msgid "Don't quit when VPN connection terminates"
-msgstr ""
+msgstr "ნუ გახვალ VPN კავშირის შეწყვეტისას"
 
-#: ../src/nm-l2tp-service.c:1733
+#: ../src/nm-l2tp-service.c:1787
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr ""
+msgstr "გაფართოებული გამართვის ჟურნალის ჩართვა (შეიძლება, პაროლები გამოჩნდეს)"
 
-#: ../src/nm-l2tp-service.c:1734
+#: ../src/nm-l2tp-service.c:1788
 msgid "D-Bus name to use for this instance"
-msgstr ""
+msgstr "ამ გაშვებული ასლისთვის გამოყენებული D-Bus -ის სახელი"
 
-#: ../src/nm-l2tp-service.c:1755
+#: ../src/nm-l2tp-service.c:1809
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
 msgstr ""
+"nm-l2tp-service-ს გააჩნია L2TP VPN-ის შესაძლებლობა არასავალდებულო IPsec-ის "
+"მხარდაჭერით NetworkManager-სთვის."
 
 #: ../properties/nm-l2tp-dialog.ui.h:1
 msgid "General"
@@ -332,16 +357,21 @@ msgid ""
 "L2TP server IP or name.\n"
 "config: xl2tpd lns parameter"
 msgstr ""
+"L2TP სერვერის IP ან.\n"
+"კონფიგურაცია: xl2tpd lns პარამეტრი"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid "User Authentication"
-msgstr ""
+msgstr "მომხმარებლის ავთენტიკაცია"
 
 #: ../properties/nm-l2tp-dialog.ui.h:6
 msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
 "DOMAIN\\username, where DOMAIN is the value from this text entry box."
 msgstr ""
+"მომხმარებლის ავთენტიკაციისთვის გამოიყენეთ ქვედა დონის შესვლის სახელი, ანუ "
+"დომენი\\მომხმარებლისსახელი ფორმატით, სადაც დომენი ამ ტექსტური ჩანაწერის "
+"ველის მნიშვნელობაა."
 
 #: ../properties/nm-l2tp-dialog.ui.h:7
 msgid "Show password"
@@ -349,7 +379,7 @@ msgstr "პაროლის ჩვენება"
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Password passed to PPPD when prompted for it."
-msgstr ""
+msgstr "PPPD-სთვის გადაცემული პაროლი, როცა ის მას მოითხოვს."
 
 #: ../properties/nm-l2tp-dialog.ui.h:9
 msgid ""
@@ -368,37 +398,39 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:14
 msgid "_IPsec Settings..."
-msgstr ""
+msgstr "_IPsec-ის მორგება..."
 
 #: ../properties/nm-l2tp-dialog.ui.h:15
 msgid "PPP Se_ttings..."
-msgstr ""
+msgstr "PPP-ის _მორგება..."
 
 #: ../properties/nm-l2tp-dialog.ui.h:16
 msgid "L2TP IPsec Options"
-msgstr ""
+msgstr "L2TP IPsec -ის მორგება"
 
 #: ../properties/nm-l2tp-dialog.ui.h:17
 msgid "_Enable IPsec tunnel to L2TP host"
-msgstr ""
+msgstr "_L2TP ჰოსტამდე IPsec გვირაბის ჩართვა"
 
 #: ../properties/nm-l2tp-dialog.ui.h:18
 msgid "config: ipsec-enabled"
-msgstr ""
+msgstr "კონფიგურაცია: ipsec-enabled"
 
 #: ../properties/nm-l2tp-dialog.ui.h:19
 msgid "Machine Authentication"
-msgstr ""
+msgstr "მანქანის ავთენტიკაცია"
 
 #: ../properties/nm-l2tp-dialog.ui.h:20
 msgid "Sho_w password"
-msgstr ""
+msgstr "პაროლის _ჩვენება"
 
 #: ../properties/nm-l2tp-dialog.ui.h:21
 msgid ""
 "Pre-shared key (PSK) secret.\n"
 "config: ipsec-psk"
 msgstr ""
+"წინასწარ გაზიარებული გასაღების (PSK) საიდუმლო.\n"
+"კონფიგურაცია: ipsec-psk"
 
 #: ../properties/nm-l2tp-dialog.ui.h:23
 msgid "Pre-shared key:"
@@ -406,7 +438,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:24
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "მეორე ფაზის ალგორითმები:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:25
 msgid ""
@@ -414,17 +446,23 @@ msgid ""
 "group,enc-integ-group, …”.\n"
 "config: ipsec-ike <proposals>"
 msgstr ""
+"არასავალდებულო. IKE - მთავარი რეჟიმის შეთავაზებების სია. ფორმატია “enc-integ-"
+"group,enc-integ-group, …”.\n"
+"კონფიგურაცია: ipsec-ike <შეთავაზებები>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:27
 msgid ""
-"Optional. A list of proposals for ESP - Quick Mode. The format is “enc-integ,"
-"enc-integ, …”.\n"
+"Optional. A list of proposals for ESP - Quick Mode. The format is “enc-"
+"integ,enc-integ, …”.\n"
 "config: ipsec-esp <proposals>"
 msgstr ""
+"არასავალდებულოა. შეთავაზებების სია ESP - სწრაფი რეჟიმისთვის. ფორმატია “enc-"
+"integ,enc-integ, …”.\n"
+"კონფიგურაცია: ipsec-esp <შეთავაზებები>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:29
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "პირველი ფაზის ალგორითმები:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid ""
@@ -432,10 +470,13 @@ msgid ""
 "renegotiated. \n"
 "config: ipsec-ikelifetime <lifetime>"
 msgstr ""
+"რამდენი ხანს გაგრძელდება ბრელოკის არხი მიერთებისთვის, სანამ შეთანხმება "
+"თავიდან მოხდება.\n"
+"კონფიგურაცია: ipsec-ikelifetime <სიცოცხლისდრო>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:32
 msgid "(HH:MM)"
-msgstr ""
+msgstr "(სს:წწ)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:33
 msgid "Phase_2 Lifetime:"
@@ -448,6 +489,10 @@ msgid ""
 "negotiation to expiry.\n"
 "config: ipsec-salifetime <lifetime>"
 msgstr ""
+"რამდენ ხანს გაგრძელდება შეერთების კონკრეტული გაშვებული ასლი (დაშიფვრის და "
+"ავთენტიკაციის გასაღებების სეტი მომხმარებლის პაკეტებისთვის), წარმატებული "
+"მოლაპარაკებიდან ვადის ამოწურვამდე.\n"
+"კონფიგურაცია: ipsec-salifetime <სიცოცხლისდრო>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid "100"
@@ -455,7 +500,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:37
 msgid "Remote ID:"
-msgstr ""
+msgstr "დაშორებულის ID:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:38
 msgid ""
@@ -474,7 +519,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:42
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "ნაძალადევი UDP _ენკაპსულაცია"
 
 #: ../properties/nm-l2tp-dialog.ui.h:43
 msgid ""
@@ -482,10 +527,13 @@ msgid ""
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
+"ზოგიერთი ბრანდმაუერი ESP ტრაფიკს ბლოკავს. ნაძალადევი UDP ენკაპსულაციამ "
+"მაშინაც კი, როცა NAT-ს არ იყენებთ, შეიძლება, გიშველოთ.\n"
+"კონფიგურაცია: ipsec-forceencaps <yes(დიახ)/no(არა)>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:45
 msgid "Use IP c_ompression"
-msgstr ""
+msgstr "IP შ_ეკუმშვის გამოყენება"
 
 #: ../properties/nm-l2tp-dialog.ui.h:46
 msgid ""
@@ -493,20 +541,25 @@ msgid ""
 "bandwidth, but uses more processing power.\n"
 "config: ipsec-ipcomp <yes/no>"
 msgstr ""
+"IPComp დაუმუშავებელ IP პაკეტებს დაშიფვრამდე შეკუმშავს. ეს დაზოგავს რაღაც "
+"რაოდენობა გამტარობას, მაგრამ მეტ პროცესორის დროს დახარჯავს.\n"
+"კონფიგურაცია: ipsec-ipcomp <yes(დიახ)/no(არა)>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:48
 msgid "Use IKEv_2 key exchange"
-msgstr ""
+msgstr "IKEv_2 გასაღებების მიმოცვლის გამოყენება"
 
 #: ../properties/nm-l2tp-dialog.ui.h:49
 msgid ""
 "Use IKEv2 key exchange\n"
 "config: ipsec-ikev2 <yes/no>"
 msgstr ""
+"IKEv2 გასაღებების მიმოცვლის გამოყენება\n"
+"კონფიგურაცია: ipsec-ikev2 <yes(დიახ)/no(არა)>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:51
 msgid "Disable _PFS"
-msgstr ""
+msgstr "_PFS-ის გამორთვა"
 
 #: ../properties/nm-l2tp-dialog.ui.h:52
 msgid ""
@@ -514,10 +567,13 @@ msgid ""
 "doesn’t support PFS.\n"
 "config: ipsec-pfs <no/yes>"
 msgstr ""
+"PFS-ის გამორთვა. ჩართეთ ეს პარამეტრი მხოლოდ იმ შემთხვევაში, თუ სერვერს PFS-"
+"ის მხარდაჭერა არ გააჩნია.\n"
+"კონფიგურაცია: ipsec-pfs <no(არა)/yes(დიახ)>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:54
 msgid "Ad_vanced"
-msgstr ""
+msgstr "დამატებითი"
 
 #: ../properties/nm-l2tp-dialog.ui.h:55
 msgid "Default"
@@ -525,7 +581,7 @@ msgstr "ნაგულისხმევი"
 
 #: ../properties/nm-l2tp-dialog.ui.h:56
 msgid "L2TP PPP Options"
-msgstr ""
+msgstr "L2TP PPP -ის მორგება"
 
 #: ../properties/nm-l2tp-dialog.ui.h:57
 msgid "Authentication"
@@ -533,21 +589,24 @@ msgstr "აუთენტიფიკაცია"
 
 #: ../properties/nm-l2tp-dialog.ui.h:58
 msgid "Allow the following authentication methods:"
-msgstr ""
+msgstr "შემდეგი ავთენტიკაციის მეთოდების დაშვება:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:59
 msgid ""
 "Allow/disable authentication methods.\n"
 "config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 msgstr ""
+"ავთენტიკაციის მეთოდების დაშვება/აკრძალვა.\n"
+"კონფიგურაცია: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, "
+"refuse-eap"
 
 #: ../properties/nm-l2tp-dialog.ui.h:61
 msgid "Security and Compression"
-msgstr ""
+msgstr "უსაფრთხოება და შეკუმშვა"
 
 #: ../properties/nm-l2tp-dialog.ui.h:62
 msgid "Use _Point-to-Point encryption (MPPE)"
-msgstr ""
+msgstr "წერტილიდან წერტილამდე დაშიფვრის (MPPE) _გამოყენება"
 
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid ""
@@ -555,6 +614,9 @@ msgid ""
 "To enable this checkbox, select one or more of the MSCHAP authentication "
 "methods: MSCHAP or MSCHAPv2."
 msgstr ""
+"შენიშვნა. MPPE დაშიფვრა მხოლოდ MSCHAP-ის ავთენტიკაციის მეთოდებთან ერთადაა "
+"ხელმისაწვდომი. ამ ველის ჩასართავად აირჩიეთ MSCHAP-ის ერთ-ერთი მეთოდი MSCHAP "
+"ან MSCHAPv2."
 
 #: ../properties/nm-l2tp-dialog.ui.h:64
 msgid "_Security:"
@@ -565,40 +627,49 @@ msgid ""
 "Require the use of MPPE, with 40/128-bit encryption or all.\n"
 "config: require-mppe, require-mppe-128 or require-mppe-40"
 msgstr ""
+"MPPE-ის გამოყენების მოთხოვნა, ან 40/128-ბიტიანი დაშიფვრით, ან ორივე.\n"
+"კონფიგურაცია: require-mppe, require-mppe-128 or require-mppe-40"
 
 #: ../properties/nm-l2tp-dialog.ui.h:67
 msgid "Allow st_ateful encryption"
-msgstr ""
+msgstr "ორმხრივი დაშიფვრის ჩართვა"
 
 #: ../properties/nm-l2tp-dialog.ui.h:68
 msgid ""
 "Allow MPPE to use stateful mode. Stateless mode is still attempted first.\n"
 "config: mppe-stateful (when checked)"
 msgstr ""
+"MPPE-სთვის ორმხირივი რეჟიმის გამოყენების ნების დართვა. ჯერ მაინც ერთმხრივ "
+"რეჟიმს ვცდით.\n"
+"კონფიგურაცია: mppe-stateful (როცა ჩართულია)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:70
 msgid "Allow _BSD data compression"
-msgstr ""
+msgstr "_BSD მონაცემების შეკუმშვა"
 
 #: ../properties/nm-l2tp-dialog.ui.h:71
 msgid ""
 "Allow/disable BSD-Compress compression.\n"
 "config: nobsdcomp (when unchecked)"
 msgstr ""
+"BSD-Compress-ით შეკუმშვის ნების დართვა/აკრძალვა.\n"
+"კონფიგურაცია: nobsdcomp (როცა გამორთულია)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:73
 msgid "Allow _Deflate data compression"
-msgstr ""
+msgstr "Deflate მონაცემების შეკუმშვა"
 
 #: ../properties/nm-l2tp-dialog.ui.h:74
 msgid ""
 "Allow/disable Deflate compression.\n"
 "config: nodeflate (when unchecked)"
 msgstr ""
+"Deflate-ით შეკუმშვის ნების დართვა/აკრძალვა.\n"
+"კონფიგურაცია: nodeflate (როცა გამორთულია)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:76
 msgid "Use TCP _header compression"
-msgstr ""
+msgstr "TCP _თავსართების შეკუმშვის გამოყენება"
 
 #: ../properties/nm-l2tp-dialog.ui.h:77
 msgid ""
@@ -606,10 +677,13 @@ msgid ""
 "transmit and the receive directions.\n"
 "config: novj (when unchecked)"
 msgstr ""
+"ვან იაკობსონის სტილის TCP/IP თავსართის ორივე, გადაცემის და მიღების "
+"მიმართულებით ჩართვა/გამორთვა.\n"
+"კონფგურაცია: novj (როცა გამორთულია)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:79
 msgid "Use protocol _field compression negotiation"
-msgstr ""
+msgstr "პროტოკოლის _ველის შეკუმშვის მოლაპარაკების გამოყენება"
 
 #: ../properties/nm-l2tp-dialog.ui.h:80
 msgid ""
@@ -617,16 +691,22 @@ msgid ""
 "transmit direction.\n"
 "config: nopcomp (when unchecked)"
 msgstr ""
+"პროტოკოლის ველის დაშიფვრის მოლაპარაკების დაშვება ორივე, გადაცემისა და "
+"მიღების მიმართულებით.\n"
+"კონფიგურაცია: nopcomp (როცა გამორთულია)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:82
 msgid "Use _Address/Control compression"
-msgstr ""
+msgstr "_მისამართის/კონტროლის შეკუმშვის ჩართვა"
 
 #: ../properties/nm-l2tp-dialog.ui.h:83
 msgid ""
 "Use Address/Control compression in both directions (send and receive).\n"
 "config: noaccomp (when unchecked)"
 msgstr ""
+"მისამართისა და კონტროლის შეკუმშვის გამოყენება ორივე, გაგზავნის და მიღების "
+"მიმართულებით.\n"
+"კონფიგურაცია: noaccomp (როცა გამორთულია)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:85
 msgid "Echo"
@@ -634,17 +714,19 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:86
 msgid "Send PPP _echo packets"
-msgstr ""
+msgstr "PPP ექოს პაკეტების _გაგზავნა"
 
 #: ../properties/nm-l2tp-dialog.ui.h:87
 msgid ""
 "Send LCP echo-requests to find out whether peer is alive.\n"
 "config: lcp-echo-failure and lcp-echo-interval"
 msgstr ""
+"პარტნიორის სიცოცხლის დასადგენად LCP ექოს-მოთხოვნის გამოყენება.\n"
+"კონფიგურაცია: lcp-echo-failure და lcp-echo-interval"
 
 #: ../properties/nm-l2tp-dialog.ui.h:89
 msgid "Misc"
-msgstr ""
+msgstr "სხვანი"
 
 #: ../properties/nm-l2tp-dialog.ui.h:90
 msgid "MTU :"
