@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-02 10:00+1000\n"
+"POT-Creation-Date: 2026-06-28 16:37+1000\n"
 "PO-Revision-Date: 2020-09-20 19:06+0300\n"
 "Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
 "Language-Team: Turkish <gnome-turk@gnome.org>\n"
@@ -488,221 +488,227 @@ msgstr ""
 msgid "MRU :"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:217
+#: ../src/nm-l2tp-service.c:219
 msgid "Could not load NetworkManager connection settings."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:225
+#: ../src/nm-l2tp-service.c:227
 msgid "Missing VPN username."
 msgstr "Eksik VPN kullanıcı adı."
 
-#: ../src/nm-l2tp-service.c:231
+#: ../src/nm-l2tp-service.c:233
 msgid "Missing or invalid VPN password."
 msgstr "Eksik veya geçersiz VPN kullanıcı adı."
 
-#: ../src/nm-l2tp-service.c:273
+#: ../src/nm-l2tp-service.c:275
 #, c-format
 msgid "Could not register D-Bus service name.  Message: %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:352
+#: ../src/nm-l2tp-service.c:354
 msgid "No cached credentials."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:380
+#: ../src/nm-l2tp-service.c:359 ../src/nm-l2tp-service.c:1426
+#: ../src/nm-l2tp-service.c:1487
+#, c-format
+msgid "VPN username contains a control character."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:387
 msgid "L2TP service (IP Config Get) reply received."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:544
+#: ../src/nm-l2tp-service.c:576
 #, c-format
 msgid "invalid gateway '%s'"
 msgstr "geçersiz ağ geçidi '%s'"
 
-#: ../src/nm-l2tp-service.c:566
+#: ../src/nm-l2tp-service.c:598
 #, c-format
 msgid "invalid integer property '%s'"
 msgstr "geçersiz tamsayı özelliği '%s'"
 
-#: ../src/nm-l2tp-service.c:576
+#: ../src/nm-l2tp-service.c:608
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr "'%s' geçersiz bir mantıksal özellik (evet veya hayır değil)"
 
-#: ../src/nm-l2tp-service.c:583
+#: ../src/nm-l2tp-service.c:615
 #, c-format
 msgid "unhandled property '%s' type %s"
 msgstr "tanınmayan özellik '%s' tür %s"
 
-#: ../src/nm-l2tp-service.c:594
+#: ../src/nm-l2tp-service.c:626
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "'%s' özelliği geçersiz veya desteklenmiyor"
 
-#: ../src/nm-l2tp-service.c:608
+#: ../src/nm-l2tp-service.c:640
 msgid "No VPN configuration options."
 msgstr "VPN yapılandırma seçeneği bulunamadı."
 
-#: ../src/nm-l2tp-service.c:625
+#: ../src/nm-l2tp-service.c:657
 #, c-format
 msgid "Missing required option '%s'."
 msgstr "Gerekli '%s' seçeneği eksik."
 
-#: ../src/nm-l2tp-service.c:641
+#: ../src/nm-l2tp-service.c:673
 msgid "No VPN secrets!"
 msgstr "VPN sırrı yok!"
 
-#: ../src/nm-l2tp-service.c:660
+#: ../src/nm-l2tp-service.c:692
 #, c-format
 msgid "xl2tpd exited with error code %d"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:663
+#: ../src/nm-l2tp-service.c:695
 #, c-format
 msgid "xl2tpd stopped unexpectedly with signal %d"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:665
+#: ../src/nm-l2tp-service.c:697
 #, c-format
 msgid "xl2tpd died with signal %d"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:667
+#: ../src/nm-l2tp-service.c:699
 msgid "xl2tpd died from an unknown cause"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:751
+#: ../src/nm-l2tp-service.c:783
 msgid "pppd timeout. Looks like pppd didn't initialize our dbus module"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:788
+#: ../src/nm-l2tp-service.c:820
 #, c-format
 msgid "couldn't convert L2TP VPN gateway IP address '%s' (%d)"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:806
+#: ../src/nm-l2tp-service.c:838
 #, c-format
 msgid "couldn't look up L2TP VPN gateway IP address '%s' (%d)"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:830
+#: ../src/nm-l2tp-service.c:862
 #, c-format
 msgid "no usable addresses returned for L2TP VPN gateway '%s'"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:841
+#: ../src/nm-l2tp-service.c:873
 #, c-format
 msgid "no usable addresses returned for L2TP VPN gateway '%s' (%d)"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:846
+#: ../src/nm-l2tp-service.c:878
 #, c-format
 msgid "Use '%s' as a gateway"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:936 ../src/nm-l2tp-service.c:961
+#: ../src/nm-l2tp-service.c:969 ../src/nm-l2tp-service.c:997
 msgid "Could not start the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:942 ../src/nm-l2tp-service.c:969
+#: ../src/nm-l2tp-service.c:975 ../src/nm-l2tp-service.c:1005
 msgid "Could not restart the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1019
+#: ../src/nm-l2tp-service.c:1057
 msgid "IPsec service is not ready."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1032
+#: ../src/nm-l2tp-service.c:1070
 msgid "Timeout trying to establish IPsec connection"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1042
+#: ../src/nm-l2tp-service.c:1080
 msgid "Libreswan IPsec connection is up."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1054
+#: ../src/nm-l2tp-service.c:1092
 msgid "strongSwan IPsec connection is up."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1067
+#: ../src/nm-l2tp-service.c:1105 ../src/nm-l2tp-service.c:1106
 msgid "Could not establish IPsec connection."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1085
+#: ../src/nm-l2tp-service.c:1124
 msgid "Could not find the xl2tpd binary."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1106
+#: ../src/nm-l2tp-service.c:1145
 #, c-format
 msgid "xl2tpd started with pid %d"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1166
+#: ../src/nm-l2tp-service.c:1205
 msgid "Can-not create new test socket"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1238
+#: ../src/nm-l2tp-service.c:1277
 #, c-format
 msgid "Could not open %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1254
+#: ../src/nm-l2tp-service.c:1293
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1289
+#: ../src/nm-l2tp-service.c:1328
 msgid "Could not write ipsec config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1353
+#: ../src/nm-l2tp-service.c:1392
 msgid "Could not write xl2tpd config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1403
+#: ../src/nm-l2tp-service.c:1450
 msgid "Could not write ppp options."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1605
+#: ../src/nm-l2tp-service.c:1660
 #, c-format
 msgid "ipsec enable flag: %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1609
+#: ../src/nm-l2tp-service.c:1664
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1615
+#: ../src/nm-l2tp-service.c:1670
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1635
+#: ../src/nm-l2tp-service.c:1690
 msgid "Could not start pppd plugin helper service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1642
+#: ../src/nm-l2tp-service.c:1697
 msgid "could not retrieve connection UUID"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1666
+#: ../src/nm-l2tp-service.c:1721
 msgid "starting ipsec"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1734
+#: ../src/nm-l2tp-service.c:1789
 #, c-format
 msgid "Terminated l2tp daemon with PID %d."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1881
+#: ../src/nm-l2tp-service.c:1936
 msgid "Don't quit when VPN connection terminates"
 msgstr "VPN bağlantısı sonlandığında çıkma"
 
-#: ../src/nm-l2tp-service.c:1882
+#: ../src/nm-l2tp-service.c:1937
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr ""
 "Ayrıntılı hata ayıklama günlüklemesini etkinleştir (parolaları görünür "
 "yapabilir)"
 
-#: ../src/nm-l2tp-service.c:1905
+#: ../src/nm-l2tp-service.c:1960
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
