@@ -1103,6 +1103,7 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin,
 			sys = system (cmdbuf);
 		}
 		g_warning(_("Could not establish IPsec connection."));
+		return nm_l2tp_ipsec_error(error, _("Could not establish IPsec connection."));
 	}
 
 	return rc;
