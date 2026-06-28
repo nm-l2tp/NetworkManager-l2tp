@@ -1,4 +1,17 @@
 =======================================================
+NetworkManager-l2tp-1.0.16
+Overview of changes since network-manager-l2tp-1.0.14
+=======================================================
+
+This is a new stable release of NetworkManager-l2tp.  Notable changes include:
+
+* Fix for L2TP daemon start/restart decisions.
+* Parser-hardening of control characters in username, VPN data-items and
+  secrets.
+* real_connect() was returning FALSE without setting error.
+* Merged translations from NetworkManager-l2tp-1.52.4.
+
+=======================================================
 NetworkManager-l2tp-1.0.14
 Overview of changes since network-manager-l2tp-1.0.12
 =======================================================
