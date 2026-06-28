@@ -1,4 +1,15 @@
 ==========================================================
+NetworkManager-l2tp-1.2.22
+Overview of changes since network-manager-l2tp-1.2.20
+==========================================================
+
+* Fix for L2TP daemon start/restart decisions.
+* Parser-hardening of control characters in username, VPN data-items
+  and secrets along with PLUTODEBUG and CHARONDEBUG env vars. 
+* real_connect() was returning FALSE without setting error.
+* Merged translations from NetworkManager-l2tp-1.52.4.
+
+==========================================================
 NetworkManager-l2tp-1.2.20
 Overview of changes since network-manager-l2tp-1.2.18
 ==========================================================
@@ -6,7 +17,6 @@ Overview of changes since network-manager-l2tp-1.2.18
 * Security fix for properly detecting strongswan CHILD_SA connection was
   estabilished.
 * Update translations by merging from various sources.
-
 
 ==========================================================
 NetworkManager-l2tp-1.2.18
