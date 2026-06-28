@@ -117,6 +117,8 @@ static gboolean impl_l2tp_service_set_ip4_config (NML2tpPppService *self,
                                                   GHashTable *config,
                                                   GError **err);
 
+static gboolean string_contains_control_char (const char *value);
+
 #include "nm-l2tp-pppd-service-glue.h"
 
 
@@ -352,6 +354,11 @@ impl_l2tp_service_need_secrets (NML2tpPppService *self,
 		return nm_l2tp_ipsec_error(error, _("No cached credentials."));
 	}
 
+	if (string_contains_control_char (priv->username) ||
+	    string_contains_control_char (priv->domain)) {
+		return nm_l2tp_ipsec_error (error, _("VPN username contains a control character."));
+	}
+
 	/* Success */
 	if (priv->domain && *priv->domain) {
 		*out_username = g_strdup_printf ("%s\\%s", priv->domain, priv->username);
@@ -501,6 +508,22 @@ typedef struct ValidateInfo {
 	gboolean have_items;
 } ValidateInfo;
 
+static gboolean
+string_contains_control_char (const char *value)
+{
+	const unsigned char *p;
+
+	if (!value)
+		return FALSE;
+
+	for (p = (const unsigned char *) value; *p; p++) {
+		if (iscntrl (*p))
+			return TRUE;
+	}
+
+	return FALSE;
+}
+
 static void
 validate_one_property (const char *key, const char *value, gpointer user_data)
 {
@@ -527,6 +550,15 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 
 		switch (prop.type) {
 		case G_TYPE_STRING:
+			if (string_contains_control_char (value)) {
+				g_set_error (info->error,
+				             NM_VPN_PLUGIN_ERROR,
+				             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
+				             _("property '%s' contains a control character"),
+				             prop.name);
+				return;
+			}
+
 			if (!strcmp (prop.name, NM_L2TP_KEY_IPSEC_PSK) ||
 			    !strcmp (prop.name, NM_L2TP_KEY_CERT_PUB)  ||
 			    !strcmp (prop.name, NM_L2TP_KEY_CERT_CA)  ||
@@ -1385,7 +1417,15 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER);
 	if (!value || !*value)
 		value = nm_setting_vpn_get_user_name (s_vpn);
-	if (!value || !*value) {
+	if (value && *value) {
+		if (string_contains_control_char (value)) {
+			g_set_error (error,
+			             NM_VPN_PLUGIN_ERROR,
+			             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
+			             _("VPN username contains a control character."));
+			close(fd);
+			return FALSE;
+		}
 		write_config_option (fd, "name = %s\n", value);
 	}
 
@@ -1438,7 +1478,15 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_USER);
 	if (!value || !*value)
 		value = nm_setting_vpn_get_user_name (s_vpn);
-	if (!value || !*value) {
+	if (value && *value) {
+		if (string_contains_control_char (value)) {
+			g_set_error (error,
+			             NM_VPN_PLUGIN_ERROR,
+			             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
+			             _("VPN username contains a control character."));
+			close(fd);
+			return FALSE;
+		}
 		write_config_option (fd, "name %s\n", value);
 	}
 
