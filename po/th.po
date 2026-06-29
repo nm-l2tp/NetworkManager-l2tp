@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-02 14:00+1000\n"
+"POT-Creation-Date: 2026-06-30 08:40+1000\n"
 "PO-Revision-Date: 2007-02-02 20:53+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <l10n.opentle.org>\n"
@@ -49,25 +49,25 @@ msgstr ""
 msgid "Authenticate VPN"
 msgstr "ยืนยันตัวบุคคลกับ VPN"
 
-#: ../auth-dialog/main.c:164 ../properties/nm-l2tp-editor.c:667
+#: ../auth-dialog/main.c:164 ../properties/nm-l2tp-editor.c:671
 msgid "Password"
 msgstr "รหัสผ่าน"
 
 #: ../auth-dialog/main.c:171
 msgid "User Certificate password"
-msgstr ""
+msgstr "รหัสผ่านใบรับรองผู้ใช้"
 
 #: ../auth-dialog/main.c:178
 msgid "Machine Certificate password"
-msgstr ""
+msgstr "รหัสผ่านใบรับรองเครื่อง"
 
 #: ../auth-dialog/main.c:227
 msgid "_User Certificate password:"
-msgstr ""
+msgstr "_รหัสผ่านใบรับรองผู้ใช้:"
 
 #: ../auth-dialog/main.c:233
 msgid "_Machine Certificate password:"
-msgstr ""
+msgstr "_รหัสผ่านใบรับรองเครื่อง:"
 
 #: ../auth-dialog/main.c:469
 #, c-format
@@ -153,7 +153,7 @@ msgstr ""
 msgid "Couldn't open file for writing."
 msgstr ""
 
-#: ../properties/ipsec-dialog.c:311 ../properties/nm-l2tp-editor.c:558
+#: ../properties/ipsec-dialog.c:311 ../properties/nm-l2tp-editor.c:562
 msgid "Choose a Certificate Authority certificate…"
 msgstr ""
 
@@ -161,71 +161,71 @@ msgstr ""
 msgid "Choose your machine certificate…"
 msgstr ""
 
-#: ../properties/ipsec-dialog.c:327 ../properties/nm-l2tp-editor.c:574
+#: ../properties/ipsec-dialog.c:327 ../properties/nm-l2tp-editor.c:578
 msgid "Choose your private key…"
 msgstr ""
 
 #: ../properties/ipsec-dialog.c:559
 msgid "Pre-shared key (PSK)"
-msgstr ""
+msgstr "กุญแจที่ใช้ร่วมกันล่วงหน้า (PSK)"
 
-#: ../properties/ipsec-dialog.c:568 ../properties/nm-l2tp-editor.c:676
+#: ../properties/ipsec-dialog.c:568 ../properties/nm-l2tp-editor.c:680
 msgid "Certificates (TLS)"
-msgstr ""
+msgstr "ใบรับรอง (TLS)"
 
-#: ../properties/nm-l2tp-editor.c:406
+#: ../properties/nm-l2tp-editor.c:408
 #, c-format
 msgid "%s: error reading ppp settings: %s"
-msgstr ""
+msgstr "%s: เกิดข้อผิดพลาดในการอ่านการตั้งค่า ppp: %s"
 
-#: ../properties/nm-l2tp-editor.c:430
+#: ../properties/nm-l2tp-editor.c:432
 #, c-format
 msgid "%s: error reading ipsec settings: %s"
-msgstr ""
+msgstr "%s: เกิดข้อผิดพลาดในการอ่านการตั้งค่า ipsec: %s"
 
-#: ../properties/nm-l2tp-editor.c:465
+#: ../properties/nm-l2tp-editor.c:467
 #, c-format
 msgid "%s: failed to create the PPP dialog!"
-msgstr ""
+msgstr "%s: สร้างกล่องโต้ตอบ PPP ไม่สำเร็จ!"
 
-#: ../properties/nm-l2tp-editor.c:508
+#: ../properties/nm-l2tp-editor.c:512
 #, c-format
 msgid "%s: failed to create the IPsec dialog!"
-msgstr ""
+msgstr "%s: สร้างกล่องโต้ตอบ IPsec ไม่สำเร็จ!"
 
-#: ../properties/nm-l2tp-editor.c:566
+#: ../properties/nm-l2tp-editor.c:570
 msgid "Choose your personal certificate…"
 msgstr ""
 
-#: ../properties/nm-l2tp-editor.c:849
+#: ../properties/nm-l2tp-editor.c:867
 #, c-format
 msgid "could not create l2tp object"
-msgstr ""
+msgstr "ไม่สามารถสร้างออบเจ็กต์ l2tp ได้"
 
-#: ../properties/nm-l2tp-editor.c:866
+#: ../properties/nm-l2tp-editor.c:884
 #, c-format
 msgid "could not load UI widget"
-msgstr ""
+msgstr "ไม่สามารถโหลดวิดเจ็ต UI ได้"
 
 #: ../properties/nm-l2tp-editor-plugin.c:22
 msgid "Layer 2 Tunneling Protocol (L2TP)"
-msgstr ""
+msgstr "โพรโทคอลทันเนลชั้นที่ 2 (L2TP)"
 
 #: ../properties/nm-l2tp-editor-plugin.c:23
 msgid "Compatible with Microsoft and other L2TP VPN servers."
-msgstr ""
+msgstr "ใช้ร่วมกับเซิร์ฟเวอร์ L2TP VPN ของ Microsoft และรายอื่นได้"
 
 #: ../properties/ppp-dialog.c:158
 msgid "All Available (Default)"
-msgstr ""
+msgstr "ทั้งหมดที่มี (ค่าปริยาย)"
 
 #: ../properties/ppp-dialog.c:162
 msgid "128-bit (most secure)"
-msgstr ""
+msgstr "128 บิต (ปลอดภัยที่สุด)"
 
 #: ../properties/ppp-dialog.c:171
 msgid "40-bit (less secure)"
-msgstr ""
+msgstr "40 บิต (ปลอดภัยน้อยกว่า)"
 
 #: ../properties/ppp-dialog.c:275
 msgid "PAP"
@@ -390,165 +390,183 @@ msgstr ""
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:53
 #, c-format
 msgid "unable to get editor plugin name: %s"
-msgstr ""
+msgstr "ไม่สามารถดึงชื่อปลั๊กอินของตัวแก้ไขได้: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:87
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr ""
+msgstr "ไม่พบไฟล์ปลั๊กอิน \"%s\""
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:93
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr ""
+msgstr "ไม่สามารถโหลดปลั๊กอินของตัวแก้ไขได้: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:102
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr ""
+msgstr "ไม่สามารถโหลดแฟกทอรี %s จากปลั๊กอินได้: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:128
 msgid "unknown error creating editor instance"
+msgstr "เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุในการสร้างอินสแตนซ์ของตัวแก้ไข"
+
+#: ../src/nm-l2tp-service.c:304
+#, c-format
+msgid "property '%s' contains a control character"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:291
+#: ../src/nm-l2tp-service.c:316
 #, c-format
 msgid "invalid gateway '%s'"
-msgstr ""
+msgstr "เกตเวย์ '%s' ไม่ถูกต้อง"
 
-#: ../src/nm-l2tp-service.c:305
+#: ../src/nm-l2tp-service.c:330
 #, c-format
 msgid "invalid integer property '%s'"
-msgstr ""
+msgstr "คุณสมบัติแบบจำนวนเต็ม '%s' ไม่ถูกต้อง"
 
-#: ../src/nm-l2tp-service.c:315
+#: ../src/nm-l2tp-service.c:340
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
-msgstr ""
+msgstr "คุณสมบัติแบบบูลีน '%s' ไม่ถูกต้อง (ไม่ใช่ yes หรือ no)"
 
-#: ../src/nm-l2tp-service.c:322
+#: ../src/nm-l2tp-service.c:347
 #, c-format
 msgid "unhandled property '%s' type %s"
-msgstr ""
+msgstr "ยังไม่รองรับคุณสมบัติ '%s' ชนิด %s"
 
-#: ../src/nm-l2tp-service.c:333
+#: ../src/nm-l2tp-service.c:358
 #, c-format
 msgid "property '%s' invalid or not supported"
-msgstr ""
+msgstr "คุณสมบัติ '%s' ไม่ถูกต้องหรือไม่รองรับ"
 
-#: ../src/nm-l2tp-service.c:352
+#: ../src/nm-l2tp-service.c:377
 msgid "No VPN configuration options."
-msgstr ""
+msgstr "ไม่มีตัวเลือกการตั้งค่า VPN"
 
-#: ../src/nm-l2tp-service.c:372
+#: ../src/nm-l2tp-service.c:397
 #, c-format
 msgid "Missing required option '%s'."
-msgstr ""
+msgstr "ไม่มีตัวเลือกที่จำเป็น '%s'"
 
-#: ../src/nm-l2tp-service.c:677
+#: ../src/nm-l2tp-service.c:702
 #, c-format
 msgid "Could not open %s for writing: %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:685
+#: ../src/nm-l2tp-service.c:710
 #, c-format
 msgid "Could not append \"include ipsec.d/ipsec.nm-l2tp.secrets\" to %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:701
+#: ../src/nm-l2tp-service.c:726
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:738
+#: ../src/nm-l2tp-service.c:763
 msgid "Machine private key file not supplied"
-msgstr ""
+msgstr "ไม่ได้ระบุไฟล์กุญแจส่วนตัวของเครื่อง"
 
-#: ../src/nm-l2tp-service.c:847
+#: ../src/nm-l2tp-service.c:872
 msgid "Could not write ipsec config"
-msgstr ""
+msgstr "ไม่สามารถเขียนการตั้งค่า ipsec ได้"
 
-#: ../src/nm-l2tp-service.c:935
+#: ../src/nm-l2tp-service.c:968
 msgid "Machine certificate file not supplied"
-msgstr ""
+msgstr "ไม่ได้ระบุไฟล์ใบรับรองของเครื่อง"
 
-#: ../src/nm-l2tp-service.c:1036
+#: ../src/nm-l2tp-service.c:1069
 msgid "Could not write xl2tpd config."
-msgstr ""
+msgstr "ไม่สามารถเขียนการตั้งค่า xl2tpd ได้"
 
-#: ../src/nm-l2tp-service.c:1079
+#: ../src/nm-l2tp-service.c:1112
 msgid "Could not write ppp options."
+msgstr "ไม่สามารถเขียนตัวเลือก ppp ได้"
+
+#: ../src/nm-l2tp-service.c:1277
+#, c-format
+msgid "VPN username contains a control character"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1357 ../src/nm-l2tp-service.c:1382
+#: ../src/nm-l2tp-service.c:1400 ../src/nm-l2tp-service.c:1428
 msgid "Could not start the ipsec service."
-msgstr ""
+msgstr "ไม่สามารถเริ่มบริการ ipsec ได้"
 
-#: ../src/nm-l2tp-service.c:1363 ../src/nm-l2tp-service.c:1390
+#: ../src/nm-l2tp-service.c:1406 ../src/nm-l2tp-service.c:1436
 msgid "Could not restart the ipsec service."
-msgstr ""
+msgstr "ไม่สามารถเริ่มบริการ ipsec ใหม่ได้"
 
-#: ../src/nm-l2tp-service.c:1501
+#: ../src/nm-l2tp-service.c:1532
+msgid "Could not establish IPsec connection."
+msgstr "ไม่สามารถสร้างการเชื่อมต่อ IPsec ได้"
+
+#: ../src/nm-l2tp-service.c:1550
 msgid "Could not find the xl2tpd binary."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1588
+#: ../src/nm-l2tp-service.c:1637
 msgid "Missing or invalid VPN user certificate password."
-msgstr ""
+msgstr "รหัสผ่านใบรับรองผู้ใช้ของ VPN หายไปหรือไม่ถูกต้อง"
 
-#: ../src/nm-l2tp-service.c:1605
+#: ../src/nm-l2tp-service.c:1654
 msgid "Missing VPN username."
+msgstr "ไม่มีชื่อผู้ใช้ VPN"
+
+#: ../src/nm-l2tp-service.c:1662
+msgid "VPN username contains a control character."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1614
+#: ../src/nm-l2tp-service.c:1671
 msgid "Missing or invalid VPN password."
-msgstr ""
+msgstr "รหัสผ่าน VPN หายไปหรือไม่ถูกต้อง"
 
-#: ../src/nm-l2tp-service.c:1718
+#: ../src/nm-l2tp-service.c:1775
 msgid "couldn't convert L2TP VPN gateway IP address."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1731
+#: ../src/nm-l2tp-service.c:1788
 msgid "couldn't look up L2TP VPN gateway IP address "
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1750
+#: ../src/nm-l2tp-service.c:1807
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1779
+#: ../src/nm-l2tp-service.c:1836
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
-msgstr ""
+msgstr "ไม่พบไบนารีของ ipsec ได้ติดตั้ง Libreswan หรือ strongSwan แล้วหรือไม่"
 
-#: ../src/nm-l2tp-service.c:1785
+#: ../src/nm-l2tp-service.c:1842
 msgid "Openswan is no longer supported, use Libreswan or strongSwan."
-msgstr ""
+msgstr "ไม่รองรับ Openswan อีกต่อไป โปรดใช้ Libreswan หรือ strongSwan"
 
-#: ../src/nm-l2tp-service.c:1787
+#: ../src/nm-l2tp-service.c:1844
 msgid "Neither Libreswan nor strongSwan were found."
-msgstr ""
+msgstr "ไม่พบทั้ง Libreswan และ strongSwan"
 
-#: ../src/nm-l2tp-service.c:1796
+#: ../src/nm-l2tp-service.c:1853
 msgid "could not retrieve connection UUID"
-msgstr ""
+msgstr "ไม่สามารถดึง UUID ของการเชื่อมต่อได้"
 
-#: ../src/nm-l2tp-service.c:1804
+#: ../src/nm-l2tp-service.c:1861
 msgid "Invalid or missing L2TP gateway."
-msgstr ""
+msgstr "เกตเวย์ L2TP หายไปหรือไม่ถูกต้อง"
 
-#: ../src/nm-l2tp-service.c:2132
+#: ../src/nm-l2tp-service.c:2189
 msgid "Don't quit when VPN connection terminates"
-msgstr ""
+msgstr "อย่าออกจากโปรแกรมเมื่อการเชื่อมต่อ VPN สิ้นสุดลง"
 
-#: ../src/nm-l2tp-service.c:2133
+#: ../src/nm-l2tp-service.c:2190
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr ""
+msgstr "เปิดใช้การบันทึกดีบักแบบละเอียด (อาจเปิดเผยรหัสผ่าน)"
 
-#: ../src/nm-l2tp-service.c:2134
+#: ../src/nm-l2tp-service.c:2191
 msgid "D-Bus name to use for this instance"
-msgstr ""
+msgstr "ชื่อ D-Bus ที่จะใช้สำหรับอินสแตนซ์นี้"
 
-#: ../src/nm-l2tp-service.c:2155
+#: ../src/nm-l2tp-service.c:2212
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
@@ -567,6 +585,8 @@ msgid ""
 "L2TP server IP or name.\n"
 "config: xl2tpd lns parameter"
 msgstr ""
+"IP หรือชื่อของเซิร์ฟเวอร์ L2TP\n"
+"config: xl2tpd lns parameter"
 
 #: ../properties/nm-l2tp-dialog.ui.h:5
 msgid "User Authentication"
@@ -577,6 +597,8 @@ msgid ""
 "Use down-level logon name format for user authentication purposes, i.e. "
 "DOMAIN\\username, where DOMAIN is the value from this text entry box."
 msgstr ""
+"ใช้รูปแบบชื่อเข้าสู่ระบบแบบเก่าเพื่อการยืนยันตัวบุคคลของผู้ใช้ เช่น DOMAIN\\username โดย "
+"DOMAIN คือค่าจากช่องข้อความนี้"
 
 #: ../properties/nm-l2tp-dialog.ui.h:7
 msgid "Sho_w password"
@@ -584,7 +606,7 @@ msgstr "แ_สดงรหัสผ่าน"
 
 #: ../properties/nm-l2tp-dialog.ui.h:8
 msgid "Password passed to PPPD when prompted for it."
-msgstr ""
+msgstr "รหัสผ่านที่จะส่งให้ PPPD เมื่อมีการร้องขอ"
 
 #: ../properties/nm-l2tp-dialog.ui.h:9
 msgid ""
@@ -645,27 +667,27 @@ msgstr "ชนิด:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:25
 msgid "Select an authentication mode."
-msgstr ""
+msgstr "เลือกโหมดการยืนยันตัวบุคคล"
 
 #: ../properties/nm-l2tp-dialog.ui.h:26
 msgid "_IPsec Settings..."
-msgstr ""
+msgstr "การตั้งค่า _IPsec..."
 
 #: ../properties/nm-l2tp-dialog.ui.h:27
 msgid "PPP Se_ttings..."
-msgstr ""
+msgstr "การตั้งค่า _PPP..."
 
 #: ../properties/nm-l2tp-dialog.ui.h:28
 msgid "L2TP IPsec Options"
-msgstr ""
+msgstr "ตัวเลือก IPsec ของ L2TP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:29
 msgid "_Enable IPsec tunnel to L2TP host"
-msgstr ""
+msgstr "เ_ปิดใช้ทันเนล IPsec ไปยังโฮสต์ L2TP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:30
 msgid "config: ipsec-enabled"
-msgstr ""
+msgstr "config: ipsec-enabled"
 
 #: ../properties/nm-l2tp-dialog.ui.h:31
 msgid "Machine Authentication"
@@ -676,6 +698,8 @@ msgid ""
 "Pre-shared key (PSK) secret.\n"
 "config: ipsec-psk"
 msgstr ""
+"ค่าลับของกุญแจที่ใช้ร่วมกันล่วงหน้า (PSK)\n"
+"config: ipsec-psk"
 
 #: ../properties/nm-l2tp-dialog.ui.h:34
 msgid "Pre-shared key:"
@@ -687,7 +711,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:36
 msgid "Phase2 Algorithms:"
-msgstr ""
+msgstr "อัลกอริทึม Phase2:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:37
 msgid ""
@@ -695,17 +719,23 @@ msgid ""
 "group,enc-integ-group, …”.\n"
 "config: ipsec-ike <proposals>"
 msgstr ""
+"ตัวเลือกเพิ่มเติม รายการข้อเสนอสำหรับ IKE - Main Mode รูปแบบคือ “enc-integ-group,enc-"
+"integ-group, …”\n"
+"config: ipsec-ike <proposals>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:39
 msgid ""
-"Optional. A list of proposals for ESP - Quick Mode. The format is “enc-integ,"
-"enc-integ, …”.\n"
+"Optional. A list of proposals for ESP - Quick Mode. The format is “enc-"
+"integ,enc-integ, …”.\n"
 "config: ipsec-esp <proposals>"
 msgstr ""
+"ตัวเลือกเพิ่มเติม รายการข้อเสนอสำหรับ ESP - Quick Mode รูปแบบคือ “enc-integ,enc-"
+"integ, …”\n"
+"config: ipsec-esp <proposals>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:41
 msgid "Phase1 Algorithms:"
-msgstr ""
+msgstr "อัลกอริทึม Phase1:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:42
 msgid ""
@@ -713,10 +743,12 @@ msgid ""
 "renegotiated. \n"
 "config: ipsec-ikelifetime <lifetime>"
 msgstr ""
+"ระยะเวลาที่ช่องทางสำหรับแลกเปลี่ยนกุญแจของการเชื่อมต่อควรคงอยู่ก่อนจะมีการเจรจาใหม่\n"
+"config: ipsec-ikelifetime <lifetime>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:44
 msgid "(HH:MM)"
-msgstr ""
+msgstr "(ชม.:นาที)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:45
 msgid ""
@@ -725,6 +757,9 @@ msgid ""
 "negotiation to expiry.\n"
 "config: ipsec-salifetime <lifetime>"
 msgstr ""
+"ระยะเวลาที่ชุดการเชื่อมต่อหนึ่งชุด (ชุดกุญแจเข้ารหัส/ยืนยันตัวบุคคลสำหรับแพ็กเก็ตของผู้ใช้) ควรคงอยู่ "
+"ตั้งแต่เจรจาสำเร็จจนหมดอายุ\n"
+"config: ipsec-salifetime <lifetime>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:47
 msgid "Phase_1 Lifetime:"
@@ -750,7 +785,7 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:53
 msgid "_Enforce UDP encapsulation"
-msgstr ""
+msgstr "_บังคับใช้การห่อหุ้มแบบ UDP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:54
 msgid ""
@@ -758,10 +793,13 @@ msgid ""
 "situation is detected might help in such cases.\n"
 "config: ipsec-forceencaps <yes/no>"
 msgstr ""
+"ไฟร์วอลล์บางตัวบล็อกทราฟฟิก ESP การบังคับใช้การห่อหุ้มแบบ UDP แม้ไม่ตรวจพบการใช้ NAT "
+"ก็อาจช่วยได้ในกรณีเช่นนี้\n"
+"config: ipsec-forceencaps <yes/no>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:56
 msgid "Use IP c_ompression"
-msgstr ""
+msgstr "ใช้การ_บีบอัด IP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:57
 msgid ""
@@ -769,20 +807,25 @@ msgid ""
 "bandwidth, but uses more processing power.\n"
 "config: ipsec-ipcomp <yes/no>"
 msgstr ""
+"IPComp จะบีบอัดแพ็กเก็ต IP ดิบก่อนเข้ารหัส ช่วยประหยัดแบนด์วิดท์บางส่วน "
+"แต่ใช้พลังประมวลผลมากขึ้น\n"
+"config: ipsec-ipcomp <yes/no>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:59
 msgid "Use IKEv_2 key exchange"
-msgstr ""
+msgstr "ใช้การแลกเปลี่ยนกุญแจ IKEv_2"
 
 #: ../properties/nm-l2tp-dialog.ui.h:60
 msgid ""
 "Use IKEv2 key exchange\n"
 "config: ipsec-ikev2 <yes/no>"
 msgstr ""
+"ใช้การแลกเปลี่ยนกุญแจ IKEv2\n"
+"config: ipsec-ikev2 <yes/no>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:62
 msgid "Disable _PFS"
-msgstr ""
+msgstr "ปิ_ดใช้ PFS"
 
 #: ../properties/nm-l2tp-dialog.ui.h:63
 msgid ""
@@ -790,10 +833,12 @@ msgid ""
 "doesn’t support PFS.\n"
 "config: ipsec-pfs <no/yes>"
 msgstr ""
+"ปิดใช้ perfect forward secrecy เปิดใช้ตัวเลือกนี้เฉพาะเมื่อเซิร์ฟเวอร์ไม่รองรับ PFS\n"
+"config: ipsec-pfs <no/yes>"
 
 #: ../properties/nm-l2tp-dialog.ui.h:65
 msgid "Ad_vanced"
-msgstr ""
+msgstr "ขั้_นสูง"
 
 #: ../properties/nm-l2tp-dialog.ui.h:66
 msgid "Default"
@@ -801,7 +846,7 @@ msgstr "ปริยาย"
 
 #: ../properties/nm-l2tp-dialog.ui.h:67
 msgid "L2TP PPP Options"
-msgstr ""
+msgstr "ตัวเลือก PPP ของ L2TP"
 
 #: ../properties/nm-l2tp-dialog.ui.h:68
 msgid "Authentication"
@@ -809,21 +854,23 @@ msgstr "การยืนยันตัวบุคคล"
 
 #: ../properties/nm-l2tp-dialog.ui.h:69
 msgid "Allow the following authentication methods:"
-msgstr ""
+msgstr "อนุญาตวิธีการยืนยันตัวบุคคลต่อไปนี้:"
 
 #: ../properties/nm-l2tp-dialog.ui.h:70
 msgid ""
 "Allow/disable authentication methods.\n"
 "config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 msgstr ""
+"อนุญาต/ปิดใช้วิธีการยืนยันตัวบุคคล\n"
+"config: refuse-pap, refuse-chap, refuse-mschap, refuse-mschap-v2, refuse-eap"
 
 #: ../properties/nm-l2tp-dialog.ui.h:72
 msgid "Security and Compression"
-msgstr ""
+msgstr "ความปลอดภัยและการบีบอัด"
 
 #: ../properties/nm-l2tp-dialog.ui.h:73
 msgid "Use _Point-to-Point encryption (MPPE)"
-msgstr ""
+msgstr "ใช้การเ_ข้ารหัสแบบจุดต่อจุด (MPPE)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:74
 msgid ""
@@ -831,6 +878,9 @@ msgid ""
 "To enable this checkbox, select one or more of the MSCHAP authentication "
 "methods: MSCHAP or MSCHAPv2."
 msgstr ""
+"หมายเหตุ: การเข้ารหัส MPPE ใช้ได้เฉพาะกับวิธีการยืนยันตัวบุคคลแบบ MSCHAP "
+"หากต้องการเปิดใช้ช่องทำเครื่องหมายนี้ ให้เลือกวิธีการยืนยันตัวบุคคลแบบ MSCHAP อย่างน้อยหนึ่งแบบ: "
+"MSCHAP หรือ MSCHAPv2"
 
 #: ../properties/nm-l2tp-dialog.ui.h:75
 msgid "_Security:"
@@ -841,16 +891,20 @@ msgid ""
 "Require the use of MPPE, with 40/128-bit encryption or all.\n"
 "config: require-mppe, require-mppe-128 or require-mppe-40"
 msgstr ""
+"กำหนดให้ใช้ MPPE โดยใช้การเข้ารหัส 40/128 บิตหรือทั้งหมด\n"
+"config: require-mppe, require-mppe-128 or require-mppe-40"
 
 #: ../properties/nm-l2tp-dialog.ui.h:78
 msgid "Allow st_ateful encryption"
-msgstr ""
+msgstr "อนุญาตการเข้ารหัสแบบมีส_ถานะ"
 
 #: ../properties/nm-l2tp-dialog.ui.h:79
 msgid ""
 "Allow MPPE to use stateful mode. Stateless mode is still attempted first.\n"
 "config: mppe-stateful (when checked)"
 msgstr ""
+"อนุญาตให้ MPPE ใช้โหมดมีสถานะ โดยยังคงลองใช้โหมดไร้สถานะก่อน\n"
+"config: mppe-stateful (เมื่อทำเครื่องหมาย)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:81
 msgid "Allow _BSD data compression"
@@ -861,6 +915,8 @@ msgid ""
 "Allow/disable BSD-Compress compression.\n"
 "config: nobsdcomp (when unchecked)"
 msgstr ""
+"อนุญาต/ปิดใช้การบีบอัดแบบ BSD-Compress\n"
+"config: nobsdcomp (เมื่อไม่ทำเครื่องหมาย)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:84
 msgid "Allow _Deflate data compression"
@@ -871,6 +927,8 @@ msgid ""
 "Allow/disable Deflate compression.\n"
 "config: nodeflate (when unchecked)"
 msgstr ""
+"อนุญาต/ปิดใช้การบีบอัดแบบ Deflate\n"
+"config: nodeflate (เมื่อไม่ทำเครื่องหมาย)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:87
 msgid "Use TCP _header compression"
@@ -882,10 +940,12 @@ msgid ""
 "transmit and the receive directions.\n"
 "config: novj (when unchecked)"
 msgstr ""
+"อนุญาต/ปิดใช้การบีบอัดส่วนหัว TCP/IP แบบ Van Jacobson ทั้งขาออกและขาเข้า\n"
+"config: novj (เมื่อไม่ทำเครื่องหมาย)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:90
 msgid "Use protocol _field compression negotiation"
-msgstr ""
+msgstr "ใช้การเจรจาการบีบอัด_ฟิลด์ของโพรโทคอล"
 
 #: ../properties/nm-l2tp-dialog.ui.h:91
 msgid ""
@@ -893,16 +953,20 @@ msgid ""
 "transmit direction.\n"
 "config: nopcomp (when unchecked)"
 msgstr ""
+"อนุญาตการเจรจาการบีบอัดฟิลด์ของโพรโทคอลทั้งขารับและขาส่ง\n"
+"config: nopcomp (เมื่อไม่ทำเครื่องหมาย)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:93
 msgid "Use _Address/Control compression"
-msgstr ""
+msgstr "ใช้การบีบอัดแ_อดเดรส/คอนโทรล"
 
 #: ../properties/nm-l2tp-dialog.ui.h:94
 msgid ""
 "Use Address/Control compression in both directions (send and receive).\n"
 "config: noaccomp (when unchecked)"
 msgstr ""
+"ใช้การบีบอัดแอดเดรส/คอนโทรลทั้งสองทิศทาง (ส่งและรับ)\n"
+"config: noaccomp (เมื่อไม่ทำเครื่องหมาย)"
 
 #: ../properties/nm-l2tp-dialog.ui.h:96
 msgid "Echo"
@@ -917,10 +981,12 @@ msgid ""
 "Send LCP echo-requests to find out whether peer is alive.\n"
 "config: lcp-echo-failure and lcp-echo-interval"
 msgstr ""
+"ส่งคำขอ echo ของ LCP เพื่อตรวจสอบว่าฝั่งตรงข้ามยังทำงานอยู่หรือไม่\n"
+"config: lcp-echo-failure and lcp-echo-interval"
 
 #: ../properties/nm-l2tp-dialog.ui.h:100
 msgid "Misc"
-msgstr ""
+msgstr "เบ็ดเตล็ด"
 
 #: ../properties/nm-l2tp-dialog.ui.h:101
 msgid "MTU :"

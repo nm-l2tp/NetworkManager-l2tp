@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-02 14:00+1000\n"
+"POT-Creation-Date: 2026-06-30 08:40+1000\n"
 "PO-Revision-Date: 2019-02-12 11:23+0100\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <fur@li.org>\n"
@@ -50,7 +50,7 @@ msgstr ""
 msgid "Authenticate VPN"
 msgstr "Autenticazion VPN"
 
-#: ../auth-dialog/main.c:164 ../properties/nm-l2tp-editor.c:667
+#: ../auth-dialog/main.c:164 ../properties/nm-l2tp-editor.c:671
 msgid "Password"
 msgstr "Password"
 
@@ -154,7 +154,7 @@ msgstr ""
 msgid "Couldn't open file for writing."
 msgstr ""
 
-#: ../properties/ipsec-dialog.c:311 ../properties/nm-l2tp-editor.c:558
+#: ../properties/ipsec-dialog.c:311 ../properties/nm-l2tp-editor.c:562
 msgid "Choose a Certificate Authority certificate…"
 msgstr ""
 
@@ -162,7 +162,7 @@ msgstr ""
 msgid "Choose your machine certificate…"
 msgstr ""
 
-#: ../properties/ipsec-dialog.c:327 ../properties/nm-l2tp-editor.c:574
+#: ../properties/ipsec-dialog.c:327 ../properties/nm-l2tp-editor.c:578
 msgid "Choose your private key…"
 msgstr ""
 
@@ -170,40 +170,40 @@ msgstr ""
 msgid "Pre-shared key (PSK)"
 msgstr ""
 
-#: ../properties/ipsec-dialog.c:568 ../properties/nm-l2tp-editor.c:676
+#: ../properties/ipsec-dialog.c:568 ../properties/nm-l2tp-editor.c:680
 msgid "Certificates (TLS)"
 msgstr "Certificâts (TLS)"
 
-#: ../properties/nm-l2tp-editor.c:406
+#: ../properties/nm-l2tp-editor.c:408
 #, c-format
 msgid "%s: error reading ppp settings: %s"
 msgstr ""
 
-#: ../properties/nm-l2tp-editor.c:430
+#: ../properties/nm-l2tp-editor.c:432
 #, c-format
 msgid "%s: error reading ipsec settings: %s"
 msgstr ""
 
-#: ../properties/nm-l2tp-editor.c:465
+#: ../properties/nm-l2tp-editor.c:467
 #, c-format
 msgid "%s: failed to create the PPP dialog!"
 msgstr ""
 
-#: ../properties/nm-l2tp-editor.c:508
+#: ../properties/nm-l2tp-editor.c:512
 #, c-format
 msgid "%s: failed to create the IPsec dialog!"
 msgstr ""
 
-#: ../properties/nm-l2tp-editor.c:566
+#: ../properties/nm-l2tp-editor.c:570
 msgid "Choose your personal certificate…"
 msgstr ""
 
-#: ../properties/nm-l2tp-editor.c:849
+#: ../properties/nm-l2tp-editor.c:867
 #, c-format
 msgid "could not create l2tp object"
 msgstr ""
 
-#: ../properties/nm-l2tp-editor.c:866
+#: ../properties/nm-l2tp-editor.c:884
 #, c-format
 msgid "could not load UI widget"
 msgstr "impussibil cjariâ il widget de IU"
@@ -418,145 +418,163 @@ msgstr "impussibil cjariâ la fabriche %s dal plugin: %s"
 msgid "unknown error creating editor instance"
 msgstr "erôr no cognossût tal creâ la istance dal editôr"
 
-#: ../src/nm-l2tp-service.c:291
+#: ../src/nm-l2tp-service.c:304
+#, c-format
+msgid "property '%s' contains a control character"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:316
 #, c-format
 msgid "invalid gateway '%s'"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:305
+#: ../src/nm-l2tp-service.c:330
 #, c-format
 msgid "invalid integer property '%s'"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:315
+#: ../src/nm-l2tp-service.c:340
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:322
+#: ../src/nm-l2tp-service.c:347
 #, c-format
 msgid "unhandled property '%s' type %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:333
+#: ../src/nm-l2tp-service.c:358
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:352
+#: ../src/nm-l2tp-service.c:377
 msgid "No VPN configuration options."
 msgstr "Nissune opzion di configurazion VPN."
 
-#: ../src/nm-l2tp-service.c:372
+#: ../src/nm-l2tp-service.c:397
 #, c-format
 msgid "Missing required option '%s'."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:677
+#: ../src/nm-l2tp-service.c:702
 #, c-format
 msgid "Could not open %s for writing: %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:685
+#: ../src/nm-l2tp-service.c:710
 #, c-format
 msgid "Could not append \"include ipsec.d/ipsec.nm-l2tp.secrets\" to %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:701
+#: ../src/nm-l2tp-service.c:726
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:738
+#: ../src/nm-l2tp-service.c:763
 msgid "Machine private key file not supplied"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:847
+#: ../src/nm-l2tp-service.c:872
 msgid "Could not write ipsec config"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:935
+#: ../src/nm-l2tp-service.c:968
 msgid "Machine certificate file not supplied"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1036
+#: ../src/nm-l2tp-service.c:1069
 msgid "Could not write xl2tpd config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1079
+#: ../src/nm-l2tp-service.c:1112
 msgid "Could not write ppp options."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1357 ../src/nm-l2tp-service.c:1382
+#: ../src/nm-l2tp-service.c:1277
+#, c-format
+msgid "VPN username contains a control character"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1400 ../src/nm-l2tp-service.c:1428
 msgid "Could not start the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1363 ../src/nm-l2tp-service.c:1390
+#: ../src/nm-l2tp-service.c:1406 ../src/nm-l2tp-service.c:1436
 msgid "Could not restart the ipsec service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1501
+#: ../src/nm-l2tp-service.c:1532
+msgid "Could not establish IPsec connection."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1550
 msgid "Could not find the xl2tpd binary."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1588
+#: ../src/nm-l2tp-service.c:1637
 msgid "Missing or invalid VPN user certificate password."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1605
+#: ../src/nm-l2tp-service.c:1654
 msgid "Missing VPN username."
 msgstr "Al mancje il non utent VPN."
 
-#: ../src/nm-l2tp-service.c:1614
+#: ../src/nm-l2tp-service.c:1662
+msgid "VPN username contains a control character."
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1671
 msgid "Missing or invalid VPN password."
 msgstr "E mancje o no je valide la password VPN."
 
-#: ../src/nm-l2tp-service.c:1718
+#: ../src/nm-l2tp-service.c:1775
 msgid "couldn't convert L2TP VPN gateway IP address."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1731
+#: ../src/nm-l2tp-service.c:1788
 msgid "couldn't look up L2TP VPN gateway IP address "
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1750
+#: ../src/nm-l2tp-service.c:1807
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1779
+#: ../src/nm-l2tp-service.c:1836
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1785
+#: ../src/nm-l2tp-service.c:1842
 msgid "Openswan is no longer supported, use Libreswan or strongSwan."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1787
+#: ../src/nm-l2tp-service.c:1844
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1796
+#: ../src/nm-l2tp-service.c:1853
 msgid "could not retrieve connection UUID"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1804
+#: ../src/nm-l2tp-service.c:1861
 msgid "Invalid or missing L2TP gateway."
 msgstr "gateway L2TP mancjant o no valit."
 
-#: ../src/nm-l2tp-service.c:2132
+#: ../src/nm-l2tp-service.c:2189
 msgid "Don't quit when VPN connection terminates"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:2133
+#: ../src/nm-l2tp-service.c:2190
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr ""
 "Abilite la regjistrazion dal debug prolìs (al pues palesâ lis password)"
 
-#: ../src/nm-l2tp-service.c:2134
+#: ../src/nm-l2tp-service.c:2191
 msgid "D-Bus name to use for this instance"
 msgstr "Non di D-Bus di doprâ par cheste istance"
 
-#: ../src/nm-l2tp-service.c:2155
+#: ../src/nm-l2tp-service.c:2212
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
@@ -698,8 +716,8 @@ msgstr ""
 
 #: ../properties/nm-l2tp-dialog.ui.h:39
 msgid ""
-"Optional. A list of proposals for ESP - Quick Mode. The format is “enc-integ,"
-"enc-integ, …”.\n"
+"Optional. A list of proposals for ESP - Quick Mode. The format is “enc-"
+"integ,enc-integ, …”.\n"
 "config: ipsec-esp <proposals>"
 msgstr ""
 
