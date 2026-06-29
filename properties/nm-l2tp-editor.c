@@ -184,6 +184,7 @@ tls_cert_changed_cb (GtkWidget *chooser, gpointer user_data)
 	g_free (ca_cert_fname);
 	g_free (cert_fname);
 	g_free (key_fname);
+	g_clear_error (&config_error);
 	crypto_deinit_openssl();
 
 	while (sensitive_ca_key_widgets[i]) {
@@ -341,6 +342,7 @@ check_validity (L2tpPluginUiWidget *self, GError **error)
 		             NM_L2TP_KEY_GATEWAY);
 		return FALSE;
 	}
+	g_free (s);
 
 	return TRUE;
 }
@@ -444,7 +446,7 @@ ppp_button_clicked_cb (GtkWidget *button, gpointer user_data)
 	GtkBuilder *builder;
 	GtkTreeModel *model;
 	GtkTreeIter iter;
-	const char *authtype = NULL;
+	char *authtype = NULL;
 	gboolean success;
 	guint32 i = 0;
 	const char *widgets[] = {
@@ -463,6 +465,7 @@ ppp_button_clicked_cb (GtkWidget *button, gpointer user_data)
 	dialog = ppp_dialog_new (priv->ppp, authtype);
 	if (!dialog) {
 		g_warning (_("%s: failed to create the PPP dialog!"), __func__);
+		g_free (authtype);
 		return;
 	}
 
@@ -487,6 +490,7 @@ ppp_button_clicked_cb (GtkWidget *button, gpointer user_data)
 			}
 		}
 	}
+	g_free (authtype);
 
 	gtk_widget_show_all (dialog);
 }
@@ -802,9 +806,23 @@ update_connection (NMVpnEditor *iface,
 			                             NULL);
 		}
 
+		if (nm_setting_vpn_get_secret (s_vpn, NM_L2TP_KEY_IPSEC_PSK)) {
+			nm_setting_set_secret_flags (NM_SETTING (s_vpn),
+			                             NM_L2TP_KEY_IPSEC_PSK,
+			                             NM_SETTING_SECRET_FLAG_AGENT_OWNED,
+			                             NULL);
+		}
+
 		if (nm_setting_vpn_get_secret (s_vpn, NM_L2TP_KEY_USER_CERTPASS)) {
 			nm_setting_set_secret_flags (NM_SETTING (s_vpn),
 			                             NM_L2TP_KEY_USER_CERTPASS,
+			                             NM_SETTING_SECRET_FLAG_AGENT_OWNED,
+			                             NULL);
+		}
+
+		if (nm_setting_vpn_get_secret (s_vpn, NM_L2TP_KEY_MACHINE_CERTPASS)) {
+			nm_setting_set_secret_flags (NM_SETTING (s_vpn),
+			                             NM_L2TP_KEY_MACHINE_CERTPASS,
 			                             NM_SETTING_SECRET_FLAG_AGENT_OWNED,
 			                             NULL);
 		}
