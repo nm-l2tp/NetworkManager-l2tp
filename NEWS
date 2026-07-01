@@ -1,4 +1,16 @@
 ==========================================================
+NetworkManager-l2tp-1.52.4
+Overview of changes since NetworkManager-l2tp-1.52.2
+==========================================================
+
+Changes:
+* Parser-hardening of control characters in username, VPN data-items
+  and secrets along with PLUTODEBUG and CHARONDEBUG env vars.
+* Disable MPPE option in editor whenever IPsec is enabled.
+* Remove deprecated KDE Plasma-nm L2TP certificate support.
+* Updated translations.
+
+==========================================================
 NetworkManager-l2tp-1.52.2
 Overview of changes since NetworkManager-l2tp-1.52.0
 ==========================================================
