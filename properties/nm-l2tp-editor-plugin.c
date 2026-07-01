@@ -43,7 +43,7 @@ static NMConnection *
 import(NMVpnEditorPlugin *iface, const char *path, GError **error)
 {
     NMConnection *connection = NULL;
-    char *        ext;
+    const char *  ext;
 
     ext = strrchr(path, '.');
     if (!ext) {
