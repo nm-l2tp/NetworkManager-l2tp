@@ -1,4 +1,18 @@
 ==========================================================
+NetworkManager-l2tp-1.20.24
+Overview of changes since NetworkManager-l2tp-1.20.22
+==========================================================
+
+Changes:
+* Fix for L2TP daemon start/restart decisions.
+* Parser-hardening of control characters in username, VPN data-items
+  and secrets along with PLUTODEBUG and CHARONDEBUG env vars. 
+* Fix several service and editor correctness issues, including
+  portable daemon restart detection, memory leaks, a
+  heap use-after-free and pointer ownership bugs.
+* Merged translations from NetworkManager-l2tp-1.52.4.
+
+==========================================================
 NetworkManager-l2tp-1.20.22
 Overview of changes since NetworkManager-l2tp-1.20.20
 ==========================================================
