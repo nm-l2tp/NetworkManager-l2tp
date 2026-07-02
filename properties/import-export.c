@@ -148,20 +148,19 @@ static VpnImportExportProperty ip6_properties[] = {
 };
 
 static void
-ip4_import_error(GError **error, const char *message, const char *key, const char *val)
+ip4_import_error(GError **error, char *message)
 {
-    g_set_error(error,
-                NMV_EDITOR_PLUGIN_ERROR,
-                NMV_EDITOR_PLUGIN_ERROR_INVALID_PROPERTY,
-                message,
-                key,
-                val);
+    g_set_error_literal(error,
+                        NMV_EDITOR_PLUGIN_ERROR,
+                        NMV_EDITOR_PLUGIN_ERROR_INVALID_PROPERTY,
+                        message);
+    g_free(message);
 }
 
 static void
-ip4_route_import_error(GError **error, char *message, const char *val, char **routes)
+ip4_route_import_error(GError **error, char *message, char **routes)
 {
-    ip4_import_error(error, message, NM_SETTING_IP_CONFIG_ROUTES, val);
+    ip4_import_error(error, message);
     g_strfreev(routes);
 }
 
@@ -201,10 +200,11 @@ import_ip4(GKeyFile *keyfile, NMSettingIPConfig *s_ip4, GError **error)
             if (!bool_val) {
                 g_clear_error(error);
                 str_val = g_key_file_get_string(keyfile, IP4_SECTION, prop.name, error);
-                ip4_import_error(error,
-                                 _("Property %s value '%s' can't be parsed as boolean."),
-                                 prop.name,
-                                 str_val);
+                ip4_import_error(
+                    error,
+                    g_strdup_printf(_("Property %s value '%s' can't be parsed as boolean."),
+                                    prop.name,
+                                    str_val));
                 g_free(str_val);
                 return FALSE;
             }
@@ -267,20 +267,24 @@ import_ip4(GKeyFile *keyfile, NMSettingIPConfig *s_ip4, GError **error)
             dest_s = routes[i];
             ptr    = index(ptr, '/');
             if (!ptr) {
-                ip4_route_import_error(error,
-                                       _("Property '%s' value '%s' couldn't find netmask."),
-                                       routes[i],
-                                       routes);
+                ip4_route_import_error(
+                    error,
+                    g_strdup_printf(_("Property '%s' value '%s' couldn't find netmask."),
+                                    NM_SETTING_IP_CONFIG_ROUTES,
+                                    routes[i]),
+                    routes);
                 return FALSE;
             }
             *(ptr) = '\0'; /* terminate dest_s */
             ptr++;
 
             if (!inet_pton(AF_INET, dest_s, &dest)) {
-                ip4_route_import_error(error,
-                                       _("Property '%s' value '%s' can't be parsed as IP address."),
-                                       dest_s,
-                                       routes);
+                ip4_route_import_error(
+                    error,
+                    g_strdup_printf(_("Property '%s' value '%s' can't be parsed as IP address."),
+                                    NM_SETTING_IP_CONFIG_ROUTES,
+                                    dest_s),
+                    routes);
                 return FALSE;
             }
 
@@ -294,10 +298,12 @@ import_ip4(GKeyFile *keyfile, NMSettingIPConfig *s_ip4, GError **error)
             errno  = 0;
             prefix = strtol(prefix_s, NULL, 10);
             if (errno != 0 || prefix <= 0 || prefix > 32) {
-                ip4_route_import_error(error,
-                                       _("Property '%s' value '%s' can't be parsed as IP netmask."),
-                                       prefix_s,
-                                       routes);
+                ip4_route_import_error(
+                    error,
+                    g_strdup_printf(_("Property '%s' value '%s' can't be parsed as IP netmask."),
+                                    NM_SETTING_IP_CONFIG_ROUTES,
+                                    prefix_s),
+                    routes);
                 return FALSE;
             }
             while (ptr && *ptr == ' ')
@@ -317,8 +323,9 @@ import_ip4(GKeyFile *keyfile, NMSettingIPConfig *s_ip4, GError **error)
                 if (!inet_pton(AF_INET, next_hop_s, &next_hop)) {
                     ip4_route_import_error(
                         error,
-                        _("Property '%s' value '%s' can't be parsed as IP address."),
-                        next_hop_s,
+                        g_strdup_printf(_("Property '%s' value '%s' can't be parsed as IP address."),
+                                        NM_SETTING_IP_CONFIG_ROUTES,
+                                        next_hop_s),
                         routes);
                     return FALSE;
                 }
@@ -342,8 +349,10 @@ import_ip4(GKeyFile *keyfile, NMSettingIPConfig *s_ip4, GError **error)
                 if (errno != 0) {
                     ip4_route_import_error(
                         error,
-                        _("Property '%s' value '%s' can't be parsed as route metric."),
-                        metric_s,
+                        g_strdup_printf(
+                            _("Property '%s' value '%s' can't be parsed as route metric."),
+                            NM_SETTING_IP_CONFIG_ROUTES,
+                            metric_s),
                         routes);
                     return FALSE;
                 }
@@ -351,10 +360,12 @@ import_ip4(GKeyFile *keyfile, NMSettingIPConfig *s_ip4, GError **error)
                     ptr++;
             }
             if (ptr) {
-                ip4_route_import_error(error,
-                                       _("Error parsing property '%s' value '%s'."),
-                                       ptr,
-                                       routes);
+                ip4_route_import_error(
+                    error,
+                    g_strdup_printf(_("Error parsing property '%s' value '%s'."),
+                                    NM_SETTING_IP_CONFIG_ROUTES,
+                                    ptr),
+                    routes);
                 return FALSE;
             }
 
@@ -363,10 +374,12 @@ import_ip4(GKeyFile *keyfile, NMSettingIPConfig *s_ip4, GError **error)
                 nm_setting_ip_config_add_route(s_ip4, route);
                 nm_ip_route_unref(route);
             } else {
-                ip4_route_import_error(error,
-                                       _("Error parsing property '%s': %s."),
-                                       local_error->message,
-                                       routes);
+                ip4_route_import_error(
+                    error,
+                    g_strdup_printf(_("Error parsing property '%s': %s."),
+                                    NM_SETTING_IP_CONFIG_ROUTES,
+                                    local_error->message),
+                    routes);
                 g_clear_error(&local_error);
                 return FALSE;
             }
@@ -412,10 +425,11 @@ import_ip6(GKeyFile *keyfile, NMSettingIPConfig *s_ip6, GError **error)
             if (!bool_val) {
                 g_clear_error(error);
                 str_val = g_key_file_get_string(keyfile, IP6_SECTION, prop.name, error);
-                ip4_import_error(error,
-                                 _("Property %s value '%s' can't be parsed as boolean."),
-                                 prop.name,
-                                 str_val);
+                ip4_import_error(
+                    error,
+                    g_strdup_printf(_("Property %s value '%s' can't be parsed as boolean."),
+                                    prop.name,
+                                    str_val));
                 g_free(str_val);
                 return FALSE;
             }
@@ -474,20 +488,24 @@ import_ip6(GKeyFile *keyfile, NMSettingIPConfig *s_ip6, GError **error)
             dest_s = routes[i];
             ptr    = index(ptr, '/');
             if (!ptr) {
-                ip4_route_import_error(error,
-                                       _("Property '%s' value '%s' couldn't find netmask."),
-                                       routes[i],
-                                       routes);
+                ip4_route_import_error(
+                    error,
+                    g_strdup_printf(_("Property '%s' value '%s' couldn't find netmask."),
+                                    NM_SETTING_IP_CONFIG_ROUTES,
+                                    routes[i]),
+                    routes);
                 return FALSE;
             }
             *(ptr) = '\0';
             ptr++;
 
             if (!inet_pton(AF_INET6, dest_s, &dest)) {
-                ip4_route_import_error(error,
-                                       _("Property '%s' value '%s' can't be parsed as IP address."),
-                                       dest_s,
-                                       routes);
+                ip4_route_import_error(
+                    error,
+                    g_strdup_printf(_("Property '%s' value '%s' can't be parsed as IP address."),
+                                    NM_SETTING_IP_CONFIG_ROUTES,
+                                    dest_s),
+                    routes);
                 return FALSE;
             }
 
@@ -500,10 +518,12 @@ import_ip6(GKeyFile *keyfile, NMSettingIPConfig *s_ip6, GError **error)
             errno  = 0;
             prefix = strtol(prefix_s, NULL, 10);
             if (errno != 0 || prefix > 128) {
-                ip4_route_import_error(error,
-                                       _("Property '%s' value '%s' can't be parsed as IP netmask."),
-                                       prefix_s,
-                                       routes);
+                ip4_route_import_error(
+                    error,
+                    g_strdup_printf(_("Property '%s' value '%s' can't be parsed as IP netmask."),
+                                    NM_SETTING_IP_CONFIG_ROUTES,
+                                    prefix_s),
+                    routes);
                 return FALSE;
             }
             while (ptr && *ptr == ' ')
@@ -520,10 +540,12 @@ import_ip6(GKeyFile *keyfile, NMSettingIPConfig *s_ip6, GError **error)
                     ptr++;
                 }
                 if (!inet_pton(AF_INET6, next_hop_s, &next_hop)) {
-                    ip4_route_import_error(error,
-                                           _("Property '%s' value '%s' can't be parsed as IP address."),
-                                           next_hop_s,
-                                           routes);
+                    ip4_route_import_error(
+                        error,
+                        g_strdup_printf(_("Property '%s' value '%s' can't be parsed as IP address."),
+                                        NM_SETTING_IP_CONFIG_ROUTES,
+                                        next_hop_s),
+                        routes);
                     return FALSE;
                 }
                 while (ptr && *ptr == ' ')
@@ -543,20 +565,25 @@ import_ip6(GKeyFile *keyfile, NMSettingIPConfig *s_ip6, GError **error)
                 errno  = 0;
                 metric = strtol(metric_s, NULL, 10);
                 if (errno != 0) {
-                    ip4_route_import_error(error,
-                                           _("Property '%s' value '%s' can't be parsed as route metric."),
-                                           metric_s,
-                                           routes);
+                    ip4_route_import_error(
+                        error,
+                        g_strdup_printf(
+                            _("Property '%s' value '%s' can't be parsed as route metric."),
+                            NM_SETTING_IP_CONFIG_ROUTES,
+                            metric_s),
+                        routes);
                     return FALSE;
                 }
                 while (ptr && *ptr == ' ')
                     ptr++;
             }
             if (ptr) {
-                ip4_route_import_error(error,
-                                       _("Error parsing property '%s' value '%s'."),
-                                       ptr,
-                                       routes);
+                ip4_route_import_error(
+                    error,
+                    g_strdup_printf(_("Error parsing property '%s' value '%s'."),
+                                    NM_SETTING_IP_CONFIG_ROUTES,
+                                    ptr),
+                    routes);
                 return FALSE;
             }
 
@@ -565,10 +592,12 @@ import_ip6(GKeyFile *keyfile, NMSettingIPConfig *s_ip6, GError **error)
                 nm_setting_ip_config_add_route(s_ip6, route);
                 nm_ip_route_unref(route);
             } else {
-                ip4_route_import_error(error,
-                                       _("Error parsing property '%s': %s."),
-                                       local_error->message,
-                                       routes);
+                ip4_route_import_error(
+                    error,
+                    g_strdup_printf(_("Error parsing property '%s': %s."),
+                                    NM_SETTING_IP_CONFIG_ROUTES,
+                                    local_error->message),
+                    routes);
                 g_clear_error(&local_error);
                 return FALSE;
             }
