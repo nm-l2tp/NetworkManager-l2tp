@@ -1,4 +1,18 @@
 ==========================================================
+NetworkManager-l2tp-1.52.6
+Overview of changes since NetworkManager-l2tp-1.52.4
+==========================================================
+
+Changes:
+* Security fixes for local privilege escalation to root involving:
+  - Quote break-out via the 'user' string property written into
+    /run/nm-l2tp-<uuid>/ppp-options (CVE-2026-75131)
+  - Partial strtol() on mtu/mru/mrru properties allow trailing
+    string injection written into /run/nm-l2tp-<uuid>/ppp-options
+    (CVE-2026-75883)
+* Updated translations.
+
+==========================================================
 NetworkManager-l2tp-1.52.4
 Overview of changes since NetworkManager-l2tp-1.52.2
 ==========================================================
@@ -6,6 +20,7 @@ Overview of changes since NetworkManager-l2tp-1.52.2
 Changes:
 * Parser-hardening of control characters in username, VPN data-items
   and secrets along with PLUTODEBUG and CHARONDEBUG env vars.
+  (CVE-2026-19624)
 * Disable MPPE option in editor whenever IPsec is enabled.
 * Remove deprecated KDE Plasma-nm L2TP certificate support.
 * Updated translations.
