@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: NetworkManager-l2tp\n"
 "Report-Msgid-Bugs-To: https://gitlab.freedesktop.org/NetworkManager/"
 "NetworkManager/issues\n"
-"POT-Creation-Date: 2026-07-01 02:33+1000\n"
+"POT-Creation-Date: 2026-09-11 08:02+1000\n"
 "PO-Revision-Date: 2007-02-02 20:53+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <l10n.opentle.org>\n"
@@ -196,7 +196,7 @@ msgstr ""
 
 #: properties/nm-l2tp-dialog.ui:61
 msgid "User Authentication"
-msgstr "การรับรองความถูกต้องผู้ใช้"
+msgstr "การรับรองความถูกต้องของผู้ใช้"
 
 #: properties/nm-l2tp-dialog.ui:77 properties/nm-l2tp-dialog.ui:577
 msgid "Type"
@@ -277,7 +277,7 @@ msgstr "_ยกเลิก"
 
 #: properties/nm-l2tp-dialog.ui:485 properties/nm-l2tp-dialog.ui:1177
 msgid "_Apply"
-msgstr "เริ่มใ_ช้"
+msgstr "นำไ_ปใช้"
 
 #: properties/nm-l2tp-dialog.ui:539
 msgid "_Enable IPsec tunnel to L2TP host"
@@ -289,7 +289,7 @@ msgstr "config: ipsec-enabled"
 
 #: properties/nm-l2tp-dialog.ui:560
 msgid "Machine Authentication"
-msgstr "การรับรองความถูกต้องเครื่อง"
+msgstr "การรับรองความถูกต้องของเครื่อง"
 
 #: properties/nm-l2tp-dialog.ui:642
 msgid ""
@@ -854,182 +854,209 @@ msgstr "ไม่สามารถโหลดแฟกทอรี %s จา�
 msgid "unknown error creating editor instance"
 msgstr "เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุในการสร้างอินสแตนซ์ของตัวแก้ไข"
 
-#: src/nm-l2tp-service.c:317
+#: src/nm-l2tp-service.c:366
 #, c-format
 msgid "property '%s' contains a control character"
 msgstr ""
 
-#: src/nm-l2tp-service.c:329
+#: src/nm-l2tp-service.c:378
 #, c-format
 msgid "invalid gateway '%s'"
 msgstr "เกตเวย์ '%s' ไม่ถูกต้อง"
 
-#: src/nm-l2tp-service.c:342
+#: src/nm-l2tp-service.c:393
 #, c-format
-msgid "invalid integer property '%s'"
+msgid "invalid unsigned integer property '%s'"
 msgstr "คุณสมบัติแบบจำนวนเต็ม '%s' ไม่ถูกต้อง"
 
-#: src/nm-l2tp-service.c:352
+#: src/nm-l2tp-service.c:403
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr "คุณสมบัติแบบบูลีน '%s' ไม่ถูกต้อง (ไม่ใช่ yes หรือ no)"
 
-#: src/nm-l2tp-service.c:359
+#: src/nm-l2tp-service.c:410
 #, c-format
 msgid "unhandled property '%s' type %s"
 msgstr "ยังไม่รองรับคุณสมบัติ '%s' ชนิด %s"
 
-#: src/nm-l2tp-service.c:371
+#: src/nm-l2tp-service.c:422
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "คุณสมบัติ '%s' ไม่ถูกต้องหรือไม่รองรับ"
 
-#: src/nm-l2tp-service.c:389
+#: src/nm-l2tp-service.c:440
 msgid "No VPN configuration options."
 msgstr "ไม่มีตัวเลือกการตั้งค่า VPN"
 
-#: src/nm-l2tp-service.c:409
+#: src/nm-l2tp-service.c:460
 #, c-format
 msgid "Missing required option '%s'."
 msgstr "ไม่มีตัวเลือกที่จำเป็น '%s'"
 
-#: src/nm-l2tp-service.c:733
+#: src/nm-l2tp-service.c:614
+#, c-format
+msgid "pppd option '%s' contains an unsafe control character"
+msgstr ""
+
+#: src/nm-l2tp-service.c:803
 #, c-format
 msgid "Could not open %s for writing: %s"
 msgstr ""
 
-#: src/nm-l2tp-service.c:742
+#: src/nm-l2tp-service.c:812
 #, c-format
 msgid "Could not append \"include ipsec.d/ipsec.nm-l2tp.secrets\" to %s"
 msgstr ""
 
-#: src/nm-l2tp-service.c:760
+#: src/nm-l2tp-service.c:830
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr ""
 
-#: src/nm-l2tp-service.c:796
+#: src/nm-l2tp-service.c:866
 msgid "Machine private key file not supplied"
 msgstr "ไม่ได้ระบุไฟล์กุญแจส่วนตัวของเครื่อง"
 
-#: src/nm-l2tp-service.c:890
+#: src/nm-l2tp-service.c:960
 msgid "Could not write ipsec config"
 msgstr "ไม่สามารถเขียนการตั้งค่า ipsec ได้"
 
-#: src/nm-l2tp-service.c:990
+#: src/nm-l2tp-service.c:1060
 msgid "Machine certificate file not supplied"
 msgstr "ไม่ได้ระบุไฟล์ใบรับรองของเครื่อง"
 
-#: src/nm-l2tp-service.c:1105
+#: src/nm-l2tp-service.c:1175
 msgid "Could not write kl2tpd config."
 msgstr "ไม่สามารถเขียนการตั้งค่า kl2tpd ได้"
 
-#: src/nm-l2tp-service.c:1124
+#: src/nm-l2tp-service.c:1199
 msgid "Could not write xl2tpd config."
 msgstr "ไม่สามารถเขียนการตั้งค่า xl2tpd ได้"
 
-#: src/nm-l2tp-service.c:1165
+#: src/nm-l2tp-service.c:1242
+msgid "Could not write kl2tpd pppd argument wrapper."
+msgstr "ไม่สามารถเขียนการตั้งค่า kl2tpd ได้"
+
+#: src/nm-l2tp-service.c:1260
 msgid "Could not write ppp options."
 msgstr "ไม่สามารถเขียนตัวเลือก ppp ได้"
 
-#: src/nm-l2tp-service.c:1368
+#: src/nm-l2tp-service.c:1334
+msgid "invalid MRRU value"
+msgstr ""
+
+#: src/nm-l2tp-service.c:1493
 msgid "VPN username contains a control character"
 msgstr ""
 
-#: src/nm-l2tp-service.c:1495 src/nm-l2tp-service.c:1529
+#: src/nm-l2tp-service.c:1549
+msgid "invalid MRU value"
+msgstr ""
+
+#: src/nm-l2tp-service.c:1566
+msgid "invalid MTU value"
+msgstr ""
+
+#: src/nm-l2tp-service.c:1640 src/nm-l2tp-service.c:1674
 msgid "Could not start the ipsec service."
 msgstr "ไม่สามารถเริ่มบริการ ipsec ได้"
 
-#: src/nm-l2tp-service.c:1502 src/nm-l2tp-service.c:1541
+#: src/nm-l2tp-service.c:1647 src/nm-l2tp-service.c:1686
 msgid "Could not restart the ipsec service."
 msgstr "ไม่สามารถเริ่มบริการ ipsec ใหม่ได้"
 
-#: src/nm-l2tp-service.c:1579
+#: src/nm-l2tp-service.c:1724
 msgid "Could not add ipsec connection."
 msgstr "ไม่สามารถเพิ่มการเชื่อมต่อ ipsec ได้"
 
-#: src/nm-l2tp-service.c:1663
+#: src/nm-l2tp-service.c:1809
 msgid "Could not establish IPsec connection."
 msgstr "ไม่สามารถสร้างการเชื่อมต่อ IPsec ได้"
 
-#: src/nm-l2tp-service.c:1679
+#: src/nm-l2tp-service.c:1825
 msgid "Could not find kl2tpd or xl2tpd binaries."
 msgstr "ไม่พบไบนารีของ kl2tpd หรือ xl2tpd"
 
-#: src/nm-l2tp-service.c:1799
+#: src/nm-l2tp-service.c:1945
 msgid "Missing or invalid VPN user certificate password."
 msgstr "รหัสผ่านใบรับรองผู้ใช้ของ VPN หายไปหรือไม่ถูกต้อง"
 
-#: src/nm-l2tp-service.c:1817
+#: src/nm-l2tp-service.c:1963
 msgid "Missing VPN username."
 msgstr "ไม่มีชื่อผู้ใช้ VPN"
 
-#: src/nm-l2tp-service.c:1825
+#: src/nm-l2tp-service.c:1971
 msgid "VPN username contains a control character."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1834
+#: src/nm-l2tp-service.c:1980
 msgid "Missing or invalid VPN password."
 msgstr "รหัสผ่าน VPN หายไปหรือไม่ถูกต้อง"
 
-#: src/nm-l2tp-service.c:1939
+#: src/nm-l2tp-service.c:2085
 msgid "couldn't convert L2TP VPN gateway IP address."
 msgstr ""
 
-#: src/nm-l2tp-service.c:1952
+#: src/nm-l2tp-service.c:2098
 msgid "couldn't look up L2TP VPN gateway IP address "
 msgstr ""
 
-#: src/nm-l2tp-service.c:1970
+#: src/nm-l2tp-service.c:2116
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr ""
 
-#: src/nm-l2tp-service.c:1991
+#: src/nm-l2tp-service.c:2137
 msgid "couldn't determine local IP to contact L2TP VPN gateway"
 msgstr ""
 
-#: src/nm-l2tp-service.c:2000
+#: src/nm-l2tp-service.c:2146
 msgid "unable to connect to L2TP VPN gateway"
 msgstr ""
 
-#: src/nm-l2tp-service.c:2006
+#: src/nm-l2tp-service.c:2152
 msgid "failed to get local IP"
 msgstr ""
 
-#: src/nm-l2tp-service.c:2034
+#: src/nm-l2tp-service.c:2180
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr "ไม่พบไบนารีของ ipsec ได้ติดตั้ง Libreswan หรือ strongSwan แล้วหรือไม่"
 
-#: src/nm-l2tp-service.c:2042
+#: src/nm-l2tp-service.c:2188
 msgid "Openswan is no longer supported, use Libreswan or strongSwan."
 msgstr "ไม่รองรับ Openswan อีกต่อไป โปรดใช้ Libreswan หรือ strongSwan"
 
-#: src/nm-l2tp-service.c:2045
+#: src/nm-l2tp-service.c:2191
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr "ไม่พบทั้ง Libreswan และ strongSwan"
 
-#: src/nm-l2tp-service.c:2059
+#: src/nm-l2tp-service.c:2205
 msgid "could not retrieve connection UUID"
 msgstr "ไม่สามารถดึง UUID ของการเชื่อมต่อได้"
 
-#: src/nm-l2tp-service.c:2067
+#: src/nm-l2tp-service.c:2213
 msgid "Invalid or missing L2TP gateway."
 msgstr "เกตเวย์ L2TP หายไปหรือไม่ถูกต้อง"
 
-#: src/nm-l2tp-service.c:2446
+#: src/nm-l2tp-service.c:2592
 msgid "Don't quit when VPN connection terminates"
 msgstr "อย่าออกจากโปรแกรมเมื่อการเชื่อมต่อ VPN สิ้นสุดลง"
 
-#: src/nm-l2tp-service.c:2453
+#: src/nm-l2tp-service.c:2599
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "เปิดใช้การบันทึกดีบักแบบละเอียด (อาจเปิดเผยรหัสผ่าน)"
 
-#: src/nm-l2tp-service.c:2460
+#: src/nm-l2tp-service.c:2606
 msgid "D-Bus name to use for this instance"
 msgstr "ชื่อ D-Bus ที่จะใช้สำหรับอินสแตนซ์นี้"
 
-#: src/nm-l2tp-service.c:2479
+#: src/nm-l2tp-service.c:2625
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
 msgstr ""
+
+#~ msgid "Group Name:"
+#~ msgstr "ชื่อกลุ่ม:"
+
+#~ msgid "IPv4 and IPv6 are both disabled for this connection."
+#~ msgstr "การเชื่อมต่อนี้ปิดใช้งานทั้ง IPv4 และ IPv6"
