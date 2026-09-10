@@ -881,7 +881,7 @@ msgstr "เกตเวย์ '%s' ไม่ถูกต้อง"
 #: src/nm-l2tp-service.c:490
 #, c-format
 msgid "property '%s' is not an IPv4 literal"
-msgstr "property '%s' is not an IPv4 literal"
+msgstr ""
 
 #: src/nm-l2tp-service.c:505
 #, c-format
@@ -915,7 +915,7 @@ msgstr "ไม่มีตัวเลือกที่จำเป็น '%s'"
 #: src/nm-l2tp-service.c:725
 #, c-format
 msgid "pppd option '%s' contains an unsafe control character"
-msgstr "pppd option '%s' contains an unsafe control character"
+msgstr ""
 
 #: src/nm-l2tp-service.c:964
 #, c-format

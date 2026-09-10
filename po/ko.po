@@ -832,12 +832,12 @@ msgstr ""
 #: src/nm-l2tp-service.c:490
 #, c-format
 msgid "property '%s' is not an IPv4 literal"
-msgstr "property '%s' is not an IPv4 literal"
+msgstr ""
 
 #: src/nm-l2tp-service.c:505
 #, c-format
 msgid "invalid unsigned integer property '%s'"
-msgstr "invalid unsigned integer property '%s'"
+msgstr ""
 
 #: src/nm-l2tp-service.c:515
 #, c-format
@@ -866,7 +866,7 @@ msgstr ""
 #: src/nm-l2tp-service.c:725
 #, c-format
 msgid "pppd option '%s' contains an unsafe control character"
-msgstr "pppd option '%s' contains an unsafe control character"
+msgstr ""
 
 #: src/nm-l2tp-service.c:964
 #, c-format
