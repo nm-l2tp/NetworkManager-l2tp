@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: NetworkManager-l2tp main\n"
 "Report-Msgid-Bugs-To: https://gitlab.freedesktop.org/NetworkManager/"
 "NetworkManager/issues\n"
-"POT-Creation-Date: 2026-06-24 21:25+1000\n"
+"POT-Creation-Date: 2026-09-08 20:58+1000\n"
 "PO-Revision-Date: 2018-08-21 00:21+0200\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
@@ -120,69 +120,69 @@ msgstr ""
 "Sie müssen sich legitimieren, um auf das Virtuelle Private Netz »%s« "
 "zuzugreifen."
 
-#: properties/import-export.c:186 properties/import-export.c:397
-#: properties/import-export.c:640
+#: properties/import-export.c:185 properties/import-export.c:410
+#: properties/import-export.c:669
 #, c-format
 msgid "Required property %s missing"
 msgstr ""
 
-#: properties/import-export.c:205 properties/import-export.c:416
+#: properties/import-export.c:205 properties/import-export.c:430
 #, c-format
 msgid "Property %s value '%s' can't be parsed as boolean."
 msgstr ""
 
-#: properties/import-export.c:271 properties/import-export.c:478
+#: properties/import-export.c:272 properties/import-export.c:493
 #, c-format
 msgid "Property '%s' value '%s' couldn't find netmask."
 msgstr ""
 
-#: properties/import-export.c:281 properties/import-export.c:320
-#: properties/import-export.c:488 properties/import-export.c:524
+#: properties/import-export.c:284 properties/import-export.c:326
+#: properties/import-export.c:505 properties/import-export.c:545
 #, c-format
 msgid "Property '%s' value '%s' can't be parsed as IP address."
 msgstr ""
 
-#: properties/import-export.c:298 properties/import-export.c:504
+#: properties/import-export.c:303 properties/import-export.c:523
 #, c-format
 msgid "Property '%s' value '%s' can't be parsed as IP netmask."
 msgstr ""
 
-#: properties/import-export.c:345 properties/import-export.c:547
+#: properties/import-export.c:353 properties/import-export.c:571
 #, c-format
 msgid "Property '%s' value '%s' can't be parsed as route metric."
 msgstr ""
 
-#: properties/import-export.c:355 properties/import-export.c:557
+#: properties/import-export.c:365 properties/import-export.c:583
 #, c-format
 msgid "Error parsing property '%s' value '%s'."
 msgstr "Unbehandelte Eigenschaft »%s« des Typs %s"
 
-#: properties/import-export.c:367 properties/import-export.c:569
+#: properties/import-export.c:379 properties/import-export.c:597
 #, c-format
 msgid "Error parsing property '%s': %s."
 msgstr "Unbehandelte Eigenschaft »%s« des Typs %s"
 
-#: properties/import-export.c:604
+#: properties/import-export.c:633
 msgid "does not look like a L2TP VPN connection (parse failed)"
 msgstr ""
 
-#: properties/import-export.c:658
+#: properties/import-export.c:687
 #, c-format
 msgid "Property %s can't be parsed as integer."
 msgstr ""
 
-#: properties/import-export.c:676
+#: properties/import-export.c:705
 #, c-format
 msgid ""
 "Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."
 msgstr ""
 
-#: properties/import-export.c:946
+#: properties/import-export.c:975
 #, c-format
 msgid "Missing required property '%s'"
 msgstr "Benötigte Option »%s« fehlt."
 
-#: properties/import-export.c:975
+#: properties/import-export.c:1004
 msgid "Couldn't open file for writing."
 msgstr "Datei konnte nicht zum Schreiben geöffnet werden."
 
@@ -912,197 +912,227 @@ msgstr "Factory %s kann nicht aus Erweiterung geladen werden: %s"
 msgid "unknown error creating editor instance"
 msgstr "Unbekannter Fehler beim Erzeugen der Editor-Instanz"
 
-#: src/nm-l2tp-service.c:417
+#: src/nm-l2tp-service.c:466
 #, c-format
 msgid "property '%s' contains a control character"
 msgstr "Eigenschaft »%s« enthält ein Steuerzeichen"
 
-#: src/nm-l2tp-service.c:429
+#: src/nm-l2tp-service.c:478
 #, c-format
 msgid "invalid gateway '%s'"
 msgstr "Ungültiges Gateway »%s«"
 
-#: src/nm-l2tp-service.c:442
+#: src/nm-l2tp-service.c:490
 #, c-format
-msgid "invalid integer property '%s'"
+msgid "property '%s' is not an IPv4 literal"
+msgstr "Eigenschaft »%s« ist kein IPv4-Literal"
+
+#: src/nm-l2tp-service.c:505
+#, c-format
+msgid "invalid unsigned integer property '%s'"
 msgstr "Ungültige Ganzzahl-Eigenschaft »%s«"
 
-#: src/nm-l2tp-service.c:452
+#: src/nm-l2tp-service.c:515
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr "Ungültige boolesche Eigenschaft »%s« (nicht »yes« oder »no«)"
 
-#: src/nm-l2tp-service.c:459
+#: src/nm-l2tp-service.c:522
 #, c-format
 msgid "unhandled property '%s' type %s"
 msgstr "Unbehandelte Eigenschaft »%s« des Typs %s"
 
-#: src/nm-l2tp-service.c:471
+#: src/nm-l2tp-service.c:534
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "Eigenschaft »%s« ist ungültig oder wird nicht unterstützt"
 
-#: src/nm-l2tp-service.c:489
+#: src/nm-l2tp-service.c:552
 msgid "No VPN configuration options."
 msgstr "Keine VPN-Konfigurationsoptionen."
 
-#: src/nm-l2tp-service.c:509
+#: src/nm-l2tp-service.c:572
 #, c-format
 msgid "Missing required option '%s'."
 msgstr "Benötigte Option »%s« fehlt."
 
-#: src/nm-l2tp-service.c:882
+#: src/nm-l2tp-service.c:725
+#, c-format
+msgid "pppd option '%s' contains an unsafe control character"
+msgstr "pppd-Option »%s« enthält ein unsicheres Steuerzeichen"
+
+#: src/nm-l2tp-service.c:964
 #, c-format
 msgid "Could not open %s for writing: %s"
 msgstr "%s konnte nicht zum Schreiben geöffnet werden: %s"
 
-#: src/nm-l2tp-service.c:891
+#: src/nm-l2tp-service.c:973
 #, c-format
 msgid "Could not append \"include ipsec.d/ipsec.nm-l2tp.secrets\" to %s"
 msgstr ""
 "\"include ipsec.d/ipsec.nm-l2tp.secrets\" konnte nicht an %s angehängt werden"
 
-#: src/nm-l2tp-service.c:908
+#: src/nm-l2tp-service.c:990
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr "%s/ipsec.nm-l2tp.secrets konnte nicht geschrieben werden"
 
-#: src/nm-l2tp-service.c:947
+#: src/nm-l2tp-service.c:1029
 msgid "Machine private key file not supplied"
 msgstr "Datei mit privatem Schlüssel des Rechners wurde nicht angegeben"
 
-#: src/nm-l2tp-service.c:1041
+#: src/nm-l2tp-service.c:1123
 msgid "Could not write ipsec config"
 msgstr "IPsec-Konfiguration konnte nicht geschrieben werden"
 
-#: src/nm-l2tp-service.c:1140
+#: src/nm-l2tp-service.c:1230
 msgid "Machine certificate file not supplied"
 msgstr "Zertifikatsdatei des Rechners wurde nicht angegeben"
 
-#: src/nm-l2tp-service.c:1255
+#: src/nm-l2tp-service.c:1345
 msgid "Could not write kl2tpd config."
 msgstr "kl2tpd-Konfiguration konnte nicht geschrieben werden."
 
-#: src/nm-l2tp-service.c:1285
+#: src/nm-l2tp-service.c:1380
 msgid "Could not write xl2tpd config."
 msgstr "xl2tpd-Konfiguration konnte nicht geschrieben werden."
 
-#: src/nm-l2tp-service.c:1335
+#: src/nm-l2tp-service.c:1432
+msgid "Could not write kl2tpd pppd argument wrapper."
+msgstr "kl2tpd-Konfiguration konnte nicht geschrieben werden."
+
+#: src/nm-l2tp-service.c:1450
 msgid "Could not write ppp options."
 msgstr "PPP-Optionen konnten nicht geschrieben werden."
 
-#: src/nm-l2tp-service.c:1584
+#: src/nm-l2tp-service.c:1503
+msgid "IPCP peer address is not an IPv4 literal"
+msgstr ""
+
+#: src/nm-l2tp-service.c:1550
+msgid "invalid MRRU value"
+msgstr ""
+
+#: src/nm-l2tp-service.c:1742
 msgid "VPN username contains a control character"
 msgstr "VPN-Benutzername enthält ein Steuerzeichen"
 
-#: src/nm-l2tp-service.c:1711 src/nm-l2tp-service.c:1745
+#: src/nm-l2tp-service.c:1798
+msgid "invalid MRU value"
+msgstr ""
+
+#: src/nm-l2tp-service.c:1815
+msgid "invalid MTU value"
+msgstr ""
+
+#: src/nm-l2tp-service.c:1889 src/nm-l2tp-service.c:1923
 msgid "Could not start the ipsec service."
 msgstr "Der IPsec-Dienst konnte nicht gestartet werden."
 
-#: src/nm-l2tp-service.c:1718 src/nm-l2tp-service.c:1757
+#: src/nm-l2tp-service.c:1896 src/nm-l2tp-service.c:1935
 msgid "Could not restart the ipsec service."
 msgstr "Der IPsec-Dienst konnte nicht neu gestartet werden."
 
-#: src/nm-l2tp-service.c:1795
+#: src/nm-l2tp-service.c:1973
 msgid "Could not add ipsec connection."
 msgstr "IPsec-Verbindung konnte nicht hinzugefügt werden."
 
-#: src/nm-l2tp-service.c:1879
+#: src/nm-l2tp-service.c:2058
 msgid "Could not establish IPsec connection."
 msgstr "IPsec-Verbindung konnte nicht hergestellt werden."
 
-#: src/nm-l2tp-service.c:1895
+#: src/nm-l2tp-service.c:2074
 msgid "Could not find kl2tpd or xl2tpd binaries."
 msgstr "kl2tpd- oder xl2tpd-Programme konnten nicht gefunden werden."
 
-#: src/nm-l2tp-service.c:2015
+#: src/nm-l2tp-service.c:2194
 msgid "Missing or invalid VPN user certificate password."
 msgstr "Fehlendes oder ungültiges Passwort für das VPN-Benutzerzertifikat."
 
-#: src/nm-l2tp-service.c:2033
+#: src/nm-l2tp-service.c:2212
 msgid "Missing VPN username."
 msgstr "VPN-Benutzername fehlt."
 
-#: src/nm-l2tp-service.c:2041
+#: src/nm-l2tp-service.c:2220
 msgid "VPN username contains a control character."
 msgstr "VPN-Benutzername enthält ein Steuerzeichen."
 
-#: src/nm-l2tp-service.c:2050
+#: src/nm-l2tp-service.c:2229
 msgid "Missing or invalid VPN password."
 msgstr "Fehlendes oder ungültiges VPN-Passwort."
 
-#: src/nm-l2tp-service.c:2287
+#: src/nm-l2tp-service.c:2466
 msgid "IPv4 and IPv6 are both disabled for this connection."
 msgstr "IPv4 und IPv6 sind für diese Verbindung beide deaktiviert."
 
-#: src/nm-l2tp-service.c:2303
+#: src/nm-l2tp-service.c:2482
 msgid "couldn't look up L2TP VPN gateway IP address "
 msgstr "L2TP-VPN-Gateway-IP-Adresse konnte nicht nachgeschlagen werden "
 
-#: src/nm-l2tp-service.c:2332
+#: src/nm-l2tp-service.c:2511
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr "Keine verwendbaren Adressen für das L2TP-VPN-Gateway zurückgegeben "
 
-#: src/nm-l2tp-service.c:2351
+#: src/nm-l2tp-service.c:2530
 msgid "couldn't determine L2TP VPN gateway address family"
 msgstr "Adressfamilie des L2TP-VPN-Gateways konnte nicht bestimmt werden"
 
-#: src/nm-l2tp-service.c:2355
+#: src/nm-l2tp-service.c:2534
 msgid "couldn't determine local IP to contact L2TP VPN gateway"
 msgstr ""
 "Lokale IP zum Kontaktieren des L2TP-VPN-Gateways konnte nicht bestimmt werden"
 
-#: src/nm-l2tp-service.c:2369
+#: src/nm-l2tp-service.c:2548
 msgid "unable to connect to L2TP VPN gateway"
 msgstr "Verbindung zum L2TP-VPN-Gateway nicht möglich"
 
-#: src/nm-l2tp-service.c:2376
+#: src/nm-l2tp-service.c:2555
 msgid "failed to get local IP"
 msgstr "Lokale IP konnte nicht ermittelt werden"
 
-#: src/nm-l2tp-service.c:2395
+#: src/nm-l2tp-service.c:2574
 msgid "failed to format local IP address"
 msgstr "Lokale IP-Adresse konnte nicht formatiert werden"
 
-#: src/nm-l2tp-service.c:2426
+#: src/nm-l2tp-service.c:2605
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 "Das ipsec-Programm konnte nicht gefunden werden. Ist Libreswan oder "
 "strongSwan installiert?"
 
-#: src/nm-l2tp-service.c:2434
+#: src/nm-l2tp-service.c:2613
 msgid "Openswan is no longer supported, use Libreswan or strongSwan."
 msgstr ""
 "Openswan wird nicht mehr unterstützt, verwenden Sie Libreswan oder "
 "strongSwan."
 
-#: src/nm-l2tp-service.c:2437
+#: src/nm-l2tp-service.c:2616
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr "Weder Libreswan noch strongSwan wurden gefunden."
 
-#: src/nm-l2tp-service.c:2451
+#: src/nm-l2tp-service.c:2630
 msgid "could not retrieve connection UUID"
 msgstr "Verbindungs-UUID konnte nicht ermittelt werden"
 
-#: src/nm-l2tp-service.c:2463
+#: src/nm-l2tp-service.c:2642
 msgid "Invalid or missing L2TP gateway."
 msgstr "Das VPN-Gateway fehlt oder ist ungültig."
 
-#: src/nm-l2tp-service.c:2845
+#: src/nm-l2tp-service.c:3024
 msgid "Don't quit when VPN connection terminates"
 msgstr "Nicht beenden, wenn die VPN-Verbindung beendet wird"
 
-#: src/nm-l2tp-service.c:2852
+#: src/nm-l2tp-service.c:3031
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr ""
 "Ausführliche Protokollierung zur Fehlerdiagnose erlauben (könnte Passwörter "
 "sichtbar machen)"
 
-#: src/nm-l2tp-service.c:2859
+#: src/nm-l2tp-service.c:3038
 msgid "D-Bus name to use for this instance"
 msgstr "Für diese Instanz zu verwendender D-Bus-Name"
 
-#: src/nm-l2tp-service.c:2878
+#: src/nm-l2tp-service.c:3057
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."

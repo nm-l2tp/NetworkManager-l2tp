@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: NetworkManager-l2tp main\n"
 "Report-Msgid-Bugs-To: https://gitlab.freedesktop.org/NetworkManager/"
 "NetworkManager/issues\n"
-"POT-Creation-Date: 2026-06-24 21:25+1000\n"
+"POT-Creation-Date: 2026-09-08 20:58+1000\n"
 "PO-Revision-Date: 2020-05-10 21:00+0900\n"
 "Last-Translator: sicklylife <translation@sicklylife.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
@@ -113,59 +113,59 @@ msgstr "マシン証明書のパスワード(_M):"
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr "仮想プライベートネットワーク“%s”にアクセスするには認証が必要です。"
 
-#: properties/import-export.c:186 properties/import-export.c:397
-#: properties/import-export.c:640
+#: properties/import-export.c:185 properties/import-export.c:410
+#: properties/import-export.c:669
 #, c-format
 msgid "Required property %s missing"
 msgstr "必須プロパティー %s がありません"
 
-#: properties/import-export.c:205 properties/import-export.c:416
+#: properties/import-export.c:205 properties/import-export.c:430
 #, c-format
 msgid "Property %s value '%s' can't be parsed as boolean."
 msgstr "プロパティー %s の値 '%s' を真偽値として解析できません。"
 
-#: properties/import-export.c:271 properties/import-export.c:478
+#: properties/import-export.c:272 properties/import-export.c:493
 #, c-format
 msgid "Property '%s' value '%s' couldn't find netmask."
 msgstr ""
 "プロパティー '%s' の値 '%s' に対応するネットマスクが見つかりませんでした。"
 
-#: properties/import-export.c:281 properties/import-export.c:320
-#: properties/import-export.c:488 properties/import-export.c:524
+#: properties/import-export.c:284 properties/import-export.c:326
+#: properties/import-export.c:505 properties/import-export.c:545
 #, c-format
 msgid "Property '%s' value '%s' can't be parsed as IP address."
 msgstr "プロパティー '%s' の値 '%s' を IP アドレスとして解析できません。"
 
-#: properties/import-export.c:298 properties/import-export.c:504
+#: properties/import-export.c:303 properties/import-export.c:523
 #, c-format
 msgid "Property '%s' value '%s' can't be parsed as IP netmask."
 msgstr "プロパティー '%s' の値 '%s' を IP ネットマスクとして解析できません。"
 
-#: properties/import-export.c:345 properties/import-export.c:547
+#: properties/import-export.c:353 properties/import-export.c:571
 #, c-format
 msgid "Property '%s' value '%s' can't be parsed as route metric."
 msgstr "プロパティー '%s' の値 '%s' を経路メトリックとして解析できません。"
 
-#: properties/import-export.c:355 properties/import-export.c:557
+#: properties/import-export.c:365 properties/import-export.c:583
 #, c-format
 msgid "Error parsing property '%s' value '%s'."
 msgstr "プロパティー '%s' の値 '%s' の解析中にエラーが発生しました。"
 
-#: properties/import-export.c:367 properties/import-export.c:569
+#: properties/import-export.c:379 properties/import-export.c:597
 #, c-format
 msgid "Error parsing property '%s': %s."
 msgstr "プロパティー '%s' の解析中にエラーが発生しました: %s。"
 
-#: properties/import-export.c:604
+#: properties/import-export.c:633
 msgid "does not look like a L2TP VPN connection (parse failed)"
 msgstr "L2TP VPN 接続のようには見えません (解析失敗)"
 
-#: properties/import-export.c:658
+#: properties/import-export.c:687
 #, c-format
 msgid "Property %s can't be parsed as integer."
 msgstr "プロパティー %s を整数として解析できません。"
 
-#: properties/import-export.c:676
+#: properties/import-export.c:705
 #, c-format
 msgid ""
 "Property %s can't be parsed as boolean. Only 'true' and 'false' allowed."
@@ -173,12 +173,12 @@ msgstr ""
 "プロパティー %s を真偽値として解析できません。'true' と 'false' のみ使用でき"
 "ます。"
 
-#: properties/import-export.c:946
+#: properties/import-export.c:975
 #, c-format
 msgid "Missing required property '%s'"
 msgstr "必須プロパティー '%s' がありません"
 
-#: properties/import-export.c:975
+#: properties/import-export.c:1004
 msgid "Couldn't open file for writing."
 msgstr "書き込み用にファイルを開けませんでした。"
 
@@ -898,195 +898,225 @@ msgstr "プラグインからファクトリー %s を読み込めません: %s"
 msgid "unknown error creating editor instance"
 msgstr "エディターインスタンスの作成中に不明なエラー"
 
-#: src/nm-l2tp-service.c:417
+#: src/nm-l2tp-service.c:466
 #, c-format
 msgid "property '%s' contains a control character"
 msgstr "パラメーター %s に制御文字が含まれています"
 
-#: src/nm-l2tp-service.c:429
+#: src/nm-l2tp-service.c:478
 #, c-format
 msgid "invalid gateway '%s'"
 msgstr "無効なゲートウェイ %s"
 
-#: src/nm-l2tp-service.c:442
+#: src/nm-l2tp-service.c:490
 #, c-format
-msgid "invalid integer property '%s'"
+msgid "property '%s' is not an IPv4 literal"
+msgstr "パラメーター %s に制御文字が含まれています"
+
+#: src/nm-l2tp-service.c:505
+#, c-format
+msgid "invalid unsigned integer property '%s'"
 msgstr "数値型パラメーター %s が無効な数値です。"
 
-#: src/nm-l2tp-service.c:452
+#: src/nm-l2tp-service.c:515
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr ""
 "ブーリアン型パラメーター %s が無効な値です。(値はyes、noではありません)"
 
-#: src/nm-l2tp-service.c:459
+#: src/nm-l2tp-service.c:522
 #, c-format
 msgid "unhandled property '%s' type %s"
 msgstr "対処できない %s 型パラメーターの %s"
 
-#: src/nm-l2tp-service.c:471
+#: src/nm-l2tp-service.c:534
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "パラメーター %s は無効かサポートされていません。"
 
-#: src/nm-l2tp-service.c:489
+#: src/nm-l2tp-service.c:552
 msgid "No VPN configuration options."
 msgstr "VPN 設定オプションがありません。"
 
-#: src/nm-l2tp-service.c:509
+#: src/nm-l2tp-service.c:572
 #, c-format
 msgid "Missing required option '%s'."
 msgstr "必須オプション %s が不足しています。"
 
-#: src/nm-l2tp-service.c:882
+#: src/nm-l2tp-service.c:725
+#, c-format
+msgid "pppd option '%s' contains an unsafe control character"
+msgstr "パラメーター %s に制御文字が含まれています"
+
+#: src/nm-l2tp-service.c:964
 #, c-format
 msgid "Could not open %s for writing: %s"
 msgstr "%s を書き込み用に開けませんでした: %s"
 
-#: src/nm-l2tp-service.c:891
+#: src/nm-l2tp-service.c:973
 #, c-format
 msgid "Could not append \"include ipsec.d/ipsec.nm-l2tp.secrets\" to %s"
 msgstr "\"include ipsec.d/ipsec.nm-l2tp.secrets\" を %s に追記できませんでした"
 
-#: src/nm-l2tp-service.c:908
+#: src/nm-l2tp-service.c:990
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr "%s/ipsec.nm-l2tp.secrets に書き込めませんでした"
 
-#: src/nm-l2tp-service.c:947
+#: src/nm-l2tp-service.c:1029
 msgid "Machine private key file not supplied"
 msgstr "マシン秘密鍵ファイルが指定されていません"
 
-#: src/nm-l2tp-service.c:1041
+#: src/nm-l2tp-service.c:1123
 msgid "Could not write ipsec config"
 msgstr "ipsec 設定を書き込めませんでした"
 
-#: src/nm-l2tp-service.c:1140
+#: src/nm-l2tp-service.c:1230
 msgid "Machine certificate file not supplied"
 msgstr "マシン証明書ファイルが指定されていません"
 
-#: src/nm-l2tp-service.c:1255
+#: src/nm-l2tp-service.c:1345
 msgid "Could not write kl2tpd config."
 msgstr "kl2tpd 設定を書き込めませんでした。"
 
-#: src/nm-l2tp-service.c:1285
+#: src/nm-l2tp-service.c:1380
 msgid "Could not write xl2tpd config."
 msgstr "xl2tpd 設定を書き込めませんでした。"
 
-#: src/nm-l2tp-service.c:1335
+#: src/nm-l2tp-service.c:1432
+msgid "Could not write kl2tpd pppd argument wrapper."
+msgstr "kl2tpd 設定を書き込めませんでした。"
+
+#: src/nm-l2tp-service.c:1450
 msgid "Could not write ppp options."
 msgstr "ppp オプションを書き込めませんでした。"
 
-#: src/nm-l2tp-service.c:1584
+#: src/nm-l2tp-service.c:1503
+msgid "IPCP peer address is not an IPv4 literal"
+msgstr ""
+
+#: src/nm-l2tp-service.c:1550
+msgid "invalid MRRU value"
+msgstr ""
+
+#: src/nm-l2tp-service.c:1742
 msgid "VPN username contains a control character"
 msgstr "VPN ユーザー名に制御文字が含まれています"
 
-#: src/nm-l2tp-service.c:1711 src/nm-l2tp-service.c:1745
+#: src/nm-l2tp-service.c:1798
+msgid "invalid MRU value"
+msgstr ""
+
+#: src/nm-l2tp-service.c:1815
+msgid "invalid MTU value"
+msgstr ""
+
+#: src/nm-l2tp-service.c:1889 src/nm-l2tp-service.c:1923
 msgid "Could not start the ipsec service."
 msgstr "ipsec サービスを開始できませんでした。"
 
-#: src/nm-l2tp-service.c:1718 src/nm-l2tp-service.c:1757
+#: src/nm-l2tp-service.c:1896 src/nm-l2tp-service.c:1935
 msgid "Could not restart the ipsec service."
 msgstr "ipsec サービスを再起動できませんでした。"
 
-#: src/nm-l2tp-service.c:1795
+#: src/nm-l2tp-service.c:1973
 msgid "Could not add ipsec connection."
 msgstr "ipsec 接続を追加できませんでした。"
 
-#: src/nm-l2tp-service.c:1879
+#: src/nm-l2tp-service.c:2058
 msgid "Could not establish IPsec connection."
 msgstr "IPsec 接続を確立できませんでした。"
 
-#: src/nm-l2tp-service.c:1895
+#: src/nm-l2tp-service.c:2074
 msgid "Could not find kl2tpd or xl2tpd binaries."
 msgstr "kl2tpd または xl2tpd のバイナリーが見つかりませんでした。"
 
-#: src/nm-l2tp-service.c:2015
+#: src/nm-l2tp-service.c:2194
 msgid "Missing or invalid VPN user certificate password."
 msgstr "VPN ユーザー証明書のパスワードが不足しているか無効です。"
 
-#: src/nm-l2tp-service.c:2033
+#: src/nm-l2tp-service.c:2212
 msgid "Missing VPN username."
 msgstr "VPN ユーザー名がありません。"
 
-#: src/nm-l2tp-service.c:2041
+#: src/nm-l2tp-service.c:2220
 msgid "VPN username contains a control character."
 msgstr "VPN ユーザー名に制御文字が含まれています。"
 
-#: src/nm-l2tp-service.c:2050
+#: src/nm-l2tp-service.c:2229
 msgid "Missing or invalid VPN password."
 msgstr "VPN パスワードが不足しているか、無効です。"
 
-#: src/nm-l2tp-service.c:2287
+#: src/nm-l2tp-service.c:2466
 msgid "IPv4 and IPv6 are both disabled for this connection."
 msgstr "この接続では IPv4 と IPv6 の両方が無効になっています。"
 
-#: src/nm-l2tp-service.c:2303
+#: src/nm-l2tp-service.c:2482
 msgid "couldn't look up L2TP VPN gateway IP address "
 msgstr "L2TP VPN ゲートウェイの IP アドレスを名前解決できませんでした "
 
-#: src/nm-l2tp-service.c:2332
+#: src/nm-l2tp-service.c:2511
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr "L2TP VPN ゲートウェイに対して使用可能なアドレスが返されませんでした "
 
-#: src/nm-l2tp-service.c:2351
+#: src/nm-l2tp-service.c:2530
 msgid "couldn't determine L2TP VPN gateway address family"
 msgstr "L2TP VPN ゲートウェイのアドレスファミリーを判定できませんでした"
 
-#: src/nm-l2tp-service.c:2355
+#: src/nm-l2tp-service.c:2534
 msgid "couldn't determine local IP to contact L2TP VPN gateway"
 msgstr ""
 "L2TP VPN ゲートウェイに接続するためのローカル IP を判定できませんでした"
 
-#: src/nm-l2tp-service.c:2369
+#: src/nm-l2tp-service.c:2548
 msgid "unable to connect to L2TP VPN gateway"
 msgstr "L2TP VPN ゲートウェイに接続できません"
 
-#: src/nm-l2tp-service.c:2376
+#: src/nm-l2tp-service.c:2555
 msgid "failed to get local IP"
 msgstr "ローカル IP の取得に失敗しました"
 
-#: src/nm-l2tp-service.c:2395
+#: src/nm-l2tp-service.c:2574
 msgid "failed to format local IP address"
 msgstr "ローカル IP アドレスの整形に失敗しました"
 
-#: src/nm-l2tp-service.c:2426
+#: src/nm-l2tp-service.c:2605
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 "ipsec バイナリーが見つかりませんでした。Libreswan または strongSwan はインス"
 "トールされていますか?"
 
-#: src/nm-l2tp-service.c:2434
+#: src/nm-l2tp-service.c:2613
 msgid "Openswan is no longer supported, use Libreswan or strongSwan."
 msgstr ""
 "Openswan はもうサポートされていません。Libreswan または strongSwan を使用して"
 "ください。"
 
-#: src/nm-l2tp-service.c:2437
+#: src/nm-l2tp-service.c:2616
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr "Libreswan と strongSwan のどちらも見つかりませんでした。"
 
-#: src/nm-l2tp-service.c:2451
+#: src/nm-l2tp-service.c:2630
 msgid "could not retrieve connection UUID"
 msgstr "接続 UUID を取得できませんでした"
 
-#: src/nm-l2tp-service.c:2463
+#: src/nm-l2tp-service.c:2642
 msgid "Invalid or missing L2TP gateway."
 msgstr "L2TP ゲートウェイが無効か不足しています。"
 
-#: src/nm-l2tp-service.c:2845
+#: src/nm-l2tp-service.c:3024
 msgid "Don't quit when VPN connection terminates"
 msgstr "VPN 接続が切断された時に終了しないでください。"
 
-#: src/nm-l2tp-service.c:2852
+#: src/nm-l2tp-service.c:3031
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "詳細なデバッグ情報の保存を有効にする (パスワードも含まれます)"
 
-#: src/nm-l2tp-service.c:2859
+#: src/nm-l2tp-service.c:3038
 msgid "D-Bus name to use for this instance"
 msgstr "このインスタンスの D-Bus 名"
 
-#: src/nm-l2tp-service.c:2878
+#: src/nm-l2tp-service.c:3057
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
