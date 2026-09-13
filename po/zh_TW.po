@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp 0.8.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-28 16:37+1000\n"
+"POT-Creation-Date: 2026-09-13 20:29+1000\n"
 "PO-Revision-Date: 2011-01-25 17:31+0800\n"
 "Last-Translator: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>\n"
 "Language-Team: Chinese (traditional) <community@linuxhall.org>\n"
@@ -499,8 +499,8 @@ msgstr ""
 msgid "No cached credentials."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:359 ../src/nm-l2tp-service.c:1426
-#: ../src/nm-l2tp-service.c:1487
+#: ../src/nm-l2tp-service.c:359 ../src/nm-l2tp-service.c:1493
+#: ../src/nm-l2tp-service.c:1562
 #, c-format
 msgid "VPN username contains a control character."
 msgstr "VPN 使用者名稱包含控制字元。"
@@ -509,204 +509,219 @@ msgstr "VPN 使用者名稱包含控制字元。"
 msgid "L2TP service (IP Config Get) reply received."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:557
+#: ../src/nm-l2tp-service.c:601
 #, c-format
 msgid "property '%s' contains a control character"
 msgstr "屬性「%s」包含控制字元"
 
-#: ../src/nm-l2tp-service.c:576
+#: ../src/nm-l2tp-service.c:620
 #, c-format
 msgid "invalid gateway '%s'"
 msgstr "閘道「%s」無效"
 
-#: ../src/nm-l2tp-service.c:585
+#: ../src/nm-l2tp-service.c:629
 #, c-format
 msgid "invalid ipsec-gateway-id '%s'"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:598
+#: ../src/nm-l2tp-service.c:643
 #, c-format
-msgid "invalid integer property '%s'"
+msgid "invalid unsigned integer property '%s'"
 msgstr "整數屬性「%s」無效"
 
-#: ../src/nm-l2tp-service.c:608
+#: ../src/nm-l2tp-service.c:653
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr "布林值屬性「%s」無效（不是 yes 或 no）"
 
-#: ../src/nm-l2tp-service.c:615
+#: ../src/nm-l2tp-service.c:660
 #, c-format
 msgid "unhandled property '%s' type %s"
 msgstr "未處理的屬性「%s」類型 %s"
 
-#: ../src/nm-l2tp-service.c:626
+#: ../src/nm-l2tp-service.c:671
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "屬性「%s」無效或不支援"
 
-#: ../src/nm-l2tp-service.c:640
+#: ../src/nm-l2tp-service.c:685
 msgid "No VPN configuration options."
 msgstr "沒有 VPN 設定選項。"
 
-#: ../src/nm-l2tp-service.c:657
+#: ../src/nm-l2tp-service.c:702
 #, c-format
 msgid "Missing required option '%s'."
 msgstr "缺少必要的選項「%s」。"
 
-#: ../src/nm-l2tp-service.c:673
+#: ../src/nm-l2tp-service.c:718
 msgid "No VPN secrets!"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:692
+#: ../src/nm-l2tp-service.c:737
 #, c-format
 msgid "xl2tpd exited with error code %d"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:695
+#: ../src/nm-l2tp-service.c:740
 #, c-format
 msgid "xl2tpd stopped unexpectedly with signal %d"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:697
+#: ../src/nm-l2tp-service.c:742
 #, c-format
 msgid "xl2tpd died with signal %d"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:699
+#: ../src/nm-l2tp-service.c:744
 msgid "xl2tpd died from an unknown cause"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:783
+#: ../src/nm-l2tp-service.c:828
 msgid "pppd timeout. Looks like pppd didn't initialize our dbus module"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:820
+#: ../src/nm-l2tp-service.c:865
 #, c-format
 msgid "couldn't convert L2TP VPN gateway IP address '%s' (%d)"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:838
+#: ../src/nm-l2tp-service.c:883
 #, c-format
 msgid "couldn't look up L2TP VPN gateway IP address '%s' (%d)"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:862
+#: ../src/nm-l2tp-service.c:907
 #, c-format
 msgid "no usable addresses returned for L2TP VPN gateway '%s'"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:873
+#: ../src/nm-l2tp-service.c:918
 #, c-format
 msgid "no usable addresses returned for L2TP VPN gateway '%s' (%d)"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:878
+#: ../src/nm-l2tp-service.c:923
 #, c-format
 msgid "Use '%s' as a gateway"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:969 ../src/nm-l2tp-service.c:997
+#: ../src/nm-l2tp-service.c:1015 ../src/nm-l2tp-service.c:1043
 msgid "Could not start the ipsec service."
 msgstr "無法啟動 ipsec 服務。"
 
-#: ../src/nm-l2tp-service.c:975 ../src/nm-l2tp-service.c:1005
+#: ../src/nm-l2tp-service.c:1021 ../src/nm-l2tp-service.c:1051
 msgid "Could not restart the ipsec service."
 msgstr "無法重新啟動 ipsec 服務。"
 
-#: ../src/nm-l2tp-service.c:1057
+#: ../src/nm-l2tp-service.c:1103
 msgid "IPsec service is not ready."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1070
+#: ../src/nm-l2tp-service.c:1116
 msgid "Timeout trying to establish IPsec connection"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1080
+#: ../src/nm-l2tp-service.c:1126
 msgid "Libreswan IPsec connection is up."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1092
+#: ../src/nm-l2tp-service.c:1138
 msgid "strongSwan IPsec connection is up."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1105 ../src/nm-l2tp-service.c:1106
+#: ../src/nm-l2tp-service.c:1151 ../src/nm-l2tp-service.c:1152
 msgid "Could not establish IPsec connection."
 msgstr "無法建立 IPsec 連線。"
 
-#: ../src/nm-l2tp-service.c:1124
+#: ../src/nm-l2tp-service.c:1170
 msgid "Could not find the xl2tpd binary."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1145
+#: ../src/nm-l2tp-service.c:1191
 #, c-format
 msgid "xl2tpd started with pid %d"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1205
+#: ../src/nm-l2tp-service.c:1227
+#, c-format
+msgid "pppd option '%s' contains an unsafe control character"
+msgstr "pppd 選項「%s」包含不安全的控制字元"
+
+#: ../src/nm-l2tp-service.c:1272
 msgid "Can-not create new test socket"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1277
+#: ../src/nm-l2tp-service.c:1344
 #, c-format
 msgid "Could not open %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1293
+#: ../src/nm-l2tp-service.c:1360
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr "無法寫入 %s/ipsec.nm-l2tp.secrets"
 
-#: ../src/nm-l2tp-service.c:1328
+#: ../src/nm-l2tp-service.c:1395
 msgid "Could not write ipsec config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1392
+#: ../src/nm-l2tp-service.c:1459
 msgid "Could not write xl2tpd config."
 msgstr "無法寫入 xl2tpd 設定。"
 
-#: ../src/nm-l2tp-service.c:1450
+#: ../src/nm-l2tp-service.c:1521
 msgid "Could not write ppp options."
 msgstr "無法寫入 ppp 選項。"
 
-#: ../src/nm-l2tp-service.c:1660
+#: ../src/nm-l2tp-service.c:1615
+#, c-format
+msgid "invalid MRU value"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1632
+#, c-format
+msgid "invalid MTU value"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1760
 #, c-format
 msgid "ipsec enable flag: %s"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1664
+#: ../src/nm-l2tp-service.c:1764
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr "找不到 ipsec 執行檔。是否已安裝 Libreswan 或 strongSwan？"
 
-#: ../src/nm-l2tp-service.c:1670
+#: ../src/nm-l2tp-service.c:1770
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr "找不到 Libreswan 也找不到 strongSwan。"
 
-#: ../src/nm-l2tp-service.c:1690
+#: ../src/nm-l2tp-service.c:1790
 msgid "Could not start pppd plugin helper service."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1697
+#: ../src/nm-l2tp-service.c:1797
 msgid "could not retrieve connection UUID"
 msgstr "無法取得連線 UUID"
 
-#: ../src/nm-l2tp-service.c:1721
+#: ../src/nm-l2tp-service.c:1821
 msgid "starting ipsec"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1789
+#: ../src/nm-l2tp-service.c:1889
 #, c-format
 msgid "Terminated l2tp daemon with PID %d."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1936
+#: ../src/nm-l2tp-service.c:2036
 msgid "Don't quit when VPN connection terminates"
 msgstr "VPN 連線終止時不要結束"
 
-#: ../src/nm-l2tp-service.c:1937
+#: ../src/nm-l2tp-service.c:2037
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "啟用詳細調試日誌記錄（可能會公開密碼）"
 
-#: ../src/nm-l2tp-service.c:1960
+#: ../src/nm-l2tp-service.c:2060
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
