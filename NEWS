@@ -1,4 +1,19 @@
 =======================================================
+NetworkManager-l2tp-1.0.18
+Overview of changes since network-manager-l2tp-1.0.16
+=======================================================
+
+This is a new stable release of NetworkManager-l2tp.  Notable changes include:
+
+* Security fixes for local privilege escalation to root involving:
+  - Quote break-out via the 'user' string property written into
+    /run/nm-l2tp-<uuid>/ppp-options (CVE-2026-75131)
+  - Partial strtol() on mtu and mru properties allow trailing
+    string injection written into /run/nm-l2tp-<uuid>/ppp-options
+    (CVE-2026-75883)
+* Merged translations from NetworkManager-l2tp-1.52.4.
+
+=======================================================
 NetworkManager-l2tp-1.0.16
 Overview of changes since network-manager-l2tp-1.0.14
 =======================================================
@@ -7,7 +22,7 @@ This is a new stable release of NetworkManager-l2tp.  Notable changes include:
 
 * Fix for L2TP daemon start/restart decisions.
 * Parser-hardening of control characters in username, VPN data-items and
-  secrets.
+  secrets (CVE-2026-19624)
 * real_connect() was returning FALSE without setting error.
 * Merged translations from NetworkManager-l2tp-1.52.4.
 
