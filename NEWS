@@ -1,11 +1,25 @@
 ==========================================================
+NetworkManager-l2tp-1.2.24
+Overview of changes since network-manager-l2tp-1.2.22
+==========================================================
+
+* Security fixes for local privilege escalation to root involving:
+  - Quote break-out via the 'user' string property written into
+    /run/nm-l2tp-<uuid>/ppp-options (CVE-2026-75131)
+  - Partial strtol() on mtu and mru properties allow trailing
+    string injection written into /run/nm-l2tp-<uuid>/ppp-options
+    (CVE-2026-75883)
+* Merged translations from NetworkManager-l2tp-1.52.6.
+
+==========================================================
 NetworkManager-l2tp-1.2.22
 Overview of changes since network-manager-l2tp-1.2.20
 ==========================================================
 
 * Fix for L2TP daemon start/restart decisions.
 * Parser-hardening of control characters in username, VPN data-items
-  and secrets along with PLUTODEBUG and CHARONDEBUG env vars. 
+  and secrets along with PLUTODEBUG and CHARONDEBUG env vars
+  (CVE-2026-19624)
 * real_connect() was returning FALSE without setting error.
 * Merged translations from NetworkManager-l2tp-1.52.4.
 
