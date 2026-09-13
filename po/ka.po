@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp.main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-28 22:58+1000\n"
+"POT-Creation-Date: 2026-09-13 19:28+1000\n"
 "PO-Revision-Date: 2007-03-07 01:02+0100\n"
 "Last-Translator: Vladimer Sichinava ვლადიმერ სიჭინავა <vsichi@gnome.org>\n"
 "Language-Team: Georgian <http://mail.gnome.org/mailman/listinfo/gnome-ge-"
@@ -56,6 +56,11 @@ msgstr "საჭიროა აუთენტიკაცია VPN ‘%s’-
 #: ../auth-dialog/main.c:155 ../auth-dialog/main.c:176
 msgid "Authenticate VPN"
 msgstr "VPN-ავტორიზაცია"
+
+#: ../auth-dialog/main.c:157 ../properties/nm-l2tp-dialog.ui.h:12
+#, fuzzy
+msgid "Password:"
+msgstr "პაროლის ჩვენება"
 
 #: ../properties/ppp-dialog.c:172
 msgid "All Available (Default)"
@@ -189,154 +194,169 @@ msgstr "დამატებიდან ქარხნის (%s) ჩატ�
 msgid "unknown error creating editor instance"
 msgstr "უცნობ შეცდომა რედაქტორის ასლის შექმნისას"
 
-#: ../src/nm-l2tp-service.c:299 ../src/nm-l2tp-service.c:940
+#: ../src/nm-l2tp-service.c:342 ../src/nm-l2tp-service.c:1012
 #, c-format
 msgid "property '%s' contains a control character"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:310
+#: ../src/nm-l2tp-service.c:353
 #, c-format
 msgid "invalid gateway '%s'"
 msgstr "არასწორი ნაგულისხმევი რაუტერი '%s'"
 
-#: ../src/nm-l2tp-service.c:324
+#: ../src/nm-l2tp-service.c:368
 #, c-format
-msgid "invalid integer property '%s'"
+msgid "invalid unsigned integer property '%s'"
 msgstr "არასწორი მთელი რიცხვითი თვისება '%s'"
 
-#: ../src/nm-l2tp-service.c:334
+#: ../src/nm-l2tp-service.c:378
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr "\"%s\"-ის არასწორი ბულევური თვისება (არც \"დიახ\", არც \"არა\")"
 
-#: ../src/nm-l2tp-service.c:341
+#: ../src/nm-l2tp-service.c:385
 #, c-format
 msgid "unhandled property '%s' type %s"
 msgstr "\"%s\"-ის დაუმუშავებელი თვისება. ტიპი %s"
 
-#: ../src/nm-l2tp-service.c:352
+#: ../src/nm-l2tp-service.c:396
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "თვისება %s არასწორი ან მხარდაუჭერელია"
 
-#: ../src/nm-l2tp-service.c:370
+#: ../src/nm-l2tp-service.c:414
 msgid "No VPN configuration options."
 msgstr "VPN-ის მორგების გარეშე."
 
-#: ../src/nm-l2tp-service.c:390
+#: ../src/nm-l2tp-service.c:434
 #, c-format
 msgid "Missing required option '%s'."
 msgstr "აკლია აუცილებელი პარამეტრი: %s."
 
-#: ../src/nm-l2tp-service.c:410
+#: ../src/nm-l2tp-service.c:454
 msgid "No VPN secrets!"
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:659
+#: ../src/nm-l2tp-service.c:577
+#, c-format
+msgid "pppd option '%s' contains an unsafe control character"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:722
 #, c-format
 msgid "Could not open %s for writing: %s"
 msgstr "'%s'-ის ჩასაწერად გახსნის შეცდომა: %s"
 
-#: ../src/nm-l2tp-service.c:666
+#: ../src/nm-l2tp-service.c:729
 #, c-format
 msgid "Could not append \"include ipsec.d/ipsec.nm-l2tp.secrets\" to %s"
 msgstr ""
 "შეცდომა \"include ipsec.d/ipsec.nm-l2tp.secrets\" სტრიქონის %s-ის ბოლოში "
 "მიწერისას"
 
-#: ../src/nm-l2tp-service.c:682
+#: ../src/nm-l2tp-service.c:745
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr "შეცდომა %s/ipsec.nm-l2tp.secrets ფაილის ჩაწერისას"
 
-#: ../src/nm-l2tp-service.c:722
+#: ../src/nm-l2tp-service.c:785
 msgid "Could not write ipsec config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:854
+#: ../src/nm-l2tp-service.c:917
 msgid "Could not write xl2tpd config."
 msgstr "შეცდომა xl2tpd-ის კონფიგურაციის ჩაწერისას."
 
-#: ../src/nm-l2tp-service.c:896
+#: ../src/nm-l2tp-service.c:963
 msgid "Could not write ppp options."
 msgstr "შეცდომა ppp-ის კონფიგურაციის ჩაწერისას."
 
-#: ../src/nm-l2tp-service.c:1064 ../src/nm-l2tp-service.c:1092
+#: ../src/nm-l2tp-service.c:1070
+#, c-format
+msgid "invalid MRU value"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1087
+#, c-format
+msgid "invalid MTU value"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1156 ../src/nm-l2tp-service.c:1184
 msgid "Could not start the ipsec service."
 msgstr "შეცდომა ipsec სერვისის გაშვებისას."
 
-#: ../src/nm-l2tp-service.c:1070 ../src/nm-l2tp-service.c:1100
+#: ../src/nm-l2tp-service.c:1162 ../src/nm-l2tp-service.c:1192
 msgid "Could not restart the ipsec service."
 msgstr "Ipsec-ის სერვისის გადატვირთვა შეუძლებელია."
 
-#: ../src/nm-l2tp-service.c:1196
+#: ../src/nm-l2tp-service.c:1288
 msgid "Could not establish IPsec connection."
 msgstr "IPsec კავშირის დამყარება შეუძლებელია."
 
-#: ../src/nm-l2tp-service.c:1214
+#: ../src/nm-l2tp-service.c:1306
 msgid "Could not find the xl2tpd binary."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1280
+#: ../src/nm-l2tp-service.c:1372
 msgid "Missing VPN username."
 msgstr "აკლია VPN-ის მომხმარებლის სახელი."
 
-#: ../src/nm-l2tp-service.c:1288
+#: ../src/nm-l2tp-service.c:1380
 msgid "VPN username contains a control character."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1297
+#: ../src/nm-l2tp-service.c:1389
 msgid "Missing or invalid VPN password."
 msgstr "ნაკლული ან არასწორი VPN-ის პაროლი."
 
-#: ../src/nm-l2tp-service.c:1400
+#: ../src/nm-l2tp-service.c:1492
 msgid "couldn't convert L2TP VPN gateway IP address."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1413
+#: ../src/nm-l2tp-service.c:1505
 msgid "couldn't look up L2TP VPN gateway IP address "
 msgstr "შეცდომა L2TP VPN ნაგულისხმევი რაუტერის IP მისამართის ამოხსნისას "
 
-#: ../src/nm-l2tp-service.c:1432
+#: ../src/nm-l2tp-service.c:1524
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr ""
 "გამოყენებადი IP მისამართი არ დაბრუნებულა L2TP VPN ნაგულისხმევი რაუტერისთვის "
 
-#: ../src/nm-l2tp-service.c:1467
+#: ../src/nm-l2tp-service.c:1559
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr ""
 "შეუძლებელია გამშვები ფაილის 'ipsec' აღმოჩენა. დარწმუნებული ბრძანდებით, რომ "
 "Libreswan ან strongSwan დაყენებული გაქვთ?"
 
-#: ../src/nm-l2tp-service.c:1473
+#: ../src/nm-l2tp-service.c:1565
 msgid "Openswan is no longer supported, use Libreswan or strongSwan."
 msgstr "Openswan მხარდაჭერილი აღარაა. გამოიყენეთ Libreswan ან strongSwan."
 
-#: ../src/nm-l2tp-service.c:1475
+#: ../src/nm-l2tp-service.c:1567
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr "არც Libreswan, არც strongSwan აღმოჩენილი არაა."
 
-#: ../src/nm-l2tp-service.c:1484
+#: ../src/nm-l2tp-service.c:1576
 msgid "could not retrieve connection UUID"
 msgstr "მიერთების UUID-ის მიღება შეუძლებელია"
 
-#: ../src/nm-l2tp-service.c:1492
+#: ../src/nm-l2tp-service.c:1584
 msgid "Invalid or missing L2TP gateway."
 msgstr "L2TP ნაგულისხმევი რაუტერი მიუთითებელი ან არასწორია."
 
-#: ../src/nm-l2tp-service.c:1786
+#: ../src/nm-l2tp-service.c:1878
 msgid "Don't quit when VPN connection terminates"
 msgstr "ნუ გახვალ VPN კავშირის შეწყვეტისას"
 
-#: ../src/nm-l2tp-service.c:1787
+#: ../src/nm-l2tp-service.c:1879
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "გაფართოებული გამართვის ჟურნალის ჩართვა (შეიძლება, პაროლები გამოჩნდეს)"
 
-#: ../src/nm-l2tp-service.c:1788
+#: ../src/nm-l2tp-service.c:1880
 msgid "D-Bus name to use for this instance"
 msgstr "ამ გაშვებული ასლისთვის გამოყენებული D-Bus -ის სახელი"
 
-#: ../src/nm-l2tp-service.c:1809
+#: ../src/nm-l2tp-service.c:1901
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."

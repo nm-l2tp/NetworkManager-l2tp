@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-l2tp main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-28 22:58+1000\n"
+"POT-Creation-Date: 2026-09-13 19:28+1000\n"
 "PO-Revision-Date: 2018-07-07 23:22+0800\n"
 "Last-Translator: Dingzhong Chen <wsxy162@gmail.com>\n"
 "Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
@@ -196,149 +196,164 @@ msgstr "无法加载来自插件的工厂（factory）%s：%s"
 msgid "unknown error creating editor instance"
 msgstr "创建编辑器实例时出现未知错误"
 
-#: ../src/nm-l2tp-service.c:299 ../src/nm-l2tp-service.c:940
+#: ../src/nm-l2tp-service.c:342 ../src/nm-l2tp-service.c:1012
 #, c-format
 msgid "property '%s' contains a control character"
 msgstr "属性“%s”包含控制字符"
 
-#: ../src/nm-l2tp-service.c:310
+#: ../src/nm-l2tp-service.c:353
 #, c-format
 msgid "invalid gateway '%s'"
 msgstr "无效的网关“%s”"
 
-#: ../src/nm-l2tp-service.c:324
+#: ../src/nm-l2tp-service.c:368
 #, c-format
-msgid "invalid integer property '%s'"
+msgid "invalid unsigned integer property '%s'"
 msgstr "无效的整型属性“%s”"
 
-#: ../src/nm-l2tp-service.c:334
+#: ../src/nm-l2tp-service.c:378
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr "无效的布尔型属性“%s”(不是 yes 或 no)"
 
-#: ../src/nm-l2tp-service.c:341
+#: ../src/nm-l2tp-service.c:385
 #, c-format
 msgid "unhandled property '%s' type %s"
 msgstr "无法处理的属性“%s”类型 %s"
 
-#: ../src/nm-l2tp-service.c:352
+#: ../src/nm-l2tp-service.c:396
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "属性“%s”无效或不支持"
 
-#: ../src/nm-l2tp-service.c:370
+#: ../src/nm-l2tp-service.c:414
 msgid "No VPN configuration options."
 msgstr "没有 VPN 配置选项。"
 
-#: ../src/nm-l2tp-service.c:390
+#: ../src/nm-l2tp-service.c:434
 #, c-format
 msgid "Missing required option '%s'."
 msgstr "缺少需要的选项“%s”。"
 
-#: ../src/nm-l2tp-service.c:410
+#: ../src/nm-l2tp-service.c:454
 msgid "No VPN secrets!"
 msgstr "没有 VPN 机密信息！"
 
-#: ../src/nm-l2tp-service.c:659
+#: ../src/nm-l2tp-service.c:577
+#, c-format
+msgid "pppd option '%s' contains an unsafe control character"
+msgstr "属性“%s”包含控制字符"
+
+#: ../src/nm-l2tp-service.c:722
 #, c-format
 msgid "Could not open %s for writing: %s"
 msgstr "无法打开%s进行书写：%s"
 
-#: ../src/nm-l2tp-service.c:666
+#: ../src/nm-l2tp-service.c:729
 #, c-format
 msgid "Could not append \"include ipsec.d/ipsec.nm-l2tp.secrets\" to %s"
 msgstr "无法将 \"include ipsec.d/ipsec.nm-l2tp.secrets\" 添加到 %s"
 
-#: ../src/nm-l2tp-service.c:682
+#: ../src/nm-l2tp-service.c:745
 #, c-format
 msgid "Could not write %s/ipsec.nm-l2tp.secrets"
 msgstr "无法写入%s/ipsec.nm-l2tp.secrets"
 
-#: ../src/nm-l2tp-service.c:722
+#: ../src/nm-l2tp-service.c:785
 msgid "Could not write ipsec config."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:854
+#: ../src/nm-l2tp-service.c:917
 msgid "Could not write xl2tpd config."
 msgstr "无法写入xl2tpd配置。"
 
-#: ../src/nm-l2tp-service.c:896
+#: ../src/nm-l2tp-service.c:963
 msgid "Could not write ppp options."
 msgstr "无法写入ppp选项。"
 
-#: ../src/nm-l2tp-service.c:1064 ../src/nm-l2tp-service.c:1092
+#: ../src/nm-l2tp-service.c:1070
+#, c-format
+msgid "invalid MRU value"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1087
+#, c-format
+msgid "invalid MTU value"
+msgstr ""
+
+#: ../src/nm-l2tp-service.c:1156 ../src/nm-l2tp-service.c:1184
 msgid "Could not start the ipsec service."
 msgstr "无法启动ipsec服务。"
 
-#: ../src/nm-l2tp-service.c:1070 ../src/nm-l2tp-service.c:1100
+#: ../src/nm-l2tp-service.c:1162 ../src/nm-l2tp-service.c:1192
 msgid "Could not restart the ipsec service."
 msgstr "无法重新启动ipsec服务。"
 
-#: ../src/nm-l2tp-service.c:1196
+#: ../src/nm-l2tp-service.c:1288
 msgid "Could not establish IPsec connection."
 msgstr "无法建立 IPsec 连接。"
 
-#: ../src/nm-l2tp-service.c:1214
+#: ../src/nm-l2tp-service.c:1306
 msgid "Could not find the xl2tpd binary."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1280
+#: ../src/nm-l2tp-service.c:1372
 msgid "Missing VPN username."
 msgstr "缺少 VPN 用户名。"
 
-#: ../src/nm-l2tp-service.c:1288
+#: ../src/nm-l2tp-service.c:1380
 msgid "VPN username contains a control character."
 msgstr "VPN 用户名包含控制字符。"
 
-#: ../src/nm-l2tp-service.c:1297
+#: ../src/nm-l2tp-service.c:1389
 msgid "Missing or invalid VPN password."
 msgstr "VPN 密码缺失或无效。"
 
-#: ../src/nm-l2tp-service.c:1400
+#: ../src/nm-l2tp-service.c:1492
 msgid "couldn't convert L2TP VPN gateway IP address."
 msgstr ""
 
-#: ../src/nm-l2tp-service.c:1413
+#: ../src/nm-l2tp-service.c:1505
 msgid "couldn't look up L2TP VPN gateway IP address "
 msgstr "无法查找L2TP VPN网关IP地址"
 
-#: ../src/nm-l2tp-service.c:1432
+#: ../src/nm-l2tp-service.c:1524
 msgid "no usable addresses returned for L2TP VPN gateway "
 msgstr "L2TP VPN网关没有返回可用地址"
 
-#: ../src/nm-l2tp-service.c:1467
+#: ../src/nm-l2tp-service.c:1559
 msgid "Could not find the ipsec binary. Is Libreswan or strongSwan installed?"
 msgstr "找不到ipsec二进制文件。Libreswan或strongSwan安装了吗?"
 
-#: ../src/nm-l2tp-service.c:1473
+#: ../src/nm-l2tp-service.c:1565
 msgid "Openswan is no longer supported, use Libreswan or strongSwan."
 msgstr "Openswan不再受支持，请使用Libreswan或strongSwan。"
 
-#: ../src/nm-l2tp-service.c:1475
+#: ../src/nm-l2tp-service.c:1567
 msgid "Neither Libreswan nor strongSwan were found."
 msgstr "Libreswan和strongSwan都没有找到。"
 
-#: ../src/nm-l2tp-service.c:1484
+#: ../src/nm-l2tp-service.c:1576
 msgid "could not retrieve connection UUID"
 msgstr "无法检索连接UUID"
 
-#: ../src/nm-l2tp-service.c:1492
+#: ../src/nm-l2tp-service.c:1584
 msgid "Invalid or missing L2TP gateway."
 msgstr "L2TP 网关缺失或无效。"
 
-#: ../src/nm-l2tp-service.c:1786
+#: ../src/nm-l2tp-service.c:1878
 msgid "Don't quit when VPN connection terminates"
 msgstr "在 VPN 连接终止时不退出"
 
-#: ../src/nm-l2tp-service.c:1787
+#: ../src/nm-l2tp-service.c:1879
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "启用详细的调试日志记录（可能暴露密码）"
 
-#: ../src/nm-l2tp-service.c:1788
+#: ../src/nm-l2tp-service.c:1880
 msgid "D-Bus name to use for this instance"
 msgstr "此实例使用的 D-Bus 名称"
 
-#: ../src/nm-l2tp-service.c:1809
+#: ../src/nm-l2tp-service.c:1901
 msgid ""
 "nm-l2tp-service provides L2TP VPN capability with optional IPsec support to "
 "NetworkManager."
@@ -475,6 +490,11 @@ msgstr ""
 msgid "(HH:MM)"
 msgstr "(HH:MM)"
 
+#: ../properties/nm-l2tp-dialog.ui.h:33
+#, fuzzy
+msgid "Phase_2 Lifetime:"
+msgstr "Phase2 算法："
+
 #: ../properties/nm-l2tp-dialog.ui.h:34
 msgid ""
 "How long a particular instance of a connection (a set of encryption/"
@@ -504,6 +524,11 @@ msgid ""
 "config: ipsec-remote-id <rightid>\n"
 "ipsec.secrets: <ID>"
 msgstr ""
+
+#: ../properties/nm-l2tp-dialog.ui.h:41
+#, fuzzy
+msgid "Phase_1 Lifetime:"
+msgstr "Phase1 算法："
 
 #: ../properties/nm-l2tp-dialog.ui.h:42
 msgid "_Enforce UDP encapsulation"
