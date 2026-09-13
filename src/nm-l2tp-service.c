@@ -274,6 +274,49 @@ string_contains_control_char (const char *value)
 	return FALSE;
 }
 
+static gboolean
+parse_uint_property (const char *value, guint *out)
+{
+	guint64     parsed = 0;
+	const char *p;
+
+	if (!value || !value[0])
+		return FALSE;
+
+	for (p = value; *p; p++) {
+		guint digit;
+
+		if (!g_ascii_isdigit (*p))
+			return FALSE;
+		digit = (guint) (*p - '0');
+		if (parsed > (G_MAXUINT - digit) / 10)
+			return FALSE;
+		parsed = parsed * 10 + digit;
+	}
+
+	if (out)
+		*out = (guint) parsed;
+	return TRUE;
+}
+
+static char *
+ppp_quote_value (const char *value)
+{
+	GString *quoted;
+
+	if (!value || string_contains_control_char (value))
+		return NULL;
+
+	quoted = g_string_new ("\"");
+	for (const char *p = value; *p; p++) {
+		if (*p == '\\' || *p == '"')
+			g_string_append_c (quoted, '\\');
+		g_string_append_c (quoted, *p);
+	}
+	g_string_append_c (quoted, '"');
+	return g_string_free (quoted, FALSE);
+}
+
 static void
 validate_one_property (const char *key, const char *value, gpointer user_data)
 {
@@ -291,7 +334,7 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 
 	for (i = 0; info->table[i].name; i++) {
 		const ValidProperty prop = info->table[i];
-		long int tmp;
+		guint tmp;
 
 		if (strcmp (prop.name, key))
 			continue;
@@ -319,15 +362,16 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 
 			return;
 		case G_TYPE_UINT:
-			errno = 0;
-			tmp = strtol (value, NULL, 10);
-			if (errno == 0)
+			if (parse_uint_property (value, &tmp) &&
+			    ((strcmp (prop.name, NM_L2TP_KEY_MRU) &&
+			      strcmp (prop.name, NM_L2TP_KEY_MTU)) ||
+			     (tmp >= 128 && tmp <= 16384)))
 				return; /* valid */
 
 			g_set_error (info->error,
 			             NM_VPN_PLUGIN_ERROR,
 			             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
-			             _("invalid integer property '%s'"),
+			             _("invalid unsigned integer property '%s'"),
 			             key);
 			break;
 		case G_TYPE_BOOLEAN:
@@ -495,14 +539,15 @@ free_l2tpd_args (GPtrArray *args)
 static gboolean
 str_to_int (const char *str, long int *out)
 {
+	char *end = NULL;
 	long int tmp_int;
 
-	if (!str)
+	if (!str || !str[0])
 		return FALSE;
 
 	errno = 0;
-	tmp_int = strtol (str, NULL, 10);
-	if (errno == 0) {
+	tmp_int = strtol (str, &end, 10);
+	if (errno == 0 && end != str && *end == '\0') {
 		*out = tmp_int;
 		return TRUE;
 	}
@@ -521,6 +566,24 @@ write_config_option (int fd, const char *format, ...)
 	x = write (fd, string, strlen (string));
 	g_free (string);
 	va_end (args);
+}
+
+static gboolean
+write_ppp_quoted_option (int fd, const char *name, const char *value, GError **error)
+{
+	g_autofree char *quoted = ppp_quote_value (value);
+
+	if (!quoted) {
+		g_set_error (error,
+		             NM_VPN_PLUGIN_ERROR,
+		             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
+		             _("pppd option '%s' contains an unsafe control character"),
+		             name);
+		return FALSE;
+	}
+
+	write_config_option (fd, "%s %s\n", name, quoted);
+	return TRUE;
 }
 
 typedef struct {
@@ -1104,10 +1167,14 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 	/* PPP options */
 
 	filename = g_strdup_printf ("%s/ppp-options", rundir);
-	fd = open (filename, O_RDWR|O_CREAT|O_TRUNC, S_IRUSR|S_IWUSR|S_IRGRP|S_IROTH);
+	fd = open (filename,
+	          O_RDWR|O_CREAT|O_TRUNC|O_CLOEXEC|O_NOFOLLOW,
+	          S_IRUSR|S_IWUSR|S_IRGRP|S_IROTH);
 	g_free (filename);
 
-	if (fd == -1) {
+	if (fd == -1 || fchown (fd, 0, 0) != 0 || fchmod (fd, 0644) != 0) {
+		if (fd != -1)
+			close (fd);
 		crypto_deinit_openssl();
 		return nm_l2tp_ipsec_error(error, _("Could not write ppp options."));
 	}
@@ -1243,26 +1310,44 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		write_config_option (fd, "need-peer-eap\n");
 		if (tls_key_out_filename) {
 			if (g_file_test (tls_key_out_filename, G_FILE_TEST_EXISTS)) {
-				write_config_option (fd, "key \"%s\"\n", tls_key_out_filename);
+				   if (!write_ppp_quoted_option (fd, "key", tls_key_out_filename, error)) {
+					   close (fd);
+					   return FALSE;
+				   }
 			}
 		} else {
-			write_config_option (fd, "key \"%s\"\n", tls_key_filename);
+			   if (!write_ppp_quoted_option (fd, "key", tls_key_filename, error)) {
+				   close (fd);
+				   return FALSE;
+			   }
 		}
 
 		if (tls_cert_out_filename) {
 			if (g_file_test (tls_cert_out_filename, G_FILE_TEST_EXISTS)) {
-				write_config_option (fd, "cert \"%s\"\n", tls_cert_out_filename);
+				   if (!write_ppp_quoted_option (fd, "cert", tls_cert_out_filename, error)) {
+					   close (fd);
+					   return FALSE;
+				   }
 			}
 		} else {
-			write_config_option (fd, "cert \"%s\"\n", tls_cert_filename);
+			   if (!write_ppp_quoted_option (fd, "cert", tls_cert_filename, error)) {
+				   close (fd);
+				   return FALSE;
+			   }
 		}
 
 		if (tls_ca_out_filename) {
 			if (g_file_test (tls_ca_out_filename, G_FILE_TEST_EXISTS)) {
-				write_config_option (fd, "ca \"%s\"\n", tls_ca_out_filename);
+				   if (!write_ppp_quoted_option (fd, "ca", tls_ca_out_filename, error)) {
+					   close (fd);
+					   return FALSE;
+				   }
 			}
 		} else if (tls_ca_filename) {
-			write_config_option (fd, "ca \"%s\"\n", tls_ca_filename);
+			   if (!write_ppp_quoted_option (fd, "ca", tls_ca_filename, error)) {
+				   close (fd);
+				   return FALSE;
+			   }
 		}
 	} else {
 		/* Username; try L2TP specific username first, then generic username */
@@ -1270,7 +1355,9 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 		if (!value || !*value)
 			value = nm_setting_vpn_get_user_name (s_vpn);
 		if (value && *value) {
-			if (string_contains_control_char (value)) {
+			g_autofree char *quoted_user = ppp_quote_value (value);
+
+			if (!quoted_user) {
 				g_set_error (error,
 				             NM_VPN_PLUGIN_ERROR,
 				             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
@@ -1279,7 +1366,7 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 				return FALSE;
 			}
 
-			write_config_option (fd, "name %s\n", value);
+			write_config_option (fd, "name %s\n", quoted_user);
 		}
 		for (int i=0; ppp_auth_options[i].name; i++){
 			value = nm_setting_vpn_get_data_item (s_vpn, ppp_auth_options[i].name);
@@ -1325,14 +1412,34 @@ nm_l2tp_config_write (NML2tpPlugin *plugin,
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_MRU);
 	if (value) {
-		write_config_option (fd, "mru %s\n", value);
+		guint parsed;
+
+		if (!parse_uint_property (value, &parsed) || parsed < 128 || parsed > 16384) {
+			g_set_error (error,
+			             NM_VPN_PLUGIN_ERROR,
+			             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
+			             _("invalid MRU value"));
+			close (fd);
+			return FALSE;
+		}
+		write_config_option (fd, "mru %u\n", parsed);
 	} else {
 		write_config_option (fd, "mru 1400\n");
 	}
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_L2TP_KEY_MTU);
 	if (value) {
-		write_config_option (fd, "mtu %s\n", value);
+		guint parsed;
+
+		if (!parse_uint_property (value, &parsed) || parsed < 128 || parsed > 16384) {
+			g_set_error (error,
+			             NM_VPN_PLUGIN_ERROR,
+			             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
+			             _("invalid MTU value"));
+			close (fd);
+			return FALSE;
+		}
+		write_config_option (fd, "mtu %u\n", parsed);
 	} else {
 		/* Default MTU to 1400, which is also what Microsoft Windows uses */
 		write_config_option (fd, "mtu 1400\n");
