@@ -2024,12 +2024,27 @@ nm_l2tp_start_ipsec(NML2tpPlugin *plugin, NMSettingVpn *s_vpn, GError **error)
         } else if (wpid == pid_ipsec_up && WIFEXITED(status)) {
             if (!WEXITSTATUS(status)) {
                 if (priv->ipsec_daemon == NM_L2TP_IPSEC_DAEMON_LIBRESWAN) {
-                    rc = TRUE;
-                    g_message("Libreswan IPsec connection is up.");
+                    /* Do not trust exit status of Libreswan 'ipsec up',
+                       as per ipsec-whack(8) it is not a reliable success/failure flag.
+                       Explicitly check that the connection has an established
+                       child SA. Libreswan 4.x and earlier reject a connection name
+                       argument for 'ipsec trafficstatus', so search the full listing.
+                     */
+                    snprintf(cmdbuf, sizeof(cmdbuf), "%s trafficstatus", priv->ipsec_binary_path);
+                    if (g_spawn_command_line_sync(cmdbuf, &output, NULL, NULL, NULL)) {
+                        if (output) {
+                            snprintf(cmdbuf, sizeof(cmdbuf), "\"%s\"", priv->uuid);
+                            rc = strstr(output, cmdbuf) != NULL;
+                            g_free(output);
+                            output = NULL;
+                        }
+                        if (rc) {
+                            g_message("Libreswan IPsec connection is up.");
+                        }
+                    }
                 } else {
                     /* Do not trust exit status of strongSwan 'ipsec up' command.
                        explicitly check if connection is established.
-                       strongSwan bug #1449.
                      */
                     snprintf(cmdbuf,
                              sizeof(cmdbuf),
