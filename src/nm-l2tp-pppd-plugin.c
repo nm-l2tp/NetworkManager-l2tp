@@ -30,6 +30,7 @@ char pppd_version[] = PPPD_VERSION;
 
 /*****************************************************************************/
 typedef void (*protrej_fn)(int unit);
+typedef void (*fsm_finished_fn)(fsm *f);
 
 struct {
     int         log_level;
@@ -39,7 +40,18 @@ struct {
     bool        has_ip6;
     bool        is_ip6_rej;
     protrej_fn  old_protrej;
+
+    /* IPv6CP outcome (Ip6Config, possibly empty) deferred while IPCP is
+     * still negotiating, see nm_ip6_defer_if_ipcp_pending().
+     */
+    GVariant       *pending_ip6_config;
+    bool            is_ipcp_done;
+    protrej_fn      old_ipcp_protrej;
+    fsm_finished_fn old_ipcp_finished;
 } gl /*lobal*/;
+
+/* Copy of IPCP's fsm callbacks with 'finished' wrapped. */
+static fsm_callbacks nm_ipcp_callbacks;
 
 /*****************************************************************************/
 
@@ -100,6 +112,121 @@ nm_set_config(gboolean has_ip4, gboolean has_ip6)
                 NULL);
 }
 
+/*****************************************************************************/
+
+/*
+ * Don't report IPv4 as off while IPCP is still negotiating: NetworkManager
+ * would activate without IPv4 and not apply the IPv4 routing/DNS that follow.
+ * An IPv6CP outcome that settles first is deferred until IPCP comes up,
+ * finishes, or is rejected; pppd's IPCP retry limits bound the wait.
+ */
+static gboolean
+ipcp_is_negotiating(void)
+{
+    if (!ipcp_protent.enabled_flag || gl.has_ip4 || gl.is_ipcp_done)
+        return FALSE;
+
+    switch (ipcp_fsm[0].state) {
+    case REQSENT:
+    case ACKRCVD:
+    case ACKSENT:
+        return TRUE;
+    default:
+        return FALSE;
+    }
+}
+
+static void
+nm_ip6_send_config(GVariant *config)
+{
+    g_dbus_proxy_call(gl.proxy,
+                      "SetIp6Config",
+                      config,
+                      G_DBUS_CALL_FLAGS_NONE,
+                      -1,
+                      NULL,
+                      NULL,
+                      NULL);
+}
+
+static void
+nm_ip6_send_pending(void)
+{
+    GVariant *config = g_steal_pointer(&gl.pending_ip6_config);
+
+    if (config) {
+        _LOGI("ip6: sending deferred Ip6Config to NetworkManager-l2tp...");
+        nm_ip6_send_config(config);
+        g_variant_unref(config);
+    }
+}
+
+static void
+nm_ip6_clear_pending(void)
+{
+    if (gl.pending_ip6_config) {
+        g_variant_unref(gl.pending_ip6_config);
+        gl.pending_ip6_config = NULL;
+    }
+}
+
+/*
+ * Returns TRUE if the config (a floating "(a{sv})" for SetIp6Config) was
+ * deferred, FALSE if the caller should send Config and the config now.
+ */
+static gboolean
+nm_ip6_defer_if_ipcp_pending(GVariant *config)
+{
+    if (!ipcp_is_negotiating())
+        return FALSE;
+
+    _LOGI("ip6: IPCP still negotiating, deferring Ip6Config until it settles");
+    nm_ip6_clear_pending();
+    gl.pending_ip6_config = g_variant_ref_sink(config);
+    return TRUE;
+}
+
+/*
+ * IPCP will not bring IPv4 up: release a deferred IPv6CP outcome.
+ */
+static void
+nm_ipcp_settled_without_ip4(const char *why)
+{
+    if (gl.has_ip4 || gl.is_ipcp_done)
+        return;
+
+    gl.is_ipcp_done = TRUE;
+
+    if (!gl.pending_ip6_config)
+        return;
+
+    _LOGI("ipcp: %s without IPv4, releasing deferred IPv6 config", why);
+    nm_set_config(gl.has_ip4, gl.has_ip6);
+    nm_ip6_send_pending();
+}
+
+static void
+nm_ipcp_finished(fsm *f)
+{
+    nm_ipcp_settled_without_ip4("finished");
+    if (gl.old_ipcp_finished)
+        (*gl.old_ipcp_finished)(f);
+}
+
+/*
+ * If peer rejected the IPCP protocol, then we won't get an ip_up callback.
+ */
+static void
+nm_ipcp_protrej(int unit)
+{
+    nm_ipcp_settled_without_ip4("rejected by peer");
+    if (gl.old_ipcp_protrej)
+        (*gl.old_ipcp_protrej)(unit);
+    ipcp_protent.protrej = gl.old_ipcp_protrej;
+}
+
+/*****************************************************************************/
+
 static void nm_ipv6_protrej(int unit);
 
 static void
@@ -120,6 +247,9 @@ nm_phasechange(void *data, int arg)
         gl.has_ip6    = FALSE;
         gl.is_ip6_rej = FALSE;
         ipv6cp_protent.protrej = nm_ipv6_protrej;
+        gl.is_ipcp_done = FALSE;
+        nm_ip6_clear_pending();
+        ipcp_protent.protrej = nm_ipcp_protrej;
         ppp_status = NM_PPP_STATUS_INITIALIZE;
         ppp_phase  = "initialize";
         break;
@@ -205,6 +335,9 @@ nm_ip_up(void *data, int arg)
         return;
     }
 
+    /* has_ip6 already reflects a deferred IPv6CP outcome, if any, so this
+     * first Config tells NetworkManager about both families at once.
+     */
     gl.has_ip4 = TRUE;
     nm_set_config(gl.has_ip4, gl.has_ip6);
 
@@ -273,6 +406,8 @@ nm_ip_up(void *data, int arg)
                       NULL,
                       NULL,
                       NULL);
+
+    nm_ip6_send_pending();
 }
 static void
 nm_ip6_up(void *data, int arg)
@@ -280,6 +415,7 @@ nm_ip6_up(void *data, int arg)
     ipv6cp_options  opts      = ipv6cp_gotoptions[0];
     ipv6cp_options  peer_opts = ipv6cp_hisoptions[0];
     GVariantBuilder builder;
+    GVariant *      config;
     guchar          addr[16];
     guchar          peer_addr[16];
 
@@ -311,7 +447,6 @@ nm_ip6_up(void *data, int arg)
     memcpy(&peer_addr[8], peer_opts.hisid.e8, 8);
 
     gl.has_ip6 = TRUE;
-    nm_set_config(gl.has_ip4, gl.has_ip6);
 
     g_variant_builder_init(&builder, G_VARIANT_TYPE_VARDICT);
 
@@ -337,27 +472,25 @@ nm_ip6_up(void *data, int arg)
                           NM_VPN_PLUGIN_IP6_CONFIG_PREFIX,
                           g_variant_new_uint32(128));
 
-    _LOGI("ip6-up: sending Ip6Config to NetworkManager-l2tp...");
+    config = g_variant_new("(a{sv})", &builder);
+    if (nm_ip6_defer_if_ipcp_pending(config))
+        return;
 
-    g_dbus_proxy_call(gl.proxy,
-                      "SetIp6Config",
-                      g_variant_new("(a{sv})", &builder),
-                      G_DBUS_CALL_FLAGS_NONE,
-                      -1,
-                      NULL,
-                      NULL,
-                      NULL);
+    nm_set_config(gl.has_ip4, gl.has_ip6);
+
+    _LOGI("ip6-up: sending Ip6Config to NetworkManager-l2tp...");
+    nm_ip6_send_config(config);
 }
 
 static void
 nm_ip6_rejected(void)
 {
     GVariantBuilder builder;
+    GVariant *      config;
 
     g_return_if_fail(G_IS_DBUS_PROXY(gl.proxy));
 
     gl.has_ip6 = FALSE;
-    nm_set_config(gl.has_ip4, gl.has_ip6);
 
     g_variant_builder_init(&builder, G_VARIANT_TYPE_VARDICT);
     g_variant_builder_add(&builder,
@@ -365,16 +498,14 @@ nm_ip6_rejected(void)
                           NM_VPN_PLUGIN_CONFIG_TUNDEV,
                           g_variant_new_string(ppp_ifname()));
 
-    _LOGI("ip6-protrej: sending empty Ip6Config to NetworkManager-l2tp");
+    config = g_variant_new("(a{sv})", &builder);
+    if (nm_ip6_defer_if_ipcp_pending(config))
+        return;
 
-    g_dbus_proxy_call(gl.proxy,
-                      "SetIp6Config",
-                      g_variant_new("(a{sv})", &builder),
-                      G_DBUS_CALL_FLAGS_NONE,
-                      -1,
-                      NULL,
-                      NULL,
-                      NULL);
+    nm_set_config(gl.has_ip4, gl.has_ip6);
+
+    _LOGI("ip6-protrej: sending empty Ip6Config to NetworkManager-l2tp");
+    nm_ip6_send_config(config);
 }
 
 #if WITH_PPP_VERSION < PPP_VERSION(2,5,0)
@@ -464,6 +595,7 @@ nm_exit_notify(void *data, int arg)
     g_return_if_fail(G_IS_DBUS_PROXY(gl.proxy));
 
     _LOGI("exit: cleaning up");
+    nm_ip6_clear_pending();
     g_clear_object(&gl.proxy);
 }
 
@@ -531,6 +663,20 @@ plugin_init(void)
 
     gl.old_protrej = ipv6cp_protent.protrej;
     ipv6cp_protent.protrej = nm_ipv6_protrej;
+
+    gl.old_ipcp_protrej  = ipcp_protent.protrej;
+    ipcp_protent.protrej = nm_ipcp_protrej;
+
+    /* Protocols are initialised before plugins are loaded, so IPCP's fsm
+     * callbacks are in place: wrap 'finished' to learn when IPCP gives up
+     * (retries exhausted, peer refused) without having come up.
+     */
+    if (ipcp_fsm[0].callbacks) {
+        nm_ipcp_callbacks          = *ipcp_fsm[0].callbacks;
+        gl.old_ipcp_finished       = nm_ipcp_callbacks.finished;
+        nm_ipcp_callbacks.finished = nm_ipcp_finished;
+        ipcp_fsm[0].callbacks      = &nm_ipcp_callbacks;
+    }
 
     return 0;
 }
